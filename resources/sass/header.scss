@@ -1,0 +1,273 @@
+@import "_variables";
+
+header {
+    position: absolute;
+    padding: 20px 0;
+    z-index:30; 
+    transition: all .5s ease;
+
+    &.fixed {
+        background-color: $color-bg-header;
+        position: fixed;
+        animation: fixHeader .5s ease;
+         
+        .book-form {
+            width: auto; 
+            visibility: visible;
+            opacity: 1;
+        }
+    }
+
+    @include keyframes-animation(fixHeader) {
+        0% {
+            transform: translateY(-100%);
+        }
+
+        100% {
+            transform: translateY(-0%);
+        }
+    }
+
+    .medio {
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+        align-items: center; 
+    }
+
+    .book-form {
+        visibility: hidden;
+        opacity: 0;
+        
+        transition: all .3s ease;
+        width: 0;  
+        form {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            .inputBox {
+
+                span {
+                    font-size: 16px;
+                    color: $color-white;;
+                }
+
+                .place_select {
+                    display: flex;
+                    flex-direction: column;
+                    
+
+                    i {
+                        display: flex;
+                        align-items: center;
+                        color: $color-secundary;
+                        margin-top: 10px;
+                        font-size: 18px;
+
+                        span {
+                            color: $color-white;
+                            padding: 0 40px 0 2px;
+                            font-weight: normal;
+                        }
+
+                        input {
+                            background: none;
+                            border: none;
+                            outline: none;
+                            padding: 0 0 0 5px; 
+                            font-size: 16px;
+                            color: $color-white;
+
+                            &::-webkit-inner-spin-button,
+                            &::-webkit-calendar-picker-indicator {
+                                display: none;
+                                -webkit-appearance: none;
+                            }
+                        }
+
+                        select {
+                            background: none;
+                            border: none;
+                            color: $color-white;
+                            outline: none;
+                            padding: 0 40px 0 2px;
+                            font-size: 16px;
+                        }
+                    }
+                }
+            }
+
+            .btn {
+                cursor: pointer;
+                text-align: center;
+                border: none;
+                border-radius: 10px;
+                color: white;
+                background: #00B5DD;
+                padding: 16px 31px;
+                font-size: 18px;
+                max-width: 150px;
+                margin-left: 20px; 
+            }
+        }
+    }
+}
+
+._header-menu {
+    &.is-active {
+        .menu_home-content {
+            top: 75px;
+            opacity: 1;
+            visibility: visible;
+        }
+    }
+}
+
+.menu { 
+    @include flex-centrado;
+
+    &_items {
+        margin-right: 50px;
+
+        img {
+            margin-right: 10px;   
+        }
+    }
+
+    a, span {
+        color: white;
+        font-size: 18px;
+        font-weight: 400;  
+    }
+
+    a {
+        display: flex;
+        align-items: center;
+    }
+
+    &_perfil {
+        cursor: pointer;
+        margin-right: 20px;
+        
+        span {
+            @include flex-centrado;
+    
+            img {
+                width: 48px;
+                height: 48px;
+                object-fit: cover;
+                border-radius: 50%;
+                border: 2px solid $color-love-red;   
+                margin-right: 5px;
+            }
+        }
+    }
+
+    .menu_home-content {
+        position: absolute;
+        top: 95px;
+        right: -10px;
+        visibility: hidden;
+        opacity: 0;
+        transition: all .3s ease;
+
+        @include responsive(768px) {
+            margin-top: -10px;
+            right: -7px;
+        }
+
+        &.active {
+            top: 95px;
+            visibility: visible;
+            opacity: 1;
+        }
+
+        &-items {
+            position: relative;
+            width: 240px;
+            padding: 16px 0;
+            background-color: $color-white;
+            border-radius: 10px;
+            border: 2px solid #E3EDF3;
+
+            ul {
+
+                li {
+                    display: block;
+                    margin: 0 0 1px;
+
+                    a {
+                        color: $color-text-submenu;
+                        font-size: 16px;
+                        line-height: 24px;
+                        padding: 10px 10px 10px 16px;
+                        transition: all .3s ease;
+                    }
+                }
+            }
+
+            .br-line {
+                margin: 4px 0;
+                border: 1px solid $color-background-perfile;
+            }
+
+            &:before {
+                content: "";
+                position: absolute;
+                top: -16px;
+                left: 93%;
+                transform: translateX(-50%);
+                z-index: 1;
+                border: 8px solid;
+                border-color: transparent transparent $color-background-perfile transparent;
+
+                @include responsive(768px) {
+                    top: -17px;
+                    left: 94.5%;
+                }
+            }
+        }
+    }
+    
+    i.fa-bars {
+        color: white; 
+        font-size: 20px; 
+        cursor: pointer; 
+    }  
+}
+
+
+
+@media screen and (max-width:1450px) {
+    header .book-form{ 
+        display: none;  
+        
+    } 
+}
+
+
+
+@media screen and (max-width:768px) {
+    .menu{
+        & > a{
+            display: none; 
+        }
+    }
+}
+
+
+@media screen and (max-width:700px) {
+    .logo-menu{
+        img{
+            width: 150px;
+        }
+    }
+    header{
+        position: fixed;
+        background-color: $color-bg-header;
+        border-bottom: 1px solid #ffffff29;
+        padding: 10px 0; 
+    }
+} 
+

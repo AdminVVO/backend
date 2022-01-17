@@ -1,0 +1,190 @@
+@import "_globals";
+@import "_variables";
+
+.content_questions {
+    height: 1079px;
+
+    @include responsive(590px) {
+        height: 1014px;
+    }
+
+    ._block-questions-host {
+        width: 77.21%;
+        text-align: center;
+        margin: 190px auto 0;
+
+        @include responsive(930px) {
+            margin: 250px auto 0;
+            width: 100%;
+        }
+
+        @include responsive(720px) {
+            margin: 215px auto 0;
+        }
+
+        .h2-guests_bold35 {
+            @include responsive(1440px) {
+                font-size: 25px;
+            }
+        }
+
+        .h2-guests_fs60 {
+            margin: 11px 0 1px;
+            @include responsive(1440px) {
+                font-size: 50px;
+                margin: 0 0 8px;
+            }
+        }
+
+        .h2-guests_35 {
+            @include responsive(1440px) {
+                line-height: normal;
+                font-size: 25px;
+            }
+        }
+    }
+}
+
+._pabslogo {
+    position: absolute;
+    max-width: 1599px;
+    width: 100%;
+    bottom: 122px;
+    z-index: -1;
+}
+
+._pabsgirl {
+    position: absolute;
+    max-width: 614px;
+    width: 100%;
+    bottom: -158px;
+    margin-left: 50px;
+    z-index: -1;
+
+    @include responsive(930px) {
+        max-width: 540px;
+    }
+
+    @include responsive(720px) {
+        bottom: -116px;
+    }
+
+    @include responsive(590px) {
+        padding: 0 30px;
+    }
+
+    @include responsive(468px) {
+        bottom: -95px;
+    }
+}
+
+.wo_home-questions {
+    background-image: url("https://vivevacationsoutlet.com/news/assets/img/card/questions2.jpg");
+    min-height: 600px;
+    background-size: cover;
+    background-position: center;
+    
+    .h2-guests_white25 {
+        margin-bottom: 9px;
+    }
+
+    .btn-red {
+        padding: 16px 50px;
+        margin-top: 30px;
+    }
+}
+
+.home-text {
+    margin: 103px 0 101px;
+
+    .medio {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        @include responsive(900px) {
+            flex-direction: column;
+        }
+
+        img {
+            margin-right: 80px;
+
+            @include responsive(900px) {
+                margin-right: 0;
+                margin-bottom: 20px;
+            }
+        }
+    }
+}
+
+.quests_gap {
+    display: flex;
+    flex-direction: column;
+    gap: 64px;;
+}
+
+.container_quests-ga {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    @include responsive(900px) {
+        flex-direction: column;
+    }
+
+    &:nth-child(2) {
+        flex-direction: row-reverse;
+
+        @include responsive(900px) {
+            flex-direction: column;
+        }
+    }
+
+    &:nth-child(4) {
+        flex-direction: row-reverse;
+
+        @include responsive(900px) {
+            flex-direction: column;
+        }
+    }
+
+    ._block-f {
+        width: 63.36%;
+        height: 350px;
+        overflow: hidden;
+        border-radius: 10px;
+
+        @include responsive(900px) {
+            width: 100%;
+            margin-bottom: 28px;
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+
+    .content-user_icons {
+        padding-top: 0;
+        padding-bottom: 0;
+        width: 28.3%;
+
+        @include responsive(900px) {
+            width: 100%;
+        }
+
+        .s-usr_icons {
+            flex: 0 0 100%;
+            max-width: 100%;
+            margin-bottom: 0;
+        }
+    }
+}
+
+.btn-red_center {
+    margin: 40px 0 54px;
+    text-align: center;
+}

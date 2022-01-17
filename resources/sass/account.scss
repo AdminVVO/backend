@@ -1,0 +1,44 @@
+@import "_globals";
+@import "_variables";
+
+.section-account {
+    margin: 176px 0 100px;
+
+    .h2-guests_fs60 {
+        margin-bottom: 9.8px;
+    }
+
+    .span-guests {
+        ._p {
+            margin: 0 9.8px;
+        }
+
+        ._txtblu {
+            display: inline-block;
+        }
+    }
+
+    ._flex-account {
+        margin-top: 46.2px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 53px;
+    }
+
+    .msgaround {
+        margin-top: 50px;
+
+        @include responsive(750px) {
+            padding: 23px 31px;
+            flex-direction: column;
+            text-align: center;
+        }
+
+        ._wcusermsg {
+            @include responsive(750px) {
+                padding-right: 0;
+                margin-bottom: 20px;
+            }
+        }
+    }
+}
