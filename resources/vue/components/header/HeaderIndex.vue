@@ -42,6 +42,7 @@
 
 	        <HeaderLogOn 
 	        	v-if="isLoggedIn"
+	        	:authLoggedIn="authLoggedIn"
 	        />
 	        
 	        <HeaderLogOff
@@ -68,6 +69,7 @@
         },
 		props: [
 			'isLoggedIn',
+			'authLoggedIn',
 		],
 		data () {
 			return {

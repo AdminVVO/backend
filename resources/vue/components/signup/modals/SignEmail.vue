@@ -35,7 +35,7 @@
 	            <p>or</p>
 
 	            <div class="block_redes">
-	                <a href="#">
+	                <a href="/facebook/login">
 	                    <div class="contend_red">
 	                        <div class="flex_icon">
 	                            <i class="fab fa-facebook-f" aria-hidden="true"></i>
@@ -44,7 +44,7 @@
 	                    </div>
 	                </a>
 
-	                <a href="#">
+	                <a href="/google/login">
 	                    <div class="contend_red">
 	                        <div class="flex_icon">
 	                            <i class="fab fa-google" aria-hidden="true"></i>

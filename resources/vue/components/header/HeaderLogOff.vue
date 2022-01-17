@@ -1,5 +1,5 @@
 <template>
-    <div 
+    <div
     	class="menu _header-menu"
     	@click="activeClass = !activeClass"
     	:class="[ activeClass ? 'is-active' : '' ]" 
@@ -17,10 +17,24 @@
         <div class="menu_home-content">
             <div class="menu_home-content-items">
                 <ul>
-                    <li><a href="#"  @click="SignOn()">Sign up</a></li>
+                    <li>
+                    	<a
+                    		href="#"
+                    		@click="SignOn()"
+                		>
+                			Sign up
+                		</a>
+                	</li>
                 </ul>
                 <ul>
-                    <li><a href="#"  @click="SignOn()">Log in</a></li>
+                    <li>
+                    	<a
+                    		href="#"
+                    		@click="SignOn()"
+                		>
+                			Log in
+                		</a>
+                	</li>
                 </ul>
             </div>
         </div>

@@ -15,6 +15,7 @@
                         type="text"
                         placeholder="+1 (800) 756-850"
                         class="phone"
+                        id="telephone"
                         v-model="phone"
                         :class="[isError ? 'error_input' : '']"
                     >
@@ -79,7 +80,22 @@
 </template>
 
 <script>
-	export default {
+
+//intlTelInput
+import 'intl-tel-input/build/css/intlTelInput.css';
+import 'intl-tel-input/build/js/intlTelInput.js';
+import intlTelInput from 'intl-tel-input';
+
+	export default {  mounted(){
+    const input = document.querySelector("#telephone");
+    intlTelInput(input, {
+      // any initialisation options go here
+          preferredCountries: ["in", "us", "ca"],
+      
+        
+    });
+    
+  },
 
 		name: 'SignEmail',
 

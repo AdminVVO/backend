@@ -19,6 +19,7 @@ class User extends Authenticatable
         'phone',
         'sex',
         'promotions',
+        'avatar',
         'password',
         'google_id',
         'facebook_id',

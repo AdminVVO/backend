@@ -8,8 +8,9 @@
         <HeaderIndex
             @accion="SignOn()"
             :isLoggedIn="isLoggedIn"
+            :authLoggedIn="authLoggedIn"
         />
-        <Contenido />
+        <IndexHome />
         <ContenidoFooter />
 
     </div>
@@ -18,7 +19,7 @@
 <script>
 
     import HeaderIndex from './header/HeaderIndex.vue'
-    import Contenido from './ContenidoHome.vue'
+    import IndexHome from './home/IndexHome.vue'
     import ContenidoFooter from './ContenidoFooter.vue'
     import SignUpOrLogIn from './signup/SignUpOrLogIn.vue'
 
@@ -26,7 +27,7 @@
 		name: 'Container',
         components: {
             HeaderIndex,
-            Contenido,
+            IndexHome,
             ContenidoFooter,
             SignUpOrLogIn,
         },
@@ -34,11 +35,16 @@
 			return {
                 'SignOnActive': false,
                 'isLoggedIn': false,
+                'authLoggedIn': [],
 			}
 		},
         created() {
             if (window.Laravel.isLoggedin) {
-                console.log("window.Laravel.isLoggedin", window.Laravel.isLoggedin);
+                if (window.Laravel.user) {
+                    this.authLoggedIn.name = window.Laravel.user.name
+                    this.authLoggedIn.email = window.Laravel.user.email
+                    this.authLoggedIn.avatar = window.Laravel.user.avatar
+                }
                 this.isLoggedIn = true
             }
         },

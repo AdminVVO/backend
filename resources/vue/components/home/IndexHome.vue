@@ -88,11 +88,11 @@
 
 <script>
 
-    import GalleryOne from './home/GalleryOne.vue'
-    import Places from './home/Places.vue'
-    import TabsItems from './home/TabsItems.vue'
-    import TabsSelect from './home/TabsSelect.vue'
-    import Card from './home/Card.vue'
+    import GalleryOne from './GalleryOne.vue'
+    import Places from './Places.vue'
+    import TabsItems from './TabsItems.vue'
+    import TabsSelect from './TabsSelect.vue'
+    import Card from './Card.vue'
 
     export default {
 

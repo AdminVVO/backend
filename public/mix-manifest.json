@@ -22,8 +22,6 @@
     "/assets/css/places.css": "/assets/css/places.css",
     "/assets/css/splide.min.css": "/assets/css/splide.min.css",
     "/assets/css/style.css": "/assets/css/style.css",
-    "/assets/img/.DS_Store": "/assets/img/.DS_Store",
-    "/assets/img/.nfs.20051026.0371": "/assets/img/.nfs.20051026.0371",
     "/assets/img/card.jpg": "/assets/img/card.jpg",
     "/assets/img/card2.jpg": "/assets/img/card2.jpg",
     "/assets/img/card3.jpg": "/assets/img/card3.jpg",
@@ -54,10 +52,10 @@
     "/assets/js/signup.js": "/assets/js/signup.js",
     "/assets/js/slider_home.js": "/assets/js/slider_home.js",
     "/assets/js/splide.min.js": "/assets/js/splide.min.js",
+    "/assets/js/validation.js": "/assets/js/validation.js",
     "/assets/sass/_globals.scss": "/assets/sass/_globals.scss",
     "/assets/sass/_variables.scss": "/assets/sass/_variables.scss",
     "/assets/sass/account.scss": "/assets/sass/account.scss",
-    "/assets/sass/app.scss": "/assets/sass/app.scss",
     "/assets/sass/blog.scss": "/assets/sass/blog.scss",
     "/assets/sass/dates-location.scss": "/assets/sass/dates-location.scss",
     "/assets/sass/estilos.scss": "/assets/sass/estilos.scss",
@@ -87,6 +85,5 @@
     "/assets/webfonts/fa-solid-900.svg": "/assets/webfonts/fa-solid-900.svg",
     "/assets/webfonts/fa-solid-900.ttf": "/assets/webfonts/fa-solid-900.ttf",
     "/assets/webfonts/fa-solid-900.woff": "/assets/webfonts/fa-solid-900.woff",
-    "/assets/webfonts/fa-solid-900.woff2": "/assets/webfonts/fa-solid-900.woff2",
-    "/assets/js/validation.js": "/assets/js/validation.js"
+    "/assets/webfonts/fa-solid-900.woff2": "/assets/webfonts/fa-solid-900.woff2"
 }

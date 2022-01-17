@@ -1,5 +1,5 @@
 <template>
-    <div
+    <div 
     	class="menu _header-menu"
     	@click="activeClass = !activeClass"
     	:class="[ activeClass ? 'is-active' : '' ]" 
@@ -12,8 +12,10 @@
 
         <a href="#" class="menu_perfil">
             <span>
-                <img src="assets/img/profile.png" alt="">
-                Anny Smith
+                <img
+                	:src="'assets/img/avatar/' + authLoggedIn.avatar" 
+                	alt="">
+                {{ authLoggedIn.name }}
             </span>
         </a>
 
@@ -24,7 +26,7 @@
         <div class="menu_home-content">
             <div class="menu_home-content-items">
                 <ul>
-                    <li><a href="#" id="butnMore">Message</a></li>
+                    <li><a href="#">Message</a></li>
                     <li><a href="#">Trips</a></li>
                     <li><a href="#">Wishlists</a></li>
                 </ul>
@@ -62,6 +64,9 @@
 	    directives: {
 	      clickOutside: vClickOutside.directive
 	    },
+	    props : [
+	    	'authLoggedIn'
+	    ],
 		methods: {
 			clickExterno (event) {
 				this.activeClass = false
