@@ -209,6 +209,14 @@ input {
     display: none;
 }
 
+.container-welcome-email {
+    .content_welcome-email {
+        ._input-mod {
+            margin: 12px 0 12px;
+        }
+    }
+}
+
 .container-welcome, 
 .container-number, 
 .container-options1, 
@@ -217,7 +225,8 @@ input {
 .container-confirm-email,
 .container-options-email,
 .container-need-email,
-.container-t-registro {
+.container-t-registro,
+.container-msg-sent {
 	// display: none;
 	position: absolute;
 	top: 0;
@@ -257,7 +266,7 @@ input {
                 max-width: 760px;
             }
     
-            span {
+            & > span {
                 cursor: pointer;
                 position: absolute;
                 right: 0;
@@ -328,6 +337,7 @@ input {
                         }
     
                         .phone {
+                            padding-left: 50px;
                             margin: 12px 0 25px;
                             -webkit-appearance: none;
                             -moz-appearance:  none;
@@ -1479,4 +1489,8 @@ input {
             }
         }
     }
+}
+.iti{
+    margin: 10px 0;
+    width: 100%;  
 }

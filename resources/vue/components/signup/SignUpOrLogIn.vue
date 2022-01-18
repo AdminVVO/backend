@@ -33,6 +33,9 @@
 	                	<MoreOptions 
 	                		v-else-if="showOptions"
 	                		@needHelp="needHelp()"
+	                		:phoneOrEmail="phoneOrEmail"
+	                		:typeSend="typeSend"
+	                		@toVerifity="toVerifity($event, typeSend)"
 	                	/>
 	                	<NeedHelps 
 	                		v-else-if="showHelps"

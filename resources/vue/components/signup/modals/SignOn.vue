@@ -12,45 +12,95 @@
                     <h4>Name</h4>
                     <input
                     	type="text"
-                    	v-model="name"
                     	class="_input-mod"
+                    	v-model="name"
+                        :class="[errors && errors.name ? 'error_input' : '']"
                 	>
+                    <div 
+                        class="_txterror"
+                        v-if="errors && errors.name"
+                    >
+                        <i class="fas fa-exclamation-circle icon1">
+                            {{ errors.name[0] }}
+                        </i> 
+                    </div>
 
-                    <h4>Surnames</h4>
+                    <h4>Last Names</h4>
                     <input
                     	type="text"
-                    	v-model="last_name"
                     	class="_input-mod _mr"
+                    	v-model="last_name"
+                        :class="[errors && errors.last_name ? 'error_input' : '']"
                 	>
+                    <div 
+                        class="_txterror"
+                        v-if="errors && errors.last_name"
+                    >
+                        <i class="fas fa-exclamation-circle icon1">
+                            {{ errors.last_name[0] }}
+                        </i> 
+                    </div>
 
                     <p>Make sure it matches the name that appears on your official ID.</p>
 
                     <div class="selected-modal _mrt">
-                        <select v-model="sex">
+                        <select
+                            v-model="sex"
+                            :class="[errors && errors.sex ? 'error_input' : '']"
+                        >
                             <option value="" selected disabled>Sex</option>
                             <option value="M">Male</option>
                             <option value="F">Feminine</option>
                         </select>
 
                         <i class="fas fa-chevron-down" aria-hidden="true"></i>
+                        <div 
+                            class="_txterror"
+                            v-if="errors && errors.sex"
+                        >
+                            <i class="fas fa-exclamation-circle icon1">
+                                {{ errors.sex[0] }}
+                            </i> 
+                        </div>
                     </div>
 
                     <h4>Date of birth</h4>
                     <input
                     	type="date"
+                    	class="_input-mod date date-v-modals _mr"
                     	v-model="date_birth"
-                    	class="_input-mod date _mr"
+                        :class="[errors && errors.date_birth ? 'error_input' : '']"
                 	>
+                    <div 
+                        class="_txterror"
+                        v-if="errors && errors.date_birth"
+                    >
+                        <i class="fas fa-exclamation-circle icon1">
+                            {{ errors.date_birth[0] }}
+                        </i> 
+                    </div>
+                    
                     <p>In order to register you must be at least 18 years old. We will not share your date of birth with other Airbnb users.</p>
 
                     <h4 style="margin-top: 23px;">Email</h4>
                     <input
                     	type="text"
-                    	v-model="email"
-                    	class="_input-mod _mr"
+                    	class="_input-mod _mr email-modals"
                     	placeholder="Examples@demo.com"
+                    	v-model="email"
+                        :class="[errors && errors.email ? 'error_input' : '']"
                 	>
-                    <p>We will send you travel confirmations and receipts by email.</p>
+                    <div 
+                        class="_txterror"
+                        v-if="errors && errors.email"
+                    >
+                        <i class="fas fa-exclamation-circle icon1">
+                            {{ errors.email[0] }}
+                        </i> 
+                    </div>
+                    <p class="_txtemail-des">We will send you travel confirmations and receipts by email.</p>
+
+
                     <br>
 
                     <p>By selecting <b>Accept and Continue</b>, I agree to the VVOUTLET <a href="#">Terms of Service</a>. <a href="#">Payment Terms of Service</a>, and <a href="#">Anti-Discrimination Policy</a>. I also acknowledge the <a href="#">Privacy Policy</a>.</p>
@@ -104,6 +154,7 @@
 				'phone': '',
                 'isError': false,
                 'isLoad': false,
+                'errors': [],
 			}
 		},
 	    mounted(){
@@ -120,6 +171,9 @@
 	    	},
 	    	submitSignOn: function() {
                 this.isLoad = true
+                this.isError = false
+                this.errors = []
+
                 const params = {
                     'name': this.name,
                     'last_name': this.last_name,
@@ -130,30 +184,31 @@
                     'phone': this.phone,
                 }
                 axios.post('/api/logInRegistration/registrationPhoneEmail', params )
-                .then((res) =>{
-                    this.isLoad = false
-                    this.isError = false
-                	console.log("res", res)
-                    if ( res.data.status === 200 && res.data.error === false ) {
-                        window.location.href = "/"
-                   }
-                    if ( res.data.status !== 200 && res.data.error !== false ) {
-                        this.isError = true
-                        console.log( res.data.message )
-                    }
+                    .then((res) =>{
+                        this.isLoad = false
+                        this.isError = false
 
-                    this.name       = ''
-                    this.last_name  = ''
-                    this.sex        = ''
-                    this.date_birth = ''
-                    this.email      = ''
-                    this.promotions = ''
-                    this.phone      = ''
+                        if ( res.data.errors ) {
+                            this.isError = true
+                            this.errors = res.data.errors
+                        }
 
-                })
-                .catch(function (error) {
-                    console.log(error);
-                })
+                        if ( res.data.message ) {
+                            this.name       = ''
+                            this.last_name  = ''
+                            this.sex        = ''
+                            this.date_birth = ''
+                            this.email      = ''
+                            this.promotions = ''
+                            this.phone      = ''
+                            window.location.href = "/"
+                        }
+
+
+                    })
+                    .catch(function (error) {
+                        console.log(error);
+                    })
     		}
 	    }
 	}

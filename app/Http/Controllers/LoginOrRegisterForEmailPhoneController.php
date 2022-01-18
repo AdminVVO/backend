@@ -16,47 +16,33 @@ use Illuminate\Support\Facades\Validator;
 
 class LoginOrRegisterForEmailPhoneController extends Controller
 {
-    public function countryPhone()
-    {
-        return CountryPhone::all()->toArray();
-    }
-
     public function initPhoneLoginOrRegister(Request $request)
     {
         $validator = Validator::make($request->all(), [
             'phone' => 'required'
         ]);
 
-            if ($validator->fails()) {
-                foreach ($validator->errors()->getMessages() as $item) {
-                    $response['messages'][] = $item;
-                }
-
-                return [
-                    'status'  => 400,
-                    'error'   => false,
-                    'message' => $response['messages']
-                ];
-            }
+        if ($validator->fails())
+            return response()->json([
+                'status' => 'error',
+                'errors' => $validator->errors()
+            ], 200);
 
         try {
             $code = $this->sendEmailPhoneVerificationNotification($request['phone'], 'phone');
 
             CodeVerification::create([ 'code' => $code, 'to' => $request['phone'] ]);
 
-            return [
-                'status'  => 200,
-                'error'   => false,
+            return response()->json([
+                'status'  => 'success',
                 'message' => 'Verification code sent'
-            ];
+            ], 200);
             
         } catch (Exception $e) {
-            return [
-                'status'  => 404,
-                'error'   => true,
-                'message' => $e->getMessage()
-            ];
-            
+            return response()->json([
+                'status'  => 'error',
+                'error' => $e->getMessage()
+            ], 404); 
         }
     }
 
@@ -66,18 +52,12 @@ class LoginOrRegisterForEmailPhoneController extends Controller
             'email' => 'required|email'
         ]);
 
-            if ($validator->fails()) {
-                foreach ($validator->errors()->getMessages() as $item) {
-                    $response['messages'][] = $item;
-                }
-
-                return [
-                    'status'  => 400,
-                    'error'   => false,
-                    'message' => $response['messages']
-                ];
-            }
-
+        if ($validator->fails())
+            return response()->json([
+                'status' => 'error',
+                'errors' => $validator->errors()
+            ], 200);
+                
         try {
             $code = $this->sendEmailPhoneVerificationNotification($request['email'], 'email');
 
@@ -86,19 +66,16 @@ class LoginOrRegisterForEmailPhoneController extends Controller
                 [ 'code' => $code ]
             );
 
-            return [
-                'status'  => 200,
-                'error'   => false,
+            return response()->json([
+                'status'  => 'success',
                 'message' => 'Verification code sent'
-            ];
+            ], 200);
             
         } catch (Exception $e) {
-            return [
-                'status'  => 404,
-                'error'   => true,
-                'message' => $e->getMessage()
-            ];
-            
+            return response()->json([
+                'status'  => 'error',
+                'error' => $e->getMessage()
+            ], 404);            
         }
     }
 
@@ -108,17 +85,11 @@ class LoginOrRegisterForEmailPhoneController extends Controller
             'code' => 'required'
         ]);
 
-            if ($validator->fails()) {
-                foreach ($validator->errors()->getMessages() as $item) {
-                    $response['messages'][] = $item;
-                }
-
-                return [
-                    'status'  => 400,
-                    'error'   => false,
-                    'message' => $response['messages']
-                ];
-            }
+        if ($validator->fails())
+            return response()->json([
+                'status' => 'error',
+                'errors' => $validator->errors()
+            ], 200);
 
         try {
             $verification = CodeVerification::where('code', $request['code'])->first();
@@ -135,37 +106,53 @@ class LoginOrRegisterForEmailPhoneController extends Controller
                 if ( $authUser ) {
 
                     Auth::login($authUser);
-                    return [
-                        'status'  => 200,
-                        'error'   => false,
-                        'message' => 'You are logged in, Welcome..'
-                    ];
+                        return response()->json([
+                            'status'  => 'success',
+                            'message' => 'Sign up..',
+                            'logIn'   => true
+                        ], 200);
                 }
-                    
-                return [
-                    'status'  => 202,
-                    'error'   => false,
-                    'message' => 'Sign up..'
-                ];
+
+                return response()->json([
+                    'status'    => 'success',
+                    'message'   => 'Sign up..',
+                    'redirecTo' => true
+                ], 200);
             }
 
-            return [
-                'status'  => 200,
-                'error'   => true,
-                'message' => 'Enter code is invalid.'
-            ];
+            return response()->json([
+                'status'    => 'success',
+                'codeError' => true,
+                'message'   => 'Enter code is invalid.'
+            ], 200);
             
         } catch (Exception $e) {
-            return [
-                'status'  => 404,
-                'error'   => true,
-                'message' => $e->getMessage()
-            ];
+            return response()->json([
+                'status'  => 'error',
+                'error' => $e->getMessage()
+            ], 404);   
         }
     }
 
     public function createLoginOrRegister(Request $request)
     {
+
+        $yearInQuestion = date("Y-m-d",strtotime( date("Y-m-d") . "- 18 year"));
+
+        $validator = Validator::make($request->all(), [
+            'name'       => 'required|string|min:3',
+            'email'      => 'required|email',
+            'last_name'  => 'required|string|min:3',
+            'date_birth' => 'required|date|before:' . $yearInQuestion,
+            'sex'        => 'required|in:M,F'
+        ]);
+
+        if ($validator->fails())
+            return response()->json([
+                'status' => 'error',
+                'errors' => $validator->errors()
+            ], 200);
+
         try {
             $authUser = User::create([
                 'name'       => $request['name'] . ' ' . $request['last_name'],
@@ -177,19 +164,17 @@ class LoginOrRegisterForEmailPhoneController extends Controller
                 'password'   => $request['email'] . '@' . $request['date_birth']
             ]);
             
-            Auth::login($authUser);
-            return [
-                'status'  => 200,
-                'error'   => false,
-                'message' => 'You have logged in..'
-            ];
+            Auth::login( $authUser );
+                return response()->json([
+                    'status'  => 'success',
+                    'message' => 'You have logged in..'
+                ], 200);
 
         } catch (Exception $e) {
-            return [
-                'status'  => 404,
-                'error'   => true,
-                'message' => $e->getMessage()
-            ];
+            return response()->json([
+                'status'  => 'error',
+                'error' => $e->getMessage()
+            ], 404); 
         }
     }
 
@@ -199,17 +184,11 @@ class LoginOrRegisterForEmailPhoneController extends Controller
             'message' => 'required'
         ]);
 
-            if ($validator->fails()) {
-                foreach ($validator->errors()->getMessages() as $item) {
-                    $response['messages'][] = $item;
-                }
-
-                return [
-                    'status'  => 400,
-                    'error'   => false,
-                    'message' => $response['messages']
-                ];
-            }
+        if ($validator->fails())
+            return response()->json([
+                'status' => 'error',
+                'errors' => $validator->errors()
+            ], 200);
 
         try {
 
@@ -217,20 +196,16 @@ class LoginOrRegisterForEmailPhoneController extends Controller
                 'from'    => $request['from'],
                 'message' => $request['message']
             ]);
-
-            return [
-                'status'  => 200,
-                'error'   => false,
-                'message' => 'Help message saved'
-            ];
+                return response()->json([
+                    'status'  => 'success',
+                    'message' => 'Help message saved'
+                ], 200);
             
         } catch (Exception $e) {
-            return [
-                'status'  => 404,
-                'error'   => true,
-                'message' => $e->getMessage()
-            ];
-            
+            return response()->json([
+                'status'  => 'error',
+                'error' => $e->getMessage()
+            ], 404);
         }
     }
 
@@ -238,90 +213,47 @@ class LoginOrRegisterForEmailPhoneController extends Controller
     {
         try {
             Session::flush();
-            $success = true;
-            $message = 'Successfully logged out';
-        } catch (\Illuminate\Database\QueryException $ex) {
-            $success = false;
-            $message = $ex->getMessage();
-        }
+                return response()->json([
+                    'status'  => 'success',
+                    'message' => 'You Logout..'
+                ], 200);
 
-        $response = [
-            'success' => $success,
-            'message' => $message,
-        ];
-        return response()->json($response);
+        } catch (Exception $e) {
+            return response()->json([
+                'status'  => 'error',
+                'error' => $e->getMessage()
+            ], 404); 
+        }
     }
 
-
-
-
-
-
-    public function resentCodePhoneLoginOrRegister(Request $request)
+    public function resentCodeLoginOrRegister(Request $request)
     {
-        try {
-            $code = $this->sendEmailPhoneVerificationNotification($request['phone'], 'phone');
+        if ( $request['type'] === 'message' ) {
+            $code = $this->sendEmailPhoneVerificationNotification($request['to'], 'phone');
+        } 
 
+        if ( $request['type'] === 'email' ) {
+            $code = $this->sendEmailPhoneVerificationNotification($request['to'], 'email');
+        }
+
+        try {
             CodeVerification::updateOrCreate(
-                [ 'to' => $request['phone'] ],
+                [ 'to' => $request['to'] ],
                 [ 'code' => $code ]
             );
 
-            return [
-                'status'  => 200,
-                'error'   => false,
-                'message' => 'Verification code resent'
-            ];
+            return response()->json([
+                'status'  => 'success',
+                'message' => 'Verification code sent'
+            ], 200);
             
         } catch (Exception $e) {
-            return [
-                'status'  => 404,
-                'error'   => true,
-                'message' => $e->getMessage()
-            ];
-            
+            return response()->json([
+                'status'  => 'error',
+                'error' => $e->getMessage()
+            ], 404); 
         }
     }
-
-    public function resentCodeEmailLoginOrRegister(Request $request)
-    {
-        try {
-            $code = $this->sendEmailPhoneVerificationNotification($request['email'], 'email');
-
-            CodeVerification::updateOrCreate(
-                [ 'to' => $request['email'] ],
-                [ 'code' => $code ]
-            );
-
-            return [
-                'status'  => 200,
-                'error'   => false,
-                'message' => 'Verification code resent'
-            ];
-            
-        } catch (Exception $e) {
-            return [
-                'status'  => 404,
-                'error'   => true,
-                'message' => $e->getMessage()
-            ];
-            
-        }
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     public function sendEmailPhoneVerificationNotification($recipients, $type)
     {

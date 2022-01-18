@@ -36,10 +36,7 @@ a {
   align-items: center;
 }
 
-.section-account {
-  margin: 176px 0 100px;
-}
-.section-account .h2-guests_fs60 {
+.section-account .h2 {
   margin-bottom: 9.8px;
 }
 .section-account .span-guests ._p {

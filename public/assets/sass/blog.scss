@@ -6,19 +6,10 @@ h3 {
     margin-bottom: 17px;
 }
 
-// Blog Container
-
-.blog {
-
-    &_container {
-        margin-top: 90px;
-    }
-} 
-
 // Main Block
 
 .main-block {
-    margin: 100px 0;
+    margin-bottom: 100px;
 
     &_title {
         margin-bottom: 17px;
@@ -122,12 +113,6 @@ h3 {
 .related-articles {
     @include mb-space;
 }
-
-// Suggestion articles
-
-.suggestion-articles {
-    @include mb-space;
-} 
 
 // Breakpoints
 

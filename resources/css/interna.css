@@ -36,9 +36,6 @@ a {
   align-items: center;
 }
 
-.content_international {
-  margin: 139px 0 50px;
-}
 @media (max-width: 1428px) {
   .content_international .h2_publish {
     font-size: 24px;

@@ -17,8 +17,8 @@
   width: 90%;
 }
 
-.container-medio {
-  max-width: 1760px;
+.medio-two {
+  max-width: 1255px;
   width: 90%;
 }
 
@@ -141,6 +141,13 @@ body {
   line-height: 20px;
   color: #FFFFFF;
   font-weight: 400;
+}
+
+._txtecbold16 {
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: bold;
+  color: #333333;
 }
 
 .btn-h {
@@ -740,14 +747,37 @@ button {
   padding: 16px 32px 16px 33px;
 }
 
-.error_code input {
-  border: 1px solid #FF5A5F !important;
+._txterror {
+  align-items: baseline;
+  gap: 4px;
   color: #FF5A5F;
+  font-size: 14px;
+  font-weight: normal;
+  text-align: initial;
+  -webkit-user-select: none;
+          user-select: none;
+  display: none;
+}
+._txterror i {
+  font-size: 16px;
 }
 
 .error_input {
+  border: 1px solid #ff5a5f !important;
+  background: #fff8f6 !important;
+}
+
+.error_input + ._txterror {
+  display: block;
+}
+
+.error_input ~ ._txtemail-des {
+  display: none;
+}
+
+.error_code input {
   border: 1px solid #FF5A5F !important;
-  color: #FF5A5F !important;
+  color: #FF5A5F;
 }
 
 .error_code + .txt-err {
@@ -893,6 +923,16 @@ button {
   color: white;
 }
 
+._flex-right16 {
+  display: flex;
+  align-items: baseline;
+  gap: 24px;
+}
+._flex-right16 i {
+  color: #00B5DD;
+  font-size: 16px;
+}
+
 ._input-mod {
   margin: 12px 0 25px;
   -webkit-appearance: none;
@@ -983,12 +1023,6 @@ button {
   font-size: 35px;
   line-height: 50px;
   color: #2A2A2A;
-}
-
-.h2-guests_fs60 {
-  font-size: 60px;
-  font-weight: bold;
-  color: #333333;
 }
 
 .h2-guests_white60 {
@@ -1169,6 +1203,11 @@ button {
   padding: 51px 40px;
   box-shadow: 0 0 15px rgba(40, 54, 70, 0.1);
   border: 2px solid #E3EDF3;
+}
+@media (max-width: 768px) {
+  ._cont-account {
+    padding: 30px 25px;
+  }
 }
 @media (max-width: 470px) {
   ._cont-account {
@@ -1412,6 +1451,12 @@ button {
 .btns-modals .loading-btn {
   opacity: 0;
   visibility: hidden;
+}
+
+.btns-modals:disabled {
+  background-color: #0097b9 !important;
+  color: #f3f3f3 !important;
+  cursor: default;
 }
 
 .loading-btn {
@@ -2262,7 +2307,7 @@ button {
 }
 
 .tabs_card_xl {
-  margin: 30px 0 100px;
+  margin-top: 30px;
 }
 .tabs_card_xl .card_items {
   width: 500px;

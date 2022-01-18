@@ -1,4 +1,4 @@
-@import "_globals";
+
 @import "_variables";
  
 // Header
@@ -8,12 +8,14 @@
 }
 
 header {
-    position: fixed;
+    position: relative;   
+    top: 0; 
+    margin-bottom: 80px; 
     background-color: $color-background2;
 }
 
 header.fixed {
-    animation: none;
+    animation: none;  
 }
 
 header .book-form {

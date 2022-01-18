@@ -14,10 +14,16 @@
 		            <input
 		            	type="text"
 		            	placeholder="examples@demo.com"
-		            	class="_input-mod"
+		            	class="_input-mod email-modals"
 		            	v-model="email"
 		            	:class="[isError ? 'error_input' : '']"
 	            	>
+                    <div class="_txterror" v-if="errors && errors.email">
+	                    <i class="fas fa-exclamation-circle icon1">
+	                    	{{ errors.email[0] }}
+	                    </i> 
+                    </div>
+
 		            <p>We'll call or text you to confirm your number. <br>Standard message and data rates apply. <a href="#">Privacy Policy</a>.</p>
 		            <div class="block_a">
 		                <button
@@ -89,6 +95,7 @@
                 'email': '',
                 'isError': false,
                 'isLoad': false,
+                'errors': [],
 			}
 		},
 		methods: {
@@ -97,23 +104,26 @@
 			},
             Verifity: function() {   
                 this.isLoad = true
+                this.isError = false
+                this.errors = []
                 axios.post('/api/logInRegistration/initEmail', {
                     'email': this.email 
                 })
-                .then((res) =>{
-                    this.isLoad = false
-                    this.isError = false
-                    if ( res.data.status === 200 && res.data.error === false  ) {
-                        this.$emit('toVerifityEmail', this.email)
-                    }
-                    if ( res.data.status === 400 && res.data.error === false  ) {
-                        this.isError = true
-                    }
-                	this.email = ''
-                })
-                .catch(function (error) {
-                    console.log(error);
-                })
+	                .then((res) =>{
+	                    this.isLoad = false
+	                    
+	                    if ( res.data.errors ) {
+	                        this.isError = true
+	                		this.errors = res.data.errors
+	                    }else{
+	                        this.$emit('toVerifityEmail', this.email)
+	                    }
+
+	                	this.email = ''
+	                })
+	                .catch(function (error) {
+	                	console.log(error);
+	                })
             }
 		}
 	}

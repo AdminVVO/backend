@@ -33,19 +33,13 @@ Route::prefix('logInRegistration')->name('logInRegistration')->group( function()
     ## We log the help message
     Route::post('helpPhoneEmail', [LoginOrRegisterForEmailPhoneController::class, 'helpLoginOrRegister'])->name('helpPhoneEmail');
 
+    ## We resend the verification code phone and email
+    Route::post('resentVerify', [LoginOrRegisterForEmailPhoneController::class, 'resentCodeLoginOrRegister'])->name('resentVerify');
+
     Route::post('logout', [LoginOrRegisterForEmailPhoneController::class, 'logoutLoginOrRegister'])->name('logout')->middleware('auth:sanctum');
 
 
 
-
-    ## We resend the verification code phone
-    Route::post('resentVerifyPhone', [LoginOrRegisterForEmailPhoneController::class, 'resentCodePhoneLoginOrRegister'])->name('resentVerifyPhone');
-
-    ## We resend the verification code email
-    Route::post('resentVerifyEmail', [LoginOrRegisterForEmailPhoneController::class, 'resentCodeEmailLoginOrRegister'])->name('resentVerifyEmail');
-
-    ## List all countries with their phone code
-    Route::get('countryPhone', [LoginOrRegisterForEmailPhoneController::class, 'countryPhone'])->name('countryPhone');
 });
 
 // ## Routes Login and Register Google

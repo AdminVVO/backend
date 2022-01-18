@@ -18,6 +18,7 @@
                             id="ist" 
                             maxlength="1" 
                             onkeyup="clickEvent(this, 'sec')"
+                            onkeypress="return solonumeros(event);"
                             v-model="oneNumber"
                         >
                         <input
@@ -25,6 +26,7 @@
                             id="sec" 
                             maxlength="1" 
                             onkeyup="clickEvent(this, 'third')"
+                            onkeypress="return solonumeros(event);"
                             v-model="twoNumber"
                         >
                         <input
@@ -32,6 +34,7 @@
                             id="third" 
                             maxlength="1" 
                             onkeyup="clickEvent(this, 'fourth')"
+                            onkeypress="return solonumeros(event);"
                             v-model="threeNumber"
                         >
                         <input
@@ -39,6 +42,7 @@
                             id="fourth" 
                             maxlength="1" 
                             onkeyup="clickEvent(this, 'fifth')"
+                            onkeypress="return solonumeros(event);"
                             v-model="fourNumber"
                         >
                         <input
@@ -46,12 +50,14 @@
                             id="fifth" 
                             maxlength="1" 
                             onkeyup="clickEvent(this, 'up')"
+                            onkeypress="return solonumeros(event);"
                             v-model="fiveNumber"
                         >
                         <input
                             type="text" 
                             id="up" 
                             maxlength="1"
+                            onkeypress="return solonumeros(event);"
                             v-model="sixNumber"
                         >
                     </div>
@@ -114,33 +120,32 @@
                     'type': this.typeSend ? 'email' : 'phone'
                 }
                 axios.post('/api/logInRegistration/verifyPhoneEmail', params)
-                .then((res) =>{
-                    this.isLoad = false
-                    this.isError = false
-                    if ( res.data.status === 200 && res.data.error === false ) {
-                        // location.reload();
-                        window.location.href = "/"
-                    }
-                    if ( res.data.status === 202 && res.data.error === false ) {
-                        this.$emit('returnSignOn')
-                    }
-                    if ( res.data.status === 200 && res.data.error === true || res.data.status === 400 && res.data.error === false ) {
-                        this.isError = true
-                    }
-                    if ( res.data.status === 404 ) {
-                        console.log( res.data.message )
-                    }
+                    .then((res) =>{
+                        this.isLoad = false
+                        this.isError = false
 
-                    this.oneNumber = ''
-                    this.twoNumber = ''
-                    this.threeNumber = ''
-                    this.fourNumber = ''
-                    this.fiveNumber = ''
-                    this.sixNumber = ''
-                })
-                .catch(function (error) {
-                    console.log(error);
-                })
+                        if ( res.data.logIn ) {
+                            window.location.href = "/"
+                        }
+
+                        if ( res.data.redirecTo ) {
+                            this.$emit('returnSignOn')
+                        }
+
+                        if ( res.data.codeError || res.data.errors ) {
+                            this.isError = true
+                        }
+
+                        this.oneNumber = ''
+                        this.twoNumber = ''
+                        this.threeNumber = ''
+                        this.fourNumber = ''
+                        this.fiveNumber = ''
+                        this.sixNumber = ''
+                    })
+                    .catch(function (error) {
+                        console.log(error);
+                    })
             }
         }
 	}

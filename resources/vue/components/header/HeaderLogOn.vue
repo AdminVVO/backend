@@ -75,11 +75,9 @@
 	            axios.get('/sanctum/csrf-cookie').then(response => {
 	                axios.post('/api/logInRegistration/logout')
 	                    .then(response => {
-	                        if (response.data.success) {
+	                        if ( response.data.message ) {
 	                            window.location.href = "/"
-	                        } else {
-	                            console.log(response)
-	                        }
+	                        } 
 	                    })
 	                    .catch(function (error) {
 	                        console.error(error);

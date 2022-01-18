@@ -1,0 +1,127 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+.container {
+  max-width: 1600px;
+  margin: auto;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.flex {
+  display: flex;
+}
+.flex-jc-sb {
+  justify-content: space-between;
+}
+.flex-jc-c {
+  justify-content: center;
+}
+.flex-ai-c {
+  align-items: center;
+}
+
+.section-perfil_info {
+  display: flex;
+  justify-content: space-between;
+  gap: 87px;
+}
+@media (max-width: 1050px) {
+  .section-perfil_info {
+    flex-direction: column;
+  }
+}
+.section-perfil_info-main {
+  width: 100%;
+}
+.section-perfil_info-main ._flex-right16 {
+  padding-left: 49px;
+}
+@media (max-width: 768px) {
+  .section-perfil_info-main ._flex-right16 {
+    padding-left: 25px;
+  }
+}
+.section-perfil_info-main .h2-guests_bold35 {
+  padding-left: 49px;
+  margin: 16px 0 8px;
+}
+@media (max-width: 768px) {
+  .section-perfil_info-main .h2-guests_bold35 {
+    padding-left: 25px;
+  }
+}
+.section-perfil_info-main ._bgpadding {
+  padding: 0 49px;
+  transition: background-color 0.3s ease;
+}
+@media (max-width: 768px) {
+  .section-perfil_info-main ._bgpadding {
+    padding: 0 25px;
+  }
+}
+.section-perfil_info-main ._bgpadding:hover {
+  background-color: rgba(255, 246, 165, 0.31);
+}
+.section-perfil_info-main ._bgpadding ._cont-edit {
+  padding: 30px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 25px;
+  border-bottom: 1px solid #ebebeb;
+}
+.section-perfil_info-main ._bgpadding ._cont-edit ._inf {
+  width: 65%;
+}
+.section-perfil_info-main ._bgpadding ._cont-edit ._btnsm {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 0;
+}
+.section-perfil_info-aside {
+  padding-right: 49px;
+  display: flex;
+  flex-direction: column;
+  gap: 53px;
+}
+@media (max-width: 1050px) {
+  .section-perfil_info-aside {
+    padding-right: 49px;
+    padding-left: 49px;
+    flex-direction: row;
+    gap: 30px;
+  }
+}
+@media (max-width: 768px) {
+  .section-perfil_info-aside {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+@media (max-width: 580px) {
+  .section-perfil_info-aside {
+    flex-direction: column;
+  }
+}
+@media (max-width: 1050px) {
+  .section-perfil_info-aside ._cont-account {
+    width: 100%;
+  }
+}

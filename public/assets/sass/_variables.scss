@@ -262,6 +262,13 @@ $letter-spacing: 0.2rem;
   color: #7D7D7D;
 }
 
+@mixin _txtecbold16 {
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: bold;
+  color: #333333;
+}
+
 @mixin _txtec14 {
   font-size: 14px;
   line-height: 24px;
@@ -675,23 +682,6 @@ $letter-spacing: 0.2rem;
       font-weight: bold;
       color: #00B5DD;
   }
-}
-
-@mixin mb-space {
-  margin-bottom: 100px;
-
-  @media screen and (max-width: 1400px) {
-    margin-bottom: 70px;
-  }
-
-  @media screen and (max-width: 900px) {
-    margin-bottom: 50px;
-  }
-
-  @media screen and (max-width: 600px) {
-    margin-bottom: 40px;
-  }
-  
 }
 
 @mixin col-flex-auto {

@@ -1,0 +1,84 @@
+@import "_variables";
+.medio{
+    max-width: 1760px; 
+}
+.tabs_card_xxl {
+    .medio{
+        
+    }
+    .card_items{
+        .card_img{
+            img{
+                opacity: 1;
+            }
+        }
+        .card_text{
+            background: linear-gradient(to top, transparent, black); 
+            h2{
+                font-size: 30px; 
+                font-weight: bold;
+                color: white;
+            }
+           
+        }
+    }
+}
+.btn-card-category{
+    padding: 10px 30px;  
+    background: $color-secundary;
+    color: white; 
+    text-align: center;
+    display: inline-block; 
+    font-weight: bold;
+    border-radius: 5px;  
+    margin-top: 15px; 
+    font-size: 18px;
+}
+
+.tabs{
+    margin-top: 30px; 
+}
+.mt-80{ 
+    margin-top: 80px;  
+} 
+.mt-100{ 
+    margin-top: 100px;  
+}
+.mb-100{
+    margin-bottom: 100px;
+
+}
+.wo_home{
+    background-image: url(https://vivevacationsoutlet.com/news/assets/img/category-wo.png); 
+}
+.tabs_card .medio{
+    grid-gap: 15px; 
+}
+.tabs_card_xl {
+    .medio{
+        grid-gap: 40px;  
+    }   
+}
+@media screen and (max-width:1800px){
+    .tabs_card_xxl{
+        .medio{
+            grid-gap: 30px;  
+        } 
+      .card_items{
+        width: 220px; 
+        height: 400px;
+      } 
+    }
+  }  
+  
+@media screen and (max-width:950px){
+    .mt-100{
+        margin-top: 50px;
+    }
+    .mt-80{ 
+        margin-top: 40px;  
+    }  
+    .tabs_card_xxl{
+        margin: 0 0 50px !important;   
+    }
+} 

@@ -240,6 +240,10 @@ input {
   display: none;
 }
 
+.container-welcome-email .content_welcome-email ._input-mod {
+  margin: 12px 0 12px;
+}
+
 .container-welcome,
 .container-number,
 .container-options1,
@@ -248,7 +252,8 @@ input {
 .container-confirm-email,
 .container-options-email,
 .container-need-email,
-.container-t-registro {
+.container-t-registro,
+.container-msg-sent {
   position: absolute;
   top: 0;
   left: 0;
@@ -263,7 +268,8 @@ input {
 .container-confirm-email .modal-welcome,
 .container-options-email .modal-welcome,
 .container-need-email .modal-welcome,
-.container-t-registro .modal-welcome {
+.container-t-registro .modal-welcome,
+.container-msg-sent .modal-welcome {
   position: absolute;
   z-index: 999;
   inset: 0px;
@@ -277,7 +283,8 @@ input {
 .container-confirm-email .pd_login-modal,
 .container-options-email .pd_login-modal,
 .container-need-email .pd_login-modal,
-.container-t-registro .pd_login-modal {
+.container-t-registro .pd_login-modal,
+.container-msg-sent .pd_login-modal {
   display: flex;
   padding: 40px;
   align-items: center;
@@ -295,7 +302,8 @@ input {
 .container-confirm-email .pd_login-modal .modal_content-welcome,
 .container-options-email .pd_login-modal .modal_content-welcome,
 .container-need-email .pd_login-modal .modal_content-welcome,
-.container-t-registro .pd_login-modal .modal_content-welcome {
+.container-t-registro .pd_login-modal .modal_content-welcome,
+.container-msg-sent .pd_login-modal .modal_content-welcome {
   display: flex;
   background: #FFFFFF;
   width: 100%;
@@ -316,19 +324,21 @@ input {
 .container-confirm-email .pd_login-modal .modal_content-welcome,
 .container-options-email .pd_login-modal .modal_content-welcome,
 .container-need-email .pd_login-modal .modal_content-welcome,
-.container-t-registro .pd_login-modal .modal_content-welcome {
+.container-t-registro .pd_login-modal .modal_content-welcome,
+.container-msg-sent .pd_login-modal .modal_content-welcome {
     max-width: 760px;
   }
 }
-.container-welcome .pd_login-modal .modal_content-welcome span,
-.container-number .pd_login-modal .modal_content-welcome span,
-.container-options1 .pd_login-modal .modal_content-welcome span,
-.container-ineed .pd_login-modal .modal_content-welcome span,
-.container-welcome-email .pd_login-modal .modal_content-welcome span,
-.container-confirm-email .pd_login-modal .modal_content-welcome span,
-.container-options-email .pd_login-modal .modal_content-welcome span,
-.container-need-email .pd_login-modal .modal_content-welcome span,
-.container-t-registro .pd_login-modal .modal_content-welcome span {
+.container-welcome .pd_login-modal .modal_content-welcome > span,
+.container-number .pd_login-modal .modal_content-welcome > span,
+.container-options1 .pd_login-modal .modal_content-welcome > span,
+.container-ineed .pd_login-modal .modal_content-welcome > span,
+.container-welcome-email .pd_login-modal .modal_content-welcome > span,
+.container-confirm-email .pd_login-modal .modal_content-welcome > span,
+.container-options-email .pd_login-modal .modal_content-welcome > span,
+.container-need-email .pd_login-modal .modal_content-welcome > span,
+.container-t-registro .pd_login-modal .modal_content-welcome > span,
+.container-msg-sent .pd_login-modal .modal_content-welcome > span {
   cursor: pointer;
   position: absolute;
   right: 0;
@@ -346,7 +356,8 @@ input {
 .container-confirm-email .pd_login-modal .modal_content-welcome .img-left,
 .container-options-email .pd_login-modal .modal_content-welcome .img-left,
 .container-need-email .pd_login-modal .modal_content-welcome .img-left,
-.container-t-registro .pd_login-modal .modal_content-welcome .img-left {
+.container-t-registro .pd_login-modal .modal_content-welcome .img-left,
+.container-msg-sent .pd_login-modal .modal_content-welcome .img-left {
   width: 50%;
   height: 100%;
 }
@@ -359,7 +370,8 @@ input {
 .container-confirm-email .pd_login-modal .modal_content-welcome .img-left,
 .container-options-email .pd_login-modal .modal_content-welcome .img-left,
 .container-need-email .pd_login-modal .modal_content-welcome .img-left,
-.container-t-registro .pd_login-modal .modal_content-welcome .img-left {
+.container-t-registro .pd_login-modal .modal_content-welcome .img-left,
+.container-msg-sent .pd_login-modal .modal_content-welcome .img-left {
     display: none;
   }
 }
@@ -371,7 +383,8 @@ input {
 .container-confirm-email .pd_login-modal .modal_content-welcome .img-left img,
 .container-options-email .pd_login-modal .modal_content-welcome .img-left img,
 .container-need-email .pd_login-modal .modal_content-welcome .img-left img,
-.container-t-registro .pd_login-modal .modal_content-welcome .img-left img {
+.container-t-registro .pd_login-modal .modal_content-welcome .img-left img,
+.container-msg-sent .pd_login-modal .modal_content-welcome .img-left img {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -384,7 +397,8 @@ input {
 .container-confirm-email .pd_login-modal .modal_content-welcome .content_right,
 .container-options-email .pd_login-modal .modal_content-welcome .content_right,
 .container-need-email .pd_login-modal .modal_content-welcome .content_right,
-.container-t-registro .pd_login-modal .modal_content-welcome .content_right {
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right,
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right {
   display: flex;
   width: 50%;
   border-radius: 10px;
@@ -398,7 +412,8 @@ input {
 .container-confirm-email .pd_login-modal .modal_content-welcome .content_right,
 .container-options-email .pd_login-modal .modal_content-welcome .content_right,
 .container-need-email .pd_login-modal .modal_content-welcome .content_right,
-.container-t-registro .pd_login-modal .modal_content-welcome .content_right {
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right,
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right {
     width: 100%;
   }
 }
@@ -410,7 +425,8 @@ input {
 .container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome,
 .container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome,
 .container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome,
-.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome {
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome,
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome {
   display: grid;
   width: 100%;
 }
@@ -422,7 +438,8 @@ input {
 .container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .log,
 .container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .log,
 .container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .log,
-.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .log {
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .log,
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .log {
   text-align: center;
   border-bottom: 1px solid #E3EDF3;
   font-size: 18px;
@@ -440,7 +457,8 @@ input {
 .container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome,
 .container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome,
 .container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome,
-.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome {
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome,
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome {
   padding: 0 75px 42px;
 }
 @media (max-width: 680px) {
@@ -452,7 +470,8 @@ input {
 .container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome,
 .container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome,
 .container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome,
-.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome {
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome,
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome {
     padding: 0 25px 25px;
   }
 }
@@ -464,7 +483,8 @@ input {
 .container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome h3,
 .container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome h3,
 .container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome h3,
-.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome h3 {
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome h3,
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome h3 {
   margin: 42px 0 25px;
   text-align: center;
   font-size: 35px;
@@ -478,7 +498,8 @@ input {
 .container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome h4,
 .container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome h4,
 .container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome h4,
-.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome h4 {
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome h4,
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome h4 {
   font-size: 14px;
   font-weight: normal;
   color: #7D7D7D;
@@ -493,7 +514,9 @@ input {
 .container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome .phone,
 .container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome .phone,
 .container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome .phone,
-.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome .phone {
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome .phone,
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome .phone {
+  padding-left: 50px;
   margin: 12px 0 25px;
   -webkit-appearance: none;
   appearance: none;
@@ -515,7 +538,8 @@ input {
 .container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome .phone:hover,
 .container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome .phone:hover,
 .container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome .phone:hover,
-.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome .phone:hover {
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome .phone:hover,
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome .phone:hover {
   box-shadow: 0 0 15px rgba(40, 54, 70, 0.1);
 }
 .container-welcome .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome p,
@@ -526,7 +550,8 @@ input {
 .container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome p,
 .container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome p,
 .container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome p,
-.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome p {
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome p,
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome p {
   text-align: center;
   color: #7D7D7D;
   font-size: 14px;
@@ -540,7 +565,8 @@ input {
 .container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome p a,
 .container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome p a,
 .container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome p a,
-.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome p a {
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome p a,
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome p a {
   color: #00B5DD;
   font-weight: bold;
   line-height: 28px;
@@ -554,7 +580,8 @@ input {
 .container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome .block_a,
 .container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome .block_a,
 .container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome .block_a,
-.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome .block_a {
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome .block_a,
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome .block_a {
   margin: 18px 0 20px;
   display: flex;
   justify-content: center;
@@ -567,7 +594,8 @@ input {
 .container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome .block_a button,
 .container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome .block_a button,
 .container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome .block_a button,
-.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome .block_a button {
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome .block_a button,
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome .block_a button {
   padding: 16px 50px;
   border-radius: 10px;
   background-color: #00B5DD;
@@ -583,7 +611,8 @@ input {
 .container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome .block_redes,
 .container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome .block_redes,
 .container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome .block_redes,
-.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome .block_redes {
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome .block_redes,
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome .block_redes {
   margin-top: 20px;
   background-color: #E3EDF3;
   border-radius: 10px;
@@ -597,7 +626,8 @@ input {
 .container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome .block_redes a,
 .container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome .block_redes a,
 .container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome .block_redes a,
-.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome .block_redes a {
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome .block_redes a,
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome .block_redes a {
   color: #7D7D7D;
   font-size: 18px;
   font-weight: normal;
@@ -610,7 +640,8 @@ input {
 .container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome .block_redes a .contend_red,
 .container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome .block_redes a .contend_red,
 .container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome .block_redes a .contend_red,
-.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome .block_redes a .contend_red {
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome .block_redes a .contend_red,
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome .block_redes a .contend_red {
   display: flex;
   align-items: center;
   background-color: white;
@@ -626,7 +657,8 @@ input {
 .container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome .block_redes a .contend_red .flex_icon,
 .container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome .block_redes a .contend_red .flex_icon,
 .container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome .block_redes a .contend_red .flex_icon,
-.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome .block_redes a .contend_red .flex_icon {
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome .block_redes a .contend_red .flex_icon,
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome .block_redes a .contend_red .flex_icon {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -643,7 +675,8 @@ input {
 .container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome .block_redes a .contend_red .flex_icon i,
 .container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome .block_redes a .contend_red .flex_icon i,
 .container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome .block_redes a .contend_red .flex_icon i,
-.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome .block_redes a .contend_red .flex_icon i {
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome .block_redes a .contend_red .flex_icon i,
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome .block_redes a .contend_red .flex_icon i {
   font-size: 20px;
   color: white;
 }
@@ -655,7 +688,8 @@ input {
 .container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome-email,
 .container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome-email,
 .container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome-email,
-.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome-email {
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome-email,
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome-email {
   padding: 0 75px 42px;
 }
 @media (max-width: 680px) {
@@ -667,7 +701,8 @@ input {
 .container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome-email,
 .container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome-email,
 .container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome-email,
-.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome-email {
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome-email,
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome-email {
     padding: 0 25px 25px;
   }
 }
@@ -679,7 +714,8 @@ input {
 .container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome-email h3,
 .container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome-email h3,
 .container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome-email h3,
-.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome-email h3 {
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome-email h3,
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome-email h3 {
   margin: 42px 0 25px;
   text-align: center;
   font-size: 35px;
@@ -693,7 +729,8 @@ input {
 .container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome-email h4,
 .container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome-email h4,
 .container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome-email h4,
-.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome-email h4 {
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome-email h4,
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome-email h4 {
   font-size: 14px;
   font-weight: normal;
   color: #7D7D7D;
@@ -708,7 +745,8 @@ input {
 .container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome-email p,
 .container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome-email p,
 .container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome-email p,
-.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome-email p {
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome-email p,
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome-email p {
   text-align: center;
   color: #7D7D7D;
   font-size: 14px;
@@ -722,7 +760,8 @@ input {
 .container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome-email p a,
 .container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome-email p a,
 .container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome-email p a,
-.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome-email p a {
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome-email p a,
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome-email p a {
   color: #00B5DD;
   font-weight: bold;
   line-height: 28px;
@@ -736,7 +775,8 @@ input {
 .container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome-email .block_a,
 .container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome-email .block_a,
 .container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome-email .block_a,
-.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome-email .block_a {
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome-email .block_a,
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome-email .block_a {
   margin: 18px 0 20px;
   display: flex;
   justify-content: center;
@@ -749,7 +789,8 @@ input {
 .container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome-email .block_a button,
 .container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome-email .block_a button,
 .container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome-email .block_a button,
-.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome-email .block_a button {
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome-email .block_a button,
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome-email .block_a button {
   padding: 16px 50px;
   border-radius: 10px;
   background-color: #00B5DD;
@@ -765,7 +806,8 @@ input {
 .container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome-email .block_redes,
 .container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome-email .block_redes,
 .container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome-email .block_redes,
-.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome-email .block_redes {
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome-email .block_redes,
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome-email .block_redes {
   margin-top: 20px;
   background-color: #E3EDF3;
   border-radius: 10px;
@@ -779,7 +821,8 @@ input {
 .container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome-email .block_redes a,
 .container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome-email .block_redes a,
 .container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome-email .block_redes a,
-.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome-email .block_redes a {
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome-email .block_redes a,
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome-email .block_redes a {
   color: #7D7D7D;
   font-size: 18px;
   font-weight: normal;
@@ -792,7 +835,8 @@ input {
 .container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome-email .block_redes a .contend_red,
 .container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome-email .block_redes a .contend_red,
 .container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome-email .block_redes a .contend_red,
-.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome-email .block_redes a .contend_red {
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome-email .block_redes a .contend_red,
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome-email .block_redes a .contend_red {
   display: flex;
   align-items: center;
   background-color: white;
@@ -808,7 +852,8 @@ input {
 .container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome-email .block_redes a .contend_red .flex_icon,
 .container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome-email .block_redes a .contend_red .flex_icon,
 .container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome-email .block_redes a .contend_red .flex_icon,
-.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome-email .block_redes a .contend_red .flex_icon {
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome-email .block_redes a .contend_red .flex_icon,
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome-email .block_redes a .contend_red .flex_icon {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -825,7 +870,8 @@ input {
 .container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome-email .block_redes a .contend_red .flex_icon i,
 .container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome-email .block_redes a .contend_red .flex_icon i,
 .container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome-email .block_redes a .contend_red .flex_icon i,
-.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome-email .block_redes a .contend_red .flex_icon i {
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome-email .block_redes a .contend_red .flex_icon i,
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome-email .block_redes a .contend_red .flex_icon i {
   font-size: 20px;
   color: white;
 }
@@ -837,7 +883,8 @@ input {
 .container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome-email .block_redes a .contend_red .flex_icon .fa-phone,
 .container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome-email .block_redes a .contend_red .flex_icon .fa-phone,
 .container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome-email .block_redes a .contend_red .flex_icon .fa-phone,
-.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome-email .block_redes a .contend_red .flex_icon .fa-phone {
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome-email .block_redes a .contend_red .flex_icon .fa-phone,
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome-email .block_redes a .contend_red .flex_icon .fa-phone {
   transform: rotate(90deg);
 }
 .container-welcome .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome-email .date,
@@ -848,7 +895,8 @@ input {
 .container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome-email .date,
 .container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome-email .date,
 .container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome-email .date,
-.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome-email .date {
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome-email .date,
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome-email .date {
   position: relative;
 }
 .container-welcome .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome-email .date::-webkit-calendar-picker-indicator,
@@ -859,7 +907,8 @@ input {
 .container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome-email .date::-webkit-calendar-picker-indicator,
 .container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome-email .date::-webkit-calendar-picker-indicator,
 .container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome-email .date::-webkit-calendar-picker-indicator,
-.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome-email .date::-webkit-calendar-picker-indicator {
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome-email .date::-webkit-calendar-picker-indicator,
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome-email .date::-webkit-calendar-picker-indicator {
   filter: invert(1);
   color: transparent;
   background: none;
@@ -873,7 +922,8 @@ input {
 .container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome-email .date::before,
 .container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome-email .date::before,
 .container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome-email .date::before,
-.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome-email .date::before {
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome-email .date::before,
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome-email .date::before {
   content: "";
   font-family: "Font Awesome 5 Pro";
   color: #00B5DD;
@@ -890,7 +940,8 @@ input {
 .container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content-f-r,
 .container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content-f-r,
 .container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content-f-r,
-.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content-f-r {
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content-f-r,
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content-f-r {
   padding: 0 55px;
   margin: 42px 0;
 }
@@ -903,7 +954,8 @@ input {
 .container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content-f-r,
 .container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content-f-r,
 .container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content-f-r,
-.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content-f-r {
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content-f-r,
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content-f-r {
     padding: 0 25px;
   }
 }
@@ -915,7 +967,8 @@ input {
 .container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content-f-r ._mr,
 .container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content-f-r ._mr,
 .container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content-f-r ._mr,
-.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content-f-r ._mr {
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content-f-r ._mr,
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content-f-r ._mr {
   margin: 12px 0 10px;
 }
 .container-welcome .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content-f-r ._mrt,
@@ -926,7 +979,8 @@ input {
 .container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content-f-r ._mrt,
 .container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content-f-r ._mrt,
 .container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content-f-r ._mrt,
-.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content-f-r ._mrt {
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content-f-r ._mrt,
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content-f-r ._mrt {
   margin: 12px 0 0;
 }
 .container-welcome .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content-f-r p a,
@@ -937,7 +991,8 @@ input {
 .container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content-f-r p a,
 .container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content-f-r p a,
 .container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content-f-r p a,
-.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content-f-r p a {
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content-f-r p a,
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content-f-r p a {
   line-height: 20px;
 }
 .container-welcome .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content-f-r .block_a,
@@ -948,7 +1003,8 @@ input {
 .container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content-f-r .block_a,
 .container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content-f-r .block_a,
 .container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content-f-r .block_a,
-.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content-f-r .block_a {
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content-f-r .block_a,
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content-f-r .block_a {
   margin: 20px 0 0;
 }
 .container-welcome .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content-f-r .block_a .btn_email-code,
@@ -959,7 +1015,8 @@ input {
 .container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content-f-r .block_a .btn_email-code,
 .container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content-f-r .block_a .btn_email-code,
 .container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content-f-r .block_a .btn_email-code,
-.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content-f-r .block_a .btn_email-code {
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content-f-r .block_a .btn_email-code,
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content-f-r .block_a .btn_email-code {
   width: 100%;
 }
 .container-welcome .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content-f-r .radio-item,
@@ -970,7 +1027,8 @@ input {
 .container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content-f-r .radio-item,
 .container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content-f-r .radio-item,
 .container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content-f-r .radio-item,
-.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content-f-r .radio-item {
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content-f-r .radio-item,
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content-f-r .radio-item {
   margin-top: 20px;
   position: relative;
   width: 100%;
@@ -983,7 +1041,8 @@ input {
 .container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content-f-r .radio-item input[type=checkbox],
 .container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content-f-r .radio-item input[type=checkbox],
 .container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content-f-r .radio-item input[type=checkbox],
-.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content-f-r .radio-item input[type=checkbox] {
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content-f-r .radio-item input[type=checkbox],
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content-f-r .radio-item input[type=checkbox] {
   display: none;
 }
 .container-welcome .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content-f-r .radio-item input[type=checkbox]:checked + label:before,
@@ -994,7 +1053,8 @@ input {
 .container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content-f-r .radio-item input[type=checkbox]:checked + label:before,
 .container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content-f-r .radio-item input[type=checkbox]:checked + label:before,
 .container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content-f-r .radio-item input[type=checkbox]:checked + label:before,
-.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content-f-r .radio-item input[type=checkbox]:checked + label:before {
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content-f-r .radio-item input[type=checkbox]:checked + label:before,
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content-f-r .radio-item input[type=checkbox]:checked + label:before {
   border: 3px solid #00B5DD;
   background-color: #00B5DD;
 }
@@ -1006,7 +1066,8 @@ input {
 .container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content-f-r .radio-item input[type=checkbox]:checked + label:after,
 .container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content-f-r .radio-item input[type=checkbox]:checked + label:after,
 .container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content-f-r .radio-item input[type=checkbox]:checked + label:after,
-.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content-f-r .radio-item input[type=checkbox]:checked + label:after {
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content-f-r .radio-item input[type=checkbox]:checked + label:after,
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content-f-r .radio-item input[type=checkbox]:checked + label:after {
   content: "";
 }
 .container-welcome .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content-f-r .radio-item label,
@@ -1017,7 +1078,8 @@ input {
 .container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content-f-r .radio-item label,
 .container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content-f-r .radio-item label,
 .container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content-f-r .radio-item label,
-.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content-f-r .radio-item label {
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content-f-r .radio-item label,
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content-f-r .radio-item label {
   display: inline-flex;
   gap: 14px;
   align-items: center;
@@ -1033,7 +1095,8 @@ input {
 .container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content-f-r .radio-item label::before,
 .container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content-f-r .radio-item label::before,
 .container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content-f-r .radio-item label::before,
-.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content-f-r .radio-item label::before {
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content-f-r .radio-item label::before,
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content-f-r .radio-item label::before {
   content: "";
   position: relative;
   margin-top: 5px;
@@ -1052,7 +1115,8 @@ input {
 .container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content-f-r .radio-item label::after,
 .container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content-f-r .radio-item label::after,
 .container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content-f-r .radio-item label::after,
-.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content-f-r .radio-item label::after {
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content-f-r .radio-item label::after,
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content-f-r .radio-item label::after {
   content: "";
   font-family: "Font Awesome 5 Pro";
   font-weight: 500;
@@ -1071,7 +1135,8 @@ input {
 .container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content-f-r .radio-item label .content_flex-actv,
 .container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content-f-r .radio-item label .content_flex-actv,
 .container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content-f-r .radio-item label .content_flex-actv,
-.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content-f-r .radio-item label .content_flex-actv {
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content-f-r .radio-item label .content_flex-actv,
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content-f-r .radio-item label .content_flex-actv {
   display: flex;
 }
 .container-welcome .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content-f-r .radio-item label .content_flex-actv .flex_icon,
@@ -1082,7 +1147,8 @@ input {
 .container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content-f-r .radio-item label .content_flex-actv .flex_icon,
 .container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content-f-r .radio-item label .content_flex-actv .flex_icon,
 .container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content-f-r .radio-item label .content_flex-actv .flex_icon,
-.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content-f-r .radio-item label .content_flex-actv .flex_icon {
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content-f-r .radio-item label .content_flex-actv .flex_icon,
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content-f-r .radio-item label .content_flex-actv .flex_icon {
   display: flex;
   justify-content: center;
   align-items: baseline;
@@ -1098,7 +1164,8 @@ input {
 .container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content-f-r .radio-item label .content_flex-actv .flex_icon i,
 .container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content-f-r .radio-item label .content_flex-actv .flex_icon i,
 .container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content-f-r .radio-item label .content_flex-actv .flex_icon i,
-.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content-f-r .radio-item label .content_flex-actv .flex_icon i {
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content-f-r .radio-item label .content_flex-actv .flex_icon i,
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content-f-r .radio-item label .content_flex-actv .flex_icon i {
   font-size: 25px;
   margin: 5px 0;
   color: #FF5A5F;
@@ -1111,7 +1178,8 @@ input {
 .container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content-f-r .radio-item label .content_flex-actv .flex-msg h5,
 .container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content-f-r .radio-item label .content_flex-actv .flex-msg h5,
 .container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content-f-r .radio-item label .content_flex-actv .flex-msg h5,
-.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content-f-r .radio-item label .content_flex-actv .flex-msg h5 {
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content-f-r .radio-item label .content_flex-actv .flex-msg h5,
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content-f-r .radio-item label .content_flex-actv .flex-msg h5 {
   font-size: 18px;
   font-weight: bold;
   color: #333333;
@@ -1125,7 +1193,8 @@ input {
 .container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content-f-r .radio-item label .content_flex-actv .flex-msg small,
 .container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content-f-r .radio-item label .content_flex-actv .flex-msg small,
 .container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content-f-r .radio-item label .content_flex-actv .flex-msg small,
-.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content-f-r .radio-item label .content_flex-actv .flex-msg small {
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content-f-r .radio-item label .content_flex-actv .flex-msg small,
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content-f-r .radio-item label .content_flex-actv .flex-msg small {
   font-weight: normal;
   font-size: 16px;
   color: #7D7D7D;
@@ -1138,7 +1207,8 @@ input {
 .container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content-f-r .radio-item .hr,
 .container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content-f-r .radio-item .hr,
 .container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content-f-r .radio-item .hr,
-.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content-f-r .radio-item .hr {
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content-f-r .radio-item .hr,
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content-f-r .radio-item .hr {
   border-bottom: 3px solid #E3EDF3;
 }
 .container-welcome .pd_login-modal .modal_content-welcome .content_right .content_hidden-number,
@@ -1149,7 +1219,8 @@ input {
 .container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number,
 .container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number,
 .container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number,
-.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number {
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number,
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-number {
   overflow-x: auto;
   display: none;
   padding: 71px;
@@ -1168,7 +1239,8 @@ input {
 .container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number,
 .container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number,
 .container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number,
-.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number {
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number,
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-number {
     padding: 71px 35px;
   }
 }
@@ -1180,7 +1252,8 @@ input {
 .container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr,
 .container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr,
 .container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr,
-.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr {
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr,
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr {
   margin: auto;
 }
 .container-welcome .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .btn-help,
@@ -1191,7 +1264,8 @@ input {
 .container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .btn-help,
 .container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .btn-help,
 .container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .btn-help,
-.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .btn-help {
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .btn-help,
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .btn-help {
   display: inline-block;
   cursor: pointer;
   font-size: 18px;
@@ -1207,7 +1281,8 @@ input {
 .container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .hr,
 .container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .hr,
 .container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .hr,
-.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .hr {
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .hr,
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .hr {
   border-bottom: 3px solid #E3EDF3;
 }
 .container-welcome .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_number h3,
@@ -1218,7 +1293,8 @@ input {
 .container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_number h3,
 .container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_number h3,
 .container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_number h3,
-.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_number h3 {
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_number h3,
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_number h3 {
   margin: 0 0 25px;
   text-align: center;
   font-size: 35px;
@@ -1232,7 +1308,8 @@ input {
 .container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_number .des,
 .container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_number .des,
 .container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_number .des,
-.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_number .des {
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_number .des,
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_number .des {
   margin: 23px 0 36px;
   line-height: 24px;
   text-align: center;
@@ -1248,7 +1325,8 @@ input {
 .container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_number .box_enter,
 .container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_number .box_enter,
 .container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_number .box_enter,
-.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_number .box_enter {
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_number .box_enter,
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_number .box_enter {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
@@ -1262,7 +1340,8 @@ input {
 .container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_number .box_enter input,
 .container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_number .box_enter input,
 .container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_number .box_enter input,
-.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_number .box_enter input {
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_number .box_enter input,
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_number .box_enter input {
   width: 70px;
   height: 70px;
   border-radius: 10px;
@@ -1281,7 +1360,8 @@ input {
 .container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_number .box_enter input:focus,
 .container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_number .box_enter input:focus,
 .container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_number .box_enter input:focus,
-.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_number .box_enter input:focus {
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_number .box_enter input:focus,
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_number .box_enter input:focus {
   border: 3px solid #00B5DD;
   box-shadow: 0 0 15px rgba(40, 54, 70, 0.1);
 }
@@ -1293,7 +1373,8 @@ input {
 .container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_number .link,
 .container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_number .link,
 .container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_number .link,
-.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_number .link {
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_number .link,
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_number .link {
   margin: 26px 0;
   color: #7D7D7D;
   font-size: 18px;
@@ -1309,7 +1390,8 @@ input {
 .container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_number .link a,
 .container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_number .link a,
 .container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_number .link a,
-.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_number .link a {
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_number .link a,
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_number .link a {
   cursor: pointer;
   display: inline-block;
   text-decoration: underline;
@@ -1324,7 +1406,8 @@ input {
 .container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_number .block_a,
 .container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_number .block_a,
 .container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_number .block_a,
-.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_number .block_a {
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_number .block_a,
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_number .block_a {
   display: flex;
   justify-content: center;
 }
@@ -1336,7 +1419,8 @@ input {
 .container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_number .block_a button,
 .container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_number .block_a button,
 .container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_number .block_a button,
-.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_number .block_a button {
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_number .block_a button,
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_number .block_a button {
   padding: 16px 50px;
   border-radius: 10px;
   background-color: #00B5DD;
@@ -1352,7 +1436,8 @@ input {
 .container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_email h3,
 .container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_email h3,
 .container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_email h3,
-.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_email h3 {
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_email h3,
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_email h3 {
   margin: 0 0 25px;
   text-align: center;
   font-size: 35px;
@@ -1366,7 +1451,8 @@ input {
 .container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_email .des,
 .container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_email .des,
 .container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_email .des,
-.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_email .des {
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_email .des,
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_email .des {
   margin: 23px 0 36px;
   line-height: 24px;
   text-align: center;
@@ -1382,7 +1468,8 @@ input {
 .container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_email .box_enter,
 .container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_email .box_enter,
 .container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_email .box_enter,
-.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_email .box_enter {
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_email .box_enter,
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_email .box_enter {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
@@ -1396,7 +1483,8 @@ input {
 .container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_email .box_enter input,
 .container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_email .box_enter input,
 .container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_email .box_enter input,
-.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_email .box_enter input {
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_email .box_enter input,
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_email .box_enter input {
   width: 70px;
   height: 70px;
   border-radius: 10px;
@@ -1415,7 +1503,8 @@ input {
 .container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_email .box_enter input:focus,
 .container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_email .box_enter input:focus,
 .container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_email .box_enter input:focus,
-.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_email .box_enter input:focus {
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_email .box_enter input:focus,
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_email .box_enter input:focus {
   border: 3px solid #00B5DD;
   box-shadow: 0 0 15px rgba(40, 54, 70, 0.1);
 }
@@ -1427,7 +1516,8 @@ input {
 .container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_email .link,
 .container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_email .link,
 .container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_email .link,
-.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_email .link {
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_email .link,
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_email .link {
   margin: 26px 0;
   color: #7D7D7D;
   font-size: 18px;
@@ -1443,7 +1533,8 @@ input {
 .container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_email .link a,
 .container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_email .link a,
 .container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_email .link a,
-.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_email .link a {
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_email .link a,
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_email .link a {
   cursor: pointer;
   display: inline-block;
   text-decoration: underline;
@@ -1458,7 +1549,8 @@ input {
 .container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_email .block_a,
 .container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_email .block_a,
 .container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_email .block_a,
-.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_email .block_a {
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_email .block_a,
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_email .block_a {
   display: flex;
   justify-content: center;
 }
@@ -1470,7 +1562,8 @@ input {
 .container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_email .block_a button,
 .container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_email .block_a button,
 .container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_email .block_a button,
-.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_email .block_a button {
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_email .block_a button,
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_email .block_a button {
   padding: 16px 50px;
   border-radius: 10px;
   background-color: #00B5DD;
@@ -1486,7 +1579,8 @@ input {
 .container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options-email h3,
 .container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options-email h3,
 .container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options-email h3,
-.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options-email h3 {
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options-email h3,
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options-email h3 {
   margin: 0 0 25px;
   text-align: center;
   font-size: 35px;
@@ -1500,7 +1594,8 @@ input {
 .container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options-email p,
 .container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options-email p,
 .container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options-email p,
-.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options-email p {
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options-email p,
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options-email p {
   margin-top: 23px;
   line-height: 24px;
   text-align: center;
@@ -1516,7 +1611,8 @@ input {
 .container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options-email .box_options .block_check .radio-item,
 .container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options-email .box_options .block_check .radio-item,
 .container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options-email .box_options .block_check .radio-item,
-.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options-email .box_options .block_check .radio-item {
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options-email .box_options .block_check .radio-item,
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options-email .box_options .block_check .radio-item {
   position: relative;
   width: 100%;
 }
@@ -1528,7 +1624,8 @@ input {
 .container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options-email .box_options .block_check .radio-item input[type=radio],
 .container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options-email .box_options .block_check .radio-item input[type=radio],
 .container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options-email .box_options .block_check .radio-item input[type=radio],
-.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options-email .box_options .block_check .radio-item input[type=radio] {
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options-email .box_options .block_check .radio-item input[type=radio],
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options-email .box_options .block_check .radio-item input[type=radio] {
   opacity: 0;
   overflow: visible;
 }
@@ -1540,7 +1637,8 @@ input {
 .container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options-email .box_options .block_check .radio-item input[type=radio]:checked + label:before,
 .container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options-email .box_options .block_check .radio-item input[type=radio]:checked + label:before,
 .container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options-email .box_options .block_check .radio-item input[type=radio]:checked + label:before,
-.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options-email .box_options .block_check .radio-item input[type=radio]:checked + label:before {
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options-email .box_options .block_check .radio-item input[type=radio]:checked + label:before,
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options-email .box_options .block_check .radio-item input[type=radio]:checked + label:before {
   border: 3px solid #FF5A5F;
   background-color: #FF5A5F;
 }
@@ -1552,7 +1650,8 @@ input {
 .container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options-email .box_options .block_check .radio-item input[type=radio]:checked + label:after,
 .container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options-email .box_options .block_check .radio-item input[type=radio]:checked + label:after,
 .container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options-email .box_options .block_check .radio-item input[type=radio]:checked + label:after,
-.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options-email .box_options .block_check .radio-item input[type=radio]:checked + label:after {
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options-email .box_options .block_check .radio-item input[type=radio]:checked + label:after,
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options-email .box_options .block_check .radio-item input[type=radio]:checked + label:after {
   content: "";
 }
 .container-welcome .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options-email .box_options .block_check .radio-item label,
@@ -1563,7 +1662,8 @@ input {
 .container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options-email .box_options .block_check .radio-item label,
 .container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options-email .box_options .block_check .radio-item label,
 .container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options-email .box_options .block_check .radio-item label,
-.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options-email .box_options .block_check .radio-item label {
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options-email .box_options .block_check .radio-item label,
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options-email .box_options .block_check .radio-item label {
   display: flex;
   cursor: pointer;
   justify-content: space-between;
@@ -1580,7 +1680,8 @@ input {
 .container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options-email .box_options .block_check .radio-item label:before,
 .container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options-email .box_options .block_check .radio-item label:before,
 .container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options-email .box_options .block_check .radio-item label:before,
-.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options-email .box_options .block_check .radio-item label:before {
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options-email .box_options .block_check .radio-item label:before,
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options-email .box_options .block_check .radio-item label:before {
   content: "";
   display: inline-block;
   position: relative;
@@ -1599,7 +1700,8 @@ input {
 .container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options-email .box_options .block_check .radio-item label:after,
 .container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options-email .box_options .block_check .radio-item label:after,
 .container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options-email .box_options .block_check .radio-item label:after,
-.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options-email .box_options .block_check .radio-item label:after {
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options-email .box_options .block_check .radio-item label:after,
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options-email .box_options .block_check .radio-item label:after {
   content: "";
   font-family: "Font Awesome 5 Pro";
   font-weight: 900;
@@ -1622,7 +1724,8 @@ input {
 .container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options-email .box_options .block_check .radio-item label .content_flex-actv,
 .container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options-email .box_options .block_check .radio-item label .content_flex-actv,
 .container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options-email .box_options .block_check .radio-item label .content_flex-actv,
-.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options-email .box_options .block_check .radio-item label .content_flex-actv {
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options-email .box_options .block_check .radio-item label .content_flex-actv,
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options-email .box_options .block_check .radio-item label .content_flex-actv {
   display: flex;
 }
 .container-welcome .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options-email .box_options .block_check .radio-item label .content_flex-actv .flex_icon,
@@ -1633,7 +1736,8 @@ input {
 .container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options-email .box_options .block_check .radio-item label .content_flex-actv .flex_icon,
 .container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options-email .box_options .block_check .radio-item label .content_flex-actv .flex_icon,
 .container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options-email .box_options .block_check .radio-item label .content_flex-actv .flex_icon,
-.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options-email .box_options .block_check .radio-item label .content_flex-actv .flex_icon {
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options-email .box_options .block_check .radio-item label .content_flex-actv .flex_icon,
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options-email .box_options .block_check .radio-item label .content_flex-actv .flex_icon {
   display: flex;
   justify-content: center;
   align-items: baseline;
@@ -1649,7 +1753,8 @@ input {
 .container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options-email .box_options .block_check .radio-item label .content_flex-actv .flex_icon i,
 .container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options-email .box_options .block_check .radio-item label .content_flex-actv .flex_icon i,
 .container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options-email .box_options .block_check .radio-item label .content_flex-actv .flex_icon i,
-.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options-email .box_options .block_check .radio-item label .content_flex-actv .flex_icon i {
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options-email .box_options .block_check .radio-item label .content_flex-actv .flex_icon i,
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options-email .box_options .block_check .radio-item label .content_flex-actv .flex_icon i {
   font-size: 25px;
   margin: 5px 0;
   color: #FF5A5F;
@@ -1662,7 +1767,8 @@ input {
 .container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options-email .box_options .block_check .radio-item label .content_flex-actv .flex-msg h5,
 .container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options-email .box_options .block_check .radio-item label .content_flex-actv .flex-msg h5,
 .container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options-email .box_options .block_check .radio-item label .content_flex-actv .flex-msg h5,
-.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options-email .box_options .block_check .radio-item label .content_flex-actv .flex-msg h5 {
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options-email .box_options .block_check .radio-item label .content_flex-actv .flex-msg h5,
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options-email .box_options .block_check .radio-item label .content_flex-actv .flex-msg h5 {
   font-size: 18px;
   font-weight: bold;
   color: #333333;
@@ -1676,7 +1782,8 @@ input {
 .container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options-email .box_options .block_check .radio-item label .content_flex-actv .flex-msg small,
 .container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options-email .box_options .block_check .radio-item label .content_flex-actv .flex-msg small,
 .container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options-email .box_options .block_check .radio-item label .content_flex-actv .flex-msg small,
-.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options-email .box_options .block_check .radio-item label .content_flex-actv .flex-msg small {
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options-email .box_options .block_check .radio-item label .content_flex-actv .flex-msg small,
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options-email .box_options .block_check .radio-item label .content_flex-actv .flex-msg small {
   font-weight: normal;
   font-size: 16px;
   color: #7D7D7D;
@@ -1689,7 +1796,8 @@ input {
 .container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options-email .box_options .block_check .btn-help-email,
 .container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options-email .box_options .block_check .btn-help-email,
 .container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options-email .box_options .block_check .btn-help-email,
-.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options-email .box_options .block_check .btn-help-email {
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options-email .box_options .block_check .btn-help-email,
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options-email .box_options .block_check .btn-help-email {
   margin: 28px 0 16px;
   display: inline-block;
   cursor: pointer;
@@ -1706,7 +1814,8 @@ input {
 .container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options-email .block_a,
 .container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options-email .block_a,
 .container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options-email .block_a,
-.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options-email .block_a {
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options-email .block_a,
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options-email .block_a {
   margin-top: 12px;
   display: flex;
   justify-content: center;
@@ -1719,7 +1828,8 @@ input {
 .container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options-email .block_a button,
 .container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options-email .block_a button,
 .container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options-email .block_a button,
-.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options-email .block_a button {
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options-email .block_a button,
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options-email .block_a button {
   padding: 16px 50px;
   border-radius: 10px;
   background-color: #00B5DD;
@@ -1735,7 +1845,8 @@ input {
 .container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options h3,
 .container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options h3,
 .container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options h3,
-.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options h3 {
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options h3,
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options h3 {
   margin: 0 0 25px;
   text-align: center;
   font-size: 35px;
@@ -1749,7 +1860,8 @@ input {
 .container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options p,
 .container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options p,
 .container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options p,
-.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options p {
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options p,
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options p {
   margin-top: 23px;
   line-height: 24px;
   text-align: center;
@@ -1765,7 +1877,8 @@ input {
 .container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options .box_options .block_check .radio-item,
 .container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options .box_options .block_check .radio-item,
 .container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options .box_options .block_check .radio-item,
-.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options .box_options .block_check .radio-item {
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options .box_options .block_check .radio-item,
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options .box_options .block_check .radio-item {
   position: relative;
   width: 100%;
 }
@@ -1777,7 +1890,8 @@ input {
 .container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options .box_options .block_check .radio-item input[type=radio],
 .container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options .box_options .block_check .radio-item input[type=radio],
 .container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options .box_options .block_check .radio-item input[type=radio],
-.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options .box_options .block_check .radio-item input[type=radio] {
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options .box_options .block_check .radio-item input[type=radio],
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options .box_options .block_check .radio-item input[type=radio] {
   opacity: 0;
   overflow: visible;
 }
@@ -1789,7 +1903,8 @@ input {
 .container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options .box_options .block_check .radio-item input[type=radio]:checked + label:before,
 .container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options .box_options .block_check .radio-item input[type=radio]:checked + label:before,
 .container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options .box_options .block_check .radio-item input[type=radio]:checked + label:before,
-.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options .box_options .block_check .radio-item input[type=radio]:checked + label:before {
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options .box_options .block_check .radio-item input[type=radio]:checked + label:before,
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options .box_options .block_check .radio-item input[type=radio]:checked + label:before {
   border: 3px solid #FF5A5F;
   background-color: #FF5A5F;
 }
@@ -1801,7 +1916,8 @@ input {
 .container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options .box_options .block_check .radio-item input[type=radio]:checked + label:after,
 .container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options .box_options .block_check .radio-item input[type=radio]:checked + label:after,
 .container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options .box_options .block_check .radio-item input[type=radio]:checked + label:after,
-.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options .box_options .block_check .radio-item input[type=radio]:checked + label:after {
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options .box_options .block_check .radio-item input[type=radio]:checked + label:after,
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options .box_options .block_check .radio-item input[type=radio]:checked + label:after {
   content: "";
 }
 .container-welcome .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options .box_options .block_check .radio-item label,
@@ -1812,7 +1928,8 @@ input {
 .container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options .box_options .block_check .radio-item label,
 .container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options .box_options .block_check .radio-item label,
 .container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options .box_options .block_check .radio-item label,
-.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options .box_options .block_check .radio-item label {
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options .box_options .block_check .radio-item label,
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options .box_options .block_check .radio-item label {
   display: flex;
   cursor: pointer;
   justify-content: space-between;
@@ -1829,7 +1946,8 @@ input {
 .container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options .box_options .block_check .radio-item label:before,
 .container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options .box_options .block_check .radio-item label:before,
 .container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options .box_options .block_check .radio-item label:before,
-.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options .box_options .block_check .radio-item label:before {
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options .box_options .block_check .radio-item label:before,
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options .box_options .block_check .radio-item label:before {
   content: "";
   display: inline-block;
   position: relative;
@@ -1848,7 +1966,8 @@ input {
 .container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options .box_options .block_check .radio-item label:after,
 .container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options .box_options .block_check .radio-item label:after,
 .container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options .box_options .block_check .radio-item label:after,
-.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options .box_options .block_check .radio-item label:after {
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options .box_options .block_check .radio-item label:after,
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options .box_options .block_check .radio-item label:after {
   content: "";
   font-family: "Font Awesome 5 Pro";
   font-weight: 900;
@@ -1871,7 +1990,8 @@ input {
 .container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options .box_options .block_check .radio-item label .content_flex-actv,
 .container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options .box_options .block_check .radio-item label .content_flex-actv,
 .container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options .box_options .block_check .radio-item label .content_flex-actv,
-.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options .box_options .block_check .radio-item label .content_flex-actv {
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options .box_options .block_check .radio-item label .content_flex-actv,
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options .box_options .block_check .radio-item label .content_flex-actv {
   display: flex;
 }
 .container-welcome .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options .box_options .block_check .radio-item label .content_flex-actv .flex_icon,
@@ -1882,7 +2002,8 @@ input {
 .container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options .box_options .block_check .radio-item label .content_flex-actv .flex_icon,
 .container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options .box_options .block_check .radio-item label .content_flex-actv .flex_icon,
 .container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options .box_options .block_check .radio-item label .content_flex-actv .flex_icon,
-.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options .box_options .block_check .radio-item label .content_flex-actv .flex_icon {
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options .box_options .block_check .radio-item label .content_flex-actv .flex_icon,
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options .box_options .block_check .radio-item label .content_flex-actv .flex_icon {
   display: flex;
   justify-content: center;
   align-items: baseline;
@@ -1898,7 +2019,8 @@ input {
 .container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options .box_options .block_check .radio-item label .content_flex-actv .flex_icon i,
 .container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options .box_options .block_check .radio-item label .content_flex-actv .flex_icon i,
 .container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options .box_options .block_check .radio-item label .content_flex-actv .flex_icon i,
-.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options .box_options .block_check .radio-item label .content_flex-actv .flex_icon i {
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options .box_options .block_check .radio-item label .content_flex-actv .flex_icon i,
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options .box_options .block_check .radio-item label .content_flex-actv .flex_icon i {
   font-size: 25px;
   margin: 5px 0;
   color: #FF5A5F;
@@ -1911,7 +2033,8 @@ input {
 .container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options .box_options .block_check .radio-item label .content_flex-actv .flex-msg h5,
 .container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options .box_options .block_check .radio-item label .content_flex-actv .flex-msg h5,
 .container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options .box_options .block_check .radio-item label .content_flex-actv .flex-msg h5,
-.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options .box_options .block_check .radio-item label .content_flex-actv .flex-msg h5 {
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options .box_options .block_check .radio-item label .content_flex-actv .flex-msg h5,
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options .box_options .block_check .radio-item label .content_flex-actv .flex-msg h5 {
   font-size: 18px;
   font-weight: bold;
   color: #333333;
@@ -1925,7 +2048,8 @@ input {
 .container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options .box_options .block_check .radio-item label .content_flex-actv .flex-msg small,
 .container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options .box_options .block_check .radio-item label .content_flex-actv .flex-msg small,
 .container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options .box_options .block_check .radio-item label .content_flex-actv .flex-msg small,
-.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options .box_options .block_check .radio-item label .content_flex-actv .flex-msg small {
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options .box_options .block_check .radio-item label .content_flex-actv .flex-msg small,
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options .box_options .block_check .radio-item label .content_flex-actv .flex-msg small {
   font-weight: normal;
   font-size: 16px;
   color: #7D7D7D;
@@ -1938,7 +2062,8 @@ input {
 .container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options .box_options .block_check .radio-item .hr,
 .container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options .box_options .block_check .radio-item .hr,
 .container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options .box_options .block_check .radio-item .hr,
-.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options .box_options .block_check .radio-item .hr {
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options .box_options .block_check .radio-item .hr,
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options .box_options .block_check .radio-item .hr {
   border-bottom: 3px solid #E3EDF3;
 }
 .container-welcome .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options .box_options .block_check .btn-help,
@@ -1949,7 +2074,8 @@ input {
 .container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options .box_options .block_check .btn-help,
 .container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options .box_options .block_check .btn-help,
 .container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options .box_options .block_check .btn-help,
-.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options .box_options .block_check .btn-help {
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options .box_options .block_check .btn-help,
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options .box_options .block_check .btn-help {
   margin: 28px 0 16px;
 }
 .container-welcome .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options .block_a,
@@ -1960,7 +2086,8 @@ input {
 .container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options .block_a,
 .container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options .block_a,
 .container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options .block_a,
-.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options .block_a {
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options .block_a,
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options .block_a {
   margin-top: 12px;
   display: flex;
   justify-content: center;
@@ -1973,7 +2100,8 @@ input {
 .container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options .block_a button,
 .container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options .block_a button,
 .container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options .block_a button,
-.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options .block_a button {
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options .block_a button,
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options .block_a button {
   padding: 16px 50px;
   border-radius: 10px;
   background-color: #00B5DD;
@@ -1989,7 +2117,8 @@ input {
 .container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_confirm h3,
 .container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_confirm h3,
 .container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_confirm h3,
-.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_confirm h3 {
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_confirm h3,
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_confirm h3 {
   text-align: center;
   font-size: 35px;
   font-weight: bold;
@@ -2002,7 +2131,8 @@ input {
 .container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_confirm .des,
 .container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_confirm .des,
 .container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_confirm .des,
-.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_confirm .des {
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_confirm .des,
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_confirm .des {
   margin: 23px 0 36px;
   line-height: 24px;
   text-align: justify;
@@ -2018,7 +2148,8 @@ input {
 .container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_confirm .box_confirm,
 .container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_confirm .box_confirm,
 .container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_confirm .box_confirm,
-.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_confirm .box_confirm {
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_confirm .box_confirm,
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_confirm .box_confirm {
   display: flex;
   padding-bottom: 43px;
   position: relative;
@@ -2033,7 +2164,8 @@ input {
 .container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_confirm .box_confirm .radio-item,
 .container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_confirm .box_confirm .radio-item,
 .container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_confirm .box_confirm .radio-item,
-.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_confirm .box_confirm .radio-item {
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_confirm .box_confirm .radio-item,
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_confirm .box_confirm .radio-item {
   position: relative;
 }
 .container-welcome .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_confirm .box_confirm .radio-item input[type=radio],
@@ -2044,7 +2176,8 @@ input {
 .container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_confirm .box_confirm .radio-item input[type=radio],
 .container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_confirm .box_confirm .radio-item input[type=radio],
 .container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_confirm .box_confirm .radio-item input[type=radio],
-.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_confirm .box_confirm .radio-item input[type=radio] {
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_confirm .box_confirm .radio-item input[type=radio],
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_confirm .box_confirm .radio-item input[type=radio] {
   opacity: 0;
   overflow: visible;
 }
@@ -2056,7 +2189,8 @@ input {
 .container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_confirm .box_confirm .radio-item input[type=radio]:checked + label:before,
 .container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_confirm .box_confirm .radio-item input[type=radio]:checked + label:before,
 .container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_confirm .box_confirm .radio-item input[type=radio]:checked + label:before,
-.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_confirm .box_confirm .radio-item input[type=radio]:checked + label:before {
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_confirm .box_confirm .radio-item input[type=radio]:checked + label:before,
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_confirm .box_confirm .radio-item input[type=radio]:checked + label:before {
   border: 3px solid #00B5DD;
 }
 .container-welcome .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_confirm .box_confirm .radio-item input[type=radio]:checked + label:after,
@@ -2067,7 +2201,8 @@ input {
 .container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_confirm .box_confirm .radio-item input[type=radio]:checked + label:after,
 .container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_confirm .box_confirm .radio-item input[type=radio]:checked + label:after,
 .container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_confirm .box_confirm .radio-item input[type=radio]:checked + label:after,
-.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_confirm .box_confirm .radio-item input[type=radio]:checked + label:after {
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_confirm .box_confirm .radio-item input[type=radio]:checked + label:after,
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_confirm .box_confirm .radio-item input[type=radio]:checked + label:after {
   background-color: #00B5DD;
 }
 .container-welcome .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_confirm .box_confirm .radio-item label,
@@ -2078,7 +2213,8 @@ input {
 .container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_confirm .box_confirm .radio-item label,
 .container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_confirm .box_confirm .radio-item label,
 .container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_confirm .box_confirm .radio-item label,
-.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_confirm .box_confirm .radio-item label {
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_confirm .box_confirm .radio-item label,
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_confirm .box_confirm .radio-item label {
   display: flex;
   align-items: center;
   font-size: 18px;
@@ -2094,7 +2230,8 @@ input {
 .container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_confirm .box_confirm .radio-item label:before,
 .container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_confirm .box_confirm .radio-item label:before,
 .container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_confirm .box_confirm .radio-item label:before,
-.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_confirm .box_confirm .radio-item label:before {
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_confirm .box_confirm .radio-item label:before,
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_confirm .box_confirm .radio-item label:before {
   content: " ";
   display: inline-block;
   position: relative;
@@ -2114,7 +2251,8 @@ input {
 .container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_confirm .box_confirm .radio-item label:after,
 .container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_confirm .box_confirm .radio-item label:after,
 .container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_confirm .box_confirm .radio-item label:after,
-.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_confirm .box_confirm .radio-item label:after {
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_confirm .box_confirm .radio-item label:after,
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_confirm .box_confirm .radio-item label:after {
   content: " ";
   border-radius: 50%;
   width: 20px;
@@ -2132,7 +2270,8 @@ input {
 .container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_confirm .link_help,
 .container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_confirm .link_help,
 .container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_confirm .link_help,
-.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_confirm .link_help {
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_confirm .link_help,
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_confirm .link_help {
   margin: 44px 0 43px;
 }
 .container-welcome .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_confirm .block_a,
@@ -2143,7 +2282,8 @@ input {
 .container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_confirm .block_a,
 .container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_confirm .block_a,
 .container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_confirm .block_a,
-.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_confirm .block_a {
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_confirm .block_a,
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_confirm .block_a {
   display: flex;
   justify-content: center;
 }
@@ -2155,7 +2295,8 @@ input {
 .container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_confirm .block_a button,
 .container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_confirm .block_a button,
 .container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_confirm .block_a button,
-.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_confirm .block_a button {
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_confirm .block_a button,
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_confirm .block_a button {
   padding: 16px 50px;
   border-radius: 10px;
   background-color: #00B5DD;
@@ -2171,7 +2312,8 @@ input {
 .container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_need h3,
 .container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_need h3,
 .container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_need h3,
-.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_need h3 {
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_need h3,
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_need h3 {
   margin: 0 0 25px;
   text-align: center;
   font-size: 35px;
@@ -2185,7 +2327,8 @@ input {
 .container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_need p,
 .container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_need p,
 .container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_need p,
-.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_need p {
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_need p,
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_need p {
   margin: 23px 0 36px;
   line-height: 24px;
   text-align: justify;
@@ -2201,7 +2344,8 @@ input {
 .container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_need h5,
 .container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_need h5,
 .container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_need h5,
-.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_need h5 {
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_need h5,
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_need h5 {
   font-size: 18px;
   font-weight: bold;
   line-height: 24px;
@@ -2214,7 +2358,8 @@ input {
 .container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_need textarea,
 .container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_need textarea,
 .container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_need textarea,
-.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_need textarea {
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_need textarea,
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_need textarea {
   outline: none;
   padding: 12px;
   margin: 28px 0;
@@ -2237,7 +2382,8 @@ input {
 .container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_need .content_a,
 .container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_need .content_a,
 .container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_need .content_a,
-.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_need .content_a {
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_need .content_a,
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_need .content_a {
   display: flex;
   justify-content: space-between;
 }
@@ -2249,7 +2395,8 @@ input {
 .container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_need .content_a .back,
 .container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_need .content_a .back,
 .container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_need .content_a .back,
-.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_need .content_a .back {
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_need .content_a .back,
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_need .content_a .back {
   display: flex;
   align-items: center;
 }
@@ -2261,7 +2408,8 @@ input {
 .container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_need .content_a .back .back_a,
 .container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_need .content_a .back .back_a,
 .container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_need .content_a .back .back_a,
-.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_need .content_a .back .back_a {
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_need .content_a .back .back_a,
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_need .content_a .back .back_a {
   cursor: pointer;
   color: #333333;
   font-size: 18px;
@@ -2277,7 +2425,8 @@ input {
 .container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_need .content_a .back .back_a:before,
 .container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_need .content_a .back .back_a:before,
 .container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_need .content_a .back .back_a:before,
-.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_need .content_a .back .back_a:before {
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_need .content_a .back .back_a:before,
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_need .content_a .back .back_a:before {
   content: "";
   position: absolute;
   width: 74%;
@@ -2294,7 +2443,8 @@ input {
 .container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_need .content_a .back .back_a i,
 .container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_need .content_a .back .back_a i,
 .container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_need .content_a .back .back_a i,
-.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_need .content_a .back .back_a i {
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_need .content_a .back .back_a i,
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_need .content_a .back .back_a i {
   margin-right: 7px;
 }
 .container-welcome .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_need .content_a button,
@@ -2305,7 +2455,8 @@ input {
 .container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_need .content_a button,
 .container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_need .content_a button,
 .container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_need .content_a button,
-.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_need .content_a button {
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_need .content_a button,
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_need .content_a button {
   padding: 16px 50px;
   border-radius: 10px;
   background-color: #00B5DD;
@@ -2321,7 +2472,8 @@ input {
 .container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_need-email h3,
 .container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_need-email h3,
 .container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_need-email h3,
-.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_need-email h3 {
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_need-email h3,
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_need-email h3 {
   margin: 0 0 25px;
   text-align: center;
   font-size: 35px;
@@ -2335,7 +2487,8 @@ input {
 .container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_need-email p,
 .container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_need-email p,
 .container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_need-email p,
-.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_need-email p {
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_need-email p,
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_need-email p {
   margin: 23px 0 36px;
   line-height: 24px;
   text-align: justify;
@@ -2351,7 +2504,8 @@ input {
 .container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_need-email h5,
 .container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_need-email h5,
 .container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_need-email h5,
-.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_need-email h5 {
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_need-email h5,
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_need-email h5 {
   font-size: 18px;
   font-weight: bold;
   line-height: 24px;
@@ -2364,7 +2518,8 @@ input {
 .container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_need-email textarea,
 .container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_need-email textarea,
 .container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_need-email textarea,
-.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_need-email textarea {
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_need-email textarea,
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_need-email textarea {
   outline: none;
   padding: 12px;
   margin: 28px 0;
@@ -2387,7 +2542,8 @@ input {
 .container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_need-email .content_a,
 .container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_need-email .content_a,
 .container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_need-email .content_a,
-.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_need-email .content_a {
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_need-email .content_a,
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_need-email .content_a {
   display: flex;
   justify-content: space-between;
 }
@@ -2399,7 +2555,8 @@ input {
 .container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_need-email .content_a .back,
 .container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_need-email .content_a .back,
 .container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_need-email .content_a .back,
-.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_need-email .content_a .back {
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_need-email .content_a .back,
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_need-email .content_a .back {
   display: flex;
   align-items: center;
 }
@@ -2411,7 +2568,8 @@ input {
 .container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_need-email .content_a .back .back_a,
 .container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_need-email .content_a .back .back_a,
 .container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_need-email .content_a .back .back_a,
-.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_need-email .content_a .back .back_a {
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_need-email .content_a .back .back_a,
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_need-email .content_a .back .back_a {
   cursor: pointer;
   color: #333333;
   font-size: 18px;
@@ -2427,7 +2585,8 @@ input {
 .container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_need-email .content_a .back .back_a:before,
 .container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_need-email .content_a .back .back_a:before,
 .container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_need-email .content_a .back .back_a:before,
-.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_need-email .content_a .back .back_a:before {
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_need-email .content_a .back .back_a:before,
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_need-email .content_a .back .back_a:before {
   content: "";
   position: absolute;
   width: 74%;
@@ -2444,7 +2603,8 @@ input {
 .container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_need-email .content_a .back .back_a i,
 .container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_need-email .content_a .back .back_a i,
 .container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_need-email .content_a .back .back_a i,
-.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_need-email .content_a .back .back_a i {
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_need-email .content_a .back .back_a i,
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_need-email .content_a .back .back_a i {
   margin-right: 7px;
 }
 .container-welcome .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_need-email .content_a button,
@@ -2455,7 +2615,8 @@ input {
 .container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_need-email .content_a button,
 .container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_need-email .content_a button,
 .container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_need-email .content_a button,
-.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_need-email .content_a button {
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_need-email .content_a button,
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_need-email .content_a button {
   padding: 16px 50px;
   border-radius: 10px;
   background-color: #00B5DD;
@@ -2471,7 +2632,8 @@ input {
 .container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_security h3,
 .container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_security h3,
 .container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_security h3,
-.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_security h3 {
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_security h3,
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_security h3 {
   margin: 0 0 25px;
   text-align: center;
   font-size: 35px;
@@ -2485,7 +2647,8 @@ input {
 .container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_security .des,
 .container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_security .des,
 .container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_security .des,
-.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_security .des {
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_security .des,
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_security .des {
   margin: 23px 0 49px;
   line-height: 24px;
   text-align: justify;
@@ -2501,7 +2664,8 @@ input {
 .container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_security .des b,
 .container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_security .des b,
 .container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_security .des b,
-.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_security .des b {
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_security .des b,
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_security .des b {
   color: #333333;
 }
 .container-welcome .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_security .box_enter,
@@ -2512,7 +2676,8 @@ input {
 .container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_security .box_enter,
 .container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_security .box_enter,
 .container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_security .box_enter,
-.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_security .box_enter {
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_security .box_enter,
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_security .box_enter {
   display: flex;
   justify-content: space-between;
   gap: 11px;
@@ -2525,7 +2690,8 @@ input {
 .container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_security .box_enter input,
 .container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_security .box_enter input,
 .container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_security .box_enter input,
-.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_security .box_enter input {
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_security .box_enter input,
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_security .box_enter input {
   width: 70px;
   height: 70px;
   border-bottom: 3px solid #00B5DD;
@@ -2543,7 +2709,8 @@ input {
 .container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_security .box_enter input:focus,
 .container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_security .box_enter input:focus,
 .container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_security .box_enter input:focus,
-.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_security .box_enter input:focus {
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_security .box_enter input:focus,
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_security .box_enter input:focus {
   border-bottom: 3px solid #00B5DD;
 }
 .container-welcome .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_security .link,
@@ -2554,7 +2721,8 @@ input {
 .container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_security .link,
 .container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_security .link,
 .container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_security .link,
-.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_security .link {
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_security .link,
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_security .link {
   margin: 49px 0 38px;
   color: #7D7D7D;
   font-size: 18px;
@@ -2569,7 +2737,8 @@ input {
 .container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_security .link a,
 .container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_security .link a,
 .container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_security .link a,
-.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_security .link a {
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_security .link a,
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_security .link a {
   display: inline-block;
   color: #00B5DD;
   font-weight: bold;
@@ -2582,7 +2751,8 @@ input {
 .container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_security .content_a,
 .container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_security .content_a,
 .container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_security .content_a,
-.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_security .content_a {
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_security .content_a,
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_security .content_a {
   display: flex;
   justify-content: space-between;
 }
@@ -2594,7 +2764,8 @@ input {
 .container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_security .content_a .back,
 .container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_security .content_a .back,
 .container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_security .content_a .back,
-.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_security .content_a .back {
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_security .content_a .back,
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_security .content_a .back {
   display: flex;
   align-items: center;
 }
@@ -2606,7 +2777,8 @@ input {
 .container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_security .content_a .back .back_a,
 .container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_security .content_a .back .back_a,
 .container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_security .content_a .back .back_a,
-.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_security .content_a .back .back_a {
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_security .content_a .back .back_a,
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_security .content_a .back .back_a {
   cursor: pointer;
   color: #333333;
   font-size: 18px;
@@ -2622,7 +2794,8 @@ input {
 .container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_security .content_a .back .back_a:before,
 .container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_security .content_a .back .back_a:before,
 .container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_security .content_a .back .back_a:before,
-.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_security .content_a .back .back_a:before {
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_security .content_a .back .back_a:before,
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_security .content_a .back .back_a:before {
   content: "";
   position: absolute;
   width: 74%;
@@ -2639,7 +2812,8 @@ input {
 .container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_security .content_a .back .back_a i,
 .container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_security .content_a .back .back_a i,
 .container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_security .content_a .back .back_a i,
-.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_security .content_a .back .back_a i {
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_security .content_a .back .back_a i,
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_security .content_a .back .back_a i {
   margin-right: 7px;
 }
 .container-welcome .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_security .content_a .block_a,
@@ -2650,7 +2824,8 @@ input {
 .container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_security .content_a .block_a,
 .container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_security .content_a .block_a,
 .container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_security .content_a .block_a,
-.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_security .content_a .block_a {
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_security .content_a .block_a,
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_security .content_a .block_a {
   margin-top: 0;
 }
 .container-welcome .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_security .content_a .block_a button,
@@ -2661,11 +2836,17 @@ input {
 .container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_security .content_a .block_a button,
 .container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_security .content_a .block_a button,
 .container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_security .content_a .block_a button,
-.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_security .content_a .block_a button {
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_security .content_a .block_a button,
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_security .content_a .block_a button {
   padding: 16px 50px;
   border-radius: 10px;
   background-color: #00B5DD;
   color: #fff;
   font-weight: normal;
   font-size: 18px;
+}
+
+.iti {
+  margin: 10px 0;
+  width: 100%;
 }

@@ -2,8 +2,6 @@
 @import "_variables";
 
 .content_international {
-    margin: 139px 0 50px;
-
     .h2_publish {
         @include responsive(1428px) {
             font-size: 24px;

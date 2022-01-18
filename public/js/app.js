@@ -5675,10 +5675,8 @@ __webpack_require__.r(__webpack_exports__);
     logout: function logout() {
       axios.get('/sanctum/csrf-cookie').then(function (response) {
         axios.post('/api/logInRegistration/logout').then(function (response) {
-          if (response.data.success) {
+          if (response.data.message) {
             window.location.href = "/";
-          } else {
-            console.log(response);
           }
         })["catch"](function (error) {
           console.error(error);
@@ -6808,6 +6806,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 
 
 
@@ -6998,6 +6999,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: 'Confirm',
   props: ['phoneOrEmail', 'typeSend'],
@@ -7030,21 +7037,16 @@ __webpack_require__.r(__webpack_exports__);
         _this.isLoad = false;
         _this.isError = false;
 
-        if (res.data.status === 200 && res.data.error === false) {
-          // location.reload();
+        if (res.data.logIn) {
           window.location.href = "/";
         }
 
-        if (res.data.status === 202 && res.data.error === false) {
+        if (res.data.redirecTo) {
           _this.$emit('returnSignOn');
         }
 
-        if (res.data.status === 200 && res.data.error === true || res.data.status === 400 && res.data.error === false) {
+        if (res.data.codeError || res.data.errors) {
           _this.isError = true;
-        }
-
-        if (res.data.status === 404) {
-          console.log(res.data.message);
         }
 
         _this.oneNumber = '';
@@ -7144,14 +7146,70 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: 'MoreOptions',
+  props: ['phoneOrEmail', 'typeSend'],
   data: function data() {
-    return {};
+    return {
+      'isLoad': false,
+      'options': ''
+    };
   },
   methods: {
     needHelp: function needHelp() {
       this.$emit('needHelp');
+    },
+    resentCode: function resentCode() {
+      var _this = this;
+
+      this.isLoad = true;
+      var params = {
+        'type': this.options,
+        'to': this.phoneOrEmail
+      };
+      axios.post('/api/logInRegistration/resentVerify', params).then(function (res) {
+        _this.isLoad = false;
+
+        _this.$emit('toVerifity', _this.phoneOrEmail);
+      })["catch"](function (error) {
+        console.log(error);
+      });
     }
   }
 });
@@ -7344,13 +7402,20 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: 'SignEmail',
   data: function data() {
     return {
       'email': '',
       'isError': false,
-      'isLoad': false
+      'isLoad': false,
+      'errors': []
     };
   },
   methods: {
@@ -7361,18 +7426,18 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       this.isLoad = true;
+      this.isError = false;
+      this.errors = [];
       axios.post('/api/logInRegistration/initEmail', {
         'email': this.email
       }).then(function (res) {
         _this.isLoad = false;
-        _this.isError = false;
 
-        if (res.data.status === 200 && res.data.error === false) {
-          _this.$emit('toVerifityEmail', _this.email);
-        }
-
-        if (res.data.status === 400 && res.data.error === false) {
+        if (res.data.errors) {
           _this.isError = true;
+          _this.errors = res.data.errors;
+        } else {
+          _this.$emit('toVerifityEmail', _this.email);
         }
 
         _this.email = '';
@@ -7483,6 +7548,56 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: 'SignOn',
   props: ['phoneOrEmail', 'typeSend'],
@@ -7496,7 +7611,8 @@ __webpack_require__.r(__webpack_exports__);
       'promotions': '',
       'phone': '',
       'isError': false,
-      'isLoad': false
+      'isLoad': false,
+      'errors': []
     };
   },
   mounted: function mounted() {
@@ -7515,6 +7631,8 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       this.isLoad = true;
+      this.isError = false;
+      this.errors = [];
       var params = {
         'name': this.name,
         'last_name': this.last_name,
@@ -7527,24 +7645,22 @@ __webpack_require__.r(__webpack_exports__);
       axios.post('/api/logInRegistration/registrationPhoneEmail', params).then(function (res) {
         _this.isLoad = false;
         _this.isError = false;
-        console.log("res", res);
 
-        if (res.data.status === 200 && res.data.error === false) {
+        if (res.data.errors) {
+          _this.isError = true;
+          _this.errors = res.data.errors;
+        }
+
+        if (res.data.message) {
+          _this.name = '';
+          _this.last_name = '';
+          _this.sex = '';
+          _this.date_birth = '';
+          _this.email = '';
+          _this.promotions = '';
+          _this.phone = '';
           window.location.href = "/";
         }
-
-        if (res.data.status !== 200 && res.data.error !== false) {
-          _this.isError = true;
-          console.log(res.data.message);
-        }
-
-        _this.name = '';
-        _this.last_name = '';
-        _this.sex = '';
-        _this.date_birth = '';
-        _this.email = '';
-        _this.promotions = '';
-        _this.phone = '';
       })["catch"](function (error) {
         console.log(error);
       });
@@ -7651,25 +7767,29 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//intlTelInput
+//
+//
+//
+//
+//
+//
 
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  mounted: function mounted() {
-    var input = document.querySelector("#telephone");
-    intl_tel_input__WEBPACK_IMPORTED_MODULE_2___default()(input, {
-      // any initialisation options go here
-      preferredCountries: ["in", "us", "ca"]
-    });
-  },
   name: 'SignEmail',
   data: function data() {
     return {
       'phone': '',
       'isError': false,
-      'isLoad': false
+      'isLoad': false,
+      'errors': []
     };
+  },
+  mounted: function mounted() {
+    var input = document.querySelector("#telephone");
+    intl_tel_input__WEBPACK_IMPORTED_MODULE_2___default()(input, {// any initialisation options go here
+    });
   },
   methods: {
     ToEmail: function ToEmail() {
@@ -7679,18 +7799,18 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       this.isLoad = true;
+      this.isError = false;
+      this.errors = [];
       axios.post('/api/logInRegistration/initPhone', {
         'phone': this.phone
       }).then(function (res) {
         _this.isLoad = false;
-        _this.isError = false;
 
-        if (res.data.status === 200 && res.data.error === false) {
-          _this.$emit('toVerifity', _this.phone);
-        }
-
-        if (res.data.status === 400 && res.data.error === false) {
+        if (res.data.errors) {
           _this.isError = true;
+          _this.errors = res.data.errors;
+        } else {
+          _this.$emit('toVerifity', _this.phone);
         }
 
         _this.phone = '';
@@ -36423,9 +36543,16 @@ var render = function () {
                   })
                 : _vm.showOptions
                 ? _c("MoreOptions", {
+                    attrs: {
+                      phoneOrEmail: _vm.phoneOrEmail,
+                      typeSend: _vm.typeSend,
+                    },
                     on: {
                       needHelp: function ($event) {
                         return _vm.needHelp()
+                      },
+                      toVerifity: function ($event) {
+                        return _vm.toVerifity($event, _vm.typeSend)
                       },
                     },
                   })
@@ -36540,6 +36667,7 @@ var render = function () {
                     id: "ist",
                     maxlength: "1",
                     onkeyup: "clickEvent(this, 'sec')",
+                    onkeypress: "return solonumeros(event);",
                   },
                   domProps: { value: _vm.oneNumber },
                   on: {
@@ -36566,6 +36694,7 @@ var render = function () {
                     id: "sec",
                     maxlength: "1",
                     onkeyup: "clickEvent(this, 'third')",
+                    onkeypress: "return solonumeros(event);",
                   },
                   domProps: { value: _vm.twoNumber },
                   on: {
@@ -36592,6 +36721,7 @@ var render = function () {
                     id: "third",
                     maxlength: "1",
                     onkeyup: "clickEvent(this, 'fourth')",
+                    onkeypress: "return solonumeros(event);",
                   },
                   domProps: { value: _vm.threeNumber },
                   on: {
@@ -36618,6 +36748,7 @@ var render = function () {
                     id: "fourth",
                     maxlength: "1",
                     onkeyup: "clickEvent(this, 'fifth')",
+                    onkeypress: "return solonumeros(event);",
                   },
                   domProps: { value: _vm.fourNumber },
                   on: {
@@ -36644,6 +36775,7 @@ var render = function () {
                     id: "fifth",
                     maxlength: "1",
                     onkeyup: "clickEvent(this, 'up')",
+                    onkeypress: "return solonumeros(event);",
                   },
                   domProps: { value: _vm.fiveNumber },
                   on: {
@@ -36665,7 +36797,12 @@ var render = function () {
                       expression: "sixNumber",
                     },
                   ],
-                  attrs: { type: "text", id: "up", maxlength: "1" },
+                  attrs: {
+                    type: "text",
+                    id: "up",
+                    maxlength: "1",
+                    onkeypress: "return solonumeros(event);",
+                  },
                   domProps: { value: _vm.sixNumber },
                   on: {
                     input: function ($event) {
@@ -36749,36 +36886,148 @@ var render = function () {
         _vm._v(" "),
         _c("p", [
           _vm._v(
-            "Choose Another way to get a verification code at +1 123 123 123 Make sure your notifications are turned on."
+            "Choose Another way to get a verification code at " +
+              _vm._s(_vm.phoneOrEmail) +
+              " Make sure your notifications are turned on."
           ),
         ]),
         _vm._v(" "),
-        _c("div", { staticClass: "box_options" }, [
-          _c("div", { staticClass: "block_check" }, [
-            _vm._m(0),
+        _c(
+          "form",
+          {
+            attrs: { keyup: _vm.resentCode },
+            on: {
+              submit: function ($event) {
+                $event.preventDefault()
+                return _vm.resentCode.apply(null, arguments)
+              },
+            },
+          },
+          [
+            _c("div", { staticClass: "box_options" }, [
+              _c("div", { staticClass: "block_check" }, [
+                _vm.typeSend
+                  ? _c("div", [
+                      _c("div", { staticClass: "radio-item" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.options,
+                              expression: "options",
+                            },
+                          ],
+                          attrs: {
+                            type: "radio",
+                            id: "whatsapp-email",
+                            value: "email",
+                            checked: "",
+                          },
+                          domProps: { checked: _vm._q(_vm.options, "email") },
+                          on: {
+                            change: function ($event) {
+                              _vm.options = "email"
+                            },
+                          },
+                        }),
+                        _vm._v(" "),
+                        _vm._m(0),
+                      ]),
+                    ])
+                  : _c("div", [
+                      _c("div", { staticClass: "radio-item" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.options,
+                              expression: "options",
+                            },
+                          ],
+                          attrs: {
+                            type: "radio",
+                            id: "msg-email",
+                            value: "message",
+                            checked: "",
+                          },
+                          domProps: { checked: _vm._q(_vm.options, "message") },
+                          on: {
+                            change: function ($event) {
+                              _vm.options = "message"
+                            },
+                          },
+                        }),
+                        _vm._v(" "),
+                        _vm._m(1),
+                      ]),
+                      _vm._v(" "),
+                      _c("div", { staticClass: "radio-item" }, [
+                        _c("input", {
+                          directives: [
+                            {
+                              name: "model",
+                              rawName: "v-model",
+                              value: _vm.options,
+                              expression: "options",
+                            },
+                          ],
+                          attrs: {
+                            type: "radio",
+                            id: "phone-email",
+                            value: "message",
+                          },
+                          domProps: { checked: _vm._q(_vm.options, "message") },
+                          on: {
+                            change: function ($event) {
+                              _vm.options = "message"
+                            },
+                          },
+                        }),
+                        _vm._v(" "),
+                        _vm._m(2),
+                      ]),
+                    ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "hr" }),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    staticClass: "btn-help btn-help-email",
+                    on: {
+                      click: function ($event) {
+                        return _vm.needHelp()
+                      },
+                    },
+                  },
+                  [_vm._v("I nedd help")]
+                ),
+              ]),
+            ]),
             _vm._v(" "),
-            _vm._m(1),
-            _vm._v(" "),
-            _vm._m(2),
-            _vm._v(" "),
-            _c("div", { staticClass: "hr" }),
-            _vm._v(" "),
-            _c(
-              "div",
-              {
-                staticClass: "btn-help btn-help-email",
-                on: {
-                  click: function ($event) {
-                    return _vm.needHelp()
+            _c("div", { staticClass: "block_a" }, [
+              _c(
+                "button",
+                {
+                  staticClass: "btn-number btns-modals",
+                  class: [_vm.isLoad ? "activeLoading" : ""],
+                  attrs: {
+                    type: "submit",
+                    disabled: _vm.isLoad || _vm.options === "",
                   },
                 },
-              },
-              [_vm._v("I nedd help")]
-            ),
-          ]),
-        ]),
-        _vm._v(" "),
-        _vm._m(3),
+                [
+                  _vm._v(
+                    "\n                        Resend code\n                        "
+                  ),
+                  _c("div", { staticClass: "loading-btn loading-btn-modal" }),
+                ]
+              ),
+            ]),
+          ]
+        ),
       ]),
     ]),
   ])
@@ -36788,47 +37037,10 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "radio-item" }, [
-      _c("input", {
-        attrs: {
-          type: "radio",
-          id: "msg-email",
-          name: "ritem",
-          value: "message",
-          checked: "",
-        },
-      }),
-      _vm._v(" "),
-      _c("label", { staticClass: "hr", attrs: { for: "msg-email" } }, [
-        _c("div", { staticClass: "content_flex-actv" }, [
-          _c("div", { staticClass: "flex_icon" }, [
-            _c("i", { staticClass: "far fa-comment-alt" }),
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "flex-msg" }, [
-            _c("h5", [_vm._v("Text message (SMS)")]),
-            _vm._v(" "),
-            _c("small", [_vm._v("We'll text you a code.")]),
-          ]),
-        ]),
-      ]),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "radio-item" }, [
-      _c("input", {
-        attrs: {
-          type: "radio",
-          id: "whatsapp-email",
-          name: "ritem",
-          value: "whatsapp",
-        },
-      }),
-      _vm._v(" "),
-      _c("label", { staticClass: "hr", attrs: { for: "whatsapp-email" } }, [
+    return _c(
+      "label",
+      { staticClass: "hr", attrs: { for: "whatsapp-email" } },
+      [
         _c("div", { staticClass: "content_flex-actv" }, [
           _c("div", { staticClass: "flex_icon" }, [
             _c("i", { staticClass: "far fa-envelope" }),
@@ -36840,36 +37052,23 @@ var staticRenderFns = [
             _c("small", [_vm._v("We'll text you a code.")]),
           ]),
         ]),
-      ]),
-    ])
+      ]
+    )
   },
   function () {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "radio-item" }, [
-      _c("input", {
-        attrs: {
-          type: "radio",
-          id: "phone-email",
-          name: "ritem",
-          value: "phone",
-        },
-      }),
-      _vm._v(" "),
-      _c("label", { attrs: { for: "phone-email" } }, [
-        _c("div", { staticClass: "content_flex-actv" }, [
-          _c("div", { staticClass: "flex_icon" }, [
-            _c("img", {
-              attrs: { src: "assets/img/icons/smartphone.svg", alt: "" },
-            }),
-          ]),
+    return _c("label", { staticClass: "hr", attrs: { for: "msg-email" } }, [
+      _c("div", { staticClass: "content_flex-actv" }, [
+        _c("div", { staticClass: "flex_icon" }, [
+          _c("i", { staticClass: "far fa-comment-alt" }),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "flex-msg" }, [
+          _c("h5", [_vm._v("Text message (SMS)")]),
           _vm._v(" "),
-          _c("div", { staticClass: "flex-msg" }, [
-            _c("h5", [_vm._v("Phone call")]),
-            _vm._v(" "),
-            _c("small", [_vm._v("We'll text you a code.")]),
-          ]),
+          _c("small", [_vm._v("We'll text you a code.")]),
         ]),
       ]),
     ])
@@ -36878,9 +37077,19 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "block_a" }, [
-      _c("button", { staticClass: "btn-resend-email" }, [
-        _vm._v("Resend code"),
+    return _c("label", { attrs: { for: "phone-email" } }, [
+      _c("div", { staticClass: "content_flex-actv" }, [
+        _c("div", { staticClass: "flex_icon" }, [
+          _c("img", {
+            attrs: { src: "assets/img/icons/smartphone.svg", alt: "" },
+          }),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "flex-msg" }, [
+          _c("h5", [_vm._v("Phone call")]),
+          _vm._v(" "),
+          _c("small", [_vm._v("We'll text you a code.")]),
+        ]),
       ]),
     ])
   },
@@ -37046,7 +37255,7 @@ var render = function () {
                   expression: "email",
                 },
               ],
-              staticClass: "_input-mod",
+              staticClass: "_input-mod email-modals",
               class: [_vm.isError ? "error_input" : ""],
               attrs: { type: "text", placeholder: "examples@demo.com" },
               domProps: { value: _vm.email },
@@ -37059,6 +37268,18 @@ var render = function () {
                 },
               },
             }),
+            _vm._v(" "),
+            _vm.errors && _vm.errors.email
+              ? _c("div", { staticClass: "_txterror" }, [
+                  _c("i", { staticClass: "fas fa-exclamation-circle icon1" }, [
+                    _vm._v(
+                      "\n\t                    \t" +
+                        _vm._s(_vm.errors.email[0]) +
+                        "\n\t                    "
+                    ),
+                  ]),
+                ])
+              : _vm._e(),
             _vm._v(" "),
             _vm._m(1),
             _vm._v(" "),
@@ -37231,6 +37452,7 @@ var render = function () {
                 },
               ],
               staticClass: "_input-mod",
+              class: [_vm.errors && _vm.errors.name ? "error_input" : ""],
               attrs: { type: "text" },
               domProps: { value: _vm.name },
               on: {
@@ -37243,7 +37465,19 @@ var render = function () {
               },
             }),
             _vm._v(" "),
-            _c("h4", [_vm._v("Surnames")]),
+            _vm.errors && _vm.errors.name
+              ? _c("div", { staticClass: "_txterror" }, [
+                  _c("i", { staticClass: "fas fa-exclamation-circle icon1" }, [
+                    _vm._v(
+                      "\n                        " +
+                        _vm._s(_vm.errors.name[0]) +
+                        "\n                    "
+                    ),
+                  ]),
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            _c("h4", [_vm._v("Last Names")]),
             _vm._v(" "),
             _c("input", {
               directives: [
@@ -37255,6 +37489,7 @@ var render = function () {
                 },
               ],
               staticClass: "_input-mod _mr",
+              class: [_vm.errors && _vm.errors.last_name ? "error_input" : ""],
               attrs: { type: "text" },
               domProps: { value: _vm.last_name },
               on: {
@@ -37266,6 +37501,18 @@ var render = function () {
                 },
               },
             }),
+            _vm._v(" "),
+            _vm.errors && _vm.errors.last_name
+              ? _c("div", { staticClass: "_txterror" }, [
+                  _c("i", { staticClass: "fas fa-exclamation-circle icon1" }, [
+                    _vm._v(
+                      "\n                        " +
+                        _vm._s(_vm.errors.last_name[0]) +
+                        "\n                    "
+                    ),
+                  ]),
+                ])
+              : _vm._e(),
             _vm._v(" "),
             _c("p", [
               _vm._v(
@@ -37285,6 +37532,7 @@ var render = function () {
                       expression: "sex",
                     },
                   ],
+                  class: [_vm.errors && _vm.errors.sex ? "error_input" : ""],
                   on: {
                     change: function ($event) {
                       var $$selectedVal = Array.prototype.filter
@@ -37318,6 +37566,22 @@ var render = function () {
                 staticClass: "fas fa-chevron-down",
                 attrs: { "aria-hidden": "true" },
               }),
+              _vm._v(" "),
+              _vm.errors && _vm.errors.sex
+                ? _c("div", { staticClass: "_txterror" }, [
+                    _c(
+                      "i",
+                      { staticClass: "fas fa-exclamation-circle icon1" },
+                      [
+                        _vm._v(
+                          "\n                            " +
+                            _vm._s(_vm.errors.sex[0]) +
+                            "\n                        "
+                        ),
+                      ]
+                    ),
+                  ])
+                : _vm._e(),
             ]),
             _vm._v(" "),
             _c("h4", [_vm._v("Date of birth")]),
@@ -37331,7 +37595,8 @@ var render = function () {
                   expression: "date_birth",
                 },
               ],
-              staticClass: "_input-mod date _mr",
+              staticClass: "_input-mod date date-v-modals _mr",
+              class: [_vm.errors && _vm.errors.date_birth ? "error_input" : ""],
               attrs: { type: "date" },
               domProps: { value: _vm.date_birth },
               on: {
@@ -37343,6 +37608,18 @@ var render = function () {
                 },
               },
             }),
+            _vm._v(" "),
+            _vm.errors && _vm.errors.date_birth
+              ? _c("div", { staticClass: "_txterror" }, [
+                  _c("i", { staticClass: "fas fa-exclamation-circle icon1" }, [
+                    _vm._v(
+                      "\n                        " +
+                        _vm._s(_vm.errors.date_birth[0]) +
+                        "\n                    "
+                    ),
+                  ]),
+                ])
+              : _vm._e(),
             _vm._v(" "),
             _c("p", [
               _vm._v(
@@ -37363,7 +37640,8 @@ var render = function () {
                   expression: "email",
                 },
               ],
-              staticClass: "_input-mod _mr",
+              staticClass: "_input-mod _mr email-modals",
+              class: [_vm.errors && _vm.errors.email ? "error_input" : ""],
               attrs: { type: "text", placeholder: "Examples@demo.com" },
               domProps: { value: _vm.email },
               on: {
@@ -37376,7 +37654,19 @@ var render = function () {
               },
             }),
             _vm._v(" "),
-            _c("p", [
+            _vm.errors && _vm.errors.email
+              ? _c("div", { staticClass: "_txterror" }, [
+                  _c("i", { staticClass: "fas fa-exclamation-circle icon1" }, [
+                    _vm._v(
+                      "\n                        " +
+                        _vm._s(_vm.errors.email[0]) +
+                        "\n                    "
+                    ),
+                  ]),
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            _c("p", { staticClass: "_txtemail-des" }, [
               _vm._v(
                 "We will send you travel confirmations and receipts by email."
               ),
@@ -37543,7 +37833,7 @@ var render = function () {
                   expression: "phone",
                 },
               ],
-              staticClass: "phone",
+              staticClass: "_input-mod email-modals",
               class: [_vm.isError ? "error_input" : ""],
               attrs: {
                 type: "text",
@@ -37560,6 +37850,18 @@ var render = function () {
                 },
               },
             }),
+            _vm._v(" "),
+            _vm.errors && _vm.errors.phone
+              ? _c("div", { staticClass: "_txterror" }, [
+                  _c("i", { staticClass: "fas fa-exclamation-circle icon1" }, [
+                    _vm._v(
+                      "\n                        " +
+                        _vm._s(_vm.errors.phone[0]) +
+                        "\n                    "
+                    ),
+                  ]),
+                ])
+              : _vm._e(),
             _vm._v(" "),
             _vm._m(1),
             _vm._v(" "),

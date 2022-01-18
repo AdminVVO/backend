@@ -14,11 +14,17 @@
                     <input
                         type="text"
                         placeholder="+1 (800) 756-850"
-                        class="phone"
+                        class="_input-mod email-modals"
                         id="telephone"
                         v-model="phone"
                         :class="[isError ? 'error_input' : '']"
                     >
+                    <div class="_txterror" v-if="errors && errors.phone">
+                        <i class="fas fa-exclamation-circle icon1">
+                            {{ errors.phone[0] }}
+                        </i> 
+                    </div>
+
                     <p>We'll call or text you to confirm your number. <br>Standard message and data rates apply. <a href="#">Privacy Policy</a>.</p>
                     <div class="block_a">
                         <button
@@ -81,21 +87,11 @@
 
 <script>
 
-//intlTelInput
-import 'intl-tel-input/build/css/intlTelInput.css';
-import 'intl-tel-input/build/js/intlTelInput.js';
-import intlTelInput from 'intl-tel-input';
+    import 'intl-tel-input/build/css/intlTelInput.css';
+    import 'intl-tel-input/build/js/intlTelInput.js';
+    import intlTelInput from 'intl-tel-input';
 
-	export default {  mounted(){
-    const input = document.querySelector("#telephone");
-    intlTelInput(input, {
-      // any initialisation options go here
-          preferredCountries: ["in", "us", "ca"],
-      
-        
-    });
-    
-  },
+	export default {  
 
 		name: 'SignEmail',
 
@@ -104,31 +100,40 @@ import intlTelInput from 'intl-tel-input';
                 'phone': '',
                 'isError': false,
                 'isLoad': false,
+                'errors': [],
 			}
 		},
+        mounted(){
+            const input = document.querySelector("#telephone");
+            intlTelInput(input, {
+              // any initialisation options go here
+            });
+        },
 		methods: {
 			ToEmail: function() {
 				this.$emit('toEmail')
 			},
             Verifity: function() {   
                 this.isLoad = true
+                this.isError = false
+                this.errors = []
                 axios.post('/api/logInRegistration/initPhone', {
                     'phone': this.phone 
                 })
-                .then((res) =>{
-                    this.isLoad = false
-                    this.isError = false
-                    if ( res.data.status === 200 && res.data.error === false  ) {
-                        this.$emit('toVerifity', this.phone)
-                    }
-                    if ( res.data.status === 400 && res.data.error === false  ) {
-                        this.isError = true
-                    }
-                    this.phone = ''
-                })
-                .catch(function (error) {
-                    console.log(error);
-                })
+                    .then((res) =>{
+                        this.isLoad = false
+                        if ( res.data.errors ) {
+                            this.isError = true
+                            this.errors = res.data.errors
+                        }else{
+                            this.$emit('toVerifity', this.phone)
+                        }
+                        
+                        this.phone = ''
+                    })
+                    .catch(function (error) {
+                        console.log(error);
+                    })
             }
 		}
 	}

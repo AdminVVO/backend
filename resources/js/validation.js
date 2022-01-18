@@ -75,25 +75,25 @@ $(document).ready(function() {
 
     container_T_Register.keyup(function(){
         if(validateEmailT()){
-            container_T_Register.removeClass('error_input-email');
+            container_T_Register.removeClass('error_input');
         } else{
-            container_T_Register.addClass('error_input-email');
+            container_T_Register.addClass('error_input');
         }
 
         if(container_T_Register.val() == "") {
-            container_T_Register.removeClass('error_input-email');
+            container_T_Register.removeClass('error_input');
         }
     });
 
     container_W_E.keyup(function(){
         if(validateEmailW()){
-            container_W_E.removeClass('error_input-email');
+            container_W_E.removeClass('error_input');
         } else{
-            container_W_E.addClass('error_input-email');
+            container_W_E.addClass('error_input');
         }
 
         if(container_W_E.val() == "") {
-            container_W_E.removeClass('error_input-email');
+            container_W_E.removeClass('error_input');
         }
     });
 });
