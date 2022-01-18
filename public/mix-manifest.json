@@ -91,5 +91,7 @@
     "/assets/webfonts/fa-solid-900.svg": "/assets/webfonts/fa-solid-900.svg",
     "/assets/webfonts/fa-solid-900.ttf": "/assets/webfonts/fa-solid-900.ttf",
     "/assets/webfonts/fa-solid-900.woff": "/assets/webfonts/fa-solid-900.woff",
-    "/assets/webfonts/fa-solid-900.woff2": "/assets/webfonts/fa-solid-900.woff2"
+    "/assets/webfonts/fa-solid-900.woff2": "/assets/webfonts/fa-solid-900.woff2",
+    "/assets/css/personal-info-edit.css": "/assets/css/personal-info-edit.css",
+    "/assets/sass/personal-info-edit.scss": "/assets/sass/personal-info-edit.scss"
 }

@@ -1,0 +1,137 @@
+@import "_globals";
+@import "_variables";
+
+.section-perfil_info-edit {
+    display: flex;
+    justify-content: space-between;
+    gap: 87px;
+
+    @include responsive(1050px) {
+        flex-direction: column;
+    }
+
+    &-main {
+        width: 100%;
+
+        ._flex-right16 {
+            padding-left: 49px;
+
+            @include responsive(1050px) {
+                padding-left: 0;
+            }
+
+            @include responsive(768px) {
+                padding-left: 25px;
+            }
+        }
+
+        .h2-guests_bold35 {
+            padding-left: 49px;
+            margin: 16px 0 8px;
+
+            @include responsive(1050px) {
+                padding-left: 0;
+            }
+        }
+
+        ._bgpadding {
+            border-bottom: 2px solid #E3EDF3;
+            padding-bottom: 34px;
+            margin-left: 49px;
+
+            @include responsive(1050px) {
+                margin-left: 0;
+            }
+
+            ._cont-edit {
+                padding-top: 30px;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                gap: 25px;
+    
+                ._txteh {
+                    margin-bottom: 4px;
+                }
+    
+                ._btnsm {
+                    display: inline-flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    margin-top: 0;
+                }
+            }
+
+            ._form {
+                margin-top: 25px;
+
+                ._flfpc {
+                    @include responsive(1415px) {
+                        flex-direction: row;
+                    }
+
+                    .block_date {
+                        width: 45.07%;
+
+                        @include responsive(1415px) {
+                            width: 100%;
+                        }
+
+                        @include responsive(1050px) {
+                            width: 45.07%;
+                        }
+
+                        &:nth-child(2) {
+                            width: 47.3%;
+
+                            @include responsive(1415px) {
+                                width: 100%;
+                            }
+
+                            @include responsive(1050px) {
+                                width: 45.07%;
+                            }
+                        }
+                    }
+                }
+
+                ._input-mod {
+                    margin: 0;
+                }
+
+                .btn-celest {
+                    margin-top: 25px;
+                }
+            }
+        }
+    }
+
+    &-aside {
+        padding-right: 49px;
+        display: flex;
+        flex-direction: column;
+        gap: 53px;
+
+        @include responsive(1050px) {
+            padding-right: 49px;
+            padding-left: 49px;
+            flex-direction: row;
+            gap: 30px;
+        }
+
+        @include responsive(768px) {
+            padding-left: 0;
+            padding-right: 0;
+        }
+
+        @include responsive(580px) {
+            flex-direction: column;
+        }
+
+        ._cont-account {
+            @include responsive(1050px) {
+                width: 100%;
+            }
+        }
+    }
+}

@@ -13,7 +13,6 @@
                     <h4>Phone Number</h4>
                     <input
                         type="text"
-                        placeholder="+1 (800) 756-850"
                         class="_input-mod email-modals"
                         id="telephone"
                         v-model="phone"

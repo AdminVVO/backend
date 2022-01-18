@@ -98,10 +98,10 @@ class LoginOrRegisterForEmailPhoneController extends Controller
                 CodeVerification::where('code', $request['code'])->forceDelete();
                 
                 if ( $request['type'] === 'phone' )
-                    $authUser = User::where('phone', $request['phone'])->first();
+                    $authUser = User::where('phone', $verification['to'])->first();
 
                 if ( $request['type'] === 'email' )
-                    $authUser = User::where('email', $request['email'])->first();
+                    $authUser = User::where('email', $verification['to'])->first();
                 
                 if ( $authUser ) {
 

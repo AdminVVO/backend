@@ -7772,7 +7772,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 
 
 
@@ -37835,11 +37834,7 @@ var render = function () {
               ],
               staticClass: "_input-mod email-modals",
               class: [_vm.isError ? "error_input" : ""],
-              attrs: {
-                type: "text",
-                placeholder: "+1 (800) 756-850",
-                id: "telephone",
-              },
+              attrs: { type: "text", id: "telephone" },
               domProps: { value: _vm.phone },
               on: {
                 input: function ($event) {
