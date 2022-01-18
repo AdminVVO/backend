@@ -49,4 +49,6 @@ return [
        'TWILIO_WHATSAPP_NUMBER' => env('TWILIO_WHATSAPP_NUMBER')
     ],
 
+    'help_email' => env('EMAIL_VOUTLET'),
+
 ];

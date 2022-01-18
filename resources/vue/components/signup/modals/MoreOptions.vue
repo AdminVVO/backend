@@ -62,7 +62,7 @@
                                         <input
                                             type="radio"
                                             id="phone-email"
-                                            value="message"
+                                            value="call"
                                             v-model="options"
                                         >
                                         <label for="phone-email">

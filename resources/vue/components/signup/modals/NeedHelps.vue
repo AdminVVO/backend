@@ -76,7 +76,7 @@
                 })
                     .then((res) =>{
                         this.isLoad = false
-
+                        
                         if ( res.data.errors ) {
                             this.isError = true
                             this.errors = res.data.errors

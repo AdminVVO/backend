@@ -7523,6 +7523,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var vue_tel_input__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue-tel-input */ "./node_modules/vue-tel-input/dist/vue-tel-input.umd.min.js");
+/* harmony import */ var vue_tel_input__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue_tel_input__WEBPACK_IMPORTED_MODULE_0__);
 //
 //
 //
@@ -7660,8 +7662,38 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: 'SignOn',
+  components: {
+    VueTelInput: vue_tel_input__WEBPACK_IMPORTED_MODULE_0__.VueTelInput
+  },
   props: ['phoneOrEmail', 'typeSend'],
   data: function data() {
     return {
@@ -7674,7 +7706,14 @@ __webpack_require__.r(__webpack_exports__);
       'phone': '',
       'isError': false,
       'isLoad': false,
-      'errors': []
+      'errors': [],
+      'bindProps': {
+        'mode': 'international',
+        'inputOptions': {
+          'showDialCode': true,
+          'tabindex': 0
+        }
+      }
     };
   },
   mounted: function mounted() {
@@ -7702,7 +7741,7 @@ __webpack_require__.r(__webpack_exports__);
         'date_birth': this.date_birth,
         'email': this.email,
         'promotions': this.promotions,
-        'phone': this.phone
+        'phone': this.phone.replace(/\s+/g, '')
       };
       axios.post('/api/logInRegistration/registrationPhoneEmail', params).then(function (res) {
         _this.isLoad = false;
@@ -35699,12 +35738,12 @@ var render = function () {
                           attrs: {
                             type: "radio",
                             id: "phone-email",
-                            value: "message",
+                            value: "call",
                           },
-                          domProps: { checked: _vm._q(_vm.options, "message") },
+                          domProps: { checked: _vm._q(_vm.options, "call") },
                           on: {
                             change: function ($event) {
-                              _vm.options = "message"
+                              _vm.options = "call"
                             },
                           },
                         }),
@@ -36362,44 +36401,100 @@ var render = function () {
               ),
             ]),
             _vm._v(" "),
-            _c("h4", { staticStyle: { "margin-top": "23px" } }, [
-              _vm._v("Email"),
-            ]),
-            _vm._v(" "),
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.email,
-                  expression: "email",
-                },
-              ],
-              staticClass: "_input-mod _mr email-modals",
-              class: [_vm.errors && _vm.errors.email ? "error_input" : ""],
-              attrs: { type: "text", placeholder: "Examples@demo.com" },
-              domProps: { value: _vm.email },
-              on: {
-                input: function ($event) {
-                  if ($event.target.composing) {
-                    return
-                  }
-                  _vm.email = $event.target.value
-                },
-              },
-            }),
-            _vm._v(" "),
-            _vm.errors && _vm.errors.email
-              ? _c("div", { staticClass: "_txterror" }, [
-                  _c("i", { staticClass: "fas fa-exclamation-circle icon1" }, [
-                    _vm._v(
-                      "\n                        " +
-                        _vm._s(_vm.errors.email[0]) +
-                        "\n                    "
+            _vm.typeSend
+              ? _c(
+                  "div",
+                  [
+                    _c("h4", { staticStyle: { "margin-top": "23px" } }, [
+                      _vm._v("Phone Number"),
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "vue-tel-input",
+                      _vm._b(
+                        {
+                          staticClass: "_input-mod _mr email-modals",
+                          class: [
+                            _vm.errors && _vm.errors.phone ? "error_input" : "",
+                          ],
+                          model: {
+                            value: _vm.phone,
+                            callback: function ($$v) {
+                              _vm.phone = $$v
+                            },
+                            expression: "phone",
+                          },
+                        },
+                        "vue-tel-input",
+                        _vm.bindProps,
+                        false
+                      )
                     ),
+                    _vm._v(" "),
+                    _vm.errors && _vm.errors.phone
+                      ? _c("div", { staticClass: "_txterror" }, [
+                          _c(
+                            "i",
+                            { staticClass: "fas fa-exclamation-circle icon1" },
+                            [
+                              _vm._v(
+                                "\n                            " +
+                                  _vm._s(_vm.errors.phone[0]) +
+                                  "\n                        "
+                              ),
+                            ]
+                          ),
+                        ])
+                      : _vm._e(),
+                  ],
+                  1
+                )
+              : _c("div", [
+                  _c("h4", { staticStyle: { "margin-top": "23px" } }, [
+                    _vm._v("Email"),
                   ]),
-                ])
-              : _vm._e(),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.email,
+                        expression: "email",
+                      },
+                    ],
+                    staticClass: "_input-mod _mr email-modals",
+                    class: [
+                      _vm.errors && _vm.errors.email ? "error_input" : "",
+                    ],
+                    attrs: { type: "text", placeholder: "Examples@demo.com" },
+                    domProps: { value: _vm.email },
+                    on: {
+                      input: function ($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.email = $event.target.value
+                      },
+                    },
+                  }),
+                  _vm._v(" "),
+                  _vm.errors && _vm.errors.email
+                    ? _c("div", { staticClass: "_txterror" }, [
+                        _c(
+                          "i",
+                          { staticClass: "fas fa-exclamation-circle icon1" },
+                          [
+                            _vm._v(
+                              "\n                            " +
+                                _vm._s(_vm.errors.email[0]) +
+                                "\n                        "
+                            ),
+                          ]
+                        ),
+                      ])
+                    : _vm._e(),
+                ]),
             _vm._v(" "),
             _c("p", { staticClass: "_txtemail-des" }, [
               _vm._v(

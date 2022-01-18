@@ -97,20 +97,19 @@
         components: {
             VueTelInput,
         },
-
 		data () {
 			return {
                 'phone': '',
                 'isError': false,
                 'isLoad': false,
                 'errors': [],
-                  'bindProps': {
+                'bindProps': {
                     'mode': 'international',
                     'inputOptions': {
-                      'showDialCode': true,
-                      'tabindex': 0
+                        'showDialCode': true,
+                        'tabindex': 0
                     }
-                  }
+                }
 			}
 		},
 		methods: {

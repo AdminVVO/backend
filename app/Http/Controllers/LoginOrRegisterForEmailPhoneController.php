@@ -31,7 +31,10 @@ class LoginOrRegisterForEmailPhoneController extends Controller
         try {
             $code = $this->sendEmailPhoneVerificationNotification($request['phone'], 'phone');
 
-            CodeVerification::create([ 'code' => $code, 'to' => $request['phone'] ]);
+            CodeVerification::updateOrCreate(
+                [ 'to' => $request['phone'] ],
+                [ 'code' => $code ]
+            );
 
             return response()->json([
                 'status'  => 'success',
@@ -159,7 +162,7 @@ class LoginOrRegisterForEmailPhoneController extends Controller
                 'date_birth' => $request['date_birth'],
                 'sex'        => $request['sex'],
                 'email'      => $request['email'],
-                'phone'      => isset( $request['phone'] ) ? $request['phone'] : null,
+                'phone'      => $request['phone'],
                 'promotions' => $request['promotions'],
                 'password'   => $request['email'] . '@' . $request['date_birth']
             ]);
@@ -191,6 +194,7 @@ class LoginOrRegisterForEmailPhoneController extends Controller
             ], 200);
 
         try {
+            SendMailController::sendMessageHelp( $request['from'], $request['message'] );
 
             Help::create([
                 'from'    => $request['from'],
@@ -228,7 +232,7 @@ class LoginOrRegisterForEmailPhoneController extends Controller
 
     public function resentCodeLoginOrRegister(Request $request)
     {
-        if ( $request['type'] === 'message' ) {
+        if ( $request['type'] === 'message' || $request['type'] === 'call' ) {
             $code = $this->sendEmailPhoneVerificationNotification($request['to'], 'phone');
         } 
 

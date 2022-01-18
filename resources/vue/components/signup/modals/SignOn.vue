@@ -82,24 +82,50 @@
                     
                     <p>In order to register you must be at least 18 years old. We will not share your date of birth with other Airbnb users.</p>
 
-                    <h4 style="margin-top: 23px;">Email</h4>
-                    <input
-                    	type="text"
-                    	class="_input-mod _mr email-modals"
-                    	placeholder="Examples@demo.com"
-                    	v-model="email"
-                        :class="[errors && errors.email ? 'error_input' : '']"
-                	>
-                    <div 
-                        class="_txterror"
-                        v-if="errors && errors.email"
+                    <div
+                        v-if="typeSend"
                     >
-                        <i class="fas fa-exclamation-circle icon1">
-                            {{ errors.email[0] }}
-                        </i> 
-                    </div>
-                    <p class="_txtemail-des">We will send you travel confirmations and receipts by email.</p>
+                        <h4 style="margin-top: 23px;">Phone Number</h4>
+                        <vue-tel-input
+                            class="_input-mod _mr email-modals"
+                            v-bind="bindProps"
+                            v-model="phone"
+                            :class="[errors && errors.phone ? 'error_input' : '']"
+                        >
+                        </vue-tel-input>
 
+                        <div 
+                            class="_txterror"
+                            v-if="errors && errors.phone"
+                        >
+                            <i class="fas fa-exclamation-circle icon1">
+                                {{ errors.phone[0] }}
+                            </i> 
+                        </div>
+                    </div>
+
+                    <div
+                        v-else
+                    >
+                        <h4 style="margin-top: 23px;">Email</h4>
+                        <input
+                        	type="text"
+                        	class="_input-mod _mr email-modals"
+                        	placeholder="Examples@demo.com"
+                        	v-model="email"
+                            :class="[errors && errors.email ? 'error_input' : '']"
+                    	>
+                        <div 
+                            class="_txterror"
+                            v-if="errors && errors.email"
+                        >
+                            <i class="fas fa-exclamation-circle icon1">
+                                {{ errors.email[0] }}
+                            </i> 
+                        </div>
+                    </div>
+
+                    <p class="_txtemail-des">We will send you travel confirmations and receipts by email.</p>
 
                     <br>
 
@@ -136,9 +162,15 @@
 </template>
 
 <script>
+
+    import { VueTelInput } from 'vue-tel-input'
+    
 	export default {
 
 		name: 'SignOn',
+        components: {
+            VueTelInput,
+        },
 		props: [
 			'phoneOrEmail',
 			'typeSend',
@@ -155,6 +187,13 @@
                 'isError': false,
                 'isLoad': false,
                 'errors': [],
+                'bindProps': {
+                    'mode': 'international',
+                    'inputOptions': {
+                        'showDialCode': true,
+                        'tabindex': 0
+                    }
+                }
 			}
 		},
 	    mounted(){
@@ -167,7 +206,6 @@
 		    		return
 		    	}
 	    		this.phone = this.phoneOrEmail
-		    	
 	    	},
 	    	submitSignOn: function() {
                 this.isLoad = true
@@ -181,7 +219,7 @@
                     'date_birth': this.date_birth,
                     'email': this.email,
                     'promotions': this.promotions,
-                    'phone': this.phone,
+                    'phone': this.phone.replace(/\s+/g, ''),
                 }
                 axios.post('/api/logInRegistration/registrationPhoneEmail', params )
                     .then((res) =>{
