@@ -40,8 +40,11 @@
 	                	<NeedHelps 
 	                		v-else-if="showHelps"
 	                		@moreOptions="moreOptions()"
-	                		@close="close()"
 	                		:phoneOrEmail="phoneOrEmail"
+	                		@sendHelp="sendHelp()"
+	                	/>
+	                	<MessageSendHelps 
+	                		v-else-if="showSendHelp"
 	                	/>
 	                	<SignOn 
 	                		v-else="SignOn"
@@ -63,6 +66,7 @@
 	import MoreOptions from './modals/MoreOptions.vue'
 	import NeedHelps from './modals/NeedHelps.vue'
 	import SignOn from './modals/SignOn.vue'
+	import MessageSendHelps from './modals/MessageSendHelps.vue'
 
 	export default {
 
@@ -74,6 +78,7 @@
             MoreOptions,
             NeedHelps,
             SignOn,
+            MessageSendHelps,
         },
 		data () {
 			return {
@@ -83,6 +88,7 @@
 				'showOptions': false,
 				'showHelps': false,
 				'showSignOn': false,
+				'showSendHelp': false,
 				'phoneOrEmail': '',
 				'typeSend': false,
 			}
@@ -96,6 +102,7 @@
 				this.showOptions  = false
 				this.showHelps    = false
 				this.showSignOn   = false
+				this.showSendHelp   = false
 				this.phoneOrEmail = ''
 				this.typeSend     = false
 		    },
@@ -106,6 +113,7 @@
 				this.showOptions = false
 				this.showHelps   = false
 				this.showSignOn  = false
+				this.showSendHelp   = false
 		    },
 		    toPhone() {
 				this.showPhone   = true
@@ -114,6 +122,7 @@
 				this.showOptions = false
 				this.showHelps   = false
 				this.showSignOn  = false
+				this.showSendHelp   = false
 		    },
 		    toVerifity(phoneOrEmail, type) {
 				this.showPhone    = false
@@ -122,6 +131,7 @@
 				this.showOptions  = false
 				this.showHelps    = false
 				this.showSignOn   = false
+				this.showSendHelp   = false
 				this.phoneOrEmail = phoneOrEmail
 				this.typeSend     = type
 		    },
@@ -132,6 +142,7 @@
 				this.showOptions = true
 				this.showHelps   = false
 				this.showSignOn  = false
+				this.showSendHelp   = false
 		    },
 		    needHelp(){
 				this.showPhone   = false
@@ -140,6 +151,7 @@
 				this.showOptions = false
 				this.showHelps   = true
 				this.showSignOn  = false
+				this.showSendHelp   = false
 		    },
 		    returnSignOn( phoneOrEmail ){
 				this.showPhone   = false
@@ -148,6 +160,16 @@
 				this.showOptions = false
 				this.showHelps   = false
 				this.showSignOn  = true
+				this.showSendHelp   = false
+		    },
+		    sendHelp() {
+				this.showPhone    = false
+				this.showEmail    = false
+				this.showConfirm  = false
+				this.showOptions  = false
+				this.showHelps    = false
+				this.showSignOn   = false
+				this.showSendHelp = true
 		    },
 
 		}

@@ -11,13 +11,16 @@
                 >
                     <h3>Welcome to vvoutlet</h3>
                     <h4>Phone Number</h4>
-                    <input
-                        type="text"
+                    
+                    <vue-tel-input
                         class="_input-mod email-modals"
-                        id="telephone"
+                        v-bind="bindProps"
                         v-model="phone"
                         :class="[isError ? 'error_input' : '']"
                     >
+                    </vue-tel-input>
+
+
                     <div class="_txterror" v-if="errors && errors.phone">
                         <i class="fas fa-exclamation-circle icon1">
                             {{ errors.phone[0] }}
@@ -86,13 +89,14 @@
 
 <script>
 
-    import 'intl-tel-input/build/css/intlTelInput.css';
-    import 'intl-tel-input/build/js/intlTelInput.js';
-    import intlTelInput from 'intl-tel-input';
+    import { VueTelInput } from 'vue-tel-input'
 
 	export default {  
 
 		name: 'SignEmail',
+        components: {
+            VueTelInput,
+        },
 
 		data () {
 			return {
@@ -100,14 +104,15 @@
                 'isError': false,
                 'isLoad': false,
                 'errors': [],
+                  'bindProps': {
+                    'mode': 'international',
+                    'inputOptions': {
+                      'showDialCode': true,
+                      'tabindex': 0
+                    }
+                  }
 			}
 		},
-        mounted(){
-            const input = document.querySelector("#telephone");
-            intlTelInput(input, {
-              // any initialisation options go here
-            });
-        },
 		methods: {
 			ToEmail: function() {
 				this.$emit('toEmail')
@@ -117,7 +122,7 @@
                 this.isError = false
                 this.errors = []
                 axios.post('/api/logInRegistration/initPhone', {
-                    'phone': this.phone 
+                    'phone': this.phone.replace(/\s+/g, '')
                 })
                     .then((res) =>{
                         this.isLoad = false
@@ -125,7 +130,7 @@
                             this.isError = true
                             this.errors = res.data.errors
                         }else{
-                            this.$emit('toVerifity', this.phone)
+                            this.$emit('toVerifity', this.phone.replace(/\s+/g, ''))
                         }
                         
                         this.phone = ''

@@ -12,7 +12,14 @@
                     <textarea
                     	v-model="message"
                     	:class="[isError ? 'error_input' : '']"
-                    ></textarea>
+                    >
+                    </textarea>
+                    <div class="_txterror" v-if="errors && errors.message">
+                        <i class="fas fa-exclamation-circle icon1">
+                            {{ errors.message[0] }}
+                        </i> 
+                    </div>
+
                     <div class="content_a">
                         <div class="back">
                             <div 
@@ -48,6 +55,7 @@
 				'message': '',
                 'isError': false,
                 'isLoad': false,
+                'errors': [],
 			}
 		},
 		props: [
@@ -59,24 +67,27 @@
 			},
 			sendHelp: function() {
                 this.isLoad = true
+                this.isError = false
+                this.errors = []
+
                 axios.post('/api/logInRegistration/helpPhoneEmail', {
                     'message': this.message,
                     'from': this.phoneOrEmail
                 })
-                .then((res) =>{
-                    this.isLoad = false
-                    this.isError = false
-                    if ( res.data.status === 200 && res.data.error === false  ) {
-                    	this.message = ''
-                        this.$emit('close')
-                    }
-                    if ( res.data.status === 400 && res.data.error === false  ) {
-                        this.isError = true
-                    }
-                })
-                .catch(function (error) {
-                    console.log(error);
-                })
+                    .then((res) =>{
+                        this.isLoad = false
+
+                        if ( res.data.errors ) {
+                            this.isError = true
+                            this.errors = res.data.errors
+                        } else {
+                        	this.message = ''
+                            this.$emit('sendHelp')
+                        }
+                    })
+                    .catch(function (error) {
+                        console.log(error);
+                    })
 			}
 		}
 	}

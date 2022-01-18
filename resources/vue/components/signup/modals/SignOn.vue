@@ -1,7 +1,7 @@
 <template>
     <div class="content_hidden-welcome">
         <div class="log">
-            <strong>Finish registering</strong>
+            <strong>Sign Up</strong>
         </div>
         <div class="modal_block-welcome">
             <div class="content_welcome-email content-f-r">
@@ -25,7 +25,7 @@
                         </i> 
                     </div>
 
-                    <h4>Last Names</h4>
+                    <h4>Last Name</h4>
                     <input
                     	type="text"
                     	class="_input-mod _mr"
@@ -48,9 +48,9 @@
                             v-model="sex"
                             :class="[errors && errors.sex ? 'error_input' : '']"
                         >
-                            <option value="" selected disabled>Sex</option>
+                            <option value="" selected disabled>Gender</option>
                             <option value="M">Male</option>
-                            <option value="F">Feminine</option>
+                            <option value="F">Female</option>
                         </select>
 
                         <i class="fas fa-chevron-down" aria-hidden="true"></i>
