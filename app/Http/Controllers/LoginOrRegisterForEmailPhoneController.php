@@ -158,7 +158,8 @@ class LoginOrRegisterForEmailPhoneController extends Controller
 
         try {
             $authUser = User::create([
-                'name'       => $request['name'] . ' ' . $request['last_name'],
+                'name'       => $request['name'],
+                'last_name'  => $request['last_name'],
                 'date_birth' => $request['date_birth'],
                 'sex'        => $request['sex'],
                 'email'      => $request['email'],

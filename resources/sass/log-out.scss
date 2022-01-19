@@ -42,7 +42,7 @@
 .container-wishlists,
 .container-wishlists-create,
 .container-wishlists-share {
-    // display: none;
+    display: none;
     position: absolute;
     top: 0;
     left: 0;
@@ -163,41 +163,9 @@ input {
     overflow-y: auto;
 }
 
-.selected-modal {
-    position: relative;
-    display: flex;
-    align-content: center;
-
-    select {
-        margin: 12px 0 25px;
-        -webkit-appearance: none;
-        -moz-appearance:  none;
-        appearance: none;
-        outline: none;
-        width: 100%;
-        padding: 16px 18px;
-        font-size: 18px;
-        border: 1px solid #E3EDF3;
-        color: #7D7D7D;
-        border-radius: 10px;
-        font-weight: normal;
-        transition: all .4s ease;
-    }
-
-    i {
-        position: absolute;
-        right: 23px;
-        top: 33px;
-        color: #00B5DD;
-    }
-
-    select:focus {
-        box-shadow: 0 0 15px rgb(40 54 70 / 10%);
-    }
-}
-
 // TAMAÑO MODAL TERMINAR REGISTRO
 .container-t-registro {
+    // display: block !important;
     .pd_login-modal {
         .modal_content-welcome {
             max-height: 1055px !important;
@@ -227,7 +195,7 @@ input {
 .container-need-email,
 .container-t-registro,
 .container-msg-sent {
-	// display: none;
+	display: none;
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -447,7 +415,7 @@ input {
                         }
     
                         p {
-                            text-align: center;
+                            text-align: left;
                             color: #7D7D7D;
                             font-size: 14px;
                             font-weight: normal;
@@ -550,10 +518,6 @@ input {
                             margin: 12px 0 10px;
                         }
 
-                        ._mrt {
-                            margin: 12px 0 0;
-                        }
-
                         p {
                             a {
                                 line-height: 20px;
@@ -567,98 +531,6 @@ input {
                                 width: 100%;
                             }
                         }
-
-                        .radio-item {
-                            margin-top: 20px;
-                            position: relative;
-                            width: 100%;
-
-                            input[type=checkbox] {
-                                display: none;
-                            }
-
-                            input[type=checkbox]:checked + label:before {
-                                border: 3px solid #00B5DD;
-                                background-color: #00B5DD;
-                            }
-
-                            input[type=checkbox]:checked + label:after {
-                                content: "\f00c";
-                            }
-
-                            label {
-                                display: inline-flex;
-                                gap: 14px;
-                                align-items: center;
-                                color: #7D7D7D;
-                                font-size: 14px;
-                                font-weight: normal;
-
-                                &::before {
-                                    content: "";
-                                    position: relative;
-                                    margin-top: 5px;
-                                    width: 30px;
-                                    height: 30px;
-                                    border-radius: 4px;
-                                    border: 3px solid #E3EDF3;
-                                    background-color: transparent;
-                                    transition: all 0.3s ease;
-                                }
-
-                                &::after {
-                                    content: "";
-                                    font-family: "Font Awesome 5 Pro";
-                                    font-weight: 500;
-                                    font-size: 18px;
-                                    position: absolute;
-                                    margin-top: 3px;
-                                    left: 7px;
-                                    color: white;
-                                    transition: all 0.3s ease;
-                                }
-
-                                .content_flex-actv {
-                                    display: flex;
-
-                                    .flex_icon {
-                                        display: flex;
-                                        justify-content: center;
-                                        align-items: baseline;
-                                        width: 23px;
-                                        height: 53px;
-                                        margin-right: 16.5px;
-
-                                        i {
-                                            font-size: 25px;
-                                            margin: 5px 0;
-                                            color: #FF5A5F;
-                                        }
-                                    }
-
-                                    .flex-msg {
-
-                                        h5 {
-                                            font-size: 18px;
-                                            font-weight: bold;
-                                            color: #333333;
-                                            line-height: 24px;
-                                        }
-
-                                        small {
-                                            font-weight: normal;
-                                            font-size: 16px;
-                                            color: #7D7D7D;
-                                        }
-                                    }
-                                }
-                            }
-
-                            .hr {
-                                border-bottom: 3px solid #E3EDF3;
-                            }
-                        }
-
                     }
                 }
     

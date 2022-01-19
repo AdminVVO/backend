@@ -2,15 +2,25 @@
     <div>
         <SignUpOrLogIn 
             v-show="SignOnActive"
-            @closeModal="closeModal()"
             :activeModal="false"
+            @closeModal="closeModal()"
         />
+
         <HeaderIndex
-            @accion="SignOn()"
             :isLoggedIn="isLoggedIn"
             :authLoggedIn="authLoggedIn"
+            @accion="SignOn()"
         />
-        <IndexHome />
+
+        <Language
+            v-show="LangugeActive"
+            @closeModal="closeModal()"
+        />
+
+        <IndexHome
+            @showLanguage="showLanguage()"
+        />
+
         <ContenidoFooter />
 
     </div>
@@ -22,6 +32,7 @@
     import IndexHome from './home/IndexHome.vue'
     import ContenidoFooter from './ContenidoFooter.vue'
     import SignUpOrLogIn from './signup/SignUpOrLogIn.vue'
+    import Language from './language/Language.vue'
 
 	export default {
 		name: 'Container',
@@ -30,11 +41,13 @@
             IndexHome,
             ContenidoFooter,
             SignUpOrLogIn,
+            Language,
         },
 		data () {
 			return {
                 'SignOnActive': false,
                 'isLoggedIn': false,
+                'LangugeActive': false,
                 'authLoggedIn': [],
 			}
 		},
@@ -42,6 +55,7 @@
             if (window.Laravel.isLoggedin) {
                 if (window.Laravel.user) {
                     this.authLoggedIn.name = window.Laravel.user.name
+                    this.authLoggedIn.last_name = window.Laravel.user.last_name
                     this.authLoggedIn.email = window.Laravel.user.email
                     this.authLoggedIn.avatar = window.Laravel.user.avatar
                 }
@@ -54,6 +68,10 @@
             },
             closeModal() {
                 this.SignOnActive = false
+                this.LangugeActive = false
+            },
+            showLanguage: function() {
+                this.LangugeActive = true
             }
         }
 	}

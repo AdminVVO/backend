@@ -6,23 +6,32 @@
 //     })
 // })
 
-// ACTIVE MODAL LENGUAGUE
-let menu_wrapper = document.querySelector("._lgcth");
-let menu_bar = document.querySelector(".content_hidden_currency");
-let setting_item = document.querySelector(".currency-click");
-let back_help_btn = document.querySelector(".leng-click");
+$(document).ready(function() {
+    $('.content_leng').click(function() {
+        $('.container-leng').css({'display': 'block'});
+        $('.page-category').css({'overflow': 'hidden'});
+    })
 
-setting_item.onclick = (() => {
-    menu_bar.style.marginLeft = "0";
-    menu_bar.style.display = "block";
-    menu_wrapper.style.display = "none";
-});
+    $('.x').click(function() {
+        $('.container-leng').css({'display': 'none'});
+        $('.page-category').css({'overflow': 'auto'});
+    })
 
-back_help_btn.onclick = (() => {
-    menu_bar.style.marginLeft = "";
-    menu_bar.style.display = "none"
-    menu_wrapper.style.display = "block";
-});
+    $('.modal-lang').click(function() {
+        $('.container-leng').css({'display': 'none'});
+        $('.page-category').css({'overflow': 'auto'});
+    })
+
+    $('.currency-click').click(function() {
+        $('.content_hidden_currency').css({'display': 'block'});
+        $('._lgcth').css({'display': 'none'});
+    })
+
+    $('.leng-click').click(function() {
+        $('.content_hidden_currency').css({'display': 'none'});
+        $('._lgcth').css({'display': 'block'});
+    })
+})
 
 
 // ------------- ACTIVE JQUERY -------------
@@ -46,43 +55,3 @@ $(document).ready(function() {
        $(this).addClass("active");
     });
 });
-
-
-// LENGUAGE ACTIVE MODAL
-let bodyHtml = document.querySelector(".page-category");
-let containerLang = document.querySelector(".container-leng");
-let containerWelcome = document.querySelector(".container-welcome");
-
-document.getElementById("btnLeng").addEventListener("click", function() {
-    containerLang.style.display = "block";
-    bodyHtml.style.overflow = "hidden";
-});
-
-document.querySelector(".x").addEventListener("click", function() {
-    containerLang.style.display = "none";
-    bodyHtml.style.overflow = "auto";
-});
-
-// WELCOME LOGIN ACTIVE MDAL
-// document.getElementById("butnLogin").addEventListener("click", function() {
-//     document.querySelector(".container-welcome").style.display = "flex";
-// })
-
-// document.querySelector(".close-x").addEventListener("click", function() {
-//     containerWelcome.style.display = "none";
-//     bodyHtml.style.overflow = "auto";
-// })
-
-document.querySelector(".modal-lang").addEventListener("click", function() {
-    containerLang.style.display = "none";
-    bodyHtml.style.overflow = "auto";
-})
-
-document.querySelector(".modal-welcome").addEventListener("click", function() {
-    containerWelcome.style.display = "none";
-    bodyHtml.style.overflow = "auto";
-})
-
-
-
-

@@ -31,8 +31,11 @@
 
             <GalleryOne></GalleryOne>
 
-            <a href="#">
-                <div class="content_leng" id="btnLeng">
+            <a
+                href="#"
+                @click="showLanguage()"
+            >
+                <div class="content_leng">
                     <img src="assets/img/logo-leng.png" alt="">
                 </div>
             </a>
@@ -104,10 +107,14 @@
             TabsSelect,
             Card,
         },
-
         data () {
             return {
 
+            }
+        },
+        methods: {
+            showLanguage: function() {
+                this.$emit('showLanguage')
             }
         }
     }

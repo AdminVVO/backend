@@ -5,22 +5,22 @@ function clickEvent(first, last) {
 }
 
 // VALIDACION NUMBER INPUTS MODALS
-let telNumberModal = document.querySelector('.phone-v-modals');
-telNumberModal.addEventListener('keypress', (event) => {
-    event.preventDefault();
-    let codigoKey = event.keyCode;
-    let valorKey = String.fromCharCode(codigoKey);
-    // console.log(valorKey);
+// let telNumberModal = document.querySelector('.phone-v-modals');
+// telNumberModal.addEventListener('keypress', (event) => {
+//     event.preventDefault();
+//     let codigoKey = event.keyCode;
+//     let valorKey = String.fromCharCode(codigoKey);
+//     // console.log(valorKey);
 
-    let valor = parseInt(valorKey);
-    // console.log(valor);
+//     let valor = parseInt(valorKey);
+//     // console.log(valor);
 
-    if(valor) {
-        telNumberModal.value += valor;
-    }
+//     if(valor) {
+//         telNumberModal.value += valor;
+//     }
 
-    telNumberModal.classList.remove('error_input');
-})
+//     telNumberModal.classList.remove('error_input');
+// })
 
 // let errorCodeModal = document.querySelectorAll('._input-box-number');
 // // let box_enter = document.querySelector('.box_enter');
@@ -61,10 +61,10 @@ function solonumeros(e) {
     $(".box_enter").removeClass("error_code");
 }
 
-let dateInputModal = document.querySelector('.date-v-modals');
-dateInputModal.addEventListener('keypress', () => {
-    dateInputModal.classList.remove('error_input');
-})
+// let dateInputModal = document.querySelector('.date-v-modals');
+// dateInputModal.addEventListener('keypress', () => {
+//     dateInputModal.classList.remove('error_input');
+// })
 
 
 

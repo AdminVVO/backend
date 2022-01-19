@@ -234,6 +234,7 @@ body {
 button {
   outline: none;
   border-style: none;
+  background: none;
   cursor: pointer;
   -webkit-appearance: button;
 }
@@ -303,6 +304,75 @@ button {
 }
 
 
+.selected-modal {
+  position: relative;
+  display: flex;
+  align-content: center;
+  margin: 24px 0 25px;
+
+  select {
+      -webkit-appearance: none;
+      -moz-appearance:  none;
+      appearance: none;
+      outline: none;
+      width: 100%;
+      padding: 16px 18px;
+      font-size: 18px;
+      border: 1px solid #E3EDF3;
+      color: #7D7D7D;
+      border-radius: 10px;
+      font-weight: normal;
+      transition: all .4s ease;
+  }
+
+  i {
+      position: absolute;
+      right: 23px;
+      top: 22px;
+      color: #00B5DD;
+  }
+
+  select:focus {
+      box-shadow: 0 0 15px rgb(40 54 70 / 10%);
+  }
+
+  .selector-options {
+    list-style: none;
+    padding: 5px 5px;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    margin: 0;
+    background: white;
+    border: 3px solid #E3EDF3;
+    color: #7d7d7d;
+    border-radius: 10px;
+    z-index: 1;
+    width: 96%;
+    position: absolute;
+    left: 2%;
+    top: 35%;
+
+    li {
+      height: 35px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      padding: 0 15px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+
+      &:hover {
+        background: #E3EDF3;
+      }
+
+      &:nth-child(1) {
+        opacity: .6;
+      }
+    }
+  }
+}
+
 //--------- CODIGO INCORRECTO INPUT EMAIL ----------
 // .error_input-email {
 //   border: 2px solid rgb(255, 90, 95) !important;
@@ -318,6 +388,7 @@ button {
 // }
 
 ._txterror {
+  margin-bottom: 15px;
   align-items: baseline;
   gap: 4px;
   color: #FF5A5F;
@@ -346,8 +417,12 @@ button {
   display: block;
 }
 
-.error_input ~ ._txtemail-des {
-  display: none;
+// .error_input ~ ._txtemail-des {
+//   display: none;
+// }
+
+._txtemail-des {
+  margin-bottom: 15px;
 }
 
 //---------- CODIGO INCORRECTO CONFIRM ----------
@@ -375,7 +450,14 @@ button {
 .menuGuest, ._bef-places {
   width: 100%;
 }
-.block_places {
+.book-f_home{
+  &.is-active {
+    ._bef-places {
+      display: block;
+    }
+  }
+}
+.book-f_header {
   &.is-active {
     ._bef-places {
       display: block;
@@ -529,7 +611,7 @@ button {
 }
 
 ._input-mod {
-  margin: 12px 0 25px;
+  margin: 12px 0 10px;
   -webkit-appearance: none;
   -moz-appearance:  none;
   background: none;
@@ -658,6 +740,174 @@ button {
   color: #7D7D7D;
 }
 
+
+// ESTILOS CALENDARY
+._block-cale {
+  width: 405px;
+  padding: 32px 25px;
+  border: 3px solid #E3EDF3;
+  background-color: $color-white;
+  border-radius: 10px;
+
+  @include responsive(449px) {
+    width: 100%;
+    padding: 27px 20px;
+  }
+
+  ._faj {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 3px solid #E3EDF3;
+    padding: 19px 0;
+    border-radius: 10px;
+    position: relative;
+
+    ._btn-bef {
+      position: absolute;
+
+      i {
+        font-size: 18px;
+        color: #00B5DD;
+      }
+    }
+
+    .btn-left {
+      left: 27.5px;
+    }
+
+    .btn-right {
+      right: 27.5px;
+    }
+  }
+
+  ._seman {
+
+    ._table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0 2px;
+
+      .block-days {
+        width: 48px;
+        height: 47px;
+        border: 0;
+        padding: 0;
+        box-sizing: border-box;
+        cursor: default;
+        font-size: 14px;
+        text-align: center;
+
+        ._todaycontent {
+          width: 100%;
+          height: 100%;
+          position: relative;
+
+          ._ftodey {
+            -webkit-box-direction: normal;
+            -webkit-box-orient: vertical;
+            -webkit-box-pack: center;
+            -webkit-box-align: center;
+            width: 100%;
+            height: 100%;
+            position: relative;
+            color: #333333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            border: none;
+
+            ._txtcalendar16 {
+              font-size: 14px;
+              line-height: 24px;
+              font-weight: normal;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  ._fech {
+    ._table {
+      .block-days {
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+// calendary border hover a cada dia activado
+._ftodey-border {
+  -webkit-box-direction: normal;
+  -webkit-box-orient: vertical;
+  -webkit-box-pack: center;
+  -webkit-box-align: center;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  color: #333333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  border: none;
+
+  &:hover {
+    border: 1.5px solid #00B5DD;
+  }
+}
+
+// click calendary dias
+._ftodey-click {
+  -webkit-box-direction: normal;
+  -webkit-box-orient: vertical;
+  -webkit-box-pack: center;
+  -webkit-box-align: center;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background: #00B5DD;
+  color: $color-white;
+  border: 1.5px solid #00B5DD;
+  position: relative;
+  z-index: 1;
+}
+
+// desactive los days
+.block-days_desact {
+  width: 48px;
+  height: 47px;
+  border: 0;
+  padding: 0;
+  box-sizing: border-box;
+  cursor: default;
+  font-size: 14px;
+  text-align: center;
+
+  ._ftodey-desact {
+    -webkit-box-direction: normal;
+    -webkit-box-orient: vertical;
+    -webkit-box-pack: center;
+    -webkit-box-align: center;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border: none;
+    color: #D1D1D1;
+  }
+}
+
+
+
 // FORM
 ._flfpc {
   justify-content: space-between;
@@ -702,6 +952,97 @@ button {
         display: none;
       }
     }
+  }
+}
+
+.checkbox-item {
+  margin-top: 20px;
+  position: relative;
+  width: 100%;
+
+  input[type=checkbox] {
+      display: none;
+  }
+
+  input[type=checkbox]:checked + label:before {
+      border: 3px solid #00B5DD;
+      background-color: #00B5DD;
+  }
+
+  input[type=checkbox]:checked + label:after {
+      content: "\f00c";
+  }
+
+  label {
+      display: inline-flex;
+      gap: 14px;
+      align-items: center;
+      color: #7D7D7D;
+      font-size: 14px;
+      font-weight: normal;
+
+      &::before {
+          content: "";
+          position: relative;
+          margin-top: 5px;
+          width: 30px;
+          height: 30px;
+          border-radius: 4px;
+          border: 3px solid #E3EDF3;
+          background-color: transparent;
+          transition: all 0.3s ease;
+      }
+
+      &::after {
+          content: "";
+          font-family: "Font Awesome 5 Pro";
+          font-weight: 500;
+          font-size: 18px;
+          position: absolute;
+          margin-top: 4px;
+          left: 7px;
+          color: white;
+          transition: all 0.3s ease;
+      }
+
+      .content_flex-actv {
+          display: flex;
+
+          .flex_icon {
+              display: flex;
+              justify-content: center;
+              align-items: baseline;
+              width: 23px;
+              height: 53px;
+              margin-right: 16.5px;
+
+              i {
+                  font-size: 25px;
+                  margin: 5px 0;
+                  color: #FF5A5F;
+              }
+          }
+
+          .flex-msg {
+
+              h5 {
+                  font-size: 18px;
+                  font-weight: bold;
+                  color: #333333;
+                  line-height: 24px;
+              }
+
+              small {
+                  font-weight: normal;
+                  font-size: 16px;
+                  color: #7D7D7D;
+              }
+          }
+      }
+  }
+
+  .hr {
+      border-bottom: 3px solid #E3EDF3;
   }
 }
 

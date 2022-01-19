@@ -36,8 +36,6 @@
         <div id="entorn-vue">
             <container></container>
         </div>
-        
-        @include('layouts.component-leng')
 
         @include('layouts.scripts')
     </body>

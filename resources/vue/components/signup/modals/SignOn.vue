@@ -20,9 +20,8 @@
                         class="_txterror"
                         v-if="errors && errors.name"
                     >
-                        <i class="fas fa-exclamation-circle icon1">
-                            {{ errors.name[0] }}
-                        </i> 
+                        <i class="fas fa-exclamation-circle icon1"></i> 
+                        {{ errors.name[0] }}
                     </div>
 
                     <h4>Last Name</h4>
@@ -36,14 +35,13 @@
                         class="_txterror"
                         v-if="errors && errors.last_name"
                     >
-                        <i class="fas fa-exclamation-circle icon1">
-                            {{ errors.last_name[0] }}
-                        </i> 
+                        <i class="fas fa-exclamation-circle icon1"></i> 
+                        {{ errors.last_name[0] }}
                     </div>
 
                     <p>Make sure it matches the name that appears on your official ID.</p>
 
-                    <div class="selected-modal _mrt">
+                    <div class="selected-modal">
                         <select
                             v-model="sex"
                             :class="[errors && errors.sex ? 'error_input' : '']"
@@ -58,9 +56,8 @@
                             class="_txterror"
                             v-if="errors && errors.sex"
                         >
-                            <i class="fas fa-exclamation-circle icon1">
-                                {{ errors.sex[0] }}
-                            </i> 
+                            <i class="fas fa-exclamation-circle icon1"></i> 
+                            {{ errors.sex[0] }}
                         </div>
                     </div>
 
@@ -75,9 +72,8 @@
                         class="_txterror"
                         v-if="errors && errors.date_birth"
                     >
-                        <i class="fas fa-exclamation-circle icon1">
-                            {{ errors.date_birth[0] }}
-                        </i> 
+                        <i class="fas fa-exclamation-circle icon1"></i> 
+                        {{ errors.date_birth[0] }}
                     </div>
                     
                     <p>In order to register you must be at least 18 years old. We will not share your date of birth with other Airbnb users.</p>
@@ -98,9 +94,8 @@
                             class="_txterror"
                             v-if="errors && errors.phone"
                         >
-                            <i class="fas fa-exclamation-circle icon1">
-                                {{ errors.phone[0] }}
-                            </i> 
+                            <i class="fas fa-exclamation-circle icon1"></i> 
+                            {{ errors.phone[0] }}
                         </div>
                     </div>
 
@@ -119,17 +114,17 @@
                             class="_txterror"
                             v-if="errors && errors.email"
                         >
-                            <i class="fas fa-exclamation-circle icon1">
-                                {{ errors.email[0] }}
-                            </i> 
+                            <i class="fas fa-exclamation-circle icon1"></i> 
+                            {{ errors.email[0] }}
                         </div>
+                        
+                        <p class="_txtemail-des">We will send you travel confirmations and receipts by email.</p>
+                        
                     </div>
-
-                    <p class="_txtemail-des">We will send you travel confirmations and receipts by email.</p>
 
                     <br>
 
-                    <p>By selecting <b>Accept and Continue</b>, I agree to the VVOUTLET <a href="#">Terms of Service</a>. <a href="#">Payment Terms of Service</a>, and <a href="#">Anti-Discrimination Policy</a>. I also acknowledge the <a href="#">Privacy Policy</a>.</p>
+                    <p style="text-align: center;">By selecting <b>Accept and Continue</b>, I agree to the VVOUTLET <a href="#">Terms of Service</a>. <a href="#">Payment Terms of Service</a>, and <a href="#">Anti-Discrimination Policy</a>. I also acknowledge the <a href="#">Privacy Policy</a>.</p>
                     
                     <div class="block_a">
                         <button
@@ -147,7 +142,7 @@
 
                     <p>Voutlet le enviará ofertas exclusivas para miembros, contenido inspirador, correos electrónicos comerciales y notificaciones automáticas. Puedes optar por dejar de recibirlas en cualquier momento a través del apartado de configuración de tu cuenta o directamente desde cualquiera de las notificaciones que recibes.</p>
 
-                    <div class="radio-item">
+                    <div class="checkbox-item">
                         <input
                         	type="checkbox"
                         	id="not"

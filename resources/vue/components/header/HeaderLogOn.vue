@@ -15,7 +15,7 @@
                 <img
                 	:src="'assets/img/avatar/' + authLoggedIn.avatar" 
                 	alt="">
-                {{ authLoggedIn.name }}
+                {{ split_name[0] + ' ' + split_lastname[0]  }}
             </span>
         </a>
 
@@ -67,6 +67,14 @@
 	    props : [
 	    	'authLoggedIn'
 	    ],
+	    computed: {
+	      split_name (name) {
+	        return this.authLoggedIn.name.split(' ');
+	      },
+	      split_lastname (name) {
+	        return this.authLoggedIn.last_name.split(' ');
+	      }
+	    },
 		methods: {
 			clickExterno (event) {
 				this.activeClass = false

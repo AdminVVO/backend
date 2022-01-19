@@ -24,7 +24,14 @@
   gap: 1.5rem;
   padding: 8px 8px 8px 45px;
 }
-.block_places .book-form form .inputBox .hr {
+.block_places .book-form form ._flex-js {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+.block_places .book-form form .inputBox:not(:last-child) {
   border-right: 1px solid #B6AFA2;
 }
 .block_places .book-form form .inputBox span {
@@ -87,8 +94,9 @@
   padding: 0 40px 0 2px;
   font-size: 16px;
 }
-.block_places .book-form form .inputBox .place_select i .fa-chevron-down {
+.block_places .book-form form .inputBox .place_select i i {
   color: #7D7D7D;
+  margin-top: 0;
 }
 .block_places .book-form form .btn {
   cursor: pointer;

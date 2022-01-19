@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('home.index');
+    return view('layouts.app');
 })->name('/');
 
 // ## Routes Login and Register with phone number and email
