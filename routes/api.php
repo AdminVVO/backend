@@ -46,25 +46,15 @@ Route::prefix('logInRegistration')->name('logInRegistration')->group( function()
     Route::post('/user/insert',[UserController::class,'insertUser'])->name('user.insertUser')->middleware('auth:sanctum');
     // put
     Route::put('/user/editName',[UserEditController::class,'editName'])->name('user.editName')->middleware('auth:sanctum');
-    
     Route::put('/user/editLastName',[UserEditController::class,'editLastName'])->name('user.editLastName')->middleware('auth:sanctum');
-
     Route::put('/user/editEmail',[UserEditController::class,'editEmail'])->name('user.editEmail')->middleware('auth:sanctum');
-
     Route::put('/user/editPhone',[UserEditController::class,'editPhone'])->name('user.editPhone')->middleware('auth:sanctum');
-
     Route::put('/user/editSex',[UserEditController::class,'editSex'])->name('user.editSex')->middleware('auth:sanctum');
-
     Route::put('/user/editPassword',[UserEditController::class,'editPassword'])->name('user.editPassword')->middleware('auth:sanctum');
-
     Route::put('/user/editDateBirth',[UserEditController::class,'editDateBirth'])->name('user.editDateBirth')->middleware('auth:sanctum');
-
     Route::put('/user/editAddress',[UserEditController::class,'editAddress'])->name('user.editAddress')->middleware('auth:sanctum');
-    
     Route::put('/user/editGovernmentid',[UserEditController::class,'editGovernmentid'])->name('user.editGovernmentid')->middleware('auth:sanctum');
-
     Route::put('/user/editEmergencyContact',[UserEditController::class,'editEmergencyContact'])->name('user.editEmergencyContact')->middleware('auth:sanctum');
-
 });
 
 
