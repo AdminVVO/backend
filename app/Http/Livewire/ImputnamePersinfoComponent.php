@@ -20,7 +20,9 @@ class ImputnamePersinfoComponent extends Component
 
     public function statusUpdate()
     {
-        $this->classActive = !$this->classActive; 
+        $this->classActive = !$this->classActive;
+        $this->resetValidation();
+        $this->resetInput();
     }
 
     public function submit()

@@ -38,7 +38,7 @@
                     <div class="block_date">
                         <div class="txt-check-in">Last name</div>
                         <input type="text" class="date_check @error('last_name') error_input @enderror" wire:model="last_name">
-                        @error('name')
+                        @error('last_name')
                             <div  class="_txterror">
                                 <i class="fas fa-exclamation-circle icon1"></i> 
                                 {{ $message }}
