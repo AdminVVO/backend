@@ -22,7 +22,7 @@
 			        <h2 class="h2-guests_bold35">Personal info</h2>
 
 			        <div>
-			            <div class="_yellow-bg personal_edit">
+			            {{-- <div class="_yellow-bg personal_edit">
 			                <div class="_bgpadding">
 			                    <div class="_cont-edit">
 			                        <div class="_txteh">Legal name</div>
@@ -60,7 +60,10 @@
 			                        <button href="#" class="btn-celest">Save</button>
 			                    </form>
 			                </div>
-			            </div>
+			            </div> --}}
+
+                        @livewire('imputname-persinfo-component')
+			            
 
 			            <div class="_yellow-bg personal_edit">
 			                <div class="_bgpadding">
