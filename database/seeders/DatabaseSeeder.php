@@ -16,5 +16,6 @@ class DatabaseSeeder extends Seeder
         $this->call([AccommodationSeeder::class]);
         $this->call([LanguagesRegionsSeeder::class]);
         $this->call([CurrencsSeeder::class]);
+        $this->call([CategorySeeder::class]);
     }
 }
