@@ -1,4 +1,4 @@
-@foreach ($sites as $site )
+@foreach ($sites9 as $site )
     <h1>{{ $item->title }} </h1>
     <h1>{{ $item->price }} </h1>
     <h1>{{ $item->date }} </h1>
@@ -7,6 +7,51 @@
     {{-- solo obtendremos los 9 primeros --}}
     {{-- toda la info de la base de datos aqui --}}
 @endforeach
+
+
+@foreach ($sites2 as $site )
+    <h1>{{ $item->title }} </h1>
+    <h1>{{ $item->price }} </h1>
+    <h1>{{ $item->date }} </h1>
+    <h1>{{ $item->distance }} </h1>
+    <h1>{{ $item->distance }} </h1>
+    {{-- solo obtendremos los 2 primeros --}}
+    {{-- estas dos son para las 2 tarjetas que estan debajo de las 9(ya que son mas aplias y de diferente diseno) --}}
+@endforeach
+
+@foreach ($accommodations as $item )
+    <h1>{{ $item->city }} </h1>
+    <h1>{{ $item->proximityDistance }} </h1>
+    <h1>{{ $item->hotelRating }} </h1>
+    <h1>{{ $item->thumbNailUrl }} </h1>
+    {{-- solo obtendremos los 2 primeros --}}
+    {{-- estas 10 son para el apartado de New Hotel --}}
+@endforeach
+
+
+@foreach ($sites8piscina as $site )
+    <h1>{{ $item->title }} </h1>
+    <h1>{{ $item->price }} </h1>
+    <h1>{{ $item->date }} </h1>
+    <h1>{{ $item->distance }} </h1>
+    <h1>{{ $item->distance }} </h1>
+    {{-- solo obtendremos los 8 primeros --}}
+    {{--  8 que tienen piscina --}}
+@endforeach
+
+@foreach ($sites2piscina as $site )
+    <h1>{{ $item->title }} </h1>
+    <h1>{{ $item->price }} </h1>
+    <h1>{{ $item->date }} </h1>
+    <h1>{{ $item->distance }} </h1>
+    <h1>{{ $item->distance }} </h1>
+    {{-- solo obtendremos los 2 primeros --}}
+    {{-- estas dos son para las 2 tarjetas que estan debajo de las 8 que tienen piscina --}}
+@endforeach
+
+
+
+
 <div>
     <a href="/" class="card_items">
         <div class="card_top">
