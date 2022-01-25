@@ -37,7 +37,7 @@
             </div>
             <div class="place-block container flex flex-ai-c flex-jc-sb">
                 <div class="place-block_img">
-                    <img src="assets/img/card/c3.jpg" alt="">
+                    <img src="{{ URL::asset('assets/img/card/c3.jpg') }}" alt="">
                 </div>
                 <div class="place-block_text">
                     <h3 class="h2-guests">Where you'll be</h3>
@@ -53,7 +53,7 @@
             
             <div class="articles flex col-flex-auto">
                 <div class="articles_item text-block-auto">
-                    <img src="assets/img/icons/building.svg" alt="">
+                    <img src="{{ URL::asset('assets/img/icons/building.svg') }}" alt="">
                     <h3 class="_txteh">Lorem ipsum dolor sit amet.</h3>
                     <p class="span-guests">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin sed nulla eu neque fringilla pulvinar imperdiet ac lectus. Suspendisse sit amet efficitur tortor. Vivamus aliquet eu ipsum eget vehicula. Nunc efficitur, lectus id iaculis faucibus, quam eros tincidunt justo, vestibulum fringilla elit neque venenatis quam. Ut est nisl, cursus ac consequat quis, cursus eget purus.
@@ -61,7 +61,7 @@
                     <a href="#" class="_btnsm _btnsm_asm">Show More ></a>
                 </div>
                 <div class="articles_item text-block-auto">
-                    <img src="assets/img/icons/building.svg" alt="">
+                    <img src="{{ URL::asset('assets/img/icons/building.svg') }}" alt="">
                     <h3 class="_txteh">Lorem ipsum dolor sit amet.</h3>
                     <p class="span-guests">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin sed nulla eu neque fringilla pulvinar imperdiet ac lectus. Suspendisse sit amet efficitur tortor. Vivamus aliquet eu ipsum eget vehicula. Nunc efficitur, lectus id iaculis faucibus, quam eros tincidunt justo, vestibulum fringilla elit neque venenatis quam. Ut est nisl, cursus ac consequat quis, cursus eget purus.
@@ -69,7 +69,7 @@
                     <a href="#" class="_btnsm _btnsm_asm">Show More ></a>
                 </div>
                 <div class="articles_item text-block-auto">
-                    <img src="assets/img/icons/building.svg" alt="">
+                    <img src="{{ URL::asset('assets/img/icons/building.svg') }}" alt="">
                     <h3 class="_txteh">Lorem ipsum dolor sit amet.</h3>
                     <p class="span-guests">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin sed nulla eu neque fringilla pulvinar imperdiet ac lectus. Suspendisse sit amet efficitur tortor. Vivamus aliquet eu ipsum eget vehicula. Nunc efficitur, lectus id iaculis faucibus, quam eros tincidunt justo, vestibulum fringilla elit neque venenatis quam. Ut est nisl, cursus ac consequat quis, cursus eget purus.

@@ -59,7 +59,7 @@
 
 		<a href="#">
 			<div class="content_leng" id="btnLeng">
-				<img src="assets/img/logo-leng.png" alt="">
+				<img src="{{ URL::asset('assets/img/logo-leng.png') }}" alt="">
 			</div>
 		</a>
 	</section>
@@ -78,7 +78,7 @@
 
 	<div class="entero home-text">
 		<div class="medio">
-			<img src="assets/img/logo-color.png" alt="">
+			<img src="{{ URL::asset('assets/img/logo-color.png') }}" alt="">
 			<div class="home-text_group">
 				<p class="n-paragraph">Morbi mollis vestibulum sollicitudin. Nunc in eros a justo facilisis rutrum. Aenean id ullamcorper libero. Vestibulum imperdiet nibh vel magna lacinia ultrices. Sed id interdum urna. Nam ac elit a ante commodo tristique. Duis lacus urna, condimentum a vehicula a, hendrerit ac nisi Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam vulputate, tortor nec commodo ultricies, lectus nisl facilisis enim, vitae </p>
 				<p class="n-paragraph">Viverra urna nulla sed turpis. Nullam lacinia faucibus risus, a euismod lorem Donec maximus placerat tempor. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Suspendisse faucibus sed dolor eget posuere. Morbi mollis vestibulum sollicitudin. Nunc in eros a justo facilisis rutrum. Aenean id ullamcorper libero. Vestibulum imperdiet nibh vel magna lacinia ultrices. Sed id interdum urna.</p>

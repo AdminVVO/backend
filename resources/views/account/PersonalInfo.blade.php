@@ -31,14 +31,14 @@
 			                            <span class="_fcontent edit">
 			                                Edit
 			                                <span class="_svg-asm">
-			                                    <img src="assets/img/icons/down-right.svg" alt="">
+			                                    <img src="{{ URL::asset('assets/img/icons/down-right.svg') }}" alt="">
 			                                </span>
 			                            </span>
 
 			                            <span class="_fcontent cancel">
 			                                Cancel
 			                                <span class="_svg-asm">
-			                                    <img src="assets/img/icons/down-right.svg" alt="">
+			                                    <img src="{{ URL::asset('assets/img/icons/down-right.svg') }}" alt="">
 			                                </span>
 			                            </span>
 			                        </a>
@@ -71,7 +71,7 @@
 			                            <span class="_fcontent">
 			                                Edit
 			                                <span class="_svg-asm">
-			                                    <img src="assets/img/icons/down-right.svg" alt="">
+			                                    <img src="{{ URL::asset('assets/img/icons/down-right.svg') }}" alt="">
 			                                </span>
 			                            </span>
 			                        </a>
@@ -79,7 +79,7 @@
 			                            <span class="_fcontent">
 			                                Cancel
 			                                <span class="_svg-asm">
-			                                    <img src="assets/img/icons/down-right.svg" alt="">
+			                                    <img src="{{ URL::asset('assets/img/icons/down-right.svg') }}" alt="">
 			                                </span>
 			                            </span>
 			                        </a>
@@ -108,7 +108,7 @@
 			                            <span class="_fcontent">
 			                                Edit
 			                                <span class="_svg-asm">
-			                                    <img src="assets/img/icons/down-right.svg" alt="">
+			                                    <img src="{{ URL::asset('assets/img/icons/down-right.svg') }}" alt="">
 			                                </span>
 			                            </span>
 			                        </a>
@@ -117,7 +117,7 @@
 			                            <span class="_fcontent">
 			                                Cancel
 			                                <span class="_svg-asm">
-			                                    <img src="assets/img/icons/down-right.svg" alt="">
+			                                    <img src="{{ URL::asset('assets/img/icons/down-right.svg') }}" alt="">
 			                                </span>
 			                            </span>
 			                        </a>
@@ -205,7 +205,7 @@
 			                            <span class="_fcontent">
 			                                Edit
 			                                <span class="_svg-asm">
-			                                    <img src="assets/img/icons/down-right.svg" alt="">
+			                                    <img src="{{ URL::asset('assets/img/icons/down-right.svg') }}" alt="">
 			                                </span>
 			                            </span>
 			                        </a>
@@ -214,7 +214,7 @@
 			                            <span class="_fcontent">
 			                                Cancel
 			                                <span class="_svg-asm">
-			                                    <img src="assets/img/icons/down-right.svg" alt="">
+			                                    <img src="{{ URL::asset('assets/img/icons/down-right.svg') }}" alt="">
 			                                </span>
 			                            </span>
 			                        </a>
@@ -238,7 +238,7 @@
 			                            <span class="_fcontent">
 			                                Edit
 			                                <span class="_svg-asm">
-			                                    <img src="assets/img/icons/down-right.svg" alt="">
+			                                    <img src="{{ URL::asset('assets/img/icons/down-right.svg') }}" alt="">
 			                                </span>
 			                            </span>
 			                        </a>
@@ -246,7 +246,7 @@
 			                            <span class="_fcontent">
 			                                Edit
 			                                <span class="_svg-asm">
-			                                    <img src="assets/img/icons/down-right.svg" alt="">
+			                                    <img src="{{ URL::asset('assets/img/icons/down-right.svg') }}" alt="">
 			                                </span>
 			                            </span>
 			                        </a>
@@ -276,7 +276,7 @@
 			                            <span class="_fcontent">
 			                                Edit
 			                                <span class="_svg-asm">
-			                                    <img src="assets/img/icons/down-right.svg" alt="">
+			                                    <img src="{{ URL::asset('assets/img/icons/down-right.svg') }}" alt="">
 			                                </span>
 			                            </span>
 			                        </a>
@@ -323,7 +323,7 @@
 			                            <span class="_fcontent">
 			                                Edit
 			                                <span class="_svg-asm">
-			                                    <img src="assets/img/icons/down-right.svg" alt="">
+			                                    <img src="{{ URL::asset('assets/img/icons/down-right.svg') }}" alt="">
 			                                </span>
 			                            </span>
 			                        </a>
@@ -331,7 +331,7 @@
 			                            <span class="_fcontent">
 			                                Edit
 			                                <span class="_svg-asm">
-			                                    <img src="assets/img/icons/down-right.svg" alt="">
+			                                    <img src="{{ URL::asset('assets/img/icons/down-right.svg') }}" alt="">
 			                                </span>
 			                            </span>
 			                        </a>
@@ -379,7 +379,7 @@
 			                            <span class="_fcontent">
 			                                Edit
 			                                <span class="_svg-asm">
-			                                    <img src="assets/img/icons/down-right.svg" alt="">
+			                                    <img src="{{ URL::asset('assets/img/icons/down-right.svg') }}" alt="">
 			                                </span>
 			                            </span>
 			                        </a>
@@ -388,7 +388,7 @@
 			                            <span class="_fcontent">
 			                                Edit
 			                                <span class="_svg-asm">
-			                                    <img src="assets/img/icons/down-right.svg" alt="">
+			                                    <img src="{{ URL::asset('assets/img/icons/down-right.svg') }}" alt="">
 			                                </span>
 			                            </span>
 			                        </a>

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AccountController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginOrRegisterForEmailPhoneController;
 use App\Http\Controllers\LoginOrRegisterForSocialsController;
@@ -32,18 +33,19 @@ Route::get('/interna', function () {
     return view('interna.Interna');
 });
 
-Route::get('/account', function () {
-    return view('account.Account');
-});
-
-Route::get('/personal_info', function () {
-    return view('account.PersonalInfo');
-});
-
 Route::get('/blog', function () {
     return view('blog.Blog');
 });
 
+## Routes Login and Register Google
+Route::prefix('account')->group( function(){
+    ## We start the process of logging in through Google
+    Route::get('', [AccountController::class, 'viewAccount'])->name('');
+    Route::get('personal_info', [AccountController::class, 'viewPersonalInfo'])->name('personal_info');
+
+    ## We received the response from Google
+    // Route::any('callback', [LoginOrRegisterForSocialsController::class, 'callbackFromGoogle'])->name('callback');
+});
 
 
 // ## Routes Login and Register with phone number and email

@@ -4,7 +4,7 @@
             <div class="place_select">
                 <span>Location</span>
                 <div class="place_select-flex">
-                    <img src="assets/img/icons/hotel.png" alt="hotel">
+                    <img src="{{ URL::asset('assets/img/icons/hotel.png') }}" alt="hotel">
                     <span>Orlando Florida</span>
                 </div>
             </div>

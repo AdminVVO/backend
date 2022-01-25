@@ -1,7 +1,7 @@
 <header class="entero">
     <div class="medio">
         <a href="/" class="logo-menu">
-            <img src="assets/img/logo.png" alt="logo">
+            <img src="{{ URL::asset('assets/img/logo.png') }}" alt="logo">
         </a>
         <div class="book-form">
             <form action="">
@@ -41,13 +41,13 @@
 
         <div class="menu _header-menu">
             <a href="#" class="menu_items">
-                <img src="assets/img/icons/hotel.png" alt="">
+                <img src="{{ URL::asset('assets/img/icons/hotel.png') }}" alt="">
                 Become a Host
             </a>
 
             <a href="#" class="menu_perfil">
                 <span>
-                    <img src="assets/img/profile.png" alt="">
+                    <img src="{{ URL::asset('assets/img/profile.png') }}" alt="">
                     Anny Smith
                 </span>
             </a>

@@ -20,8 +20,8 @@
         </div>
     </div>
 
-    <img src="assets/img/avatar/host-vvoutlet.png" alt="" class="_pabslogo">
-    <img src="assets/img/avatar/girl-nivel.png" alt="" class="_pabsgirl">
+    <img src="{{ URL::asset('assets/img/avatar/host-vvoutlet.png') }}" alt="" class="_pabslogo">
+    <img src="{{ URL::asset('assets/img/avatar/girl-nivel.png') }}" alt="" class="_pabsgirl">
 </div>
 
 <div class="wo_home-questions entero">
@@ -35,7 +35,7 @@
 
 <div class="entero home-text">
     <div class="medio">
-        <img src="assets/img/logo-color.png" alt="">
+        <img src="{{ URL::asset('assets/img/logo-color.png') }}" alt="">
         <div class="home-text_group">
             <p class="n-paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut sollicitudin tincidunt nisi, a vestibulum velit hendrerit id. Morbi nec elit ac augue cursus iaculis a non magna. Curabitur sit amet hendrerit eros. Ut hendrerit tellus suscipit viverra accumsan. Vestibulum in sem sed eros ultricies ultricies. Proin convallis convallis tempor.</p>
             <p class="n-paragraph">Phasellus ut tellus vel velit condimentum sagittis a quis massa. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Ut sed dignissim urna. Pellentesque mattis blandit odio a volutpat. Donec vitae nulla quis eros consectetur efficitur.</p>
@@ -48,13 +48,13 @@
         <div class="quests_gap">
             <div class="container_quests-ga">
                 <div class="_block-f">
-                    <img src="assets/img/card/q1.jpg" alt="">
+                    <img src="{{ URL::asset('assets/img/card/q1.jpg') }}" alt="">
                 </div>
 
                 <div class="content-user_icons">
                     <div class="s-usr_icons">
                         <div class="_suis">
-                            <img src="assets/img/icons/hotel.png" alt="">
+                            <img src="{{ URL::asset('assets/img/icons/hotel.png') }}" alt="">
                         </div>
                         <div class="_suisinfo">
                             <div class="_txteh">Personal tips and guidance</div>
@@ -66,13 +66,13 @@
 
             <div class="container_quests-ga">
                 <div class="_block-f">
-                    <img src="assets/img/card/q2.jpg" alt="">
+                    <img src="{{ URL::asset('assets/img/card/q2.jpg') }}" alt="">
                 </div>
 
                 <div class="content-user_icons">
                     <div class="s-usr_icons">
                         <div class="_suis">
-                            <img src="assets/img/icons/hotel.png" alt="">
+                            <img src="{{ URL::asset('assets/img/icons/hotel.png') }}" alt="">
                         </div>
                         <div class="_suisinfo">
                             <div class="_txteh">Hands-on help listing your place</div>
@@ -84,13 +84,13 @@
 
             <div class="container_quests-ga">
                 <div class="_block-f">
-                    <img src="assets/img/card/q3.jpg" alt="">
+                    <img src="{{ URL::asset('assets/img/card/q3.jpg') }}" alt="">
                 </div>
 
                 <div class="content-user_icons">
                     <div class="s-usr_icons">
                         <div class="_suis">
-                            <img src="assets/img/icons/hotel.png" alt="">
+                            <img src="{{ URL::asset('assets/img/icons/hotel.png') }}" alt="">
                         </div>
                         <div class="_suisinfo">
                             <div class="_txteh">Prep for your first guest</div>

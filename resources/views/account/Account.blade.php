@@ -20,11 +20,13 @@
                 </p>
 
                 <div class="_flex-account">
-                    <div class="_cont-account">
-                        <i class="far fa-address-card"></i>
-                        <div class="_txteh" style="margin-bottom: 4px;">Personal info</div>
-                        <p class="span-guests">Provide personal details and how we can reach you</p>
-                    </div>
+                    <a href="{{ route('personal_info') }}">
+                        <div class="_cont-account">
+                            <i class="far fa-address-card"></i>
+                            <div class="_txteh" style="margin-bottom: 4px;">Personal info</div>
+                            <p class="span-guests">Provide personal details and how we can reach you</p>
+                        </div>
+                    </a>
 
                     <div class="_cont-account">
                         <i class="far fa-keyboard"></i>

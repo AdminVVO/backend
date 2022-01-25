@@ -56,7 +56,7 @@
 			                    <div class="_block-gallery-mg">
 			                        <a aria-label="Imagen del alojamiento 1, Mostrar todas las fotos" href="" class="_link-img">
 			                            <div class="_bgcont">
-			                                <img class="_img-wh _img-modal" alt="" src="assets/img/card/c1.jpg">
+			                                <img class="_img-wh _img-modal" alt="" src="{{ URL::asset('assets/img/card/c1.jpg') }}">
 			                            </div>
 			                        </a>
 			                    </div>
@@ -75,7 +75,7 @@
 			                                <div class="_block-gallery-mg">
 			                                    <a class="_link-img">
 			                                        <div class="_bgcont">
-			                                            <img class="_img-wh" src="assets/img/card/c1.jpg" alt="">
+			                                            <img class="_img-wh" src="{{ URL::asset('assets/img/card/c1.jpg') }}" alt="">
 			                                        </div>
 			                                    </a>
 			                                </div>
@@ -87,7 +87,7 @@
 			                                <div class="_block-gallery-mg">
 			                                    <a class="_link-img">
 			                                        <div class="_bgcont">
-			                                            <img class="_img-wh" alt="" src="assets/img/card/g2.jpg">
+			                                            <img class="_img-wh" alt="" src="{{ URL::asset('assets/img/card/g2.jpg') }}">
 			                                        </div>
 			                                    </a>
 			                                </div>
@@ -99,7 +99,7 @@
 			                                <div class="_block-gallery-mg">
 			                                    <a class="_link-img">
 			                                        <div class="_bgcont">
-			                                            <img class="_img-wh" alt="" src="assets/img/card/g3.jpg">
+			                                            <img class="_img-wh" alt="" src="{{ URL::asset('assets/img/card/g3.jpg') }}">
 			                                        </div>
 			                                    </a>
 			                                </div>
@@ -111,7 +111,7 @@
 			                                <div class="_block-gallery-mg">
 			                                    <a class="_link-img">
 			                                        <div class="_bgcont">
-			                                            <img class="_img-wh" alt="" src="assets/img/card/g4.jpg">
+			                                            <img class="_img-wh" alt="" src="{{ URL::asset('assets/img/card/g4.jpg') }}">
 			                                        </div>
 			                                    </a>
 			                                </div>
@@ -123,7 +123,7 @@
 			                                <div class="_block-gallery-mg">
 			                                    <a class="_link-img">
 			                                        <div class="_bgcont">
-			                                            <img class="_img-wh" alt="" src="assets/img/card/g5.jpg">
+			                                            <img class="_img-wh" alt="" src="{{ URL::asset('assets/img/card/g5.jpg') }}">
 			                                        </div>
 			                                    </a>
 			                                </div>
@@ -149,7 +149,7 @@
 			        <main class="site-content">
 			            <div class="content-user_inf">
 			                <span class="pf-u">
-			                    <img src="assets/img/profile.png" alt="">
+			                    <img src="{{ URL::asset('assets/img/profile.png') }}" alt="">
 			                </span>
 			                <div class="_w">
 			                    <h2 class="h2-guests">Entire condominium (condo) hosted by Agustin</h2>
@@ -162,7 +162,7 @@
 			            <div class="content-user_icons">
 			                <div class="s-usr_icons">
 			                    <div class="_suis">
-			                        <img src="assets/img/icons/hotel.png" alt="">
+			                        <img src="{{ URL::asset('assets/img/icons/hotel.png') }}" alt="">
 			                    </div>
 			                    <div class="_suisinfo">
 			                        <div class="_txteh">Entire home</div>
@@ -172,7 +172,7 @@
 
 			                <div class="s-usr_icons">
 			                    <div class="_suis">
-			                        <img src="assets/img/icons/self_check-in.svg" alt="">
+			                        <img src="{{ URL::asset('assets/img/icons/self_check-in.svg') }}" alt="">
 			                    </div>
 			                    <div class="_suisinfo">
 			                        <div class="_txteh">Self check-in</div>
@@ -182,7 +182,7 @@
 
 			                <div class="s-usr_icons">
 			                    <div class="_suis">
-			                        <img src="assets/img/icons/enhanced.svg" alt="">
+			                        <img src="{{ URL::asset('assets/img/icons/enhanced.svg') }}" alt="">
 			                    </div>
 			                    <div class="_suisinfo">
 			                        <div class="_txteh">Enhanced Clean</div>
@@ -191,7 +191,7 @@
 			                            <span class="_fcontent">
 			                                <span class="_asm">Show more</span>
 			                                <span class="_svg-asm">
-			                                    <img src="assets/img/icons/down-right.svg" alt="">
+			                                    <img src="{{ URL::asset('assets/img/icons/down-right.svg') }}" alt="">
 			                                </span>
 			                            </span>
 			                        </a>
@@ -200,7 +200,7 @@
 
 			                <div class="s-usr_icons">
 			                    <div class="_suis">
-			                        <img src="assets/img/icons/great-location.svg" alt="">
+			                        <img src="{{ URL::asset('assets/img/icons/great-location.svg') }}" alt="">
 			                    </div>
 			                    <div class="_suisinfo">
 			                        <div class="_txteh">Great location</div>
@@ -220,7 +220,7 @@
 			                    <span class="_fcontent">
 			                        <span class="_asm abspc">Show more</span>
 			                        <span class="_svg-asm">
-			                            <img src="assets/img/icons/down-right.svg" alt="">
+			                            <img src="{{ URL::asset('assets/img/icons/down-right.svg') }}" alt="">
 			                        </span>
 			                    </span>
 			                </a>
@@ -237,7 +237,7 @@
 			                                <div class="_flex-slider">
 			                                    <div class="_imgcpe">
 			                                        <div class="_ilrlnv">
-			                                            <img src="assets/img/card/b1.png" alt="">
+			                                            <img src="{{ URL::asset('assets/img/card/b1.png') }}" alt="">
 			                                        </div>
 			                                        <div class="_txteh">Bedroom 1</div>
 			                                        <div class="_txtec">1 Queen bed</div>
@@ -245,7 +245,7 @@
 
 			                                    <div class="_imgcpe">
 			                                        <div class="_ilrlnv">
-			                                            <img src="assets/img/card/b2.png" alt="">
+			                                            <img src="{{ URL::asset('assets/img/card/b2.png') }}" alt="">
 			                                        </div>
 			                                        <div class="_txteh">Bedroom 2</div>
 			                                        <div class="_txtec">2 single beds</div>
@@ -253,7 +253,7 @@
 
 			                                    <div class="_imgcpe">
 			                                        <div class="_ilrlnv">
-			                                            <img src="assets/img/card/b3.png" alt="">
+			                                            <img src="{{ URL::asset('assets/img/card/b3.png') }}" alt="">
 			                                        </div>
 			                                        <div class="_txteh">Bedroom 3</div>
 			                                        <div class="_txtec">3 single beds</div>
@@ -261,7 +261,7 @@
 
 			                                    <div class="_imgcpe">
 			                                        <div class="_ilrlnv">
-			                                            <img src="assets/img/card/b2.png" alt="">
+			                                            <img src="{{ URL::asset('assets/img/card/b2.png') }}" alt="">
 			                                        </div>
 			                                        <div class="_txteh">Bedroom 4</div>
 			                                        <div class="_txtec">4 single beds</div>
@@ -293,7 +293,7 @@
 			                <div class="content-user_icons">
 			                    <div class="s-usr_icons">
 			                        <div class="_suis">
-			                            <img src="assets/img/icons/lake.svg" alt="">
+			                            <img src="{{ URL::asset('assets/img/icons/lake.svg') }}" alt="">
 			                        </div>
 			                        <div class="_suisinfo">
 			                            <div class="_txtec">Lake access</div>
@@ -302,7 +302,7 @@
 
 			                    <div class="s-usr_icons">
 			                        <div class="_suis">
-			                            <img src="assets/img/icons/kitchen.svg" alt="">
+			                            <img src="{{ URL::asset('assets/img/icons/kitchen.svg') }}" alt="">
 			                        </div>
 			                        <div class="_suisinfo">
 			                            <div class="_txtec">Kitchen</div>
@@ -311,7 +311,7 @@
 
 			                    <div class="s-usr_icons">
 			                        <div class="_suis">
-			                            <img src="assets/img/icons/tv.svg" alt="">
+			                            <img src="{{ URL::asset('assets/img/icons/tv.svg') }}" alt="">
 			                        </div>
 			                        <div class="_suisinfo">
 			                            <div class="_txtec">TV with standard cable</div>
@@ -320,7 +320,7 @@
 
 			                    <div class="s-usr_icons">
 			                        <div class="_suis">
-			                            <img src="assets/img/icons/wifi.svg" alt="">
+			                            <img src="{{ URL::asset('assets/img/icons/wifi.svg') }}" alt="">
 			                        </div>
 			                        <div class="_suisinfo">
 			                            <div class="_txtec">Wifi</div>
@@ -329,7 +329,7 @@
 
 			                    <div class="s-usr_icons">
 			                        <div class="_suis">
-			                            <img src="assets/img/icons/free-parking.svg" alt="">
+			                            <img src="{{ URL::asset('assets/img/icons/free-parking.svg') }}" alt="">
 			                        </div>
 			                        <div class="_suisinfo">
 			                            <div class="_txtec">Free parking on premises</div>
@@ -338,7 +338,7 @@
 
 			                    <div class="s-usr_icons">
 			                        <div class="_suis">
-			                            <img src="assets/img/icons/hot-tub.svg" alt="">
+			                            <img src="{{ URL::asset('assets/img/icons/hot-tub.svg') }}" alt="">
 			                        </div>
 			                        <div class="_suisinfo">
 			                            <div class="_txtec">Hot tub</div>
@@ -347,7 +347,7 @@
 
 			                    <div class="s-usr_icons">
 			                        <div class="_suis">
-			                            <img src="assets/img/icons/pool.svg" alt="">
+			                            <img src="{{ URL::asset('assets/img/icons/pool.svg') }}" alt="">
 			                        </div>
 			                        <div class="_suisinfo">
 			                            <div class="_txtec">Pool</div>
@@ -356,7 +356,7 @@
 
 			                    <div class="s-usr_icons">
 			                        <div class="_suis">
-			                            <img src="assets/img/icons/elevator.svg" alt="">
+			                            <img src="{{ URL::asset('assets/img/icons/elevator.svg') }}" alt="">
 			                        </div>
 			                        <div class="_suisinfo">
 			                            <div class="_txtec">Elevator</div>
@@ -368,7 +368,7 @@
 
 			                    <div class="s-usr_icons">
 			                        <div class="_suis">
-			                            <img src="assets/img/icons/building.svg" alt="">
+			                            <img src="{{ URL::asset('assets/img/icons/building.svg') }}" alt="">
 			                        </div>
 			                        <div class="_suisinfo">
 			                            <div class="_txtec">Waher -In building</div>
@@ -377,7 +377,7 @@
 
 			                    <div class="s-usr_icons">
 			                        <div class="_suis">
-			                            <img src="assets/img/icons/building.svg" alt="">
+			                            <img src="{{ URL::asset('assets/img/icons/building.svg') }}" alt="">
 			                        </div>
 			                        <div class="_suisinfo">
 			                            <div class="_txtec">Dryer - In building</div>
@@ -475,7 +475,7 @@
 			                        <div class="cblock">
 			                            <div class="content-user_inf">
 			                                <span class="_pf-msg">
-			                                    <img src="assets/img/avatar/1.png" alt="">
+			                                    <img src="{{ URL::asset('assets/img/avatar/1.png') }}" alt="">
 			                                </span>
 			                                <div>
 			                                    <div class="_txteh">Jim</div>
@@ -490,7 +490,7 @@
 			                                        <span class="_fcontent">
 			                                            <span class="_asm">Show more</span>
 			                                            <span class="_svg-asm">
-			                                                <img src="assets/img/icons/down-right.svg" alt="">
+			                                                <img src="{{ URL::asset('assets/img/icons/down-right.svg') }}" alt="">
 			                                            </span>
 			                                        </span>
 			                                    </a>
@@ -501,7 +501,7 @@
 			                        <div class="cblock">
 			                            <div class="content-user_inf">
 			                            <span class="_pf-msg">
-			                                    <img src="assets/img/avatar/2.png" alt="">
+			                                    <img src="{{ URL::asset('assets/img/avatar/2.png') }}" alt="">
 			                                </span>
 			                                <div>
 			                                    <div class="_txteh">Adir</div>
@@ -517,7 +517,7 @@
 			                        <div class="cblock">
 			                            <div class="content-user_inf">
 			                                <span class="_pf-msg">
-			                                    <img src="assets/img/avatar/3.png" alt="">
+			                                    <img src="{{ URL::asset('assets/img/avatar/3.png') }}" alt="">
 			                                </span>
 			                                <div>
 			                                    <div class="_txteh">Neva</div>
@@ -533,7 +533,7 @@
 			                        <div class="cblock">
 			                            <div class="content-user_inf">
 			                                <span class="_pf-msg">
-			                                    <img src="assets/img/avatar/4.png" alt="">
+			                                    <img src="{{ URL::asset('assets/img/avatar/4.png') }}" alt="">
 			                                </span>
 			                                <div>
 			                                    <div class="_txteh">Christina</div>
@@ -549,7 +549,7 @@
 			                        <div class="cblock">
 			                            <div class="content-user_inf">
 			                                <span class="_pf-msg">
-			                                    <img src="assets/img/avatar/2.png" alt="">
+			                                    <img src="{{ URL::asset('assets/img/avatar/2.png') }}" alt="">
 			                                </span>
 			                                <div>
 			                                    <div class="_txteh">Adir</div>
@@ -565,7 +565,7 @@
 			                        <div class="cblock">
 			                            <div class="content-user_inf">
 			                                <span class="_pf-msg">
-			                                    <img src="assets/img/avatar/3.png" alt="">
+			                                    <img src="{{ URL::asset('assets/img/avatar/3.png') }}" alt="">
 			                                </span>
 			                                <div>
 			                                    <div class="_txteh">Neva</div>
@@ -581,7 +581,7 @@
 			                        <div class="cblock">
 			                            <div class="content-user_inf">
 			                                <span class="_pf-msg">
-			                                    <img src="assets/img/avatar/4.png"alt="">
+			                                    <img src="{{ URL::asset('assets/img/avatar/4.png') }}"alt="">
 			                                </span>
 			                                <div>
 			                                    <div class="_txteh">Christina</div>
@@ -606,7 +606,7 @@
 			                </div>
 			                <div class="s-usr_icons">
 			                    <div class="_suis">
-			                        <img src="assets/img/icons/hotel.png" alt="">
+			                        <img src="{{ URL::asset('assets/img/icons/hotel.png') }}" alt="">
 			                    </div>
 			                    <div class="_suisinfo">
 			                        <div class="_txteh" style="margin-bottom: 4px;">Orlando, Florida, United States</div>
@@ -629,7 +629,7 @@
 			                <div class="block-des-if">
 			                    <div class="content-user_inf" style="padding-bottom: 25px;">
 			                        <span class="_pf-msg">
-			                            <img src="assets/img/profile.png" alt="">
+			                            <img src="{{ URL::asset('assets/img/profile.png') }}" alt="">
 			                        </span>
 			                        <div>
 			                            <div class="h2-guests">Hosted by Anny</div>
@@ -643,7 +643,7 @@
 			                        </div>
 
 			                        <div class="content-star">
-			                            <img src="assets/img/icons/identify-v.svg" alt="" style="margin-right: 9px;">
+			                            <img src="{{ URL::asset('assets/img/icons/identify-v.svg') }}" alt="" style="margin-right: 9px;">
 			                            <span class="_txtec"> Identify Verified</span>
 			                        </div>
 
@@ -677,7 +677,7 @@
 
 			                    <div class="s-pri_icons">
 			                        <div class="_pri-svg">
-			                            <img src="assets/img/icons/privaty.svg" alt="">
+			                            <img src="{{ URL::asset('assets/img/icons/privaty.svg') }}" alt="">
 			                        </div>
 			                        <div class="_txtprivat" style="margin-left: 15.8px;">To protect your payment, never transfer money or communicate outside of the Airbnb website or app.</div>
 			                    </div>
@@ -691,7 +691,7 @@
 			                        <span class="_txtblu" style="margin-bottom: 16px;">House rules</span>
 			                        <div class="s-usr_icons">
 			                            <div class="_suis">
-			                                <img src="assets/img/icons/reloj.svg" alt="">
+			                                <img src="{{ URL::asset('assets/img/icons/reloj.svg') }}" alt="">
 			                            </div>
 			                            <div class="_suisinfo">
 			                                <div class="_txtec">Check-in: After 4:00 PM</div>
@@ -700,7 +700,7 @@
 
 			                        <div class="s-usr_icons">
 			                            <div class="_suis">
-			                                <img src="assets/img/icons/reloj.svg" alt="">
+			                                <img src="{{ URL::asset('assets/img/icons/reloj.svg') }}" alt="">
 			                            </div>
 			                            <div class="_suisinfo">
 			                                <div class="_txtec">Checkout: 11:00 AM</div>
@@ -709,7 +709,7 @@
 
 			                        <div class="s-usr_icons">
 			                            <div class="_suis">
-			                                <img src="assets/img/icons/self-black.svg" alt="">
+			                                <img src="{{ URL::asset('assets/img/icons/self-black.svg') }}" alt="">
 			                            </div>
 			                            <div class="_suisinfo">
 			                                <div class="_txtec">Self check-in with keypad</div>
@@ -718,7 +718,7 @@
 
 			                        <div class="s-usr_icons">
 			                            <div class="_suis">
-			                                <img src="assets/img/icons/pets.svg" alt="">
+			                                <img src="{{ URL::asset('assets/img/icons/pets.svg') }}" alt="">
 			                            </div>
 			                            <div class="_suisinfo">
 			                                <div class="_txtec">Pets</div>
@@ -729,7 +729,7 @@
 			                            <span class="_fcontent">
 			                                <span class="_asm">Show more</span>
 			                                <span class="_svg-asm">
-			                                    <img src="assets/img/icons/down-right.svg" alt="">
+			                                    <img src="{{ URL::asset('assets/img/icons/down-right.svg') }}" alt="">
 			                                </span>
 			                            </span>
 			                        </a>
@@ -739,7 +739,7 @@
 			                        <span class="_txtblu" style="margin-bottom: 16px;">House & safety</span>
 			                        <div class="s-usr_icons">
 			                            <div class="_suis">
-			                                <img src="assets/img/icons/enhanced-black.svg" alt="">
+			                                <img src="{{ URL::asset('assets/img/icons/enhanced-black.svg') }}" alt="">
 			                            </div>
 			                            <div class="_suisinfo">
 			                                <div class="_txtec">Committed to Airbnb's enhanced cleaning process. Show more</div>
@@ -748,7 +748,7 @@
 
 			                        <div class="s-usr_icons">
 			                            <div class="_suis">
-			                                <img src="assets/img/icons/covid.svg" alt="">
+			                                <img src="{{ URL::asset('assets/img/icons/covid.svg') }}" alt="">
 			                            </div>
 			                            <div class="_suisinfo">
 			                                <div class="_txtec">vvoutlet social-distancing and other COVID-19-related guidelines apply</div>
@@ -757,7 +757,7 @@
 
 			                        <div class="s-usr_icons">
 			                            <div class="_suis">
-			                                <img src="assets/img/icons/alert.svg" alt="">
+			                                <img src="{{ URL::asset('assets/img/icons/alert.svg') }}" alt="">
 			                            </div>
 			                            <div class="_suisinfo">
 			                                <div class="_txtec">No smoke alarm</div>
@@ -766,7 +766,7 @@
 
 			                        <div class="s-usr_icons">
 			                            <div class="_suis">
-			                                <img src="assets/img/icons/alert.svg" alt="">
+			                                <img src="{{ URL::asset('assets/img/icons/alert.svg') }}" alt="">
 			                            </div>
 			                            <div class="_suisinfo">
 			                                <div class="_txtec">Nearby lake, river, other body of water</div>
@@ -775,7 +775,7 @@
 
 			                        <div class="s-usr_icons">
 			                            <div class="_suis">
-			                                <img src="assets/img/icons/alert.svg" alt="">
+			                                <img src="{{ URL::asset('assets/img/icons/alert.svg') }}" alt="">
 			                            </div>
 			                            <div class="_suisinfo">
 			                                <div class="_txtec">Heights without rails or protection</div>
@@ -786,7 +786,7 @@
 			                            <span class="_fcontent">
 			                                <span class="_asm hesfty">Show more</span>
 			                                <span class="_svg-asm">
-			                                    <img src="assets/img/icons/down-right.svg" alt="">
+			                                    <img src="{{ URL::asset('assets/img/icons/down-right.svg') }}" alt="">
 			                                </span>
 			                            </span>
 			                        </a>

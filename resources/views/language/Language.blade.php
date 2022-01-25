@@ -1,6 +1,6 @@
 <a href="#">
     <div class="content_icon-leng" id="btnLeng">
-        <img src="assets/img/logo-leng.png" alt="">
+        <img src="{{ URL::asset('assets/img/logo-leng.png') }}" alt="">
     </div>
 </a>
 

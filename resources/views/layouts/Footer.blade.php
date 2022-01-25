@@ -2,7 +2,7 @@
 	<div class="medio">
 		<div class="footer-container">
 			<div class="footer-logo">
-				<img src="assets/img/logo-footer.png" alt="logo">
+				<img src="{{ URL::asset('assets/img/logo-footer.png') }}" alt="logo">
 				<div class="footer-icon">
 					<p><i class="far fa-envelope"></i> vvoutlet@gmail.com</p>
 					<p><i class="fas fa-phone-alt"></i> +800 965 785</p>
