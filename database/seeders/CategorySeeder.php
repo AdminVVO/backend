@@ -16,13 +16,13 @@ class CategorySeeder extends Seeder
         //
         $categories=[
             [
-                "type"=>"Nuevo"
+                "type"=>"Cabins"
             ],
             [
-                "type"=>"Nuevo2"
+                "type"=>"Beachfront"
             ],
             [
-                "type"=>"Nuevo3"
+                "type"=>"Luxe"
             ]
         ];
         foreach($categories as $category){

@@ -9,7 +9,7 @@ class CategoryController extends Controller
     //
     public function getCategory(){
         $category=Category::all();
-        return view('category.CardCategory',compact('serviciotecnicos'));
+        return view('category.CardCategory',compact('category'));
     }
     public function insertCategory(Request $request){
         $category= Category::create($request->all());

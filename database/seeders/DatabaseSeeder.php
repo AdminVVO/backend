@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 
+
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -17,5 +18,6 @@ class DatabaseSeeder extends Seeder
         $this->call([LanguagesRegionsSeeder::class]);
         $this->call([CurrencsSeeder::class]);
         $this->call([CategorySeeder::class]);
+        $this->call([SiteSeeder::class]);
     }
 }

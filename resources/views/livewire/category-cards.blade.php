@@ -1,3 +1,12 @@
+@foreach ($sites as $site )
+    <h1>{{ $item->title }} </h1>
+    <h1>{{ $item->price }} </h1>
+    <h1>{{ $item->date }} </h1>
+    <h1>{{ $item->distance }} </h1>
+    <h1>{{ $item->distance }} </h1>
+    {{-- solo obtendremos los 9 primeros --}}
+    {{-- toda la info de la base de datos aqui --}}
+@endforeach
 <div>
     <a href="/" class="card_items">
         <div class="card_top">

@@ -1,5 +1,5 @@
 @foreach ($category as $item )
-<div class="card_items">
+<div class="card_items" >
     <div class="card_img">
         <img src="{{ URL::asset('assets/img/category1.jpg') }}" alt="">
     </div>
