@@ -24,3 +24,24 @@ if (!$menuGuestHeader.is(e.target) && $menuGuestHeader.has(e.target).length === 
 $('.menuGuestHeader').on('click', () => {
     $menuGuestHeader.toggleClass('is-active');
 });
+
+// HEADER FIX
+window.onscroll = function() {
+    const docScrollTop = document.documentElement.scrollTop;
+    
+    if (window.innerWidth > 768) {
+        if(docScrollTop > 100) {
+            document.querySelector("header").classList.add("fixed");
+        } else {
+            document.querySelector("header").classList.remove("fixed");
+        }
+
+        if(docScrollTop > 710 ){
+            document.querySelector(".section-places").classList.add("fix");
+            $(".daterangepicker").addClass("fixed");
+        } else {
+            document.querySelector(".section-places").classList.remove("fix");
+            $(".daterangepicker").removeClass("fixed");
+        }
+    }
+};

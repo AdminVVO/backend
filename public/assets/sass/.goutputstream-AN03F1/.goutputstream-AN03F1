@@ -1,0 +1,171 @@
+@import "_variables";
+
+.block_places {
+    width: 1106px;
+    margin: 0 auto;
+    margin-top: -85px;
+    position: relative;
+
+    h3 {
+        color: $color-white;
+        font-size: 26px;
+        margin-bottom: 16px;
+        font-weight: 400;
+        padding: 0 45px;
+    }
+
+    .book-form {
+        background-color: $color-text-white;
+        box-shadow: 0 0 30px $bg-shadow-places;
+        border-radius: 45px;
+
+        form {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            padding: 8px 8px 8px 45px;
+
+            ._flex-js {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                flex-wrap: wrap;
+                gap: 1.5rem;
+            }
+
+            .inputBox {
+
+                &:not(:last-child) {
+                    border-right: 1px solid #B6AFA2;
+                }
+
+                span {
+                    font-size: 16px;
+                    color: $bg-black-places;
+                }
+
+                .place_select {
+                    display: flex;
+                    flex-direction: column;
+
+                    &-flex {
+                        display: flex;
+                        margin-top: 5px;
+
+                        img {
+                            max-width: fit-content;
+                        }
+
+                        span {
+                            color: black;
+                            font-size: 16px;
+                            padding: 0 40px 0 5px;
+                            font-weight: normal;
+                        }
+                    }
+
+                    .menuGuest {
+                        cursor: pointer;
+                    }
+
+                    .fa-user {
+                        width: 100%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+                    }
+
+                    i {
+                        color: $color-secundary;
+                        margin-top: 5px;
+                        font-size: 18px;
+
+                        span {
+                            color: black;
+                            padding: 0 40px 0 6px;
+                            margin-right: auto;
+                            font-weight: normal;
+                        }
+
+                        input {
+                            background: none;
+                            border: none;
+                            outline: none;
+                            padding: 0 40px 0 2px;
+                            font-size: 16px;
+
+                            &::-webkit-inner-spin-button,
+                            &::-webkit-calendar-picker-indicator {
+                                display: none;
+                                -webkit-appearance: none;
+                            }
+                        }
+
+                        select {
+                            background: none;
+                            border: none;
+                            color: black;
+                            outline: none;
+                            padding: 0 40px 0 2px;
+                            font-size: 16px;
+                        }
+
+                        i {
+                            color: $bg-black-places;
+                            margin-top: 0;
+                        }
+                    }
+                }
+            }
+
+            .btn {
+                cursor: pointer;
+                flex: 1 1 15rem;
+                text-align: center;
+                border: none;
+                border-radius: 45px;
+                color: white;
+                background: #00B5DD;
+                padding: 16px 30px;
+                font-size: 18px;
+                max-width: 150px;
+            }
+        }
+    }
+}
+
+
+@media screen and (max-width:1200px) { 
+    .block_places .book-form{
+        border-radius: 10px;  
+    }
+    .block_places{
+        max-width: 100%;
+    }
+    .block_places .book-form form{
+        padding: 30px;
+        .inputBox {
+            width: 45%;
+            flex: auto;
+        }
+        
+    }
+    .block_places .book-form form .inputBox .hr, .block_places .book-form form .inputBox .place_select{
+        border-right: 0;   
+        border-bottom: 1px solid #b6afa287;
+        padding-bottom: 10px;
+    }  
+    .block_places .book-form form .btn{
+        width: 100%;
+        max-width: initial; 
+    }
+} 
+
+
+@media screen and (max-width:500px) {
+    .block_places .book-form form .inputBox{
+        width: 100%;
+    }
+}

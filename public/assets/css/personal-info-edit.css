@@ -39,7 +39,7 @@ a {
 .section-perfil_info-edit {
   display: flex;
   justify-content: space-between;
-  gap: 87px;
+  gap: 65px;
 }
 @media (max-width: 1050px) {
   .section-perfil_info-edit {
@@ -72,17 +72,19 @@ a {
   }
 }
 .section-perfil_info-edit-main ._bgpadding {
+  padding: 34px 0;
+  margin: 0 49px;
+}
+.section-perfil_info-edit-main ._bgpadding:not(:last-child) {
   border-bottom: 2px solid #E3EDF3;
-  padding-bottom: 34px;
-  margin-left: 49px;
 }
 @media (max-width: 1050px) {
   .section-perfil_info-edit-main ._bgpadding {
-    margin-left: 0;
+    padding-left: 0;
+    padding-right: 0;
   }
 }
 .section-perfil_info-edit-main ._bgpadding ._cont-edit {
-  padding-top: 30px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -97,8 +99,15 @@ a {
   justify-content: space-between;
   margin-top: 0;
 }
-.section-perfil_info-edit-main ._bgpadding ._form {
+.section-perfil_info-edit-main ._bgpadding ._form .selected-modal {
+  margin: 12px 0 0;
+}
+.section-perfil_info-edit-main ._bgpadding ._form .txt-check-in {
   margin-top: 25px;
+  margin-bottom: 0;
+}
+.section-perfil_info-edit-main ._bgpadding ._form ._input-mod {
+  margin: 12px 0 0;
 }
 @media (max-width: 1415px) {
   .section-perfil_info-edit-main ._bgpadding ._form ._flfpc {
@@ -131,11 +140,15 @@ a {
     width: 45.07%;
   }
 }
-.section-perfil_info-edit-main ._bgpadding ._form ._input-mod {
-  margin: 0;
+.section-perfil_info-edit-main ._bgpadding ._form ._flfpc .block_date .date_check {
+  margin-top: 12px;
 }
 .section-perfil_info-edit-main ._bgpadding ._form .btn-celest {
   margin-top: 25px;
+}
+.section-perfil_info-edit-main ._yellow-bg {
+  padding: 0 49px;
+  background-color: rgba(255, 246, 165, 0.31);
 }
 .section-perfil_info-edit-aside {
   padding-right: 49px;

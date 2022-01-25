@@ -2,7 +2,7 @@ document.querySelectorAll('.selected-modal').forEach(setupSelector);
 
 function setupSelector(selector) {
   selector.addEventListener('change', e => {
-    console.log('changed', e.target.value)
+    // console.log('changed', e.target.value)
   })
 
   selector.addEventListener('mousedown', e => {

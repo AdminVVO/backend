@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\AccommodationController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginOrRegisterForEmailPhoneController;
 use App\Http\Controllers\LoginOrRegisterForSocialsController;
 use Illuminate\Http\Request;
@@ -38,24 +40,13 @@ Route::prefix('logInRegistration')->name('logInRegistration')->group( function()
 
     Route::post('logout', [LoginOrRegisterForEmailPhoneController::class, 'logoutLoginOrRegister'])->name('logout')->middleware('auth:sanctum');
 
-
-
 });
 
-// ## Routes Login and Register Google
-// Route::prefix('google')->name('google.')->group( function(){
-//     ## We start the process of logging in through Google
-//     Route::get('login', [LoginOrRegisterForSocialsController::class, 'loginWithGoogle'])->name('login');
+Route::get('returnCards', [AccommodationController::class, 'index'])->name('returnCards');
 
-//     ## We received the response from Google
-//     Route::any('callback', [LoginOrRegisterForSocialsController::class, 'callbackFromGoogle'])->name('callback');
-// });
+Route::get('returnlanguageRegions', [HomeController::class, 'languageRegions'])->name('returnlanguageRegions');
+Route::post('changeLanguage', [HomeController::class, 'changeLanguageRegions'])->name('changeLanguage')->middleware('auth:sanctum');
 
-// ## Routes Login and Register Facebook
-// Route::prefix('facebook')->name('facebook.')->group( function(){
-//     ## We start the process of logging in through Facebook
-//     Route::get('login', [LoginOrRegisterForSocialsController::class, 'loginWithFacebook'])->name('login');
+Route::get('returncurrencys', [HomeController::class, 'Currency'])->name('returncurrencys');
+Route::post('changeCurrency', [HomeController::class, 'changeCurrency'])->name('changeCurrency')->middleware('auth:sanctum');
 
-//     ## We received the response from Facebook
-//     Route::any('callback', [LoginOrRegisterForSocialsController::class, 'callbackFromFacebook'])->name('callback');
-// });

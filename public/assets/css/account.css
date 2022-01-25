@@ -52,6 +52,7 @@ a {
   gap: 53px;
 }
 .section-account .msgaround {
+  padding: 23px 40px;
   margin-top: 50px;
 }
 @media (max-width: 750px) {

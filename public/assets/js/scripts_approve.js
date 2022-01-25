@@ -32,15 +32,15 @@ $(document).ready(function() {
        $(this).addClass("activ");
     });
 
-    $('.leng-click').click(function(){
-       $('.content_hidden_currency').css('display','none')
-       $('._lgcth').css('display','block')
-    });
+    $('.currency-click').click(function() {
+        $('.content_hidden_currency').css({'display': 'block'});
+        $('._lgcth').css({'display': 'none'});
+    })
 
-    $('.currency-click').click(function(){
-       $('.content_hidden_currency').css('display','block')
-       $('._lgcth').css('display','none')
-    });
+    $('.leng-click').click(function() {
+        $('.content_hidden_currency').css({'display': 'none'});
+        $('._lgcth').css({'display': 'block'});
+    })
 
     $('.content_leng-choose .flex_content .btn_leng').click(function(){
        $('.btn_leng').removeClass("active");

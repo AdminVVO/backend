@@ -24,6 +24,7 @@
     }
 
     .msgaround {
+        padding: 23px 40px;
         margin-top: 50px;
 
         @include responsive(750px) {

@@ -7,7 +7,7 @@
 // })
 
 $(document).ready(function() {
-    $('.content_leng').click(function() {
+    $('#btnLeng').click(function() {
         $('.container-leng').css({'display': 'block'});
         $('.page-category').css({'overflow': 'hidden'});
     })
@@ -31,6 +31,12 @@ $(document).ready(function() {
         $('.content_hidden_currency').css({'display': 'none'});
         $('._lgcth').css({'display': 'block'});
     })
+
+    // --- OCULTAR SCROLL BODY ---
+    // $('.').click(function() {
+        // $('.page-category').css({'overflow': 'hidden'}); // ocultar
+        // $('.page-category').css({'overflow': 'auto'}); // aparecer
+    // })
 })
 
 

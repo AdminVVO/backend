@@ -67,7 +67,6 @@ a {
 .container-wishlists,
 .container-wishlists-create,
 .container-wishlists-share {
-  /*display: none;*/
   position: absolute;
   top: 0;
   left: 0;
@@ -207,6 +206,9 @@ input {
 .container-t-registro .pd_login-modal .modal_content-welcome {
   max-height: 1055px !important;
 }
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content-f-r .error_input {
+  margin: 24px 0 10px;
+}
 
 .log-out-modal-welcome {
   display: none;
@@ -226,7 +228,6 @@ input {
 .container-need-email,
 .container-t-registro,
 .container-msg-sent {
-  /*display: none;*/
   position: absolute;
   top: 0;
   left: 0;
@@ -860,51 +861,6 @@ input {
 .container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome-email .block_redes a .contend_red .flex_icon .fa-phone {
   transform: rotate(90deg);
 }
-.container-welcome .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome-email .date,
-.container-number .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome-email .date,
-.container-options1 .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome-email .date,
-.container-ineed .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome-email .date,
-.container-welcome-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome-email .date,
-.container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome-email .date,
-.container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome-email .date,
-.container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome-email .date,
-.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome-email .date,
-.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome-email .date {
-  position: relative;
-}
-.container-welcome .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome-email .date::-webkit-calendar-picker-indicator,
-.container-number .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome-email .date::-webkit-calendar-picker-indicator,
-.container-options1 .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome-email .date::-webkit-calendar-picker-indicator,
-.container-ineed .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome-email .date::-webkit-calendar-picker-indicator,
-.container-welcome-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome-email .date::-webkit-calendar-picker-indicator,
-.container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome-email .date::-webkit-calendar-picker-indicator,
-.container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome-email .date::-webkit-calendar-picker-indicator,
-.container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome-email .date::-webkit-calendar-picker-indicator,
-.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome-email .date::-webkit-calendar-picker-indicator,
-.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome-email .date::-webkit-calendar-picker-indicator {
-  filter: invert(1);
-  color: transparent;
-  background: none;
-  z-index: 1;
-}
-.container-welcome .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome-email .date::before,
-.container-number .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome-email .date::before,
-.container-options1 .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome-email .date::before,
-.container-ineed .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome-email .date::before,
-.container-welcome-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome-email .date::before,
-.container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome-email .date::before,
-.container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome-email .date::before,
-.container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome-email .date::before,
-.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome-email .date::before,
-.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome-email .date::before {
-  content: "";
-  font-family: "Font Awesome 5 Pro";
-  color: #00B5DD;
-  font-size: 20px;
-  position: absolute;
-  top: 17px;
-  right: 22px;
-}
 .container-welcome .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content-f-r,
 .container-number .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content-f-r,
 .container-options1 .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content-f-r,
@@ -931,18 +887,6 @@ input {
 .container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content-f-r {
     padding: 0 25px;
   }
-}
-.container-welcome .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content-f-r ._mr,
-.container-number .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content-f-r ._mr,
-.container-options1 .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content-f-r ._mr,
-.container-ineed .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content-f-r ._mr,
-.container-welcome-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content-f-r ._mr,
-.container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content-f-r ._mr,
-.container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content-f-r ._mr,
-.container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content-f-r ._mr,
-.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content-f-r ._mr,
-.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content-f-r ._mr {
-  margin: 12px 0 10px;
 }
 .container-welcome .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content-f-r p a,
 .container-number .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content-f-r p a,

@@ -1,0 +1,25 @@
+@import "_globals";
+@import "_variables";
+ 
+// Header
+
+.header-fixed {
+    display: none;
+}
+
+header {
+    position: fixed;
+    background-color: $color-background2;
+}
+
+header.fixed {
+    animation: none;
+}
+
+header .book-form {
+    animation: none;
+    visibility: visible;
+    width: auto;
+    visibility: visible;
+    opacity: 1;
+} 

@@ -121,7 +121,7 @@
 
     .medio{
         @include flex-centrado;
-        justify-content: flex-start; 
+        justify-content: space-between; 
     }
 
     .content-scroll-local {

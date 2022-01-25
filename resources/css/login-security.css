@@ -1,0 +1,123 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+.container {
+  max-width: 1600px;
+  margin: auto;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.flex {
+  display: flex;
+}
+.flex-jc-sb {
+  justify-content: space-between;
+}
+.flex-jc-c {
+  justify-content: center;
+}
+.flex-ai-c {
+  align-items: center;
+}
+
+.section_login-security {
+  display: flex;
+  justify-content: space-between;
+  gap: 86px;
+  padding: 0 49px;
+}
+@media (max-width: 950px) {
+  .section_login-security {
+    flex-direction: column;
+    gap: 56px;
+  }
+}
+@media (max-width: 760px) {
+  .section_login-security {
+    padding: 0 25px;
+  }
+}
+.section_login-security ._btnsm {
+  margin-top: 0;
+}
+.section_login-security-main {
+  width: 100%;
+}
+.section_login-security-main .h2-guests_bold35 {
+  margin: 16px 0 11px;
+}
+.section_login-security-main .msgaround {
+  margin-top: 23px;
+  padding: 23px 38px;
+  gap: 12px;
+}
+@media (max-width: 510px) {
+  .section_login-security-main .msgaround {
+    padding: 18px 25px;
+  }
+}
+@media (max-width: 475px) {
+  .section_login-security-main .msgaround {
+    flex-direction: column;
+  }
+}
+@media (max-width: 475px) {
+  .section_login-security-main .msgaround ._wcusermsg {
+    padding-right: 0;
+    text-align: center;
+  }
+}
+.section_login-security-aside {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 53px;
+  width: 50.65%;
+}
+@media (max-width: 950px) {
+  .section_login-security-aside {
+    flex-direction: row;
+    width: 100%;
+  }
+}
+.section_login-security-aside ._cont-account {
+  width: 100%;
+}
+@media (max-width: 1130px) {
+  .section_login-security-aside ._cont-account {
+    padding: 31px 30px;
+  }
+}
+@media (max-width: 1000px) {
+  .section_login-security-aside ._cont-account {
+    padding: 25px 22px;
+  }
+}
+@media (max-width: 950px) {
+  .section_login-security-aside ._cont-account {
+    padding: 51px 40px;
+    width: 360px;
+  }
+}
+@media (max-width: 510px) {
+  .section_login-security-aside ._cont-account {
+    width: 100%;
+    padding: 18px 25px;
+  }
+}

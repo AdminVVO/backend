@@ -303,37 +303,608 @@ button {
   }
 }
 
+// LIBRERIA CSS UN CALENDARIO DE DATE-PIKER
+.ui-widget {
+  font-family: 'Lato', sans-serif;
+}
+
+.ui-widget {
+  &.ui-widget-content {
+    width: 405px;
+    padding: 32px 24px;
+    padding-right: 26px;
+    border: 3px solid #E3EDF3 !important;
+    background-color: #FFFFFF;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgb(40 54 70 / 10%);
+
+    @include responsive(531px) {
+      width: 290px;
+      padding: 18px 14px;
+      padding-right: 16px;
+    }
+  }
+}
+
+.ui-widget-header {
+  background-color: transparent !important;
+  border: 3px solid #E3EDF3 !important;
+  border-radius: 10px !important;
+}
+
+.ui-datepicker {
+  .ui-datepicker-header {
+    padding: 19px 0 !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @include responsive(531px) {
+      padding: 12px 0 !important;
+    }
+  }
+}
+
+.ui-datepicker {
+  .ui-datepicker-header {
+    .ui-state-hover {
+      border: 0px solid !important;
+      background: transparent !important;
+    }
+  }
+}
+
+.ui-widget-header {
+  .ui-icon {
+    background-image: none !important;
+  }
+}
+
+.ui-datepicker {
+  .ui-datepicker-prev {
+    left: 20px !important;
+
+    @include responsive(531px) {
+      left: 10px !important;
+    }
+  }
+}
+
+.ui-datepicker {
+  .ui-datepicker-prev {
+    &::before {
+      content: "\f053";
+      font-family: 'Font Awesome 5 Free';
+      font-weight: 900;
+      position: absolute;
+    }
+  }
+}
+
+.ui-datepicker {
+  .ui-datepicker-next {
+    right: 20px !important;
+
+    @include responsive(531px) {
+      right: 10px !important;
+    }
+  }
+}
+
+.ui-datepicker {
+  .ui-datepicker-next {
+    &::before {
+      content: "\f054";
+      font-family: 'Font Awesome 5 Free';
+      font-weight: 900;
+      position: absolute;
+    }
+  }
+}
+
+.ui-datepicker {
+  .ui-datepicker-prev {
+    font-size: 18px;
+    color: #00B5DD !important;
+    cursor: pointer !important;
+    top: auto !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .ui-datepicker-next {
+    font-size: 18px;
+    color: #00B5DD !important;
+    cursor: pointer !important;
+    top: auto !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.ui-datepicker {
+  .ui-datepicker-title {
+    margin: 0 !important;
+    font-size: 18px !important;
+    font-weight: normal !important;
+    line-height: 24px !important;
+    color: #7D7D7D !important;
+  }
+}
+
+.ui-datepicker {
+  th {
+    color: #7D7D7D;
+    font-weight: normal !important;
+    font-size: 18px;
+    line-height: 24px;
+  }
+}
+
+.ui-datepicker {
+  table {
+    margin: 0 !important;
+    border-collapse: separate !important;
+    border-spacing: 0 2px;
+    font-size: 14px !important;
+    line-height: 24px;
+  }
+}
+
+.ui-datepicker {
+  table {
+    tbody {
+      tr {
+        td {
+          width: 48px !important;
+          height: 47px !important;
+
+          @include responsive(531px) {
+            width: 40px !important;
+            height: 31px !important;
+          }
+        }
+      }
+    }
+  }
+}
+
+.ui-datepicker {
+  td {
+    span {
+      padding: 0 !important;
+      display: flex !important;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: 100%;
+    }
+
+    a {
+      padding: 0 !important;
+      display: flex !important;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+
+
+/*.ui-state-highlight, .ui-widget-content .ui-state-highlight, .ui-widget-header .ui-state-highlight {
+  border: 1px solid #dad55e !important;
+  background: #fffa90 !important;
+  color: #333 !important;
+}*/
+
+.ui-state-active, 
+.ui-widget-content .ui-state-active,
+.ui-widget-header 
+.ui-state-active, 
+a.ui-button:active, 
+.ui-button:active, 
+.ui-button.ui-state-active:hover {
+  background: #00B5DD !important;
+  border: 1px solid #00B5DD !important;
+  color: white !important;
+}
+
+.ui-state-default {
+  border: 1px solid transparent !important;
+  background: transparent !important;
+}
+
+.ui-state-hover {
+  border: 1px solid #E3EDF3 !important;
+  background: #E3EDF3 !important;
+}
+
+/* ocultar los dias desactivado */
+td.ui-datepicker-other-month {
+  visibility: hidden;
+}
+
+/*.input-mod::before {
+  content: "\f133";
+    font-family: 'Font Awesome 5 Free';
+    color: #00B5DD;
+    font-size: 20px;
+    position: absolute;
+    top: 17px;
+    right: 22px;
+}*/
+
+.date-v-modals {
+  cursor: pointer;
+}
+
+._lbl-date {
+  display: block;
+  position: relative;
+  cursor: pointer;
+  margin: 12px 0 10px;
+  border-radius: 10px;
+
+  ._input-mod {
+    margin: 0;
+  }
+
+  .fa-calendar {
+    position: absolute;
+    color: #00B5DD;
+    font-size: 20px;
+    top: 15px;
+    right: 20px;
+  }
+}
+
+._bgpad-lg_history {
+  padding: 27px 0 0 !important;
+  gap: 0 !important;
+
+  ._bgpad-inf {
+    ._cont-edit {
+      padding: 25px 0 30px;
+
+      &:not(:last-child) {
+        border-bottom: 1px solid #ebebeb;
+      }
+
+      ._block-f {
+         ._b-icon {
+          i {
+            color: #FF5A5F;
+          }
+        }
+
+        ._gap {
+          ._txteh {
+            margin-bottom: 4px;
+          }
+        }
+      }
+    }
+  }
+}
+
+._bgpad-lg_socials {
+  padding: 27px 0 0 !important;
+  gap: 0 !important;
+
+  ._bgpad-inf {
+    ._cont-edit {
+      padding: 25px 0 30px;
+
+      &:not(:last-child) {
+        border-bottom: 1px solid #ebebeb;
+      }
+
+      ._block-f {
+        ._gap {
+          ._txteh {
+            margin-bottom: 4px;
+          }
+        }
+      }
+    }
+  }
+}
+
+._bgpad-lg {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  padding: 27px 0 30px;
+
+  &:not(:last-child) {
+    border-bottom: 1px solid #ebebeb;
+  }
+
+  ._cont-edit {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 25px;
+
+    ._txteh {
+      margin-bottom: 4px;
+    }
+
+    ._block-f {
+      display: flex;
+
+      ._b-icon {
+        margin-top: 6px;
+        width: 41px;
+
+        i {
+          color: #283646;
+          font-size: 22px;
+        }
+      }
+    }
+  }
+}
+
+//------------ PAGINA PERSONAL INFO ------------
+._bgpadding {
+  padding: 34px 0;
+  border-bottom: 2px solid #E3EDF3;
+
+  @include responsive(1050px) {
+      padding-left: 0;
+      padding-right: 0;
+  }
+
+  @include responsive(768px) {
+      margin: 0 25px;
+  }
+
+  ._cont-edit {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 25px;
+
+      ._txteh {
+          margin-bottom: 4px;
+
+          @include responsive(900px) {
+              margin-bottom: 0;
+          }
+      }
+
+      ._btnsm {
+          display: inline-flex;
+          align-items: center;
+          justify-content: space-between;
+          margin-top: 0;
+      }
+
+      .cancel {
+        display: none;
+      }
+  }
+
+  .show {
+    display: none;
+  }
+
+  ._form-f {
+      ._flex {
+          display: flex;
+          justify-content: space-between;
+          gap: 13px;
+
+          @include responsive(1305px) {
+              flex-wrap: wrap;
+              justify-content: left;
+          }
+
+          @include responsive(1050px) {
+              flex-wrap: nowrap;
+              justify-content: space-between;
+          }
+
+          @include responsive(790px) {
+              flex-wrap: wrap;
+              justify-content: left;
+          }
+
+          .selected-modal {
+              flex: 0 0 19%;
+              max-width: 19%;
+
+              @include responsive(1305px) {
+                  flex: 140px;
+                  max-width: 140px;
+              }
+
+              @include responsive(1050px) {
+                  flex: 0 0 19%;
+                  max-width: 19%;
+              }
+
+              @include responsive(790px) {
+                  flex: 140px;
+                  max-width: 140px;
+              }
+
+              @include responsive(390px) {
+                flex: 0 0 100%;
+                max-width: 100%;
+              }
+
+              &:nth-child(1) {
+                  flex: 0 0 57.4%;
+                  max-width: 57.4%;
+
+                  @include responsive(1305px) {
+                      flex: 0 0 100%;
+                      max-width: 100%;
+                  }
+
+                  @include responsive(1050px) {
+                      flex: 0 0 57.4%;
+                      max-width: 57.4%;
+                  }
+
+                  @include responsive(790px) {
+                      flex: 0 0 100%;
+                      max-width: 100%;
+                  }
+              }
+          }
+      }
+  }
+
+  ._form {
+    display: none;
+
+      .selected-modal {
+          margin: 12px 0 0;
+      }
+
+      .txt-check-in {
+          margin-top: 25px;
+          margin-bottom: 0;
+      }
+
+      ._input-mod {
+          margin: 12px 0 0;
+      }
+
+      ._flfpc {
+          @include responsive(1415px) {
+              flex-direction: row;
+          }
+
+          .block_date {
+              width: 45.07%;
+
+              @include responsive(1415px) {
+                  width: 100%;
+              }
+
+              @include responsive(1050px) {
+                  width: 45.07%;
+              }
+
+              &:nth-child(2) {
+                  width: 47.3%;
+
+                  @include responsive(1415px) {
+                      width: 100%;
+                  }
+
+                  @include responsive(1050px) {
+                      width: 45.07%;
+                  }
+              }
+
+              .date_check {
+                  margin-top: 12px;
+              }
+          }
+      }
+
+      .btn-celest {
+          margin-top: 25px;
+      }
+  }
+}
+
+._yellow-bg {
+  padding: 0 49px;
+  transition: all .3s ease;
+
+  &:hover {
+    background-color: rgba(255, 246, 165, 0.31);
+  }
+
+  @include responsive(768px) {
+    padding: 0;
+  }
+}
+
+//---------- SHOW EDIT PERSONAL INFO ----------
+// .personal_edit ~ .edit {
+//   display: none;
+// }
+// .personal_edit ~ .cancel {
+//   display: flex;
+// }
+.personal_edit {
+  &:hover {
+    background-color: transparent;
+  }
+
+  ._cont-edit {
+    .edit {
+      display: none;
+    }
+
+    .cancel {
+      display: flex;
+    }
+  }
+
+  .none {
+    display: none;
+  }
+
+  .show {
+    display: block;
+  }
+
+  ._form {
+    display: block;
+  }
+}
+
+
+//---------- NONE CANCEL PERSONAL INFO ----------
+
+
 
 .selected-modal {
   position: relative;
   display: flex;
   align-content: center;
   margin: 24px 0 25px;
+  border-radius: 10px;
+  cursor: pointer;
 
   select {
-      -webkit-appearance: none;
-      -moz-appearance:  none;
-      appearance: none;
-      outline: none;
-      width: 100%;
-      padding: 16px 18px;
-      font-size: 18px;
-      border: 1px solid #E3EDF3;
-      color: #7D7D7D;
-      border-radius: 10px;
-      font-weight: normal;
-      transition: all .4s ease;
+    -webkit-appearance: none;
+    -moz-appearance:  none;
+    appearance: none;
+    background: none;
+    outline: none;
+    width: 100%;
+    padding: 16px 43px 16px 18px;
+    font-size: 18px;
+    border: 1px solid #E3EDF3;
+    background-color: $color-white;
+    color: #7D7D7D;
+    border-radius: 10px;
+    font-weight: normal;
+    transition: all .4s ease;
+    cursor: pointer;
+
+    &:hover {
+      box-shadow: 0 0 15px rgb(40 54 70 / 10%);
+    }
   }
 
   i {
-      position: absolute;
-      right: 23px;
-      top: 22px;
-      color: #00B5DD;
-  }
-
-  select:focus {
-      box-shadow: 0 0 15px rgb(40 54 70 / 10%);
+    position: absolute;
+    right: 23px;
+    top: 21px;
+    color: #00B5DD;
   }
 
   .selector-options {
@@ -362,13 +933,17 @@ button {
       cursor: pointer;
       transition: all 0.3s ease;
 
+      &:disabled {
+        background-color: red;
+      }
+
       &:hover {
         background: #E3EDF3;
       }
 
-      &:nth-child(1) {
-        opacity: .6;
-      }
+      // &:nth-child(1) {
+      //   opacity: .6;
+      // }
     }
   }
 }
@@ -741,7 +1316,7 @@ button {
 }
 
 
-// ESTILOS CALENDARY
+// ESTILO 1 CALENDARY PICKER
 ._block-cale {
   width: 405px;
   padding: 32px 25px;
@@ -838,7 +1413,7 @@ button {
   }
 }
 
-// calendary border hover a cada dia activado
+// ESTILO 1 calendary border hover a cada dia activado
 ._ftodey-border {
   -webkit-box-direction: normal;
   -webkit-box-orient: vertical;
@@ -908,6 +1483,210 @@ button {
 
 
 
+// ESTILO 2 CALENDARY DATE RANGE PICKER
+.daterangepicker {
+  margin-top: 16px !important;
+  left: 50% !important;
+  transform: translate(-50%, 10px);
+  width: 1106px !important;
+  padding: 50px 120px !important;
+  padding-right: 122px !important;
+  border: 3px solid #E3EDF3 !important;
+  background-color: #FFFFFF !important;
+  border-radius: 10px !important;
+  box-shadow: 0 0 15px rgb(40 54 70 / 10%);
+
+  &.fixed {
+    position: fixed;
+    top: 83px !important;
+  }
+
+  &::before {
+    top: 72px !important;
+    left: 0 !important;
+    right: 0;
+    width: 79%;
+    height: 60px;
+    border-radius: 10px;
+    background-color: #ffff;
+    border: 3px solid #E3EDF3;
+    margin: auto;
+    z-index: -1;
+
+    border-right: 3px solid #E3EDF3 !important;
+    border-left: 3px solid #E3EDF3 !important;
+    border-bottom: 3px solid #E3EDF3 !important;
+  }
+
+  &::after {
+    top: 101px !important;
+    left: 0 !important;
+    right: 0;
+    width: 20px;
+    height: 2px;
+    border-right: 0 !important;
+    border-bottom: 0 !important;
+    border-left: 0 !important;
+    background-color: #00B5DD !important;
+    margin: auto;
+  }
+
+  .right {
+    float: right !important;
+  }
+
+  .left .calendar-table table thead tr th {
+    border-radius: 0;
+  }
+
+  td.active {
+    background-color: #00B5DD !important;
+    background: linear-gradient(0deg, #00B5DD, #00B5DD);
+  }
+  
+  td.active {
+    &:hover {
+      background-color: #00B5DD !important;
+    }
+  }
+
+  td.available {
+    &:hover {
+      background-color: #E3EDF3 !important;
+    }
+  }
+
+  th.available {
+    &:hover {
+      background-color: #E3EDF3 !important;
+    }
+  }
+
+  th.month {
+    padding: 19px 0;
+  }
+
+  td.in-range {
+    background-color: #E3EDF3 !important;
+  }
+
+  td.off, .daterangepicker td.off.in-range, .daterangepicker td.off.start-date, .daterangepicker td.off.end-date {
+    background-color: #fff !important;
+    color: #999 !important;
+  }
+
+  td.off {
+    &:hover {
+      background-color: $color-white !important;
+    }
+  }
+
+  th.available:hover {
+    background-color: transparent !important;
+  }
+
+  .calendar-table {
+    border: 0 !important;
+    background-color: transparent !important;
+
+    td {
+			font-size: 16px !important;
+		}
+  }
+
+  .drp-selected {
+    display: none !important;
+  }
+
+  .drp-calendar {
+    max-width: none !important;
+  }
+
+  .calendar-table table {
+    border-collapse: separate !important;
+    border-spacing: 0 2px !important;
+  }
+}
+
+.daterangepicker .calendar-table .next span, .daterangepicker .calendar-table .prev span {
+  border: solid #00B5DD !important;
+  border-width:  0 3px 3px 0 !important;
+  padding: 4px !important;
+  cursor: pointer;
+}
+
+.daterangepicker .calendar-table th, .daterangepicker .calendar-table td {
+  min-width: 46px !important;
+  width: 50px !important;
+  height: 50px !important;
+  line-height: 46px !important;
+}
+
+.drp-buttons {
+  padding: 14px 8px 8px !important;
+	border-top: 0 solid !important;
+
+  .cancelBtn {
+    position: relative;
+    color: #333;
+    font-size: 18px !important;
+		font-weight: normal !important;
+    display: inline-flex;
+    align-items: baseline;
+    padding: 0 !important;
+    gap: 6px;
+
+    &::before {
+      content: "";
+      position: absolute;
+      height: 2px;
+      width: 89%;
+      background-color: #333;
+      bottom: -4px;
+    }
+
+    ._svg-asm {
+      img {
+        width: 7px;
+      }
+    }
+  }
+
+  .applyBtn {
+    margin-left: 38px !important;
+    padding: 16px 50px !important;
+    border-radius: 10px;
+    background-color: #00B5DD;
+    color: #fff;
+    font-weight: normal !important;
+    font-size: 18px !important;
+  }
+}
+
+.table-condensed thead tr th {
+  color: #7D7D7D;
+  font-size: 18px !important;
+  line-height: 24px !important;
+  font-weight: normal;
+  cursor: default !important;
+}
+
+._date-check-out_div {
+  width: 100%;
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset:  0;
+    background-color: transparent;
+  }
+}
+
+
+
+
+
 // FORM
 ._flfpc {
   justify-content: space-between;
@@ -941,15 +1720,21 @@ button {
     .date_check {
       padding: 16px;
       border: 1px solid #E3EDF3;
+      background-color: $color-white;
       color: #7D7D7D;
       font-size: 18px;
       font-weight: normal;
       line-height: 24px;
       border-radius: 10px;
       width: 100%;
+      transition: box-shadow .3s ease;
 
       &::-webkit-calendar-picker-indicator {
         display: none;
+      }
+
+      &:hover {
+        box-shadow: 0 0 15px rgb(40 54 70 / 10%);
       }
     }
   }
@@ -999,8 +1784,8 @@ button {
           font-weight: 500;
           font-size: 18px;
           position: absolute;
-          margin-top: 4px;
-          left: 7px;
+          margin-top: 7px;
+          left: 6px;
           color: white;
           transition: all 0.3s ease;
       }

@@ -24,6 +24,8 @@ class CreateUsersTable extends Migration
             $table->string('avatar')->default('user.png');
             $table->string('phone')->nullable()->unique();
             $table->string('sex')->nullable();
+            $table->string('language_default')->default('US');
+            $table->string('currency_default')->default('USD');
             $table->boolean('promotions')->nullable();
             $table->string('google_id')->nullable();
             $table->string('facebook_id')->nullable();

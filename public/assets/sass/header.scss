@@ -7,6 +7,29 @@
                 &:nth-child(1) {
                     display: none;
                 }
+
+                label {
+                    width: 150px;
+                    cursor: pointer;
+                    display: block;
+
+                    .place_select {
+                        i {
+                            input {
+                                color: $color-white;
+                                font-size: 16px;
+                                cursor: pointer;
+                                font-weight: normal;
+
+                                &::placeholder {
+                                    color: $color-white;
+                                    font-size: 16px;
+                                    font-weight: normal;
+                                }
+                            }
+                        }
+                    }
+                }
             }
         }
     }
@@ -22,12 +45,6 @@ header {
         background-color: $color-bg-header;
         position: fixed;
         animation: fixHeader .5s ease;
-         
-        .book-form {
-            // width: auto;
-            visibility: visible;
-            opacity: 1;
-        }
     }
 
     @include keyframes-animation(fixHeader) {
@@ -55,11 +72,16 @@ header {
         transition: all .3s ease;
         // width: 0;
 
+        &.fix {
+            visibility: visible;
+            opacity: 1;
+        }
+
         form {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            gap: 20px;
+            gap: 50px;
 
             ._flex-js {
                 display: flex;
@@ -101,7 +123,7 @@ header {
                             background: none;
                             border: none;
                             outline: none;
-                            padding: 0 0 0 5px; 
+                            padding-left: 8px;
                             font-size: 16px;
                             color: $color-white;
 
@@ -166,7 +188,7 @@ header {
         }
 
         ._bef-places {
-            margin-top: 21px;
+            margin-top: 31px;
         }
     }
 }

@@ -5,12 +5,27 @@ window.onscroll = function() {
     if (window.innerWidth > 768) {
         if(docScrollTop > 100) {
             document.querySelector("header").classList.add("fixed");
-        }
-        else {
+        } else {
             document.querySelector("header").classList.remove("fixed");
         }
     }
 };
+
+// Mostrar el header check in - check out
+// $(document).ready(function() {  
+
+//     var clone = $(".book-f_header form").clone(); 
+
+//     $(window).scroll(function() {
+//         if($(this).scrollTop() > 760 ){
+//             clone.appendTo(".book-f_header");
+//         } else {
+//             $(".book-f_header form").remove();
+//         }
+//     });
+//     $(".book-f_header form").remove();
+// });
+
 
 const $menuBars = $('._header-menu');
 

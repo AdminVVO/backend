@@ -42,10 +42,13 @@ class LoginOrRegisterForSocialsController extends Controller
                 return $authUser;
             }
 
+            $arrayName = explode(' ', $user->name);
+
         return User::updateOrCreate([
                 'email' =>  $user->email
             ],[
-                'name'      => $user->name,
+                'name'      => $arrayName[0],
+                'last_name' => $arrayName[1],
                 'password'  => Hash::make( $user->name . '@' . $user->id ),
                 'google_id' => $user->id
             ]);
@@ -84,10 +87,13 @@ class LoginOrRegisterForSocialsController extends Controller
                 return $authUser;
             }
 
+            $arrayName = explode(' ', $user->name);
+
         return User::updateOrCreate([
                 'email' =>  $user->email
             ],[
-                'name'      => $user->name,
+                'name'      => $arrayName[0],
+                'last_name' => $arrayName[1],
                 'password'  => Hash::make( $user->name . '@' . $user->id ),
                 'facebook_id' => $user->id
             ]);

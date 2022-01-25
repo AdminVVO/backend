@@ -42,7 +42,7 @@
 .container-wishlists,
 .container-wishlists-create,
 .container-wishlists-share {
-    display: none;
+    // display: none;
     position: absolute;
     top: 0;
     left: 0;
@@ -169,6 +169,14 @@ input {
     .pd_login-modal {
         .modal_content-welcome {
             max-height: 1055px !important;
+
+            .content_right {
+                .content-f-r {
+                    .error_input {
+                        margin: 24px 0 10px;
+                    }
+                }
+            }
         }
     }
 }
@@ -195,7 +203,7 @@ input {
 .container-need-email,
 .container-t-registro,
 .container-msg-sent {
-	display: none;
+	// display: none;
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -484,26 +492,26 @@ input {
                             }
                         }
 
-                        .date {
-                            position: relative;
+                        // .date {
+                        //     position: relative;
 
-                            &::-webkit-calendar-picker-indicator {
-                                filter: invert(1);
-                                color: transparent;
-                                background: none;
-                                z-index: 1;
-                            }
+                        //     &::-webkit-calendar-picker-indicator {
+                        //         filter: invert(1);
+                        //         color: transparent;
+                        //         background: none;
+                        //         z-index: 1;
+                        //     }
 
-                            &::before {
-                                content: '\f133';
-                                font-family: "Font Awesome 5 Pro";
-                                color: #00B5DD;
-                                font-size: 20px;
-                                position: absolute;
-                                top: 17px;
-                                right: 22px;
-                            }
-                        }
+                        //     &::before {
+                        //         content: '\f133';
+                        //         font-family: "Font Awesome 5 Pro";
+                        //         color: #00B5DD;
+                        //         font-size: 20px;
+                        //         position: absolute;
+                        //         top: 17px;
+                        //         right: 22px;
+                        //     }
+                        // }
                     }
 
                     .content-f-r {
@@ -512,10 +520,6 @@ input {
 
                         @include responsive(680px) {
                             padding: 0 25px;
-                        }
-
-                        ._mr {
-                            margin: 12px 0 10px;
                         }
 
                         p {

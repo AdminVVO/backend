@@ -13,6 +13,7 @@
         "laravel/socialite": "^5.3",
         "laravel/tinker": "^2.5",
         "laravel/ui": "^3.4",
+        "livewire/livewire": "^2.10",
         "twilio/sdk": "^6.33"
     },
     "require-dev": {

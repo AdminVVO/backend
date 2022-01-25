@@ -1,0 +1,22 @@
+.header-fixed {
+  display: none;
+}
+
+header {
+  position: relative;
+  top: 0;
+  margin-bottom: 80px;
+  background-color: #283646;
+}
+
+header.fixed {
+  animation: none;
+}
+
+header .book-form {
+  animation: none;
+  visibility: visible;
+  width: auto;
+  visibility: visible;
+  opacity: 1;
+}

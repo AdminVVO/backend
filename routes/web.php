@@ -17,8 +17,34 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('layouts.app');
-})->name('/');
+    return view('home.Home');
+});
+
+Route::get('/category', function () {
+    return view('category.Category');
+});
+
+Route::get('/host', function () {
+    return view('host.Host');
+});
+
+Route::get('/interna', function () {
+    return view('interna.Interna');
+});
+
+Route::get('/account', function () {
+    return view('account.Account');
+});
+
+Route::get('/personal_info', function () {
+    return view('account.PersonalInfo');
+});
+
+Route::get('/blog', function () {
+    return view('blog.Blog');
+});
+
+
 
 // ## Routes Login and Register with phone number and email
 // Route::prefix('logInRegistration')->name('logInRegistration')->group( function(){
@@ -68,5 +94,5 @@ Route::prefix('facebook')->name('facebook.')->group( function(){
     Route::any('callback', [LoginOrRegisterForSocialsController::class, 'callbackFromFacebook'])->name('callback');
 });
 
-## If a route does not exist, return error 404 !! Always go last this route !!
-Route::get('{any}', [HomeController::class, 'index'])->name('index');
+// ## If a route does not exist, return error 404 !! Always go last this route !!
+// Route::get('{any}', [HomeController::class, 'index'])->name('index');

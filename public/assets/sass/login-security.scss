@@ -1,0 +1,86 @@
+@import "_globals";
+@import "_variables";
+
+.section_login-security {
+    display: flex;
+    justify-content: space-between;
+    gap: 86px;
+    padding: 0 49px;
+
+    @include responsive(950px) {
+        flex-direction: column;
+        gap: 56px;
+    }
+
+    @include responsive(760px) {
+        padding: 0 25px;
+    }
+
+    ._btnsm {
+        margin-top: 0;
+    }
+
+    &-main {
+        width: 100%;
+
+        .h2-guests_bold35 {
+            margin: 16px 0 11px;
+        }
+
+        .msgaround {
+            margin-top: 23px;
+            padding: 23px 38px;
+            gap: 12px;
+
+            @include responsive(510px) {
+                padding: 18px 25px;
+            }
+
+            @include responsive(475px) {
+                flex-direction: column;
+            }
+
+            ._wcusermsg {
+                @include responsive(475px) {
+                    padding-right: 0;
+                    text-align: center;
+                }
+            }
+        }
+    }
+
+    &-aside {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        gap: 53px;
+        width: 50.65%;
+
+        @include responsive(950px) {
+            flex-direction: row;
+            width: 100%;
+        }
+
+        ._cont-account {
+            width: 100%;
+
+            @include responsive(1130px) {
+                padding: 31px 30px;
+            }
+
+            @include responsive(1000px) {
+                padding: 25px 22px;
+            }
+
+            @include responsive(950px) {
+                padding: 51px 40px;
+                width: 360px;
+            }
+
+            @include responsive(510px) {
+                width: 100%;
+                padding: 18px 25px;
+            }
+        }
+    }
+}
