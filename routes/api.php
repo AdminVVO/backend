@@ -1,12 +1,12 @@
 <?php
 
-use App\Http\Controllers\AccommodationController;
-use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginOrRegisterForEmailPhoneController;
 use App\Http\Controllers\LoginOrRegisterForSocialsController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-
+// antonio 
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\UserEditController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -40,13 +40,19 @@ Route::prefix('logInRegistration')->name('logInRegistration')->group( function()
 
     Route::post('logout', [LoginOrRegisterForEmailPhoneController::class, 'logoutLoginOrRegister'])->name('logout')->middleware('auth:sanctum');
 
+    // RUTAS DE API ANTONIO PERFIL
+    Route::get('/user',[UserController::class,'getUserid'])->name('user.getUserid')->middleware('auth:sanctum');
+    //post
+    Route::post('/user/insert',[UserController::class,'insertUser'])->name('user.insertUser')->middleware('auth:sanctum');
+    // put
+    Route::put('/user/editName',[UserEditController::class,'editName'])->name('user.editName')->middleware('auth:sanctum');
+    Route::put('/user/editLastName',[UserEditController::class,'editLastName'])->name('user.editLastName')->middleware('auth:sanctum');
+    Route::put('/user/editEmail',[UserEditController::class,'editEmail'])->name('user.editEmail')->middleware('auth:sanctum');
+    Route::put('/user/editPhone',[UserEditController::class,'editPhone'])->name('user.editPhone')->middleware('auth:sanctum');
+    Route::put('/user/editSex',[UserEditController::class,'editSex'])->name('user.editSex')->middleware('auth:sanctum');
+    Route::put('/user/editPassword',[UserEditController::class,'editPassword'])->name('user.editPassword')->middleware('auth:sanctum');
+    Route::put('/user/editDateBirth',[UserEditController::class,'editDateBirth'])->name('user.editDateBirth')->middleware('auth:sanctum');
+    Route::put('/user/editAddress',[UserEditController::class,'editAddress'])->name('user.editAddress')->middleware('auth:sanctum');
+    Route::put('/user/editGovernmentid',[UserEditController::class,'editGovernmentid'])->name('user.editGovernmentid')->middleware('auth:sanctum');
+    Route::put('/user/editEmergencyContact',[UserEditController::class,'editEmergencyContact'])->name('user.editEmergencyContact')->middleware('auth:sanctum');
 });
-
-Route::get('returnCards', [AccommodationController::class, 'index'])->name('returnCards');
-
-Route::get('returnlanguageRegions', [HomeController::class, 'languageRegions'])->name('returnlanguageRegions');
-Route::post('changeLanguage', [HomeController::class, 'changeLanguageRegions'])->name('changeLanguage')->middleware('auth:sanctum');
-
-Route::get('returncurrencys', [HomeController::class, 'Currency'])->name('returncurrencys');
-Route::post('changeCurrency', [HomeController::class, 'changeCurrency'])->name('changeCurrency')->middleware('auth:sanctum');
-
