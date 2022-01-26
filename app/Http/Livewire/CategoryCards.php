@@ -9,17 +9,12 @@ class CategoryCards extends Component
     public function render()
     {
         // accommodations
-        $sites9= DB::table('sites')->select('sites.*')->limit(9)->get();
-        $sites2= DB::table('sites')->select('sites.*')->limit(2)->get();
+        $sites= DB::table('sites')->select('sites.*')->get(); 
+        // ->limit(9)
         $accommodations= DB::table('accommodations')->select('accommodations.*')->limit(10)->get();
-        $sites8piscina= DB::table('sites')->select('sites.*')->limit(8)->get();
-        $sites2piscina= DB::table('sites')->select('sites.*')->limit(2)->get();
         return view('livewire.category-cards')->with([
-            'sites9' => $sites9,
-            'sites2' => $sites2,
+            'sites' => $sites,
             'accommodations'=>$accommodations,
-            'sites8piscina'=>$sites8piscina,
-            'sites2piscina'=> $sites2piscina,
         ]);
 ;
     }

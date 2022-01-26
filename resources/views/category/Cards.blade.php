@@ -1,2 +1,0 @@
-
-    @livewire('category-cards')

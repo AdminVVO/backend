@@ -1,13 +1,3 @@
-{{-- @foreach ($sites9 as $item )
-    <h1>{{ $item->title }} </h1>
-    <h1>{{ $item->price }} </h1>
-    <h1>{{ $item->date }} </h1>
-    <h1>{{ $item->distance }} </h1>
-    <h1>{{ $item->distance }} </h1> --}}
-    {{-- solo obtendremos los 9 primeros --}}
-    {{-- toda la info de la base de datos aqui --}}
-{{-- @endforeach --}}
-
 {{-- @foreach ($accommodations as $item )
     <h1>{{ $item->city }} </h1>
     <h1>{{ $item->proximityDistance }} </h1>
@@ -16,30 +6,8 @@
     {{-- solo obtendremos los 2 primeros --}}
     {{-- estas 10 son para el apartado de New Hotel --}}
 {{-- @endforeach --}}
-
-
-{{-- @foreach ($sites8piscina as $item )
-    <h1>{{ $item->title }} </h1>
-    <h1>{{ $item->price }} </h1>
-    <h1>{{ $item->date }} </h1>
-    <h1>{{ $item->distance }} </h1>
-    <h1>{{ $item->distance }} </h1> --}}
-    {{-- solo obtendremos los 8 primeros --}}
-    {{--  8 que tienen piscina --}}
-{{-- @endforeach --}}
-
-{{-- @foreach ($sites2piscina as $item )
-    <h1>{{ $item->title }} </h1>
-    <h1>{{ $item->price }} </h1>
-    <h1>{{ $item->date }} </h1>
-    <h1>{{ $item->distance }} </h1>
-    <h1>{{ $item->distance }} </h1> --}}
-    {{-- solo obtendremos los 2 primeros --}}
-    {{-- estas dos son para las 2 tarjetas que estan debajo de las 8 que tienen piscina --}}
-{{-- @endforeach --}}
-
 {{-- las dos albercas --}}
-@foreach ($sites2 as $item )
+@foreach ($sites as $item )
     <a href="/" class="card_items">
         <div class="card_top">
             <div class="card_top_price">
@@ -90,7 +58,8 @@
 @endforeach
 {{--fIN DE LAS 2  --}}
 
-@foreach ($sites9 as $item )
+{{-- 
+@foreach ($sites as $item )
     <a href="/" class="card_items">
         
         <div class="card_top">
@@ -137,11 +106,9 @@
             <h3 class="h3-cards">{{ $item->distance }} miles away</h3>
         </div>
     </a>
-    {{-- solo obtendremos los 9 primeros --}}
-    {{-- toda la info de la base de datos aqui --}}
-@endforeach
+@endforeach --}}
 
-@foreach ($sites2piscina as $item )
+{{-- @foreach ($sites as $item )
     <a href="/" class="card_items">
         
         <div class="card_top">
@@ -188,9 +155,7 @@
             <h3 class="h3-cards">{{ $item->distance }} miles away</h3>
         </div>
     </a>
-    {{-- solo obtendremos los 2 primeros --}}
-    {{-- estas dos son para las 2 tarjetas que estan debajo de las 8 que tienen piscina --}}
-@endforeach
+@endforeach --}}
 
     {{-- <a href="/" class="card_items">
     

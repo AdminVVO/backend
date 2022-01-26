@@ -12,7 +12,7 @@
 
     <div class="tabs_card tabs_card_xxl entero" style="margin: 0 0 100px;">
         <div class="medio">
-        	@include('category.CardCategory')
+            @livewire('category-card-category')
         </div>  
     </div>
     <div class="entero">
@@ -22,14 +22,14 @@
     </div> 
     <div class="tabs entero">
         <div class="medio">
-			@include('category.TabsItems')
-			@include('category.TabsSelect')
+            @livewire('category-tabs-items-select')
+            {{-- @livewire('category-tabs-select') --}}
         </div>  
     </div>
 
     <div class="tabs_card entero">
         <div class="medio"> 
-			@include('category.Cards')
+			@livewire('category-cards')
         </div>  
     </div>
 
@@ -41,7 +41,7 @@
 
     <div class="tabs_card tabs_card_xl entero">
         <div class="medio">
-			@include('category.Cards')
+			@livewire('category-cards')
         </div> 
     </div> 
 
@@ -62,7 +62,7 @@
 
     <div class="tabs_card entero mt-80">
         <div class="medio"> 
-			@include('category.Cards')
+			@livewire('category-cards')
         </div>  
     </div> 
 
