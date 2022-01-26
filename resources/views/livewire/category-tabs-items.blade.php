@@ -2,12 +2,6 @@
     <div class="tabs_items_group">
         @foreach ( $category as $item )
         <h3 class="tabs_items active_tabs">{{ $item->type }}</h3>
-        <h3 class="tabs_items">{{ $item->type }}</h3>
-        <h3 class="tabs_items">{{ $item->type }}</h3>
-        <h3 class="tabs_items">{{ $item->type }}</h3>
-        <h3 class="tabs_items">{{ $item->type }}</h3>
-        <h3 class="tabs_items">{{ $item->type }}</h3>
-        <h3 class="tabs_items">{{ $item->type }}</h3>
         @endforeach
     </div>
     <div class="btn-right-scroll">

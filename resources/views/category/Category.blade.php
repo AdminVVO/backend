@@ -22,14 +22,14 @@
     </div> 
     <div class="tabs entero">
         <div class="medio">
-			@include('home.TabsItems')
-			@include('home.TabsSelect')
+			@include('category.TabsItems')
+			@include('category.TabsSelect')
         </div>  
     </div>
 
     <div class="tabs_card entero">
         <div class="medio"> 
-			@include('home.Cards')
+			@include('category.Cards')
         </div>  
     </div>
 
@@ -41,7 +41,7 @@
 
     <div class="tabs_card tabs_card_xl entero">
         <div class="medio">
-			@include('home.Cards')
+			@include('category.Cards')
         </div> 
     </div> 
 
@@ -62,7 +62,7 @@
 
     <div class="tabs_card entero mt-80">
         <div class="medio"> 
-			@include('home.Cards')
+			@include('category.Cards')
         </div>  
     </div> 
 
