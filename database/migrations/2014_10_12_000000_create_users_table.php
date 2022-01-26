@@ -14,8 +14,8 @@ class CreateUsersTable extends Migration
     public function up()
     {
         Schema::create('users', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
+            $table->increments('id_user');
+            $table->string('name')->nullable();
             $table->string('last_name')->nullable();
             $table->date('date_birth')->nullable();
             $table->string('email')->unique();
@@ -29,8 +29,17 @@ class CreateUsersTable extends Migration
             $table->boolean('promotions')->nullable();
             $table->string('google_id')->nullable();
             $table->string('facebook_id')->nullable();
+            $table->string('country')->nullable();
+            $table->string('street_address')->nullable();
+            $table->string('suite')->nullable();
+            $table->string('city')->nullable();
+            $table->string('state')->nullable();
+            $table->string('zip_code')->nullable();
+            $table->datetime('last_login_at')->nullable();
+            $table->string('last_login_ip')->nullable();
             $table->rememberToken();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

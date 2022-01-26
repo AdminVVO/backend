@@ -10,6 +10,15 @@ const folder = {
 // mix.js('resources/vue/app.js', 'public/js')
 //     .vue();
 
+mix.js('resources/js/application.js', 'public/js')
+    .postCss('resources/css/application.css', 'public/css', [
+        //
+    ]);
+
+mix.copy('node_modules/intl-tel-input/build/js/utils.js', 'public/vendor/intl-tel-input/build/js');
+
+
+
 // copy all CSS
     var out = folder.dist_assets + "css";
     mix.copyDirectory(folder.src + "css", out);

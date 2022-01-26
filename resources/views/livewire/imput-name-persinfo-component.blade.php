@@ -3,7 +3,7 @@
         <div class="_cont-edit">
             <div class="_txteh">Legal name</div>
 
-            <a href="#" class="_btnsm" wire:click='statusUpdate()'>
+            <a href="javascript:void(0)" class="_btnsm" wire:click='statusUpdate()'>
                 <span class="_fcontent edit">
                     Edit
                     <span class="_svg-asm">
@@ -19,7 +19,7 @@
                 </span>
             </a>
         </div>
-        <div class="_txtec none">Anny Smith</div>
+        <div class="_txtec none">{{ $query['name'] }} {{ $query['last_name'] }}</div>
         @if ($classActive === true)
             <div class="_txtec show">This is the name on your travel document, which could be a license or a passport.</div>
             <form wire:submit.prevent="submit" class="_form">
@@ -46,7 +46,6 @@
                         @enderror
                     </div>
                 </div>
-
 
                 <div class="block_a">
                     <button type="submit" class="btn-celest btns-modals {{ $isLoad ? 'activeLoading' : '' }}" {{ $isLoad ? 'disabled' : '' }} >

@@ -6,16 +6,22 @@ use App\Models\User;
 use Livewire\Component;
 use Illuminate\Support\Facades\Validator;
 
-class ImputnamePersinfoComponent extends Component
+class ImputNamePersinfoComponent extends Component
 {
 
     public $name, $last_name;
     public $classActive = false;
     public $isLoad = false;
+    public $inputEdit = [];
 
     public function render()
     {
-        return view('livewire.imputname-persinfo-component');
+        $query = User::where(['id_user' => 1])->select('name', 'last_name')->first();
+        
+        $this->inputEdit['name'] = $query['name'];
+        $this->inputEdit['last_name'] = $query['last_name'];
+
+        return view('livewire.imput-name-persinfo-component', compact('query'));
     }
 
     public function statusUpdate()
@@ -23,6 +29,8 @@ class ImputnamePersinfoComponent extends Component
         $this->classActive = !$this->classActive;
         $this->resetValidation();
         $this->resetInput();
+        $this->name = $this->inputEdit['name'];
+        $this->last_name = $this->inputEdit['last_name'];
     }
 
     public function submit()
@@ -43,7 +51,7 @@ class ImputnamePersinfoComponent extends Component
             }
 
         User::where([
-            'id' => 1/*Auth::id()*/,
+            'id_user' => 1/*Auth::id()*/,
         ])->update([
             'name'      => $this->name,
             'last_name' => $this->last_name,

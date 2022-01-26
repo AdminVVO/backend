@@ -1,0 +1,139 @@
+[33mcommit b499bea39248cda13da9cd9015ec0bf6c5a348bb[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m)[m
+Merge: 8393367 6b54989
+Author: lenierrivas <lenierrivas.rl@gmail.com>
+Date:   Wed Jan 26 08:48:41 2022 -0400
+
+    Merge branch 'main' of https://github.com/AdminVVO/backend
+
+[33mcommit 8393367a13266831dbf8cb9333071f1e395d9980[m
+Author: lenierrivas <lenierrivas.rl@gmail.com>
+Date:   Wed Jan 26 08:48:24 2022 -0400
+
+    PersonalInfo Show and Edit
+
+[33mcommit 6b54989f23c59e1841a9a7feedd2856e39cae88c[m[33m ([m[1;31morigin/main[m[33m)[m
+Author: AntonioTony <antonio@vivevacationsoutlet.com>
+Date:   Tue Jan 25 18:54:23 2022 -0500
+
+    category
+
+[33mcommit 028c169904c6d744bdcbf8ba6d158220b45e6c39[m
+Author: AntonioTony <antonio@vivevacationsoutlet.com>
+Date:   Tue Jan 25 18:33:59 2022 -0500
+
+    modificacion de category
+
+[33mcommit b5753df800bd17f3818c37e073ffa031fd2d255e[m
+Author: AntonioTony <antonio@vivevacationsoutlet.com>
+Date:   Tue Jan 25 16:32:52 2022 -0500
+
+    controllercategory
+
+[33mcommit c1415ae26d214beafd88a51836955e59af473c61[m
+Author: AntonioTony <antonio@vivevacationsoutlet.com>
+Date:   Tue Jan 25 15:54:28 2022 -0500
+
+    tabsitems
+
+[33mcommit 7336abdae2db1a8107f798d8405255c7124a3c46[m
+Author: AntonioTony <antonio@vivevacationsoutlet.com>
+Date:   Tue Jan 25 15:40:24 2022 -0500
+
+    category
+
+[33mcommit ed25678ffa9b7909cd366dfa2371b3f7afa4c24c[m
+Author: lenierrivas <lenierrivas.rl@gmail.com>
+Date:   Tue Jan 25 15:00:25 2022 -0400
+
+    Reset validations
+
+[33mcommit 0d4e153d9015da675f933e7ddd09888f99e53a42[m
+Author: lenierrivas <lenierrivas.rl@gmail.com>
+Date:   Tue Jan 25 14:47:13 2022 -0400
+
+    Example for Frank-Dev
+
+[33mcommit 016ad118bcfe6e04b74789a890376a75887b9f46[m
+Author: lenierrivas <lenierrivas.rl@gmail.com>
+Date:   Tue Jan 25 11:37:12 2022 -0400
+
+    Add Method URL to Assets
+
+[33mcommit 5b8f421adf3ab86cc1c6748a6fc7ca91ce4df08f[m
+Merge: b3767a8 8fbc8cd
+Author: lenierrivas <lenierrivas.rl@gmail.com>
+Date:   Tue Jan 25 10:25:28 2022 -0400
+
+    Pull
+
+[33mcommit b3767a82849805287e45e80501440027133ea5e3[m
+Author: lenierrivas <lenierrivas.rl@gmail.com>
+Date:   Tue Jan 25 10:09:20 2022 -0400
+
+    Migracion LiveWire
+
+[33mcommit 8fbc8cdf1ef16876abf8769c8e160ffbdf8e7eed[m
+Author: AntonioTony <antonio@vivevacationsoutlet.com>
+Date:   Mon Jan 24 18:00:19 2022 -0500
+
+    updateUserController
+
+[33mcommit a1a957c694c74cc9fd9cd1498ef29b7815323034[m
+Author: Fapcod <Fapcod@protonmail.com>
+Date:   Mon Jan 24 16:27:06 2022 -0500
+
+    edituser controller user api user
+
+[33mcommit 5e1132c7077cf2a829ca3e5ad0a558e6ac35e9ce[m
+Author: lenierrivas <lenierrivas.rl@gmail.com>
+Date:   Tue Jan 18 21:34:05 2022 -0400
+
+    Correciones 18/01/2022
+
+[33mcommit bcdb23a374319737df134d086c92560568d5033b[m
+Author: lenierrivas <lenierrivas.rl@gmail.com>
+Date:   Tue Jan 18 16:13:49 2022 -0400
+
+    Ultimas Correcciones
+
+[33mcommit cedc3d2d3f33880f7b70aa0e76fc704113e8d0e0[m
+Author: lenierrivas <lenierrivas.rl@gmail.com>
+Date:   Tue Jan 18 12:59:08 2022 -0400
+
+    Input Phone Debbugs
+
+[33mcommit 8f0bbd16a9b09b60546e0d2d9bed31cac7f13e17[m
+Author: lenierrivas <lenierrivas.rl@gmail.com>
+Date:   Mon Jan 17 22:52:08 2022 -0400
+
+    Add avatar
+
+[33mcommit 694c2062cb17e747d8f5d4a90085677e58fc208e[m
+Author: lenierrivas <lenierrivas.rl@gmail.com>
+Date:   Mon Jan 17 22:44:51 2022 -0400
+
+    Nuevas correciones
+
+[33mcommit 5b8593f21cb0d7f715abcc9e105a64c9bf64095b[m
+Author: lenierrivas <lenierrivas.rl@gmail.com>
+Date:   Mon Jan 17 22:18:11 2022 -0400
+
+    Correciones, Loggin
+
+[33mcommit 9bbdd9e1309829313c5a9ff4312ad30586f4684e[m
+Author: lenierrivas <lenierrivas.rl@gmail.com>
+Date:   Mon Jan 17 17:45:28 2022 -0400
+
+    Plugins Phone Css
+
+[33mcommit 60e93fed41d0fc54d49baee224e618c4f3182a90[m[33m ([m[1;31mheroku/main[m[33m)[m
+Author: lenierrivas <lenierrivas.rl@gmail.com>
+Date:   Mon Jan 17 14:25:51 2022 -0400
+
+    Deploy Heroku
+
+[33mcommit 5fc0a5c22a98f3fabe23e2de4f18538a7764e098[m
+Author: AdminVVO <97473356+AdminVVO@users.noreply.github.com>
+Date:   Mon Jan 17 13:04:21 2022 -0500
+
+    Initial commit

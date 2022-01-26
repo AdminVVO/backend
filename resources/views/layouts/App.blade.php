@@ -13,6 +13,7 @@
         <link href="https://kit-pro.fontawesome.com/releases/v5.15.1/css/pro.min.css" rel="stylesheet">
         @include('layouts.Css')
         @livewireStyles
+        @laravelTelInputStyles
     </head>
     <body class="page-category">
   {{--       @if (Auth::check())
@@ -42,5 +43,6 @@
 
         @include('layouts.Scripts')
         @livewireScripts
+        @laravelTelInputScripts
     </body>
 </html>
