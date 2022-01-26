@@ -43,6 +43,6 @@
 
         @include('layouts.Scripts')
         @livewireScripts
-        @laravelTelInputScripts
+        @laravelTelInputScripts 
     </body>
 </html>
