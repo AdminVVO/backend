@@ -30,87 +30,96 @@
             <div class="_txtec none">Phone:{{ $query['phone'] }}</div>
         @endif
 
-        {{-- @if ($classActive === true) --}}
             <div class="_txtec show">A trusted contact we can alert in an urgent situation.</div>
             <form wire:submit.prevent="submit" class="_form">
-                <div class="block_date">
-                    <div class="txt-check-in">Name</div>
-                    <input type="text" class="_input-mod @error('name') error_input @enderror" wire:model="name">
-                    @error('name')
-                        <div  class="_txterror">
-                            <i class="fas fa-exclamation-circle icon1"></i> 
-                            {{ $message }}
-                        </div>
-                    @enderror
-                </div>
 
-                <div class="block_date">
-                    <div class="txt-check-in">Relationship</div>
-                    <input type="text" class="_input-mod @error('relationship') error_input @enderror" wire:model="relationship">
-                    @error('relationship')
-                        <div  class="_txterror">
-                            <i class="fas fa-exclamation-circle icon1"></i> 
-                            {{ $message }}
-                        </div>
-                    @enderror
-                </div>
-
-                <div class="block_date">
-                    <div class="txt-check-in">Preferred language</div>
-                    <div class="selected-modal">
-                        <select wire:model="language" class="@error('language') error_input @enderror">
-                            <option value="0" disabled selected>Choose...</option>
-                            <option value="ES">España</option>
-                        </select>
-
-                        <i class="fas fa-chevron-down" aria-hidden="true"></i>
+                <div class="_flfpc">
+                    <div class="block_date">
+                        <div class="txt-check-in">Name</div>
+                        <input type="text" class="_input-mod @error('name') error_input @enderror" wire:model="name">
+                        @error('name')
+                            <div  class="_txterror">
+                                <i class="fas fa-exclamation-circle icon1"></i> 
+                                {{ $message }}
+                            </div>
+                        @enderror
                     </div>
-                    @error('language')
-                        <div  class="_txterror">
-                            <i class="fas fa-exclamation-circle icon1"></i> 
-                            {{ $message }}
-                        </div>
-                    @enderror
-                </div>
 
-                <div class="block_date">
-                    <div class="txt-check-in">Email</div>
-                    <input type="text" class="_input-mod @error('email') error_input @enderror" wire:model="email">
-                    @error('email')
-                        <div  class="_txterror">
-                            <i class="fas fa-exclamation-circle icon1"></i> 
-                            {{ $message }}
-                        </div>
-                    @enderror
-                </div>
-
-                <div class="block_date">
-                    <div class="txt-check-in">Country/region</div>
-                    <div class="selected-modal">
-                        <select wire:model="country" class="@error('country') error_input @enderror">
-                            <option value="0" disabled selected>Choose...</option>
-                            <option value="PR">Perú</option>
-                        </select>
-
-                        <i class="fas fa-chevron-down" aria-hidden="true"></i>
+                    <div class="block_date">
+                        <div class="txt-check-in">Relationship</div>
+                        <input type="text" class="_input-mod @error('relationship') error_input @enderror" wire:model="relationship">
+                        @error('relationship')
+                            <div  class="_txterror">
+                                <i class="fas fa-exclamation-circle icon1"></i> 
+                                {{ $message }}
+                            </div>
+                        @enderror
                     </div>
-                    @error('country')
-                        <div  class="_txterror">
-                            <i class="fas fa-exclamation-circle icon1"></i> 
-                            {{ $message }}
-                        </div>
-                    @enderror
                 </div>
 
-                <div class="block_date">
-                    <div class="txt-check-in">Phone number</div>
-                    <input type="text" class="_input-mod @error('phone') error_input @enderror" wire:model="phone">
-                    @error('phone')
-                        <div  class="_txterror">
-                            <i class="fas fa-exclamation-circle icon1"></i> 
-                            {{ $message }}
+                <div class="_flfpc">
+                    <div class="block_date">
+                        <div class="txt-check-in">Email</div>
+                        <input type="text" class="_input-mod @error('email') error_input @enderror" wire:model="email">
+                        @error('email')
+                            <div  class="_txterror">
+                                <i class="fas fa-exclamation-circle icon1"></i> 
+                                {{ $message }}
+                            </div>
+                        @enderror
+                    </div>
+
+                    <div class="block_date">
+                        <div class="txt-check-in">Phone number</div>
+                        <x-tel-input wire:model="phone" class="form-input _input-mod email-modals @error('phone') error_input @enderror"/> 
+                        <input wire:model="phone_country" type="hidden" id="phone_country" name="phone_country">  
+                        @error('phone')
+                            <div  class="_txterror">
+                                <i class="fas fa-exclamation-circle icon1"></i> 
+                                {{ $message }}
+                            </div>
+                        @enderror
+                    </div>
+                </div>
+
+                <div class="_flfpc">
+                    <div class="block_date">
+                        <div class="txt-check-in">Country/region</div>
+                        <div class="selected-modal">
+                            <select wire:model="country" class="@error('country') error_input @enderror">
+                                <option value="0" selected>Choose...</option>
+                                <option value="NY">Nueva York</option>
+                                <option value="CA">California</option>
+                            </select>
+
+                            <i class="fas fa-chevron-down" aria-hidden="true"></i>
                         </div>
-                    @enderror
+                        @error('country')
+                            <div  class="_txterror">
+                                <i class="fas fa-exclamation-circle icon1"></i> 
+                                {{ $message }}
+                            </div>
+                        @enderror
+                    </div>
+
+                    <div class="block_date">
+                        <div class="txt-check-in">Preferred language</div>
+                        <div class="selected-modal">
+                            <select wire:model="language" class="@error('language') error_input @enderror">
+                                <option value="0" selected>Choose...</option>
+                                <option value="ES">España</option>
+                                <option value="EN">Estados Unidos</option>
+                            </select>
+
+                            <i class="fas fa-chevron-down" aria-hidden="true"></i>
+                        </div>
+                        @error('language')
+                            <div  class="_txterror">
+                                <i class="fas fa-exclamation-circle icon1"></i> 
+                                {{ $message }}
+                            </div>
+                        @enderror
+                    </div>
                 </div>
 
                 <div class="block_a">
@@ -120,6 +129,5 @@
                     </button>
                 </div>
             </form>
-        {{-- @endif --}}
     </div>
 </div>

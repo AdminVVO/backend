@@ -16,7 +16,7 @@
         @laravelTelInputStyles
     </head>
     <body class="page-category">
-  {{--       @if (Auth::check())
+        @if (Auth::check())
             <script>
                 window.Laravel = {!!json_encode([
                     'isLoggedin' => true,
@@ -34,10 +34,10 @@
         <div id="entorn-vue">
             <application></application>
         </div>
- --}}
 
-        @include('layouts.Header')
-        @include('language.Language')
+
+        {{-- @include('layouts.Header') --}}
+        {{-- @include('language.Language') --}}
             @yield('content')
         @include('layouts.Footer')
 

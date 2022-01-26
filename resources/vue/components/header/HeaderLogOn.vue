@@ -28,8 +28,8 @@
                 <hr class="br-line">
                 <ul>
                     <li><a href="#">Manage</a></li>
-                    <li><a href="#">Host and experience</a></li>
-                    <li><a href="#">Account</a></li>
+                    <li><a href="/host">Host and experience</a></li>
+                    <li><a href="/account">Account</a></li>
                     <li>
                     	<a
                     		style="cursor: pointer;"

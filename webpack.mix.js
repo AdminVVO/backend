@@ -7,8 +7,8 @@ const folder = {
     dist_assets: "public/assets/" //build assets files
 };
 
-// mix.js('resources/vue/app.js', 'public/js')
-//     .vue();
+mix.js('resources/vue/app.js', 'public/js')
+    .vue();
 
 mix.js('resources/js/application.js', 'public/js')
     .postCss('resources/css/application.css', 'public/css', [

@@ -31,78 +31,87 @@
             <div class="_txtec none">Zip Code:{{ $query['zip_code'] }}</div>
         @endif
 
-        @if ($classActive === true)
-            <div class="_txtec show">Use a permanent address where you can receive mail.</div>
-            <form wire:submit.prevent="submit" class="_form">
-                <div class="txt-check-in">Country/region</div>
-                <div class="selected-modal">
-                    <select wire:model="country" class="@error('country') error_input @enderror">
-                        <option value="0" disabled>Select one option</option>
-                        <option value="US">United States</option>
-                        <option value="PR">Perú</option>
-                    </select>
-                    @error('country')
+        <div class="_txtec show">Use a permanent address where you can receive mail.</div>
+        <form wire:submit.prevent="submit" class="_form">
+            <div class="txt-check-in">Country/region</div>
+            <div class="selected-modal">
+                <select wire:model="country" class="@error('country') error_input @enderror">
+                    <option value="0" selected>Choose...</option>
+                    <option value="US">United States</option>
+                    <option value="PR">Perú</option>
+                </select>
+                @error('country')
+                    <div  class="_txterror">
+                        <i class="fas fa-exclamation-circle icon1"></i> 
+                        {{ $message }}
+                    </div>
+                @enderror
+                <i class="fas fa-chevron-down" aria-hidden="true"></i>
+            </div>
+
+            <div class="txt-check-in">Street address</div>
+            <input type="text" wire:model="street_address" class="_input-mod @error('street_address') error_input @enderror" placeholder="Ex:123 Main St.">
+            @error('street_address')
+                <div  class="_txterror">
+                    <i class="fas fa-exclamation-circle icon1"></i> 
+                    {{ $message }}
+                </div>
+            @enderror
+
+            <div class="_flfpc">
+                <div class="block_date">
+                    <div class="txt-check-in">City</div>
+                    <input type="text" wire:model="city" class="_input-mod @error('city') error_input @enderror" placeholder="Ex: San Francisco">
+                    @error('city')
                         <div  class="_txterror">
                             <i class="fas fa-exclamation-circle icon1"></i> 
                             {{ $message }}
                         </div>
                     @enderror
-                    <i class="fas fa-chevron-down" aria-hidden="true"></i>
                 </div>
 
-                <div class="txt-check-in">Street address</div>
-                <input type="text" wire:model="street_address" class="_input-mod @error('street_address') error_input @enderror" placeholder="Ex:123 Main St.">
-                @error('street_address')
-                    <div  class="_txterror">
-                        <i class="fas fa-exclamation-circle icon1"></i> 
-                        {{ $message }}
-                    </div>
-                @enderror
-
-                <div class="txt-check-in">Apt, suite. (optional)</div>
-                <input type="text" wire:model="suite" class="_input-mod @error('suite') error_input @enderror" placeholder="Ex: Apt #7">
-                @error('suite')
-                    <div  class="_txterror">
-                        <i class="fas fa-exclamation-circle icon1"></i> 
-                        {{ $message }}
-                    </div>
-                @enderror
-
-                <div class="txt-check-in">City</div>
-                <input type="text" wire:model="city" class="_input-mod @error('city') error_input @enderror" placeholder="Ex: San Francisco">
-                @error('city')
-                    <div  class="_txterror">
-                        <i class="fas fa-exclamation-circle icon1"></i> 
-                        {{ $message }}
-                    </div>
-                @enderror
-
-                <div class="txt-check-in">State</div>
-                <input type="text" wire:model="state" class="_input-mod @error('state') error_input @enderror" placeholder="Ex: CA">
-                @error('state')
-                    <div  class="_txterror">
-                        <i class="fas fa-exclamation-circle icon1"></i> 
-                        {{ $message }}
-                    </div>
-                @enderror
-
-                <div class="txt-check-in">ZIP Code</div>
-                <input type="text" wire:model="zip_code" class="_input-mod @error('zip_code') error_input @enderror" placeholder="Ex: 94103">
-                @error('zip_code')
-                    <div  class="_txterror">
-                        <i class="fas fa-exclamation-circle icon1"></i> 
-                        {{ $message }}
-                    </div>
-                @enderror
-
-
-                <div class="block_a">
-                    <button type="submit" class="btn-celest btns-modals {{ $isLoad ? 'activeLoading' : '' }}" {{ $isLoad ? 'disabled' : '' }} >
-                        Save
-                        <div class="loading-btn loading-btn-modal"></div>
-                    </button>
+                <div class="block_date">
+                    <div class="txt-check-in">Apt, suite. (optional)</div>
+                    <input type="text" wire:model="suite" class="_input-mod @error('suite') error_input @enderror" placeholder="Ex: Apt #7">
+                    @error('suite')
+                        <div  class="_txterror">
+                            <i class="fas fa-exclamation-circle icon1"></i> 
+                            {{ $message }}
+                        </div>
+                    @enderror
                 </div>
-            </form>
-        @endif
+            </div>
+            
+            <div class="_flfpc">
+                <div class="block_date">
+                    <div class="txt-check-in">State</div>
+                    <input type="text" wire:model="state" class="_input-mod @error('state') error_input @enderror" placeholder="Ex: CA">
+                    @error('state')
+                        <div  class="_txterror">
+                            <i class="fas fa-exclamation-circle icon1"></i> 
+                            {{ $message }}
+                        </div>
+                    @enderror
+                </div>
+
+                <div class="block_date">
+                    <div class="txt-check-in">ZIP Code</div>
+                    <input type="text" wire:model="zip_code" class="_input-mod @error('zip_code') error_input @enderror" placeholder="Ex: 94103">
+                    @error('zip_code')
+                        <div  class="_txterror">
+                            <i class="fas fa-exclamation-circle icon1"></i> 
+                            {{ $message }}
+                        </div>
+                    @enderror
+                </div>
+            </div>
+
+            <div class="block_a">
+                <button type="submit" class="btn-celest btns-modals {{ $isLoad ? 'activeLoading' : '' }}" {{ $isLoad ? 'disabled' : '' }} >
+                    Save
+                    <div class="loading-btn loading-btn-modal"></div>
+                </button>
+            </div>
+        </form>
     </div>
 </div>

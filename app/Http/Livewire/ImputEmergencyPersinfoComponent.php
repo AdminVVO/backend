@@ -3,13 +3,14 @@
 namespace App\Http\Livewire;
 
 use App\Models\EmergencyUsers;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use Livewire\Component;
 
 class ImputEmergencyPersinfoComponent extends Component
 {
 
-    public $name, $last_name;
+    public $name, $relationship, $language, $email, $country, $phone, $phone_country;
     public $classActive = false;
     public $isLoad = false;
     public $inputEdit = [
@@ -23,7 +24,7 @@ class ImputEmergencyPersinfoComponent extends Component
 
     public function render()
     {
-        $query = EmergencyUsers::where(['user_id' => 1])->select('name', 'relationship', 'language', 'email', 'country', 'phone')->first();
+        $query = EmergencyUsers::where(['user_id' => Auth::id()])->select('name', 'relationship', 'language', 'email', 'country', 'phone')->first();
         
         if ( $query ) {
             $this->inputEdit['name']         = $query['name'];
@@ -34,7 +35,6 @@ class ImputEmergencyPersinfoComponent extends Component
             $this->inputEdit['phone']        = $query['phone'];
         }
 
-        // dd($query);
         return view('livewire.imput-emergency-persinfo-component', compact('query'));
     }
 
@@ -48,11 +48,12 @@ class ImputEmergencyPersinfoComponent extends Component
         $this->language     = $this->inputEdit['language'];
         $this->email        = $this->inputEdit['email'];
         $this->country      = $this->inputEdit['country'];
-        $this->phone        = $this->inputEdit['phone'];
+        // $this->phone        = $this->inputEdit['phone'];
     }
 
     public function submit()
     {   
+        // dd($this->phone);
         $this->isLoad = true; 
 
         $validation = Validator::make([
@@ -61,14 +62,14 @@ class ImputEmergencyPersinfoComponent extends Component
            'language'     => $this->language,
            'email'        => $this->email,
            'country'      => $this->country,
-           'phone'        => $this->phone,
+           // 'phone'        => $this->phone,
         ],[
-            'name'         => 'required|min:3',
+            'name'         => 'required|min:3|regex:/^[a-zA-Z\s]+$/u',
             'relationship' => 'required',
-            'language'     => 'not_in:0',
+            'language'     => 'required|in:ES,EN',
             'email'        => 'required|email',
-            'country'      => 'not_in:0',
-            'phone'        => 'required',
+            'country'      => 'required|in:NY,CA',
+            // 'phone'        => 'required',
         ]);
 
             if ($validation->fails()) {
@@ -77,14 +78,14 @@ class ImputEmergencyPersinfoComponent extends Component
             }
 
         EmergencyUsers::updateOrCreate(
-            [ 'user_id' => 1/*Auth::id()*/, ],
+            [ 'user_id' => Auth::id() ],
             [
                'name'         => $this->name,
                'relationship' => $this->relationship,
                'language'     => $this->language,
                'email'        => $this->email,
                'country'      => $this->country,
-               'phone'        => $this->phone
+               'phone'        => "+5841552455"
             ]
         );
 

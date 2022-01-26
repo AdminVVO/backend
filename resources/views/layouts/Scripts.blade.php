@@ -1,3 +1,4 @@
+<script src="{{ URL::asset('js/app.js') }}" type="text/javascript"></script>
 <script src="{{ URL::asset('js/application.js') }}" type="text/javascript"></script>
 
 <script src="{{ URL::asset('assets/js/jquery-3.6.0.min.js') }}"></script>

@@ -3,8 +3,9 @@
 namespace App\Http\Livewire;
 
 use App\Models\User;
-use Livewire\Component;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
+use Livewire\Component;
 
 class ImputNamePersinfoComponent extends Component
 {
@@ -16,10 +17,12 @@ class ImputNamePersinfoComponent extends Component
 
     public function render()
     {
-        $query = User::where(['id_user' => 1])->select('name', 'last_name')->first();
+        $query = User::where(['id_user' => Auth::id() ])->select('name', 'last_name')->first();
         
-        $this->inputEdit['name'] = $query['name'];
-        $this->inputEdit['last_name'] = $query['last_name'];
+        if ( $query ) {
+            $this->inputEdit['name'] = $query['name'];
+            $this->inputEdit['last_name'] = $query['last_name'];
+        }
 
         return view('livewire.imput-name-persinfo-component', compact('query'));
     }
@@ -41,8 +44,8 @@ class ImputNamePersinfoComponent extends Component
            'name'      => $this->name,
            'last_name' => $this->last_name,
         ],[
-            'name'      => 'required|min:3',
-            'last_name' => 'required|min:3'
+            'name'      => 'required|min:3|regex:/^[a-zA-Z\s]+$/u',
+            'last_name' => 'required|min:3|regex:/^[a-zA-Z\s]+$/u'
         ]);
 
             if ($validation->fails()) {
@@ -51,7 +54,7 @@ class ImputNamePersinfoComponent extends Component
             }
 
         User::where([
-            'id_user' => 1/*Auth::id()*/,
+                'id_user' => Auth::id(),
         ])->update([
             'name'      => $this->name,
             'last_name' => $this->last_name,

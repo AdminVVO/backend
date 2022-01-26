@@ -3,8 +3,9 @@
 namespace App\Http\Livewire;
 
 use App\Models\User;
-use Livewire\Component;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
+use Livewire\Component;
 
 class ImputPhonePersinfoComponent extends Component
 {
@@ -16,7 +17,7 @@ class ImputPhonePersinfoComponent extends Component
 
     public function render()
     {
-        $qphone = User::where([ 'id' => 1 ])->select('phone')->get();
+        $qphone = User::where([ 'id_user' => Auth::id() ])->select('phone')->get();
         $qphone = $qphone[0]['phone']; ## OPTIMIZAR LINEA... PT NO ME ACUERDO COMO RECIBIR EL ARRAY FINAL
             if ( empty( $qphone ) /*|| $phone->empty()*/ )
                 $this->showInput = true;
@@ -33,12 +34,13 @@ class ImputPhonePersinfoComponent extends Component
 
     public function submit()
     {   
+        // dd($this->phone);
         $this->isLoad = true; 
 
         $validation = Validator::make([
            'phone' => $this->phone,
         ],[
-            'phone' => 'required|min:8',
+            'phone' => 'required',
         ]);
 
             if ($validation->fails()) {
@@ -46,13 +48,13 @@ class ImputPhonePersinfoComponent extends Component
                 $validation->validate();
             }
             
-        $query = User::find(1)->select('phone')->get();
+        $query = User::find( Auth::id() )->select('phone')->get();
         $query = $query[0]['phone'];
         $query[] = $this->phone;
         
         if ( $this->phoneEdit === null) {
             User::where([
-                'id' => 1/*Auth::id()*/,
+                'id_user' => Auth::id(),
             ])->update([
                 'phone' => $query,
             ]);

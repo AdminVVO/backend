@@ -1,12 +1,12 @@
 <?php
 
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginOrRegisterForEmailPhoneController;
 use App\Http\Controllers\LoginOrRegisterForSocialsController;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Route;
-// antonio 
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\UserEditController;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Route;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -56,3 +56,13 @@ Route::prefix('logInRegistration')->name('logInRegistration')->group( function()
     Route::put('/user/editGovernmentid',[UserEditController::class,'editGovernmentid'])->name('user.editGovernmentid')->middleware('auth:sanctum');
     Route::put('/user/editEmergencyContact',[UserEditController::class,'editEmergencyContact'])->name('user.editEmergencyContact')->middleware('auth:sanctum');
 });
+
+// QUITAR ESTO ES VUE
+Route::get('returnCards', [AccommodationController::class, 'index'])->name('returnCards');
+
+Route::get('returnlanguageRegions', [HomeController::class, 'languageRegions'])->name('returnlanguageRegions');
+Route::post('changeLanguage', [HomeController::class, 'changeLanguageRegions'])->name('changeLanguage')->middleware('auth:sanctum');
+
+Route::get('returncurrencys', [HomeController::class, 'Currency'])->name('returncurrencys');
+Route::post('changeCurrency', [HomeController::class, 'changeCurrency'])->name('changeCurrency')->middleware('auth:sanctum');
+

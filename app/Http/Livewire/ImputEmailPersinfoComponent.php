@@ -3,8 +3,9 @@
 namespace App\Http\Livewire;
 
 use App\Models\User;
-use Livewire\Component;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
+use Livewire\Component;
 
 class ImputEmailPersinfoComponent extends Component
 {
@@ -15,9 +16,10 @@ class ImputEmailPersinfoComponent extends Component
 
     public function render()
     {
-        $query = User::where(['id_user' => 1])->select('email')->first();
-        
-        $this->inputEdit['email'] = $query['email'];
+        $query = User::where(['id_user' => Auth::id() ])->select('email')->first();
+               
+        if ( $query )
+            $this->inputEdit['email'] = $query['email'];
 
         return view('livewire.imput-email-persinfo-component', compact('query'));
     }
@@ -46,7 +48,7 @@ class ImputEmailPersinfoComponent extends Component
             }
 
         User::where([
-            'id_user' => 1/*Auth::id()*/,
+            'id_user' => Auth::id(),
         ])->update([
             'email' => $this->email,
         ]);
