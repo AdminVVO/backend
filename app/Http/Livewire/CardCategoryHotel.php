@@ -2,13 +2,14 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\CardCategory;
 use Livewire\Component;
 use Illuminate\Support\Facades\DB;
 class CardCategoryHotel extends Component
 {
     public function render()
     {
-        $sites = DB::table('card_categories')->select('card_categories.*')->limit(10)->get();
+        $sites = CardCategory::all();
         return view('livewire.card-category-hotel',compact('sites'));
     }
 }
