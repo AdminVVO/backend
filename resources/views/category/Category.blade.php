@@ -13,6 +13,7 @@
     <div class="tabs_card tabs_card_xxl entero" style="margin: 0 0 100px;">
         <div class="medio">
             @livewire('category-card-category')
+            {{-- los 3 primeros de las categories --}}
         </div>  
     </div>
     <div class="entero">
@@ -20,18 +21,19 @@
             <h2 class="h2">Most Popular</h2>
         </div>
     </div> 
-    <div class="tabs entero">
+    {{-- <div class="tabs entero">
         <div class="medio">
             @livewire('category-tabs-items-select')
-            {{-- @livewire('category-tabs-select') --}}
         </div>  
+    </div> --}}
+    <div>
+        @livewire('category-cards')
     </div>
-
-    <div class="tabs_card entero">
+    {{-- <div class="tabs_card entero">
         <div class="medio"> 
 			@livewire('category-cards')
         </div>  
-    </div>
+    </div> --}}
 
     <div class="entero mt-100">
         <div class="medio">
@@ -41,7 +43,7 @@
 
     <div class="tabs_card tabs_card_xl entero">
         <div class="medio">
-			@livewire('category-cards')
+			{{-- @livewire('category-cards') --}}
         </div> 
     </div> 
 
@@ -62,7 +64,7 @@
 
     <div class="tabs_card entero mt-80">
         <div class="medio"> 
-			@livewire('category-cards')
+			{{-- @livewire('category-cards') --}}
         </div>  
     </div> 
 

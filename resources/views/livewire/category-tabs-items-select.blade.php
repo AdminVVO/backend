@@ -1,7 +1,7 @@
 <div class="content-scroll-local">
     <div class="tabs_items_group">
         @foreach ( $category as $item )
-        <h3 class="tabs_items active_tabs">{{ $item->type }}</h3>
+        <h3   wire:click="$set('category',{{ $item->id }})" class="tabs_items">{{ $item->type }}</h3>
         @endforeach
     </div>
     <div class="btn-right-scroll">

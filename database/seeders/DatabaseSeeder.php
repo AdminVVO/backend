@@ -19,5 +19,6 @@ class DatabaseSeeder extends Seeder
         $this->call([CurrencsSeeder::class]);
         $this->call([CategorySeeder::class]);
         $this->call([SiteSeeder::class]);
+        $this->call([CardCategorySeeder::class]);
     }
 }
