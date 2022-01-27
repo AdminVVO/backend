@@ -43,7 +43,7 @@
 
     <div class="tabs_card tabs_card_xl entero">
         <div class="medio">
-			{{-- @livewire('category-cards') --}}
+			@livewire('card-category-hotel')
         </div> 
     </div> 
 
@@ -64,7 +64,7 @@
 
     <div class="tabs_card entero mt-80">
         <div class="medio"> 
-			{{-- @livewire('category-cards') --}}
+			@livewire('card-category-hotel')
         </div>  
     </div> 
 
