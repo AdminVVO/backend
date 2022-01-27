@@ -1,3 +1,4 @@
+<link href="{{ URL::asset('css/app.css') }}" rel="stylesheet"/>
 <link href="{{ URL::asset('css/application.css') }}" rel="stylesheet"/>
 <link href="{{ URL::asset('assets/css/all.css') }}" rel="stylesheet"/>
 <link href="{{ URL::asset('assets/css/estilos.css') }}" rel="stylesheet"/>

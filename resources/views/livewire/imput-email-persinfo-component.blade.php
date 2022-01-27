@@ -21,26 +21,24 @@
         </div>
         <div class="_txtec none">{{ $query['email'] }}</div>
         <div class="_txtec show">Use an address you'll always have access to.</div>
-        @if ($classActive === true)
-            <form wire:submit.prevent="submit" class="_form">
-                <div class="_flfpc">
-                    <div class="txt-check-in">Address Email</div>
-                    <input type="text" class="_input-mod email-modals @error('email') error_input @enderror" wire:model="email" placeholder="Examples@demo.com">
-                    @error('email')
-                        <div  class="_txterror">
-                            <i class="fas fa-exclamation-circle icon1"></i> 
-                            {{ $message }}
-                        </div>
-                    @enderror
-                </div>
+        <form wire:submit.prevent="submit" class="_form">
+            <div class="_flfpc">
+                <div class="txt-check-in">Address Email</div>
+                <input type="text" class="_input-mod email-modals @error('email') error_input @enderror" wire:model="email" placeholder="Examples@demo.com">
+                @error('email')
+                    <div  class="_txterror">
+                        <i class="fas fa-exclamation-circle icon1"></i> 
+                        {{ $message }}
+                    </div>
+                @enderror
+            </div>
 
-                <div class="block_a">
-                    <button type="submit" class="btn-celest btns-modals {{ $isLoad ? 'activeLoading' : '' }}" {{ $isLoad ? 'disabled' : '' }} >
-                        Save
-                        <div class="loading-btn loading-btn-modal"></div>
-                    </button>
-                </div>
-            </form>
-        @endif
+            <div class="block_a">
+                <button type="submit" class="btn-celest btns-modals {{ $isLoad ? 'activeLoading' : '' }}" {{ $isLoad ? 'disabled' : '' }} >
+                    Save
+                    <div class="loading-btn loading-btn-modal"></div>
+                </button>
+            </div>
+        </form>
     </div>
 </div>

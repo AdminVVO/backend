@@ -3,12 +3,12 @@
 namespace App\Http\Livewire;
 
 use App\Models\User;
-use Livewire\Component;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
+use Livewire\Component;
 
 class ImputGenderPersinfoComponent extends Component
 {
-
     public $gender;
     public $classActive = false;
     public $isLoad = false;
@@ -16,13 +16,12 @@ class ImputGenderPersinfoComponent extends Component
 
     public function render()
     {
-        $query = User::where(['id_user' => 1])->select('sex')->first();
+        $query = User::where(['id_user' => Auth::id() ])->select('sex')->first();
 
-        $arraySelect = collect(['Male', 'Female']);
+        if ( $query )
+            $this->inputEdit['sex'] = $query['sex'];
 
-        $this->inputEdit['sex'] = $query;
-
-        return view('livewire.imput-gender-persinfo-component', compact('query', 'arraySelect'));
+        return view('livewire.imput-gender-persinfo-component', compact('query'));
     }
 
     public function statusUpdate()
@@ -38,9 +37,9 @@ class ImputGenderPersinfoComponent extends Component
         $this->isLoad = true; 
 
         $validation = Validator::make([
-           'gender'      => $this->gender
+           'gender' => $this->gender
         ],[
-            'gender'      => 'required|in:Female,Male'
+            'gender' => 'required|in:Female,Male'
         ]);
 
             if ($validation->fails()) {
@@ -49,7 +48,7 @@ class ImputGenderPersinfoComponent extends Component
             }
 
         User::where([
-            'id_user' => 1/*Auth::id()*/,
+            'id_user' => Auth::id(),
         ])->update([
             'sex'      => $this->gender
         ]);

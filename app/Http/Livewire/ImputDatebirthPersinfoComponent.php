@@ -4,6 +4,7 @@ namespace App\Http\Livewire;
 
 use App\Models\User;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use Livewire\Component;
 
@@ -17,9 +18,10 @@ class ImputDatebirthPersinfoComponent extends Component
 
     public function render()
     {
-        $query = User::where(['id_user' => 1])->select('date_birth')->first();
+        $query = User::where(['id_user' => Auth::id() ])->select('date_birth')->first();
 
-        $this->inputEdit['date_birth'] = $query['date_birth'];
+        if ( $query )
+            $this->inputEdit['date_birth'] = $query['date_birth'];
 
         return view('livewire.imput-datebirth-persinfo-component', compact('query'));
     }
@@ -35,10 +37,13 @@ class ImputDatebirthPersinfoComponent extends Component
     public function submit()
     {   
         $this->isLoad = true; 
+        
+        $yearInQuestion = date("Y-m-d",strtotime( date("Y-m-d") . "- 18 year"));
+
         $validation = Validator::make([
-           'datebirth'      => $this->datebirth,
+           'datebirth' => $this->datebirth,
         ],[
-            'datebirth'      => 'required|date',
+            'datebirth' => 'required|date|before:' . $yearInQuestion,
         ]);
 
             if ($validation->fails()) {
@@ -47,7 +52,7 @@ class ImputDatebirthPersinfoComponent extends Component
             }
 
         User::where([
-            'id_user' => 1/*Auth::id()*/,
+            'id_user' => Auth::id(),
         ])->update([
             'date_birth' => $this->datebirth,
         ]);

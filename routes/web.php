@@ -19,23 +19,23 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('home.Home');
-});
+})->name('/');
 
 Route::get('/category', function () {
     return view('category.Category');
-});
+})->name('/category');
 
 Route::get('/host', function () {
     return view('host.Host');
-});
+})->name('/host');
 
 Route::get('/interna', function () {
     return view('interna.Interna');
-});
+})->name('/interna');
 
 Route::get('/blog', function () {
     return view('blog.Blog');
-});
+})->name('/blog');
 
 ## Routes Login and Register Google
 Route::prefix('account')->group( function(){

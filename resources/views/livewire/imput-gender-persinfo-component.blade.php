@@ -20,31 +20,28 @@
             </a>
         </div>
         <div class="_txtec none">{{ $query['sex'] }}</div>
-        {{-- @if ($classActive === true) --}}
-            <form wire:submit.prevent="submit" class="_form">
-                <div class="selected-modal">
-                    <select class="@error('gender') error_input @enderror" wire:model="gender">
-                        <option value="0" disabled select>Select one option</option>
-                            @foreach ($arraySelect as $item)
-                                <option value="{{ $item }}">{{ $item }}</option>
-                            @endforeach
-                    </select>
+        <form wire:submit.prevent="submit" class="_form">
+            <div class="selected-modal">
+                <select wire:model="gender" class="@error('gender') error_input @enderror">
+                    <option value="0" selected>Choose...</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                </select>
 
-                    <i class="fas fa-chevron-down" aria-hidden="true"></i>
+                <i class="fas fa-chevron-down" aria-hidden="true"></i>
+            </div>
+            @error('gender')
+                <div  class="_txterror">
+                    <i class="fas fa-exclamation-circle icon1"></i> 
+                    {{ $message }}
                 </div>
-                @error('gender')
-                    <div  class="_txterror">
-                        <i class="fas fa-exclamation-circle icon1"></i> 
-                        {{ $message }}
-                    </div>
-                @enderror
-                <div class="block_a">
-                    <button type="submit" class="btn-celest btns-modals {{ $isLoad ? 'activeLoading' : '' }}" {{ $isLoad ? 'disabled' : '' }} >
-                        Save
-                        <div class="loading-btn loading-btn-modal"></div>
-                    </button>
-                </div>
-            </form>
-        {{-- @endif --}}
+            @enderror
+            <div class="block_a">
+                <button type="submit" class="btn-celest btns-modals {{ $isLoad ? 'activeLoading' : '' }}" {{ $isLoad ? 'disabled' : '' }} >
+                    Save
+                    <div class="loading-btn loading-btn-modal"></div>
+                </button>
+            </div>
+        </form>
     </div>
 </div>

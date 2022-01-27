@@ -4,9 +4,11 @@
 
 @section('css')
 
-<link href="{{ URL::asset('assets/css/header-bck.css') }}" rel="stylesheet"/>
-<link href="{{ URL::asset('assets/css/personal-info.css') }}" rel="stylesheet"/>
-<link href="{{ URL::asset('assets/css/personal-info-edit.css') }}" rel="stylesheet"/>
+	<link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/jquery-ui-git.css">
+	<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css"> 
+	<link href="{{ URL::asset('assets/css/header-bck.css') }}" rel="stylesheet"/>
+	<link href="{{ URL::asset('assets/css/personal-info.css') }}" rel="stylesheet"/>
+	<link href="{{ URL::asset('assets/css/personal-info-edit.css') }}" rel="stylesheet"/>
 
 @endsection
 
@@ -30,9 +32,9 @@
 
                         @livewire('imput-email-persinfo-component')
 
-                        {{-- @livewire('imput-phone-persinfo-component') --}}
+                        @livewire('imput-phone-persinfo-component')
 
-                        {{-- @livewire('imput-govern-persinfo-component') --}}
+                        @livewire('imput-govern-persinfo-component')
 
                         @livewire('imput-address-persinfo-component')
 
@@ -61,5 +63,10 @@
 
 
 @section('script')
+
+	<script src="https://code.jquery.com/ui/jquery-ui-git.js"></script> <!-- libreria js de un calendario date-piker -->
+	<script src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script> <!-- libreria js de 2 calendarios date-range-piker -->
+	<script src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script> <!-- libreria js de 2 calendarios date-range-piker -->
+	<script src="{{ URL::asset('assets/js/date-piker.js') }}"></script> <!-- libreria js de un calendario date-piker -->
 
 @endsection

@@ -17,11 +17,7 @@
             @closeModal="closeModal()"
         />
 
-        <IndexHome
-            @showLanguage="showLanguage()"
-        />
 
-        <ContenidoFooter />
 
     </div>
 </template>
@@ -29,8 +25,6 @@
 <script>
 
     import HeaderIndex from './header/HeaderIndex.vue'
-    import IndexHome from './home/IndexHome.vue'
-    import ContenidoFooter from './ContenidoFooter.vue'
     import SignUpOrLogIn from './signup/SignUpOrLogIn.vue'
     import Language from './language/Language.vue'
 
@@ -38,8 +32,6 @@
 		name: 'Container',
         components: {
             HeaderIndex,
-            IndexHome,
-            ContenidoFooter,
             SignUpOrLogIn,
             Language,
         },

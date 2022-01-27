@@ -19,11 +19,23 @@
                 </span>
             </a>
         </div>
-        <div class="_txtec none">{{ Carbon\Carbon::parse( $query['date_birth'], 'UTC')->format('d-m-Y') }}</div>
-        @if ($classActive === true)
+        <div class="_txtec none">{{ Carbon\Carbon::parse( $query['date_birth'], 'UTC')->locale('en')->isoFormat('dddd, MMMM D, YYYY') }}</div>
             <div class="_txtec show">Use an address you'll always have access to.</div>
-            <form  wire:submit.prevent="submit" class="_form _form-f">
-                <input type="date" class="_input-mod date date-v-modals @error('name') error_input @enderror" wire:model="datebirth">
+
+
+            <form wire:submit.prevent="submit" class="_form _form-f">                         
+                <div class="_flex">                             
+                    <label class="_lbl-date">                                 
+                        <input type="text" name="calendar" wire:model="datebirth" placeholder="dd/mm/yyyy" maxlength="10" class="_input-mod date date-v-modals @error('datebirth') error_input @enderror">                                 
+                        <i class="far fa-calendar"></i>  
+                        @error('datebirth')
+                            <div  class="_txterror">
+                                <i class="fas fa-exclamation-circle icon1"></i> 
+                                {{ $message }}
+                            </div>
+                        @enderror                           
+                    </label>                         
+                </div>  
 
                 <div class="block_a">
                     <button type="submit" class="btn-celest btns-modals {{ $isLoad ? 'activeLoading' : '' }}" {{ $isLoad ? 'disabled' : '' }} >
@@ -32,6 +44,5 @@
                     </button>
                 </div>
             </form>
-        @endif
     </div>
 </div>

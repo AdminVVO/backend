@@ -3,8 +3,9 @@
 namespace App\Http\Livewire;
 
 use App\Models\User;
-use Livewire\Component;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
+use Livewire\Component;
 
 class ImputAddressPersinfoComponent extends Component
 {
@@ -16,14 +17,16 @@ class ImputAddressPersinfoComponent extends Component
 
     public function render()
     {
-        $query = User::where(['id_user' => 1])->select('country', 'street_address', 'suite', 'city', 'state', 'zip_code')->first();
-        
-        $this->inputEdit['country']        = $query['country'];
-        $this->inputEdit['street_address'] = $query['street_address'];
-        $this->inputEdit['suite']          = $query['suite'];
-        $this->inputEdit['city']           = $query['city'];
-        $this->inputEdit['state']          = $query['state'];
-        $this->inputEdit['zip_code']       = $query['zip_code'];
+        $query = User::where(['id_user' => Auth::id() ])->select('country', 'street_address', 'suite', 'city', 'state', 'zip_code')->first();
+     
+        if ( $query ){
+            $this->inputEdit['country']        = $query['country'];
+            $this->inputEdit['street_address'] = $query['street_address'];
+            $this->inputEdit['suite']          = $query['suite'];
+            $this->inputEdit['city']           = $query['city'];
+            $this->inputEdit['state']          = $query['state'];
+            $this->inputEdit['zip_code']       = $query['zip_code'];
+        }
 
         return view('livewire.imput-address-persinfo-component', compact('query'));
     }
@@ -53,12 +56,12 @@ class ImputAddressPersinfoComponent extends Component
            'state'          => $this->state,
            'zip_code'       => $this->zip_code,
         ],[
-            'country'        => 'not_in:0',
+            'country'        => 'in:US,PR',
             'street_address' => 'required',
             'suite'          => 'required',
             'city'           => 'required',
             'state'          => 'required',
-            'zip_code'       => 'required',
+            'zip_code'       => 'regex:/^[0-9]+$/',
         ]);
 
             if ($validation->fails()) {
@@ -67,7 +70,7 @@ class ImputAddressPersinfoComponent extends Component
             }
 
         User::where([
-            'id_user' => 1/*Auth::id()*/,
+            'id_user' => Auth::id(),
         ])->update([
             'country'        => $this->country,
             'street_address' => $this->street_address,
