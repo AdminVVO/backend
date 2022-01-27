@@ -2,24 +2,39 @@
 @import "_variables";
 
 .content_questions {
-    height: 1079px;
+    height: 928px;
+
+    @include responsive(1440px) {
+        height: 880px;
+    }
+
+    @include responsive(930px) {
+        height: 820px;
+    }
+
+    @include responsive(720px) {
+        height: 880px;
+    }
 
     @include responsive(590px) {
-        height: 1014px;
+        height: 769px;
+    }
+
+    @include responsive(550px) {
+        height: 769px;
+    }
+
+    @include responsive(470px) {
+        height: 712px;
     }
 
     ._block-questions-host {
         width: 77.21%;
         text-align: center;
-        margin: 190px auto 0;
+        margin: 0 auto 0;
 
         @include responsive(930px) {
-            margin: 250px auto 0;
             width: 100%;
-        }
-
-        @include responsive(720px) {
-            margin: 215px auto 0;
         }
 
         .h2-guests_bold35 {
@@ -28,11 +43,25 @@
             }
         }
 
-        .h2-guests_fs60 {
+        .h2-guests_black60 {
             margin: 11px 0 1px;
             @include responsive(1440px) {
                 font-size: 50px;
                 margin: 0 0 8px;
+            }
+
+            @include responsive(570px) {
+                font-size: 8.8vw;
+            }
+
+            .span_fs60-red {
+                @include responsive(1440px) {
+                    font-size: 50px;
+                }
+
+                @include responsive(570px) {
+                    font-size: 8.8vw;
+                }
             }
         }
 

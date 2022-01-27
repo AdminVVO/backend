@@ -1,15 +1,3 @@
-const $menu = $('.book-f_home');
-
-$(document).mouseup(e => {
-if (!$menu.is(e.target) && $menu.has(e.target).length === 0) {
-        $menu.removeClass('is-active');
-    }
-});
-
-$('.section-places .menuGuest').on('click', () => {
-    $menu.toggleClass('is-active');
-});
-
 $(".book-f_header .menuGuest").addClass("menuGuestHeader");
 $(".book-f_header .menuGuest").removeClass("menuGuest");
 
@@ -35,13 +23,36 @@ window.onscroll = function() {
         } else {
             document.querySelector("header").classList.remove("fixed");
         }
-
-        if(docScrollTop > 710 ){
-            document.querySelector(".section-places").classList.add("fix");
-            $(".daterangepicker").addClass("fixed");
-        } else {
-            document.querySelector(".section-places").classList.remove("fix");
-            $(".daterangepicker").removeClass("fixed");
-        }
     }
 };
+
+
+
+$(document).ready(function() {  
+    $(window).scroll(function() {
+        if ($(this).width() > 1450) {
+            if ($(this).scrollTop() > 710 ){
+                $(".daterangepicker").addClass("fixed");
+                $(".book-form").appendTo("._location-he header ._mv-places");
+                $("._mv-places").css({'opacity': '1', 'visibility': 'visible'});
+                $(".section-places").css({'opacity': '0', 'visibility': 'hidden'});
+            } else {
+                $(".daterangepicker").removeClass("fixed");
+                $(".book-form").appendTo(".section-places .block_places");
+                $("._mv-places").css({'opacity': '0', 'visibility': 'hidden'});
+                $(".section-places").css({'opacity': '1', 'visibility': 'visible'});
+            }
+        }
+    });
+
+    // CSS - max-width: 1505px; --> Elimina el Class 'fix'
+    $(window).bind("resize", function () {
+        if ($(this).width() < 1450) {
+            $(".book-form").appendTo(".section-places .block_places");
+            $(".section-places").css({'opacity': '1', 'visibility': 'visible'});
+            $('.daterangepicker').removeClass('fixed');
+        }
+    })
+});
+
+$("._location-he header ._mv-places ._remove").remove();

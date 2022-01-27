@@ -4,9 +4,6 @@
 
 @section('css')
 
-	<link href="{{ URL::asset('assets/css/header-bck.css') }}" rel="stylesheet"/>
-	<link href="{{ URL::asset('assets/css/host.css') }}" rel="stylesheet"/>
-
 @endsection
 
 @section('content')
@@ -15,7 +12,7 @@
     <div class="content_questions medio">
         <div class="_block-questions-host">
             <div class="h2-guests_bold35">Questions about hosting?</div>
-            <div class="h2-guests_fs60">Take a look at <span class="span_fs60-red">Susana</span>,</div>
+            <div class="h2-guests_black60">Take a look at <span class="span_fs60-red">Susana</span>,</div>
             <div class="h2-guests_35">a Super Host in Orlando Florida. She tells her story of I exist and will be her guide for everything related to accommodation.</div>
         </div>
     </div>

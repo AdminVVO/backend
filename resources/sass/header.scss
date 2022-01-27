@@ -1,36 +1,9 @@
 @import "_variables";
 
 ._location-he {
-    .book-form {
-        form {
-            .inputBox {
-                &:nth-child(1) {
-                    display: none;
-                }
-
-                label {
-                    width: 150px;
-                    cursor: pointer;
-                    display: block;
-
-                    .place_select {
-                        i {
-                            input {
-                                color: $color-white;
-                                font-size: 16px;
-                                cursor: pointer;
-                                font-weight: normal;
-
-                                &::placeholder {
-                                    color: $color-white;
-                                    font-size: 16px;
-                                    font-weight: normal;
-                                }
-                            }
-                        }
-                    }
-                }
-            }
+    ._mv-places {
+        ._remove {
+            display: none;
         }
     }
 }
@@ -38,7 +11,7 @@
 header {
     position: absolute;
     padding: 20px 0;
-    z-index:30; 
+    z-index: 30; 
     transition: all .5s ease;
 
     &.fixed {
@@ -66,103 +39,59 @@ header {
 
     .book-form {
         position: relative;
-        visibility: hidden;
-        opacity: 0;
-        
-        transition: all .3s ease;
-        // width: 0;
+        background-color: transparent;
+        box-shadow: none;
+        border-radius: 0;
 
-        &.fix {
-            visibility: visible;
-            opacity: 1;
+        @include responsive(1450px) {
+            display: none;
         }
 
         form {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 50px;
+            gap: 40px;
+            padding: 0;
 
             ._flex-js {
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
-                gap: 20px;
-            }
+                gap: 5px;
 
-            .inputBox {
-                padding-right: 20px;
+                .inputBox {
+                    margin: 0 5px;
 
-                // &:not(:last-child) {
-                //     border-right: 1px solid white;
-                // }
-
-                span {
-                    font-size: 16px;
-                    color: $color-white;;
-                }
-
-                .place_select {
-                    display: flex;
-                    flex-direction: column;
-
-                    i {
-                        display: flex;
-                        align-items: center;
-                        color: $color-secundary;
-                        margin-top: 10px;
-                        font-size: 18px;
-
-                        span {
-                            color: $color-white;
-                            padding: 0 40px 0 2px;
-                            font-weight: normal;
-                        }
-
-                        input {
-                            background: none;
-                            border: none;
-                            outline: none;
-                            padding-left: 8px;
-                            font-size: 16px;
-                            color: $color-white;
-
-                            &::-webkit-inner-spin-button,
-                            &::-webkit-calendar-picker-indicator {
-                                display: none;
-                                -webkit-appearance: none;
-                            }
-                        }
-
-                        select {
-                            background: none;
-                            border: none;
-                            color: $color-white;
-                            outline: none;
-                            padding: 0 40px 0 2px;
-                            font-size: 16px;
-                        }
-                    }
-                    
-                    .place_select-flex {
-                        display: flex;
-                        gap: 4px;
-                        margin-top: 10px;
-
-                        span {
-                            font-weight: 300;
-                        }
+                    &:not(:last-child) {
+                        border-right: none;
                     }
 
-                    .menuGuestHeader {
-                        cursor: pointer;
-                        margin-top: 10px;
+                    &:nth-child(1) {
+                        display: none;
+                    }
 
+                    label {
+                        width: 128px;
+                        margin-right: 10px;
+                    }
+
+                    span {
+                        color: $color-white;
+                    }
+
+                    .place_select {
                         i {
-                            margin-top: 0;
+                            position: relative;
+                            display: flex;
+                            align-items: center;
+                            margin-top: 10px;
 
                             span {
-                                margin-left: 3px;
+                                color: $color-white;
+                            }
+
+                            input {
+                                width: 100%;
+                                color: $color-white;
+
+                                &::placeholder {
+                                    color: $color-white;
+                                }
                             }
 
                             i {
@@ -175,15 +104,8 @@ header {
             }
 
             .btn {
-                cursor: pointer;
-                text-align: center;
-                border: none;
+                flex: none;
                 border-radius: 10px;
-                color: white;
-                background: #00B5DD;
-                padding: 16px 31px;
-                font-size: 18px;
-                max-width: 150px;
             }
         }
 
@@ -191,6 +113,10 @@ header {
             margin-top: 31px;
         }
     }
+}
+
+._mv-places {
+    transition: all .3s ease;
 }
 
 ._header-menu {
@@ -317,13 +243,6 @@ header {
 }
 
 
-
-@media screen and (max-width:1450px) {
-    header .book-form{ 
-        display: none;  
-        
-    } 
-}
 
 
 

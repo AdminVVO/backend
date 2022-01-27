@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AccommodationController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginOrRegisterForEmailPhoneController;
 use App\Http\Controllers\LoginOrRegisterForSocialsController;

@@ -372,32 +372,6 @@ $letter-spacing: 0.2rem;
   }
 }
 
-@mixin _sltguests {
-  position: relative;
-  display: flex;
-  align-content: center;
-
-  select {
-    -webkit-appearance: none;
-    appearance: none;
-    outline: none;
-    width: 100%;
-    padding: 16px;
-    font-size: 18px;
-    border: 1px solid #E3EDF3;
-    color: #7D7D7D;
-    border-radius: 10px;
-    font-weight: normal;
-  }
-
-  i {
-    position: absolute;
-    right: 16px;
-    top: 22px;
-    color: #00B5DD;
-  }
-}
-
 @mixin t-cth {
   margin-top: 4px;
   background-color: #00B5DD;

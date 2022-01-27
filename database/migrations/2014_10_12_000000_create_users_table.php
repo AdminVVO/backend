@@ -23,6 +23,7 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->string('avatar')->default('user.png');
             $table->string('phone')->nullable()->unique();
+            $table->json('other_phone')->default('[]');
             $table->string('sex')->nullable();
             $table->string('language_default')->default('US');
             $table->string('currency_default')->default('USD');

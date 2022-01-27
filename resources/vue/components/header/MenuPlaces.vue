@@ -45,7 +45,7 @@
 		                            <option value="Nov20">Nov 20</option>
 		                        </select> -->
 
-		                        <span>5 guest</span>
+		                        <span>Add guest</span>
 		                        <i class="fas fa-chevron-down"></i>
 		                    </i>
 		                </div>

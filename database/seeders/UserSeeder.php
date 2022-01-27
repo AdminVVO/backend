@@ -25,7 +25,7 @@ class UserSeeder extends Seeder
                 'sex'              => 'Male',
                 'language_default' => 'US',
                 'currency_default' => 'USD',
-                'phone'            => ['+5841257323'],
+                'phone'            => '+5841257323',
             ]
         ];
 

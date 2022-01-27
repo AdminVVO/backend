@@ -4,12 +4,6 @@
 
 @section('css')
 
-	<link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/jquery-ui-git.css">
-	<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css"> 
-	<link href="{{ URL::asset('assets/css/header-bck.css') }}" rel="stylesheet"/>
-	<link href="{{ URL::asset('assets/css/personal-info.css') }}" rel="stylesheet"/>
-	<link href="{{ URL::asset('assets/css/personal-info-edit.css') }}" rel="stylesheet"/>
-
 @endsection
 
 @section('content')
@@ -19,7 +13,9 @@
 			<div class="section-perfil_info">
 			    <main class="section-perfil_info-main">
 			        <div class="_flex-right16">
-			            <a href="{{ route('account') }}" class="_txtec16">Account</a><i class="fas fa-chevron-right"></i><span class="_txtecbold16">Personal info</span>
+			            <a href="{{ route('account') }}" class="_txtec16">Account</a>
+		            	<i class="fas fa-chevron-right"></i>
+		            	<span class="_txtecbold16">Personal info</span>
 			        </div>
 			        <h2 class="h2-guests_bold35">Personal info</h2>
 
@@ -63,10 +59,5 @@
 
 
 @section('script')
-
-	<script src="https://code.jquery.com/ui/jquery-ui-git.js"></script> <!-- libreria js de un calendario date-piker -->
-	<script src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script> <!-- libreria js de 2 calendarios date-range-piker -->
-	<script src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script> <!-- libreria js de 2 calendarios date-range-piker -->
-	<script src="{{ URL::asset('assets/js/date-piker.js') }}"></script> <!-- libreria js de un calendario date-piker -->
 
 @endsection

@@ -149,6 +149,7 @@ a {
   justify-content: center;
   align-items: center;
   justify-content: space-between;
+  z-index: -1;
 }
 .tabs .content-scroll-local {
   display: flex;

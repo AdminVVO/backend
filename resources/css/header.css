@@ -1,21 +1,5 @@
-._location-he .book-form form .inputBox:nth-child(1) {
+._location-he ._mv-places ._remove {
   display: none;
-}
-._location-he .book-form form .inputBox label {
-  width: 150px;
-  cursor: pointer;
-  display: block;
-}
-._location-he .book-form form .inputBox label .place_select i input {
-  color: #FFFFFF;
-  font-size: 16px;
-  cursor: pointer;
-  font-weight: normal;
-}
-._location-he .book-form form .inputBox label .place_select i input::placeholder {
-  color: #FFFFFF;
-  font-size: 16px;
-  font-weight: normal;
 }
 
 header {
@@ -45,104 +29,68 @@ header .medio {
 }
 header .book-form {
   position: relative;
-  visibility: hidden;
-  opacity: 0;
-  transition: all 0.3s ease;
+  background-color: transparent;
+  box-shadow: none;
+  border-radius: 0;
 }
-header .book-form.fix {
-  visibility: visible;
-  opacity: 1;
+@media (max-width: 1450px) {
+  header .book-form {
+    display: none;
+  }
 }
 header .book-form form {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 50px;
+  gap: 40px;
+  padding: 0;
 }
 header .book-form form ._flex-js {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
+  gap: 5px;
 }
-header .book-form form .inputBox {
-  padding-right: 20px;
+header .book-form form ._flex-js .inputBox {
+  margin: 0 5px;
 }
-header .book-form form .inputBox span {
-  font-size: 16px;
-  color: #FFFFFF;
+header .book-form form ._flex-js .inputBox:not(:last-child) {
+  border-right: none;
 }
-header .book-form form .inputBox .place_select {
-  display: flex;
-  flex-direction: column;
-}
-header .book-form form .inputBox .place_select i {
-  display: flex;
-  align-items: center;
-  color: #FF5A5F;
-  margin-top: 10px;
-  font-size: 18px;
-}
-header .book-form form .inputBox .place_select i span {
-  color: #FFFFFF;
-  padding: 0 40px 0 2px;
-  font-weight: normal;
-}
-header .book-form form .inputBox .place_select i input {
-  background: none;
-  border: none;
-  outline: none;
-  padding-left: 8px;
-  font-size: 16px;
-  color: #FFFFFF;
-}
-header .book-form form .inputBox .place_select i input::-webkit-inner-spin-button, header .book-form form .inputBox .place_select i input::-webkit-calendar-picker-indicator {
+header .book-form form ._flex-js .inputBox:nth-child(1) {
   display: none;
-  -webkit-appearance: none;
 }
-header .book-form form .inputBox .place_select i select {
-  background: none;
-  border: none;
+header .book-form form ._flex-js .inputBox label {
+  width: 128px;
+  margin-right: 10px;
+}
+header .book-form form ._flex-js .inputBox span {
   color: #FFFFFF;
-  outline: none;
-  padding: 0 40px 0 2px;
-  font-size: 16px;
 }
-header .book-form form .inputBox .place_select .place_select-flex {
+header .book-form form ._flex-js .inputBox .place_select i {
+  position: relative;
   display: flex;
-  gap: 4px;
+  align-items: center;
   margin-top: 10px;
 }
-header .book-form form .inputBox .place_select .place_select-flex span {
-  font-weight: 300;
+header .book-form form ._flex-js .inputBox .place_select i span {
+  color: #FFFFFF;
 }
-header .book-form form .inputBox .place_select .menuGuestHeader {
-  cursor: pointer;
-  margin-top: 10px;
+header .book-form form ._flex-js .inputBox .place_select i input {
+  width: 100%;
+  color: #FFFFFF;
 }
-header .book-form form .inputBox .place_select .menuGuestHeader i {
-  margin-top: 0;
+header .book-form form ._flex-js .inputBox .place_select i input::placeholder {
+  color: #FFFFFF;
 }
-header .book-form form .inputBox .place_select .menuGuestHeader i span {
-  margin-left: 3px;
-}
-header .book-form form .inputBox .place_select .menuGuestHeader i i {
+header .book-form form ._flex-js .inputBox .place_select i i {
   color: #FFFFFF;
   margin-top: 0;
 }
 header .book-form form .btn {
-  cursor: pointer;
-  text-align: center;
-  border: none;
+  flex: none;
   border-radius: 10px;
-  color: white;
-  background: #00B5DD;
-  padding: 16px 31px;
-  font-size: 18px;
-  max-width: 150px;
 }
 header .book-form ._bef-places {
   margin-top: 31px;
+}
+
+._mv-places {
+  transition: all 0.3s ease;
 }
 
 ._header-menu.is-active .menu_home-content {
@@ -252,11 +200,6 @@ header .book-form ._bef-places {
   cursor: pointer;
 }
 
-@media screen and (max-width: 1450px) {
-  header .book-form {
-    display: none;
-  }
-}
 @media screen and (max-width: 768px) {
   .menu > a {
     display: none;

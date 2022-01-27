@@ -4,11 +4,6 @@
 
 @section('css')
 
-	<link href="{{ URL::asset('assets/css/header-bck.css') }}" rel="stylesheet"/>
-	<link href="{{ URL::asset('assets/css/interna.css') }}" rel="stylesheet"/>
-	<link href="{{ URL::asset('assets/css/owl.carousel.min.css') }}" rel="stylesheet"/>
-	<link href="{{ URL::asset('assets/css/owl.theme.default.min.css') }}" rel="stylesheet"/>
-
 @endsection
 
 @section('content')
@@ -831,13 +826,13 @@
 			                    </div>
 			                </div>
 			                <div class="txt-check-in" style="margin-top: 20px;">Guests</div>
-			                <div class="_sltguests">
-			                    <select>
-			                        <option selected="" disabled="">3 guests</option>
-			                        <option>3 guests (+2)</option>
-			                        <option>3 guests (+3)</option>
+			                <div class="selected-modal">
+			                    <select name="" id="">
+			                        <option value="1">3 guests</option>
+			                        <option value="2">3 guests (+2)</option>
+			                        <option value="3">3 guests (+3</option>
 			                    </select>
-			                    <i class="fas fa-chevron-down"></i>
+			                    <i class="fas fa-chevron-down" aria-hidden="true"></i>
 			                </div>
 			                <div class="block-a rscrm" style="margin: 23px 0 9px;">
 			                    <a href="#" class="btn-celest" style="padding: 16px 47px;">Reserve</a>
@@ -903,10 +898,6 @@
 
 @section('script')
 
-	<script src="{{ URL::asset('assets/js/modals-interna.js') }}"></script>
-	<script src="{{ URL::asset('assets/js/modals-gallerys.js') }}"></script>
-	<script src="{{ URL::asset('assets/js/modals-reserve.js') }}"></script>
-	<script src="{{ URL::asset('assets/js/modals-all_amenitles.js') }}"></script>
 	<script>lightbox(document.getElementById('gallery-container'))</script>
 
 @endsection

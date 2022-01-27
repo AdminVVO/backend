@@ -19,30 +19,35 @@
                 </span>
             </a>
         </div>
-        <div class="_txtec none">{{ Carbon\Carbon::parse( $query['date_birth'], 'UTC')->locale('en')->isoFormat('dddd, MMMM D, YYYY') }}</div>
-            <div class="_txtec show">Use an address you'll always have access to.</div>
 
+        @if ( empty( $query ) )
+            <div class="_txtec none">Not provided</div>
+        @else
+            <div class="_txtec none">{{ Carbon\Carbon::parse( $query, 'UTC')->locale('en')->isoFormat('dddd, MMMM D, YYYY') }}</div>
+        @endif
 
-            <form wire:submit.prevent="submit" class="_form _form-f">                         
-                <div class="_flex">                             
-                    <label class="_lbl-date">                                 
-                        <input type="text" name="calendar" wire:model="datebirth" placeholder="dd/mm/yyyy" maxlength="10" class="_input-mod date date-v-modals @error('datebirth') error_input @enderror">                                 
-                        <i class="far fa-calendar"></i>  
-                        @error('datebirth')
-                            <div  class="_txterror">
-                                <i class="fas fa-exclamation-circle icon1"></i> 
-                                {{ $message }}
-                            </div>
-                        @enderror                           
-                    </label>                         
-                </div>  
+        <div class="_txtec show">Use an address you'll always have access to.</div>
+        <form wire:submit.prevent="submit" class="_form _form-f">                         
+            <div class="_flex">    
+                <label class="_lbl-date">
+                    <input type="text" wire:model="datebirth" placeholder="dd/mm/yyyy" maxlength="10" class="_input-mod date date-v-modals @error('datebirth') error_input @enderror" style="margin: 0;">
 
-                <div class="block_a">
-                    <button type="submit" class="btn-celest btns-modals {{ $isLoad ? 'activeLoading' : '' }}" {{ $isLoad ? 'disabled' : '' }} >
-                        Save
-                        <div class="loading-btn loading-btn-modal"></div>
-                    </button>
-                </div>
-            </form>
+                    <i class="far fa-calendar"></i>
+                    @error('datebirth')
+                        <div  class="_txterror">
+                            <i class="fas fa-exclamation-circle icon1"></i> 
+                            {{ $message }}
+                        </div>
+                    @enderror                           
+                </label>                      
+            </div>  
+
+            <div class="block_a">
+                <button type="submit" class="btn-celest btns-modals {{ $isLoad ? 'activeLoading' : '' }}" {{ $isLoad ? 'disabled' : '' }} >
+                    Save
+                    <div class="loading-btn loading-btn-modal"></div>
+                </button>
+            </div>
+        </form>
     </div>
 </div>

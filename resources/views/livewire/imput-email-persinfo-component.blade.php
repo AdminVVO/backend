@@ -19,7 +19,13 @@
                 </span>
             </a>
         </div>
-        <div class="_txtec none">{{ $query['email'] }}</div>
+        
+        @if ( empty( $query ) )
+            <div class="_txtec none">Not provided</div>
+        @else
+            <div class="_txtec none">{{ $query }}</div>
+        @endif
+        
         <div class="_txtec show">Use an address you'll always have access to.</div>
         <form wire:submit.prevent="submit" class="_form">
             <div class="_flfpc">

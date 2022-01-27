@@ -16,10 +16,10 @@ class ImputEmailPersinfoComponent extends Component
 
     public function render()
     {
-        $query = User::where(['id_user' => Auth::id() ])->select('email')->first();
+        $query = User::where(['id_user' => Auth::id() ])->pluck('email')->first();
                
         if ( $query )
-            $this->inputEdit['email'] = $query['email'];
+            $this->inputEdit['email'] = $query;
 
         return view('livewire.imput-email-persinfo-component', compact('query'));
     }
