@@ -33,6 +33,7 @@ class User extends Authenticatable
         'street_address',
         'suite',
         'city',
+        'acount_actived',
         'state',
         'zip_code',
     ];

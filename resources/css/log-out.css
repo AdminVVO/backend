@@ -120,7 +120,7 @@ a {
 .container-wishlists,
 .container-wishlists-create,
 .container-wishlists-share {
-  /*display: none;*/
+  display: none;
   position: absolute;
   top: 0;
   left: 0;
@@ -245,6 +245,9 @@ input {
 .container-t-registro .pd_login-modal .modal_content-welcome {
   max-height: 1055px !important;
 }
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content-f-r p {
+  text-align: left !important;
+}
 .container-t-registro .pd_login-modal .modal_content-welcome .content_right .content-f-r .error_input {
   margin: 24px 0 10px;
 }
@@ -267,7 +270,7 @@ input {
 .container-need-email,
 .container-t-registro,
 .container-msg-sent {
-  /*display: none*/;
+  display: none;
   position: absolute;
   top: 0;
   left: 0;
@@ -400,7 +403,7 @@ input {
 .container-need-email .pd_login-modal .modal_content-welcome .img-left,
 .container-t-registro .pd_login-modal .modal_content-welcome .img-left,
 .container-msg-sent .pd_login-modal .modal_content-welcome .img-left {
-    /*display: none*/;
+    display: none;
   }
 }
 .container-welcome .pd_login-modal .modal_content-welcome .img-left img,
@@ -775,7 +778,7 @@ input {
 .container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome-email p,
 .container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome-email p,
 .container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome-email p {
-  text-align: left;
+  text-align: center;
   color: #7D7D7D;
   font-size: 14px;
   font-weight: normal;

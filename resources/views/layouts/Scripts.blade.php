@@ -1,4 +1,4 @@
-<script src="{{ URL::asset('js/app.js') }}" type="text/javascript"></script>
+{{-- <script src="{{ URL::asset('js/app.js') }}" type="text/javascript"></script> --}}
 
 <script src="{{ URL::asset('js/application.js') }}"></script>
 <script src="{{ URL::asset('assets/js/jquery-3.6.0.min.js') }}"></script>
@@ -15,35 +15,9 @@
 <script src="{{ URL::asset('assets/js/date-range-piker.js') }}"></script>
 
 
-{{-- <script src="{{ URL::asset('assets/js/modals-session.js') }}"></script> --}}
-
-@if ( $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"] == $_SERVER["HTTP_HOST"] )
-    {{-- HOME --}}
-	<script src="{{ URL::asset('assets/js/places.js') }}"></script>
-@endif
-
-@if ( $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"] == $_SERVER["HTTP_HOST"]  . 'search')
-	{{-- SEARCH --}}
-	<script src="{{ URL::asset('assets/js/card-location.js') }}"></script>
-@endif
-
-@if ( $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"] == $_SERVER["HTTP_HOST"] . 'interna' )
-	{{-- INTERNA --}}
-	<script src="{{ URL::asset('assets/js/modals-interna.js') }}"></script>
-	<script src="{{ URL::asset('assets/js/modals-gallerys.js') }}"></script>
-	<script src="{{ URL::asset('assets/js/modals-reserve.js') }}"></script>
-	<script src="{{ URL::asset('assets/js/modals-all_amenitles.js') }}"></script>
-@endif
-
-@if ( $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"] == $_SERVER["HTTP_HOST"] . 'perfil-anfitrion')
-	{{-- PERFIL ALFITRION --}}
-	<script src="{{ URL::asset('assets/js/perfil-anfitrion.js') }}"></script>
-	<script src="{{ URL::asset('assets/js/modals-all_amenitles.js') }}"></script>
-@endif
-
-
-
-
+{{-- <script src="{{ URL::asset('assets/js/card-location.js') }}"></script> --}}
+{{-- <script src="{{ URL::asset('assets/js/perfil-anfitrion.js') }}"></script> --}}
+{{-- <script src="{{ URL::asset('assets/js/modals-all_amenitles.js') }}"></script> --}}
 
 @yield('script')
 

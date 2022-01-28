@@ -19,13 +19,25 @@ $(function() {
         $('._date-check-out').val('');
     });
 
-    // $('._date-check').click(function(){
-    //     $('.modal_calendary').css({'display': 'block'});
+    // $(".daterangepicker").append("<div class='pd_c-modal'><div class='_z4lmgp'><div class='modal_content-c'></div></div></div>");
+    // // MOVER DIV
+    // $(".ranges").appendTo(".modal_content-c");
+    // $(".drp-calendar").appendTo(".modal_content-c");
+    // $(".drp-buttons").appendTo(".pd_c-modal");
+
+    // $("._btn-check_in").click(function() {
     //     $('.page-category').css({'overflow': 'hidden'});
+
+    //     $('html,body').animate({
+    //         scrollTop: $("body").offset().top
+    //     }, 10);
     // });
 
-    // $('.drp-buttons .cancelBtn').click(function(){
-    //     $('.modal_calendary').css({'display': 'none'});
-    //     $('.page-category').css({'overflow': 'auto'});
+    // $(".check_out").click(function() {
+    //     $('.page-category').css({'overflow': 'hidden'});
+
+    //     $('html,body').animate({
+    //         scrollTop: $("body").offset().top
+    //     }, 10);
     // });
 });

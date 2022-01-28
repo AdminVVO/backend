@@ -29,6 +29,6 @@ class AccountController extends Controller
 
     public function viewLoginSecury()
     {
-        return view('account.PersonalInfo');
+        return view('account.LoginSecurity');
     }
 }

@@ -4,6 +4,11 @@
 
 @section('css')
 
+    <link href="{{ URL::asset('assets/css/header-bck.css') }}" rel="stylesheet"/>
+    <link href="{{ URL::asset('assets/css/interna.css') }}" rel="stylesheet"/>
+    <link href="{{ URL::asset('assets/css/owl.carousel.min.css') }}" rel="stylesheet"/>
+    <link href="{{ URL::asset('assets/css/owl.theme.default.min.css') }}" rel="stylesheet"/>
+
 @endsection
 
 @section('content')
@@ -898,6 +903,10 @@
 
 @section('script')
 
+	<script src="{{ URL::asset('assets/js/modals-interna.js') }}"></script>
+	<script src="{{ URL::asset('assets/js/modals-gallerys.js') }}"></script>
+	<script src="{{ URL::asset('assets/js/modals-reserve.js') }}"></script>
+	<script src="{{ URL::asset('assets/js/modals-all_amenitles.js') }}"></script>
 	<script>lightbox(document.getElementById('gallery-container'))</script>
 
 @endsection

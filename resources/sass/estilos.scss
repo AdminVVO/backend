@@ -109,6 +109,9 @@ body {
 ._txtecbold16 {
   @include _txtecbold16;
 }
+._txtec12 {
+  @include _txtec12;
+}
 .btn-h {
   @include btn-h;
 }
@@ -131,6 +134,10 @@ body {
 
 .total_local {
   @include total_local;
+}
+
+._txtehlinear {
+  @include _txtehlinear;
 }
 
 .desc_lc {
@@ -183,6 +190,10 @@ body {
 
 ._txtblu {
   @include _txtblu;
+}
+
+._txtblu16 {
+  @include _txtblu16;
 }
 
 .pf-u {
@@ -251,6 +262,16 @@ button {
   }
 }
 
+._news-bt {
+  padding: 3px 10px;
+  background-color: #E3EDF3;
+  border-radius: 5px;
+  white-space: nowrap;
+  font-size: 12px;
+  line-height: 15px;
+  font-weight: normal;
+}
+
 .tabs_select{
   @include flex-centrado;
   grid-gap: 22px;
@@ -296,6 +317,39 @@ button {
       select {
           padding: 16px 32px 16px 33px;
       }
+  }
+}
+
+.checkbox_custom {
+  position: relative;
+  width: 84px;
+  height: 40px;
+  appearance: none;
+  -webkit-appearance: none;
+  background-color: $color-white;
+  border: 2px solid #E3EDF3;
+  border-radius: 63px;
+  cursor: pointer;
+  transition: all .3s ease;
+
+  &:checked::before {
+    left: 44px;
+    background-color: #FF5A5F;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    max-width: 40px;
+    width: 100%;
+    height: 100%;
+    min-height: 40px;
+    border-radius: 50%;
+    border: 2px solid #E3EDF3;
+    background-color: #00B5DD;
+    top: -2px;
+    left: -2px;
+    transition: .3s ease;
   }
 }
 
@@ -1493,6 +1547,31 @@ td.ui-datepicker-other-month {
 
 
 // ESTILO 2 CALENDARY DATE RANGE PICKER
+.pd_c-modal {
+  position: absolute;
+  max-height: 100vh;
+  inset: 0px;
+
+  .modal_content-c {
+    overflow: overlay;
+
+    .daterangepicker {
+      padding-bottom: 78px !important;
+    }
+  }
+
+  .drp-buttons {
+    border-top: 1px solid #E3EDF3;
+    position: absolute;
+    background-color: $color-white;
+    bottom: 0;
+    z-index: 3001;
+    width: 100%;
+    padding: 14px 18px !important;
+  }
+}  
+
+
 .daterangepicker {
   margin-top: 14px !important;
   left: 50% !important;
@@ -1517,9 +1596,11 @@ td.ui-datepicker-other-month {
   }
 
   @include responsive(500px) {
-    margin-top: -9px !important;
-    top: 0% !important;
-    right: -50% !important;
+    margin-top: 0px !important;
+    inset: 0 !important;
+    transform: none;
+    top: 0 !important;
+    right: 0 !important;
     border-radius: 0 !important;
     border: none !important;
     bottom: 0;
@@ -1999,82 +2080,92 @@ td.ui-datepicker-other-month {
   }
 }
 
-.radio-item_rscrm {
-  margin: 13px 0;
-  border-radius: 10px;
-  border: 3px solid #E3EDF3;
+// TEXTOS EN MAYUSCULA
+.txt_upper {
+  text-transform: uppercase;
+}
+
+._gap {
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+
+  .radio-item_rscrm {
+    border-radius: 10px;
+    border: 3px solid #E3EDF3;
+    
+    input[type=radio] {
+        display: none;
+    }
   
-  input[type=radio] {
-      display: none;
-  }
+    input[type=radio]:checked + label .before_check {
+        border: 3px solid #FF5A5F;
+        background-color: #FF5A5F;
+    }
+  
+    input[type=radio]:checked + label .before_check:after {
+        content: "\f00c";
+    }
+  
+    label {
+        display: flex;
+        cursor: pointer;
+        justify-content: space-between;
+        align-items: flex-start;
+        padding: 13px 17px;
+        position: relative;
 
-  input[type=radio]:checked + label:before {
-      border: 3px solid #FF5A5F;
-      background-color: #FF5A5F;
-  }
-
-  input[type=radio]:checked + label:after {
-      content: "\f00c";
-  }
-
-  label {
-      display: flex;
-      cursor: pointer;
-      justify-content: space-between;
-      flex-direction: row-reverse;
-      align-items: flex-start;
-      padding: 13px 17px;
-
-      &:before {
-          content: "";
-          display: inline-block;
+        .before_check {
           position: relative;
-          width: 43.2px;
-          height: 40.06px;
+          width: 100%;
+          max-width: 40px;
+          height: 100%;
+          min-height: 40px;
           border-radius: 50%;
           border: 3px solid #E3EDF3;
           background-color: transparent;
-          transition: all .3s ease;
-      }
+          transition: all 0.3s ease;
 
-      &:after {
-          content: "";
-          font-family: "Font Awesome 5 Pro";
-          font-weight: 900;
-          font-size: 22px;
-          border-radius: 50%;
-          width: 20px;
-          height: 20px;
-          position: absolute;
-          right: 31px;
-          margin: 10px 0;
-          color: white;
-          display: block;
-          transition: all .3s ease;
-      }
-
-      .content_flex-actv {
-          display: flex;
-          justify-content: space-between;
-          width: 100%;
-
-          .flex-msg {
-              padding-right: 30px;
-
-              ._txteh {
-                  margin-bottom: 0;
-              }
+          &:after {
+            content: "";
+            font-family: "Font Awesome 5 Pro";
+            font-weight: 900;
+            font-size: 22px;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            position: absolute;
+            bottom: 7px;
+            right: 8px;
+            color: white;
+            display: block;
+            transition: all .3s ease;
           }
-
-          .pyifllprec {
-              margin-right: 16px;
-
-              ._txteh {
-                  margin-bottom: 0;
-                  margin-top: 10px;
-              }
-          }
-      }
+        }
+  
+        .content_flex-actv {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+  
+            .flex-msg {
+                padding-right: 30px;
+  
+                ._txteh {
+                    margin-bottom: 0;
+                }
+            }
+  
+            .pyifllprec {
+                margin-right: 16px;
+  
+                ._txteh {
+                    margin-bottom: 0;
+                    margin-top: 10px;
+                }
+            }
+        }
+    }
   }
 }
 
@@ -3039,7 +3130,6 @@ td.ui-datepicker-other-month {
     align-items: center;
     grid-gap: 52px;
     flex-wrap: wrap;
-    z-index: -1;
   }
 }
 

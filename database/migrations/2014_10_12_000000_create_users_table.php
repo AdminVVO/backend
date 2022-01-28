@@ -36,6 +36,7 @@ class CreateUsersTable extends Migration
             $table->string('city')->nullable();
             $table->string('state')->nullable();
             $table->string('zip_code')->nullable();
+            $table->string('acount_actived')->default(true);
             $table->datetime('last_login_at')->nullable();
             $table->string('last_login_ip')->nullable();
             $table->rememberToken();

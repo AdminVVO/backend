@@ -4,6 +4,10 @@
 
 @section('css')
 
+    <link href="{{ URL::asset('assets/css/home.css') }}" rel="stylesheet"/>
+    <link href="{{ URL::asset('assets/css/owl.carousel.min.css') }}" rel="stylesheet"/>
+    <link href="{{ URL::asset('assets/css/owl.theme.default.min.css') }}" rel="stylesheet"/>
+
 @endsection
 
 @section('content')
@@ -117,5 +121,7 @@
 
 
 @section('script')
+
+	<script src="{{ URL::asset('assets/js/places.js') }}"></script>
 
 @endsection

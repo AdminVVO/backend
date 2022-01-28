@@ -4,6 +4,10 @@
 
 @section('css')
 
+    <link href="{{ URL::asset('assets/css/home.css') }}" rel="stylesheet"/>
+    <link href="{{ URL::asset('assets/css/header-bck.css') }}" rel="stylesheet"/>
+    <link href="{{ URL::asset('assets/css/category.css') }}" rel="stylesheet"/>
+
 @endsection
 
 @section('content')

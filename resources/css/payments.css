@@ -1,0 +1,258 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+.container {
+  max-width: 1600px;
+  margin: auto;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.flex {
+  display: flex;
+}
+.flex-jc-sb {
+  justify-content: space-between;
+}
+.flex-jc-c {
+  justify-content: center;
+}
+.flex-ai-c {
+  align-items: center;
+}
+
+.section-payments {
+  display: flex;
+  justify-content: space-between;
+  gap: 90px;
+  padding: 0 49px;
+}
+@media (max-width: 1270px) {
+  .section-payments {
+    gap: 50px;
+  }
+}
+@media (max-width: 960px) {
+  .section-payments {
+    flex-direction: column;
+    gap: 56px;
+  }
+}
+@media (max-width: 760px) {
+  .section-payments {
+    padding: 0 25px;
+  }
+}
+@media (max-width: 550px) {
+  .section-payments {
+    padding: 0;
+  }
+}
+.section-payments ._txtblu {
+  display: inline-block;
+}
+.section-payments a {
+  display: inline-block;
+}
+.section-payments ._btnsm {
+  margin-top: 0;
+}
+.section-payments_main {
+  width: 100%;
+}
+@media (max-width: 1270px) {
+  .section-payments_main {
+    width: 53%;
+  }
+}
+@media (max-width: 960px) {
+  .section-payments_main {
+    width: 100%;
+  }
+}
+.section-payments_main .h2-guests_bold35 {
+  margin: 16px 0 24px;
+}
+.section-payments_main .content-scroll-local {
+  display: flex;
+  max-width: 100%;
+  margin: 8px 0 43px;
+}
+.section-payments_main .content-scroll-local ._block {
+  border-bottom: 2px solid #E3EDF3;
+  overflow-x: scroll;
+  width: 100%;
+}
+@media (max-width: 1350px) {
+  .section-payments_main .content-scroll-local ._block {
+    margin-right: 22px;
+  }
+}
+.section-payments_main .content-scroll-local ._block::-webkit-scrollbar {
+  display: none;
+}
+.section-payments_main .content-scroll-local .tabs_items_group {
+  justify-content: space-between;
+  border-bottom: none;
+  margin-right: 0;
+}
+.section-payments_main .content-scroll-local .tabs_items_group .tabs_items {
+  padding: 16px 13px;
+}
+.section-payments_main .content-scroll-local .btn-right-scroll {
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+@media (max-width: 1350px) {
+  .section-payments_main .content-scroll-local .btn-right-scroll {
+    display: flex;
+  }
+}
+.section-payments_main ._cont-payments ._txtec {
+  margin: 16px 0 18px;
+}
+.section-payments_main ._cont-payout ._block {
+  margin: 16px 0 37px;
+}
+.section-payments_main ._cont-payout ._block ._txteh {
+  margin-top: 18px;
+}
+.section-payments_main ._cont-ein ._block {
+  margin: 16px 0 37px;
+}
+.section-payments_main ._cont-ein ._block ._btnsm {
+  font-weight: bold;
+}
+.section-payments_main ._cont-sf .h2-guests {
+  margin-bottom: 16px;
+}
+.section-payments_main ._cont-sf ._gap {
+  margin: 16px 0 21px;
+  gap: 21px;
+}
+.section-payments_main ._cont-sf ._gap .radio-item_rscrm label {
+  padding: 33px 23px;
+}
+.section-payments_main ._cont-sf ._gap .radio-item_rscrm label .content_flex-actv .flex-msg {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.section-payments_main ._cont-sf ._gap .radio-item_rscrm label .content_flex-actv .flex-msg ._block {
+  gap: 7px;
+}
+.section-payments_main ._cont-sf ._block {
+  display: flex;
+  align-items: center;
+  gap: 33px;
+}
+@media (max-width: 900px) {
+  .section-payments_main ._cont-sf ._block {
+    gap: 18px;
+  }
+}
+.section-payments_main ._cont-gc .h2-guests {
+  margin-bottom: 16px;
+}
+.section-payments_main ._cont-gc ._allow-contri {
+  margin: 33px 0;
+  padding: 43px 0;
+  border-top: 2px solid #E3EDF3;
+  border-bottom: 2px solid #E3EDF3;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.section-payments_main ._cont-gc ._block {
+  display: flex;
+  flex-direction: column;
+  gap: 33px;
+}
+.section-payments_aside {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 53px;
+  height: fit-content;
+}
+@media (max-width: 1050px) {
+  .section-payments_aside {
+    flex-direction: row;
+    gap: 30px;
+  }
+}
+@media (max-width: 580px) {
+  .section-payments_aside {
+    flex-direction: column;
+  }
+}
+.section-payments_aside ._txtblu {
+  margin-bottom: 0;
+}
+.section-payments_aside ._gap16 {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+@media (max-width: 1100px) {
+  .section-payments_aside ._cont-account {
+    width: auto;
+  }
+}
+@media (max-width: 990px) {
+  .section-payments_aside ._cont-account {
+    padding: 37px 30px;
+  }
+}
+@media (max-width: 960px) {
+  .section-payments_aside ._cont-account {
+    width: 360px;
+  }
+}
+@media (max-width: 430px) {
+  .section-payments_aside ._cont-account {
+    width: 100%;
+  }
+}
+.section-payments_aside ._cont-account ._flex-sbet {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px 0;
+}
+.section-payments_aside ._cont-account ._flex-sbet:not(:last-child) {
+  border-bottom: 2px solid #E3EDF3;
+}
+.section-payments_aside ._cont-account ._flex-sbet ._txtblu {
+  margin-bottom: 0;
+}
+.section-payments_aside ._cont-account ._flex-sbet i {
+  font-size: 16px;
+  color: #00B5DD;
+  margin-bottom: 0;
+}
+
+.section-taxes {
+  margin-bottom: 100px;
+}
+@media (max-width: 960px) {
+  .section-taxes {
+    margin-bottom: 0;
+  }
+}
