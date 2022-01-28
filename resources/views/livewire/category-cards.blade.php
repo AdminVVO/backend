@@ -1,10 +1,12 @@
+
 <div>
     <div class="tabs entero">
         <div class="medio">
             <div class="content-scroll-local">
-                <div class="tabs_items_group">
+                <div class="tabs_items_group select">
                     @foreach ($categorys as $item)
-                        <h3 wire:click="changeCategory({{ $item->id }})" Select  class="tabs_items">{{ $item->type }}
+                        <h3 id="select" class="tabs_items" wire:click="changeCategory({{ $item->id }})"
+                            :active="requests()->routeId('*')">{{ $item->type }}
                         </h3>
                     @endforeach
                 </div>
@@ -104,7 +106,33 @@
             @endforeach
         </div>
     </div>
+    
+    <script>
+        var elemento = document.getElementById("select");
+        function cambiaColor() {
+            // var activo=elemento.classList.contains('active_tabs');
+            //     if(activo=="active_tabs"){
+            //         elemento.className="tabs_items"
+            //     }
+            // elemento.className += " active_tabs";
+            if (document.querySelector("#select.active_tabs")) {
+                elemento.className.remove("active_tabs");
+            } else {
+                elemento.className += " active_tabs";
+            }
+        }
+        elemento.addEventListener('click', function() {
+            cambiaColor()
+        });
+        // 
+    </script>
+    
 </div>
+
+{{-- @push('js')
+
+@endpush --}}
+
 {{-- fIN DE LAS 2 --}}
 
 {{-- @foreach ($sites as $item)

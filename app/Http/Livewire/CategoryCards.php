@@ -12,20 +12,23 @@ class CategoryCards extends Component
     public $category = '';
     public $sites;
     public function render()
-    {    
-        if(!empty($this->category)){   
-        $this->sites = CardCategory::Where('card_categories.category_id', '=',$this->category)->get();
-        }else{
+    {
+
+        if (!empty($this->category)) {
+            $this->sites = CardCategory::Where('card_categories.category_id', '=', $this->category)->get();
+        } else {
             $this->sites = CardCategory::all();
         }
-        $sites=$this->sites;
+
+        $sites = $this->sites;
         $categorys = Category::all();
         return view('livewire.category-cards')->with([
             'sites' => $sites,
             'categorys' => $categorys,
         ]);;
     }
-    public function changeCategory($category){
+    public function changeCategory($category)
+    {
         $this->category = $category;
     }
 }
