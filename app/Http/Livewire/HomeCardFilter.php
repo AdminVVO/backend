@@ -2,12 +2,11 @@
 
 namespace App\Http\Livewire;
 
-use Livewire\Component;
-use Illuminate\Support\Facades\DB;
 use App\Models\CardCategory;
 use App\Models\Category;
+use Livewire\Component;
 
-class CategoryCards extends Component
+class HomeCardFilter extends Component
 {
     public $category = '';
     public $sites;
@@ -26,7 +25,7 @@ class CategoryCards extends Component
 
         $sites = $this->sites;
         $categorys = Category::all();
-        return view('livewire.category-cards', compact('sites', 'categorys'));
+        return view('livewire.home-card-filter', compact('sites', 'categorys'));
     }
     public function changeCategory($category)
     {

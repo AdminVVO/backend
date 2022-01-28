@@ -85,17 +85,22 @@
 		</div>
 	</div>
 
-	<div class="tabs entero">
+	{{-- <div class="tabs entero">
 		<div class="medio">
 			@include('home.TabsItems')
 			@include('home.TabsSelect')
+
 		</div>
+	</div> --}}
+	<div>
+		@livewire('home-card-filter')
 	</div>
-	<div class="tabs_card entero">
+	{{-- <div class="tabs_card entero">
 		<div class="medio">
-			@include('home.Cards')
+			@include('home.Cards') 
+
 		</div>
-	</div>
+	</div> --}}
 
 	<div class="wo_home entero">
 		<div class="medio">
@@ -113,7 +118,7 @@
 	</div>
 	<div class="tabs_card tabs_card_xl entero">
 		<div class="medio">
-			@include('home.Cards')
+			@livewire('home-card-most-popular')
 		</div>
 	</div>
 
