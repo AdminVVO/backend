@@ -206,6 +206,18 @@ $letter-spacing: 0.2rem;
   }
 }
 
+@mixin _txtblu16 {
+  display: inline-block;
+  color: #00B5DD;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 24px;
+
+  @include responsive(1400px) {
+    font-size: 14px;
+  }
+}
+
 @mixin pf-u {
   background-color: #E3EDF3;
   border-radius: 50%;
@@ -276,6 +288,13 @@ $letter-spacing: 0.2rem;
   color: #7D7D7D;
 }
 
+@mixin _txtec12 {
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: normal;
+  color: #7D7D7D;
+}
+
 @mixin block-a-trad {
 
   .btn-celest-traduct {
@@ -309,13 +328,14 @@ $letter-spacing: 0.2rem;
   border-radius: 10px;
   background-color: #00B5DD;
   color: #fff;
-  font-weight: normal;
+  font-weight: bold;
   white-space: nowrap;
   font-size: 18px;
 
   @include responsive(900px) {
     padding: 15px 30px !important;
     font-size: 16px;
+    font-weight: normal;
   }
 }
 
@@ -326,7 +346,7 @@ $letter-spacing: 0.2rem;
   color: #FFFFFF;
   font-size: 18px;
   font-weight: bold;
-  padding: 16.4px 40.3px;
+  padding: 16px 50px;
 
   @include responsive(900px) {
     padding: 15px 30px !important;
@@ -427,6 +447,32 @@ $letter-spacing: 0.2rem;
   font-size: 18px;
   line-height: 24px;
   margin-bottom: 2px;
+
+  @include responsive(1400px) {
+    font-size: 16px;
+  }
+
+  @include responsive(900px) {
+    font-size: 14px;
+  }
+}
+
+@mixin _txtehlinear {
+  color: #333333;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 24px;
+  position: relative;
+  display: inline-block;
+
+  &::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: #333333;
+    bottom: 0;
+  }
 
   @include responsive(1400px) {
     font-size: 16px;

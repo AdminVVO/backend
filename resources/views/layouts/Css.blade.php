@@ -1,4 +1,4 @@
-{{-- <link href="{{ URL::asset('css/app.css') }}" rel="stylesheet"/> --}}
+<link href="{{ URL::asset('css/app.css') }}" rel="stylesheet"/>
 
 <link href="{{ URL::asset('assets/css/jquery-ui-git.css') }}" rel="stylesheet"/>
 <link href="{{ URL::asset('assets/css/daterangepicker.css') }}" rel="stylesheet"/>

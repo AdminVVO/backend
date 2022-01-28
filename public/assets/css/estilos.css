@@ -150,6 +150,13 @@ body {
   color: #333333;
 }
 
+._txtec12 {
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: normal;
+  color: #7D7D7D;
+}
+
 .btn-h {
   font-size: 18px;
   padding: 16px 50px;
@@ -209,6 +216,33 @@ body {
 .total_local .t {
   font-weight: bold;
   color: #00B5DD;
+}
+
+._txtehlinear {
+  color: #333333;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 24px;
+  position: relative;
+  display: inline-block;
+}
+._txtehlinear::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background-color: #333333;
+  bottom: 0;
+}
+@media (max-width: 1400px) {
+  ._txtehlinear {
+    font-size: 16px;
+  }
+}
+@media (max-width: 900px) {
+  ._txtehlinear {
+    font-size: 14px;
+  }
 }
 
 .desc_lc {
@@ -487,7 +521,7 @@ body {
   color: #FFFFFF;
   font-size: 18px;
   font-weight: bold;
-  padding: 16.4px 40.3px;
+  padding: 16px 50px;
 }
 @media (max-width: 900px) {
   .btn-red {
@@ -512,6 +546,19 @@ body {
 }
 @media (max-width: 900px) {
   ._txtblu {
+    font-size: 14px;
+  }
+}
+
+._txtblu16 {
+  display: inline-block;
+  color: #00B5DD;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 24px;
+}
+@media (max-width: 1400px) {
+  ._txtblu16 {
     font-size: 14px;
   }
 }
@@ -553,7 +600,7 @@ body {
   border-radius: 10px;
   background-color: #00B5DD;
   color: #fff;
-  font-weight: normal;
+  font-weight: bold;
   white-space: nowrap;
   font-size: 18px;
 }
@@ -561,6 +608,7 @@ body {
   .btn-celest {
     padding: 15px 30px !important;
     font-size: 16px;
+    font-weight: normal;
   }
 }
 
@@ -685,6 +733,16 @@ button {
   }
 }
 
+._news-bt {
+  padding: 3px 10px;
+  background-color: #E3EDF3;
+  border-radius: 5px;
+  white-space: nowrap;
+  font-size: 12px;
+  line-height: 15px;
+  font-weight: normal;
+}
+
 .tabs_select {
   display: flex;
   justify-content: center;
@@ -722,6 +780,37 @@ button {
 }
 .tabs_select .sl_filters select {
   padding: 16px 32px 16px 33px;
+}
+
+.checkbox_custom {
+  position: relative;
+  width: 84px;
+  height: 40px;
+  appearance: none;
+  -webkit-appearance: none;
+  background-color: #FFFFFF;
+  border: 2px solid #E3EDF3;
+  border-radius: 63px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.checkbox_custom:checked::before {
+  left: 44px;
+  background-color: #FF5A5F;
+}
+.checkbox_custom::before {
+  content: "";
+  position: absolute;
+  max-width: 40px;
+  width: 100%;
+  height: 100%;
+  min-height: 40px;
+  border-radius: 50%;
+  border: 2px solid #E3EDF3;
+  background-color: #00B5DD;
+  top: -2px;
+  left: -2px;
+  transition: 0.3s ease;
 }
 
 .ui-widget {
@@ -1719,6 +1808,27 @@ td.ui-datepicker-other-month {
   color: #D1D1D1;
 }
 
+.pd_c-modal {
+  position: absolute;
+  max-height: 100vh;
+  inset: 0px;
+}
+.pd_c-modal .modal_content-c {
+  overflow: overlay;
+}
+.pd_c-modal .modal_content-c .daterangepicker {
+  padding-bottom: 78px !important;
+}
+.pd_c-modal .drp-buttons {
+  border-top: 1px solid #E3EDF3;
+  position: absolute;
+  background-color: #FFFFFF;
+  bottom: 0;
+  z-index: 3001;
+  width: 100%;
+  padding: 14px 18px !important;
+}
+
 .daterangepicker {
   margin-top: 14px !important;
   left: 50% !important;
@@ -1746,9 +1856,11 @@ td.ui-datepicker-other-month {
 }
 @media (max-width: 500px) {
   .daterangepicker {
-    margin-top: -9px !important;
-    top: 0% !important;
-    right: -50% !important;
+    margin-top: 0px !important;
+    inset: 0 !important;
+    transform: none;
+    top: 0 !important;
+    right: 0 !important;
     border-radius: 0 !important;
     border: none !important;
     bottom: 0;
@@ -2196,41 +2308,49 @@ td.ui-datepicker-other-month {
   border-bottom: 3px solid #E3EDF3;
 }
 
-.radio-item_rscrm {
-  margin: 13px 0;
+.txt_upper {
+  text-transform: uppercase;
+}
+
+._gap {
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+}
+._gap .radio-item_rscrm {
   border-radius: 10px;
   border: 3px solid #E3EDF3;
 }
-.radio-item_rscrm input[type=radio] {
+._gap .radio-item_rscrm input[type=radio] {
   display: none;
 }
-.radio-item_rscrm input[type=radio]:checked + label:before {
+._gap .radio-item_rscrm input[type=radio]:checked + label .before_check {
   border: 3px solid #FF5A5F;
   background-color: #FF5A5F;
 }
-.radio-item_rscrm input[type=radio]:checked + label:after {
+._gap .radio-item_rscrm input[type=radio]:checked + label .before_check:after {
   content: "";
 }
-.radio-item_rscrm label {
+._gap .radio-item_rscrm label {
   display: flex;
   cursor: pointer;
   justify-content: space-between;
-  flex-direction: row-reverse;
   align-items: flex-start;
   padding: 13px 17px;
-}
-.radio-item_rscrm label:before {
-  content: "";
-  display: inline-block;
   position: relative;
-  width: 43.2px;
-  height: 40.06px;
+}
+._gap .radio-item_rscrm label .before_check {
+  position: relative;
+  width: 100%;
+  max-width: 40px;
+  height: 100%;
+  min-height: 40px;
   border-radius: 50%;
   border: 3px solid #E3EDF3;
   background-color: transparent;
   transition: all 0.3s ease;
 }
-.radio-item_rscrm label:after {
+._gap .radio-item_rscrm label .before_check:after {
   content: "";
   font-family: "Font Awesome 5 Pro";
   font-weight: 900;
@@ -2239,27 +2359,27 @@ td.ui-datepicker-other-month {
   width: 20px;
   height: 20px;
   position: absolute;
-  right: 31px;
-  margin: 10px 0;
+  bottom: 7px;
+  right: 8px;
   color: white;
   display: block;
   transition: all 0.3s ease;
 }
-.radio-item_rscrm label .content_flex-actv {
+._gap .radio-item_rscrm label .content_flex-actv {
   display: flex;
   justify-content: space-between;
   width: 100%;
 }
-.radio-item_rscrm label .content_flex-actv .flex-msg {
+._gap .radio-item_rscrm label .content_flex-actv .flex-msg {
   padding-right: 30px;
 }
-.radio-item_rscrm label .content_flex-actv .flex-msg ._txteh {
+._gap .radio-item_rscrm label .content_flex-actv .flex-msg ._txteh {
   margin-bottom: 0;
 }
-.radio-item_rscrm label .content_flex-actv .pyifllprec {
+._gap .radio-item_rscrm label .content_flex-actv .pyifllprec {
   margin-right: 16px;
 }
-.radio-item_rscrm label .content_flex-actv .pyifllprec ._txteh {
+._gap .radio-item_rscrm label .content_flex-actv .pyifllprec ._txteh {
   margin-bottom: 0;
   margin-top: 10px;
 }
@@ -3137,7 +3257,6 @@ td.ui-datepicker-other-month {
   align-items: center;
   grid-gap: 52px;
   flex-wrap: wrap;
-  z-index: -1;
 }
 
 .content-aside_prec {

@@ -206,6 +206,10 @@ input {
 
             .content_right {
                 .content-f-r {
+                    p {
+                        text-align: left !important;
+                    }
+
                     .error_input {
                         margin: 24px 0 10px;
                     }
@@ -461,7 +465,7 @@ input {
                         }
     
                         p {
-                            text-align: left;
+                            text-align: center;
                             color: #7D7D7D;
                             font-size: 14px;
                             font-weight: normal;
