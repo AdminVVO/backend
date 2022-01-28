@@ -109,6 +109,9 @@ class LoginOrRegisterForEmailPhoneController extends Controller
                 
                 if ( $authUser ) {
 
+                    if ( $authUser->acount_actived == 0)
+                        return redirect('/');
+
                     Auth::login($authUser);
                         return response()->json([
                             'status'  => 'success',

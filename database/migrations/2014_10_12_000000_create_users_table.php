@@ -23,6 +23,7 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->string('avatar')->default('user.png');
             $table->string('phone')->nullable()->unique();
+            $table->json('other_phone')->default('[]');
             $table->string('sex')->nullable();
             $table->string('language_default')->default('US');
             $table->string('currency_default')->default('USD');
@@ -35,6 +36,7 @@ class CreateUsersTable extends Migration
             $table->string('city')->nullable();
             $table->string('state')->nullable();
             $table->string('zip_code')->nullable();
+            $table->string('acount_actived')->default(true);
             $table->datetime('last_login_at')->nullable();
             $table->string('last_login_ip')->nullable();
             $table->rememberToken();

@@ -1,0 +1,101 @@
+@import "_globals";
+@import "_variables";
+
+.medio {
+    max-width: 1760px; 
+}
+
+.tabs_card .medio{
+    grid-gap: 15px; 
+}
+
+.content_search-flexible {
+    margin-bottom: 43px;
+
+    .content-scroll-local {
+        display: flex;
+        max-width: 100%;
+        overflow-x: scroll;
+    }
+
+    .content_links {
+        display: flex;
+        align-items: center;  
+        justify-content: space-between;
+        @include responsive(890px) {
+            flex-direction: column;
+            margin-bottom: 18px;
+            padding: 0 30px;
+        }
+
+        @include responsive(730px) {
+            padding-right: 40px;
+            padding-left: 40px;
+        }
+
+        .tabs_select {
+            grid-gap: 9px;
+
+            .sl_price {
+
+                select {
+                    padding: 16px 46px 16px 30px;
+                }
+            }
+
+            .sl_typlace {
+
+                select {
+                    padding: 16px 47px 16px 23px;
+                }
+            }
+
+            .sl_filters {
+
+                select {
+                    text-align: center;
+                    padding: 16px 30px 16px 30px;
+                }
+            }
+        }
+
+        .tabs_items_group {
+            flex: initial;
+            margin: 0 22px;
+            justify-content: flex-start;
+            overflow-x: scroll; 
+            @include responsive(890px) {
+                margin: 12px 0;
+                max-width: 100%;
+            }
+
+            .tabs_items {
+                padding: 16px 22px;
+
+                &:before {
+                    height: 4px;
+                }
+            }
+        }
+
+        ::-webkit-scrollbar {
+            display: none; 
+        }
+
+        .btn-right-scroll {
+            display: none;
+            margin-right: 22px;
+            @include responsive(1940px) {
+                // margin: 0 15px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            @include responsive(890px) {
+                margin-left: 22px;
+                margin-right: 0;
+            }
+        }
+    }
+}

@@ -4,8 +4,8 @@
 
 @section('css')
 
-	<link href="{{ URL::asset('assets/css/header-bck.css') }}" rel="stylesheet"/>
-	<link href="{{ URL::asset('assets/css/blog.css') }}" rel="stylesheet"/>
+    <link href="{{ URL::asset('assets/css/header-bck.css') }}" rel="stylesheet"/>
+    <link href="{{ URL::asset('assets/css/blog.css') }}" rel="stylesheet"/>
 
 @endsection
 

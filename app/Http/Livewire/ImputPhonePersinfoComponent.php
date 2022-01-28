@@ -5,6 +5,7 @@ namespace App\Http\Livewire;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Collection;
 use Livewire\Component;
 
 class ImputPhonePersinfoComponent extends Component
@@ -17,24 +18,24 @@ class ImputPhonePersinfoComponent extends Component
 
     public function render()
     {
-        $qphone = User::where([ 'id_user' => Auth::id() ])->select('phone')->get();
-        $qphone = $qphone[0]['phone']; ## OPTIMIZAR LINEA... PT NO ME ACUERDO COMO RECIBIR EL ARRAY FINAL
-            if ( empty( $qphone ) /*|| $phone->empty()*/ )
-                $this->showInput = true;
+        $qphone = User::where([ 'id_user' => Auth::id() ])->select('phone', 'other_phone')->first();
+        
+        // dd($qphone);
+
+        if ( !$qphone )
+            $this->showInput = true;
 
         return view('livewire.imput-phone-persinfo-component', compact('qphone'));
     }
 
     public function statusUpdate()
     {
-        $this->classActive = !$this->classActive;
         $this->resetValidation();
         $this->resetInput();
     }
 
     public function submit()
     {   
-        // dd($this->phone);
         $this->isLoad = true; 
 
         $validation = Validator::make([
@@ -48,20 +49,52 @@ class ImputPhonePersinfoComponent extends Component
                 $validation->validate();
             }
             
-        $query = User::find( Auth::id() )->select('phone')->get();
-        $query = $query[0]['phone'];
-        $query[] = $this->phone;
+        $query = User::where([ 'id_user' => Auth::id() ])->select('phone', 'other_phone')->first();
+
+        if ( $query['phone'] == $this->phone || $query['phone'] == $this->phoneEdit ){
+            $this->resetInput();
+            return;
+        }
         
-        if ( $this->phoneEdit === null) {
-            User::where([
-                'id_user' => Auth::id(),
-            ])->update([
-                'phone' => $query,
-            ]);
+        // $other_phone = collect( $query['other_phone'] )->filter(function ($e) {
+        //     return $e != $this->phoneEdit;
+        // });
+
+        // $other_phone->push($this->phone);
+
+        if ( $this->phoneEdit === null ) {
+
+            if ( $query['phone'] == null ) {
+                User::where([
+                    'id_user' => Auth::id(),
+                ])->update([
+                    'phone' => $this->phone
+                ]);
+            }else{
+                User::where([
+                    'id_user' => Auth::id(),
+                ])->update([
+                    'other_phone' => [$this->phone]
+                ]);
+            }
+        }else{
+
+            if ( $query['phone'] == $this->phoneEdit ) {
+                User::where([
+                    'id_user' => Auth::id(),
+                ])->update([
+                    'phone' => $this->phone
+                ]);
+            }else{
+                User::where([
+                    'id_user' => Auth::id(),
+                ])->update([
+                    'other_phone' => [$this->phone]
+                ]);
+            }
         }
 
         $this->resetInput();
-        $this->classActive = !$this->classActive; 
     }
 
     public function editNumber($payload)
@@ -79,6 +112,7 @@ class ImputPhonePersinfoComponent extends Component
 
     private function resetInput()
     {
+        $this->classActive = !$this->classActive; 
         $this->phone = null;
         $this->phoneEdit = null;
         $this->isLoad = false; 

@@ -1449,11 +1449,19 @@ a {
 .container_reserve-confirm .pd_rscrm-modal .modal_content-rscrm .modal_block .content_hidden-rscrm .content-info-hosted .site-content form ._hiddencreditordebit {
   display: block;
 }
+.container_reserve-confirm .pd_rscrm-modal .modal_content-rscrm .modal_block .content_hidden-rscrm .content-info-hosted .site-content form ._hiddencreditordebit ._sltguests {
+  position: relative;
+}
 .container_reserve-confirm .pd_rscrm-modal .modal_content-rscrm .modal_block .content_hidden-rscrm .content-info-hosted .site-content form ._hiddencreditordebit ._flfpc {
   margin: 21px 0 35px;
 }
 .container_reserve-confirm .pd_rscrm-modal .modal_content-rscrm .modal_block .content_hidden-rscrm .content-info-hosted .site-content form ._hiddencreditordebit ._flfpc .block_date {
   width: 48.54%;
+}
+@media (max-width: 536px) {
+  .container_reserve-confirm .pd_rscrm-modal .modal_content-rscrm .modal_block .content_hidden-rscrm .content-info-hosted .site-content form ._hiddencreditordebit ._flfpc .block_date {
+    width: 100%;
+  }
 }
 .container_reserve-confirm .pd_rscrm-modal .modal_content-rscrm .modal_block .content_hidden-rscrm .content-info-hosted .site-content form ._hiddencreditordebit ._cbadd {
   margin-top: 27px;

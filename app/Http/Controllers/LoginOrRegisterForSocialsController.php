@@ -26,6 +26,10 @@ class LoginOrRegisterForSocialsController extends Controller
         try {
             $user = Socialite::driver('google')->user();
             $authUser = $this->findOrCreateUserGoogle($user);
+
+                if ( $authUser->acount_actived == 0)
+                    return redirect('/');
+
             Auth::login($authUser);
 
             return redirect()->route('/');
@@ -71,6 +75,10 @@ class LoginOrRegisterForSocialsController extends Controller
         try {
             $user = Socialite::driver('facebook')->user();
             $authUser = $this->findOrCreateUserFacebook($user);
+
+                if ( $authUser->acount_actived == 0)
+                    return redirect('/');
+
             Auth::login($authUser);
 
             return redirect()->route('/');

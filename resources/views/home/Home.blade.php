@@ -3,12 +3,11 @@
 @section('title') Home @endsection
 
 @section('css')
-	<link href="{{ URL::asset('assets/css/jquery-ui-git.css') }}" rel="stylesheet"/>
-	<link href="{{ URL::asset('assets/css/daterangepicker.css') }}" rel="stylesheet"/>
-	<link href="{{ URL::asset('assets/css/home.css') }}" rel="stylesheet"/>
-	<link href="{{ URL::asset('assets/css/owl.carousel.min.css') }}" rel="stylesheet"/>
-	<link href="{{ URL::asset('assets/css/owl.theme.default.min.css') }}" rel="stylesheet"/>
-	<link href="{{ URL::asset('assets/css/places.css') }}" rel="stylesheet"/>
+
+    <link href="{{ URL::asset('assets/css/home.css') }}" rel="stylesheet"/>
+    <link href="{{ URL::asset('assets/css/owl.carousel.min.css') }}" rel="stylesheet"/>
+    <link href="{{ URL::asset('assets/css/owl.theme.default.min.css') }}" rel="stylesheet"/>
+
 @endsection
 
 @section('content')
@@ -69,8 +68,8 @@
 			<div class="block_places">
 				<h3>Places to stay</h3>
 				<div class="book-form book-f_home">
-					@include('home.Places')
-					@include('home.BeforePlaces')
+					@include('places.Places')
+					@include('places.BeforePlaces')
 				</div>
 			</div>
 		</div>
@@ -123,10 +122,6 @@
 
 @section('script')
 
-	<script src="https://code.jquery.com/ui/jquery-ui-git.js"></script>
-	<script src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
-	<script src="{{ URL::asset('assets/js/date-piker.js') }}"></script>
 	<script src="{{ URL::asset('assets/js/places.js') }}"></script>
 
 @endsection

@@ -1,68 +1,5 @@
 .section-places {
-  top: 133px;
-  z-index: 31;
   transition: all 0.3s ease;
-}
-.section-places.fix {
-  top: 97px;
-  position: fixed;
-  transition: all 0.3s ease;
-}
-.section-places.fix .block_places {
-  width: 600px;
-  margin-top: -78px;
-}
-.section-places.fix .block_places h3 {
-  display: none;
-}
-.section-places.fix .block_places .book-form {
-  background-color: transparent;
-  box-shadow: none;
-  border-radius: unset;
-}
-.section-places.fix .block_places .book-form form {
-  gap: 20px;
-  padding: 0;
-}
-.section-places.fix .block_places .book-form form ._flex-js {
-  gap: 10px;
-}
-.section-places.fix .block_places .book-form form ._flex-js .inputBox:not(:last-child) {
-  border-right: none;
-}
-.section-places.fix .block_places .book-form form ._flex-js .inputBox:nth-child(1) {
-  display: none;
-}
-.section-places.fix .block_places .book-form form ._flex-js .inputBox label {
-  width: 128px;
-  margin-right: 10px;
-}
-.section-places.fix .block_places .book-form form ._flex-js .inputBox span {
-  color: #FFFFFF;
-}
-.section-places.fix .block_places .book-form form ._flex-js .inputBox .place_select i {
-  position: relative;
-  display: flex;
-  align-items: center;
-  margin-top: 10px;
-}
-.section-places.fix .block_places .book-form form ._flex-js .inputBox .place_select i input {
-  width: 100%;
-  color: #FFFFFF;
-}
-.section-places.fix .block_places .book-form form ._flex-js .inputBox .place_select i input::placeholder {
-  color: #FFFFFF;
-}
-.section-places.fix .block_places .book-form form ._flex-js .inputBox .place_select i i {
-  color: #FFFFFF;
-  margin-top: 0;
-}
-.section-places.fix .block_places .book-form form .btn {
-  flex: none;
-  border-radius: 10px;
-}
-.section-places.fix .block_places .book-form ._bef-places {
-  margin-top: 31px;
 }
 
 .block_places {
@@ -78,12 +15,13 @@
   font-weight: 400;
   padding: 0 45px;
 }
-.block_places .book-form {
+
+.book-form {
   background-color: #FAFAFA;
   box-shadow: 0 0 30px rgba(0, 0, 0, 0.16);
   border-radius: 45px;
 }
-.block_places .book-form form {
+.book-form form {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -91,98 +29,98 @@
   gap: 1.5rem;
   padding: 8px 8px 8px 45px;
 }
-.block_places .book-form form ._flex-js {
+.book-form form ._flex-js {
   display: flex;
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
   gap: 48px;
 }
-.block_places .book-form form .inputBox:nth-child(1) .place_select {
+.book-form form .inputBox:nth-child(1) .place_select {
   width: auto;
 }
-.block_places .book-form form .inputBox .check_out i {
+.book-form form .inputBox .check_out i {
   position: relative;
 }
-.block_places .book-form form .inputBox .check_out i::after {
+.book-form form .inputBox .check_out i::after {
   content: "";
   position: absolute;
   inset: 0;
   background-color: transparent;
 }
-.block_places .book-form form .inputBox label {
+.book-form form .inputBox label {
   cursor: pointer;
   display: block;
   margin-right: 48px;
 }
-.block_places .book-form form .inputBox label .place_select i input {
+.book-form form .inputBox label .place_select i input {
   width: 100%;
   color: black;
   cursor: pointer;
   font-weight: normal;
 }
-.block_places .book-form form .inputBox label .place_select i input::placeholder {
+.book-form form .inputBox label .place_select i input::placeholder {
   color: black;
   font-size: 16px;
   font-weight: normal;
 }
-.block_places .book-form form .inputBox:not(:last-child) {
+.book-form form .inputBox:not(:last-child) {
   border-right: 1px solid rgba(182, 175, 162, 0.25);
 }
-.block_places .book-form form .inputBox span {
+.book-form form .inputBox span {
   font-size: 16px;
   color: #7D7D7D;
 }
-.block_places .book-form form .inputBox .place_select {
+.book-form form .inputBox .place_select {
   width: 141px;
   display: flex;
   flex-direction: column;
 }
-.block_places .book-form form .inputBox .place_select-flex {
+.book-form form .inputBox .place_select-flex {
   display: flex;
   margin-top: 5px;
 }
-.block_places .book-form form .inputBox .place_select-flex img {
+.book-form form .inputBox .place_select-flex img {
   max-width: fit-content;
 }
-.block_places .book-form form .inputBox .place_select-flex span {
+.book-form form .inputBox .place_select-flex span {
   color: black;
   font-size: 16px;
   padding: 0 40px 0 5px;
   font-weight: normal;
 }
-.block_places .book-form form .inputBox .place_select i {
+.book-form form .inputBox .place_select i {
   display: flex;
   align-items: center;
   gap: 6px;
   color: #FF5A5F;
   margin-top: 5px;
-  font-size: 18px;
+  font-size: 16px;
 }
-.block_places .book-form form .inputBox .place_select i span {
+.book-form form .inputBox .place_select i span {
   color: black;
   margin-right: auto;
   font-weight: normal;
 }
-.block_places .book-form form .inputBox .place_select i input {
+.book-form form .inputBox .place_select i input {
   background: none;
   border: none;
   outline: none;
   padding: 0 40px 0 2px;
   font-size: 16px;
 }
-.block_places .book-form form .inputBox .place_select i input::-webkit-inner-spin-button, .block_places .book-form form .inputBox .place_select i input::-webkit-calendar-picker-indicator {
+.book-form form .inputBox .place_select i input::-webkit-inner-spin-button, .book-form form .inputBox .place_select i input::-webkit-calendar-picker-indicator {
   display: none;
   -webkit-appearance: none;
 }
-.block_places .book-form form .inputBox .place_select i i {
+.book-form form .inputBox .place_select i i {
   color: #7D7D7D;
   margin-top: 0;
 }
-.block_places .book-form form .inputBox .menuGuest {
+.book-form form .inputBox .menuGuest {
   cursor: pointer;
 }
-.block_places .book-form form .btn {
+.book-form form .btn {
   cursor: pointer;
   flex: 1 1 15rem;
   text-align: center;
@@ -195,7 +133,7 @@
   max-width: 150px;
 }
 
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 1246px) {
   .block_places .book-form {
     border-radius: 10px;
   }

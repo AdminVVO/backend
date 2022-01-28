@@ -1,0 +1,123 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+.container {
+  max-width: 1600px;
+  margin: auto;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.flex {
+  display: flex;
+}
+.flex-jc-sb {
+  justify-content: space-between;
+}
+.flex-jc-c {
+  justify-content: center;
+}
+.flex-ai-c {
+  align-items: center;
+}
+
+.medio {
+  max-width: 1760px;
+}
+
+.tabs_card .medio {
+  grid-gap: 15px;
+}
+
+.content_search-flexible {
+  margin-bottom: 43px;
+}
+.content_search-flexible .content-scroll-local {
+  display: flex;
+  max-width: 100%;
+  overflow-x: scroll;
+}
+.content_search-flexible .content_links {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+@media (max-width: 890px) {
+  .content_search-flexible .content_links {
+    flex-direction: column;
+    margin-bottom: 18px;
+    padding: 0 30px;
+  }
+}
+@media (max-width: 730px) {
+  .content_search-flexible .content_links {
+    padding-right: 40px;
+    padding-left: 40px;
+  }
+}
+.content_search-flexible .content_links .tabs_select {
+  grid-gap: 9px;
+}
+.content_search-flexible .content_links .tabs_select .sl_price select {
+  padding: 16px 46px 16px 30px;
+}
+.content_search-flexible .content_links .tabs_select .sl_typlace select {
+  padding: 16px 47px 16px 23px;
+}
+.content_search-flexible .content_links .tabs_select .sl_filters select {
+  text-align: center;
+  padding: 16px 30px 16px 30px;
+}
+.content_search-flexible .content_links .tabs_items_group {
+  flex: initial;
+  margin: 0 22px;
+  justify-content: flex-start;
+  overflow-x: scroll;
+}
+@media (max-width: 890px) {
+  .content_search-flexible .content_links .tabs_items_group {
+    margin: 12px 0;
+    max-width: 100%;
+  }
+}
+.content_search-flexible .content_links .tabs_items_group .tabs_items {
+  padding: 16px 22px;
+}
+.content_search-flexible .content_links .tabs_items_group .tabs_items:before {
+  height: 4px;
+}
+.content_search-flexible .content_links ::-webkit-scrollbar {
+  display: none;
+}
+.content_search-flexible .content_links .btn-right-scroll {
+  display: none;
+  margin-right: 22px;
+}
+@media (max-width: 1940px) {
+  .content_search-flexible .content_links .btn-right-scroll {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+@media (max-width: 890px) {
+  .content_search-flexible .content_links .btn-right-scroll {
+    margin-left: 22px;
+    margin-right: 0;
+  }
+}

@@ -16,10 +16,10 @@ class ImputGenderPersinfoComponent extends Component
 
     public function render()
     {
-        $query = User::where(['id_user' => Auth::id() ])->select('sex')->first();
+        $query = User::where(['id_user' => Auth::id() ])->pluck('sex')->first();
 
         if ( $query )
-            $this->inputEdit['sex'] = $query['sex'];
+            $this->inputEdit['sex'] = $query;
 
         return view('livewire.imput-gender-persinfo-component', compact('query'));
     }

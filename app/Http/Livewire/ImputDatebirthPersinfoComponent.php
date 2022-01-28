@@ -18,10 +18,10 @@ class ImputDatebirthPersinfoComponent extends Component
 
     public function render()
     {
-        $query = User::where(['id_user' => Auth::id() ])->select('date_birth')->first();
+        $query = User::where(['id_user' => Auth::id() ])->pluck('date_birth')->first();
 
         if ( $query )
-            $this->inputEdit['date_birth'] = $query['date_birth'];
+            $this->inputEdit['date_birth'] = Carbon::parse( $query, 'UTC')->format('Y-m-d');
 
         return view('livewire.imput-datebirth-persinfo-component', compact('query'));
     }
@@ -31,7 +31,9 @@ class ImputDatebirthPersinfoComponent extends Component
         $this->classActive = !$this->classActive;
         $this->resetValidation();
         $this->resetInput();
-        $this->datebirth = Carbon::parse( $this->inputEdit['date_birth'], 'UTC')->format('Y-m-d');
+
+            if ( isset( $this->inputEdit['date_birth'] ) )
+                $this->datebirth = Carbon::parse( $this->inputEdit['date_birth'], 'UTC')->format('Y-m-d');
     }
 
     public function submit()
@@ -54,7 +56,7 @@ class ImputDatebirthPersinfoComponent extends Component
         User::where([
             'id_user' => Auth::id(),
         ])->update([
-            'date_birth' => $this->datebirth,
+            'date_birth' => Carbon::parse( $this->datebirth, 'UTC')->format('Y-m-d')
         ]);
 
         $this->resetInput();

@@ -19,7 +19,13 @@
                 </span>
             </a>
         </div>
-        <div class="_txtec none">{{ $query['sex'] }}</div>
+        
+        @if ( empty( $query ) )
+            <div class="_txtec none">Not provided</div>
+        @else
+            <div class="_txtec none">{{ $query }}</div>
+        @endif
+
         <form wire:submit.prevent="submit" class="_form">
             <div class="selected-modal">
                 <select wire:model="gender" class="@error('gender') error_input @enderror">

@@ -1571,11 +1571,19 @@
                                 ._hiddencreditordebit {
                                     display: block;
 
+                                    ._sltguests {
+                                        position: relative;
+                                    }
+
                                     ._flfpc {
                                         margin: 21px 0 35px;
     
                                         .block_date {
                                             width: 48.54%;
+
+                                            @include responsive(536px) {
+                                                width: 100%;
+                                            }
                                         }
                                     }
     

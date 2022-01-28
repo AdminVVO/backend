@@ -20,6 +20,7 @@ class User extends Authenticatable
         'date_birth',
         'email',
         'phone',
+        'other_phone',
         'sex',
         'promotions',
         'avatar',
@@ -32,6 +33,7 @@ class User extends Authenticatable
         'street_address',
         'suite',
         'city',
+        'acount_actived',
         'state',
         'zip_code',
     ];
@@ -48,6 +50,6 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
         'date_birth'        => 'datetime:d-m-Y',
-        'phone'             => 'array',
+        'other_phone'       => 'array',
     ];
 }

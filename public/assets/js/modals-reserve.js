@@ -6,7 +6,7 @@ $(document).ready(function() {
     });
 });
 
-
+let bodyHtml = document.querySelector(".page-category");
 let modalReserveConfirm = document.querySelector(".modal-rscrm");
 
 let containerReserveConfirm = document.querySelector(".container_reserve-confirm");

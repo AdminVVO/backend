@@ -40,7 +40,7 @@
 
 		data () {
 			return {
-                'SignOnActive': false,
+                'SignOnActive': true,
                 'isLoggedIn': false,
                 'LangugeActive': false,
                 'authLoggedIn': [],

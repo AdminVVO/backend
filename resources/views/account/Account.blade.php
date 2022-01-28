@@ -16,7 +16,7 @@
             <div class="section-account">
                 <h2 class="h2">Account</h2>
                 <p class="span-guests">
-                    <span class="_txteh" style="margin-bottom: 0;">Anny Smith</span>, Anny_smith@hotmail.com<span class="_p">·</span><span class="_txtblu">Go to profile</span>
+                    <span class="_txteh" style="margin-bottom: 0;">{{ $auth['name'] . ' ' . $auth['last_name'] }}</span>, {{ $auth['email'] }}<span class="_p">·</span><span class="_txtblu">Go to profile</span>
                 </p>
 
                 <div class="_flex-account">
@@ -28,11 +28,13 @@
                         </div>
                     </a>
 
-                    <div class="_cont-account">
-                        <i class="far fa-keyboard"></i>
-                        <div class="_txteh" style="margin-bottom: 4px;">Login & security</div>
-                        <p class="span-guests">Update your password and secure your account</p>
-                    </div>
+                    <a href="{{ route('login_segurity') }}">
+                        <div class="_cont-account">
+                            <i class="far fa-keyboard"></i>
+                            <div class="_txteh" style="margin-bottom: 4px;">Login & security</div>
+                            <p class="span-guests">Update your password and secure your account</p>
+                        </div>
+                    </a>
 
                     <div class="_cont-account">
                         <i class="far fa-money-bill-alt"></i>

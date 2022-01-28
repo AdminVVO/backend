@@ -1,90 +1,9 @@
 @import "_variables";
 
 .section-places {
-    top: 133px;
-    z-index: 31;
+    // opacity: 0;
+    // visibility: hidden;
     transition: all .3s ease;
-
-    &.fix {
-        top: 97px;
-        position: fixed;
-        transition: all .3s ease;
-
-        .block_places {
-            width: 600px;
-            margin-top: -78px;
-
-            h3 {
-                display: none;
-            }
-
-            .book-form {
-                background-color: transparent;
-                box-shadow: none;
-                border-radius: unset;
-
-                form {
-                    gap: 20px;
-                    padding: 0;
-
-                    ._flex-js {
-                        gap: 10px;
-
-                        .inputBox {
-                            &:not(:last-child) {
-                                border-right: none;
-                            }
-
-                            &:nth-child(1) {
-                                display: none;
-                            }
-
-                            label {
-                                width: 128px;
-                                margin-right: 10px;
-                            }
-
-                            span {
-                                color: $color-white;
-                            }
-
-                            .place_select {
-                                i {
-                                    position: relative;
-                                    display: flex;
-                                    align-items: center;
-                                    margin-top: 10px;
-
-                                    input {
-                                        width: 100%;
-                                        color: $color-white;
-
-                                        &::placeholder {
-                                            color: $color-white;
-                                        }
-                                    }
-
-                                    i {
-                                        color: $color-white;
-                                        margin-top: 0;
-                                    }
-                                }
-                            }
-                        }
-                    }
-
-                    .btn {
-                        flex: none;
-                        border-radius: 10px;
-                    }
-                }
-
-                ._bef-places {
-                    margin-top: 31px;
-                }
-            }
-        }
-    }
 }
 
 .block_places {
@@ -100,158 +19,158 @@
         font-weight: 400;
         padding: 0 45px;
     }
+}
 
-    .book-form {
-        background-color: $color-text-white;
-        box-shadow: 0 0 30px $bg-shadow-places;
-        border-radius: 45px;
+.book-form {
+    background-color: $color-text-white;
+    box-shadow: 0 0 30px $bg-shadow-places;
+    border-radius: 45px;
 
-        form {
+    form {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 1.5rem;
+        padding: 8px 8px 8px 45px;
+
+        ._flex-js {
             display: flex;
             align-items: center;
             justify-content: space-between;
             flex-wrap: wrap;
-            gap: 1.5rem;
-            padding: 8px 8px 8px 45px;
+            gap: 48px;
+        }
 
-            ._flex-js {
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
-                flex-wrap: wrap;
-                gap: 48px;
+        .inputBox {
+            &:nth-child(1) {
+                .place_select {
+                    width: auto;
+                }
             }
 
-            .inputBox {
-                &:nth-child(1) {
-                    .place_select {
-                        width: auto;
+            .check_out {
+                i {
+                    position: relative;
+                    &::after {
+                        content: "";
+                        position: absolute;
+                        inset: 0;
+                        background-color: transparent;
                     }
                 }
+            }
 
-                .check_out {
-                    i {
-                        position: relative;
-                        &::after {
-                            content: "";
-                            position: absolute;
-                            inset: 0;
-                            background-color: transparent;
-                        }
-                    }
-                }
-
-                label {
-                    cursor: pointer;
-                    display: block;
-                    margin-right: 48px;
-
-                    .place_select {
-                        i {
-                            input {
-                                width: 100%;
-                                color: black;
-                                cursor: pointer;
-                                font-weight: normal;
-
-                                &::placeholder {
-                                    color: black;
-                                    font-size: 16px;
-                                    font-weight: normal;
-                                }
-                            }
-                        }
-                    }
-                }
-
-                &:not(:last-child) {
-                    border-right: 1px solid rgba(182, 175, 162, 0.25);
-                }
-
-                span {
-                    font-size: 16px;
-                    color: $bg-black-places;
-                }
+            label {
+                cursor: pointer;
+                display: block;
+                margin-right: 48px;
 
                 .place_select {
-                    width: 141px;
-                    display: flex;
-                    flex-direction: column;
-
-                    &-flex {
-                        display: flex;
-                        margin-top: 5px;
-
-                        img {
-                            max-width: fit-content;
-                        }
-
-                        span {
+                    i {
+                        input {
+                            width: 100%;
                             color: black;
-                            font-size: 16px;
-                            padding: 0 40px 0 5px;
+                            cursor: pointer;
                             font-weight: normal;
+
+                            &::placeholder {
+                                color: black;
+                                font-size: 16px;
+                                font-weight: normal;
+                            }
+                        }
+                    }
+                }
+            }
+
+            &:not(:last-child) {
+                border-right: 1px solid rgba(182, 175, 162, 0.25);
+            }
+
+            span {
+                font-size: 16px;
+                color: $bg-black-places;
+            }
+
+            .place_select {
+                width: 141px;
+                display: flex;
+                flex-direction: column;
+
+                &-flex {
+                    display: flex;
+                    margin-top: 5px;
+
+                    img {
+                        max-width: fit-content;
+                    }
+
+                    span {
+                        color: black;
+                        font-size: 16px;
+                        padding: 0 40px 0 5px;
+                        font-weight: normal;
+                    }
+                }
+
+                i {
+                    display: flex;
+                    align-items: center;
+                    gap: 6px;
+                    color: $color-secundary;
+                    margin-top: 5px;
+                    font-size: 16px;
+
+                    span {
+                        color: black;
+                        margin-right: auto;
+                        font-weight: normal;
+                    }
+
+                    input {
+                        background: none;
+                        border: none;
+                        outline: none;
+                        padding: 0 40px 0 2px;
+                        font-size: 16px;
+
+                        &::-webkit-inner-spin-button,
+                        &::-webkit-calendar-picker-indicator {
+                            display: none;
+                            -webkit-appearance: none;
                         }
                     }
 
                     i {
-                        display: flex;
-                        align-items: center;
-                        gap: 6px;
-                        color: $color-secundary;
-                        margin-top: 5px;
-                        font-size: 18px;
-
-                        span {
-                            color: black;
-                            margin-right: auto;
-                            font-weight: normal;
-                        }
-
-                        input {
-                            background: none;
-                            border: none;
-                            outline: none;
-                            padding: 0 40px 0 2px;
-                            font-size: 16px;
-
-                            &::-webkit-inner-spin-button,
-                            &::-webkit-calendar-picker-indicator {
-                                display: none;
-                                -webkit-appearance: none;
-                            }
-                        }
-
-                        i {
-                            color: $bg-black-places;
-                            margin-top: 0;
-                        }
+                        color: $bg-black-places;
+                        margin-top: 0;
                     }
                 }
-
-                .menuGuest {
-                    cursor: pointer;
-                }
             }
 
-            .btn {
+            .menuGuest {
                 cursor: pointer;
-                flex: 1 1 15rem;
-                text-align: center;
-                border: none;
-                border-radius: 45px;
-                color: white;
-                background: #00B5DD;
-                padding: 16px 30px;
-                font-size: 18px;
-                max-width: 150px;
             }
+        }
+
+        .btn {
+            cursor: pointer;
+            flex: 1 1 15rem;
+            text-align: center;
+            border: none;
+            border-radius: 45px;
+            color: white;
+            background: #00B5DD;
+            padding: 16px 30px;
+            font-size: 18px;
+            max-width: 150px;
         }
     }
 }
 
 
-@media screen and (max-width:1200px) { 
+@media screen and (max-width: 1246px) { 
     .block_places .book-form{
         border-radius: 10px;  
     }
@@ -291,7 +210,7 @@
 } 
 
 
-@media screen and (max-width:500px) {
+@media screen and (max-width: 500px) {
     .block_places .book-form form .inputBox{
         width: 100%;
     }

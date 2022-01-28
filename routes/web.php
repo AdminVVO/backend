@@ -38,10 +38,11 @@ Route::get('/blog', function () {
 })->name('/blog');
 
 ## Routes Login and Register Google
-Route::prefix('account')->group( function(){
+Route::prefix('account')->middleware(['AccountDisable', 'auth'])->group( function(){
     ## We start the process of logging in through Google
     Route::get('', [AccountController::class, 'viewAccount'])->name('account');
     Route::get('personal_info', [AccountController::class, 'viewPersonalInfo'])->name('personal_info');
+    Route::get('login_segurity', [AccountController::class, 'viewLoginSecury'])->name('login_segurity');
 
     ## We received the response from Google
     // Route::any('callback', [LoginOrRegisterForSocialsController::class, 'callbackFromGoogle'])->name('callback');
