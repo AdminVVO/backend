@@ -10,16 +10,16 @@ use App\Models\Category;
 class CategoryCards extends Component
 {
     public $category = '';
-    public $sites = [];
+    public $sites;
     public function render()
     {    
         if(!empty($this->category)){   
         $this->sites = CardCategory::Where('card_categories.category_id', '=',$this->category)->get();
         }else{
-            $this->sites = DB::table('card_categories')->select('card_categories.*')->limit(10)->get();
+            $this->sites = CardCategory::all();
         }
         $sites=$this->sites;
-        $categorys = DB::table('categories')->select('categories.*')->limit(3)->get();
+        $categorys = Category::all();
         return view('livewire.category-cards')->with([
             'sites' => $sites,
             'categorys' => $categorys,

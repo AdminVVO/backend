@@ -26,23 +26,26 @@
             </div>
         </button>
         <div class="card_img">
-            <img src="{{ URL::asset('assets/img/card/'. $item->thumbNailUrl) }}" alt="">
-            <img src="{{ URL::asset('assets/img/card/'. $item->thumbNailUrl) }}" alt="">
-            <img src="{{ URL::asset('assets/img/card/'. $item->thumbNailUrl) }}" alt="">
+            <img src="{{ URL::asset('assets/img/card/'.$item->thumbNailUrl[0]) }}" alt="">
+            <img src="{{ URL::asset('assets/img/card/'. $item->thumbNailUrl[1]) }}" alt="">
+            <img src="{{ URL::asset('assets/img/card/'. $item->thumbNailUrl[2]) }}" alt="">
         </div>
         <div class="content-dots">
             <span class="dot"></span>
             <span class="dot"></span>
             <span class="dot"></span>
         </div>
+       
         <div class="card_info">
             <div class="card_info_text">
                 <h2 class="h2-cards">{{ $item->title }}</h2>
                 <div class="card_info_rating">
                     <i class="fas fa-star"></i>
                     <p>4.89 <span>(15)</span></p>
+                   
                 </div>
             </div>
+            
             <h3 class="h3-cards">{{ $item->distance }} miles away</h3>
         </div>
     </a>

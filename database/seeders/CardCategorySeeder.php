@@ -20,7 +20,11 @@ class CardCategorySeeder extends Seeder
                 "price"=>"45",
                 "date"=>"23 dic-31 dic",
                 "distance"=>"400",
-                "thumbNailUrl" =>"c4.jpg",
+                "thumbNailUrl" =>[
+                    0 => "c1.jpg",
+                    1 => "c2.jpg",
+                    2 => "c3.jpg",
+                ],
                 "category_id" => 1
         ];
         $sites[] = [
@@ -28,7 +32,11 @@ class CardCategorySeeder extends Seeder
                 "price"=>"45",
                 "date"=>"23 dic-31 dic",
                 "distance"=>"400",
-                "thumbNailUrl"      => "c4.jpg",
+                "thumbNailUrl"      => [
+                    0 => "c1.jpg",
+                    1 => "c2.jpg",
+                    2 => "c3.jpg",
+                ],
                 "category_id" => 2
         ];
         $sites[] = [
@@ -36,7 +44,11 @@ class CardCategorySeeder extends Seeder
                 "price"=>"45",
                 "date"=>"23 dic-31 dic",
                 "distance"=>"400",
-                "thumbNailUrl"      => "c4.jpg",
+                "thumbNailUrl"      => [
+                    0 => "c1.jpg",
+                    1 => "c2.jpg",
+                    2 => "c3.jpg",
+                ],
                 "category_id" => 3
         ];
         $sites[] = [
@@ -44,7 +56,11 @@ class CardCategorySeeder extends Seeder
                 "price"=>"45",
                 "date"=>"23 dic-31 dic",
                 "distance"=>"400",
-                "thumbNailUrl"      => "c4.jpg",
+                "thumbNailUrl"      => [
+                    0 => "c1.jpg",
+                    1 => "c2.jpg",
+                    2 => "c3.jpg",
+                ],
                 "category_id" => 4
         ];
         $sites[] = [
@@ -52,7 +68,11 @@ class CardCategorySeeder extends Seeder
                 "price"=>"45",
                 "date"=>"23 dic-31 dic",
                 "distance"=>"400",
-                "thumbNailUrl"      => "c4.jpg",
+                "thumbNailUrl"      => [
+                    0 => "c1.jpg",
+                    1 => "c2.jpg",
+                    2 => "c3.jpg",
+                ],
                 "category_id" => 4
         ];
         $sites[] = [
@@ -60,7 +80,11 @@ class CardCategorySeeder extends Seeder
                 "price"=>"45",
                 "date"=>"23 dic-31 dic",
                 "distance"=>"400",
-                "thumbNailUrl"      => "c4.jpg",
+                "thumbNailUrl"      => [
+                    0 => "c1.jpg",
+                    1 => "c2.jpg",
+                    2 => "c3.jpg",
+                ],
                 "category_id" => 5
         ];
         $sites[] = [
@@ -68,7 +92,11 @@ class CardCategorySeeder extends Seeder
                 "price"=>"45",
                 "date"=>"23 dic-31 dic",
                 "distance"=>"400",
-                "thumbNailUrl"      => "c4.jpg",
+                "thumbNailUrl"      => [
+                    0 => "c1.jpg",
+                    1 => "c2.jpg",
+                    2 => "c3.jpg",
+                ],
                 "category_id" => 5
         ];
         $sites[] = [
@@ -76,7 +104,11 @@ class CardCategorySeeder extends Seeder
                 "price"=>"45",
                 "date"=>"23 dic-31 dic",
                 "distance"=>"400",
-                "thumbNailUrl"      => "c4.jpg",
+                "thumbNailUrl"      => [
+                    0 => "c1.jpg",
+                    1 => "c2.jpg",
+                    2 => "c3.jpg",
+                ],
                 "category_id" => 6
         ];
         $sites[] = [
@@ -84,7 +116,11 @@ class CardCategorySeeder extends Seeder
                 "price"=>"45",
                 "date"=>"23 dic-31 dic",
                 "distance"=>"400",
-                "thumbNailUrl"      => "c4.jpg",
+                "thumbNailUrl"      => [
+                    0 => "c1.jpg",
+                    1 => "c2.jpg",
+                    2 => "c3.jpg",
+                ],
                 "category_id" => 6
         ];
         $sites[] = [
@@ -92,7 +128,11 @@ class CardCategorySeeder extends Seeder
                 "price"=>"45",
                 "date"=>"23 dic-31 dic",
                 "distance"=>"400",
-                "thumbNailUrl"      => "c4.jpg",
+                "thumbNailUrl"      => [
+                    0 => "c1.jpg",
+                    1 => "c2.jpg",
+                    2 => "c3.jpg",
+                ],
                 "category_id" => 6
         ];
         $sites[] = [
@@ -100,7 +140,11 @@ class CardCategorySeeder extends Seeder
                 "price"=>"45",
                 "date"=>"23 dic-31 dic",
                 "distance"=>"400",
-                "thumbNailUrl"      => "c4.jpg",
+                "thumbNailUrl"      => [
+                    0 => "c1.jpg",
+                    1 => "c2.jpg",
+                    2 => "c3.jpg",
+                ],
                 "category_id" => 7
         ];
         $sites[] = [
@@ -108,7 +152,11 @@ class CardCategorySeeder extends Seeder
                 "price"=>"45",
                 "date"=>"23 dic-31 dic",
                 "distance"=>"400",
-                "thumbNailUrl"      => "c4.jpg",
+                "thumbNailUrl"      => [
+                    0 => "c1.jpg",
+                    1 => "c2.jpg",
+                    2 => "c3.jpg",
+                ],
                 "category_id" => 7
         ];
         $sites[] = [
@@ -116,7 +164,11 @@ class CardCategorySeeder extends Seeder
                 "price"=>"45",
                 "date"=>"23 dic-31 dic",
                 "distance"=>"400",
-                "thumbNailUrl"      => "c4.jpg",
+                "thumbNailUrl"      => [
+                    0 => "c1.jpg",
+                    1 => "c2.jpg",
+                    2 => "c3.jpg",
+                ],
                 "category_id" => 7
         ];
         $sites[] = [
@@ -124,7 +176,11 @@ class CardCategorySeeder extends Seeder
                 "price"=>"45",
                 "date"=>"23 dic-31 dic",
                 "distance"=>"400",
-                "thumbNailUrl"      => "c4.jpg",
+                "thumbNailUrl"      => [
+                    0 => "c1.jpg",
+                    1 => "c2.jpg",
+                    2 => "c3.jpg",
+                ],
                 "category_id" => 2
         ];
         $sites[] = [
@@ -132,7 +188,11 @@ class CardCategorySeeder extends Seeder
                 "price"=>"45",
                 "date"=>"23 dic-31 dic",
                 "distance"=>"400",
-                "thumbNailUrl"      => "c4.jpg",
+                "thumbNailUrl"      => [
+                    0 => "c1.jpg",
+                    1 => "c2.jpg",
+                    2 => "c3.jpg",
+                ],
                 "category_id" => 2
         ];
         $sites[] = [
@@ -140,7 +200,11 @@ class CardCategorySeeder extends Seeder
                 "price"=>"45",
                 "date"=>"23 dic-31 dic",
                 "distance"=>"400",
-                "thumbNailUrl"      => "c4.jpg",
+                "thumbNailUrl"      => [
+                    0 => "c1.jpg",
+                    1 => "c2.jpg",
+                    2 => "c3.jpg",
+                ],
                 "category_id" => 1
         ];
         $sites[] = [
@@ -148,7 +212,11 @@ class CardCategorySeeder extends Seeder
                 "price"=>"45",
                 "date"=>"23 dic-31 dic",
                 "distance"=>"400",
-                "thumbNailUrl"      => "c4.jpg",
+                "thumbNailUrl"      => [
+                    0 => "c1.jpg",
+                    1 => "c2.jpg",
+                    2 => "c3.jpg",
+                ],
                 "category_id" => 1
         ];
         $sites[] = [
@@ -156,7 +224,11 @@ class CardCategorySeeder extends Seeder
                 "price"=>"45",
                 "date"=>"23 dic-31 dic",
                 "distance"=>"400",
-                "thumbNailUrl"      => "c4.jpg",
+                "thumbNailUrl"      => [
+                    0 => "c1.jpg",
+                    1 => "c2.jpg",
+                    2 => "c3.jpg",
+                ],
                 "category_id" => 1
         ];
         foreach($sites as $site){

@@ -8,4 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class CardCategory extends Model
 {
     use HasFactory;
+    protected $casts = [
+        'thumbNailUrl' => 'array'
+    ];
 }

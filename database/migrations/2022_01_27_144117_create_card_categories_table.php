@@ -19,7 +19,7 @@ class CreateCardCategoriesTable extends Migration
             $table->string('price');
             $table->string('date');
             $table->string('distance');
-            $table->string('thumbNailUrl');
+            $table->json('thumbNailUrl');
             $table->unsignedBigInteger('category_id');
             $table->foreign('category_id')->references('id')->on('categories');
             $table->timestamps();
