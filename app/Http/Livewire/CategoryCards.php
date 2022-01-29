@@ -32,6 +32,6 @@ class CategoryCards extends Component
     {
         $this->category = $category;
         $this->emit('reloadClassCSs');
-        $this->emit('reloadJs');
+        
     }
 }

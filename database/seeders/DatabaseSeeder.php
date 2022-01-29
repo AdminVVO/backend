@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+
 use Illuminate\Database\Seeder;
 
 
@@ -21,5 +22,11 @@ class DatabaseSeeder extends Seeder
         $this->call([CategorySeeder::class]);
         $this->call([SiteSeeder::class]);
         $this->call([CardCategorySeeder::class]);
+        $this->call([CategoryProductSeeder::class]);
+        $this->call([TypeProductSeeder::class]);
+        $this->call([TypeSpaceProductSeeder::class]);
+        $this->call([DescriptionProductSeeder::class]);
+        $this->call([ProductSeeder::class]);
+        $this->call([ReservationProductSeeder::class]);
     }
 }

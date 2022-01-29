@@ -52,13 +52,6 @@
             $(".content-dots span.dot:first-child").addClass("dot_active");
             $(".card_img > img:first-child").addClass("card_img_active");
         });
-        // window.livewire.on('reloadJs', function() {
-        //     const select = document.getElementById("select1");
-        //     select.addEventListener("click", e => {
-        //         e.path[0].classList.add("active_tabs");
-        //         console.log(e.path[0].classList);
-        //     });
-        // });
     </script>
 </body>
 
