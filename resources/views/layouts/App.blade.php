@@ -40,7 +40,6 @@
         {{-- @include('language.Language') --}}
             @yield('content')
         @include('layouts.Footer')
-
         @include('layouts.Scripts')
         @livewireScripts
         @laravelTelInputScripts 

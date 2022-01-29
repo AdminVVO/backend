@@ -29,7 +29,9 @@ class CreateUsersTable extends Migration
             $table->string('currency_default')->default('USD');
             $table->boolean('promotions')->nullable();
             $table->string('google_id')->nullable();
+            $table->string('google_token')->nullable();
             $table->string('facebook_id')->nullable();
+            $table->string('facebook_token')->nullable();
             $table->string('country')->nullable();
             $table->string('street_address')->nullable();
             $table->string('suite')->nullable();

@@ -253,7 +253,7 @@ input {
 }
 
 .log-out-modal-welcome {
-  /*display: none;*/
+  display: none;
 }
 
 .container-welcome-email .content_welcome-email ._input-mod {

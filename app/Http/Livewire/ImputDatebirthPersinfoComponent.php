@@ -14,7 +14,9 @@ class ImputDatebirthPersinfoComponent extends Component
     public $datebirth;
     public $classActive = false;
     public $isLoad = false;
-    public $inputEdit = [];
+    public $inputEdit = [
+        'date_birth' => ''
+    ];
 
     public function render()
     {

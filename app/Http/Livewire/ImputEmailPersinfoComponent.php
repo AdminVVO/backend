@@ -12,7 +12,9 @@ class ImputEmailPersinfoComponent extends Component
     public $email;
     public $classActive = false;
     public $isLoad = false;
-    public $inputEdit = [];
+    public $inputEdit = [
+        'email' => ''
+    ];
 
     public function render()
     {

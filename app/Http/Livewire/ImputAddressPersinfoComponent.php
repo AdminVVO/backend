@@ -13,7 +13,14 @@ class ImputAddressPersinfoComponent extends Component
     public $country, $street_address, $suite, $city, $state, $zip_code;
     public $classActive = false;
     public $isLoad = false;
-    public $inputEdit = [];
+    public $inputEdit = [
+        'country'        => '',
+        'street_address' => '',
+        'suite'          => '',
+        'city'           => '',
+        'state'          => '',
+        'zip_code'       => ''
+    ];
 
     public function render()
     {

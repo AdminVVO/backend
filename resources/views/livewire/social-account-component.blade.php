@@ -18,23 +18,25 @@
                     </div>
                 </div>
 
-                <a href="#" class="_btnsm">
                     @if ( $social->facebook_id == null)
-                        <span class="_fcontent">
-                            Connect
-                            <span class="_svg-asm">
-                                <img src="{{ URL::asset('icons/down-right.svg') }}" alt="">
+                        <a href="{{ route('facebook.login') }}" class="_btnsm">
+                            <span class="_fcontent">
+                                Connect
+                                <span class="_svg-asm">
+                                    <img src="{{ URL::asset('icons/down-right.svg') }}" alt="">
+                                </span>
                             </span>
-                        </span>
+                        </a>
                     @else
-                        <span class="_fcontent">
-                            Disconnect
-                            <span class="_svg-asm">
-                                <img src="{{ URL::asset('icons/down-right.svg') }}" alt="">
+                        <a href="javascript:void(0)" class="_btnsm" wire:click="disconnFace()">
+                            <span class="_fcontent">
+                                Disconnect
+                                <span class="_svg-asm">
+                                    <img src="{{ URL::asset('icons/down-right.svg') }}" alt="">
+                                </span>
                             </span>
-                        </span>
+                        </a>
                     @endif
-                </a>
             </div>
 
             <div class="_cont-edit">
@@ -53,23 +55,25 @@
                     </div>
                 </div>
 
-                <a href="#" class="_btnsm">
                     @if ( $social->google_id == null)
-                        <span class="_fcontent">
-                            Connect
-                            <span class="_svg-asm">
-                                <img src="{{ URL::asset('icons/down-right.svg') }}" alt="">
+                        <a href="{{ route('google.login') }}" class="_btnsm">
+                            <span class="_fcontent">
+                                Connect
+                                <span class="_svg-asm">
+                                    <img src="{{ URL::asset('icons/down-right.svg') }}" alt="">
+                                </span>
                             </span>
-                        </span>
+                        </a>
                     @else
-                        <span class="_fcontent">
-                            Disconnect
-                            <span class="_svg-asm">
-                                <img src="{{ URL::asset('icons/down-right.svg') }}" alt="">
+                        <a href="javascript:void(0)" class="_btnsm" wire:click="disconnGoog()">
+                            <span class="_fcontent">
+                                Disconnect
+                                <span class="_svg-asm">
+                                    <img src="{{ URL::asset('icons/down-right.svg') }}" alt="">
+                                </span>
                             </span>
-                        </span>
+                        </a>
                     @endif
-                </a>
             </div>
         </div>
     </div>

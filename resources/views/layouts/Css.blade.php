@@ -1,7 +1,5 @@
-<link href="{{ URL::asset('css/app.css') }}" rel="stylesheet"/>
-
-<link href="{{ URL::asset('assets/css/jquery-ui-git.css') }}" rel="stylesheet"/>
-<link href="{{ URL::asset('assets/css/daterangepicker.css') }}" rel="stylesheet"/>
+<link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/jquery-ui-git.css"> <!-- libreria css de un calendario date-piker -->
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css">
 
 <link href="{{ URL::asset('css/application.css') }}" rel="stylesheet"/>
 <link href="{{ URL::asset('assets/css/all.css') }}" rel="stylesheet"/>
