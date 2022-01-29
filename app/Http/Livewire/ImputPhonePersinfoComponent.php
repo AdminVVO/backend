@@ -11,10 +11,12 @@ use Livewire\Component;
 class ImputPhonePersinfoComponent extends Component
 {
 
-    public $phone, $phoneEdit;
+    public $phone, $phoneEdit, $kiki, $phone_country;
     public $classActive = false;
     public $isLoad = false;
     public $showInput = false;
+
+    protected $listeners = ['submitEvent' => 'submitEvent'];
 
     public function render()
     {
@@ -34,20 +36,22 @@ class ImputPhonePersinfoComponent extends Component
         $this->resetInput();
     }
 
-    public function submit()
+    public function submitEvent($payload)
     {   
         $this->isLoad = true; 
 
         $validation = Validator::make([
-           'phone' => $this->phone,
+           'phone' => $payload,
         ],[
-            'phone' => 'required',
+            'phone' => 'required|min:6',
         ]);
 
             if ($validation->fails()) {
                 $this->isLoad = false; 
                 $validation->validate();
             }
+
+            dd('ss');
             
         $query = User::where([ 'id_user' => Auth::id() ])->select('phone', 'other_phone')->first();
 
@@ -108,7 +112,6 @@ class ImputPhonePersinfoComponent extends Component
     {
         $this->showInput = true;
     }
-
 
     private function resetInput()
     {

@@ -25,10 +25,22 @@ class LoginOrRegisterForSocialsController extends Controller
 
         try {
             $user = Socialite::driver('google')->user();
+
+                if ( Auth::check() ) {
+
+                    User::where([
+                        'id_user' => Auth::id(),
+                    ])->update([
+                        'google_id' => $user->id
+                    ]);
+
+                    return redirect()->route('/');
+                }
+
             $authUser = $this->findOrCreateUserGoogle($user);
 
                 if ( $authUser->acount_actived == 0)
-                    return redirect('/');
+                    return redirect()->route('/');
 
             Auth::login($authUser);
 
@@ -74,10 +86,22 @@ class LoginOrRegisterForSocialsController extends Controller
 
         try {
             $user = Socialite::driver('facebook')->user();
+
+                if ( Auth::check() ) {
+
+                    User::where([
+                        'id_user' => Auth::id(),
+                    ])->update([
+                        'facebook_id' => $user->id
+                    ]);
+
+                    return redirect()->route('/');
+                }
+
             $authUser = $this->findOrCreateUserFacebook($user);
 
                 if ( $authUser->acount_actived == 0)
-                    return redirect('/');
+                    return redirect()->route('/');
 
             Auth::login($authUser);
 

@@ -12,7 +12,9 @@ class ImputGenderPersinfoComponent extends Component
     public $gender;
     public $classActive = false;
     public $isLoad = false;
-    public $inputEdit = [];
+    public $inputEdit = [
+        'sex' => ''
+    ];
 
     public function render()
     {

@@ -7,12 +7,12 @@ use Mail;
 
 class SendMailController extends Controller
 {
-    public function sendVerifyCode($recipients, $code)
+    public static function sendVerifyCode($recipients, $code)
     {   
         \Mail::to( $recipients )->send(new \App\Mail\SendCodeMail( $code ));
     }
 
-    public function sendMessageHelp($recipients, $message)
+    public static function sendMessageHelp($recipients, $message)
     {   
         $content = new \stdClass();
         $content->recipients = $recipients;
