@@ -15,13 +15,5 @@
 <script src="{{ URL::asset('assets/js/date-piker.js') }}"></script>
 <script src="{{ URL::asset('assets/js/date-range-piker.js') }}"></script>
 
-
-{{-- <script src="{{ URL::asset('assets/js/card-location.js') }}"></script> --}}
-{{-- <script src="{{ URL::asset('assets/js/perfil-anfitrion.js') }}"></script> --}}
-{{-- <script src="{{ URL::asset('assets/js/modals-all_amenitles.js') }}"></script> --}}
-
 @yield('script')
 @stack('scripts')
-
-
-

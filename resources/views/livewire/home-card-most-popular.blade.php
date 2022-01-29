@@ -1,4 +1,5 @@
-@foreach ($sites as $item)
+
+    @foreach ($sites as $item)
     <a href="/" class="card_items">
         <div class="card_top">
             <div class="card_top_price">
@@ -47,3 +48,4 @@
         </div>
     </a>
 @endforeach
+

@@ -50,8 +50,12 @@
         </div>
     </div>
 
-    <div class="tabs_card entero">
 
+
+
+
+
+    <div class="tabs_card entero">
         <div class="medio">
             @foreach ($sites as $item)
                 <a href="/" class="card_items">
@@ -105,24 +109,4 @@
             @endforeach
         </div>
     </div>
-
-
-
-
-    <script>
-        var elemento = document.getElementById("select");
-
-        function cambiaColor() {
-            elemento.className += " active_tabs";
-            // if (document.querySelector("#select.active_tabs")) {
-            //     elemento.className.remove("active_tabs");
-            // } else {
-            //     elemento.className += " active_tabs";
-            // }
-        }
-        elemento.addEventListener('click', function() {
-            cambiaColor()
-        });
-    </script>
 </div>
-
