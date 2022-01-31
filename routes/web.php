@@ -5,7 +5,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginOrRegisterForEmailPhoneController;
 use App\Http\Controllers\LoginOrRegisterForSocialsController;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\internaController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -32,6 +32,8 @@ Route::get('/host', function () {
 Route::get('/interna', function () {
     return view('interna.Interna');
 })->name('/interna');
+
+Route::get('/interna/{id}',[internaController::class,'getcontent'])->name('interna.getcontent');
 
 Route::get('/blog', function () {
     return view('blog.Blog');
