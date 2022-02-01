@@ -22,9 +22,9 @@ class AccommodationSeeder extends Seeder
             "proximityDistance" => 11.168453,
             "rateCurrencyCode"  => "USD",
             "thumbNailUrl"      => [
-                0 => "3445681_43_t.jpg",
-                1 => "50947_264_t.jpg",
-                2 => "16673_260_t.jpg",
+                0 => "3.jpg",
+                1 => "5.jpg",
+                2 => "1.jpg",
             ],
             "tripAdvisorRating" => 3.5,
         ];
@@ -42,9 +42,9 @@ class AccommodationSeeder extends Seeder
             "proximityDistance" => 11.335604,
             "rateCurrencyCode"  => "USD",
             "thumbNailUrl"      => [
-                0 => "25290_88_t.jpg",
-                1 => "11133_169_t.jpg",
-                2 => "28647_30_t.jpg",
+                0 => "3.jpg",
+                1 => "4.jpg",
+                2 => "5.jpg",
             ],
             "tripAdvisorRating" => 4,
         ];
@@ -62,9 +62,9 @@ class AccommodationSeeder extends Seeder
             "proximityDistance" => 11.115907,
             "rateCurrencyCode"  => "USD",
             "thumbNailUrl"      => [
-                0 => "62800_122_t.jpg",
-                1 => "19023_103_t.jpg",
-                2 => "284304_50_t.jpg",
+                0 => "10.jpg",
+                1 => "2.jpg",
+                2 => "3.jpg",
             ],
             "tripAdvisorRating" => 4,
 
@@ -83,9 +83,9 @@ class AccommodationSeeder extends Seeder
             "proximityDistance" => 11.898841,
             "rateCurrencyCode"  => "USD",
             "thumbNailUrl"      => [
-                0 => "16950_158_t.jpg",
-                1 => "11133_169_t.jpg",
-                2 => "19023_103_t.jpg",
+                0 => "7.jpg",
+                1 => "8.jpg",
+                2 => "9.jpg",
             ],
             "tripAdvisorRating" => 4,
         ];
@@ -103,9 +103,9 @@ class AccommodationSeeder extends Seeder
             "proximityDistance" => 11.293709,
             "rateCurrencyCode"  => "USD",
             "thumbNailUrl"      => [
-                0 => "3445681_43_t.jpg",
-                1 => "50947_264_t.jpg",
-                2 => "16673_260_t.jpg",
+                0 => "4.jpg",
+                1 => "5.jpg",
+                2 => "6.jpg",
             ],
             "tripAdvisorRating" => 4,
         ];
@@ -123,9 +123,9 @@ class AccommodationSeeder extends Seeder
             "proximityDistance" => 11.097676,
             "rateCurrencyCode"  => "USD",
             "thumbNailUrl"      => [
-                0 => "25290_88_t.jpg",
-                1 => "11133_169_t.jpg",
-                2 => "28647_30_t.jpg",
+                0 => "1.jpg",
+                1 => "2.jpg",
+                2 => "3.jpg",
             ],
             "tripAdvisorRating" => 4.5,
         ];
@@ -143,9 +143,9 @@ class AccommodationSeeder extends Seeder
             "proximityDistance" => 11.145046,
             "rateCurrencyCode"  => "USD",
             "thumbNailUrl"      => [
-                0 => "62800_122_t.jpg",
-                1 => "19023_103_t.jpg",
-                2 => "284304_50_t.jpg",
+                0 => "6.jpg",
+                1 => "7.jpg",
+                2 => "8.jpg",
             ],
             "tripAdvisorRating" => 4,
         ];
@@ -183,9 +183,9 @@ class AccommodationSeeder extends Seeder
             "proximityDistance" => 11.438348,
             "rateCurrencyCode"  => "USD",
             "thumbNailUrl"      => [
-                0 => "3445681_43_t.jpg",
-                1 => "50947_264_t.jpg",
-                2 => "16673_260_t.jpg",
+                0 => "3.jpg",
+                1 => "4.jpg",
+                2 => "5.jpg",
             ],
             "tripAdvisorRating" => 4.5,
         ];
@@ -203,9 +203,9 @@ class AccommodationSeeder extends Seeder
             "proximityDistance" => 12.074359,
             "rateCurrencyCode"  => "USD",
             "thumbNailUrl"      => [
-                0 => "25290_88_t.jpg",
-                1 => "11133_169_t.jpg",
-                2 => "28647_30_t.jpg",
+                0 => "1.jpg",
+                1 => "2.jpg",
+                2 => "3.jpg",
             ],
             "tripAdvisorRating" => 4.5,
         ];

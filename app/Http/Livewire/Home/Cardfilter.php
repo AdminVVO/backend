@@ -1,13 +1,12 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\Home;
 
-use Livewire\Component;
-use Illuminate\Support\Facades\DB;
 use App\Models\CardCategory;
 use App\Models\Category;
+use Livewire\Component;
 
-class CategoryCards extends Component
+class Cardfilter extends Component
 {
     public $category = '';
     public $sites;
@@ -17,7 +16,6 @@ class CategoryCards extends Component
     }
     public function render()
     {
-
         if (!empty($this->category)) {
             $this->sites = CardCategory::Where('card_categories.category_id', '=', $this->category)->get();
         } else {
@@ -26,12 +24,11 @@ class CategoryCards extends Component
 
         $sites = $this->sites;
         $categorys = Category::all();
-        return view('livewire.category-cards', compact('sites', 'categorys'));
+        return view('livewire.home.cardfilter',compact('sites','categorys'));
     }
     public function changeCategory($category)
     {
         $this->category = $category;
         $this->emit('reloadClassCSs');
-        
     }
 }

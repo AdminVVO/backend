@@ -14,13 +14,11 @@
                     </svg>
                 </div>
             </button>
-
             <div class="card_img">
                 @foreach ($item['thumbNailUrl'] as $url)
                     <img src="{{ URL::asset('assets/img/thumbnails') }}/{{ $url }}" alt="">
                 @endforeach
             </div>
-
             <div class="content-dots">
                 <span class="dot"></span>
                 <span class="dot"></span>
@@ -29,11 +27,9 @@
             <div class="card_info">
                 <div class="card_info_text">
                     <h2 class="h2-cards">{{ $item->name }}</h2>
-
                 </div>
                 <h3 class="h3-cards">{{ $item->proximityDistance }} miles away</h3>
             </div>
         </a>
-
     </div>
 @endforeach

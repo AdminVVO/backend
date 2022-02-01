@@ -15,6 +15,10 @@ class CreatePhonesTable extends Migration
     {
         Schema::create('phones', function (Blueprint $table) {
             $table->id();
+            $table->string('cod');
+            $table->string('countryCode');
+            $table->string('number');
+            $table->string('check');
             $table->timestamps();
         });
     }

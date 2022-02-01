@@ -1,7 +1,5 @@
 @extends('layouts.App')
-
 @section('title') Category @endsection
-
 @section('css')
 
     <link href="{{ URL::asset('assets/css/home.css') }}" rel="stylesheet" />
@@ -9,12 +7,10 @@
     <link href="{{ URL::asset('assets/css/category.css') }}" rel="stylesheet" />
 
 @endsection
-
 @section('content')
-
     <div class="tabs_card tabs_card_xxl entero" style="margin: 0 0 100px;">
         <div class="medio">
-            @livewire('category-card-category')
+            @livewire('category.cardfirst')
             {{-- los 3 primeros de las categories --}}
         </div>
     </div>
@@ -29,7 +25,7 @@
         </div>  
     </div> --}}
     <div>
-        @livewire('category-cards')
+        @livewire('category.cardfilter')
     </div>
     {{-- <div class="tabs_card entero">
         <div class="medio"> 
@@ -45,7 +41,7 @@
 
     <div class="tabs_card tabs_card_xl entero">
         <div class="medio">
-            @livewire('card-category-hotel')
+            @livewire('category.cardhotel')
         </div>
     </div>
 
@@ -66,12 +62,7 @@
 
     <div class="tabs_card entero mt-80">
         <div class="medio">
-            @livewire('card-category-hotel')
+            @livewire('category.cardpool')
         </div>
     </div>
-
-@endsection
-
-
-@section('script')
 @endsection

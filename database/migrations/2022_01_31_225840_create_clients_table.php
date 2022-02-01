@@ -28,7 +28,6 @@ class CreateClientsTable extends Migration
             $table->string('currency');
             $table->string('timeZone');
             $table->string('phonemain');
-            $table->string('phonemain');
             $table->unsignedBigInteger('payMethod_id');
             $table->unsignedBigInteger('wishList_id');
             $table->unsignedBigInteger('address_id');

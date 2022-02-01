@@ -2,24 +2,19 @@
     <div class="tabs entero">
         <div class="medio">
             <div class="content-scroll-local">
-                {{-- div --}}
                 <div class="tabs_items_group select">
                     @foreach ($categorys as $item)
-                        {{-- h3 --}}
                         <h3 id="select" class="tabs_items" wire:click.prevent="changeCategory({{ $item->id }})">
                             {{ $item->type }}
                         </h3>
-                        {{-- h3 --}}
                     @endforeach
                 </div>
-                {{-- div --}}
                 <div class="btn-right-scroll">
                     <span class="bg-btn-right">
                         <i class="fas fa-chevron-right"></i>
                     </span>
                 </div>
             </div>
-
             <div class="tabs_select">
                 <label class="custom-anytime">
                     <select name="" id="">
@@ -30,7 +25,6 @@
                     </select>
                     <i class="far fa-chevron-down"></i>
                 </label>
-
                 <label class="custom-anytime">
                     <select name="" id="">
                         <option value="">Guests</option>
@@ -40,7 +34,6 @@
                     </select>
                     <i class="far fa-chevron-down"></i>
                 </label>
-
                 <label class="custom-anytime">
                     <select name="" id="">
                         <option value="">Filters</option>
@@ -55,7 +48,6 @@
     </div>
 
     <div class="tabs_card entero">
-
         <div class="medio">
             @foreach ($sites as $item)
                 <a href="/" class="card_items">
@@ -105,19 +97,7 @@
                         <h3 class="h3-cards">{{ $item->distance }} miles away</h3>
                     </div>
                 </a>
-
             @endforeach
         </div>
     </div>
-
-
-
-
-    <script>
-        //   const select = document.getElementById("select1");
-        //     select.addEventListener("click", e => {
-        //         select.classList.add("active_tabs");
-        //     });
-        // option.className="tabs_items active_tabs"
-    </script>
 </div>

@@ -1,5 +1,4 @@
-
-    @foreach ($sites as $item)
+@foreach ($sites as $item)
     <a href="/" class="card_items">
         <div class="card_top">
             <div class="card_top_price">
@@ -34,18 +33,15 @@
             <span class="dot"></span>
             <span class="dot"></span>
         </div>
-
         <div class="card_info">
             <div class="card_info_text">
                 <h2 class="h2-cards">{{ $item->title }}</h2>
                 <div class="card_info_rating">
                     <i class="fas fa-star"></i>
                     <p>4.89 <span>(15)</span></p>
-
                 </div>
             </div>
             <h3 class="h3-cards">{{ $item->distance }} miles away</h3>
         </div>
     </a>
 @endforeach
-

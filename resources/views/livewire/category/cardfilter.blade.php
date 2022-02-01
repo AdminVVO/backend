@@ -15,7 +15,6 @@
                     </span>
                 </div>
             </div>
-
             <div class="tabs_select">
                 <label class="custom-anytime">
                     <select name="" id="">
@@ -26,7 +25,6 @@
                     </select>
                     <i class="far fa-chevron-down"></i>
                 </label>
-
                 <label class="custom-anytime">
                     <select name="" id="">
                         <option value="">Guests</option>
@@ -36,7 +34,6 @@
                     </select>
                     <i class="far fa-chevron-down"></i>
                 </label>
-
                 <label class="custom-anytime">
                     <select name="" id="">
                         <option value="">Filters</option>
@@ -49,12 +46,6 @@
             </div>
         </div>
     </div>
-
-
-
-
-
-
     <div class="tabs_card entero">
         <div class="medio">
             @foreach ($sites as $item)
@@ -84,7 +75,6 @@
                         </div>
                     </button>
                     <div class="card_img">
-                        {{-- //class="card_img" --}}
                         <img src="{{ URL::asset('assets/img/card/' . $item->thumbNailUrl[0]) }}" alt="">
                         <img src="{{ URL::asset('assets/img/card/' . $item->thumbNailUrl[1]) }}" alt="">
                         <img src="{{ URL::asset('assets/img/card/' . $item->thumbNailUrl[2]) }}" alt="">
@@ -105,7 +95,6 @@
                         <h3 class="h3-cards">{{ $item->distance }} miles away</h3>
                     </div>
                 </a>
-
             @endforeach
         </div>
     </div>

@@ -1,15 +1,14 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\Category;
 
 use Livewire\Component;
-use App\Models\Category;
 use Illuminate\Support\Facades\DB;
-class CategoryCardCategory extends Component
+class Cardfirst extends Component
 {
     public function render()
     {
         $category= DB::table('categories')->select('categories.*')->limit(3)->get();
-        return view('livewire.category-card-category',compact('category'));
+        return view('livewire.category.cardfirst',compact('category'));
     }
 }

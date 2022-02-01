@@ -1,15 +1,15 @@
 <?php
 
-namespace App\Http\Livewire;
+namespace App\Http\Livewire\Home;
 
 use App\Models\Accommodation;
 use Livewire\Component;
 
-class CardHomeComponent extends Component
+class Cardslider extends Component
 {
     public function render()
     {
         $Accommodation = Accommodation::all();
-        return view('livewire.card-home-component', compact('Accommodation'));
+        return view('livewire.home.cardslider',compact('Accommodation'));
     }
 }
