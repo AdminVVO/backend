@@ -199,7 +199,7 @@
 
 
 @section('script')
-
+    <script src="{{ URL::asset('assets/js/modals-session.js') }}"></script>
     <script src="{{ URL::asset('assets/js/modals-interna.js') }}"></script>
     <script src="{{ URL::asset('assets/js/modals-gallerys.js') }}"></script>
     <script src="{{ URL::asset('assets/js/modals-reserve.js') }}"></script>

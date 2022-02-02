@@ -33,6 +33,10 @@ Route::get('/interna', function () {
     return view('interna.Interna');
 })->name('/interna');
 
+Route::get('/search', function () {
+    return view('search.search');
+})->name('/search');
+
 Route::get('/interna/{id}',[internaController::class,'getcontent'])->name('interna.getcontent');
 
 Route::get('/blog', function () {
