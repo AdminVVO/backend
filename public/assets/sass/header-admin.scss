@@ -1,0 +1,56 @@
+@import "_variables";
+
+._flex-js {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 35px;
+
+    ._flex {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+
+        .icon_red {
+            font-size: 20px;
+            color: #FF5A5F;
+        }
+
+        span {
+            color: $color-white;
+        }
+
+        i {
+            font-size: 14px;
+            color: $color-white;
+            margin-top: 2px;
+        }
+    }
+}
+
+.header-fixed {
+    display: none;
+}
+
+.h_admin {
+    position: sticky;
+    top: 0;
+    z-index: 30;
+
+    .header_admin {
+        margin-bottom: 0;
+    }
+}
+
+.header_admin {
+    position: sticky;   
+    top: 0; 
+    margin-bottom: 80px; 
+    background-color: $color-background2;
+}
+
+.header_admin.fixed {
+    position: sticky;
+    animation: none;  
+}

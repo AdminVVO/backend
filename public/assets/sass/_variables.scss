@@ -75,6 +75,10 @@ $letter-spacing: 0.2rem;
   font-weight: bold;
   line-height: 42px;
   color: $color-h2_publish;
+
+  @include responsive(900px) {
+    font-size: 30px;
+  }
 }
 
 @mixin h2-guests {
@@ -83,10 +87,9 @@ $letter-spacing: 0.2rem;
   line-height: 30px;
   color: $color-h2_publish;
 
-  @media screen and (max-width: 900px) {
+  @include responsive(900px) {
     font-size: 20px;
   }
-
 }
 
 @mixin h3 {
@@ -104,7 +107,7 @@ $letter-spacing: 0.2rem;
 @mixin h5 {
   font-size: 14px;
   color: $color-text;
-  font-weight: SemiBold;
+  font-weight: normal;
 }
 
 @mixin h2-cards {
@@ -137,7 +140,7 @@ $letter-spacing: 0.2rem;
 @mixin h-paragraph {
   font-size: 22px;
   color: $color-text;
-  font-weight: regular;
+  font-weight: normal;
 }
 
 @mixin n-paragraph {
@@ -149,7 +152,7 @@ $letter-spacing: 0.2rem;
 @mixin s-paragraph {
   font-size: 14px;
   color: $color-text;
-  font-weight: regular;
+  font-weight: normal;
 }
 
 @mixin flex-centrado {
@@ -322,20 +325,52 @@ $letter-spacing: 0.2rem;
   }
 }
 
+@mixin btn-border {
+  display: inline-block;
+  padding: 15px 13px;
+  border-radius: 10px;
+  border: 3px solid rgba(227, 237, 243, 0.4);
+  background-color: $color-white;
+  color: $bg-black-places;
+  font-weight: normal;
+  white-space: nowrap;
+  font-size: 18px;
+  transition: .3s ease;
+
+  @include responsive(1400px) {
+    padding: 15px 40px;
+    font-size: 16px;
+    font-weight: normal;
+  }
+
+  @include responsive(900px) {
+    font-size: 14px;
+  }
+}
+
 @mixin btn-celest {
   display: inline-block;
   padding: 16px 50px;
   border-radius: 10px;
   background-color: #00B5DD;
-  color: #fff;
+  color: $color-white;
   font-weight: bold;
   white-space: nowrap;
   font-size: 18px;
+  transition: .3s ease;
 
-  @include responsive(900px) {
-    padding: 15px 30px !important;
+  &:hover {
+    background-color: #0096B7;
+  }
+
+  @include responsive(1400px) {
+    padding: 15px 40px;
     font-size: 16px;
     font-weight: normal;
+  }
+
+  @include responsive(900px) {
+    font-size: 14px;
   }
 }
 
@@ -348,10 +383,14 @@ $letter-spacing: 0.2rem;
   font-weight: bold;
   padding: 16px 50px;
 
-  @include responsive(900px) {
-    padding: 15px 30px !important;
+  @include responsive(1400px) {
+    padding: 15px 40px;
     font-size: 16px;
     font-weight: normal;
+  }
+
+  @include responsive(900px) {
+    font-size: 14px;
   }
 }
 
@@ -469,7 +508,7 @@ $letter-spacing: 0.2rem;
     content: "";
     position: absolute;
     width: 100%;
-    height: 2px;
+    height: 1px;
     background-color: #333333;
     bottom: 0;
   }
@@ -479,6 +518,62 @@ $letter-spacing: 0.2rem;
   }
 
   @include responsive(900px) {
+    font-size: 14px;
+  }
+}
+
+@mixin _txtlinearnormal {
+  color: #7D7D7D;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 24px;
+  position: relative;
+  display: inline-block;
+
+  &::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    background-color: #7D7D7D;
+    bottom: 0;
+  }
+
+  @include responsive(1400px) {
+    font-size: 16px;
+  }
+
+  @include responsive(900px) {
+    font-size: 14px;
+  }
+}
+
+@mixin _txtred {
+  color: #FF5A5F;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 24px;
+
+  @media screen and (max-width: 1400px) {
+    font-size: 16px;
+  }
+
+  @media screen and (max-width: 900px){
+    font-size: 14px;
+  }
+}
+
+@mixin _txtverd {
+  color: #2edab4;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 24px;
+
+  @media screen and (max-width: 1400px) {
+    font-size: 16px;
+  }
+
+  @media screen and (max-width: 900px){
     font-size: 14px;
   }
 }
@@ -496,10 +591,40 @@ $letter-spacing: 0.2rem;
   @media screen and (max-width: 900px){
     font-size: 14px;
   }
+}
 
+@mixin _btnsmleft {
+  cursor: pointer;
+  color: #333333;
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: normal;
+
+  @include responsive(1400px) {
+    font-size: 16px;
+  }
+
+  @include responsive(900px) {
+    font-size: 14px;
+  }
+
+  span {
+    position: relative;
+
+    &::before {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 1px;
+      background-color: #333333;
+      right: 0;
+      bottom: 0;
+    }
+  }
 }
 
 @mixin _btnsm {
+  cursor: pointer;
   display: inline-block;
   color: #333333;
   line-height: 24px;

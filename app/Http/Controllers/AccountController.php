@@ -31,4 +31,9 @@ class AccountController extends Controller
     {
         return view('account.LoginSecurity');
     }
+
+    public function viewPaymentsPayouts()
+    {
+        return view('account.PaymentPayouts');
+    }
 }

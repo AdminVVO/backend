@@ -28,28 +28,27 @@ window.onscroll = function() {
 
 
 
-$(document).ready(function() {  
+$(document).ready(function() { 
+    $(".daterangepicker").removeClass("fixed");
+    
     $(window).scroll(function() {
         if ($(this).width() > 1450) {
             if ($(this).scrollTop() > 710 ){
                 $(".daterangepicker").addClass("fixed");
                 $(".book-form").appendTo("._location-he header ._mv-places");
                 $("._mv-places").css({'opacity': '1', 'visibility': 'visible'});
-                $(".section-places").css({'opacity': '0', 'visibility': 'hidden'});
             } else {
                 $(".daterangepicker").removeClass("fixed");
                 $(".book-form").appendTo(".section-places .block_places");
                 $("._mv-places").css({'opacity': '0', 'visibility': 'hidden'});
-                $(".section-places").css({'opacity': '1', 'visibility': 'visible'});
             }
         }
     });
 
-    // CSS - max-width: 1505px; --> Elimina el Class 'fix'
+    // CSS - max-width: 1505px;
     $(window).bind("resize", function () {
         if ($(this).width() < 1450) {
             $(".book-form").appendTo(".section-places .block_places");
-            $(".section-places").css({'opacity': '1', 'visibility': 'visible'});
             $('.daterangepicker').removeClass('fixed');
         }
     })

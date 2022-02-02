@@ -6,6 +6,12 @@
 //     })
 // })
 
+$(".btn-celest").append("<div class='loading-btn'></div>");
+$(".btn-celest").addClass("btns-modals");
+
+$(".btn-red").append("<div class='loading-btn_red'></div>");
+$(".btn-red").addClass("btns-modals");
+
 $(document).ready(function() {
     $('#btnLeng').click(function() {
         $('.container-leng').css({'display': 'block'});
@@ -46,18 +52,32 @@ $(document).ready(function() {
        $('.btn-a').removeClass("activ");
        $(this).addClass("activ");
     });
-});
 
-$(document).ready(function() {
     $('.content_leng-choose .flex_content .btn_leng').click(function(){
-       $('.btn_leng').removeClass("active");
-       $(this).addClass("active");
+        $('.btn_leng').removeClass("active");
+        $(this).addClass("active");
     });
-});
 
-$(document).ready(function() {
     $('.content_hidden_currency .flex_content .btn_choose').click(function(){
-       $('.btn_choose').removeClass("active");
-       $(this).addClass("active");
+        $('.btn_choose').removeClass("active");
+        $(this).addClass("active");
     });
+
+    $(".tabs_items_group .tabs_items").on("click", function() {
+        $(this).siblings(".tabs_items.active_tabs").removeClass("active_tabs");
+        $(this).addClass("active_tabs");
+    })
+
+    $('.tabs_items_group > .tabs_items').click(function (e) {
+        return false;
+    });
+
+    // PERSONAL INFO EDIT CANCEL FORMULARIO
+    $('._cont-edit ._btnsm.edit').click(function(){
+        $(this).parents("._yellow-bg").addClass("personal_edit");
+    })
+
+    $('._cont-edit ._btnsm.cancel').click(function(){
+        $(this).parents("._yellow-bg").removeClass("personal_edit");
+    })
 });

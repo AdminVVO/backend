@@ -1,4 +1,5 @@
 document.querySelectorAll('.selected-modal').forEach(setupSelector);
+document.querySelectorAll('.custom-anytime').forEach(setupSelector);
 
 function setupSelector(selector) {
   selector.addEventListener('change', e => {

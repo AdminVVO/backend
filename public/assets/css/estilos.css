@@ -98,6 +98,11 @@ body {
   line-height: 42px;
   color: #2A2A2A;
 }
+@media (max-width: 900px) {
+  .h2_publish {
+    font-size: 30px;
+  }
+}
 
 .h2-guests {
   font-weight: bold;
@@ -105,7 +110,7 @@ body {
   line-height: 30px;
   color: #2A2A2A;
 }
-@media screen and (max-width: 900px) {
+@media (max-width: 900px) {
   .h2-guests {
     font-size: 20px;
   }
@@ -126,7 +131,7 @@ body {
 .h5 {
   font-size: 14px;
   color: #7D7D7D;
-  font-weight: SemiBold;
+  font-weight: normal;
 }
 
 .h2-cards {
@@ -157,6 +162,33 @@ body {
   color: #7D7D7D;
 }
 
+._txtlinearnormal {
+  color: #7D7D7D;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 24px;
+  position: relative;
+  display: inline-block;
+}
+._txtlinearnormal::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  background-color: #7D7D7D;
+  bottom: 0;
+}
+@media (max-width: 1400px) {
+  ._txtlinearnormal {
+    font-size: 16px;
+  }
+}
+@media (max-width: 900px) {
+  ._txtlinearnormal {
+    font-size: 14px;
+  }
+}
+
 .btn-h {
   font-size: 18px;
   padding: 16px 50px;
@@ -172,7 +204,7 @@ body {
 .h-paragraph {
   font-size: 22px;
   color: #7D7D7D;
-  font-weight: regular;
+  font-weight: normal;
 }
 
 .n-paragraph {
@@ -184,7 +216,7 @@ body {
 .s-paragraph {
   font-size: 14px;
   color: #7D7D7D;
-  font-weight: regular;
+  font-weight: normal;
 }
 
 .n-paragraph {
@@ -196,7 +228,7 @@ body {
 .s-paragraph {
   font-size: 14px;
   color: #7D7D7D;
-  font-weight: regular;
+  font-weight: normal;
 }
 
 .total_local {
@@ -230,7 +262,7 @@ body {
   content: "";
   position: absolute;
   width: 100%;
-  height: 2px;
+  height: 1px;
   background-color: #333333;
   bottom: 0;
 }
@@ -405,6 +437,40 @@ body {
   }
 }
 
+._txtverd {
+  color: #2edab4;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 24px;
+}
+@media screen and (max-width: 1400px) {
+  ._txtverd {
+    font-size: 16px;
+  }
+}
+@media screen and (max-width: 900px) {
+  ._txtverd {
+    font-size: 14px;
+  }
+}
+
+._txtred {
+  color: #FF5A5F;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 24px;
+}
+@media screen and (max-width: 1400px) {
+  ._txtred {
+    font-size: 16px;
+  }
+}
+@media screen and (max-width: 900px) {
+  ._txtred {
+    font-size: 14px;
+  }
+}
+
 ._txtec {
   color: #7D7D7D;
   font-weight: normal;
@@ -486,6 +552,7 @@ body {
 }
 
 ._btnsm {
+  cursor: pointer;
   display: inline-block;
   color: #333333;
   line-height: 24px;
@@ -514,6 +581,36 @@ body {
   margin-left: 5px;
 }
 
+._btnsmleft {
+  cursor: pointer;
+  color: #333333;
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: normal;
+}
+@media (max-width: 1400px) {
+  ._btnsmleft {
+    font-size: 16px;
+  }
+}
+@media (max-width: 900px) {
+  ._btnsmleft {
+    font-size: 14px;
+  }
+}
+._btnsmleft span {
+  position: relative;
+}
+._btnsmleft span::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  background-color: #333333;
+  right: 0;
+  bottom: 0;
+}
+
 .btn-red {
   display: inline-block;
   border-radius: 10px;
@@ -523,11 +620,16 @@ body {
   font-weight: bold;
   padding: 16px 50px;
 }
-@media (max-width: 900px) {
+@media (max-width: 1400px) {
   .btn-red {
-    padding: 15px 30px !important;
+    padding: 15px 40px;
     font-size: 16px;
     font-weight: normal;
+  }
+}
+@media (max-width: 900px) {
+  .btn-red {
+    font-size: 14px;
   }
 }
 
@@ -599,16 +701,50 @@ body {
   padding: 16px 50px;
   border-radius: 10px;
   background-color: #00B5DD;
-  color: #fff;
+  color: #FFFFFF;
   font-weight: bold;
   white-space: nowrap;
   font-size: 18px;
+  transition: 0.3s ease;
+}
+.btn-celest:hover {
+  background-color: #0096B7;
+}
+@media (max-width: 1400px) {
+  .btn-celest {
+    padding: 15px 40px;
+    font-size: 16px;
+    font-weight: normal;
+  }
 }
 @media (max-width: 900px) {
   .btn-celest {
-    padding: 15px 30px !important;
+    font-size: 14px;
+  }
+}
+
+.btn-border {
+  display: inline-block;
+  padding: 15px 13px;
+  border-radius: 10px;
+  border: 3px solid rgba(227, 237, 243, 0.4);
+  background-color: #FFFFFF;
+  color: #7D7D7D;
+  font-weight: normal;
+  white-space: nowrap;
+  font-size: 18px;
+  transition: 0.3s ease;
+}
+@media (max-width: 1400px) {
+  .btn-border {
+    padding: 15px 40px;
     font-size: 16px;
     font-weight: normal;
+  }
+}
+@media (max-width: 900px) {
+  .btn-border {
+    font-size: 14px;
   }
 }
 
@@ -693,7 +829,12 @@ button {
   border-style: none;
   background: none;
   cursor: pointer;
-  -webkit-appearance: button;
+}
+
+select {
+  border-style: none;
+  background: none;
+  outline: none;
 }
 
 .block-a-trad .btn-celest-traduct {
@@ -733,6 +874,134 @@ button {
   }
 }
 
+._section-reserva {
+  margin-top: 70px;
+}
+._section-reserva .flex {
+  display: flex;
+  align-items: center;
+  gap: 21px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+@media (max-width: 527px) {
+  ._section-reserva .flex {
+    display: block;
+  }
+}
+._section-reserva .content-scroll-reserva {
+  display: flex;
+  max-width: 100%;
+  align-items: baseline;
+  overflow-x: scroll;
+}
+._section-reserva .tabs_items_group {
+  margin: 21px 22px 43px 0;
+  width: 975px;
+  display: inline-flex;
+  justify-content: left;
+  flex: none;
+  overflow: overlay;
+}
+@media (max-width: 923px) {
+  ._section-reserva .tabs_items_group {
+    flex: auto;
+  }
+}
+@media (max-width: 1102px) {
+  ._section-reserva .tabs_items_group {
+    width: 100%;
+  }
+}
+._section-reserva .btn-right-scroll {
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+@media (max-width: 923px) {
+  ._section-reserva .btn-right-scroll {
+    display: flex;
+  }
+}
+
+._tb-reservations {
+  border-collapse: separate;
+  border-spacing: 0;
+  width: 100%;
+  margin: 0;
+}
+._tb-reservations thead {
+  background-color: rgba(227, 237, 243, 0.4);
+}
+._tb-reservations td {
+  padding: 17px 21px;
+}
+._tb-reservations ._txtcapit {
+  text-transform: capitalize;
+}
+._tb-reservations ._txtblu {
+  margin-bottom: 0;
+}
+._tb-reservations ._svg28 {
+  width: 28px;
+  color: #7D7D7D;
+}
+
+._bgpadd-f {
+  display: flex;
+  align-items: flex-start;
+  gap: 21px;
+  padding: 41px 123px;
+  background-color: rgba(227, 237, 243, 0.4);
+}
+@media (max-width: 800px) {
+  ._bgpadd-f {
+    padding: 41px 53px;
+  }
+}
+@media (max-width: 500px) {
+  ._bgpadd-f {
+    padding: 28px 21px;
+  }
+}
+._bgpadd-f svg {
+  max-width: 58px;
+  width: 100%;
+  color: #FF5A5F;
+}
+@media (max-width: 500px) {
+  ._bgpadd-f svg {
+    max-width: 45px;
+  }
+}
+._bgpadd-f ._txteh {
+  margin-bottom: 0;
+}
+._bgpadd-f ._txtblu {
+  display: inline-block;
+  margin-bottom: 0;
+}
+
+._bgpadd {
+  text-align: center;
+  background-color: rgba(227, 237, 243, 0.4);
+  height: 332px;
+  padding: 21px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+._bgpadd ._w {
+  max-width: 260px;
+  width: 100%;
+  margin: 0 auto;
+}
+._bgpadd ._w i {
+  color: #2edab4;
+  font-size: 53px;
+  margin-bottom: 18px;
+}
+
 ._news-bt {
   padding: 3px 10px;
   background-color: #E3EDF3;
@@ -741,6 +1010,14 @@ button {
   font-size: 12px;
   line-height: 15px;
   font-weight: normal;
+}
+
+.red_guion {
+  color: #FF5A5F;
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 24px;
+  display: inline-block;
 }
 
 .tabs_select {
@@ -774,6 +1051,38 @@ button {
   color: #FFFFFF;
   font-weight: 900;
   cursor: pointer;
+}
+.tabs_select .custom-anytime .selector-options {
+  list-style: none;
+  padding: 5px 5px;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  margin: 0;
+  background: white;
+  border: 3px solid #E3EDF3;
+  color: #7d7d7d;
+  border-radius: 10px;
+  z-index: 25;
+  width: 96%;
+  position: absolute;
+  left: 2%;
+  top: 35%;
+}
+.tabs_select .custom-anytime .selector-options li {
+  height: 35px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  padding: 0 15px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.tabs_select .custom-anytime .selector-options li:disabled {
+  background-color: red;
+}
+.tabs_select .custom-anytime .selector-options li:hover {
+  background: #E3EDF3;
 }
 .tabs_select .sl_guests select {
   padding: 16px 38px 16px 32px;
@@ -815,6 +1124,15 @@ button {
 
 .ui-widget {
   font-family: "Lato", sans-serif;
+}
+
+.ui-datepicker select.ui-datepicker-month, .ui-datepicker select.ui-datepicker-year {
+  width: auto;
+  color: #7D7D7D;
+  font-size: 18px;
+  font-weight: normal;
+  cursor: pointer;
+  margin: 0;
 }
 
 .ui-widget.ui-widget-content {
@@ -1134,127 +1452,54 @@ td.ui-datepicker-other-month {
 ._bgpadding .show {
   display: none;
 }
-._bgpadding ._form-f ._flex {
-  display: flex;
-  justify-content: space-between;
-  gap: 13px;
-}
-@media (max-width: 1305px) {
-  ._bgpadding ._form-f ._flex {
-    flex-wrap: wrap;
-    justify-content: left;
-  }
-}
-@media (max-width: 1050px) {
-  ._bgpadding ._form-f ._flex {
-    flex-wrap: nowrap;
-    justify-content: space-between;
-  }
-}
-@media (max-width: 790px) {
-  ._bgpadding ._form-f ._flex {
-    flex-wrap: wrap;
-    justify-content: left;
-  }
-}
-._bgpadding ._form-f ._flex .selected-modal {
-  flex: 0 0 19%;
-  max-width: 19%;
-}
-@media (max-width: 1305px) {
-  ._bgpadding ._form-f ._flex .selected-modal {
-    flex: 140px;
-    max-width: 140px;
-  }
-}
-@media (max-width: 1050px) {
-  ._bgpadding ._form-f ._flex .selected-modal {
-    flex: 0 0 19%;
-    max-width: 19%;
-  }
-}
-@media (max-width: 790px) {
-  ._bgpadding ._form-f ._flex .selected-modal {
-    flex: 140px;
-    max-width: 140px;
-  }
-}
-@media (max-width: 390px) {
-  ._bgpadding ._form-f ._flex .selected-modal {
-    flex: 0 0 100%;
-    max-width: 100%;
-  }
-}
-._bgpadding ._form-f ._flex .selected-modal:nth-child(1) {
-  flex: 0 0 57.4%;
-  max-width: 57.4%;
-}
-@media (max-width: 1305px) {
-  ._bgpadding ._form-f ._flex .selected-modal:nth-child(1) {
-    flex: 0 0 100%;
-    max-width: 100%;
-  }
-}
-@media (max-width: 1050px) {
-  ._bgpadding ._form-f ._flex .selected-modal:nth-child(1) {
-    flex: 0 0 57.4%;
-    max-width: 57.4%;
-  }
-}
-@media (max-width: 790px) {
-  ._bgpadding ._form-f ._flex .selected-modal:nth-child(1) {
-    flex: 0 0 100%;
-    max-width: 100%;
-  }
-}
-._bgpadding ._form {
+._bgpadding form {
   display: none;
 }
-._bgpadding ._form .selected-modal {
+._bgpadding form .selected-modal {
   margin: 12px 0 0;
 }
-._bgpadding ._form .txt-check-in {
+._bgpadding form .txt-check-in {
   margin-top: 25px;
   margin-bottom: 0;
 }
-._bgpadding ._form ._input-mod {
+._bgpadding form ._input-mod {
   margin: 12px 0 0;
 }
 @media (max-width: 1415px) {
-  ._bgpadding ._form ._flfpc {
+  ._bgpadding form ._flfpc {
     flex-direction: row;
   }
 }
-._bgpadding ._form ._flfpc .block_date {
+._bgpadding form ._flfpc .block_date {
   width: 45.07%;
 }
 @media (max-width: 1415px) {
-  ._bgpadding ._form ._flfpc .block_date {
+  ._bgpadding form ._flfpc .block_date {
     width: 100%;
   }
 }
 @media (max-width: 1050px) {
-  ._bgpadding ._form ._flfpc .block_date {
+  ._bgpadding form ._flfpc .block_date {
     width: 45.07%;
   }
 }
-._bgpadding ._form ._flfpc .block_date:nth-child(2) {
+._bgpadding form ._flfpc .block_date:nth-child(2) {
   width: 47.3%;
 }
 @media (max-width: 1415px) {
-  ._bgpadding ._form ._flfpc .block_date:nth-child(2) {
+  ._bgpadding form ._flfpc .block_date:nth-child(2) {
     width: 100%;
   }
 }
 @media (max-width: 1050px) {
-  ._bgpadding ._form ._flfpc .block_date:nth-child(2) {
+  ._bgpadding form ._flfpc .block_date:nth-child(2) {
     width: 45.07%;
   }
 }
-._bgpadding ._form ._flfpc .block_date .date_check {
+._bgpadding form ._flfpc .block_date .date_check {
   margin-top: 12px;
 }
-._bgpadding ._form .btn-celest {
+._bgpadding form .btn-celest {
   margin-top: 25px;
 }
 
@@ -1271,22 +1516,22 @@ td.ui-datepicker-other-month {
   }
 }
 
-.personal_edit:hover {
+._yellow-bg.personal_edit:hover {
   background-color: transparent;
 }
-.personal_edit ._cont-edit .edit {
+._yellow-bg.personal_edit ._cont-edit .edit {
   display: none;
 }
-.personal_edit ._cont-edit .cancel {
+._yellow-bg.personal_edit ._cont-edit .cancel {
   display: flex;
 }
-.personal_edit .none {
+._yellow-bg.personal_edit .none {
   display: none;
 }
-.personal_edit .show {
+._yellow-bg.personal_edit .show {
   display: block;
 }
-.personal_edit ._form {
+._yellow-bg.personal_edit form {
   display: block;
 }
 
@@ -1301,8 +1546,6 @@ td.ui-datepicker-other-month {
 .selected-modal select {
   -webkit-appearance: none;
   appearance: none;
-  background: none;
-  outline: none;
   width: 100%;
   padding: 16px 43px 16px 18px;
   font-size: 18px;
@@ -1320,7 +1563,10 @@ td.ui-datepicker-other-month {
 .selected-modal i {
   position: absolute;
   right: 23px;
-  top: 21px;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
   color: #00B5DD;
 }
 .selected-modal .selector-options {
@@ -1417,32 +1663,28 @@ td.ui-datepicker-other-month {
 
 ._bef-places {
   display: none;
-  width: 394px;
+  width: 405px;
   position: absolute;
   right: 0;
   z-index: 10;
-  background: #FFFFFF;
-  border-radius: 32px;
-  box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.2);
-  margin-top: 12px;
+  border-radius: 10px;
+  background-color: #FFFFFF;
+  border: 3px solid #E3EDF3;
+  box-shadow: 0 0 15px rgba(40, 54, 70, 0.1);
   max-height: -moz-calc(100vh - 150px);
   overflow-x: hidden;
+  margin-top: 13px;
   overflow-y: auto;
-  padding: 16px 32px;
+  padding: 5px 22px 34px;
 }
 @media (max-width: 438px) {
   ._bef-places {
     width: 100%;
   }
 }
-._bef-places ._txtec {
-  margin-top: 8px;
-  margin-bottom: 16px;
-}
 ._bef-places ._cont-places {
-  padding-top: 16px;
-  padding-bottom: 16px;
-  padding-right: 4px;
+  padding-top: 29px;
+  padding-bottom: 29px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -1450,11 +1692,11 @@ td.ui-datepicker-other-month {
 ._bef-places ._cont-places ._inf {
   width: 65%;
 }
-._bef-places ._cont-places ._inf ._btnsm {
-  text-decoration: underline;
+._bef-places ._cont-places ._inf ._txteh {
+  margin-bottom: 3px;
 }
 ._bef-places ._cont-places:not(:last-child) {
-  border-bottom: 1px solid #ebebeb;
+  border-bottom: 2px solid #E3EDF3;
 }
 ._bef-places ._cont-places ._2btns {
   display: inline-flex;
@@ -1467,32 +1709,27 @@ td.ui-datepicker-other-month {
   width: 32px;
   height: 32px;
   display: inline-flex;
-  border-width: 1px;
+  border-width: 2px;
   border-style: solid;
-  border-color: #b0b0b0;
-  color: #717171;
+  border-color: #E3EDF3;
+  color: #00B5DD;
   align-items: center;
   justify-content: center;
-  background: white;
   border-radius: 50%;
   transition: all 0.3s ease;
 }
 ._bef-places ._cont-places ._2btns ._btn:disabled {
   cursor: not-allowed;
-  color: #ebebeb;
-  border-color: #ebebeb;
-  background: white;
+  color: #E3EDF3;
+  border-color: #E3EDF3;
   transition: all 0.3s ease;
 }
 ._bef-places ._cont-places ._2btns ._btn:disabled:hover {
-  color: #ebebeb;
-  border-color: #ebebeb;
-  background: white;
+  color: #E3EDF3;
+  border-color: #E3EDF3;
 }
 ._bef-places ._cont-places ._2btns ._btn:hover {
-  color: #222222;
-  border-color: #222222;
-  background: white;
+  color: #00B5DD;
 }
 
 .block_redes-modals {
@@ -1568,6 +1805,36 @@ td.ui-datepicker-other-month {
 }
 ._input-mod::placeholder {
   color: #E3EDF3;
+}
+
+._bkground_img {
+  position: relative;
+  height: 251px;
+}
+._bkground_img img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+._bkground_img ._btnsmleft {
+  color: #FFFFFF;
+}
+._bkground_img ._btnsmleft span::before {
+  background-color: #FFFFFF;
+}
+._bkground_img .medio {
+  z-index: 1;
+}
+._bkground_img .medio ._flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 28px;
+}
+._bkground_img .h2-guests_white25 {
+  margin-top: 9px;
 }
 
 .tabs_items_group {
@@ -1808,25 +2075,70 @@ td.ui-datepicker-other-month {
   color: #D1D1D1;
 }
 
-.pd_c-modal {
-  position: absolute;
-  max-height: 100vh;
-  inset: 0px;
+@media (max-width: 913px) {
+  .pd_c-modal {
+    position: absolute;
+    max-height: 100vh;
+    inset: 0px;
+  }
 }
-.pd_c-modal .modal_content-c {
-  overflow: overlay;
+@media (max-width: 913px) {
+  .pd_c-modal .modal_content-c {
+    overflow: overlay;
+    padding: 25px 0 110px;
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
 }
-.pd_c-modal .modal_content-c .daterangepicker {
-  padding-bottom: 78px !important;
+@media (max-width: 500px) {
+  .pd_c-modal .modal_content-c {
+    padding: 25px 0 98px;
+  }
 }
-.pd_c-modal .drp-buttons {
-  border-top: 1px solid #E3EDF3;
-  position: absolute;
-  background-color: #FFFFFF;
-  bottom: 0;
-  z-index: 3001;
-  width: 100%;
-  padding: 14px 18px !important;
+@media (max-width: 913px) {
+  .pd_c-modal .modal_content-c .drp-calendar {
+    margin: 0 auto;
+    position: relative;
+  }
+}
+@media (max-width: 913px) {
+  .pd_c-modal .modal_content-c .drp-calendar::before {
+    content: "";
+    position: absolute;
+    top: 5px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    right: -50%;
+    width: 115%;
+    height: 60px;
+    border-radius: 10px;
+    background-color: #ffff;
+    border: 3px solid #E3EDF3;
+    margin: auto;
+    z-index: -1;
+  }
+}
+@media (max-width: 500px) {
+  .pd_c-modal .modal_content-c .drp-calendar::before {
+    top: 3px;
+  }
+}
+@media (max-width: 467px) {
+  .pd_c-modal .modal_content-c .drp-calendar::before {
+    width: 331px;
+  }
+}
+@media (max-width: 913px) {
+  .pd_c-modal .drp-buttons {
+    border-top: 2px solid #E3EDF3 !important;
+    position: absolute;
+    background-color: #FFFFFF;
+    bottom: 0;
+    z-index: 3001;
+    width: 100%;
+    padding: 14px 18px !important;
+  }
 }
 
 .daterangepicker {
@@ -1843,19 +2155,15 @@ td.ui-datepicker-other-month {
 }
 @media (max-width: 1246px) {
   .daterangepicker {
-    width: 620px !important;
+    width: 825px !important;
     padding: 17px 27px !important;
     padding-right: 29px !important;
   }
 }
-@media (max-width: 700px) {
+@media (max-width: 913px) {
   .daterangepicker {
     width: auto !important;
-    padding: 10px 29px 10px 27px !important;
-  }
-}
-@media (max-width: 500px) {
-  .daterangepicker {
+    position: fixed;
     margin-top: 0px !important;
     inset: 0 !important;
     transform: none;
@@ -1864,7 +2172,7 @@ td.ui-datepicker-other-month {
     border-radius: 0 !important;
     border: none !important;
     bottom: 0;
-    overflow: overlay;
+    overflow: hidden;
     padding: 21px 12px !important;
   }
 }
@@ -1889,25 +2197,14 @@ td.ui-datepicker-other-month {
 }
 @media (max-width: 1246px) {
   .daterangepicker::before {
-    top: 37px !important;
+    top: 43px !important;
     width: 92%;
     height: 55px;
   }
 }
-@media (max-width: 700px) {
+@media (max-width: 913px) {
   .daterangepicker::before {
-    top: 21px !important;
-  }
-}
-@media (max-width: 500px) {
-  .daterangepicker::before {
-    width: 71%;
-    top: 35px !important;
-  }
-}
-@media (max-width: 467px) {
-  .daterangepicker::before {
-    width: 331px;
+    display: none;
   }
 }
 .daterangepicker::after {
@@ -1924,34 +2221,12 @@ td.ui-datepicker-other-month {
 }
 @media (max-width: 1246px) {
   .daterangepicker::after {
-    top: 64px !important;
+    top: 69px !important;
   }
 }
-@media (max-width: 700px) {
+@media (max-width: 913px) {
   .daterangepicker::after {
-    bottom: 64px !important;
-    width: 92%;
-    height: 55px;
-    border-radius: 10px;
-    border: 3px solid #E3EDF3;
-    border-right: 3px solid #E3EDF3 !important;
-    border-bottom: 3px solid #E3EDF3 !important;
-    border-left: 3px solid #E3EDF3 !important;
-    background-color: transparent !important;
-    z-index: -1;
-  }
-}
-@media (max-width: 500px) {
-  .daterangepicker::after {
-    width: 71%;
-    top: 446px !important;
-    bottom: 0 !important;
-    margin: 0 auto;
-  }
-}
-@media (max-width: 467px) {
-  .daterangepicker::after {
-    width: 331px;
+    display: none;
   }
 }
 .daterangepicker .right {
@@ -1976,12 +2251,7 @@ td.ui-datepicker-other-month {
 .daterangepicker th.month {
   padding: 19px 0 35px;
 }
-@media (max-width: 700px) {
-  .daterangepicker th.month {
-    padding: 0 0 35px;
-  }
-}
-@media (max-width: 500px) {
+@media (max-width: 913px) {
   .daterangepicker th.month {
     padding: 0 0 25px;
   }
@@ -2007,7 +2277,12 @@ td.ui-datepicker-other-month {
 .daterangepicker .calendar-table td {
   font-size: 16px !important;
 }
-@media (max-width: 1246px) {
+@media (max-width: 913px) {
+  .daterangepicker .calendar-table td {
+    font-size: 16px !important;
+  }
+}
+@media (max-width: 500px) {
   .daterangepicker .calendar-table td {
     font-size: 14px !important;
   }
@@ -2017,6 +2292,7 @@ td.ui-datepicker-other-month {
 }
 .daterangepicker .drp-calendar {
   max-width: none !important;
+  clear: none !important;
 }
 .daterangepicker .calendar-table table {
   border-collapse: separate !important;
@@ -2043,12 +2319,12 @@ td.ui-datepicker-other-month {
   height: 50px !important;
   line-height: 46px !important;
 }
-@media (max-width: 1246px) {
+@media (max-width: 913px) {
   .daterangepicker .calendar-table th, .daterangepicker .calendar-table td {
-    min-width: 35px !important;
-    width: 35px !important;
-    height: 33px !important;
-    line-height: 33px !important;
+    min-width: 46px !important;
+    width: 50px !important;
+    height: 50px !important;
+    line-height: 46px !important;
   }
 }
 @media (max-width: 500px) {
@@ -2073,7 +2349,12 @@ td.ui-datepicker-other-month {
   padding: 0 0 3px !important;
   gap: 6px;
 }
-@media (max-width: 1246px) {
+@media (max-width: 913px) {
+  .drp-buttons .cancelBtn {
+    font-size: 18px !important;
+  }
+}
+@media (max-width: 500px) {
   .drp-buttons .cancelBtn {
     font-size: 16px !important;
   }
@@ -2088,7 +2369,6 @@ td.ui-datepicker-other-month {
 }
 @media (max-width: 1246px) {
   .drp-buttons .cancelBtn::before {
-    width: 86%;
     height: 1px;
   }
 }
@@ -2104,9 +2384,16 @@ td.ui-datepicker-other-month {
   font-weight: normal !important;
   font-size: 18px !important;
 }
-@media (max-width: 1246px) {
+@media (max-width: 913px) {
   .drp-buttons .applyBtn {
-    padding: 10px 30px !important;
+    padding: 15px 45px !important;
+    margin-left: 38px !important;
+    font-size: 18px !important;
+  }
+}
+@media (max-width: 500px) {
+  .drp-buttons .applyBtn {
+    padding: 12px 35px !important;
     margin-left: 28px !important;
     font-size: 16px !important;
   }
@@ -2119,24 +2406,21 @@ td.ui-datepicker-other-month {
   font-weight: normal;
   cursor: default !important;
 }
-@media (max-width: 1246px) {
+@media (max-width: 500px) {
   .table-condensed thead tr th {
     font-size: 16px !important;
   }
 }
 
-@media (max-width: 700px) {
+@media (max-width: 913px) {
   .daterangepicker .ranges, .daterangepicker .drp-calendar {
     float: none !important;
     display: flex;
     justify-content: center;
-  }
-}
-@media (max-width: 500px) {
-  .daterangepicker .ranges, .daterangepicker .drp-calendar {
     max-width: max-content !important;
     margin: auto;
     padding-left: 0 !important;
+    padding-right: 0 !important;
   }
 }
 
@@ -2145,24 +2429,14 @@ td.ui-datepicker-other-month {
   cursor: pointer !important;
   margin-top: 19px;
 }
-@media (max-width: 1246px) {
-  .table-condensed thead .prev, .table-condensed thead .next {
-    margin-top: 21px;
-  }
-}
-@media (max-width: 700px) {
-  .table-condensed thead .prev, .table-condensed thead .next {
-    margin-top: 0;
-  }
-}
 
-@media (max-width: 700px) {
+@media (max-width: 913px) {
   .table-condensed thead .prev {
     margin-top: 2px;
   }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 913px) {
   .table-condensed thead .next {
     margin-top: 2px;
   }
@@ -2230,6 +2504,32 @@ td.ui-datepicker-other-month {
 }
 ._flfpc .block_date .date_check:hover {
   box-shadow: 0 0 15px rgba(40, 54, 70, 0.1);
+}
+
+.bg_tax {
+  padding: 42px 44px;
+  background-color: rgba(227, 237, 243, 0.3);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+@media (max-width: 550px) {
+  .bg_tax {
+    padding: 30px;
+  }
+}
+.bg_tax ._txteh {
+  margin-bottom: 0;
+}
+.bg_tax i {
+  font-size: 51px;
+  color: #FF5A5F;
+}
+.bg_tax ._g {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
 }
 
 .checkbox-item {
@@ -2312,6 +2612,230 @@ td.ui-datepicker-other-month {
   text-transform: uppercase;
 }
 
+._br-defautl {
+  gap: 0 !important;
+}
+._br-defautl ._flex {
+  padding: 35px 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+}
+._br-defautl ._flex:not(:last-child) {
+  border-bottom: 2px solid #E3EDF3 !important;
+}
+._br-defautl ._flex .content_flex-actv {
+  gap: 23px;
+  align-items: baseline !important;
+}
+._br-defautl ._flex .content_flex-actv ._block {
+  max-width: 27px !important;
+}
+
+._gap-default {
+  display: flex;
+  flex-direction: column;
+  gap: 21px;
+}
+._gap-default ._flex {
+  padding: 25px 30px;
+  border-radius: 10px;
+  border: 3px solid #E3EDF3;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+@media (max-width: 550px) {
+  ._gap-default ._flex {
+    padding: 19px 20px;
+  }
+}
+._gap-default ._flex .content_flex-actv {
+  display: flex;
+  width: 100%;
+}
+._gap-default ._flex .content_flex-actv ._block {
+  max-width: 64px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+@media (max-width: 900px) {
+  ._gap-default ._flex .content_flex-actv ._block {
+    max-width: 59px;
+  }
+}
+._gap-default ._flex .content_flex-actv ._block i {
+  color: #FF5A5F;
+  font-size: 40px;
+}
+@media (max-width: 900px) {
+  ._gap-default ._flex .content_flex-actv ._block i {
+    font-size: 35px;
+  }
+}
+._gap-default ._flex .content_flex-actv .flex-msg {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding-right: 30px;
+}
+._gap-default ._flex .content_flex-actv .flex-msg ._flexgap {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+._gap-default ._flex .content_flex-actv .flex-msg ._flexgap ._txteh {
+  margin-bottom: 0;
+}
+._gap-default ._flex a {
+  cursor: pointer;
+  font-size: 20.5px;
+  color: #333333;
+}
+._gap-default ._flex-baseline {
+  padding: 25px 30px;
+  border-radius: 10px;
+  border: 3px solid #E3EDF3;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+@media (max-width: 550px) {
+  ._gap-default ._flex-baseline {
+    padding: 19px 20px;
+  }
+}
+._gap-default ._flex-baseline .content_flex-actv {
+  display: flex;
+  width: 100%;
+}
+._gap-default ._flex-baseline .content_flex-actv ._block {
+  max-width: 64px;
+  width: 100%;
+  display: flex;
+  align-items: baseline;
+}
+@media (max-width: 900px) {
+  ._gap-default ._flex-baseline .content_flex-actv ._block {
+    max-width: 59px;
+  }
+}
+._gap-default ._flex-baseline .content_flex-actv ._block i {
+  margin-top: 5px;
+  color: #FF5A5F;
+  font-size: 40px;
+}
+@media (max-width: 900px) {
+  ._gap-default ._flex-baseline .content_flex-actv ._block i {
+    font-size: 35px;
+  }
+}
+._gap-default ._flex-baseline .content_flex-actv .flex-msg {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding-right: 30px;
+}
+._gap-default ._flex-baseline .content_flex-actv .flex-msg ._flexgap {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+._gap-default ._flex-baseline .content_flex-actv .flex-msg ._flexgap ._txteh {
+  margin-bottom: 0;
+}
+._gap-default ._flex-baseline .content_flex-actv .flex-msg ._g {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+._gap-default ._flex-baseline a {
+  font-size: 20.5px;
+  color: #333333;
+  margin-top: 15px;
+}
+
+._gap-news {
+  display: flex;
+  flex-direction: column;
+  gap: 21px;
+}
+._gap-news .radio-item_rscrm {
+  border-radius: 10px;
+  border: 3px solid #E3EDF3;
+}
+._gap-news .radio-item_rscrm input[type=radio] {
+  display: none;
+}
+._gap-news .radio-item_rscrm input[type=radio]:checked + label .before_check {
+  border: 3px solid #FF5A5F;
+  background-color: #FF5A5F;
+}
+._gap-news .radio-item_rscrm input[type=radio]:checked + label .before_check:after {
+  content: "";
+}
+._gap-news .radio-item_rscrm label {
+  display: flex;
+  cursor: pointer;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 33px 23px;
+  position: relative;
+}
+._gap-news .radio-item_rscrm label .content_flex-actv {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+._gap-news .radio-item_rscrm label .content_flex-actv .flex-msg {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding-right: 30px;
+}
+._gap-news .radio-item_rscrm label .content_flex-actv .flex-msg ._flexgap {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+._gap-news .radio-item_rscrm label .content_flex-actv .pyifllprec {
+  margin-right: 16px;
+}
+._gap-news .radio-item_rscrm label .content_flex-actv .pyifllprec ._txteh {
+  margin-bottom: 0;
+  margin-top: 10px;
+}
+
+.before_check {
+  position: relative;
+  width: 100%;
+  max-width: 40px;
+  height: 100%;
+  min-height: 40px;
+  border-radius: 50%;
+  border: 3px solid #E3EDF3;
+  background-color: transparent;
+  transition: all 0.3s ease;
+}
+.before_check:after {
+  content: "";
+  font-family: "Font Awesome 5 Pro";
+  font-weight: 900;
+  font-size: 22px;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  bottom: 7px;
+  right: 8px;
+  color: white;
+  display: block;
+  transition: all 0.3s ease;
+}
+
 ._gap {
   display: flex;
   flex-direction: column;
@@ -2338,32 +2862,6 @@ td.ui-datepicker-other-month {
   align-items: flex-start;
   padding: 13px 17px;
   position: relative;
-}
-._gap .radio-item_rscrm label .before_check {
-  position: relative;
-  width: 100%;
-  max-width: 40px;
-  height: 100%;
-  min-height: 40px;
-  border-radius: 50%;
-  border: 3px solid #E3EDF3;
-  background-color: transparent;
-  transition: all 0.3s ease;
-}
-._gap .radio-item_rscrm label .before_check:after {
-  content: "";
-  font-family: "Font Awesome 5 Pro";
-  font-weight: 900;
-  font-size: 22px;
-  border-radius: 50%;
-  width: 20px;
-  height: 20px;
-  position: absolute;
-  bottom: 7px;
-  right: 8px;
-  color: white;
-  display: block;
-  transition: all 0.3s ease;
 }
 ._gap .radio-item_rscrm label .content_flex-actv {
   display: flex;
@@ -2465,8 +2963,14 @@ td.ui-datepicker-other-month {
 ._numcard:focus + .fa-credit-card {
   color: #7D7D7D;
 }
+._numcard:hover {
+  box-shadow: 0 0 15px rgba(40, 54, 70, 0.1);
+}
 
-._sltguests .fa-credit-card {
+._sltguests {
+  position: relative;
+}
+._sltguests i {
   position: absolute;
   font-size: 21px;
   left: 18px;
@@ -2485,13 +2989,16 @@ td.ui-datepicker-other-month {
   line-height: 24px;
   border-radius: 10px;
   width: 100%;
-  transition: border 0.3s ease;
+  transition: all 0.3s ease;
 }
 ._flfpc ._numcard::placeholder {
   color: #E3EDF3;
 }
 ._flfpc ._numcard:focus {
   border: 1px solid #7D7D7D;
+}
+._flfpc ._numcard:hover {
+  box-shadow: 0 0 15px rgba(40, 54, 70, 0.1);
 }
 
 .search_content {
@@ -2687,6 +3194,10 @@ td.ui-datepicker-other-month {
   position: relative;
   overflow: hidden;
 }
+.btns-modals.activeLoading .loading-btn_red {
+  visibility: visible;
+  opacity: 1;
+}
 .btns-modals.activeLoading .loading-btn {
   visibility: visible;
   opacity: 1;
@@ -2694,6 +3205,68 @@ td.ui-datepicker-other-month {
 .btns-modals .loading-btn {
   opacity: 0;
   visibility: hidden;
+}
+.btns-modals .loading-btn_red {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.btn-celest:disabled {
+  background-color: #0097b9 !important;
+  color: #f3f3f3 !important;
+  cursor: default;
+}
+
+.btn-red:disabled {
+  background-color: #db484c !important;
+  color: #f3f3f3 !important;
+  cursor: default;
+}
+
+.loading-btn_red {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background: #FF5A5F;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+.loading-btn_red::before {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  border: 3px dashed #fff;
+  width: 30px;
+  height: 30px;
+  border-left: 3px solid transparent;
+  border-bottom: 3px solid transparent;
+  animation: loadingBtn 1s linear infinite;
+  z-index: 5;
+}
+.loading-btn_red::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  z-index: 10;
+  border: 3px solid #fff;
+  border-left: 3px solid transparent;
+  border-bottom: 3px solid transparent;
+  animation: loadingBtn 1s ease infinite;
+}
+@keyframes loadingBtn {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 .btns-modals:disabled {
@@ -3248,7 +3821,6 @@ td.ui-datepicker-other-month {
 }
 .msgaround ._wcusermsg {
   padding-right: 20px;
-  width: 100%;
 }
 
 .tabs_card .medio {
@@ -3847,7 +4419,7 @@ td.ui-datepicker-other-month {
   justify-content: center;
   align-items: center;
   background-color: #00B5DD;
-  padding: 7.5px 9.6px 7.5px 11px;
+  padding: 7.5px 9.6px 7.1px 11px;
   border-radius: 50%;
   cursor: pointer;
 }

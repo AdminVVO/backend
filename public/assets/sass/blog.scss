@@ -24,11 +24,11 @@ h3 {
 // Description Block
 
 .description-block {
-    @include mb-space;
+    margin-bottom: 100px;
 }
 
 .place-block {
-    @include mb-space;
+    margin-bottom: 100px;
 
     &_img {
         min-width: 540px;
@@ -56,7 +56,7 @@ h3 {
 // Articles
 
 .articles {
-    @include mb-space;
+    margin-bottom: 100px;
     gap: 128px;
 
     &_item {
@@ -87,7 +87,7 @@ h3 {
 
 .dates {
     padding: 25px 44px;
-    @include mb-space;
+    margin-bottom: 100px;
     background-color: $color-background-perfile;
     border-radius: 10px;
 
@@ -111,7 +111,7 @@ h3 {
 // Related articles
 
 .related-articles {
-    @include mb-space;
+    margin-bottom: 100px;
 }
 
 // Breakpoints

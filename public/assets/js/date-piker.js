@@ -6,8 +6,10 @@ function iniciar() {
         autoclose: true,
         todayHighlight: true,
         selectOtherMonths: true,
+        changeYear: true,
+        yearRange: '-100:+0',
         autoclose: true,
-        // minDate: 0,
+        // minDate: 0, // Desactivar los dias pasados
         orientation: "button"
     });
 }
