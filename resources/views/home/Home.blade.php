@@ -51,7 +51,9 @@
 					</div>
 				</div>
 
-				@include('home.CardsItems')
+				<div class="flex cards_content owl-carousel owl-them">
+					@livewire('home.cardslider')
+				</div>
 
 			</div>
 		</div>
@@ -93,7 +95,7 @@
 		</div>
 	</div> --}}
 	<div>
-		@livewire('home-card-filter')
+		@livewire('home.cardfilter')
 	</div>
 	{{-- <div class="tabs_card entero">
 		<div class="medio">
@@ -118,15 +120,12 @@
 	</div>
 	<div class="tabs_card tabs_card_xl entero">
 		<div class="medio">
-			@livewire('home-card-most-popular')
+			@livewire('home.cardmostpopular')
 		</div>
 	</div>
-
 @endsection
 
 
 @section('script')
-
 	<script src="{{ URL::asset('assets/js/places.js') }}"></script>
-
 @endsection

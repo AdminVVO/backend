@@ -18,16 +18,16 @@ class Product extends Model
         'outstandingService' => 'array',
     ];
 
-    public function categories(){
-        return $this->hasOne(CategoryProduct::class);
+    public function categorie(){
+        return  $this->belongsTo(CategoryProduct::class,'category_id');
     }
-    public function typeProducts(){
-        return $this->hasOne(TypeProduct::class);
+    public function type(){
+        return  $this->belongsTo(TypeProduct::class,'type_id');
     }
-    public function typeSpaceProducts(){
-        return $this->hasOne(TypeSpaceProduct::class);
+    public function typespace(){
+        return  $this->belongsTo(TypeSpaceProduct::class,'typespace_id');
     }
-    public function descriptionProducts(){
-        return $this->hasOne(DescriptionProduct::class);
+    public function description(){
+        return  $this->belongsTo(DescriptionProduct::class,'description_id');
     }
 }
