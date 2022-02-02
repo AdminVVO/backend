@@ -26,6 +26,7 @@
 
     ._txtblu {
         display: inline-block;
+        margin-bottom: 0;
     }
 
     a {
@@ -65,7 +66,16 @@
                     margin-right: 22px;
                 }
 
+                @include responsive(960px) {
+                    margin-right: 0;
+                }
+
+                @include responsive(730px) {
+                    margin-right: 22px;
+                }
+
                 &::-webkit-scrollbar {
+                    opacity: 0;
                     display: none; 
                 }
             }
@@ -77,6 +87,10 @@
 
                 .tabs_items {
                     padding: 16px 13px;
+
+                    &::before {
+                        height: 4px;
+                    }
                 }
             }
 
@@ -85,15 +99,17 @@
                 align-items: center;
                 justify-content: center;
 
-                @include responsive(1350px) {
+                @include responsive(1270px) {
                     display: flex;
                 }
-            }
-        }
 
-        ._cont-payments {
-            ._txtec {
-                margin: 16px 0 18px;
+                @include responsive(960px) {
+                    display: none;
+                }
+
+                @include responsive(730px) {
+                    display: flex;
+                }
             }
         }
 
@@ -104,6 +120,18 @@
                 ._txteh {
                     margin-top: 18px;
                 }
+            }
+        }
+
+        ._cont-2 {
+            margin-top: 48px;
+
+            .h2-guests {
+                margin-bottom: 16px;
+            }
+
+            ._gap-default {
+                margin: 26px 0;
             }
         }
 
@@ -122,27 +150,8 @@
                 margin-bottom: 16px;
             }
 
-            ._gap {
+            ._gap-news {
                 margin: 16px 0 21px;
-                gap: 21px;
-
-                .radio-item_rscrm {
-                    label {
-                        padding: 33px 23px;
-
-                        .content_flex-actv {
-                            .flex-msg {
-                                display: flex;
-                                flex-direction: column;
-                                gap: 4px;
-
-                                ._block {
-                                    gap: 7px;
-                                }
-                            }
-                        }
-                    }
-                }
             }
 
             ._block {
@@ -207,7 +216,7 @@
 
         ._cont-account {
             @include responsive(1100px) {
-                width: auto;
+                width: 100%;
             }
 
             @include responsive(990px) {

@@ -49,6 +49,7 @@ Route::prefix('account')->middleware(['AccountDisable', 'auth'])->group( functio
     Route::get('', [AccountController::class, 'viewAccount'])->name('account');
     Route::get('personal_info', [AccountController::class, 'viewPersonalInfo'])->name('personal_info');
     Route::get('login_segurity', [AccountController::class, 'viewLoginSecury'])->name('login_segurity');
+    Route::get('payment_payouts', [AccountController::class, 'viewPaymentsPayouts'])->name('payment_payouts');
 
     ## We received the response from Google
     // Route::any('callback', [LoginOrRegisterForSocialsController::class, 'callbackFromGoogle'])->name('callback');

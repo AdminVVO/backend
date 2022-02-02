@@ -40,12 +40,15 @@
 			                </div>
 			            </div>
 
-			            @livewire('social-account-component')
+			            {{-- Social --}}
+			        	@livewire('account.security.social')
 			            
-			            @livewire('login-security-devices-component')
+			            {{-- Devices --}}
+			        	@livewire('account.security.devices')
+			            
+			            {{-- Desactivate --}}
+			        	@livewire('account.security.desactivate')
 
-			            @livewire('desactivate-account-component')
-			           			            
 			        </div>
 			    </main>
 

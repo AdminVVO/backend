@@ -1,0 +1,40 @@
+@import "_globals";
+@import "_variables";
+
+._bkground_img {
+    .medio {
+        ._flex {
+            @include responsive(573px) {
+                display: block;
+            }
+        }
+    }
+}
+
+._section-r {
+    .content-scroll-reserva {
+        .tabs_items_group {
+            @include responsive(923px) {
+                flex: none;
+            }
+
+            @include responsive(598px) {
+                flex: auto;
+            }
+        }
+
+        .btn-right-scroll {
+            @include responsive(923px) {
+                display: none;
+            }
+
+            @include responsive(598px) {
+                display: flex;
+            }
+        }
+    }
+
+    ._tb-reservations {
+        margin-top: 45px;
+    }
+}

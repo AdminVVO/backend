@@ -165,6 +165,11 @@
             padding: 16px 30px;
             font-size: 18px;
             max-width: 150px;
+            transition: .3s ease;
+
+            &:hover {
+                background-color: #0096B7;
+            }
         }
     }
 }

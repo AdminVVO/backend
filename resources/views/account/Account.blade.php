@@ -36,11 +36,13 @@
                         </div>
                     </a>
 
-                    <div class="_cont-account">
-                        <i class="far fa-money-bill-alt"></i>
-                        <div class="_txteh" style="margin-bottom: 4px;">Payments & payouts</div>
-                        <p class="span-guests">Review payments, payouts, coupons, gift cards, and taxes</p>
-                    </div>
+                    <a href="{{ route('payment_payouts') }}">
+                        <div class="_cont-account">
+                            <i class="far fa-money-bill-alt"></i>
+                            <div class="_txteh" style="margin-bottom: 4px;">Payments & payouts</div>
+                            <p class="span-guests">Review payments, payouts, coupons, gift cards, and taxes</p>
+                        </div>
+                    </a>
 
                     <div class="_cont-account">
                         <i class="far fa-edit"></i>
@@ -53,7 +55,9 @@
                     <div class="_wcusermsg">
                         <span class="_txteh" style="display: block; margin-bottom: 0;">Need to deactivate your account?</span>
                     </div>
-                    <button class="btn-celest">Take care of that now</button>
+                    <a href="{{ route('login_segurity') }}">
+                        <button class="btn-celest">Take care of that now</button>
+                    </a>
                 </div>
             </div>
         </div>

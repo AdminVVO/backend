@@ -24,21 +24,29 @@
 			        <h2 class="h2-guests_bold35">Personal info</h2>
 
 			        <div>
-                        @livewire('imput-name-persinfo-component')
+			        	{{-- Input Name --}}
+			        	@livewire('account.personal.name')
 
-                        @livewire('imput-gender-persinfo-component')
-                        
-                        @livewire('imput-datebirth-persinfo-component')
+			        	{{-- Input Gender --}}
+			        	@livewire('account.personal.gender')
 
-                        @livewire('imput-email-persinfo-component')
+			        	{{-- Input DateBirth --}}
+			        	@livewire('account.personal.datebirth')
 
-                        @livewire('imput-phone-persinfo-component')
+			        	{{-- Input Email --}}
+			        	@livewire('account.personal.email')
 
-                        @livewire('imput-govern-persinfo-component')
+			        	{{-- Input Phone --}}
+			        	@livewire('account.personal.phone')
 
-                        @livewire('imput-address-persinfo-component')
+			        	{{-- Input Phone --}}
+			        	@livewire('account.personal.governid')
 
-                        @livewire('imput-emergency-persinfo-component')
+			        	{{-- Input Address --}}
+			        	@livewire('account.personal.address')
+
+			        	{{-- Input Address --}}
+			        	@livewire('account.personal.emergency')
 			        </div>
 			    </main>
 

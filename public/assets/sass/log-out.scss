@@ -93,7 +93,7 @@
 .container-wishlists,
 .container-wishlists-create,
 .container-wishlists-share {
-    display: none;
+    // display: none;
     position: absolute;
     top: 0;
     left: 0;
@@ -231,6 +231,194 @@ input {
     }
 }
 
+// MODALS PAGOS
+.container_add-payments {
+    // display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    .modal-addpymts {
+        position: absolute;
+        z-index: 999;
+        inset: 0px;
+        background: rgba(40, 54, 70, 0.95);
+    }
+
+    .pd_addpymts-modal {
+        display: flex;
+        padding: 40px;
+        align-items: center;
+        -webkit-box-align: center;
+        justify-content: center;
+        position: absolute;
+        max-height: 100vh;
+        inset: 0px;
+
+        @include responsive(536px) {
+            padding: 10px;
+        }
+
+        .modal_content-addpymts {
+            display: flex;
+            flex-direction: column;
+            background: #FFFFFF;
+            width: 100%;
+            height: auto;
+            max-width: 796px;
+            max-height: -webkit-fill-available;
+            border-radius: 10px;
+            z-index: 999;
+
+            .close {
+                display: flex;
+                justify-content: end;
+
+                span {
+                    cursor: pointer;
+                    color: white;
+                    font-size: 18px;
+                    padding: 13px 19.2px;
+                    background: #FF5A5F;
+                    border-radius: 0px 10px 0px 10px;
+                }
+            }
+
+            .modal_block {
+                display: flex;
+                width: 100%;
+                padding-left: 85px;
+                overflow-x: auto;
+                border-radius: 10px;
+
+                @include responsive(790px) {
+                    padding-left: 32px;
+                }
+
+                .content_hidden-addpymts {
+                    margin-bottom: 30px;
+                    padding-right: 85px;
+                    padding-top: 12px;
+                    overflow: auto;
+                    width: 100%;
+
+                    @include responsive(790px) {
+                        padding-right: 32px;
+                    }
+
+                    .site-content {
+                        padding-bottom: 28px;
+
+                        ._frever {
+                            margin-bottom: 25px;
+                            display: flex;
+                            justify-content: space-between;
+                            flex-wrap: wrap;
+                            align-items: center;
+                            gap: 15px;
+
+                            ._imgtarj {
+                                width: 160px;
+                                height: 19px;
+                                display: flex;
+                                align-items: center;
+
+                                img {
+                                    width: 100%;
+                                    height: 100%;
+                                    object-fit: cover;
+                                }
+                            }
+                        }
+
+                        ._flfpc {
+                            margin: 21px 0 27px;
+
+                            @include responsive(1415px) {
+                                flex-direction: row;
+                                gap: inherit;
+                            }
+
+                            @include responsive(735px) {
+                                flex-direction: column;
+                                gap: 20px;
+                            }
+
+                            .block_date {
+                                width: 48.54%;
+
+                                @include responsive(735px) {
+                                    width: 100%;
+                                }
+                            }
+                        }
+
+                        ._cbadd {
+                            margin-top: 27px;
+
+                            ._numcard {
+                                padding: 16px;
+                            }
+                        }
+
+                        ._gap {
+                            margin: 25px 0 45px;
+                            gap: 25px;
+
+                            .radio-item_rscrm {
+                                label {
+                                    padding: 33px 23px;
+
+                                    .flex-msg {
+                                        display: flex;
+                                        flex-direction: column;
+                                        gap: 3px;
+
+                                        ._flex {
+                                            display: flex;
+                                            align-items: baseline;
+
+                                            .red_guion {
+                                                width: 14.8px;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+
+                        ._block {
+                            display: flex;
+                            align-items: center;
+                            gap: 22px;
+                            flex-wrap: wrap;
+                        }
+
+                        ._block-jsb {
+                            display: flex;
+                            align-items: center;
+                            justify-content: space-between;
+                            gap: 22px;
+                            flex-wrap: wrap;
+                        }
+
+                        .mrg {
+                            margin: 34px 0 34px;
+
+                            ._border {
+                                padding: 30px 0;
+                                border-bottom: 2px solid #E3EDF3;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
 .container-welcome, 
 .container-number, 
 .container-options1, 
@@ -241,7 +429,7 @@ input {
 .container-need-email,
 .container-t-registro,
 .container-msg-sent {
-	display: none;
+	// display: none;
 	position: absolute;
 	top: 0;
 	left: 0;

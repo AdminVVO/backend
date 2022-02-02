@@ -112,6 +112,9 @@ body {
 ._txtec12 {
   @include _txtec12;
 }
+._txtlinearnormal {
+  @include _txtlinearnormal;
+}
 .btn-h {
   @include btn-h;
 }
@@ -160,6 +163,14 @@ body {
   @include _txteh;
 }
 
+._txtverd {
+  @include _txtverd;
+}
+
+._txtred {
+  @include _txtred;
+}
+
 ._txtec {
   @include _txtec;
 }
@@ -184,6 +195,10 @@ body {
   @include _btnsm;
 }
 
+._btnsmleft {
+  @include _btnsmleft;
+}
+
 .btn-red {
   @include btn-red;
 }
@@ -206,6 +221,10 @@ body {
 
 .btn-celest {
   @include btn-celest;
+}
+
+.btn-border {
+  @include btn-border;
 }
 
 ._txtprivat {
@@ -243,7 +262,12 @@ button {
   border-style: none;
   background: none;
   cursor: pointer;
-  -webkit-appearance: button;
+}
+
+select {
+  border-style: none;
+  background: none;
+  outline: none;
 }
 
 .block-a-trad {
@@ -262,6 +286,141 @@ button {
   }
 }
 
+._section-reserva {
+  margin-top: 70px;
+
+  .flex {
+      display: flex;
+      align-items: center;
+      gap: 21px;
+      flex-wrap: wrap;
+      justify-content: space-between;
+
+      @include responsive(527px) {
+          display: block;
+      }
+  }
+
+  .content-scroll-reserva {
+      display: flex;
+      max-width: 100%;
+      align-items: baseline;
+      overflow-x: scroll;
+  }
+
+  .tabs_items_group {
+      margin: 21px 22px 43px 0;
+      width: 975px;
+      display: inline-flex;
+      justify-content: left;
+      flex: none;
+      overflow: overlay;
+
+      @include responsive(923px) {
+          flex: auto;
+      }
+
+      @include responsive(1102px) {
+          width: 100%;
+      }
+  }
+
+  .btn-right-scroll {
+      display: none;
+      align-items: center;
+      justify-content: center;
+
+      @include responsive(923px) {
+          display: flex;
+      }
+  }
+}
+
+._tb-reservations {
+  border-collapse: separate;
+  border-spacing: 0;
+  width: 100%;
+  margin: 0;
+
+  thead {
+    background-color: rgba(227, 237, 243, 0.4);
+  }
+
+  td {
+    padding: 17px 21px;
+  }
+
+  ._txtcapit {
+    text-transform: capitalize;
+  }
+
+  ._txtblu {
+    margin-bottom: 0;
+  }
+
+  ._svg28 {
+    width: 28px;
+    color: #7D7D7D;
+  }
+}
+
+._bgpadd-f {
+  display: flex;
+  align-items: flex-start;
+  gap: 21px;
+  padding: 41px 123px;
+  background-color: rgba(227, 237, 243, 0.4);
+
+  @include responsive(800px) {
+    padding: 41px 53px;
+  }
+
+  @include responsive(500px) {
+    padding: 28px 21px;
+  }
+
+  svg {
+    max-width: 58px;
+    width: 100%;
+    color: #FF5A5F;
+
+    @include responsive(500px) {
+      max-width: 45px;
+    }
+  }
+
+  ._txteh {
+    margin-bottom: 0;
+  }
+
+  ._txtblu {
+    display: inline-block;
+    margin-bottom: 0;
+  }
+}
+
+._bgpadd {
+  text-align: center;
+  background-color: rgba(227, 237, 243, 0.4);
+  height: 332px;
+  padding: 21px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  ._w {
+    max-width: 260px;
+    width: 100%;
+    margin: 0 auto;
+
+    i {
+      color: #2edab4;
+      font-size: 53px;
+      margin-bottom: 18px;
+    }
+  }
+}
+
 ._news-bt {
   padding: 3px 10px;
   background-color: #E3EDF3;
@@ -272,37 +431,81 @@ button {
   font-weight: normal;
 }
 
+.red_guion {
+  color: #FF5A5F;
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 24px;
+  display: inline-block;
+}
+
 .tabs_select{
   @include flex-centrado;
   grid-gap: 22px;
   position: relative;
 
   .custom-anytime {
-      position: relative;
+    position: relative;
 
-      select{
-          -webkit-appearance: none;
-          border: 0;
-          appearance: none;
-          outline: none;
-          width: 100%;
-          padding: 16px 51px 16px 31px;
-          font-size: 18px;
-          background-color: #00B5DD;
-          color: #FFFFFF;
-          border-radius: 10px;
-          cursor: pointer;
-          width: auto;
-      }
+    select{
+        -webkit-appearance: none;
+        border: 0;
+        appearance: none;
+        outline: none;
+        width: 100%;
+        padding: 16px 51px 16px 31px;
+        font-size: 18px;
+        background-color: #00B5DD;
+        color: #FFFFFF;
+        border-radius: 10px;
+        cursor: pointer;
+        width: auto;
+    }
 
-      i {
-          position: absolute;
-          right: 25px;
-          top: 21px;
-          color: #FFFFFF;
-          font-weight: 900;
-          cursor: pointer;
+    i {
+      position: absolute;
+      right: 25px;
+      top: 21px;
+      color: #FFFFFF;
+      font-weight: 900;
+      cursor: pointer;
+    }
+
+    .selector-options {
+      list-style: none;
+      padding: 5px 5px;
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+      margin: 0;
+      background: white;
+      border: 3px solid #E3EDF3;
+      color: #7d7d7d;
+      border-radius: 10px;
+      z-index: 25;
+      width: 96%;
+      position: absolute;
+      left: 2%;
+      top: 35%;
+  
+      li {
+        height: 35px;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        padding: 0 15px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+  
+        &:disabled {
+          background-color: red;
+        }
+  
+        &:hover {
+          background: #E3EDF3;
+        }
       }
+    }
   }
 
   .sl_guests {
@@ -356,6 +559,15 @@ button {
 // LIBRERIA CSS UN CALENDARIO DE DATE-PIKER
 .ui-widget {
   font-family: 'Lato', sans-serif;
+}
+
+.ui-datepicker select.ui-datepicker-month, .ui-datepicker select.ui-datepicker-year {
+  width: auto;
+  color: #7D7D7D;
+  font-size: 18px;
+  font-weight: normal;
+  cursor: pointer;
+  margin: 0;
 }
 
 .ui-widget {
@@ -749,75 +961,7 @@ td.ui-datepicker-other-month {
     display: none;
   }
 
-  ._form-f {
-      ._flex {
-          display: flex;
-          justify-content: space-between;
-          gap: 13px;
-
-          @include responsive(1305px) {
-              flex-wrap: wrap;
-              justify-content: left;
-          }
-
-          @include responsive(1050px) {
-              flex-wrap: nowrap;
-              justify-content: space-between;
-          }
-
-          @include responsive(790px) {
-              flex-wrap: wrap;
-              justify-content: left;
-          }
-
-          .selected-modal {
-              flex: 0 0 19%;
-              max-width: 19%;
-
-              @include responsive(1305px) {
-                  flex: 140px;
-                  max-width: 140px;
-              }
-
-              @include responsive(1050px) {
-                  flex: 0 0 19%;
-                  max-width: 19%;
-              }
-
-              @include responsive(790px) {
-                  flex: 140px;
-                  max-width: 140px;
-              }
-
-              @include responsive(390px) {
-                flex: 0 0 100%;
-                max-width: 100%;
-              }
-
-              &:nth-child(1) {
-                  flex: 0 0 57.4%;
-                  max-width: 57.4%;
-
-                  @include responsive(1305px) {
-                      flex: 0 0 100%;
-                      max-width: 100%;
-                  }
-
-                  @include responsive(1050px) {
-                      flex: 0 0 57.4%;
-                      max-width: 57.4%;
-                  }
-
-                  @include responsive(790px) {
-                      flex: 0 0 100%;
-                      max-width: 100%;
-                  }
-              }
-          }
-      }
-  }
-
-  ._form {
+  form {
     display: none;
 
       .selected-modal {
@@ -893,7 +1037,7 @@ td.ui-datepicker-other-month {
 // .personal_edit ~ .cancel {
 //   display: flex;
 // }
-.personal_edit {
+._yellow-bg.personal_edit {
   &:hover {
     background-color: transparent;
   }
@@ -916,7 +1060,7 @@ td.ui-datepicker-other-month {
     display: block;
   }
 
-  ._form {
+  form {
     display: block;
   }
 }
@@ -938,8 +1082,6 @@ td.ui-datepicker-other-month {
     -webkit-appearance: none;
     -moz-appearance:  none;
     appearance: none;
-    background: none;
-    outline: none;
     width: 100%;
     padding: 16px 43px 16px 18px;
     font-size: 18px;
@@ -959,7 +1101,10 @@ td.ui-datepicker-other-month {
   i {
     position: absolute;
     right: 23px;
-    top: 21px;
+    top: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
     color: #00B5DD;
   }
 
@@ -1097,32 +1242,27 @@ td.ui-datepicker-other-month {
 }
 ._bef-places {
   display: none;
-  width: 394px;
+  width: 405px;
   position: absolute;
   right: 0;
   z-index: 10;
-  background: #FFFFFF;
-  border-radius: 32px;
-  box-shadow: 0px 6px 20px rgb(0 0 0 / 20%);
-  margin-top: 12px;
+  border-radius: 10px;
+  background-color: $color-white;
+  border: 3px solid #E3EDF3;
+  box-shadow: 0 0 15px rgb(40 54 70 / 10%);
   max-height: -moz-calc(100vh - 150px);
   overflow-x: hidden;
+  margin-top: 13px;
   overflow-y: auto;
-  padding: 16px 32px;
+  padding: 5px 22px 34px;
 
   @include responsive(438px) {
     width: 100%;
   }
 
-  ._txtec {
-    margin-top: 8px;
-    margin-bottom: 16px;
-  }
-
   ._cont-places {
-    padding-top: 16px;
-    padding-bottom: 16px;
-    padding-right: 4px;
+    padding-top: 29px;
+    padding-bottom: 29px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -1130,13 +1270,13 @@ td.ui-datepicker-other-month {
     ._inf {
       width: 65%;
 
-      ._btnsm {
-        text-decoration: underline;
+      ._txteh {
+        margin-bottom: 3px;
       }
     }
 
     &:not(:last-child) {
-      border-bottom: 1px solid rgb(235, 235, 235);
+      border-bottom: 2px solid #E3EDF3;
     }
 
     ._2btns {
@@ -1150,34 +1290,29 @@ td.ui-datepicker-other-month {
         width: 32px;
         height: 32px;
         display: inline-flex;
-        border-width: 1px;
+        border-width: 2px;
         border-style: solid;
-        border-color: rgb(176, 176, 176);
-        color: rgb(113, 113, 113);
+        border-color: #E3EDF3;
+        color: #00B5DD;
         align-items: center;
         justify-content: center;
-        background: rgb(255, 255, 255);
         border-radius: 50%;
         transition: all .3s ease;
 
         &:disabled {
           cursor: not-allowed;
-          color: rgb(235, 235, 235);
-          border-color: rgb(235, 235, 235);
-          background: rgb(255, 255, 255);
+          color: #E3EDF3;
+          border-color: #E3EDF3;
           transition: all .3s ease;
 
           &:hover {
-            color: rgb(235, 235, 235);
-            border-color: rgb(235, 235, 235);
-            background: rgb(255, 255, 255);
+            color: #E3EDF3;
+            border-color: #E3EDF3;
           }
         }
 
         &:hover {
-          color: rgb(34, 34, 34);
-          border-color: rgb(34, 34, 34);
-          background: rgb(255, 255, 255);
+          color: #00B5DD;
         }
       }
     }
@@ -1263,6 +1398,44 @@ td.ui-datepicker-other-month {
 
   &::placeholder {
     color: #E3EDF3;
+  }
+}
+
+._bkground_img {
+  position: relative;
+  height: 251px;
+
+  img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  ._btnsmleft {
+    color: $color-white;
+
+    span {
+      &::before {
+        background-color: $color-white;
+      }
+    }
+  }
+
+  .medio {
+    z-index: 1;
+
+    ._flex {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 28px;
+    }
+  }
+
+  .h2-guests_white25 {
+    margin-top: 9px
   }
 }
 
@@ -1548,26 +1721,70 @@ td.ui-datepicker-other-month {
 
 // ESTILO 2 CALENDARY DATE RANGE PICKER
 .pd_c-modal {
-  position: absolute;
-  max-height: 100vh;
-  inset: 0px;
+  @include responsive(913px) {
+    position: absolute;
+    max-height: 100vh;
+    inset: 0px;
+  }
+  
 
   .modal_content-c {
-    overflow: overlay;
+    @include responsive(913px) {
+      overflow: overlay;
+      padding: 25px 0 110px;
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
 
-    .daterangepicker {
-      padding-bottom: 78px !important;
+    @include responsive(500px) {
+      padding: 25px 0 98px;
+    }
+
+    .drp-calendar {
+      @include responsive(913px) {
+        margin: 0 auto;
+        position: relative;
+      }
+
+      &::before {
+        @include responsive(913px) {
+          content: "";
+          position: absolute;
+          top: 5px;
+          left: 50%;
+          transform: translate(-50%, 0);
+          right: -50%;
+          width: 115%;
+          height: 60px;
+          border-radius: 10px;
+          background-color: #ffff;
+          border: 3px solid #E3EDF3;
+          margin: auto;
+          z-index: -1;
+        }
+
+        @include responsive(500px) {
+          top: 3px;
+        }
+    
+        @include responsive(467px) {
+          width: 331px;
+        }
+      }
     }
   }
 
   .drp-buttons {
-    border-top: 1px solid #E3EDF3;
-    position: absolute;
-    background-color: $color-white;
-    bottom: 0;
-    z-index: 3001;
-    width: 100%;
-    padding: 14px 18px !important;
+    @include responsive(913px) {
+      border-top: 2px solid #E3EDF3 !important;
+      position: absolute;
+      background-color: $color-white;
+      bottom: 0;
+      z-index: 3001;
+      width: 100%;
+      padding: 14px 18px !important;
+    }
   }
 }  
 
@@ -1585,17 +1802,20 @@ td.ui-datepicker-other-month {
   box-shadow: 0 0 15px rgb(40 54 70 / 10%);
 
   @include responsive(1246px) {
-    width: 620px !important;
+    width: 825px !important;
     padding: 17px 27px !important;
     padding-right: 29px !important;
   }
 
-  @include responsive(700px) {
-    width: auto !important;
-    padding: 10px 29px 10px 27px !important;
-  }
+  // @include responsive(700px) {
+  //   width: auto !important;
+  //   padding: 10px 29px 10px 27px !important;
+  // }
 
-  @include responsive(500px) {
+  @include responsive(913px) {
+    width: auto !important;
+
+    position: fixed;
     margin-top: 0px !important;
     inset: 0 !important;
     transform: none;
@@ -1604,7 +1824,7 @@ td.ui-datepicker-other-month {
     border-radius: 0 !important;
     border: none !important;
     bottom: 0;
-    overflow: overlay;
+    overflow: hidden;
     padding: 21px 12px !important;
   }
   
@@ -1630,22 +1850,17 @@ td.ui-datepicker-other-month {
     border-bottom: 3px solid #E3EDF3 !important;
 
     @include responsive(1246px) {
-      top: 37px !important;
+      top: 43px !important;
       width: 92%;
       height: 55px;
     }
 
-    @include responsive(700px) {
-      top: 21px !important;
-    }
+    // @include responsive(700px) {
+    //   top: 21px !important;
+    // }
 
-    @include responsive(500px) {
-      width: 71%;
-      top: 35px !important;
-    }
-
-    @include responsive(467px) {
-      width: 331px;
+    @include responsive(913px) {
+      display: none;
     }
   }
 
@@ -1662,31 +1877,24 @@ td.ui-datepicker-other-month {
     margin: auto;
 
     @include responsive(1246px) {
-      top: 64px !important;
+      top: 69px !important;
     }
 
-    @include responsive(700px) {
-      bottom: 64px !important;
-      width: 92%;
-      height: 55px;
-      border-radius: 10px;
-      border: 3px solid #E3EDF3;
-      border-right: 3px solid #E3EDF3 !important;
-      border-bottom: 3px solid #E3EDF3 !important;
-      border-left: 3px solid #E3EDF3 !important;
-      background-color: transparent !important;
-      z-index: -1;
-    }
+    // @include responsive(700px) {
+    //   bottom: 64px !important;
+    //   width: 92%;
+    //   height: 55px;
+    //   border-radius: 10px;
+    //   border: 3px solid #E3EDF3;
+    //   border-right: 3px solid #E3EDF3 !important;
+    //   border-bottom: 3px solid #E3EDF3 !important;
+    //   border-left: 3px solid #E3EDF3 !important;
+    //   background-color: transparent !important;
+    //   z-index: -1;
+    // }
 
-    @include responsive(500px) {
-      width: 71%;
-      top: 446px !important;
-      bottom: 0 !important;
-      margin: 0 auto;
-    }
-
-    @include responsive(467px) {
-      width: 331px;
+    @include responsive(913px) {
+      display: none;
     }
   }
 
@@ -1724,11 +1932,11 @@ td.ui-datepicker-other-month {
   th.month {
     padding: 19px 0 35px;
 
-    @include responsive(700px) {
-      padding: 0 0 35px;
-    }
+    // @include responsive(700px) {
+    //   padding: 0 0 35px;
+    // }
 
-    @include responsive(500px) {
+    @include responsive(913px) {
       padding: 0 0 25px;
     }
   }
@@ -1760,7 +1968,11 @@ td.ui-datepicker-other-month {
     td {
 			font-size: 16px !important;
 
-      @include responsive(1246px) {
+      @include responsive(913px) {
+        font-size: 16px !important;
+      }
+
+      @include responsive(500px) {
         font-size: 14px !important;
       }
 		}
@@ -1772,6 +1984,7 @@ td.ui-datepicker-other-month {
 
   .drp-calendar {
     max-width: none !important;
+    clear: none !important;
   }
 
   .calendar-table table {
@@ -1800,11 +2013,11 @@ td.ui-datepicker-other-month {
   height: 50px !important;
   line-height: 46px !important;
 
-  @include responsive(1246px) {
-    min-width: 35px !important;
-    width: 35px !important;
-    height: 33px !important;
-    line-height: 33px !important;
+  @include responsive(913px) {
+    min-width: 46px !important;
+    width: 50px !important;
+    height: 50px !important;
+    line-height: 46px !important;
   }
 
   @include responsive(500px) {
@@ -1828,7 +2041,11 @@ td.ui-datepicker-other-month {
     padding: 0 0 3px !important;
     gap: 6px;
 
-    @include responsive(1246px) {
+    @include responsive(913px) {
+      font-size: 18px !important;
+    }
+
+    @include responsive(500px) {
       font-size: 16px !important;
     }
 
@@ -1841,7 +2058,6 @@ td.ui-datepicker-other-month {
       bottom: 0;
 
       @include responsive(1246px) {
-        width: 86%;
         height: 1px;
       }
     }
@@ -1860,8 +2076,14 @@ td.ui-datepicker-other-month {
     font-weight: normal !important;
     font-size: 18px !important;
 
-    @include responsive(1246px) {
-      padding: 10px 30px !important;
+    @include responsive(913px) {
+      padding: 15px 45px !important;
+      margin-left: 38px !important;
+      font-size: 18px !important;
+    }
+
+    @include responsive(500px) {
+      padding: 12px 35px !important;
       margin-left: 28px !important;
       font-size: 16px !important;
     }
@@ -1875,22 +2097,27 @@ td.ui-datepicker-other-month {
   font-weight: normal;
   cursor: default !important;
 
-  @include responsive(1246px) {
+  @include responsive(500px) {
     font-size: 16px !important;
   }
 }
 
 .daterangepicker .ranges, .daterangepicker .drp-calendar {
-  @include responsive(700px) {
+  // @include responsive(700px) {
+  //   float: none !important;
+  //   display: flex;
+  //   justify-content: center;
+  // }
+
+  @include responsive(913px) {
     float: none !important;
     display: flex;
     justify-content: center;
-  }
 
-  @include responsive(500px) {
     max-width: max-content !important;
     margin: auto;
     padding-left: 0 !important;
+    padding-right: 0 !important;
   }
 }
 
@@ -1898,24 +2125,16 @@ td.ui-datepicker-other-month {
   display: inline-block;
   cursor: pointer !important;
   margin-top: 19px;
-
-  @include responsive(1246px) {
-    margin-top: 21px;
-  }
-
-  @include responsive(700px) {
-    margin-top: 0;
-  }
 }
 
 .table-condensed thead .prev {
-  @include responsive(700px) {
+  @include responsive(913px) {
     margin-top: 2px;
   }
 }
 
 .table-condensed thead .next {
-  @include responsive(500px) {
+  @include responsive(913px) {
     margin-top: 2px;
   }
 }
@@ -1986,6 +2205,34 @@ td.ui-datepicker-other-month {
         box-shadow: 0 0 15px rgb(40 54 70 / 10%);
       }
     }
+  }
+}
+
+.bg_tax {
+  padding: 42px 44px;
+  background-color: rgb(227 237 243 / 30%);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  @include responsive(550px) {
+    padding: 30px;
+  }
+
+  ._txteh {
+    margin-bottom: 0;
+  }
+
+  i {
+    font-size: 51px;
+    color: #FF5A5F;
+  }
+
+  ._g {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
   }
 }
 
@@ -2085,6 +2332,256 @@ td.ui-datepicker-other-month {
   text-transform: uppercase;
 }
 
+._br-defautl {
+  gap: 0 !important;
+
+  ._flex {
+    padding: 35px 0 !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+
+    &:not(:last-child) {
+      border-bottom: 2px solid #E3EDF3 !important;
+    }
+
+    .content_flex-actv {
+      gap: 23px;
+      align-items: baseline !important;
+
+      ._block {
+        max-width: 27px !important;
+      }
+    }
+  }
+}
+
+._gap-default {
+  display: flex;
+  flex-direction: column;
+  gap: 21px;
+
+  ._flex {
+    padding: 25px 30px;
+    border-radius: 10px;
+    border: 3px solid #E3EDF3;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    @include responsive(550px) {
+      padding: 19px 20px;
+    }
+
+    .content_flex-actv {
+      display: flex;
+      width: 100%;
+
+      ._block {
+        max-width: 64px;
+        width: 100%;
+        display: flex;
+        align-items: center;
+
+        @include responsive(900px) {
+          max-width: 59px;
+        }
+
+        i {
+          color: #FF5A5F;
+          font-size: 40px;
+
+          @include responsive(900px) {
+            font-size: 35px;
+          }
+        }
+      }
+
+      .flex-msg {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        padding-right: 30px;
+
+        ._flexgap {
+          display: flex;
+          align-items: center;
+          flex-wrap: wrap;
+          gap: 7px;
+
+          ._txteh {
+            margin-bottom: 0;
+          }
+        }
+      }
+    }
+
+    a {
+      cursor: pointer;
+      font-size: 20.5px;
+      color: #333333;
+    }
+  }
+
+  ._flex-baseline {
+    padding: 25px 30px;
+    border-radius: 10px;
+    border: 3px solid #E3EDF3;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    @include responsive(550px) {
+      padding: 19px 20px;
+    }
+
+    .content_flex-actv {
+      display: flex;
+      width: 100%;
+
+      ._block {
+        max-width: 64px;
+        width: 100%;
+        display: flex;
+        align-items: baseline;
+      
+        @include responsive(900px) {
+          max-width: 59px;
+        }
+      
+        i {
+          margin-top: 5px;
+          color: #FF5A5F;
+          font-size: 40px;
+      
+          @include responsive(900px) {
+            font-size: 35px;
+          }
+        }
+      }
+
+      .flex-msg {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        padding-right: 30px;
+
+        ._flexgap {
+          display: flex;
+          align-items: center;
+          flex-wrap: wrap;
+          gap: 7px;
+
+          ._txteh {
+            margin-bottom: 0;
+          }
+        }
+
+        ._g {
+          display: flex;
+          flex-direction: column;
+          gap: 12px;
+        }
+      }
+    }
+
+    a {
+      font-size: 20.5px;
+      color: #333333;
+      margin-top: 15px;
+    }
+  }
+}
+
+._gap-news {
+  display: flex;
+  flex-direction: column;
+  gap: 21px;
+
+  .radio-item_rscrm {
+    border-radius: 10px;
+    border: 3px solid #E3EDF3;
+    
+    input[type=radio] {
+      display: none;
+    }
+  
+    input[type=radio]:checked + label .before_check {
+      border: 3px solid #FF5A5F;
+      background-color: #FF5A5F;
+    }
+  
+    input[type=radio]:checked + label .before_check:after {
+      content: "\f00c";
+    }
+  
+    label {
+      display: flex;
+      cursor: pointer;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding: 33px 23px;
+      position: relative;
+
+      .content_flex-actv {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+
+        .flex-msg {
+          display: flex;
+          flex-direction: column;
+          gap: 4px;
+          padding-right: 30px;
+
+          ._flexgap {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 7px;
+          }
+        }
+
+        .pyifllprec {
+          margin-right: 16px;
+
+          ._txteh {
+            margin-bottom: 0;
+            margin-top: 10px;
+          }
+        }
+      }
+    }
+  }
+}
+
+.before_check {
+  position: relative;
+  width: 100%;
+  max-width: 40px;
+  height: 100%;
+  min-height: 40px;
+  border-radius: 50%;
+  border: 3px solid #E3EDF3;
+  background-color: transparent;
+  transition: all 0.3s ease;
+
+  &:after {
+    content: "";
+    font-family: "Font Awesome 5 Pro";
+    font-weight: 900;
+    font-size: 22px;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    bottom: 7px;
+    right: 8px;
+    color: white;
+    display: block;
+    transition: all .3s ease;
+  }
+}
+
 ._gap {
   display: flex;
   flex-direction: column;
@@ -2095,76 +2592,48 @@ td.ui-datepicker-other-month {
     border: 3px solid #E3EDF3;
     
     input[type=radio] {
-        display: none;
+      display: none;
     }
   
     input[type=radio]:checked + label .before_check {
-        border: 3px solid #FF5A5F;
-        background-color: #FF5A5F;
+      border: 3px solid #FF5A5F;
+      background-color: #FF5A5F;
     }
   
     input[type=radio]:checked + label .before_check:after {
-        content: "\f00c";
+      content: "\f00c";
     }
   
     label {
+      display: flex;
+      cursor: pointer;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding: 13px 17px;
+      position: relative;
+
+      .content_flex-actv {
         display: flex;
-        cursor: pointer;
         justify-content: space-between;
-        align-items: flex-start;
-        padding: 13px 17px;
-        position: relative;
+        width: 100%;
 
-        .before_check {
-          position: relative;
-          width: 100%;
-          max-width: 40px;
-          height: 100%;
-          min-height: 40px;
-          border-radius: 50%;
-          border: 3px solid #E3EDF3;
-          background-color: transparent;
-          transition: all 0.3s ease;
+        .flex-msg {
+          padding-right: 30px;
 
-          &:after {
-            content: "";
-            font-family: "Font Awesome 5 Pro";
-            font-weight: 900;
-            font-size: 22px;
-            border-radius: 50%;
-            width: 20px;
-            height: 20px;
-            position: absolute;
-            bottom: 7px;
-            right: 8px;
-            color: white;
-            display: block;
-            transition: all .3s ease;
+          ._txteh {
+            margin-bottom: 0;
           }
         }
-  
-        .content_flex-actv {
-            display: flex;
-            justify-content: space-between;
-            width: 100%;
-  
-            .flex-msg {
-                padding-right: 30px;
-  
-                ._txteh {
-                    margin-bottom: 0;
-                }
-            }
-  
-            .pyifllprec {
-                margin-right: 16px;
-  
-                ._txteh {
-                    margin-bottom: 0;
-                    margin-top: 10px;
-                }
-            }
+
+        .pyifllprec {
+          margin-right: 16px;
+
+          ._txteh {
+            margin-bottom: 0;
+            margin-top: 10px;
+          }
         }
+      }
     }
   }
 }
@@ -2253,10 +2722,16 @@ td.ui-datepicker-other-month {
   &:focus + .fa-credit-card{
     color: #7D7D7D;
   }
+
+  &:hover {
+    box-shadow: 0 0 15px rgb(40 54 70 / 10%);
+  }
 }
 
 ._sltguests {
-  .fa-credit-card {
+  position: relative;
+  
+  i {
     position: absolute;
     font-size: 21px;
     left: 18px;
@@ -2277,7 +2752,7 @@ td.ui-datepicker-other-month {
     line-height: 24px;
     border-radius: 10px;
     width: 100%;
-    transition: border .3s ease;
+    transition: all .3s ease;
 
     &::placeholder {
       color: #E3EDF3;
@@ -2285,6 +2760,10 @@ td.ui-datepicker-other-month {
 
     &:focus {
       border: 1px solid #7D7D7D;
+    }
+
+    &:hover {
+      box-shadow: 0 0 15px rgb(40 54 70 / 10%);
     }
   }
 }
@@ -2493,6 +2972,11 @@ td.ui-datepicker-other-month {
   position: relative;
   overflow: hidden;
 
+  &.activeLoading .loading-btn_red {
+    visibility: visible;
+    opacity: 1;
+  }
+
   &.activeLoading .loading-btn {
     visibility: visible;
     opacity: 1;
@@ -2501,6 +2985,73 @@ td.ui-datepicker-other-month {
   .loading-btn {
     opacity: 0;
     visibility: hidden;
+  }
+
+  .loading-btn_red {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+.btn-celest:disabled {
+  background-color: #0097b9 !important;
+  color: #f3f3f3 !important;
+  cursor: default;
+}
+
+.btn-red:disabled {
+  background-color: #db484c !important;
+  color: #f3f3f3 !important;
+  cursor: default;
+}
+
+.loading-btn_red {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background: #FF5A5F;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transition: all .3s ease;
+
+  &::before {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    border: 3px dashed #fff;
+    width: 30px;
+    height: 30px;
+    border-left: 3px solid transparent;
+    border-bottom: 3px solid transparent;
+    animation: loadingBtn 1s linear infinite;
+    z-index: 5;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    z-index: 10;
+    border: 3px solid #fff;
+    border-left: 3px solid transparent;
+    border-bottom: 3px solid transparent;
+    animation: loadingBtn 1s ease infinite;
+  }
+
+  @keyframes loadingBtn {
+    0%{
+        transform: rotate(0deg);
+    }
+
+    100%{
+        transform: rotate(360deg);
+    }
   }
 }
 
@@ -3118,7 +3669,6 @@ td.ui-datepicker-other-month {
 
   ._wcusermsg {
     padding-right: 20px;
-    width: 100%;
   }
 }
 
@@ -3684,6 +4234,15 @@ td.ui-datepicker-other-month {
     }
   }
 }
+
+// .content-dots span.dot:first-child {
+//   background-color: #00B5DD;
+// }
+
+// .card_img > img:first-child {
+//     opacity: 1;
+//     transition: all 0.3s;
+// }
  
 .card_img {
   position: relative;
@@ -3695,7 +4254,7 @@ td.ui-datepicker-other-month {
     width: 100%;
     height: 100%;
     object-fit: cover;  
-    opacity: 0; 
+    opacity: 0;
     transition: all 0.3s;
   }
 
@@ -3792,7 +4351,7 @@ td.ui-datepicker-other-month {
     justify-content: center;
     align-items: center;
     background-color: $color-primary;
-    padding: 7.5px 9.6px 7.5px 11px;
+    padding: 7.5px 9.6px 7.1px 11px;
     border-radius: 50%;
     cursor: pointer;
   }

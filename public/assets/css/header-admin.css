@@ -1,0 +1,49 @@
+._flex-js {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 35px;
+}
+._flex-js ._flex {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+._flex-js ._flex .icon_red {
+  font-size: 20px;
+  color: #FF5A5F;
+}
+._flex-js ._flex span {
+  color: #FFFFFF;
+}
+._flex-js ._flex i {
+  font-size: 14px;
+  color: #FFFFFF;
+  margin-top: 2px;
+}
+
+.header-fixed {
+  display: none;
+}
+
+.h_admin {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+}
+.h_admin .header_admin {
+  margin-bottom: 0;
+}
+
+.header_admin {
+  position: sticky;
+  top: 0;
+  margin-bottom: 80px;
+  background-color: #283646;
+}
+
+.header_admin.fixed {
+  position: sticky;
+  animation: none;
+}
