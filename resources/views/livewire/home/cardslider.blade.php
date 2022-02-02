@@ -1,5 +1,4 @@
 @foreach ($Accommodation as $item)
-    <div>
         <a href="/" class="card_items item ">
             <button href="#">
                 <div class="card_love">
@@ -31,5 +30,4 @@
                 <h3 class="h3-cards">{{ $item->proximityDistance }} miles away</h3>
             </div>
         </a>
-    </div>
 @endforeach

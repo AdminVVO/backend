@@ -11,7 +11,6 @@
 @endsection
 
 @section('content')
-
 	<section class="home entero" id="hero">
 		<div class="content_icons">
 			<div class="content_icons-block">
@@ -86,24 +85,9 @@
 			</div>
 		</div>
 	</div>
-
-	{{-- <div class="tabs entero">
-		<div class="medio">
-			@include('home.TabsItems')
-			@include('home.TabsSelect')
-
-		</div>
-	</div> --}}
 	<div>
 		@livewire('home.cardfilter')
 	</div>
-	{{-- <div class="tabs_card entero">
-		<div class="medio">
-			@include('home.Cards') 
-
-		</div>
-	</div> --}}
-
 	<div class="wo_home entero">
 		<div class="medio">
 			<h3>Questions about hosting?</h3>

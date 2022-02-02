@@ -12,6 +12,6 @@ class internaController extends Controller
     public function getContent($id){
         $publicacion = Product::find($id);
         $comentario=ComentarioProduct::all();
-        return view('interna.interna', compact('publicacion','comentario'));
+        return view('interna.Interna', compact('publicacion','comentario'));
     }
 }
