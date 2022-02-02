@@ -24,7 +24,7 @@ class Datebirth extends Component
         if ( $query )
             $this->inputEdit['date_birth'] = Carbon::parse( $query, 'UTC')->format('Y-m-d');
 
-        return view('livewire.account.personal.datebirth');
+        return view('livewire.account.personal.datebirth', compact('query'));
     }
 
     public function statusUpdate()

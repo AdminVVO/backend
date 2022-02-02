@@ -138,7 +138,7 @@ class Payments extends Component
 
         PaymentsModel::where([
             'user_id'     => Auth::id(),
-            'id_payments' => PaymentsModel::where('card_number', $this->editInputs[ $this->editInput ]['card_number'] )->pluck('id_payments'),
+            'id_payments' => PaymentsModel::where([ 'card_number' => $this->editInputs[ $this->editInput ]['card_number'], 'user_id' => Auth::id() ])->pluck('id_payments'),
         ])->update([
             'card_number'    => $this->card_number,
             'name'           => $this->name,

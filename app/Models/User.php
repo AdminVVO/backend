@@ -38,6 +38,8 @@ class User extends Authenticatable
         'acount_actived',
         'state',
         'zip_code',
+        'service_fee',
+        'constributions',
     ];
 
     protected $hidden = [

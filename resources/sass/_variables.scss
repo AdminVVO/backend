@@ -106,13 +106,26 @@ $letter-spacing: 0.2rem;
 
 @mixin h5 {
   font-size: 14px;
-  color: $color-text;
+  color: $color-text-submenu;
   font-weight: normal;
+}
+
+@mixin h5_red {
+  font-size: 14px;
+  color: $color-love-red;
+  font-weight: bold;
 }
 
 @mixin h2-cards {
   font-size: 20px;
   color: $color-white;
+  line-height: 20px;
+  font-weight: normal;
+}
+
+@mixin h2-20black {
+  font-size: 20px;
+  color: $color-text-submenu;
   line-height: 20px;
   font-weight: normal;
 }

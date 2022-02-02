@@ -80,4 +80,48 @@ $(document).ready(function() {
     $('._cont-edit ._btnsm.cancel').click(function(){
         $(this).parents("._yellow-bg").removeClass("personal_edit");
     })
+
+    // payments & payouts
+    $(".tabs_payments").click(function() {
+        $("._cont-payout").css({'display': 'none'});
+        $("._cont-ein").css({'display': 'none'});
+        $("._cont-sf").css({'display': 'none'});
+        $("._cont-gc").css({'display': 'none'});
+        $("._cont-payments").css({'display': 'block'});
+    })
+
+    $(".tabs_payouts").click(function() {
+        $("._cont-payments").css({'display': 'none'});
+        $("._cont-ein").css({'display': 'none'});
+        $("._cont-sf").css({'display': 'none'});
+        $("._cont-gc").css({'display': 'none'});
+        $("._cont-payout").css({'display': 'block'});
+    })
+
+    $(".tabs_taxes").click(function() {
+        $("._cont-payout").css({'display': 'none'});
+        $("._cont-payments").css({'display': 'none'});
+        $("._cont-sf").css({'display': 'none'});
+        $("._cont-gc").css({'display': 'none'});
+        $("._cont-ein").css({'display': 'block'});
+    })
+
+    $(".tabs_service-fee").click(function() {
+        $("._cont-payout").css({'display': 'none'});
+        $("._cont-payments").css({'display': 'none'});
+        $("._cont-ein").css({'display': 'none'});
+        $("._cont-gc").css({'display': 'none'});
+        $("._cont-sf").css({'display': 'block'});
+    })
+
+    $(".tabs_guest-contri").click(function() {
+        $("._cont-payout").css({'display': 'none'});
+        $("._cont-payments").css({'display': 'none'});
+        $("._cont-ein").css({'display': 'none'});
+        $("._cont-sf").css({'display': 'none'});
+        $("._cont-gc").css({'display': 'block'});
+    })
+
+    // payments & payouts 2
+    
 });

@@ -1,14 +1,14 @@
 <template>
     <div class="menu _header-menu">
         <a href="#" class="menu_items">
-            <img src="assets/img/icons/hotel.png" alt="">
+            <img :src="logo" alt="">
             Become a Host
         </a>
 
         <a href="#" class="menu_perfil">
             <span>
                 <img
-                	:src="'assets/img/avatar/' + authLoggedIn.avatar" 
+                	:src="user" 
                 	alt="">
                 {{ split_name[0] + ' ' + split_lastname[0]  }}
             </span>
@@ -46,6 +46,8 @@
 <script>
 
     import vClickOutside from 'v-click-outside'
+	import logo from './hotel.png'
+	import user from './user.png'
 
 	export default {
 
@@ -54,6 +56,8 @@
 		data () {
 			return {
 				'activeClass': false,
+                'logo': logo,
+                'user': user,
 			}
 		},
 	    directives: {

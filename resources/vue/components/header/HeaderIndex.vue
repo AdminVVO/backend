@@ -3,7 +3,7 @@
 		<header class="entero header">
 		    <div class="medio">
 		        <a href="/" class="logo-menu">
-		            <img src="assets/img/logo.png" alt="logo">
+		            <img :src="img" alt="logo">
 		        </a>
 		        
 		        <HeaderLogOn 
@@ -27,6 +27,7 @@
 
     import HeaderLogOn from './HeaderLogOn.vue'
     import HeaderLogOff from './HeaderLogOff.vue'
+	import img from './logo.png'
 
 	export default {
 		name: 'HeaderIndex',
@@ -41,6 +42,7 @@
 		data () {
 			return {
                 'showGuest': false,
+                'img': img,
 			}
 		},
 		methods: {
