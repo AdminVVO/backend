@@ -17,6 +17,8 @@ class CreateCardCategoriesTable extends Migration
             $table->id();
             $table->string('title');
             $table->string('price');
+            $table->string('latitude');
+            $table->string('longitude');
             $table->string('date');
             $table->string('distance');
             $table->json('thumbNailUrl');

@@ -36,6 +36,9 @@ Route::get('/interna', function () {
 Route::get('/search', function () {
     return view('search.search');
 })->name('/search');
+Route::get('/searchflexible', function () {
+    return view('searchflexible.searchflexible');
+})->name('/search');
 
 Route::get('/interna/{id}',[internaController::class,'getcontent'])->name('interna.getcontent');
 
