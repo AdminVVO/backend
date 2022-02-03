@@ -56,7 +56,7 @@
                 <h5>300+ stays in Orlando</h5>
             </div>
             <div class="content_view">
-                <div class="hidden_galerias" style="display: none;">
+                <div class="hidden_galerias">
                     @foreach ($sites as $item)
                         <a href="/" class="content_galerias">
                             <div class="slideshow-container">
@@ -121,16 +121,14 @@
             </div>
         </div>
 
-        {{-- <div class="content_location-width">
+        <div class="content_location-width">
             <div class="desc-location">
                 <h5>Your trip is coming up in 5 days. Use the Instant Book filter to check out places that you can book
                     right now.</h5>
             </div>
-            <div id="map" class="contact-map" >
-                
-               <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15604.935148163011!2d-77.00394301219576!3d-12.096141331618517!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105c7d19478c6bf%3A0xb53809bf8f8b06c8!2sSan%20Borja!5e0!3m2!1ses-419!2spe!4v1640041907641!5m2!1ses-419!2spe" width="auto" height="auto" style="border:0;" allowfullscreen="" loading="lazy"></iframe> 
+            <div id="map" class="contact-map" style="border:0;" >
             </div>
-        </div> --}}
+        </div>
     </div> 
    
 </div>
