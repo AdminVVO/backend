@@ -4,7 +4,7 @@
 
     <div class="_allow-contri">
         <div class="_txtec">Allow contributions</div>
-        <input type="checkbox" class="checkbox_custom">
+        <input type="checkbox" class="checkbox_custom" @if( $query ) checked @endif wire:click="changeContrb">
     </div>
 
     <div class="_block">

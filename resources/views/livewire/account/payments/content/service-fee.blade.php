@@ -4,7 +4,7 @@
 
     <div class="_gap-news">
         <div class="radio-item_rscrm">
-            <input type="radio" id="simplified" name="settings" value="" checked="">
+            <input type="radio" id="simplified" wire:model="settings" value="simplified" wire:click="changeS()">
             <label for="simplified">
                 <div class="content_flex-actv">
                     <div class="flex-msg">
@@ -23,7 +23,7 @@
         </div>
 
         <div class="radio-item_rscrm">
-            <input type="radio" id="split-fee" name="settings" value="">
+            <input type="radio" id="split-fee" wire:model="settings" value="split-fee" wire:click="changeF()">
             <label for="split-fee">
                 <div class="content_flex-actv">
                     <div class="flex-msg">
@@ -37,10 +37,5 @@
                 <span class="before_check"></span>
             </label>
         </div>
-    </div>
-
-    <div class="_block">
-        <button class="btn-celest">Save</button>
-        <button class="btn-red">Cancel</button>
     </div>
 </div>

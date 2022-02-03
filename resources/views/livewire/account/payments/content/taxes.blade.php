@@ -68,7 +68,11 @@
                                     <h2 class="h2_publish">Add EIN ID Number</h2>
                                     <div class="_txtec" style="margin: 12px 0 50px;">If you are registered with the European Commission, verification may take up to 48 hours. We'll send you an email when its finished. More information on EIN IDs can be found <a href="#" class="_txtehlinear">here</a>.</div>
 
-                                    <form wire:submit.prevent="submit">
+                                    @if ( $showEdit )
+                                        <form wire:submit.prevent="submitEditTaxes">
+                                    @else
+                                        <form wire:submit.prevent="submitTaxes">
+                                    @endif
                                         <div class="_flfpc">
                                             <div class="block_date">
                                                 <div class="txt-check-in">Country/region</div>
@@ -172,7 +176,7 @@
                                         </div>
 
                                         <div class="_block">
-                                            <button type="submit" class="btn-celest">Add</button>
+                                            <button type="submit" class="btn-celest">Done</button>
                                             <button type="button" wire:click="closeModal()" class="btn-red">Cancel</button>
                                         </div>
                                     </form>

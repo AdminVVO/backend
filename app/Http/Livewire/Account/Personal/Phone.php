@@ -12,12 +12,14 @@ use Livewire\Component;
 
 class Phone extends Component
 {
-    public $phone       = '';
-    public $phoneEdit   = '';
-    public $confirmCode = '';
+    public $phone       = null;
+    public $phoneEdit   = null;
+    public $confirm = null;
     public $classActive = false;
     public $showInput   = false;
     public $VerifyInput = false;
+
+    protected $listeners = ['submitEvent' => 'submitEvent', 'submitConfirm' => 'submitConfirm'];
 
     public function render()
     {
@@ -65,7 +67,7 @@ class Phone extends Component
             ($query_if_exist && count($query_if_exist) > 0) ? $code_exist = true : $code_exist = false;
         }
 
-        // Twilio::sendMessage( $verification_code, $this->phone );
+        Twilio::sendMessage( $verification_code, $this->phone );
 
         CodeVerification::updateOrCreate(
             [ 'to' => $this->phone ],
@@ -73,23 +75,23 @@ class Phone extends Component
         );
 
         $this->VerifyInput = true;
-        $this->confirmCode = '';
+        $this->confirmCode = null;
     }
 
-    // public function submitConfirm($payload)
-    public function submitConfirm()
+    public function submitConfirm($payload)
     {
-        // $validation = Validator::make([
-        //    'confirmCode' => $this->confirmCode,
-        // ],[
-        //     'confirmCode' => 'required|digits:6|exists:code_verifications,code',
-        // ]);
+        dd('asdasdasd');
+        $validation = Validator::make([
+           'confirmCode' => $this->confirmCode,
+        ],[
+            'confirmCode' => 'required|digits:6|exists:code_verifications,code',
+        ]);
 
-        //     if ($validation->fails()) {
-        //         $validation->validate();
-        //     }
+            if ($validation->fails()) {
+                $validation->validate();
+            }
 
-        // CodeVerification::where('code', $this->confirmCode )->forceDelete();
+        CodeVerification::where('code', $this->confirmCode )->forceDelete();
 
         $query = User::where([ 'id_user' => Auth::id() ])->select('phone', 'other_phone')->first();
 
@@ -139,7 +141,7 @@ class Phone extends Component
             ($query_if_exist && count($query_if_exist) > 0) ? $code_exist = true : $code_exist = false;
         }
 
-        // Twilio::sendMessage( $verification_code, $this->phone );
+        Twilio::sendMessage( $verification_code, $this->phone );
 
         CodeVerification::updateOrCreate(
             [ 'to' => $this->phone ],
@@ -164,9 +166,9 @@ class Phone extends Component
     private function resetInput()
     {
         $this->classActive = !$this->classActive; 
-        $this->phone = '';
-        $this->confirmCode = '';
-        $this->phoneEdit = '';
+        $this->phone = null;
+        $this->confirmCode = null;
+        $this->phoneEdit = null;
         $this->showInput = false;
         $this->VerifyInput = false;
     }

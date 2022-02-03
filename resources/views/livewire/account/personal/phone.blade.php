@@ -70,7 +70,7 @@
 
             @if ( $VerifyInput != true )
 
-                <form wire:submit.prevent class="_form" submitphone>
+                <form wire:submit.prevent="" class="_form" submitphone>
                     <div class="_flfpc">
                         <div class="txt-check-in">Phone number</div>
                         <x-tel-input class="_input-mod email-modals @error('phone') error_input @enderror" type="text" /> 
@@ -92,10 +92,10 @@
                 
             @else
 
-                <form wire:submit.prevent="submitConfirm" class="_form">
+                <form wire:submit.prevent="" submitConfirm class="_form">
                     <div class="_flfpc">
                         <div class="txt-check-in">Confirm your number</div>
-                        <input type="text" class="_input-mod email-modals @error('confirmCode') error_input @enderror" wire:model.lazy="confirmCode">
+                        <input type="text" id="confirmCode" class="_input-mod email-modals @error('confirmCode') error_input @enderror" wire:model="confirmCode">
                         @error('confirmCode')
                             <div  class="_txterror">
                                 <i class="fas fa-exclamation-circle icon1"></i> 
@@ -122,5 +122,10 @@
         $("[submitphone]").submit(function(event) {
             Livewire.emit('submitEvent', $("#phone").val())
         });
+        $("[submitConfirm]").submit(function(event) {
+            Livewire.emit('submitConfirm', $("#confirmCode").val())
+        });
+    </script>
+    <script >
     </script>
 @endpush

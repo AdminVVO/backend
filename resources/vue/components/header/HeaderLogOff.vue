@@ -6,7 +6,7 @@
     	v-click-outside="clickExterno"
 	>
         <a href="#" class="menu_items">
-            <img src="assets/img/icons/hotel.png" alt="">
+            <img :src="logo" alt="">
             Become a Host
         </a>
 
@@ -44,6 +44,7 @@
 <script>
 
     import vClickOutside from 'v-click-outside'
+	import logo from './hotel.png'
 
 	export default {
 
@@ -52,6 +53,7 @@
 		data () {
 			return {
 				'activeClass': false,
+                'logo': logo,
 			}
 		},
 	    directives: {

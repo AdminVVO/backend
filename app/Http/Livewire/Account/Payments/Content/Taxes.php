@@ -20,6 +20,7 @@ class Taxes extends Component
     public $region = null;
     public $editInputs = [];
     public $editInput = null;
+    public $showEdit = false;
 
     public function render()
     {
@@ -39,7 +40,7 @@ class Taxes extends Component
         return view('livewire.account.payments.content.taxes', compact('query'));
     }
 
-    public function submit()
+    public function submitTaxes()
     {
         $validation = Validator::make([
            'name'      => $this->name,
@@ -83,6 +84,65 @@ class Taxes extends Component
         $this->resetVal();
     }
 
+    public function submitEditTaxes()
+    {
+        $validation = Validator::make([
+           'name'      => $this->name,
+           'id_ein'    => $this->id_ein,
+           'address_1' => $this->address_1,
+           'address_2' => $this->address_2,
+           'zip_code'  => $this->zip_code,
+           'city'      => $this->city,
+           'country'   => $this->country,
+           'region'    => $this->region,
+        ],[
+           'name'      => 'required',
+           'id_ein'    => 'required',
+           'address_1' => 'required',
+           'address_2' => 'required',
+           'zip_code'  => 'required|regex:/^[0-9]+$/',
+           'city'      => 'required',
+           'region'    => 'required',
+           'country'   => 'in:US,VE',
+        ]);
+
+            if ($validation->fails()) {
+                $validation->validate();
+            }
+
+        TaxeModel::where([
+            'user_id'     => Auth::id(),
+            'id_taxes' => TaxeModel::where(['id_ein' => $this->editInputs[ $this->editInput ]['id_ein'], 'user_id' => Auth::id() ])->pluck('id_taxes'),
+        ])->update([
+            'name'      => $this->name,
+            'id_ein'    => $this->id_ein,
+            'address_1' => $this->address_1,
+            'address_2' => $this->address_2,
+            'zip_code'  => $this->zip_code,
+            'city'      => $this->city,
+            'region'    => $this->region,
+            'country'   => $this->country,
+        ]);
+
+        $this->resetVal();
+    }
+
+    public function editModal($payload)
+    {
+        $this->resetVal();
+        $this->editInput = $payload;
+        $this->name = $this->editInputs[$payload]['name'];
+        $this->id_ein = $this->editInputs[$payload]['id_ein'];
+        $this->country = $this->editInputs[$payload]['country'];
+        $this->address_1 = $this->editInputs[$payload]['address_1'];
+        $this->address_2 = $this->editInputs[$payload]['address_2'];
+        $this->zip_code = $this->editInputs[$payload]['zip_code'];
+        $this->city = $this->editInputs[$payload]['city'];
+        $this->region = $this->editInputs[$payload]['region'];
+        $this->showModal = true;
+        $this->showEdit = true;
+    }
+
     public function showModal()
     {
         $this->resetVal();
@@ -106,7 +166,7 @@ class Taxes extends Component
         $this->zip_code = null;
         $this->city = null;
         $this->region = null;
-        $this->editInputs = [];
         $this->editInput = null;
+        $this->showEdit = false;
     }
 }

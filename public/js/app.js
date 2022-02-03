@@ -5356,6 +5356,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _HeaderLogOn_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./HeaderLogOn.vue */ "./resources/vue/components/header/HeaderLogOn.vue");
 /* harmony import */ var _HeaderLogOff_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./HeaderLogOff.vue */ "./resources/vue/components/header/HeaderLogOff.vue");
+/* harmony import */ var _logo_png__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./logo.png */ "./resources/vue/components/header/logo.png");
 //
 //
 //
@@ -5381,6 +5382,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -5392,7 +5394,8 @@ __webpack_require__.r(__webpack_exports__);
   props: ['isLoggedIn', 'authLoggedIn'],
   data: function data() {
     return {
-      'showGuest': false
+      'showGuest': false,
+      'img': _logo_png__WEBPACK_IMPORTED_MODULE_2__["default"]
     };
   },
   methods: {
@@ -5417,6 +5420,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var v_click_outside__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! v-click-outside */ "./node_modules/v-click-outside/dist/v-click-outside.umd.js");
 /* harmony import */ var v_click_outside__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(v_click_outside__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _hotel_png__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./hotel.png */ "./resources/vue/components/header/hotel.png");
 //
 //
 //
@@ -5461,11 +5465,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: 'HeaderLogOff',
   data: function data() {
     return {
-      'activeClass': false
+      'activeClass': false,
+      'logo': _hotel_png__WEBPACK_IMPORTED_MODULE_1__["default"]
     };
   },
   directives: {
@@ -5496,6 +5502,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var v_click_outside__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! v-click-outside */ "./node_modules/v-click-outside/dist/v-click-outside.umd.js");
 /* harmony import */ var v_click_outside__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(v_click_outside__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _hotel_png__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./hotel.png */ "./resources/vue/components/header/hotel.png");
+/* harmony import */ var _user_png__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./user.png */ "./resources/vue/components/header/user.png");
 //
 //
 //
@@ -5542,11 +5550,15 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 
+
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: 'HeaderLogOn',
   data: function data() {
     return {
-      'activeClass': false
+      'activeClass': false,
+      'logo': _hotel_png__WEBPACK_IMPORTED_MODULE_1__["default"],
+      'user': _user_png__WEBPACK_IMPORTED_MODULE_2__["default"]
     };
   },
   directives: {
@@ -12338,6 +12350,51 @@ module.exports = function (cssWithMappingToString) {
 
   return list;
 };
+
+/***/ }),
+
+/***/ "./resources/vue/components/header/hotel.png":
+/*!***************************************************!*\
+  !*** ./resources/vue/components/header/hotel.png ***!
+  \***************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/hotel.png?9c7dec131b3535862f650f8b68580703");
+
+/***/ }),
+
+/***/ "./resources/vue/components/header/logo.png":
+/*!**************************************************!*\
+  !*** ./resources/vue/components/header/logo.png ***!
+  \**************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/logo.png?e779c1a2ef2c87cddc9eb80c9131ad96");
+
+/***/ }),
+
+/***/ "./resources/vue/components/header/user.png":
+/*!**************************************************!*\
+  !*** ./resources/vue/components/header/user.png ***!
+  \**************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/user.png?6eaa0571c0ef1a374214b016211c29cd");
 
 /***/ }),
 
@@ -31254,7 +31311,9 @@ var render = function () {
         "div",
         { staticClass: "medio" },
         [
-          _vm._m(0),
+          _c("a", { staticClass: "logo-menu", attrs: { href: "/" } }, [
+            _c("img", { attrs: { src: _vm.img, alt: "logo" } }),
+          ]),
           _vm._v(" "),
           _vm.isLoggedIn
             ? _c("HeaderLogOn", { attrs: { authLoggedIn: _vm.authLoggedIn } })
@@ -31271,16 +31330,7 @@ var render = function () {
     ]),
   ])
 }
-var staticRenderFns = [
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("a", { staticClass: "logo-menu", attrs: { href: "/" } }, [
-      _c("img", { attrs: { src: "assets/img/logo.png", alt: "logo" } }),
-    ])
-  },
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -31323,9 +31373,12 @@ var render = function () {
       },
     },
     [
-      _vm._m(0),
+      _c("a", { staticClass: "menu_items", attrs: { href: "#" } }, [
+        _c("img", { attrs: { src: _vm.logo, alt: "" } }),
+        _vm._v("\n            Become a Host\n        "),
+      ]),
       _vm._v(" "),
-      _vm._m(1),
+      _vm._m(0),
       _vm._v(" "),
       _c("div", { staticClass: "menu_home-content" }, [
         _c("div", { staticClass: "menu_home-content-items" }, [
@@ -31376,15 +31429,6 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("a", { staticClass: "menu_items", attrs: { href: "#" } }, [
-      _c("img", { attrs: { src: "assets/img/icons/hotel.png", alt: "" } }),
-      _vm._v("\n            Become a Host\n        "),
-    ])
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
     return _c("div", { staticClass: "_menu-bars" }, [
       _c("i", { staticClass: "fas fa-bars" }),
     ])
@@ -31413,16 +31457,14 @@ var render = function () {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "menu _header-menu" }, [
-    _vm._m(0),
+    _c("a", { staticClass: "menu_items", attrs: { href: "#" } }, [
+      _c("img", { attrs: { src: _vm.logo, alt: "" } }),
+      _vm._v("\n        Become a Host\n    "),
+    ]),
     _vm._v(" "),
     _c("a", { staticClass: "menu_perfil", attrs: { href: "#" } }, [
       _c("span", [
-        _c("img", {
-          attrs: {
-            src: "assets/img/avatar/" + _vm.authLoggedIn.avatar,
-            alt: "",
-          },
-        }),
+        _c("img", { attrs: { src: _vm.user, alt: "" } }),
         _vm._v(
           "\n            " +
             _vm._s(_vm.split_name[0] + " " + _vm.split_lastname[0]) +
@@ -31431,20 +31473,20 @@ var render = function () {
       ]),
     ]),
     _vm._v(" "),
-    _vm._m(1),
+    _vm._m(0),
     _vm._v(" "),
     _c("div", { staticClass: "menu_home-content" }, [
       _c("div", { staticClass: "menu_home-content-items" }, [
-        _vm._m(2),
+        _vm._m(1),
         _vm._v(" "),
         _c("hr", { staticClass: "br-line" }),
         _vm._v(" "),
         _c("ul", [
+          _vm._m(2),
+          _vm._v(" "),
           _vm._m(3),
           _vm._v(" "),
           _vm._m(4),
-          _vm._v(" "),
-          _vm._m(5),
           _vm._v(" "),
           _c("li", [
             _c(
@@ -31466,15 +31508,6 @@ var render = function () {
   ])
 }
 var staticRenderFns = [
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("a", { staticClass: "menu_items", attrs: { href: "#" } }, [
-      _c("img", { attrs: { src: "assets/img/icons/hotel.png", alt: "" } }),
-      _vm._v("\n        Become a Host\n    "),
-    ])
-  },
   function () {
     var _vm = this
     var _h = _vm.$createElement
