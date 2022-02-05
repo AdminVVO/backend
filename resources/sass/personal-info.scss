@@ -61,3 +61,51 @@
         }
     }
 }
+
+.section_photo-id {
+    margin: 0 49px;
+
+    @include responsive(760px) {
+        margin: 0 25px;
+    }
+
+    @include responsive(500px) {
+        margin: 0;
+    }
+
+    .h2_publish {
+        @include responsive(900px) {
+            line-height: normal;
+        }
+    }
+
+    ._gap {
+        margin: 43px 0 32px;
+        gap: 18px;
+
+        @include responsive(900px) {
+            margin: 24px 0 28px;
+        }
+
+        .radio-item_rscrm {
+            label {
+                align-items: center;
+
+                .before_check {
+                    @include responsive(900px) {
+                        max-width: 35px;
+                        min-height: 35px;
+                    }
+
+                    &::after {
+                        @include responsive(900px) {
+                            font-size: 18px;
+                            bottom: 4px;
+                            right: 4px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

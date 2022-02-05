@@ -53,6 +53,8 @@ Route::prefix('account')->middleware(['AccountDisable', 'auth'])->group( functio
     Route::get('personal_info', [AccountController::class, 'viewPersonalInfo'])->name('personal_info');
     Route::get('login_segurity', [AccountController::class, 'viewLoginSecury'])->name('login_segurity');
     Route::get('payment_payouts', [AccountController::class, 'viewPaymentsPayouts'])->name('payment_payouts');
+    Route::get('govermID', [AccountController::class, 'viewAddPhotoGovermID'])->name('govermID');
+    Route::get('global_preferen', [AccountController::class, 'viewGlobalPreferences'])->name('global_preferen');
 
     ## We received the response from Google
     // Route::any('callback', [LoginOrRegisterForSocialsController::class, 'callbackFromGoogle'])->name('callback');
@@ -108,4 +110,4 @@ Route::prefix('facebook')->name('facebook.')->group( function(){
 });
 
 // ## If a route does not exist, return error 404 !! Always go last this route !!
-// Route::get('{any}', [HomeController::class, 'index'])->name('index');
+Route::get('{any}', [HomeController::class, 'index'])->name('index');

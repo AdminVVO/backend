@@ -99,3 +99,12 @@
         </div>
     </div>
 </div>
+
+@push('scripts')
+    <script>
+        window.livewire.on('reloadClassCSs', function() {
+            $(".content-dots span.dot:first-child").addClass("dot_active");
+            $(".card_img > img:first-child").addClass("card_img_active");
+        });
+    </script>
+@endpush

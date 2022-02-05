@@ -31,15 +31,11 @@ class User extends Authenticatable
         'facebook_token',
         'language_default',
         'currency_default',
-        'country',
-        'street_address',
-        'suite',
-        'city',
+        'timezone_default',
         'acount_actived',
-        'state',
-        'zip_code',
         'service_fee',
         'constributions',
+        'govermen_id',
     ];
 
     protected $hidden = [

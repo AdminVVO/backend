@@ -249,23 +249,6 @@ a {
     width: 100%;
   }
 }
-.section-payments_aside ._cont-account ._flex-sbet {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 24px 0;
-}
-.section-payments_aside ._cont-account ._flex-sbet:not(:last-child) {
-  border-bottom: 2px solid #E3EDF3;
-}
-.section-payments_aside ._cont-account ._flex-sbet ._txtblu {
-  margin-bottom: 0;
-}
-.section-payments_aside ._cont-account ._flex-sbet i {
-  font-size: 16px;
-  color: #00B5DD;
-  margin-bottom: 0;
-}
 
 .section-taxes {
   margin-bottom: 100px;

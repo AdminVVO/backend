@@ -2,13 +2,16 @@
 
 namespace App\Http\Livewire\Account\Personal;
 
-use App\Models\EmergencyUsers;
+use App\Models\EmergencyContact;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use Livewire\Component;
+use Jantinnerezo\LivewireAlert\LivewireAlert;
 
 class Emergency extends Component
 {
+    use LivewireAlert;
+    
     public $name = null;
     public $relationship = null;
     public $language = null;
@@ -17,7 +20,6 @@ class Emergency extends Component
     public $phone = null;
     public $phone_country = null;
     public $classActive = false;
-    public $isLoad = false;
     public $inputEdit = [
         'name' => '',
         'relationship' => '',
@@ -31,7 +33,7 @@ class Emergency extends Component
 
     public function render()
     {
-        $query = EmergencyUsers::where(['user_id' => Auth::id()])->select('name', 'relationship', 'language', 'email', 'country', 'phone')->first();
+        $query = EmergencyContact::where(['user_id' => Auth::id()])->select('name', 'relationship', 'language', 'email', 'country', 'phone')->first();
         
         if ( $query ) {
             $this->inputEdit['name']         = $query['name'];
@@ -47,7 +49,6 @@ class Emergency extends Component
 
     public function statusUpdate()
     {
-        $this->classActive = !$this->classActive;
         $this->resetValidation();
         $this->resetInput();
         $this->name         = $this->inputEdit['name'];
@@ -60,7 +61,6 @@ class Emergency extends Component
 
     public function submitphoneEmergency($payload)
     {   
-        $this->isLoad = true; 
         $this->phone = $payload;
 
         $validation = Validator::make([
@@ -79,34 +79,42 @@ class Emergency extends Component
             'phone'        => 'required|min:6'
         ]);
 
-            if ($validation->fails()) {
-                $this->isLoad = false; 
+            if ($validation->fails())
                 $validation->validate();
-            }
 
-        EmergencyUsers::updateOrCreate(
-            [ 'user_id' => Auth::id() ],
-            [
-               'name'         => $this->name,
-               'relationship' => $this->relationship,
-               'language'     => $this->language,
-               'email'        => $this->email,
-               'country'      => $this->country,
-               'phone'        => $this->phone
-            ]
-        );
+        try {
+            
+            EmergencyContact::updateOrCreate(
+                [ 'user_id' => Auth::id() ],
+                [
+                   'name'         => $this->name,
+                   'relationship' => $this->relationship,
+                   'language'     => $this->language,
+                   'email'        => $this->email,
+                   'country'      => $this->country,
+                   'phone'        => $this->phone
+                ]
+            );
 
-        $this->resetInput();
-        $this->classActive = !$this->classActive; 
+            $this->resetInput();
+            $this->alert('success', 'Update has been successful!');
+            
+        } catch (Exception $e) {
+
+            $this->resetInput();
+            $this->alert('error', 'Update has failed!');
+
+        }
     }
+
     private function resetInput()
     {
+        $this->classActive = !$this->classActive; 
         $this->name = null;
         $this->relationship = null;
         $this->language = null;
         $this->email = null;
         $this->country = null;
         $this->phone = null;
-        $this->isLoad = false; 
     }
 }

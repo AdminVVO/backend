@@ -6,12 +6,14 @@ use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use Livewire\Component;
+use Jantinnerezo\LivewireAlert\LivewireAlert;
 
 class Email extends Component
 {
+    use LivewireAlert;
+
     public $email;
     public $classActive = false;
-    public $isLoad = false;
     public $inputEdit = [
         'email' => ''
     ];
@@ -28,39 +30,44 @@ class Email extends Component
 
     public function statusUpdate()
     {
-        $this->classActive = !$this->classActive;
         $this->resetValidation();
         $this->resetInput();
         $this->email = $this->inputEdit['email'];
     }
 
-    public function submit()
+    public function submitEmail()
     {   
-        $this->isLoad = true; 
-
         $validation = Validator::make([
            'email' => $this->email,
         ],[
             'email' => 'required|email',
         ]);
 
-            if ($validation->fails()) {
-                $this->isLoad = false; 
+            if ($validation->fails())
                 $validation->validate();
-            }
 
-        User::where([
-            'id_user' => Auth::id(),
-        ])->update([
-            'email' => $this->email,
-        ]);
+        try {
+            
+            User::where([
+                'id_user' => Auth::id(),
+            ])->update([
+                'email' => $this->email,
+            ]);
 
-        $this->resetInput();
-        $this->classActive = !$this->classActive; 
+            $this->resetInput();
+            $this->alert('success', 'Update has been successful!');
+            
+        } catch (Exception $e) {
+
+            $this->resetInput();
+            $this->alert('error', 'Update has failed!');
+
+        }
     }
+
     private function resetInput()
     {
+        $this->classActive = !$this->classActive;
         $this->email = null;
-        $this->isLoad = false; 
     }
 }

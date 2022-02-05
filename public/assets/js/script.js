@@ -49,3 +49,17 @@ if (!$menuBars.is(e.target) && $menuBars.has(e.target).length === 0) {
 $('._menu-bars').on('click', () => {
     $menuBars.toggleClass('is-active');
 });
+
+
+// TABLA OPTIONS ...
+const $puntos = $('._puntos3');
+
+$(document).mouseup(e => {
+if (!$puntos.is(e.target) && $puntos.has(e.target).length === 0) {
+        $puntos.removeClass('is-active');
+    }
+});
+
+$('._options').click(function(){
+    $(this).parent($puntos).toggleClass("is-active");
+})

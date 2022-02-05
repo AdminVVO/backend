@@ -7,3 +7,13 @@
         <button class="btn-celest" wire:click="desactiveAccount()">Desactivate</button>
     </div>
 </div>
+
+@push('scripts')
+    <script>
+        window.livewire.on('reloadDisableAccount', function() {
+            setTimeout(function(){
+                location.reload();
+            }, 2500);
+        });
+    </script>
+@endpush

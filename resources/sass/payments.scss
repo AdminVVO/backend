@@ -230,27 +230,6 @@
             @include responsive(430px) {
                 width: 100%;
             }
-
-            ._flex-sbet {
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
-                padding: 24px 0;
-
-                &:not(:last-child) {
-                    border-bottom: 2px solid #E3EDF3;
-                }
-
-                ._txtblu {
-                    margin-bottom: 0;
-                }
-
-                i {
-                    font-size: 16px;
-                    color: #00B5DD;
-                    margin-bottom: 0;
-                }
-            }
         }
     }
 }

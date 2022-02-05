@@ -7,12 +7,14 @@ use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use Livewire\Component;
+use Jantinnerezo\LivewireAlert\LivewireAlert;
 
 class Datebirth extends Component
 {
+    use LivewireAlert;
+
     public $datebirth = null;
     public $classActive = false;
-    public $isLoad = false;
     public $inputEdit = [
         'date_birth' => ''
     ];
@@ -29,7 +31,6 @@ class Datebirth extends Component
 
     public function statusUpdate()
     {
-        $this->classActive = !$this->classActive;
         $this->resetValidation();
         $this->resetInput();
 
@@ -37,10 +38,8 @@ class Datebirth extends Component
                 $this->datebirth = Carbon::parse( $this->inputEdit['date_birth'], 'UTC')->format('Y-m-d');
     }
 
-    public function submit()
+    public function submitDatebirth()
     {   
-        $this->isLoad = true; 
-        
         $yearInQuestion = date("Y-m-d",strtotime( date("Y-m-d") . "- 18 year"));
 
         $validation = Validator::make([
@@ -49,23 +48,31 @@ class Datebirth extends Component
             'datebirth' => 'required|date|before:' . $yearInQuestion,
         ]);
 
-            if ($validation->fails()) {
-                $this->isLoad = false; 
+            if ($validation->fails())
                 $validation->validate();
-            }
 
-        User::where([
-            'id_user' => Auth::id(),
-        ])->update([
-            'date_birth' => Carbon::parse( $this->datebirth, 'UTC')->format('Y-m-d')
-        ]);
+        try {
 
-        $this->resetInput();
-        $this->classActive = !$this->classActive; 
+            User::where([
+                'id_user' => Auth::id(),
+            ])->update([
+                'date_birth' => Carbon::parse( $this->datebirth, 'UTC')->format('Y-m-d')
+            ]);
+
+            $this->resetInput();
+            $this->alert('success', 'Update has been successful!');
+            
+        } catch (Exception $e) {
+
+            $this->resetInput();
+            $this->alert('error', 'Update has failed!');
+
+        }
     }
+
     private function resetInput()
     {
+        $this->classActive = !$this->classActive;
         $this->datebirth = null;
-        $this->isLoad = false; 
     }
 }

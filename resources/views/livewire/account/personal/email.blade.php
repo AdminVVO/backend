@@ -27,7 +27,7 @@
         @endif
         
         <div class="_txtec show">Use an address you'll always have access to.</div>
-        <form wire:submit.prevent="submit" class="_form">
+        <form wire:submit.prevent="submitEmail" class="_form">
             <div class="_flfpc">
                 <div class="txt-check-in">Address Email</div>
                 <input type="text" class="_input-mod email-modals @error('email') error_input @enderror" wire:model.lazy="email" placeholder="Examples@demo.com">
@@ -39,12 +39,10 @@
                 @enderror
             </div>
 
-            <div class="block_a">
-                <button type="submit" class="btn-celest btns-modals" wire:loading.class="activeLoading" wire:loading.attr="disabled">
-                    Save
-                    <div class="loading-btn loading-btn-modal"></div>
-                </button>
-            </div>
+            <button type="submit" class="btn-celest btns-modals" wire:loading.class="activeLoading" wire:loading.attr="disabled">
+                Save
+                <div class="loading-btn loading-btn-modal"></div>
+            </button>
         </form>
     </div>
 </div>

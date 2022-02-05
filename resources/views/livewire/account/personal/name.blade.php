@@ -21,7 +21,7 @@
         </div>
         <div class="_txtec none">{{ $query['name'] }} {{ $query['last_name'] }}</div>
         <div class="_txtec show">This is the name on your travel document, which could be a license or a passport.</div>
-        <form wire:submit.prevent="submit" class="_form">
+        <form wire:submit.prevent="submitName" class="_form">
             <div class="_flfpc">
                 <div class="block_date">
                     <div class="txt-check-in">First Name</div>
@@ -46,12 +46,10 @@
                 </div>
             </div>
 
-            <div class="block_a">
-                <button type="submit" class="btn-celest btns-modals" wire:loading.class="activeLoading" wire:loading.attr="disabled">
-                    Save
-                    <div class="loading-btn loading-btn-modal"></div>
-                </button>
-            </div>
+            <button type="submit" class="btn-celest btns-modals" wire:loading.class="activeLoading" wire:loading.attr="disabled">
+                Save
+                <div class="loading-btn loading-btn-modal"></div>
+            </button>
         </form>
     </div>
 </div>

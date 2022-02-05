@@ -32,7 +32,7 @@
         @endif
 
         <div class="_txtec show">Use a permanent address where you can receive mail.</div>
-        <form wire:submit.prevent="submit" class="_form">
+        <form wire:submit.prevent="submitAddress" class="_form">
             <div class="txt-check-in">Country/region</div>
             <div class="selected-modal">
                 <select wire:model.lazy="country" class="@error('country') error_input @enderror">
@@ -106,12 +106,10 @@
                 </div>
             </div>
 
-            <div class="block_a">
-                <button type="submit" class="btn-celest btns-modals" wire:loading.class="activeLoading" wire:loading.attr="disabled">
-                    Save
-                    <div class="loading-btn loading-btn-modal"></div>
-                </button>
-            </div>
+            <button type="submit" class="btn-celest btns-modals" wire:loading.class="activeLoading" wire:loading.attr="disabled">
+                Save
+                <div class="loading-btn loading-btn-modal"></div>
+            </button>
         </form>
     </div>
 </div>

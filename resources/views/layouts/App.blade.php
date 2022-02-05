@@ -31,15 +31,11 @@
     {{-- @include('language.Language') --}}
     @yield('content')
     @include('layouts.Footer')
-    @include('layouts.Scripts')
     @livewireScripts
+    @include('layouts.Scripts')
     @laravelTelInputScripts
-    <script>
-        window.livewire.on('reloadClassCSs', function() {
-            $(".content-dots span.dot:first-child").addClass("dot_active");
-            $(".card_img > img:first-child").addClass("card_img_active");
-        });
-    </script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <x-livewire-alert::scripts />
 </body>
 
 </html>

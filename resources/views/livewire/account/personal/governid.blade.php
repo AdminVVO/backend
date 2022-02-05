@@ -19,17 +19,26 @@
                 </span>
             </a>
         </div>
-        <div class="_txtec">Not provided</div>
+        
+        @if ( empty( $query ) )
+            <div class="_txtec none">Not provided</div>
+        @else
+            <div class="_txtec none">1 File uploaded</div>
+        @endif
 
-        <form wire:submit.prevent="submit" class="_form">
-            <div class="txt-check-in">AUN NO TENGO NADA QUE MOSTRAR</div>
-            
-            <div class="block_a">
-                <button type="submit" class="btn-celest btns-modals" wire:loading.class="activeLoading" wire:loading.attr="disabled">
-                    Save
-                    <div class="loading-btn loading-btn-modal"></div>
-                </button>
-            </div>
+        <form class="_form">
+            @if ( !empty( $query ) )
+                <div class="txt-check-in">Government ID uploaded</div>
+                <a href="{{ URL::asset('storage/GovernID/') }}/{{ $query }}" target="_blank" class="_cont-edit" style="padding-top: 25px;">
+                    <img src="{{ URL::asset('storage/GovernID/') }}/{{ $query }}" width="300" height="300">
+                </a>
+            @endif
+
+            @if ( empty( $query ) )
+                <a href="{{ route('govermID') }}" class="btn-celest">Add Government ID</a>
+            @else
+                <a href="{{ route('govermID') }}" class="btn-celest">Change Government ID</a>
+            @endif
         </form>
     </div>
 </div>

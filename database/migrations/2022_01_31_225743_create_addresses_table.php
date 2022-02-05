@@ -14,15 +14,22 @@ class CreateAddressesTable extends Migration
     public function up()
     {
         Schema::create('addresses', function (Blueprint $table) {
-            $table->id();
-            $table->string('cod');
-            $table->string('country');
-            $table->string('address');
-            $table->string('apartment');
-            $table->string('city');
-            $table->string('state');
-            $table->string('zipCode');
+            $table->increments('id_addresses');
+            $table->string('country')->nullable();
+            $table->string('street_address')->nullable();
+            $table->string('suite')->nullable();
+            $table->string('city')->nullable();
+            $table->string('state')->nullable();
+            $table->string('zip_code')->nullable();
+
+            $table->unsignedInteger('user_id');
+            $table->foreign('user_id')
+                ->references('id_user')
+                ->on('users')
+                ->onDelete('cascade');
+                
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
@@ -36,3 +43,5 @@ class CreateAddressesTable extends Migration
         Schema::dropIfExists('addresses');
     }
 }
+
+

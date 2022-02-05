@@ -26,10 +26,10 @@
             <div class="_txtec none">{{ $query }}</div>
         @endif
 
-        <form wire:submit.prevent="submit" class="_form">
+        <form wire:submit.prevent="submitGender" class="_form">
             <div class="selected-modal">
                 <select wire:model.lazy="gender" class="@error('gender') error_input @enderror">
-                    <option value="0" selected>Choose...</option>
+                    <option value="0">Choose...</option>
                     <option value="Male">Male</option>
                     <option value="Female">Female</option>
                 </select>
@@ -42,12 +42,11 @@
                     {{ $message }}
                 </div>
             @enderror
-            <div class="block_a">
-                <button type="submit" class="btn-celest btns-modals" wire:loading.class="activeLoading" wire:loading.attr="disabled">
-                    Save
-                    <div class="loading-btn loading-btn-modal"></div>
-                </button>
-            </div>
+
+            <button type="submit" class="btn-celest btns-modals" wire:loading.class="activeLoading" wire:loading.attr="disabled">
+                Save
+                <div class="loading-btn loading-btn-modal"></div>
+            </button>
         </form>
     </div>
 </div>
