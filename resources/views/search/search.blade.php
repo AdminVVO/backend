@@ -3,6 +3,9 @@
 @section('title') Search @endsection
 
 @section('css')
+    <link href="{{ URL::asset('assets/css/home.css') }}" rel="stylesheet" />
+    {{-- <link href="{{ URL::asset('assets/css/header-bck.css') }}" rel="stylesheet" /> --}}
+    <link href="{{ URL::asset('assets/css/category.css') }}" rel="stylesheet" />
     <!-- Estilos de Search.php -->
     <link rel="stylesheet" href="{{ URL::asset('assets/css/header-bck.css') }}">
     <link rel="stylesheet" href="{{ URL::asset('assets/css/owl.carousel.min.css') }}">
@@ -12,13 +15,6 @@
     <link rel="stylesheet" href="{{ URL::asset('assets/css/search-flexible.css') }}">
     {{-- css mapa --}}
     <link href='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css' rel='stylesheet' />
-    {{-- csss --}}
-    <style>
-        .mapboxgl-popup {
-        max-width: 400px;
-        font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
-        }
-    </style>
 @endsection
 
 @section('content')
@@ -53,5 +49,6 @@
         <script src="{{ URL::asset('assets/js/modals-session.js') }}"></script>
         <script src="{{ URL::asset('assets/js/card-location.js') }}"></script>
         <script src="{{ URL::asset('assets/js/modals-session.js') }}"></script>
+        
 
 @endsection
