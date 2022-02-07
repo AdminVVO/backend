@@ -36,4 +36,14 @@ class AccountController extends Controller
     {
         return view('account.PaymentPayouts');
     }
+
+    public function viewAddPhotoGovermID()
+    {
+        return view('account.GovermeID');
+    }
+
+    public function viewGlobalPreferences()
+    {
+        return view('account.GlobalPreferenc');
+    }
 }

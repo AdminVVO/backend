@@ -25,11 +25,11 @@
                             </span>
                         </a>
                     @else
-                        <a class="_btnsm">
+                        <div class="_btnsm">
                             <span class="_fcontent">
                                 This device
                             </span>
-                        </a>
+                        </div>
                     @endif
                 </div>
             @endforeach

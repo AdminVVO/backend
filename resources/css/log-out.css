@@ -397,23 +397,9 @@ input {
   flex-direction: column;
   gap: 3px;
 }
-.container_add-payments .pd_addpymts-modal .modal_content-addpymts .modal_block .content_hidden-addpymts .site-content ._gap .radio-item_rscrm label .flex-msg ._flex {
-  display: flex;
-  align-items: baseline;
-}
-.container_add-payments .pd_addpymts-modal .modal_content-addpymts .modal_block .content_hidden-addpymts .site-content ._gap .radio-item_rscrm label .flex-msg ._flex .red_guion {
-  width: 14.8px;
-}
 .container_add-payments .pd_addpymts-modal .modal_content-addpymts .modal_block .content_hidden-addpymts .site-content ._block {
   display: flex;
   align-items: center;
-  gap: 22px;
-  flex-wrap: wrap;
-}
-.container_add-payments .pd_addpymts-modal .modal_content-addpymts .modal_block .content_hidden-addpymts .site-content ._block-jsb {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
   gap: 22px;
   flex-wrap: wrap;
 }

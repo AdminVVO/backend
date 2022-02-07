@@ -2,13 +2,16 @@
 
 namespace App\Http\Livewire\Account\Personal;
 
-use App\Models\User;
+use App\Models\Address as AddressModel;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use Livewire\Component;
+use Jantinnerezo\LivewireAlert\LivewireAlert;
 
 class Address extends Component
 {
+    use LivewireAlert;
+    
     public $country = null;
     public $street_address = null;
     public $suite = null;
@@ -16,7 +19,6 @@ class Address extends Component
     public $state = null;
     public $zip_code = null;
     public $classActive = false;
-    public $isLoad = false;
     public $inputEdit = [
         'country'        => '',
         'street_address' => '',
@@ -28,7 +30,7 @@ class Address extends Component
 
     public function render()
     {
-        $query = User::where(['id_user' => Auth::id() ])->select('country', 'street_address', 'suite', 'city', 'state', 'zip_code')->first();
+        $query = AddressModel::where(['user_id' => Auth::id() ])->select('country', 'street_address', 'suite', 'city', 'state', 'zip_code')->first();
      
         if ( $query ){
             $this->inputEdit['country']        = $query['country'];
@@ -44,7 +46,6 @@ class Address extends Component
 
     public function statusUpdate()
     {
-        $this->classActive = !$this->classActive;
         $this->resetValidation();
         $this->resetInput();
         $this->country        = $this->inputEdit['country'];
@@ -55,10 +56,8 @@ class Address extends Component
         $this->zip_code       = $this->inputEdit['zip_code'];
     }
 
-    public function submit()
+    public function submitAddress()
     {   
-        $this->isLoad = true;
-
         $validation = Validator::make([
            'country'        => $this->country,
            'street_address' => $this->street_address,
@@ -75,33 +74,42 @@ class Address extends Component
             'zip_code'       => 'regex:/^[0-9]+$/',
         ]);
 
-            if ($validation->fails()) {
-                $this->isLoad = false; 
+            if ($validation->fails())
                 $validation->validate();
-            }
 
-        User::where([
-            'id_user' => Auth::id(),
-        ])->update([
-            'country'        => $this->country,
-            'street_address' => $this->street_address,
-            'suite'          => $this->suite,
-            'city'           => $this->city,
-            'state'          => $this->state,
-            'zip_code'       => $this->zip_code
-        ]);
+        try {
+            
+            AddressModel::updateOrCreate(
+                [ 'user_id' => Auth::id() ],
+                [
+                    'country'        => $this->country,
+                    'street_address' => $this->street_address,
+                    'suite'          => $this->suite,
+                    'city'           => $this->city,
+                    'state'          => $this->state,
+                    'zip_code'       => $this->zip_code
+                ]
+            );
 
-        $this->resetInput();
-        $this->classActive = !$this->classActive; 
+            $this->resetInput();
+            $this->alert('success', 'Update has been successful!');
+            
+        } catch (Exception $e) {
+
+            $this->resetInput();
+            $this->alert('error', 'Update has failed!');
+
+        }
     }
+
     private function resetInput()
     {
+        $this->classActive = !$this->classActive;
         $this->country = null;
         $this->street_address = null;
         $this->suite = null;
         $this->city = null;
         $this->state = null;
         $this->zip_code = null;
-        $this->isLoad = false; 
     }
 }

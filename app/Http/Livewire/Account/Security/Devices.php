@@ -6,9 +6,12 @@ use Livewire\Component;
 use DB;
 use Jenssegers\Agent\Agent;
 use Session;
+use Jantinnerezo\LivewireAlert\LivewireAlert;
 
 class Devices extends Component
 {
+    use LivewireAlert;
+
     public function render()
     {
         $agent = new Agent();
@@ -38,9 +41,20 @@ class Devices extends Component
 
     public function logoutDevice($device)
     {
-        DB::table('sessions')
-            ->where('id', $device)
-            ->where('user_id', auth()->id())
-            ->delete();
+        try {
+            
+            DB::table('sessions')
+                ->where('id', $device)
+                ->where('user_id', auth()->id())
+                ->delete();
+
+            $this->alert('success', 'Logout device successful!');
+            
+        } catch (Exception $e) {
+
+            $this->resetInput();
+            $this->alert('error', 'Update has failed!');
+
+        }
     }
 }

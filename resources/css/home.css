@@ -39,7 +39,7 @@ a {
 .home {
   width: 100%;
   height: 850px;
-  background-image: url("https://vivevacationsoutlet.com/news/assets/img/pano-home.png");
+  background-image: url("../img/pano-home.png");
   background-size: cover;
   background-repeat: no-repeat;
   overflow: hidden;

@@ -87,7 +87,7 @@
                         <div class="txt-check-in">Country/region</div>
                         <div class="selected-modal">
                             <select wire:model.lazy="country" class="@error('country') error_input @enderror">
-                                <option value="0" selected>Choose...</option>
+                                <option value="0">Choose...</option>
                                 <option value="NY">Nueva York</option>
                                 <option value="CA">California</option>
                             </select>
@@ -106,7 +106,7 @@
                         <div class="txt-check-in">Preferred language</div>
                         <div class="selected-modal">
                             <select wire:model.lazy="language" class="@error('language') error_input @enderror">
-                                <option value="0" selected>Choose...</option>
+                                <option value="0">Choose...</option>
                                 <option value="ES">España</option>
                                 <option value="EN">Estados Unidos</option>
                             </select>
@@ -122,12 +122,10 @@
                     </div>
                 </div>
 
-                <div class="block_a">
-                    <button type="submit" class="btn-celest btns-modals" wire:loading.class="activeLoading" wire:loading.attr="disabled">
-                        Save
-                        <div class="loading-btn loading-btn-modal"></div>
-                    </button>
-                </div>
+                <button type="submit" class="btn-celest btns-modals" wire:loading.class="activeLoading" wire:loading.attr="disabled">
+                    Save
+                    <div class="loading-btn loading-btn-modal"></div>
+                </button>
             </form>
     </div>
 </div>

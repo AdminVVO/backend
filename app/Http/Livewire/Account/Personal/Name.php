@@ -6,14 +6,15 @@ use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use Livewire\Component;
+use Jantinnerezo\LivewireAlert\LivewireAlert;
 
 class Name extends Component
 {
+    use LivewireAlert;
 
     public $name = null;
     public $last_name = null;
     public $classActive = false;
-    public $isLoad = false;
     public $inputEdit = [
         'name' => '',
         'last_name' => '',
@@ -33,17 +34,14 @@ class Name extends Component
 
     public function statusUpdate()
     {
-        $this->classActive = !$this->classActive;
         $this->resetValidation();
         $this->resetInput();
         $this->name = $this->inputEdit['name'];
         $this->last_name = $this->inputEdit['last_name'];
     }
 
-    public function submit()
+    public function submitName()
     {   
-        $this->isLoad = true; 
-
         $validation = Validator::make([
            'name'      => $this->name,
            'last_name' => $this->last_name,
@@ -52,25 +50,32 @@ class Name extends Component
             'last_name' => 'required|min:3|regex:/^[a-zA-Z\s]+$/u'
         ]);
 
-            if ($validation->fails()) {
-                $this->isLoad = false; 
+            if ($validation->fails())
                 $validation->validate();
-            }
 
-        User::where([
-                'id_user' => Auth::id(),
-        ])->update([
-            'name'      => $this->name,
-            'last_name' => $this->last_name,
-        ]);
+        try {
 
-        $this->resetInput();
-        $this->classActive = !$this->classActive; 
+            User::where([
+                    'id_user' => Auth::id(),
+            ])->update([
+                'name'      => $this->name,
+                'last_name' => $this->last_name,
+            ]);
+
+            $this->resetInput();
+            $this->alert('success', 'Update has been successful!');
+            
+        } catch (Exception $e) {
+
+            $this->resetInput();
+            $this->alert('error', 'Update has failed!');
+
+        }
     }
     private function resetInput()
     {
+        $this->classActive = !$this->classActive; 
         $this->name = null;
         $this->last_name = null;
-        $this->isLoad = false; 
     }
 }

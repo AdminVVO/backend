@@ -44,19 +44,12 @@
                         </div>
                     </a>
 
-                    <div class="_cont-account">
-                        <i class="far fa-edit"></i>
-                        <div class="_txteh" style="margin-bottom: 4px;">Global preferences</div>
-                        <p class="span-guests">Set your default language, currency, and timezone</p>
-                    </div>
-                </div>
-
-                <div class="msgaround">
-                    <div class="_wcusermsg">
-                        <span class="_txteh" style="display: block; margin-bottom: 0;">Need to deactivate your account?</span>
-                    </div>
-                    <a href="{{ route('login_segurity') }}">
-                        <button class="btn-celest">Take care of that now</button>
+                    <a href="{{ route('global_preferen') }}">
+                        <div class="_cont-account">
+                            <i class="far fa-edit"></i>
+                            <div class="_txteh" style="margin-bottom: 4px;">Global preferences</div>
+                            <p class="span-guests">Set your default language, currency, and timezone</p>
+                        </div>
                     </a>
                 </div>
             </div>

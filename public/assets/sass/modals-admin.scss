@@ -1,0 +1,192 @@
+@import "_globals";
+@import "_variables";
+
+// MODALS PAGOS
+.container_admin-host {
+    // display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    .modal-anhost {
+        position: absolute;
+        z-index: 999;
+        inset: 0px;
+        background: rgba(40, 54, 70, 0.95);
+    }
+
+    .pd_anhost-modal {
+        display: flex;
+        padding: 40px;
+        align-items: center;
+        -webkit-box-align: center;
+        justify-content: center;
+        position: absolute;
+        max-height: 100vh;
+        inset: 0px;
+
+        @include responsive(536px) {
+            padding: 10px;
+        }
+
+        .modal_content-anhost {
+            display: flex;
+            flex-direction: column;
+            background: #FFFFFF;
+            width: 100%;
+            height: auto;
+            max-width: 796px;
+            max-height: -webkit-fill-available;
+            border-radius: 10px;
+            z-index: 999;
+
+            .close {
+                display: flex;
+                justify-content: end;
+
+                span {
+                    cursor: pointer;
+                    color: white;
+                    font-size: 18px;
+                    padding: 13px 19.2px;
+                    background: #FF5A5F;
+                    border-radius: 0px 10px 0px 10px;
+                }
+            }
+
+            .modal_block {
+                display: flex;
+                width: 100%;
+                overflow-x: auto;
+                border-radius: 10px;
+
+                @include responsive(790px) {
+                    padding-left: 32px;
+                }
+
+                .content_hidden-anhost {
+                    margin-bottom: 30px;
+                    overflow: auto;
+                    width: 100%;
+
+                    @include responsive(790px) {
+                        padding-right: 32px;
+                    }
+
+                    .site-content {
+                        padding-bottom: 28px;
+
+                        ._block-jsb {
+                            padding: 0 30px 42px 50px;
+                            display: flex;
+                            align-items: center;
+                            justify-content: space-between;
+                            gap: 22px;
+                            flex-wrap: wrap;
+                        }
+
+                        ._flex_users {
+                            padding: 34px 30px 34px 50px;
+                            align-items: flex-start;
+
+                            ._b {
+                                padding-top: 5px;
+
+                                .h5_red {
+                                    font-weight: normal;
+                                }
+                            }
+                        }
+
+                        ._txtblu {
+                            display: inline-block;
+                            margin-bottom: 0;
+                        }
+
+                        ._txteh {
+                            margin-bottom: 0;
+                        }
+
+                        ._block-about {
+                            padding: 34px 30px 22px 50px;
+
+                            ._fbas-guintxt {
+                                gap: 8px;
+
+                                .red_guion {
+                                    width: 15px;
+                                    text-align: center;
+                                }
+                            }
+
+                            ._flex {
+                                display: flex;
+                                justify-content: space-between;
+                                gap: 21px;
+
+                                ._dfgap10 {
+                                    display: flex;
+                                    flex-direction: column;
+                                    gap: 10px;
+                                }
+
+                                ._fbtn-br {
+                                    display: flex;
+                                    gap: 14px;
+                                    height: max-content;
+                                }
+                            }
+                        }
+
+                        ._block-booking {
+                            padding: 34px 30px 31px 50px;
+                        }
+
+                        ._block-uestpaid {
+                            padding: 30px 30px 34px 50px;
+                        }
+
+                        ._block-privatenote {
+                            padding: 26px 30px 34px 50px;
+
+                            ._fbas-details {
+                                align-items: end;
+                            }
+                        }
+
+                        ._block-support {
+                            padding: 27px 30px 32px 50px;
+
+                            ._flex {
+                                display: flex;
+                                flex-direction: column;
+                                gap: 23px;
+                            }
+                        }
+
+                        ._desurl {
+                            padding: 34px 30px 33px 50px;
+                            display: flex;
+                            flex-direction: column;
+                            gap: 15px;
+
+                            ._txtec {
+                                line-height: 26px;
+                            }
+                        }
+
+                        ._block-commquest {
+                            padding: 27px 30px 10px 50px;
+
+                            ._gap {
+                                gap: 24px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

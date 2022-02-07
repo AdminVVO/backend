@@ -46,6 +46,37 @@ $letter-spacing: 0.2rem;
 // SPACING
 
 
+
+//---------- iconos tamaños color ----------
+@mixin _i-gris16 {
+  font-size: 16px;
+  color: #7D7D7D;
+}
+
+@mixin _i-gris18 {
+  font-size: 18px;
+  color: #7D7D7D;
+}
+
+@mixin _i-verde30 {
+  font-size: 30px;
+  color: #2DDAB4;
+}
+
+
+
+
+//---------- SHADOW MENU BAR ----------
+@mixin _shadow-black3-6 {
+  box-shadow: 0 3px 6px rgb(0 0 0 / 16%);
+}
+
+@mixin _shadow-bazul20 {
+  box-shadow: 0 0 20px rgb(40 54 70 / 8%);
+}
+
+
+
 @mixin h1 {
   font-size: 160px;
   line-height: 155px;
@@ -66,6 +97,7 @@ $letter-spacing: 0.2rem;
   color: $color-text-submenu; 
 
   @media screen and (max-width: 1400px) {
+    line-height: 60px;
     font-size: 50px;
   }
 }
@@ -234,6 +266,19 @@ $letter-spacing: 0.2rem;
   }
 }
 
+@mixin _txtblu14 {
+  display: inline-block;
+  color: #00B5DD;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 20px;
+
+  @include responsive(1400px) {
+    line-height: normal;
+    font-size: 12px;
+  }
+}
+
 @mixin pf-u {
   background-color: #E3EDF3;
   border-radius: 50%;
@@ -340,7 +385,7 @@ $letter-spacing: 0.2rem;
 
 @mixin btn-border {
   display: inline-block;
-  padding: 15px 13px;
+  padding: 16px 17px;
   border-radius: 10px;
   border: 3px solid rgba(227, 237, 243, 0.4);
   background-color: $color-white;
@@ -351,9 +396,7 @@ $letter-spacing: 0.2rem;
   transition: .3s ease;
 
   @include responsive(1400px) {
-    padding: 15px 40px;
     font-size: 16px;
-    font-weight: normal;
   }
 
   @include responsive(900px) {
@@ -607,6 +650,7 @@ $letter-spacing: 0.2rem;
 }
 
 @mixin _btnsmleft {
+  display: inline-block;
   cursor: pointer;
   color: #333333;
   font-size: 18px;
@@ -630,6 +674,37 @@ $letter-spacing: 0.2rem;
       width: 100%;
       height: 1px;
       background-color: #333333;
+      right: 0;
+      bottom: 0;
+    }
+  }
+}
+
+@mixin _btnsmblu {
+  display: inline-block;
+  cursor: pointer;
+  color: #00B5DD;
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: bold;
+
+  @include responsive(1400px) {
+    font-size: 16px;
+  }
+
+  @include responsive(900px) {
+    font-size: 14px;
+  }
+
+  span {
+    position: relative;
+
+    &::before {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 1px;
+      background-color: #00B5DD;
       right: 0;
       bottom: 0;
     }

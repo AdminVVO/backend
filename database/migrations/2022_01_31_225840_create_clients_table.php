@@ -28,16 +28,14 @@ class CreateClientsTable extends Migration
             $table->string('currency');
             $table->string('timeZone');
             $table->string('phonemain');
-            $table->unsignedBigInteger('payMethod_id');
+            // $table->unsignedBigInteger('payMethod_id');
             $table->unsignedBigInteger('wishList_id');
             $table->unsignedBigInteger('address_id');
             $table->unsignedBigInteger('emergencyContact_id');
-            $table->unsignedBigInteger('phone_id');
-            $table->foreign('payMethod_id')->references('id')->on('pay_methods');
+            // $table->foreign('payMethod_id')->references('id_payments')->on('payments');
             $table->foreign('wishList_id')->references('id')->on('wish_lists');
-            $table->foreign('address_id')->references('id')->on('addresses');
-            $table->foreign('emergencyContact_id')->references('id')->on('emergency_contacts');
-            $table->foreign('phone_id')->references('id')->on('phones');
+            $table->foreign('address_id')->references('id_addresses')->on('addresses');
+            $table->foreign('emergencyContact_id')->references('id_emergency_contacts')->on('emergency_contacts');
             $table->timestamps();
         });
     }

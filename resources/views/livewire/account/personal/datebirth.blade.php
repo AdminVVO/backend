@@ -27,7 +27,7 @@
         @endif
 
         <div class="_txtec show">Use an address you'll always have access to.</div>
-        <form wire:submit.prevent="submit" class="_form _form-f">                         
+        <form wire:submit.prevent="submitDatebirth" class="_form _form-f">                         
             <div class="_flex">    
                 <label class="_lbl-date">
                     <input type="text" wire:model.lazy="datebirth" placeholder="dd/mm/yyyy" maxlength="10" class="_input-mod date date-v-modals @error('datebirth') error_input @enderror" style="margin: 0;">
@@ -42,12 +42,10 @@
                 </label>                      
             </div>  
 
-            <div class="block_a">
-                <button type="submit" class="btn-celest btns-modals" wire:loading.class="activeLoading" wire:loading.attr="disabled">
-                    Save
-                    <div class="loading-btn loading-btn-modal"></div>
-                </button>
-            </div>
+            <button type="submit" class="btn-celest btns-modals" wire:loading.class="activeLoading" wire:loading.attr="disabled">
+                Save
+                <div class="loading-btn loading-btn-modal"></div>
+            </button>
         </form>
     </div>
 </div>

@@ -21,24 +21,6 @@
 			        <h2 class="h2-guests_bold35">Login & Security</h2>
 
 			        <div>
-			            <div class="_bgpad-lg">
-			                <div class="h2-guests">Where you'll be</div>
-			                <div>
-			                    <div class="_cont-edit">
-			                        <div class="_txteh">Password</div>
-
-			                        <a href="#" class="_btnsm">
-			                            <span class="_fcontent">
-			                                Updated
-			                                <span class="_svg-asm">
-			                                    <img src="{{ URL::asset('icons/down-right.svg') }}" alt="">
-			                                </span>
-			                            </span>
-			                        </a>
-			                    </div>
-			                    <div class="_txtec">Last update a month ago</div>
-			                </div>
-			            </div>
 
 			            {{-- Social --}}
 			        	@livewire('account.security.social')

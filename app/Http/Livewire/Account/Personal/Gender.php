@@ -6,12 +6,14 @@ use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use Livewire\Component;
+use Jantinnerezo\LivewireAlert\LivewireAlert;
 
 class Gender extends Component
 {
+    use LivewireAlert;
+
     public $gender = null;
     public $classActive = false;
-    public $isLoad = false;
     public $inputEdit = [
         'sex' => ''
     ];
@@ -28,39 +30,43 @@ class Gender extends Component
 
     public function statusUpdate()
     {
-        $this->classActive = !$this->classActive;
         $this->resetValidation();
         $this->resetInput();
         $this->gender = $this->inputEdit['sex'];
     }
 
-    public function submit()
+    public function submitGender()
     {   
-        $this->isLoad = true; 
-
         $validation = Validator::make([
            'gender' => $this->gender
         ],[
             'gender' => 'required|in:Female,Male'
         ]);
 
-            if ($validation->fails()) {
-                $this->isLoad = false; 
+            if ($validation->fails())
                 $validation->validate();
-            }
 
-        User::where([
-            'id_user' => Auth::id(),
-        ])->update([
-            'sex'      => $this->gender
-        ]);
+        try {
 
-        $this->resetInput();
-        $this->classActive = !$this->classActive; 
+            User::where([
+                'id_user' => Auth::id(),
+            ])->update([
+                'sex'      => $this->gender
+            ]);
+
+            $this->resetInput();
+            $this->alert('success', 'Update has been successful!');
+            
+        } catch (Exception $e) {
+
+            $this->resetInput();
+            $this->alert('error', 'Update has failed!');
+
+        }
     }
     private function resetInput()
     {
+        $this->classActive = !$this->classActive; 
         $this->gender = null;
-        $this->isLoad = false; 
     }
 }

@@ -375,15 +375,6 @@ input {
                                         display: flex;
                                         flex-direction: column;
                                         gap: 3px;
-
-                                        ._flex {
-                                            display: flex;
-                                            align-items: baseline;
-
-                                            .red_guion {
-                                                width: 14.8px;
-                                            }
-                                        }
                                     }
                                 }
                             }
@@ -392,14 +383,6 @@ input {
                         ._block {
                             display: flex;
                             align-items: center;
-                            gap: 22px;
-                            flex-wrap: wrap;
-                        }
-
-                        ._block-jsb {
-                            display: flex;
-                            align-items: center;
-                            justify-content: space-between;
                             gap: 22px;
                             flex-wrap: wrap;
                         }

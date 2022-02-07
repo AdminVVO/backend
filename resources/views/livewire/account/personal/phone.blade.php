@@ -92,7 +92,7 @@
                 
             @else
 
-                <form wire:submit.prevent="" submitConfirm class="_form">
+                <form wire:submit.prevent submitConfirm class="_form">
                     <div class="_flfpc">
                         <div class="txt-check-in">Confirm your number</div>
                         <input type="text" id="confirmCode" class="_input-mod email-modals @error('confirmCode') error_input @enderror" wire:model="confirmCode">
@@ -122,10 +122,10 @@
         $("[submitphone]").submit(function(event) {
             Livewire.emit('submitEvent', $("#phone").val())
         });
+        
         $("[submitConfirm]").submit(function(event) {
-            Livewire.emit('submitConfirm', $("#confirmCode").val())
+            console.log('adadasd');
+            // Livewire.emit('submitConfirm', $("#confirmCode").val())
         });
-    </script>
-    <script >
     </script>
 @endpush

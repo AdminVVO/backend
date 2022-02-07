@@ -12,21 +12,19 @@ use Livewire\Component;
 
 class Phone extends Component
 {
-    public $phone       = null;
-    public $phoneEdit   = null;
+    public $phone = null;
+    public $phoneEdit = null;
     public $confirm = null;
     public $classActive = false;
-    public $showInput   = false;
+    public $showInput = false;
     public $VerifyInput = false;
 
     protected $listeners = ['submitEvent' => 'submitEvent', 'submitConfirm' => 'submitConfirm'];
 
     public function render()
     {
-        $qphone = '';
         $qphone = User::where([ 'id_user' => Auth::id() ])->select('phone', 'other_phone')->first();
         
-
         if ( $qphone['phone'] == null )
             $this->showInput = true;
 
