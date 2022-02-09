@@ -18,6 +18,9 @@ class Steps extends Component
     public $content = [
         'host' => '',
         'description' => '',
+        'space' => '',
+        'address' => [],
+        'guests' => [],
     ];
     public $listinEdit = '';
 
@@ -27,6 +30,7 @@ class Steps extends Component
         'initCreate',
         'continueCreate',
         'letGo',
+        'enterManuallyMaps',
     ];
 
     public function mount()
@@ -83,7 +87,19 @@ class Steps extends Component
                 break;
 
             case 'maps':
-                return 's1.jpg';
+                return 'step4.jpg';
+                break;
+
+            case 'mapsmanually':
+                return 'step4.jpg';
+                break;
+
+            case 'guests':
+                return 'step5.jpg';
+                break;
+
+            case 'offersplaces':
+                return 'step6.jpg';
                 break;
 
             default:
@@ -118,7 +134,19 @@ class Steps extends Component
 
         if ( $payload['from'] === 'space' ){
             $this->step = $payload['to'];
-            $this->sendDescription( $payload['content'] );
+            $this->sendSpace( $payload['content'] );
+            $this->imgShow = $this->ShowImg( $payload['img'] );
+        }
+
+        if ( $payload['from'] === 'maps' ){
+            $this->step = $payload['to'];
+            $this->sendMaps( $payload['content'] );
+            $this->imgShow = $this->ShowImg( $payload['img'] );
+        }
+
+        if ( $payload['from'] === 'guest' ){
+            $this->step = $payload['to'];
+            $this->sendGuest( $payload['content'] );
             $this->imgShow = $this->ShowImg( $payload['img'] );
         }
 
@@ -126,6 +154,11 @@ class Steps extends Component
 
 
 
+    }
+
+    public function enterManuallyMaps($payload)
+    {
+        $this->step = $payload;
     }
 
     public function sendHost($payload)
@@ -136,6 +169,21 @@ class Steps extends Component
     public function sendDescription($payload)
     {
         $this->content['description'] = $payload;
+    }
+
+    public function sendSpace($payload)
+    {
+        $this->content['space'] = $payload;
+    }
+
+    public function sendMaps($payload)
+    {
+        $this->content['address'] = $payload;
+    }
+
+    public function sendGuest($payload)
+    {
+        $this->content['guests'] = $payload;
     }
 
     public function saveToExit()

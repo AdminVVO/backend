@@ -67,15 +67,35 @@
             @livewire('listing.steps.boutique-select')
         @endif
 
-
-
-
-
-
         {{-- Space Listings --}}
         @if ( $step === 'space')
             @livewire('listing.steps.space')
         @endif
+
+        {{-- Maps Listings --}}
+        @if ( $step === 'maps')
+            @livewire('listing.steps.maps')
+        @endif
+
+        {{-- Maps Manually Listings --}}
+        @if ( $step === 'mapsmanually')
+            @livewire('listing.steps.maps-manually')
+        @endif
+
+        {{-- Guests Listings --}}
+        @if ( $step === 'guests')
+            @livewire('listing.steps.guests')
+        @endif
+
+        {{-- Offers Places Listings --}}
+        @if ( $step === 'offersplaces')
+            @livewire('listing.steps.offers-places')
+        @endif
+
+
+
+
+
 
     </div>
 </div>

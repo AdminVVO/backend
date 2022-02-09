@@ -25,10 +25,6 @@ class LoginOrRegisterForSocialsController extends Controller
     {
         $response_callback = request()->all();
 
-        if ( isset($response_callback['code'] ) === false ) {
-            return redirect()->route('/');
-        }
-
         try {
             $user = Socialite::driver('google')->user();
 
@@ -84,11 +80,6 @@ class LoginOrRegisterForSocialsController extends Controller
     public function callbackFromFacebook()
     {
         $response_callback = request()->all();
-
-        if ( isset($response_callback['error'] ) ) {
-            emotify('error', 'You are awesome, your data was successfully created');
-            return redirect()->route('/');
-        }
 
         try {
             $user = Socialite::driver('facebook')->user();
