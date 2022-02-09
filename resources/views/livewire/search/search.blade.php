@@ -1,6 +1,5 @@
-
 <div class="content_location">
-    
+
     <div class="content_links">
         <div class="tabs_select">
             <label class="custom-anytime sl_price">
@@ -23,11 +22,12 @@
                 <i class="far fa-chevron-down"></i>
             </label>
         </div>
-        
+
         <div class="content-scroll-local">
             <div class="tabs_items_group">
                 @foreach ($categorys as $item)
-                    <h3 wire:click.prevent="changeCategory({{ $item->id }})" class="tabs_items">{{ $item->type }}</h3>
+                    <h3 wire:click.prevent="changeCategory({{ $item->id }})" class="tabs_items">
+                        {{ $item->type }}</h3>
                 @endforeach
             </div>
             <div class="btn-right-scroll">
@@ -126,168 +126,230 @@
                 <h5>Your trip is coming up in 5 days. Use the Instant Book filter to check out places that you can book
                     right now.</h5>
             </div>
-            <div id="map" class="contact-map" style="border:0;" >
+            <div id="map" class="contact-map" style="border:0;">
             </div>
         </div>
-    </div> 
-   
+    </div>
+
 </div>
 @push('scripts')
-<script src='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js'></script>
-<script >
-    mapboxgl.accessToken = 'pk.eyJ1IjoiZmFwY29kIiwiYSI6ImNrejV1Y2FraDB1M20ydnAxb3BvdjV6Y2cifQ.w6_-93r84syMMY94a_gj4Q';
-    const map = new mapboxgl.Map({
-        container: 'map',
-        style: 'mapbox://styles/mapbox/streets-v11',
-        center: [-77.04, 38.907],
-        zoom: 11.15
-    });
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js'></script>
+    <script>
+        mapboxgl.accessToken = 'pk.eyJ1IjoiZmFwY29kIiwiYSI6ImNrejV6M2IyczB2N2sybm9mYndzZTllajUifQ.PhcB5d8k0hWHb7B8fqDP2g';
 
-    map.on('load', () => {
-        map.addSource('places', {
-            'type': 'geojson',
-            'data': {
-                'type': 'FeatureCollection',
-                'features': [{
-                        'type': 'Feature',
-                        'properties': {
-                            'description': '<strong>Make it Mount Pleasant</strong><p><a href="http://www.mtpleasantdc.com/makeitmtpleasant" target="_blank" title="Opens in a new window">Make it Mount Pleasant</a> is a handmade and vintage market and afternoon of live entertainment and kids activities. 12:00-6:00 p.m.</p>',
-                            'icon': 'theatre-15'
-                        },
-                        'geometry': {
-                            'type': 'Point',
-                            'coordinates': [-77.038659, 38.931567]
-                        }
-                    },
-                    {
-                        'type': 'Feature',
-                        'properties': {
-                            'description': '<strong>Mad Men Season Five Finale Watch Party</strong><p>Head to Lounge 201 (201 Massachusetts Avenue NE) Sunday for a <a href="http://madmens5finale.eventbrite.com/" target="_blank" title="Opens in a new window">Mad Men Season Five Finale Watch Party</a>, complete with 60s costume contest, Mad Men trivia, and retro food and drink. 8:00-11:00 p.m. $10 general admission, $20 admission and two hour open bar.</p>',
-                            'icon': 'theatre-15'
-                        },
-                        'geometry': {
-                            'type': 'Point',
-                            'coordinates': [-77.003168, 38.894651]
-                        }
-                    },
-                    {
-                        'type': 'Feature',
-                        'properties': {
-                            'description': '<strong>Big Backyard Beach Bash and Wine Fest</strong><p>EatBar (2761 Washington Boulevard Arlington VA) is throwing a <a href="http://tallulaeatbar.ticketleap.com/2012beachblanket/" target="_blank" title="Opens in a new window">Big Backyard Beach Bash and Wine Fest</a> on Saturday, serving up conch fritters, fish tacos and crab sliders, and Red Apron hot dogs. 12:00-3:00 p.m. $25.grill hot dogs.</p>',
-                            'icon': 'bar-15'
-                        },
-                        'geometry': {
-                            'type': 'Point',
-                            'coordinates': [-77.090372, 38.881189]
-                        }
-                    },
-                    {
-                        'type': 'Feature',
-                        'properties': {
-                            'description': '<strong>Ballston Arts & Crafts Market</strong><p>The <a href="http://ballstonarts-craftsmarket.blogspot.com/" target="_blank" title="Opens in a new window">Ballston Arts & Crafts Market</a> sets up shop next to the Ballston metro this Saturday for the first of five dates this summer. Nearly 35 artists and crafters will be on hand selling their wares. 10:00-4:00 p.m.</p>',
-                            'icon': 'art-gallery-15'
-                        },
-                        'geometry': {
-                            'type': 'Point',
-                            'coordinates': [-77.111561, 38.882342]
-                        }
-                    },
-                    {
-                        'type': 'Feature',
-                        'properties': {
-                            'description': '<strong>Seersucker Bike Ride and Social</strong><p>Feeling dandy? Get fancy, grab your bike, and take part in this year\'s <a href="http://dandiesandquaintrelles.com/2012/04/the-seersucker-social-is-set-for-june-9th-save-the-date-and-start-planning-your-look/" target="_blank" title="Opens in a new window">Seersucker Social</a> bike ride from Dandies and Quaintrelles. After the ride enjoy a lawn party at Hillwood with jazz, cocktails, paper hat-making, and more. 11:00-7:00 p.m.</p>',
-                            'icon': 'bicycle-15'
-                        },
-                        'geometry': {
-                            'type': 'Point',
-                            'coordinates': [-77.052477, 38.943951]
-                        }
-                    },
-                    {
-                        'type': 'Feature',
-                        'properties': {
-                            'description': '<strong>Capital Pride Parade</strong><p>The annual <a href="http://www.capitalpride.org/parade" target="_blank" title="Opens in a new window">Capital Pride Parade</a> makes its way through Dupont this Saturday. 4:30 p.m. Free.</p>',
-                            'icon': 'rocket-15'
-                        },
-                        'geometry': {
-                            'type': 'Point',
-                            'coordinates': [-77.043444, 38.909664]
-                        }
-                    },
-                    {
-                        'type': 'Feature',
-                        'properties': {
-                            'description': '<strong>Muhsinah</strong><p>Jazz-influenced hip hop artist <a href="http://www.muhsinah.com" target="_blank" title="Opens in a new window">Muhsinah</a> plays the <a href="http://www.blackcatdc.com">Black Cat</a> (1811 14th Street NW) tonight with <a href="http://www.exitclov.com" target="_blank" title="Opens in a new window">Exit Clov</a> and <a href="http://godsilla.bandcamp.com" target="_blank" title="Opens in a new window">Gods’illa</a>. 9:00 p.m. $12.</p>',
-                            'icon': 'music-15'
-                        },
-                        'geometry': {
-                            'type': 'Point',
-                            'coordinates': [-77.031706, 38.914581]
-                        }
-                    },
-                    {
-                        'type': 'Feature',
-                        'properties': {
-                            'description': '<strong>A Little Night Music</strong><p>The Arlington Players\' production of Stephen Sondheim\'s  <a href="http://www.thearlingtonplayers.org/drupal-6.20/node/4661/show" target="_blank" title="Opens in a new window"><em>A Little Night Music</em></a> comes to the Kogod Cradle at The Mead Center for American Theater (1101 6th Street SW) this weekend and next. 8:00 p.m.</p>',
-                            'icon': 'music-15'
-                        },
-                        'geometry': {
-                            'type': 'Point',
-                            'coordinates': [-77.020945, 38.878241]
-                        }
-                    },
-                    {
-                        'type': 'Feature',
-                        'properties': {
-                            'description': '<strong>Truckeroo</strong><p><a href="http://www.truckeroodc.com/www/" target="_blank">Truckeroo</a> brings dozens of food trucks, live music, and games to half and M Street SE (across from Navy Yard Metro Station) today from 11:00 a.m. to 11:00 p.m.</p>',
-                            'icon': 'music-15'
-                        },
-                        'geometry': {
-                            'type': 'Point',
-                            'coordinates': [-77.007481, 38.876516]
-                        }
-                    }
-                ]
+
+        //antonio
+        const sit = @js($sites);
+        const sitios = sit.map(function(element) {
+            let templade =
+                `<div class="tabs_card tabs_card_xl entero">
+                    <div class="medio">   
+                            <a href="/" class="card_items">
+                                    <div class="card_top">
+                                        <div class="card_top_price">
+                                        <i class="fas fa-dollar-sign"></i>
+                                            <p>` + element.price + ` / night</p>
+                                        </div>
+                                    <div class="card_top_dates">
+                                    <i class="fas fa-calendar"></i>
+                                    <p>` + element.date + `</p>
+                                    </div>
+                                    </div>
+                                <button>
+                                <div class="card_love">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="27.003" height="23.878" viewBox="0 0 27.003 23.878">
+                                    <g transform="translate(1.002 -1.245)" fill="rgba(222,222,222,0.38)" stroke="#dedede"
+                                        stroke-width="2">
+                                        <path
+                                            d="M22.573,3.743a6.677,6.677,0,0,0-9.111.664L12.5,5.4l-.962-.991a6.677,6.677,0,0,0-9.111-.664,7.011,7.011,0,0,0-.483,10.151l9.448,9.756a1.531,1.531,0,0,0,2.212,0l9.448-9.756a7.007,7.007,0,0,0-.479-10.151Z" />
+                                        <path
+                                            d="M22.573,3.743a6.677,6.677,0,0,0-9.111.664L12.5,5.4l-.962-.991a6.677,6.677,0,0,0-9.111-.664,7.011,7.011,0,0,0-.483,10.151l9.448,9.756a1.531,1.531,0,0,0,2.212,0l9.448-9.756a7.007,7.007,0,0,0-.479-10.151Z" />
+                                    </g>
+                                </svg>
+                                        </div>
+                                    </button>
+                                    <div class="card_img">
+                                        <img src="{{ URL::asset('assets/img/card/`+element.thumbNailUrl[0]+`') }}" alt="">
+                                        <img src="{{ URL::asset('assets/img/card/`+element.thumbNailUrl[1]+`') }}" alt="">
+                                        <img src="{{ URL::asset('assets/img/card/`+element.thumbNailUrl[2]+`') }}" alt="">
+                                    </div>
+                                    <div class="content-dots">
+                                        <span class="dot"></span>
+                                        <span class="dot"></span>
+                                        <span class="dot"></span>
+                                    </div>
+                                    <div class="card_info">
+                                        <div class="card_info_text">
+                                            <h2 class="h2-cards">` + element.title + `</h2>
+                                            <div class="card_info_rating">
+                                                <i class="fas fa-star"></i>
+                                                <p>4.89 <span>(15)</span></p>
+                                            </div>
+                                        </div>
+                                        <h3 class="h3-cards">` + element.distance + ` miles away</h3>
+                                    </div>
+                            </a>
+                    </div>
+                </div>`;
+            let marcador = `<h1>` + element.price + `</h1>`;
+            objeto = {
+                'type': 'Feature',
+                'properties': {
+                    'description': templade,
+                    'marker': marcador,
+                    'icon': 'theatre-15'
+                },
+                'geometry': {
+                    'type': 'Point',
+                    'coordinates': [parseFloat(element.longitude), parseFloat(element.latitude)]
+                }
             }
-        });
-        // Add a layer showing the places.
-        map.addLayer({
-            'id': 'places',
-            'type': 'symbol',
-            'source': 'places',
-            'layout': {
-                'icon-image': '{icon}',
-                'icon-allow-overlap': true
-            }
-        });
-        map.on('click', 'places', (e) => {
-            // Copy coordinates array.
-            const coordinates = e.features[0].geometry.coordinates.slice();
-            const description = e.features[0].properties.description;
-
-            while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
-                coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
-            }
-
-            new mapboxgl.Popup()
-                .setLngLat(coordinates)
-                .setHTML(description)
-                .addTo(map);
+            return objeto;
         });
 
-        // Change the cursor to a pointer when the mouse is over the places layer.
-        map.on('mouseenter', 'places', () => {
-            map.getCanvas().style.cursor = 'pointer';
+        const map = new mapboxgl.Map({
+            container: 'map',
+            style: 'mapbox://styles/mapbox/streets-v11',
+            center: [0, 0],
+            zoom: 11.15
         });
 
-        // Change it back to a pointer when it leaves.
-        map.on('mouseleave', 'places', () => {
-            map.getCanvas().style.cursor = '';
+
+        // antonio 
+
+
+
+        console.log(sitios);
+        map.on('load', () => {
+            /*  map.addSource('places', {
+                 'type': 'geojson',
+                 'data': {
+                     'type': 'FeatureCollection',
+                     'features': sitios
+                 }
+             }); */
+
+            const sitio = sit.map(function(element) {
+                let marcador = document.createElement('div');
+                marcador.textContent = element.price;
+                let marker = new mapboxgl.Marker(marcador).setLngLat({
+                    'lng': element.longitude,
+                    'lat': element.latitude
+                }).addTo(map);
+
+                marcador.addEventListener('click', () => {
+                    const contenido = new mapboxgl.Popup();
+                    let templade = `<div class="tabs_card tabs_card_xl entero">
+                                        <div class="medio">   
+                                                <a href="/" class="card_items">
+                                                        <div class="card_top">
+                                                            <div class="card_top_price">
+                                                            <i class="fas fa-dollar-sign"></i>
+                                                                <p>` + element.price + ` / night</p>
+                                                            </div>
+                                                        <div class="card_top_dates">
+                                                        <i class="fas fa-calendar"></i>
+                                                        <p>` + element.date + `</p>
+                                                        </div>
+                                                        </div>
+                                                    <button>
+                                                    <div class="card_love">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="27.003" height="23.878" viewBox="0 0 27.003 23.878">
+                                                        <g transform="translate(1.002 -1.245)" fill="rgba(222,222,222,0.38)" stroke="#dedede"
+                                                            stroke-width="2">
+                                                            <path
+                                                                d="M22.573,3.743a6.677,6.677,0,0,0-9.111.664L12.5,5.4l-.962-.991a6.677,6.677,0,0,0-9.111-.664,7.011,7.011,0,0,0-.483,10.151l9.448,9.756a1.531,1.531,0,0,0,2.212,0l9.448-9.756a7.007,7.007,0,0,0-.479-10.151Z" />
+                                                            <path
+                                                                d="M22.573,3.743a6.677,6.677,0,0,0-9.111.664L12.5,5.4l-.962-.991a6.677,6.677,0,0,0-9.111-.664,7.011,7.011,0,0,0-.483,10.151l9.448,9.756a1.531,1.531,0,0,0,2.212,0l9.448-9.756a7.007,7.007,0,0,0-.479-10.151Z" />
+                                                        </g>
+                                                    </svg>
+                                                            </div>
+                                                        </button>
+                                                        <div class="card_img">
+                                                            <img src="{{ URL::asset('assets/img/card/`+element.thumbNailUrl[0]+`') }}" alt="">
+                                                            <img src="{{ URL::asset('assets/img/card/`+element.thumbNailUrl[1]+`') }}" alt="">
+                                                            <img src="{{ URL::asset('assets/img/card/`+element.thumbNailUrl[2]+`') }}" alt="">
+                                                        </div>
+                                                        <div class="content-dots">
+                                                            <span class="dot"></span>
+                                                            <span class="dot"></span>
+                                                            <span class="dot"></span>
+                                                        </div>
+                                                        <div class="card_info">
+                                                            <div class="card_info_text">
+                                                                <h2 class="h2-cards">` + element.title + `</h2>
+                                                                <div class="card_info_rating">
+                                                                    <i class="fas fa-star"></i>
+                                                                    <p>4.89 <span>(15)</span></p>
+                                                                </div>
+                                                            </div>
+                                                            <h3 class="h3-cards">` + element.distance + ` miles away</h3>
+                                                        </div>
+                                                </a>
+                                        </div>
+                                    </div>`;
+                    contenido.setHTML(templade);
+                    marker.setPopup(contenido);
+                    marker.setLngLat([element.longitude, element.latitude]);
+                    marker.addTo(map);
+                    console.log(map.getContainer());
+
+                    Livewire.emit('reloadClassCSs')
+                    map.flyTo({
+                        center: [element.longitude, element.latitude]
+                    });
+                });
+                // 
+
+
+                // 
+
+
+            });
+            console.log( map.getBounds());
+
+            /* map.addLayer({
+                'id': 'places',
+                'type': 'symbol',
+                'source': 'places',
+                'layout': {
+                    // 'icon-image': '{icon}',
+                    // 'icon-allow-overlap': true,
+                    'text-field':['get', 'marker'],
+                    // "symbol":{marker},
+                    
+
+                }
+            }); */
+            map.on('click', 'places', (e) => {
+                // Copy coordinates array.
+                const coordinates = e.features[0].geometry.coordinates.slice();
+                const description = e.features[0].properties.description;
+
+                while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+                    coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+                }
+                // ventana emergente al darle click
+                new mapboxgl.Popup()
+                    .setLngLat(coordinates)
+                    .setHTML(description)
+                    .addTo(map);
+                Livewire.emit('reloadClassCSs')
+            });
+
+            // cambiar el cursos a punto en el mapa
+
+            map.on('mouseenter', 'sitio', () => {
+                map.getCanvas().style.cursor = 'pointer';
+            });
+
+            // cambiar el cursor normal
+            map.on('mouseleave', 'places', () => {
+                map.getCanvas().style.cursor = '';
+            });
+
+            // controles del mapa + - <>
+            map.addControl(new mapboxgl.NavigationControl());
         });
-    });
-</script>       
+    </script>
 @endpush
-
-
-
-
