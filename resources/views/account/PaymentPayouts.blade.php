@@ -4,8 +4,14 @@
 
 @section('css')
 
-    <link href="{{ URL::asset('assets/css/header-bck.css') }}" rel="stylesheet"/>
+    <link href="{{ URL::asset('assets/css/header-admin.css') }}" rel="stylesheet"/>
     <link href="{{ URL::asset('assets/css/payments.css') }}" rel="stylesheet"/>
+
+@endsection
+
+@section('header')
+
+    @include('layouts.HeaderAuth')
 
 @endsection
 

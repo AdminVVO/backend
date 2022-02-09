@@ -5,9 +5,12 @@ namespace App\Http\Livewire\Account\Security;
 use Auth;
 use App\Models\User;
 use Livewire\Component;
+use Jantinnerezo\LivewireAlert\LivewireAlert;
 
 class Social extends Component
 {
+    use LivewireAlert;
+
     public $facebook_id = null;
     public $google_id = null;
 
@@ -23,21 +26,41 @@ class Social extends Component
 
     public function disconnFace()
     {
-        User::where([
-            'id_user' => Auth::id(),
-            'facebook_id' => $this->facebook_id,
-        ])->update([
-            'facebook_id' => null,
-        ]);
+        try {
+            
+            User::where([
+                'id_user' => Auth::id(),
+                'facebook_id' => $this->facebook_id,
+            ])->update([
+                'facebook_id' => null,
+            ]);
+            
+            $this->alert('success', 'The disconnection has been successful!');
+        
+        } catch (Exception $e) {
+
+            $this->alert('error', 'Update has failed!');
+
+        }
     }
 
     public function disconnGoog()
     {
-        User::where([
-            'id_user' => Auth::id(),
-            'google_id' => $this->google_id,
-        ])->update([
-            'google_id' => null,
-        ]);
+        try {
+        
+            User::where([
+                'id_user' => Auth::id(),
+                'google_id' => $this->google_id,
+            ])->update([
+                'google_id' => null,
+            ]);
+
+            $this->alert('success', 'The disconnection has been successful!');
+
+        } catch (Exception $e) {
+
+            $this->alert('error', 'Update has failed!');
+
+        }
     }
 }

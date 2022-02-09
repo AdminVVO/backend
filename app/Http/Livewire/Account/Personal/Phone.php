@@ -9,12 +9,15 @@ use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use Livewire\Component;
+use Jantinnerezo\LivewireAlert\LivewireAlert;
 
 class Phone extends Component
 {
+    use LivewireAlert;
+
     public $phone = null;
     public $phoneEdit = null;
-    public $confirm = null;
+    public $confirmCode = null;
     public $classActive = false;
     public $showInput = false;
     public $VerifyInput = false;
@@ -58,95 +61,124 @@ class Phone extends Component
                 return;
             }
 
-        $code_exist = true;
-        while ($code_exist) {
-            $verification_code = rand(100000,999999);
-            $query_if_exist = CodeVerification::where([ 'code' => $verification_code])->get();
-            ($query_if_exist && count($query_if_exist) > 0) ? $code_exist = true : $code_exist = false;
+        try {
+
+            $code_exist = true;
+            while ($code_exist) {
+                $verification_code = rand(100000,999999);
+                $query_if_exist = CodeVerification::where([ 'code' => $verification_code])->get();
+                ($query_if_exist && count($query_if_exist) > 0) ? $code_exist = true : $code_exist = false;
+            }
+
+            Twilio::sendMessage( $verification_code, $this->phone );
+
+            CodeVerification::updateOrCreate(
+                [ 'to' => $this->phone ],
+                [ 'code' => $verification_code ]
+            );
+
+            $this->VerifyInput = true;
+            $this->confirmCode = null;
+
+            $this->alert('success', 'Verification code has been sent to ' . $this->phone);
+            
+        } catch (Exception $e) {
+
+            $this->resetInput();
+            $this->alert('error', 'An error occurred while sending the verification code.!');
+
         }
-
-        Twilio::sendMessage( $verification_code, $this->phone );
-
-        CodeVerification::updateOrCreate(
-            [ 'to' => $this->phone ],
-            [ 'code' => $verification_code ]
-        );
-
-        $this->VerifyInput = true;
-        $this->confirmCode = null;
     }
 
-    public function submitConfirm($payload)
+    public function submitConfirm()
     {
-        dd('asdasdasd');
         $validation = Validator::make([
-           'confirmCode' => $this->confirmCode,
+           'confirm_code' => $this->confirmCode,
         ],[
-            'confirmCode' => 'required|digits:6|exists:code_verifications,code',
+            'confirm_code' => 'required|digits:6|exists:code_verifications,code',
         ]);
-
-            if ($validation->fails()) {
+            if ($validation->fails())
                 $validation->validate();
-            }
 
-        CodeVerification::where('code', $this->confirmCode )->forceDelete();
+        try {
 
-        $query = User::where([ 'id_user' => Auth::id() ])->select('phone', 'other_phone')->first();
+            CodeVerification::where('code', $this->confirmCode )->forceDelete();
 
-        if ( $this->phoneEdit === null ) {
+            $query = User::where([ 'id_user' => Auth::id() ])->select('phone', 'other_phone')->first();
 
-            if ( $query['phone'] == null ) {
-                User::where([
-                    'id_user' => Auth::id(),
-                ])->update([
-                    'phone' => $this->phone
-                ]);
+            if ( $this->phoneEdit === null ) {
+
+                if ( $query['phone'] == null ) {
+                    User::where([
+                        'id_user' => Auth::id(),
+                    ])->update([
+                        'phone' => $this->phone
+                    ]);
+                }else{
+                    User::where([
+                        'id_user' => Auth::id(),
+                    ])->update([
+                        'other_phone' => [$this->phone]
+                    ]);
+                }
             }else{
-                User::where([
-                    'id_user' => Auth::id(),
-                ])->update([
-                    'other_phone' => [$this->phone]
-                ]);
-            }
-        }else{
 
-            if ( $query['phone'] == $this->phoneEdit ) {
-                User::where([
-                    'id_user' => Auth::id(),
-                ])->update([
-                    'phone' => $this->phone
-                ]);
-            }else{
-                User::where([
-                    'id_user' => Auth::id(),
-                ])->update([
-                    'other_phone' => [$this->phone]
-                ]);
+                if ( $query['phone'] == $this->phoneEdit ) {
+                    User::where([
+                        'id_user' => Auth::id(),
+                    ])->update([
+                        'phone' => $this->phone
+                    ]);
+                }else{
+                    User::where([
+                        'id_user' => Auth::id(),
+                    ])->update([
+                        'other_phone' => [$this->phone]
+                    ]);
+                }
             }
+
+            $this->resetInput();
+            $this->alert('success', 'Update has been successful!');
+            
+        } catch (Exception $e) {
+
+            $this->resetInput();
+            $this->alert('error', 'Update has failed!');
+
         }
-
-        $this->resetInput();
     }
 
     public function resentCode()
     {
         $this->resetValidation();
 
-        $code_exist = true;
-        while ($code_exist) {
-            $verification_code = rand(100000,999999);
-            $query_if_exist = CodeVerification::where([ 'code' => $verification_code])->get();
-            ($query_if_exist && count($query_if_exist) > 0) ? $code_exist = true : $code_exist = false;
+        try {
+
+            $code_exist = true;
+            while ($code_exist) {
+                $verification_code = rand(100000,999999);
+                $query_if_exist = CodeVerification::where([ 'code' => $verification_code])->get();
+                ($query_if_exist && count($query_if_exist) > 0) ? $code_exist = true : $code_exist = false;
+            }
+
+            Twilio::sendMessage( $verification_code, $this->phone );
+
+            CodeVerification::updateOrCreate(
+                [ 'to' => $this->phone ],
+                [ 'code' => $verification_code ]
+            );
+            
+            $this->confirmCode = '';
+            $this->alert('success', 'Verification code has been resent to ' . $this->phone );
+            
+        } catch (Exception $e) {
+
+            $this->resetInput();
+            $this->alert('error', 'An error occurred while sending the verification code.!');
+
         }
 
-        Twilio::sendMessage( $verification_code, $this->phone );
-
-        CodeVerification::updateOrCreate(
-            [ 'to' => $this->phone ],
-            [ 'code' => $verification_code ]
-        );
-        
-        $this->confirmCode = '';
     }
 
     public function editNumber($payload)

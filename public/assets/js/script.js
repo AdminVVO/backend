@@ -60,6 +60,7 @@ if (!$puntos.is(e.target) && $puntos.has(e.target).length === 0) {
     }
 });
 
-$('._options').click(function(){
-    $(this).parent($puntos).toggleClass("is-active");
+$("._options").on("click", function() {
+    // $("._puntos3.is-active").removeClass("is-active");
+    $(this).parent("._puntos3").toggleClass("is-active");
 })

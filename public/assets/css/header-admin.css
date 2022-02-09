@@ -5,6 +5,12 @@
   flex-wrap: wrap;
   gap: 35px;
 }
+._flex-js ._puntos3 ._menu-options {
+  right: -181px;
+}
+._flex-js ._puntos3.is-active ._menu-options {
+  top: 32px;
+}
 ._flex-js ._flex {
   display: flex;
   align-items: center;
@@ -32,7 +38,8 @@
   top: 0;
   z-index: 30;
 }
-.h_admin .header_admin {
+
+.mrb-0 .header_admin {
   margin-bottom: 0;
 }
 

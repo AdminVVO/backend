@@ -10,6 +10,12 @@
 
 @endsection
 
+@section('header')
+
+	@include('layouts.HeaderGuest')
+
+@endsection
+
 @section('content')
 	<section class="home entero" id="hero">
 		<div class="content_icons">

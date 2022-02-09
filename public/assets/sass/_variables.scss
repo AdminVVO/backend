@@ -387,9 +387,30 @@ $letter-spacing: 0.2rem;
   display: inline-block;
   padding: 16px 17px;
   border-radius: 10px;
-  border: 3px solid rgba(227, 237, 243, 0.4);
+  border: 1px solid #E3EDF3;
   background-color: $color-white;
   color: $bg-black-places;
+  font-weight: normal;
+  white-space: nowrap;
+  font-size: 18px;
+  transition: .3s ease;
+
+  @include responsive(1400px) {
+    font-size: 16px;
+  }
+
+  @include responsive(900px) {
+    font-size: 14px;
+  }
+}
+
+@mixin btn-border_red {
+  display: inline-block;
+  padding: 16px 17px;
+  border-radius: 10px;
+  border: 1px solid #E3EDF3;
+  background-color: $color-secundary;
+  color: $color-white;
   font-weight: normal;
   white-space: nowrap;
   font-size: 18px;
@@ -650,7 +671,9 @@ $letter-spacing: 0.2rem;
 }
 
 @mixin _btnsmleft {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 5.5px;
   cursor: pointer;
   color: #333333;
   font-size: 18px;
@@ -676,6 +699,28 @@ $letter-spacing: 0.2rem;
       background-color: #333333;
       right: 0;
       bottom: 0;
+
+      @include responsive(1400px) {
+        bottom: 1px;
+      }
+
+      @include responsive(900px) {
+        bottom: 2px;
+      }
+    }
+  }
+
+  svg {
+    margin-top: 3.5px;
+
+    @include responsive(1400px) {
+      margin-top: 2px;
+      width: 5px;
+    }
+
+    @include responsive(900px) {
+      margin-top: 1;
+      width: 4px;
     }
   }
 }

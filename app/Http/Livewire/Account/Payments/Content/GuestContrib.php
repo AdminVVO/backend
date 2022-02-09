@@ -5,9 +5,12 @@ namespace App\Http\Livewire\Account\Payments\Content;
 use App\Models\User;
 use Livewire\Component;
 use Illuminate\Support\Facades\Auth;
+use Jantinnerezo\LivewireAlert\LivewireAlert;
 
 class GuestContrib extends Component
 {
+    use LivewireAlert;
+
     public $contribu;
 
     public function render()
@@ -20,10 +23,20 @@ class GuestContrib extends Component
 
     public function changeContrb()
     {
-        User::where([
-            'id_user' => Auth::id(),
-        ])->update([
-            'constributions' => !$this->contribu
-        ]);
+        try {
+
+            User::where([
+                'id_user' => Auth::id(),
+            ])->update([
+                'constributions' => !$this->contribu
+            ]);
+            
+            $this->alert('success', 'Update has been successful!');
+            
+        } catch (Exception $e) {
+
+            $this->alert('error', 'Update has failed!');
+
+        }
     }
 }

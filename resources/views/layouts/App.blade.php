@@ -17,17 +17,18 @@
 </head>
 
 <body class="page-category">
-    @if (Auth::check())
+    {{-- @if (Auth::check())
         <script>window.Laravel = {!! json_encode(['isLoggedin' => true,'user' => Auth::user(),]) !!}</script>
     @else
         <script>window.Laravel = {!! json_encode(['isLoggedin' => false,]) !!}</script>
-    @endif
+    @endif --}}
 
-    <div id="entorn-vue">
+    {{-- <div id="entorn-vue">
         <application></application>
-    </div>
+    </div> --}}
 
-    {{-- @include('layouts.Header') --}}
+    @yield('header')
+
     {{-- @include('language.Language') --}}
     @yield('content')
     @include('layouts.Footer')

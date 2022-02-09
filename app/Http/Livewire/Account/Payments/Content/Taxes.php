@@ -6,9 +6,12 @@ use App\Models\Taxes as TaxeModel;
 use Livewire\Component;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
+use Jantinnerezo\LivewireAlert\LivewireAlert;
 
 class Taxes extends Component
 {
+    use LivewireAlert;
+
     public $showModal = false;
     public $name = null;
     public $id_ein = null;
@@ -62,26 +65,35 @@ class Taxes extends Component
            'country'   => 'in:US,VE',
         ]);
 
-            if ($validation->fails()) {
+            if ($validation->fails())
                 $validation->validate();
-            }
 
-        $taxes = TaxeModel::where(['user_id' => Auth::id() ])->get();
+        try {
+            
+            $taxes = TaxeModel::where(['user_id' => Auth::id() ])->get();
 
-        TaxeModel::create([
-            'user_id'   => Auth::id(),
-            'name'      => $this->name,
-            'id_ein'    => $this->id_ein,
-            'address_1' => $this->address_1,
-            'address_2' => $this->address_2,
-            'zip_code'  => $this->zip_code,
-            'city'      => $this->city,
-            'region'    => $this->region,
-            'country'   => $this->country,
-            'default'   => count( $taxes ) === 0 ? true : false,
-        ]);
+            TaxeModel::create([
+                'user_id'   => Auth::id(),
+                'name'      => $this->name,
+                'id_ein'    => $this->id_ein,
+                'address_1' => $this->address_1,
+                'address_2' => $this->address_2,
+                'zip_code'  => $this->zip_code,
+                'city'      => $this->city,
+                'region'    => $this->region,
+                'country'   => $this->country,
+                'default'   => count( $taxes ) === 0 ? true : false,
+            ]);
 
-        $this->resetVal();
+            $this->resetVal();
+            $this->alert('success', 'Update has been successful!');
+            
+        } catch (Exception $e) {
+
+            $this->resetVal();
+            $this->alert('error', 'Update has failed!');
+
+        }
     }
 
     public function submitEditTaxes()
@@ -106,25 +118,34 @@ class Taxes extends Component
            'country'   => 'in:US,VE',
         ]);
 
-            if ($validation->fails()) {
+            if ($validation->fails())
                 $validation->validate();
-            }
 
-        TaxeModel::where([
-            'user_id'     => Auth::id(),
-            'id_taxes' => TaxeModel::where(['id_ein' => $this->editInputs[ $this->editInput ]['id_ein'], 'user_id' => Auth::id() ])->pluck('id_taxes'),
-        ])->update([
-            'name'      => $this->name,
-            'id_ein'    => $this->id_ein,
-            'address_1' => $this->address_1,
-            'address_2' => $this->address_2,
-            'zip_code'  => $this->zip_code,
-            'city'      => $this->city,
-            'region'    => $this->region,
-            'country'   => $this->country,
-        ]);
+        try {
+            
+            TaxeModel::where([
+                'user_id'     => Auth::id(),
+                'id_taxes' => TaxeModel::where(['id_ein' => $this->editInputs[ $this->editInput ]['id_ein'], 'user_id' => Auth::id() ])->pluck('id_taxes'),
+            ])->update([
+                'name'      => $this->name,
+                'id_ein'    => $this->id_ein,
+                'address_1' => $this->address_1,
+                'address_2' => $this->address_2,
+                'zip_code'  => $this->zip_code,
+                'city'      => $this->city,
+                'region'    => $this->region,
+                'country'   => $this->country,
+            ]);
 
-        $this->resetVal();
+            $this->resetVal();
+            $this->alert('success', 'Update has been successful!');
+            
+        } catch (Exception $e) {
+
+            $this->resetVal();
+            $this->alert('error', 'Update has failed!');
+
+        }
     }
 
     public function editModal($payload)

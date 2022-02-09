@@ -7,9 +7,12 @@ use Livewire\Component;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use Carbon\Carbon;
+use Jantinnerezo\LivewireAlert\LivewireAlert;
 
 class Payments extends Component
 {
+    use LivewireAlert;
+
     public $name = null;
     public $last_name = null;
     public $card_number = null;
@@ -76,30 +79,39 @@ class Payments extends Component
            'country'        => 'in:US,VE',
         ]);
 
-            if ($validation->fails()) {
+            if ($validation->fails())
                 $validation->validate();
-            }
 
-        $cards = PaymentsModel::where(['user_id' => Auth::id() ])->get();
+        try {
+            
+            $cards = PaymentsModel::where(['user_id' => Auth::id() ])->get();
 
-        PaymentsModel::create([
-            'user_id'        => Auth::id(),
-            'card_number'    => $this->card_number,
-            'name'           => $this->name,
-            'last_name'      => $this->last_name,
-            'expiration'     => Carbon::parse( $this->expiration, 'UTC')->format('Y-m'),
-            'cvv'            => $this->cvv,
-            'street_address' => $this->street_address,
-            'apt'            => $this->apt,
-            'city'           => $this->city,
-            'state'          => $this->state,
-            'zip_code'       => $this->zip_code,
-            'city'           => $this->city,
-            'country'        => $this->country,
-            'default'        => count( $cards ) === 0 ? true : false,
-        ]);
+            PaymentsModel::create([
+                'user_id'        => Auth::id(),
+                'card_number'    => $this->card_number,
+                'name'           => $this->name,
+                'last_name'      => $this->last_name,
+                'expiration'     => Carbon::parse( $this->expiration, 'UTC')->format('Y-m'),
+                'cvv'            => $this->cvv,
+                'street_address' => $this->street_address,
+                'apt'            => $this->apt,
+                'city'           => $this->city,
+                'state'          => $this->state,
+                'zip_code'       => $this->zip_code,
+                'city'           => $this->city,
+                'country'        => $this->country,
+                'default'        => count( $cards ) === 0 ? true : false,
+            ]);
 
-        $this->resetVal();
+            $this->resetVal();
+            $this->alert('success', 'Update has been successful!');
+            
+        } catch (Exception $e) {
+
+            $this->resetVal();
+            $this->alert('error', 'Update has failed!');
+
+        }
     }
 
     public function submitEditPayment()
@@ -132,29 +144,38 @@ class Payments extends Component
            'country'        => 'in:US,VE',
         ]);
 
-            if ($validation->fails()) {
+            if ($validation->fails())
                 $validation->validate();
-            }
 
-        PaymentsModel::where([
-            'user_id'     => Auth::id(),
-            'id_payments' => PaymentsModel::where([ 'card_number' => $this->editInputs[ $this->editInput ]['card_number'], 'user_id' => Auth::id() ])->pluck('id_payments'),
-        ])->update([
-            'card_number'    => $this->card_number,
-            'name'           => $this->name,
-            'last_name'      => $this->last_name,
-            'expiration'     => Carbon::parse( $this->expiration, 'UTC')->format('Y-m'),
-            'cvv'            => $this->cvv,
-            'street_address' => $this->street_address,
-            'apt'            => $this->apt,
-            'city'           => $this->city,
-            'state'          => $this->state,
-            'zip_code'       => $this->zip_code,
-            'city'           => $this->city,
-            'country'        => $this->country,
-        ]);
+        try {
+            
+            PaymentsModel::where([
+                'user_id'     => Auth::id(),
+                'id_payments' => PaymentsModel::where([ 'card_number' => $this->editInputs[ $this->editInput ]['card_number'], 'user_id' => Auth::id() ])->pluck('id_payments'),
+            ])->update([
+                'card_number'    => $this->card_number,
+                'name'           => $this->name,
+                'last_name'      => $this->last_name,
+                'expiration'     => Carbon::parse( $this->expiration, 'UTC')->format('Y-m'),
+                'cvv'            => $this->cvv,
+                'street_address' => $this->street_address,
+                'apt'            => $this->apt,
+                'city'           => $this->city,
+                'state'          => $this->state,
+                'zip_code'       => $this->zip_code,
+                'city'           => $this->city,
+                'country'        => $this->country,
+            ]);
 
-        $this->resetVal();
+            $this->resetVal();
+            $this->alert('success', 'Update has been successful!');
+            
+        } catch (Exception $e) {
+
+            $this->resetVal();
+            $this->alert('error', 'Update has failed!');
+
+        }
     }
 
     public function editModal($payload)

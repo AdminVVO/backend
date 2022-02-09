@@ -121,7 +121,4 @@ $(document).ready(function() {
         $("._cont-sf").css({'display': 'none'});
         $("._cont-gc").css({'display': 'block'});
     })
-
-    // payments & payouts 2
-    
 });

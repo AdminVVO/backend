@@ -122,7 +122,7 @@ header {
 ._header-menu {
     &.is-active {
         .menu_home-content {
-            top: 75px;
+            top: 85px;
             opacity: 1;
             visibility: visible;
         }
@@ -195,6 +195,7 @@ header {
             background-color: $color-white;
             border-radius: 10px;
             border: 2px solid #E3EDF3;
+            @include _shadow-black3-6;
 
             ul {
 
@@ -220,7 +221,7 @@ header {
             &:before {
                 content: "";
                 position: absolute;
-                top: -16px;
+                top: -17px;
                 left: 93%;
                 transform: translateX(-50%);
                 z-index: 1;

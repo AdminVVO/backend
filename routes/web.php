@@ -2,10 +2,12 @@
 
 use App\Http\Controllers\AccountController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ListingsController;
 use App\Http\Controllers\LoginOrRegisterForEmailPhoneController;
 use App\Http\Controllers\LoginOrRegisterForSocialsController;
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\internaController;
+use Illuminate\Support\Facades\Route;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -27,7 +29,7 @@ Route::get('/category', function () {
 
 Route::get('/host', function () {
     return view('host.Host');
-})->name('/host');
+})->name('host');
 
 Route::get('/interna', function () {
     return view('interna.Interna');
@@ -46,56 +48,45 @@ Route::get('/blog', function () {
     return view('blog.Blog');
 })->name('/blog');
 
-## Routes Login and Register Google
-Route::prefix('account')->middleware(['AccountDisable', 'auth'])->group( function(){
-    ## We start the process of logging in through Google
-    Route::get('', [AccountController::class, 'viewAccount'])->name('account');
-    Route::get('personal_info', [AccountController::class, 'viewPersonalInfo'])->name('personal_info');
-    Route::get('login_segurity', [AccountController::class, 'viewLoginSecury'])->name('login_segurity');
-    Route::get('payment_payouts', [AccountController::class, 'viewPaymentsPayouts'])->name('payment_payouts');
-    Route::get('govermID', [AccountController::class, 'viewAddPhotoGovermID'])->name('govermID');
-    Route::get('global_preferen', [AccountController::class, 'viewGlobalPreferences'])->name('global_preferen');
 
-    ## We received the response from Google
-    // Route::any('callback', [LoginOrRegisterForSocialsController::class, 'callbackFromGoogle'])->name('callback');
+Route::middleware(['AccountDisable', 'auth'])->group( function(){
+
+    ## Routes Account Sections
+    Route::prefix('account')->group( function(){
+        ## Account Index
+            Route::get('', [AccountController::class, 'viewAccount'])->name('account');
+        ## Account Personal Info
+            Route::get('personal_info', [AccountController::class, 'viewPersonalInfo'])->name('personal_info');
+        ## Account Login Secury
+            Route::get('login_segurity', [AccountController::class, 'viewLoginSecury'])->name('login_segurity');
+        ## Account Payments
+            Route::get('payment_payouts', [AccountController::class, 'viewPaymentsPayouts'])->name('payment_payouts');
+        ## Account GovermenID
+            Route::get('govermID', [AccountController::class, 'viewAddPhotoGovermID'])->name('govermID');
+        ## Account Preferences
+            Route::get('global_preferen', [AccountController::class, 'viewGlobalPreferences'])->name('global_preferen');
+    });
+
+    ## Routes Listing Sections
+    Route::prefix('listing')->group( function(){
+        ## Listing Index
+            Route::get('', [ListingsController::class, 'viewListinAll'])->name('listing');
+        ## Listing Steps
+            Route::get('stepInit', [ListingsController::class, 'viewListinSteps'])->name('stepInit');
+    });
+
+    ## Routes Reservations Sections
+    Route::prefix('reservations')->group( function(){
+        ## Reservations Index
+            Route::get('', [ReservationController::class, 'viewReservation'])->name('reservations');
+    });
+
 });
-
-
-// ## Routes Login and Register with phone number and email
-// Route::prefix('logInRegistration')->name('logInRegistration')->group( function(){
-//     ## We receive phone number
-//     Route::post('initPhone', [LoginOrRegisterForEmailPhoneController::class, 'initPhoneLoginOrRegister'])->name('initPhone');
-
-//     ## We receive email
-//     Route::post('initEmail', [LoginOrRegisterForEmailPhoneController::class, 'initEmailLoginOrRegister'])->name('initEmail');
-
-//     ## We verify phone number and email address
-//     Route::post('verifyPhoneEmail', [LoginOrRegisterForEmailPhoneController::class, 'verificationLoginOrRegister'])->name('verifyPhoneEmail');
-
-//     ## We register the user by phone number
-//     Route::post('registrationPhoneEmail', [LoginOrRegisterForEmailPhoneController::class, 'createLoginOrRegister'])->name('registrationPhoneEmail');
-
-//     ## We log the help message
-//     Route::post('helpPhoneEmail', [LoginOrRegisterForEmailPhoneController::class, 'helpLoginOrRegister'])->name('helpPhoneEmail');
-
-
-
-
-//     ## We resend the verification code phone
-//     Route::post('resentVerifyPhone', [LoginOrRegisterForEmailPhoneController::class, 'resentCodePhoneLoginOrRegister'])->name('resentVerifyPhone');
-
-//     ## We resend the verification code email
-//     Route::post('resentVerifyEmail', [LoginOrRegisterForEmailPhoneController::class, 'resentCodeEmailLoginOrRegister'])->name('resentVerifyEmail');
-
-//     ## List all countries with their phone code
-//     Route::get('countryPhone', [LoginOrRegisterForEmailPhoneController::class, 'countryPhone'])->name('countryPhone');
-// });
 
 ## Routes Login and Register Google
 Route::prefix('google')->name('google.')->group( function(){
     ## We start the process of logging in through Google
     Route::get('login', [LoginOrRegisterForSocialsController::class, 'loginWithGoogle'])->name('login');
-
     ## We received the response from Google
     Route::any('callback', [LoginOrRegisterForSocialsController::class, 'callbackFromGoogle'])->name('callback');
 });
@@ -104,7 +95,6 @@ Route::prefix('google')->name('google.')->group( function(){
 Route::prefix('facebook')->name('facebook.')->group( function(){
     ## We start the process of logging in through Facebook
     Route::get('login', [LoginOrRegisterForSocialsController::class, 'loginWithFacebook'])->name('login');
-
     ## We received the response from Facebook
     Route::any('callback', [LoginOrRegisterForSocialsController::class, 'callbackFromFacebook'])->name('callback');
 });

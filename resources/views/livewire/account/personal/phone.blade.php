@@ -20,7 +20,7 @@
             </a>
         </div>
 
-        @if ( $qphone['phone'] == null && $qphone['other_phone'] == null )
+        @if ( $qphone['phone'] == null )
             <div class="_txtec none">Not provided</div>
         @else
             <div class="_txtec none">{{ $qphone['phone'] }}</div>
@@ -92,18 +92,18 @@
                 
             @else
 
-                <form wire:submit.prevent submitConfirm class="_form">
+                <form wire:submit.prevent class="_form">
                     <div class="_flfpc">
                         <div class="txt-check-in">Confirm your number</div>
-                        <input type="text" id="confirmCode" class="_input-mod email-modals @error('confirmCode') error_input @enderror" wire:model="confirmCode">
-                        @error('confirmCode')
+                        <input type="text" id="confirmCode" class="_input-mod email-modals @error('confirm_code') error_input @enderror" wire:model="confirmCode">
+                        @error('confirm_code')
                             <div  class="_txterror">
                                 <i class="fas fa-exclamation-circle icon1"></i> 
                                 {{ $message }}
                             </div>
                         @enderror
                     </div>
-                    <button type="submit" wire:loading.class="activeLoading" wire:loading.attr="disabled" class="btn-celest btns-modals">
+                    <button type="button" wire:click="submitConfirm" wire:loading.class="activeLoading" wire:loading.attr="disabled" class="btn-celest btns-modals">
                         Confirme code
                         <div class="loading-btn loading-btn-modal"></div>
                     </button>
@@ -123,9 +123,9 @@
             Livewire.emit('submitEvent', $("#phone").val())
         });
         
-        $("[submitConfirm]").submit(function(event) {
-            console.log('adadasd');
-            // Livewire.emit('submitConfirm', $("#confirmCode").val())
-        });
+        // $("[submitConfirm]").submit(function(event) {
+        //     console.log('adadasd');
+        //     // Livewire.emit('submitConfirm', $("#confirmCode").val())
+        // });
     </script>
 @endpush
