@@ -92,6 +92,11 @@
             @livewire('listing.steps.offers-places')
         @endif
 
+        {{-- Photos Listings --}}
+        @if ( $step === 'photos')
+            @livewire('listing.steps.photos')
+        @endif
+
 
 
 

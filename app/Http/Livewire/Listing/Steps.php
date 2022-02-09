@@ -21,6 +21,7 @@ class Steps extends Component
         'space' => '',
         'address' => [],
         'guests' => [],
+        'offers' => [],
     ];
     public $listinEdit = '';
 
@@ -102,6 +103,10 @@ class Steps extends Component
                 return 'step6.jpg';
                 break;
 
+            case 'photos':
+                return 'step7.jpg';
+                break;
+
             default:
                 return 'listing.jpg';
                 break;
@@ -150,6 +155,12 @@ class Steps extends Component
             $this->imgShow = $this->ShowImg( $payload['img'] );
         }
 
+        if ( $payload['from'] === 'offersplaces' ){
+            $this->step = $payload['to'];
+            $this->sendOffers( $payload['content'] );
+            $this->imgShow = $this->ShowImg( $payload['img'] );
+        }
+
 
 
 
@@ -184,6 +195,11 @@ class Steps extends Component
     public function sendGuest($payload)
     {
         $this->content['guests'] = $payload;
+    }
+
+    public function sendOffers($payload)
+    {
+        $this->content['offers'] = $payload;
     }
 
     public function saveToExit()

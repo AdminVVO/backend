@@ -37,7 +37,7 @@ class Guests extends Component
     public function next()
     {
         if ( $this->guests === 0 || $this->beds === 0 || $this->bedrooms === 0 || $this->bathrooms === 0)
-            $this->alert('warning', 'Invalid number of guests');
+            return $this->alert('warning', 'Invalid number of guests');
 
         $content = [
             'guests' => $this->guests,
