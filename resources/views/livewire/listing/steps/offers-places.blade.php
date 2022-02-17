@@ -6,7 +6,7 @@
                     <h2 class="h2_publish" style="margin-bottom: 31px;">Let guests know what your place has to offer</h2>
 
                     <div style="position: relative;">
-                        <div class="_content-favorite scroll_n">
+                        <div class="_content-favorite scroll">
                             <div class="c_amenitles" style="padding: 0 0 48.8px;">
                                 <h3 class="h2-guests" style="margin-bottom: 25px;">Do you have any standout amenities?</h3>
 

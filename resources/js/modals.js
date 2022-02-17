@@ -121,4 +121,90 @@ $(document).ready(function() {
         $("._cont-sf").css({'display': 'none'});
         $("._cont-gc").css({'display': 'block'});
     })
+
+
+    // CREATE STEP 4 MAP
+    $(".input-wrapper.show").click(function() {
+        $(this).parent(".input-enter_map").toggleClass("active_inputs_map");
+    });
+
+    $(".use_current_locat").click(function() {
+        $(this).parent(".input-enter_map").removeClass("active_inputs_map");
+    });
+
+
+    // CREATE STEP 11 QUESTIONS - click +1 more
+    $(".more_icons").click(function() {
+        $(".show_user_icons").css({'display': 'flex'});
+        $(".usr_icons_more").css({'display': 'none'});
+        $(".more_icons").css({'display': 'none'});
+        $(".more_icons_show").css({'display': 'flex'});
+    })
+
+
+    // CREATE STEP - click en play video
+    $(".play_button").click(function(){
+        $("._video").trigger("play");
+        $(".play_button").css({'opacity': '0', 'visibility': 'hidden'});
+    });
+
+
+    // TEXTAREA - muestra numeros al escribir
+    $("._txtarea").keyup(function(event) {
+        $(".views_num").text($(this).val().length);
+    })
+
+    // CREATE STEP10 - mx 4 caracteres
+    $(".input_numberdollar").keypress(function(tecla){
+        if(tecla.charCode < 48 || tecla.charCode > 57 || this.value.length === 3) {
+            return false;
+        }
+    });
+
+
+    $("._options").on('click', function() {
+        let pos = window.event;
+        $("._menu-options").css({'top': pos.pageY});
+        $("._menu-options").toggleClass("is-active");
+    });
+
+    $("._options-pastguest").on('click', function() {
+        let pos = window.event;
+        $("._menu-options_pastguest").css({'top': pos.pageY});
+        $("._menu-options_pastguest").toggleClass("is-active");
+    });
+
+
+    // PERFIL INTERNO.PHP - edit profile click
+    $(".click_editprofile").click(function() {
+        $(".p_interna_none").css({'display': 'none'});
+        $("._fr-block").css({'display': 'block'});
+    });
+
+    $(".click_cancelprofile").click(function() {
+        $(".p_interna_none").css({'display': 'block'});
+        $("._fr-block").css({'display': 'none'});
+    });
+
+
+    // create-step7-upload-all-photos.php - click
+    const $cover_photos = $(".show_cover_photo");
+
+    $(document).mouseup(e => {
+        if (!$cover_photos.is(e.target) && $cover_photos.has(e.target).length === 0) {
+            $(".content_add_photos").removeClass("is-active");
+        }
+    });
+    
+    $(".click_cover_photos").on("click", function() {
+        $(".content_add_photos.is-active").removeClass("is-active");
+        $(this).parents(".content_add_photos").toggleClass("is-active");
+    });
+
+    $(".click_options_photos").on("click", function() {
+        // $(".content_add_photos.is-active").removeClass("is-active");
+        // $(this).parents(".content_add_photos").toggleClass("is-active");
+        $('.content_add_photos.is-active').removeClass("is-active");
+        $(this).parents(".content_add_photos").toggleClass("is-active");
+    });
 });

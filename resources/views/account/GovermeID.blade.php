@@ -9,6 +9,12 @@
 
 @endsection
 
+@section('header')
+
+    @include('layouts.HeaderAuth')
+
+@endsection
+
 @section('content')
 
 	<section class="entero">

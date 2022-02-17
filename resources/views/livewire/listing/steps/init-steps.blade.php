@@ -5,7 +5,7 @@
                 <div class="content_step">
                     <h2 class="h2_publish">Become a Host in 10 easy steps</h2>
                     <p class="_txtec">Join us. We'll help you every step of the way.</p>
-                    <button wire:click="letGo" class="btn-celest">Let's go!</button>
+                    <button wire:click="next" class="btn-celest">Let's go!</button>
                 </div>
             </div>
         </div>

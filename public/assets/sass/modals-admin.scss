@@ -61,34 +61,44 @@
                 overflow-x: auto;
                 border-radius: 10px;
 
-                @include responsive(790px) {
-                    padding-left: 32px;
-                }
-
                 .content_hidden-anhost {
                     margin-bottom: 30px;
                     overflow: auto;
                     width: 100%;
 
-                    @include responsive(790px) {
-                        padding-right: 32px;
-                    }
-
                     .site-content {
                         padding-bottom: 28px;
 
                         ._block-jsb {
-                            padding: 0 30px 42px 50px;
+                            padding: 0 50px 42px;
                             display: flex;
                             align-items: center;
                             justify-content: space-between;
                             gap: 22px;
                             flex-wrap: wrap;
+
+                            @include responsive(536px) {
+                                padding: 21px 18px;
+                                gap: 10px;
+                            }
                         }
 
                         ._flex_users {
-                            padding: 34px 30px 34px 50px;
+                            padding: 34px 50px 34px;
                             align-items: flex-start;
+
+                            @include responsive(536px) {
+                                padding: 21px 18px 24px;
+                            }
+
+                            ._bgpadd-f {
+                                padding: 17px 31px;
+                                border-radius: 10px;
+
+                                @include responsive(536px) {
+                                    padding: 12px 18px;
+                                }
+                            }
 
                             ._b {
                                 padding-top: 5px;
@@ -109,7 +119,11 @@
                         }
 
                         ._block-about {
-                            padding: 34px 30px 22px 50px;
+                            padding: 34px 50px 22px;
+
+                            @include responsive(536px) {
+                                padding: 21px 18px 22px;
+                            }
 
                             ._fbas-guintxt {
                                 gap: 8px;
@@ -125,6 +139,10 @@
                                 justify-content: space-between;
                                 gap: 21px;
 
+                                @include responsive(618px) {
+                                    flex-direction: column;
+                                }
+
                                 ._dfgap10 {
                                     display: flex;
                                     flex-direction: column;
@@ -135,20 +153,50 @@
                                     display: flex;
                                     gap: 14px;
                                     height: max-content;
+
+                                    @include responsive(618px) {
+                                        justify-content: center;
+                                    }
                                 }
                             }
                         }
 
                         ._block-booking {
-                            padding: 34px 30px 31px 50px;
+                            padding: 34px 50px 31px;
+
+                            @include responsive(536px) {
+                                padding: 24px 18px 21px;
+                            }
                         }
 
                         ._block-uestpaid {
-                            padding: 30px 30px 34px 50px;
+                            padding: 30px 50px 34px;
+
+                            @include responsive(536px) {
+                                padding: 20px 18px 24px;
+                            }
+
+                            .h2-guests {
+                                @include responsive(536px) {
+                                    margin-top: 0 !important;
+                                }
+                            }
+                        }
+
+                        ._block-link {
+                            padding: 31px 50px 31px;
+
+                            @include responsive(536px) {
+                                padding: 21px 18px 21px;
+                            }
                         }
 
                         ._block-privatenote {
-                            padding: 26px 30px 34px 50px;
+                            padding: 26px 50px 34px;
+
+                            @include responsive(536px) {
+                                padding: 16px 18px 24px;
+                            }
 
                             ._fbas-details {
                                 align-items: end;
@@ -156,7 +204,11 @@
                         }
 
                         ._block-support {
-                            padding: 27px 30px 32px 50px;
+                            padding: 27px 50px 32px;
+
+                            @include responsive(536px) {
+                                padding: 17px 18px 22px;
+                            }
 
                             ._flex {
                                 display: flex;
@@ -166,10 +218,14 @@
                         }
 
                         ._desurl {
-                            padding: 34px 30px 33px 50px;
+                            padding: 34px 50px 33px;
                             display: flex;
                             flex-direction: column;
                             gap: 15px;
+
+                            @include responsive(536px) {
+                                padding: 24px 18px 23px;
+                            }
 
                             ._txtec {
                                 line-height: 26px;
@@ -177,7 +233,11 @@
                         }
 
                         ._block-commquest {
-                            padding: 27px 30px 10px 50px;
+                            padding: 27px 50px;
+
+                            @include responsive(536px) {
+                                padding: 17px 18px;
+                            }
 
                             ._gap {
                                 gap: 24px;

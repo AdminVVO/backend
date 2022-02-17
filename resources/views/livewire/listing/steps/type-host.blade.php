@@ -6,7 +6,7 @@
                     <h2 class="h2_publish" style="margin-bottom: 31px;">What kind of place will you host?</h2>
                     <div class="_grid next">
                         <div class="active_apart">
-                            <input type="radio" id="apartment" name="step" value="apartment" wire:model="host">
+                            <input type="radio" id="apartment" name="step" value="apartment" wire:model.defer="host">
 
                             <label for="apartment" class="_rect-b">
                                 <div class="_img-f">
@@ -19,7 +19,7 @@
                         </div>
 
                         <div>
-                            <input type="radio" id="house" name="step" value="house" wire:model="host">
+                            <input type="radio" id="house" name="step" value="house" wire:model.defer="host">
 
                             <label for="house" class="_rect-b">
                                 <div class="_img-f">
@@ -32,7 +32,7 @@
                         </div>
 
                         <div>
-                            <input type="radio" id="secondary" name="step" value="secondary" wire:model="host">
+                            <input type="radio" id="secondary" name="step" value="secondary" wire:model.defer="host">
 
                             <label for="secondary" class="_rect-b">
                                 <div class="_img-f">
@@ -45,7 +45,7 @@
                         </div>
 
                         <div>
-                            <input type="radio" id="unique" name="step" value="unique" wire:model="host">
+                            <input type="radio" id="unique" name="step" value="unique" wire:model.defer="host">
 
                             <label for="unique" class="_rect-b">
                                 <div class="_img-f">
@@ -58,7 +58,7 @@
                         </div>
 
                         <div>
-                            <input type="radio" id="breakfast" name="step" value="breakfast" wire:model="host">
+                            <input type="radio" id="breakfast" name="step" value="breakfast" wire:model.defer="host">
 
                             <label for="breakfast" class="_rect-b">
                                 <div class="_img-f">
@@ -71,7 +71,7 @@
                         </div>
 
                         <div>
-                            <input type="radio" id="Boutique" name="step" value="boutique" wire:model="host">
+                            <input type="radio" id="Boutique" name="step" value="boutique" wire:model.defer="host">
 
                             <label for="Boutique" class="_rect-b">
                                 <div class="_img-f">

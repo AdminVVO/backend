@@ -32,9 +32,14 @@ class FinishCreate extends Component
         return view('livewire.listing.steps.finish-create');
     }
 
-    public function initCreateButton()
+    public function next()
     {
-        $this->emitUp('initCreate');
+        $payload = [
+            'to' => 'letGo',
+            'from' => 'finish',
+        ];
+        
+        $this->emitUp('next', $payload);
     }
 
     public function continueListing($payload)

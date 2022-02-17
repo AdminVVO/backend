@@ -52,15 +52,32 @@ $('._menu-bars').on('click', () => {
 
 
 // TABLA OPTIONS ...
-const $puntos = $('._puntos3');
+const $puntos = $('._menu-options');
+const $puntosHeader = $('._puntos3');
+const $puntos_pastguest = $('._menu-options_pastguest');
 
+// admin-reservations.php
 $(document).mouseup(e => {
 if (!$puntos.is(e.target) && $puntos.has(e.target).length === 0) {
         $puntos.removeClass('is-active');
     }
 });
 
-$("._options").on("click", function() {
+$(document).mouseup(e => {
+if (!$puntosHeader.is(e.target) && $puntosHeader.has(e.target).length === 0) {
+        $puntosHeader.removeClass('is-active');
+    }
+});
+
+// admin-reservation-completed.php
+$(document).mouseup(e => {
+if (!$puntos_pastguest.is(e.target) && $puntos_pastguest.has(e.target).length === 0) {
+        $puntos_pastguest.removeClass('is-active');
+    }
+});
+
+// HEADER MENU CLICK
+$("._menu_options").on("click", function() {
     // $("._puntos3.is-active").removeClass("is-active");
     $(this).parent("._puntos3").toggleClass("is-active");
 })

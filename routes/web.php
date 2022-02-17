@@ -73,6 +73,9 @@ Route::middleware(['AccountDisable', 'auth'])->group( function(){
             Route::get('', [ListingsController::class, 'viewListinAll'])->name('listing');
         ## Listing Steps
             Route::get('stepInit', [ListingsController::class, 'viewListinSteps'])->name('stepInit');
+        ## Listing Steps
+            Route::post('uploadFilePhoto', [ListingsController::class, 'uploadFileDragzone'])->name('uploadFilePhoto');
+            Route::delete('uploadFilePhoto', [ListingsController::class, 'deleteFileDragzone'])->name('deleteFilePhoto');
     });
 
     ## Routes Reservations Sections

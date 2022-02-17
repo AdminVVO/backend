@@ -63,6 +63,14 @@ a {
     width: 100%;
   }
 }
+.content_intpublish .content-info-intpublish .content-aside_about form ._flfpc {
+  margin: 32px 0;
+}
+@media (max-width: 1415px) {
+  .content_intpublish .content-info-intpublish .content-aside_about form ._flfpc {
+    gap: 0;
+  }
+}
 .content_intpublish .content-info-intpublish .interna-publish {
   width: 100%;
   margin-left: 58px;

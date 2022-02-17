@@ -10,9 +10,15 @@ class InitSteps extends Component
     {
         return view('livewire.listing.steps.init-steps');
     }
- 
-    public function letGo()
+
+    public function next()
     {
-        $this->emitUp('letGo');
+        $payload = [
+            'to' => 'host',
+            'from' => 'letGo',
+            'img' => 'host',
+        ];
+        
+        $this->emitUp('next', $payload);
     }
 }

@@ -13,7 +13,6 @@ class OffersPlaces extends Component
     public $amenities = [];
     public $favorites = [];
     public $safety = [];
-    public $content = [];
 
     public function render()
     {
@@ -39,15 +38,11 @@ class OffersPlaces extends Component
 
             if ($validation->fails())
                 return $this->alert('warning', 'You must select an option!');
-
-        $this->content['amenities'] = $this->amenities;
-        $this->content['favorites'] = $this->favorites;
-        $this->content['safety'] = $this->safety;
         
         $payload = [
             'to' => 'photos',
             'from' => 'offersplaces',
-            'content' => $this->content,
+            'content' => array_merge( $this->amenities, $this->favorites, $this->safety ),
             'img' => 'photos',
         ];
         

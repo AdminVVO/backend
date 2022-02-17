@@ -25,3 +25,4 @@
     {{-- <link href="{{ URL::asset('assets/css/perfil-anfitrion.css') }}" rel="stylesheet"/> --}}
 
  @yield('css')
+ @stack('style')

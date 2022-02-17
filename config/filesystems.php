@@ -35,6 +35,20 @@ return [
             'root' => storage_path('app'),
         ],
 
+        'uploadTempFilepond' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public/tempFilepond'),
+            'url' => env('APP_URL').'/storage',
+            'visibility' => 'public',
+        ],
+
+        'uploadListing' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public/uploadListing'),
+            'url' => env('APP_URL').'/storage',
+            'visibility' => 'public',
+        ],
+
         'public' => [
             'driver' => 'local',
             'root' => storage_path('app/public'),

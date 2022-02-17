@@ -25,6 +25,16 @@
             @include responsive(670px) {
                 width: 100%;
             }
+
+            form {
+                ._flfpc {
+                    margin: 32px 0;
+
+                    @include responsive(1415px) {
+                        gap: 0;
+                    }
+                }
+            }
         }
 
         .interna-publish {

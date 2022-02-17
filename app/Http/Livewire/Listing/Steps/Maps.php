@@ -10,20 +10,12 @@ class Maps extends Component
 {
     use LivewireAlert;
 
-    public $street = 'Los Teques';
-    public $suite = '20';
-    public $city = 'CA';
-    public $state = 'Miranda';
-    public $zip_code = '1201';
-    public $country = 'Caracas';
     public $content = [
-        'street'   => '',
-        'suite'    => '',
-        'city'     => '',
-        'state'    => '',
-        'zip_code' => '',
-        'country'  => '',
+        'longitude' => '',
+        'latitude'  => '',
     ];
+
+    protected $listeners = ['nextLocation'];
 
     public function render()
     {
@@ -35,33 +27,21 @@ class Maps extends Component
         $this->emitUp('returnBack', $payload);
     }
 
-    public function next()
+    public function nextLocation($payload)
     {
-        // $validation = Validator::make([
-        //     'street'   => $this->street,
-        //     'suite'    => $this->suite,
-        //     'city'     => $this->city,
-        //     'state'    => $this->state,
-        //     'zip_code' => $this->zip_code,
-        //     'country'  => $this->country,
-        // ],[
-        //     'street'      => 'required',
-        //     'suite'       => '',
-        //     'city'        => 'required',
-        //     'state'       => '',
-        //     'zip_code'    => 'regex:/^[0-9]+$/',
-        //     'country'     => 'required|in:VE,US',
-        // ]);
+        $validation = Validator::make([
+            'longitude'   => $payload['Longitude'],
+            'latitude'    => $payload['Latitude'],
+        ],[
+            'longitude'      => 'required|numeric|between:-180,180',
+            'latitude'       => 'required|numeric|between:-90,90',
+        ]);
             
-        //     if ($validation->fails())
-        //         return $this->alert('warning', 'You must set the direction.');
+            if ($validation->fails())
+                return $this->alert('warning', 'You must set the location.');
 
-        $this->content['street']   = $this->street;
-        $this->content['suite']    = $this->suite;
-        $this->content['city']     = $this->city;
-        $this->content['state']    = $this->state;
-        $this->content['zip_code'] = $this->zip_code;
-        $this->content['country']  = $this->country;
+        $this->content['longitude'] = $payload['Longitude'];
+        $this->content['latitude'] = $payload['Latitude'];
 
         $payload = [
             'to' => 'guests',

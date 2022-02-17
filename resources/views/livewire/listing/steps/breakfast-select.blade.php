@@ -4,10 +4,10 @@
             <div class="content_mr">
                 <div class="content_step">
                     <h2 class="h2_publish" style="margin-bottom: 31px;">Which of these best describes your place?</h2>
-                    <div class="scroll_n">
+                    <div class="scroll">
                         <div class="_grid">
                             <label class="_width fx">
-                                <input type="radio" name="bednext" wire:model="description" value="Bed and breakfast">
+                                <input type="radio" name="bednext" wire:model.defer="description" value="Bed and breakfast">
                                 <div class="_rect-b">
                                     <div class="_img-f">
                                         <img src="{{ URL::asset('assets/img/card/next40.jpg') }}" alt="">
@@ -20,7 +20,7 @@
                             </label>
 
                             <label class="_width fx">
-                                <input type="radio" name="bednext" wire:model="description" value="Nature lodge">
+                                <input type="radio" name="bednext" wire:model.defer="description" value="Nature lodge">
                                 <div class="_rect-b">
                                     <div class="_img-f">
                                         <img src="{{ URL::asset('assets/img/card/next41.jpg') }}" alt="">
@@ -33,7 +33,7 @@
                             </label>
                             
                             <label class="_width fx">
-                                <input type="radio" name="bednext" wire:model="description" value="Farm stay">
+                                <input type="radio" name="bednext" wire:model.defer="description" value="Farm stay">
                                 <div class="_rect-b">
                                     <div class="_img-f">
                                         <img src="{{ URL::asset('assets/img/card/next23.jpg') }}" alt="">

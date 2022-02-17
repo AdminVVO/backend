@@ -40,12 +40,12 @@
                         </div>
                             
                         <div class="_links">
-                            <div class="_btnsmleft">
+                            {{-- <div class="_btnsmleft">
                                 <span>Show all</span>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="6.052" height="10.584" viewBox="0 0 6.052 10.584">
                                     <path d="M11.482,15.474l4-4.005a.753.753,0,0,1,1.068,0,.763.763,0,0,1,0,1.071l-4.535,4.538a.755.755,0,0,1-1.043.022L6.408,12.543a.757.757,0,0,1,1.068-1.071Z" transform="translate(-11.246 16.772) rotate(-90)" fill="#333"/>
                                 </svg>
-                            </div>
+                            </div> --}}
 
                             <p class="_txtec14" style="margin-top: 21px;">
                                 <p class="_txtec14">We've made it easier to create a listing on Vvoutlet. You'll notice some changes to your in-progress listings.</p>
@@ -61,7 +61,7 @@
             <div class="content_mr">
                 <div class="content_listing">
                     <h2 class="h2_publish txt_center" style="margin-bottom: 33px; padding: 0 21px;">Start a new listing</h2>
-                    <a href="javascript:void(0)" wire:click="initCreateButton">
+                    <a href="javascript:void(0)" wire:click="next">
                         <div class="_rect-b">
                             <div class="_img-f">
                                 <span class="_bg-border">

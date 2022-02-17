@@ -15,11 +15,20 @@ class CreateListingsTable extends Migration
     {
         Schema::create('listings', function (Blueprint $table) {
             $table->increments('id_listings');
-            $table->string('host');
-            $table->string('description');
-            $table->string('img');
-            $table->string('step');
-
+            $table->string('step')->nullable();;
+            $table->string('host')->nullable();;
+            $table->string('description')->nullable();;
+            $table->string('space')->nullable();;
+            $table->json('location')->nullable();;
+            $table->json('guests')->nullable();;
+            $table->json('offers')->nullable();;
+            $table->json('photos')->nullable();;
+            $table->string('placeTitle')->nullable();;
+            $table->json('placeOptions')->nullable();;
+            $table->string('placeComment')->nullable();;
+            $table->string('prices')->nullable();;
+            $table->json('featurs')->nullable();;
+            $table->string('img')->nullable();;
             $table->string('status')->default('in process');
 
             $table->unsignedInteger('user_id');
@@ -43,3 +52,4 @@ class CreateListingsTable extends Migration
         Schema::dropIfExists('listings');
     }
 }
+

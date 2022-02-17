@@ -13,12 +13,22 @@ class Listings extends Model
     protected $primaryKey = 'id_listings';
 
     protected $fillable = [
+        'user_id',
+        'step',
         'host',
         'description',
+        'space',
+        'location',
+        'guests',
+        'offers',
+        'photos',
+        'placeTitle',
+        'placeOptions',
+        'placeComment',
+        'prices',
+        'featurs',
         'img',
         'status',
-        'step',
-        'user_id',
     ];
 
     protected $dates = [

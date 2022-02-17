@@ -11,7 +11,7 @@
                         <form wire:submit.prevent="submitAddress">
                             <div class="_flfpc">
                                 <div class="txt-check-in">Street</div>
-                                <input type="text" class="_numcard @error('street') error_input @enderror" wire:model="street">
+                                <input type="text" class="_numcard @error('street') error_input @enderror" wire:model.lazy="street">
                                 @error('street')
                                     <div  class="_txterror">
                                         <i class="fas fa-exclamation-circle icon1"></i> 
@@ -23,7 +23,7 @@
                             <div class="_flfpc" style="gap: 20px;">
                                 <div class="block_date">
                                     <div class="txt-check-in">Apt, suite, etc. (Optional)</div>
-                                    <input type="text" class="_numcard @error('suite') error_input @enderror" wire:model="suite">
+                                    <input type="text" class="_numcard @error('suite') error_input @enderror" wire:model.lazy="suite">
                                     @error('suite')
                                         <div  class="_txterror">
                                             <i class="fas fa-exclamation-circle icon1"></i> 
@@ -34,7 +34,7 @@
 
                                 <div class="block_date">
                                     <div class="txt-check-in">City</div>
-                                    <input type="text" class="_numcard @error('city') error_input @enderror" wire:model="city">
+                                    <input type="text" class="_numcard @error('city') error_input @enderror" wire:model.lazy="city">
                                     @error('city')
                                         <div  class="_txterror">
                                             <i class="fas fa-exclamation-circle icon1"></i> 
@@ -47,7 +47,7 @@
                             <div class="_flfpc">
                                 <div class="block_date">
                                     <div class="txt-check-in">State (Optional)</div>
-                                    <input type="text" class="_numcard @error('state') error_input @enderror" wire:model="state">
+                                    <input type="text" class="_numcard @error('state') error_input @enderror" wire:model.lazy="state">
                                     @error('state')
                                         <div  class="_txterror">
                                             <i class="fas fa-exclamation-circle icon1"></i> 
@@ -58,7 +58,7 @@
 
                                 <div class="block_date">
                                     <div class="txt-check-in">Zip code (Optional)</div>
-                                    <input type="text" class="_numcard @error('zip_code') error_input @enderror" wire:model="zip_code">
+                                    <input type="text" class="_numcard @error('zip_code') error_input @enderror" wire:model.lazy="zip_code">
                                     @error('zip_code')
                                         <div  class="_txterror">
                                             <i class="fas fa-exclamation-circle icon1"></i> 
@@ -71,7 +71,7 @@
                             <div class="_flfpc" style="display: block;">
                                 <div class="txt-check-in">Country/region</div>
                                 <div class="selected-modal" style="margin: 0;">
-                                    <select wire:model="country" class="@error('country') error_input @enderror">
+                                    <select wire:model.lazy="country" class="@error('country') error_input @enderror">
                                         <option value="0">Choose...</option>
                                         <option value="US">United States - US</option>
                                         <option value="VE">Venezuela - VE</option>
@@ -89,7 +89,6 @@
 
                             <p class="_txtec16">We'll only share your address with guests who are booked as outlined in our <a href="javascript:void(0)" class="_txtblu16">privacy policy</a>.</p>
 
-                            <button type="submit" class="btn-celest">Looks good</button>
                         </form>
                     </div>
                 </div>
