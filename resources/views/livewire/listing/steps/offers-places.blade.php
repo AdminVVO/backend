@@ -12,7 +12,7 @@
 
                                 <div class="fx fx-fw-w">
                                     <label>
-                                        <input type="checkbox" wire:model.defer="amenities" value="Pool">
+                                        <input type="checkbox" wire:model.defer="amenities" value="pool">
                                         <div class="_contmini-list">
                                             <div class="_img-fondo">
                                                 <img src="{{ URL::asset('assets/img/card/fav1.jpg') }}" alt="">
@@ -24,7 +24,7 @@
                                     </label>
 
                                     <label>
-                                        <input type="checkbox" wire:model.defer="amenities" value="Hot tub">
+                                        <input type="checkbox" wire:model.defer="amenities" value="hot_tub">
                                         <div class="_contmini-list">
                                             <div class="_img-fondo">
                                                 <img src="{{ URL::asset('assets/img/card/fav2.jpg') }}" alt="">
@@ -36,7 +36,7 @@
                                     </label>
 
                                     <label>
-                                        <input type="checkbox" wire:model.defer="amenities" value="Patio">
+                                        <input type="checkbox" wire:model.defer="amenities" value="patio">
                                         <div class="_contmini-list">
                                             <div class="_img-fondo">
                                                 <img src="{{ URL::asset('assets/img/card/fav3.jpg') }}" alt="">
@@ -48,7 +48,7 @@
                                     </label>
 
                                     <label>
-                                        <input type="checkbox" wire:model.defer="amenities" value="BBQ grill">
+                                        <input type="checkbox" wire:model.defer="amenities" value="bbq_grill">
                                         <div class="_contmini-list">
                                             <div class="_img-fondo">
                                                 <img src="{{ URL::asset('assets/img/card/fav4.jpg') }}" alt="">
@@ -60,7 +60,7 @@
                                     </label>
 
                                     <label>
-                                        <input type="checkbox" wire:model.defer="amenities" value="Fire pit">
+                                        <input type="checkbox" wire:model.defer="amenities" value="fire_pit">
                                         <div class="_contmini-list">
                                             <div class="_img-fondo">
                                                 <img src="{{ URL::asset('assets/img/card/fav5.jpg') }}" alt="">
@@ -72,7 +72,7 @@
                                     </label>
 
                                     <label>
-                                        <input type="checkbox" wire:model.defer="amenities" value="Pool table">
+                                        <input type="checkbox" wire:model.defer="amenities" value="pool_table">
                                         <div class="_contmini-list">
                                             <div class="_img-fondo">
                                                 <img src="{{ URL::asset('assets/img/card/fav6.jpg') }}" alt="">
@@ -84,7 +84,7 @@
                                     </label>
 
                                     <label>
-                                        <input type="checkbox" wire:model.defer="amenities" value="Indoor fireplace">
+                                        <input type="checkbox" wire:model.defer="amenities" value="indoor_fireplace">
                                         <div class="_contmini-list">
                                             <div class="_img-fondo">
                                                 <img src="{{ URL::asset('assets/img/card/fav7.jpg') }}" alt="">
@@ -96,7 +96,7 @@
                                     </label>
 
                                     <label>
-                                        <input type="checkbox" wire:model.defer="amenities" value="Outdoor dining area">
+                                        <input type="checkbox" wire:model.defer="amenities" value="outdoor_dining">
                                         <div class="_contmini-list">
                                             <div class="_img-fondo">
                                                 <img src="{{ URL::asset('assets/img/card/fav8.jpg') }}" alt="">
@@ -108,7 +108,7 @@
                                     </label>
 
                                     <label>
-                                        <input type="checkbox" wire:model.defer="amenities" value="Exercise equipment">
+                                        <input type="checkbox" wire:model.defer="amenities" value="exercise_equipment">
                                         <div class="_contmini-list">
                                             <div class="_img-fondo">
                                                 <img src="{{ URL::asset('assets/img/card/fav9.jpg') }}" alt="">
@@ -126,7 +126,7 @@
 
                                 <div class="fx fx-fw-w">
                                     <label>
-                                        <input type="checkbox" wire:model.defer="favorites" value="Wifi">
+                                        <input type="checkbox" wire:model.defer="favorites" value="wifi">
                                         <div class="_contmini-list">
                                             <div class="_img-fondo">
                                                 <img src="{{ URL::asset('assets/img/card/fav10.jpg') }}" alt="">
@@ -150,7 +150,7 @@
                                     </label>
 
                                     <label>
-                                        <input type="checkbox" wire:model.defer="favorites" value="Kitchen">
+                                        <input type="checkbox" wire:model.defer="favorites" value="kitchen">
                                         <div class="_contmini-list">
                                             <div class="_img-fondo">
                                                 <img src="{{ URL::asset('assets/img/card/fav12.jpg') }}" alt="">
@@ -162,7 +162,7 @@
                                     </label>
 
                                     <label>
-                                        <input type="checkbox" wire:model.defer="favorites" value="Washer">
+                                        <input type="checkbox" wire:model.defer="favorites" value="washer">
                                         <div class="_contmini-list">
                                             <div class="_img-fondo">
                                                 <img src="{{ URL::asset('assets/img/card/fav13.jpg') }}" alt="">
@@ -174,7 +174,7 @@
                                     </label>
 
                                     <label>
-                                        <input type="checkbox" wire:model.defer="favorites" value="Free parking on premises">
+                                        <input type="checkbox" wire:model.defer="favorites" value="free_parking">
                                         <div class="_contmini-list">
                                             <div class="_img-fondo">
                                                 <img src="{{ URL::asset('assets/img/card/fav14.jpg') }}" alt="">
@@ -186,7 +186,7 @@
                                     </label>
 
                                     <label>
-                                        <input type="checkbox" wire:model.defer="favorites" value="Paid parking on premises">
+                                        <input type="checkbox" wire:model.defer="favorites" value="paid_parking">
                                         <div class="_contmini-list">
                                             <div class="_img-fondo">
                                                 <img src="{{ URL::asset('assets/img/card/fav15.jpg') }}" alt="">
@@ -198,7 +198,7 @@
                                     </label>
 
                                     <label>
-                                        <input type="checkbox" wire:model.defer="favorites" value="Air conditioning">
+                                        <input type="checkbox" wire:model.defer="favorites" value="air_conditioning">
                                         <div class="_contmini-list">
                                             <div class="_img-fondo">
                                                 <img src="{{ URL::asset('assets/img/card/fav16.jpg') }}" alt="">
@@ -210,7 +210,7 @@
                                     </label>
 
                                     <label>
-                                        <input type="checkbox" wire:model.defer="favorites" value="Dedicated worspace">
+                                        <input type="checkbox" wire:model.defer="favorites" value="dedicated_worspace">
                                         <div class="_contmini-list">
                                             <div class="_img-fondo">
                                                 <img src="{{ URL::asset('assets/img/card/fav17.jpg') }}" alt="">
@@ -222,7 +222,7 @@
                                     </label>
 
                                     <label>
-                                        <input type="checkbox" wire:model.defer="favorites" value="Outdoor shower">
+                                        <input type="checkbox" wire:model.defer="favorites" value="outdoor_shower">
                                         <div class="_contmini-list">
                                             <div class="_img-fondo">
                                                 <img src="{{ URL::asset('assets/img/card/fav18.jpg') }}" alt="">
@@ -240,7 +240,7 @@
 
                                 <div class="fx fx-fw-w">
                                     <label>
-                                        <input type="checkbox" wire:model.defer="safety" value="Smoke alarm">
+                                        <input type="checkbox" wire:model.defer="safety" value="smoke_alarm">
                                         <div class="_contmini-list">
                                             <div class="_img-fondo">
                                                 <img src="{{ URL::asset('assets/img/card/fav19.jpg') }}" alt="">
@@ -252,7 +252,7 @@
                                     </label>
 
                                     <label>
-                                        <input type="checkbox" wire:model.defer="safety" value="First aid kit">
+                                        <input type="checkbox" wire:model.defer="safety" value="first_kit">
                                         <div class="_contmini-list">
                                             <div class="_img-fondo">
                                                 <img src="{{ URL::asset('assets/img/card/fav20.jpg') }}" alt="">
@@ -264,7 +264,7 @@
                                     </label>
 
                                     <label>
-                                        <input type="checkbox" wire:model.defer="safety" value="Caroom monoxide alarm">
+                                        <input type="checkbox" wire:model.defer="safety" value="monoxide_alarm">
                                         <div class="_contmini-list">
                                             <div class="_img-fondo">
                                                 <img src="{{ URL::asset('assets/img/card/fav21.jpg') }}" alt="">
@@ -276,7 +276,7 @@
                                     </label>
 
                                     <label>
-                                        <input type="checkbox" wire:model.defer="safety" value="Fire extinguisher">
+                                        <input type="checkbox" wire:model.defer="safety" value="fire_extinguisher">
                                         <div class="_contmini-list">
                                             <div class="_img-fondo">
                                                 <img src="{{ URL::asset('assets/img/card/fav22.jpg') }}" alt="">

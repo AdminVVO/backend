@@ -2,7 +2,7 @@
 
 namespace App\Http\Livewire\Listing\Steps;
 
-use App\Models\Listings;
+use App\Models\Listing\Listings;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
@@ -17,14 +17,16 @@ class FinishCreate extends Component
     public function mount()
     {
         $this->pending = Listings::select(
-            'id_listings as listing',
-            'host',
-            'img',
-            'created_at'
+            'listings.id_listings as listing',
+            'listing_property_roomds.like_place',
+            'listings.photos',
+            'listings.created_at'
         )->where([
-            'status' => 'in process',
-            'user_id' => Auth::id()
-        ])->get();
+            'listings.status' => 'in process',
+            'listings.user_id' => Auth::id()
+        ])
+        ->leftJoin('listing_property_roomds', 'listings.id_listings', 'listing_property_roomds.listing_id')
+        ->get();
     }
 
     public function render()

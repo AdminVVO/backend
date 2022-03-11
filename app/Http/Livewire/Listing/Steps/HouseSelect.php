@@ -27,7 +27,7 @@ class HouseSelect extends Component
         $validation = Validator::make([
            'description' => $this->description,
         ],[
-            'description' => "required|in:Residential home,Cabin,Villa,Townhouse,Cottage,Bungalow,Earth house,Houseboat,Hut,Farm stay,Dome house,Chalet,Lighthouse,Shepherd's hut",
+            'description' => "required|in:residential_home,cabin,villa,townhouse,cottage,bungalow,earth_house,houseboat,hut,farm_stay,dome_house,chalet,lighthouse,shepherds_hut",
         ]);
 
             if ($validation->fails())

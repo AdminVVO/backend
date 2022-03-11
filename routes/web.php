@@ -19,69 +19,82 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('home.Home');
-})->name('/');
+Route::middleware(['AccountDisable'])->group( function(){
 
-Route::get('/category', function () {
-    return view('category.Category');
-})->name('/category');
+    Route::get('/', function () {
+        return view('home.Home');
+    })->name('/');
 
-Route::get('/host', function () {
-    return view('host.Host');
-})->name('host');
+    Route::get('/category', function () {
+        return view('category.Category');
+    })->name('/category');
 
-Route::get('/interna', function () {
-    return view('interna.Interna');
-})->name('/interna');
+    Route::get('/host', function () {
+        return view('host.Host');
+    })->name('host');
 
-Route::get('/search', function () {
-    return view('search.search');
-})->name('/search');
-Route::get('/searchflexible', function () {
-    return view('searchflexible.searchflexible');
-})->name('/search');
+    Route::get('/interna', function () {
+        return view('interna.Interna');
+    })->name('/interna');
 
-Route::get('/interna/{id}',[internaController::class,'getcontent'])->name('interna.getcontent');
+    Route::get('/search', function () {
+        return view('search.search');
+    })->name('/search');
+    Route::get('/searchflexible', function () {
+        return view('searchflexible.searchflexible');
+    })->name('/search');
 
-Route::get('/blog', function () {
-    return view('blog.Blog');
-})->name('/blog');
+    Route::get('/interna/{id}',[internaController::class,'getcontent'])->name('interna.getcontent');
 
+    Route::get('/blog', function () {
+        return view('blog.Blog');
+    })->name('/blog');
 
-Route::middleware(['AccountDisable', 'auth'])->group( function(){
+    Route::middleware(['auth'])->group( function(){
 
-    ## Routes Account Sections
+        ## Routes Account Sections
+        Route::prefix('account')->group( function(){
+            ## Account Index
+                Route::get('', [AccountController::class, 'viewAccount'])->name('account');
+            ## Account Personal Info
+                Route::get('personal_info', [AccountController::class, 'viewPersonalInfo'])->name('personal_info');
+            ## Account Login Secury
+                Route::get('login_segurity', [AccountController::class, 'viewLoginSecury'])->name('login_segurity');
+            ## Account Payments
+                Route::get('payment_payouts', [AccountController::class, 'viewPaymentsPayouts'])->name('payment_payouts');
+            ## Account GovermenID
+                Route::get('govermID', [AccountController::class, 'viewAddPhotoGovermID'])->name('govermID');
+            ## Account Preferences
+                Route::get('global_preferen', [AccountController::class, 'viewGlobalPreferences'])->name('global_preferen');
+        });
+
+        ## Routes Listing Sections
+        Route::prefix('listing')->group( function(){
+            ## Listing Index
+                Route::get('', [ListingsController::class, 'viewListinAll'])->name('listing');
+            ## Listing Show
+                Route::get('show/{id}', [ListingsController::class, 'viewListinShow'])->name('listing-show');
+            ## Listing Steps
+                Route::get('stepInit', [ListingsController::class, 'viewListinSteps'])->name('stepInit');
+            ## Listing Steps
+                Route::post('uploadFilePhoto', [ListingsController::class, 'uploadFileDragzone'])->name('uploadFilePhoto');
+                Route::delete('uploadFilePhoto', [ListingsController::class, 'deleteFileDragzone'])->name('deleteFilePhoto');
+        });
+
+        ## Routes Reservations Sections
+        Route::prefix('reservations')->group( function(){
+            ## Reservations Index
+                Route::get('', [ReservationController::class, 'viewReservation'])->name('reservations');
+        });
+
+    });
+});
+
+Route::middleware(['auth'])->group( function(){
+    ## Routes Account Disabled
     Route::prefix('account')->group( function(){
-        ## Account Index
-            Route::get('', [AccountController::class, 'viewAccount'])->name('account');
-        ## Account Personal Info
-            Route::get('personal_info', [AccountController::class, 'viewPersonalInfo'])->name('personal_info');
-        ## Account Login Secury
-            Route::get('login_segurity', [AccountController::class, 'viewLoginSecury'])->name('login_segurity');
-        ## Account Payments
-            Route::get('payment_payouts', [AccountController::class, 'viewPaymentsPayouts'])->name('payment_payouts');
-        ## Account GovermenID
-            Route::get('govermID', [AccountController::class, 'viewAddPhotoGovermID'])->name('govermID');
-        ## Account Preferences
-            Route::get('global_preferen', [AccountController::class, 'viewGlobalPreferences'])->name('global_preferen');
-    });
-
-    ## Routes Listing Sections
-    Route::prefix('listing')->group( function(){
-        ## Listing Index
-            Route::get('', [ListingsController::class, 'viewListinAll'])->name('listing');
-        ## Listing Steps
-            Route::get('stepInit', [ListingsController::class, 'viewListinSteps'])->name('stepInit');
-        ## Listing Steps
-            Route::post('uploadFilePhoto', [ListingsController::class, 'uploadFileDragzone'])->name('uploadFilePhoto');
-            Route::delete('uploadFilePhoto', [ListingsController::class, 'deleteFileDragzone'])->name('deleteFilePhoto');
-    });
-
-    ## Routes Reservations Sections
-    Route::prefix('reservations')->group( function(){
-        ## Reservations Index
-            Route::get('', [ReservationController::class, 'viewReservation'])->name('reservations');
+        ## Account Disabled
+            Route::get('blocked', [AccountController::class, 'viewBlockAccount'])->middleware(['AccountNotDisable'])->name('blocked');
     });
 
 });

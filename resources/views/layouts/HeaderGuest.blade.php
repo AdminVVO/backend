@@ -21,8 +21,8 @@
 
                     <a href="#" class="menu_perfil">
                         <span>
-                            <img src="{{ URL::asset('assets/img/profile.png') }}" alt="">
-                            Anny Smith
+                            <img src="{{ URL::asset('assets/img/avatar') }}/{{ Auth::user()->avatar }}" alt="">
+                            {{  \App\Models\User::FullName() }}
                         </span>
                     </a>
 
@@ -61,10 +61,10 @@
                     <div class="menu_home-content">
                         <div class="menu_home-content-items">
                             <ul>
-                                <li><a href="{{ route('google.login') }}" id="butnSign">Sign up</a></li>
+                               <li><a href="javascript:void(0)" id="butnSign">Sign up</a></li>
                             </ul>
                             <ul>
-                                <li><a href="{{ route('google.login') }}" id="butnLogin">Log in</a></li>
+                                <li><a href="javascript:void(0)" id="butnLogin">Log in</a></li>
                             </ul>
                         </div>
                     </div>

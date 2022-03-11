@@ -1,7 +1,7 @@
 <div class="_ctoverlay">
     <div class="content_right">
         @if ( count($pending) != 0 )
-            <div class="content_hidden c_h-listing" style="padding-bottom: 48px; padding-top: 0;">
+            <div class="content_hidden c_h-listing" style="padding-bottom: 48px; padding-top: 0;" wire:ignore>
                 <div class="content_mr">
                     <div class="content_listing">
                         <h2 class="h2_publish txt_center" style="padding: 0 21px;">Finish your listing</h2>
@@ -12,8 +12,8 @@
                                         <a href="javascript:void(0)" wire:click="continueListing('{{ $element['listing'] }}')">
                                             <div class="_cont-list">
                                                 <div class="_img-fondo">
-                                                    @if ( $element['img'] != '' )
-                                                        <img src="{{ URL::asset('assets/img/card/') }}/{{ $element['img'] }}" alt="">
+                                                    @if ( isset( $element['photos'] ) && count( $element['photos'] ) != 0 )
+                                                        <img src="{{ URL::asset('storage/uploadListing/') }}/{{ $element['photos'][0] }}" alt="">
                                                     @else
                                                         <span class="_bg-border">
                                                             <i class="far fa-building _i-verde30"></i>
@@ -21,7 +21,7 @@
                                                     @endif
                                                 </div>
                                                 <div class="_block">
-                                                    <h3 class="_txteh">{{ ucfirst( $element['host'] ) }}</h3>
+                                                    <h3 class="_txteh">{{ ucfirst( $element['like_place'] ) }}</h3>
                                                     <p class="_txtec14 _txtcapit">{{ Carbon\Carbon::parse( $element['created_at'], 'UTC')->locale('en')->isoFormat('dddd, MMMM D, YYYY') }}</p>
                                                 </div>
                                             </div>
@@ -40,12 +40,14 @@
                         </div>
                             
                         <div class="_links">
-                            {{-- <div class="_btnsmleft">
-                                <span>Show all</span>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="6.052" height="10.584" viewBox="0 0 6.052 10.584">
-                                    <path d="M11.482,15.474l4-4.005a.753.753,0,0,1,1.068,0,.763.763,0,0,1,0,1.071l-4.535,4.538a.755.755,0,0,1-1.043.022L6.408,12.543a.757.757,0,0,1,1.068-1.071Z" transform="translate(-11.246 16.772) rotate(-90)" fill="#333"/>
-                                </svg>
-                            </div> --}}
+                            <div class="_btnsmleft">
+                                <a href="{{ route('listing') }}">
+                                    <span style="color: black;">Show all</span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="6.052" height="10.584" viewBox="0 0 6.052 10.584">
+                                        <path d="M11.482,15.474l4-4.005a.753.753,0,0,1,1.068,0,.763.763,0,0,1,0,1.071l-4.535,4.538a.755.755,0,0,1-1.043.022L6.408,12.543a.757.757,0,0,1,1.068-1.071Z" transform="translate(-11.246 16.772) rotate(-90)" fill="#333"/>
+                                    </svg>
+                                </a>
+                            </div>
 
                             <p class="_txtec14" style="margin-top: 21px;">
                                 <p class="_txtec14">We've made it easier to create a listing on Vvoutlet. You'll notice some changes to your in-progress listings.</p>

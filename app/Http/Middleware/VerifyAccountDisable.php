@@ -17,13 +17,8 @@ class VerifyAccountDisable
      */
     public function handle(Request $request, Closure $next)
     {
-        if ( Auth::check() && Auth::user()->acount_actived == 0 ) {
-            
-            Auth::guard()->logout();
-            $request->session()->invalidate();
-
-            return redirect('/');
-        }
+        if ( Auth::check() && Auth::user()->acount_actived == 0 )
+            return redirect()->route('blocked');
 
         return $next($request);
     }

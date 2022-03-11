@@ -27,10 +27,10 @@
                                 <p class="_txtec">use my current location</p>
                             </button>
 
-                            <div class="input-wrapper none">
+                            {{-- <div class="input-wrapper none">
                                 <span></span>
                                  <a href="javascript:void(0)" class="_txtehlinear" wire:click="enterManually">Enter Address manually</a>
-                            </div>
+                            </div> --}}
                         </div>
 
 

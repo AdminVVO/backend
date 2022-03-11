@@ -27,7 +27,7 @@ class SecondarySelect extends Component
         $validation = Validator::make([
            'description' => $this->description,
         ],[
-            'description' => 'required|in:Guesthouse,Guest suite,Farm stay,Vacation home',
+            'description' => 'required|in:guesthouse,guest_suite,farm_stay,vacation_home',
         ]);
 
             if ($validation->fails())

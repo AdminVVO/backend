@@ -27,7 +27,7 @@ class Space extends Component
         $validation = Validator::make([
            'space' => $this->space,
         ],[
-            'space' => 'required|in:place,privateroom,sharedroom',
+            'space' => 'required|in:shared_room,private_room,entire_place',
         ]);
 
             if ($validation->fails())

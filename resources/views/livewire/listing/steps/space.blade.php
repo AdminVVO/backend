@@ -8,7 +8,7 @@
                         <div class="scroll_n">
                             <div class="_grid next">
                                 <div class="_width">
-                                    <input type="radio" id="place" name="guestshave" value="place" wire:model.defer="space">
+                                    <input type="radio" id="place" name="guestshave" value="entire_place" wire:model.defer="space">
                                     <label for="place" class="_rect-b">
                                         <div class="_img-f" style="padding: 21px 0;">
                                             <span class="_bg-border">
@@ -22,7 +22,7 @@
                                 </div>
 
                                 <div class="_width">
-                                    <input type="radio" id="privateroom" name="guestshave" value="privateroom" wire:model.defer="space">
+                                    <input type="radio" id="privateroom" name="guestshave" value="private_room" wire:model.defer="space">
                                     <label for="privateroom" class="_rect-b">
                                         <div class="_img-f" style="padding: 21px 0;">
                                             <span class="_bg-border">
@@ -38,7 +38,7 @@
                                 </div>
 
                                 <div class="_width">
-                                    <input type="radio" id="sharedroom" name="guestshave" value="sharedroom" wire:model.defer="space">
+                                    <input type="radio" id="sharedroom" name="guestshave" value="shared_room" wire:model.defer="space">
                                     <label for="sharedroom" class="_rect-b">
                                         <div class="_img-f" style="padding: 21px 0;">
                                             <span class="_bg-border">

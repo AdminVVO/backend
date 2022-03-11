@@ -31,18 +31,23 @@ class OffersPlaces extends Component
            'favorites' => $this->favorites,
            'safety' => $this->safety,
         ],[
-            'amenities' => 'required|array|in:Pool,Hot tub,Patio,BBQ grill,Fire pit,Pool table,Indoor fireplace,Outdoor dining area,Exercise equipment',
-            'favorites' => 'required|array|in:Wifi,TV,Kitchen,Washer,Free parking on premises,Paid parking on premises,Air conditioning,Dedicated worspace,Outdoor shower',
-            'safety' => 'required|array|in:Smoke alarm,First aid kit,Caroom monoxide alarm,Fire extinguisher',
+            'amenities' => 'required|array|in:pool,hot_tub,patio,bbq_grill,fire_pit,pool_table,indoor_fireplace,outdoor_dining,exercise_equipment',
+            'favorites' => 'required|array|in:wifi,TV,kitchen,washer,free_parking,paid_parking,air_conditioning,dedicated_worspace,outdoor_shower',
+            'safety' => 'required|array|in:smoke_alarm,first_kit,monoxide_alarm,fire_extinguisher',
         ]);
 
             if ($validation->fails())
                 return $this->alert('warning', 'You must select an option!');
         
+
+
         $payload = [
             'to' => 'photos',
             'from' => 'offersplaces',
-            'content' => array_merge( $this->amenities, $this->favorites, $this->safety ),
+            'content' => [
+                'amenities' => array_merge( $this->amenities, $this->favorites ),
+                'safety' => $this->safety,
+            ],
             'img' => 'photos',
         ];
         

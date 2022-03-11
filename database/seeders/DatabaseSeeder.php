@@ -20,6 +20,9 @@ class DatabaseSeeder extends Seeder
         $this->call([CurrencsSeeder::class]);
         $this->call([CategorySeeder::class]);
         $this->call([LanguagesRegionsSeeder::class]);
+        $this->call([RoomsPropertySeeder::class]);
+        $this->call([AmenitiesSafetySeeder::class]);
+        $this->call([ScenicViewsSeeder::class]);
 
         ## Secondary Seeders
         $this->call([UserSeeder::class]);

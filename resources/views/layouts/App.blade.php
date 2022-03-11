@@ -29,6 +29,10 @@
 
     @yield('header')
 
+    @if (!Auth::check())
+        @include('loggin.LogInLogOut')
+    @endif
+
     {{-- @include('language.Language') --}}
     @yield('content')
     @include('layouts.Footer')

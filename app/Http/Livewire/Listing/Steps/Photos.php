@@ -30,9 +30,8 @@ class Photos extends Component
 
         if ( File::isDirectory( storage_path('app/public/tempFilepond/' . $folderAuth) ) ){
             $count = count( File::allFiles(storage_path('app/public/tempFilepond/' . $folderAuth)) );
-            // if ( $count <= 4 || $count >= 11 )
-            if ( $count <= 4 )
-                return $this->alert('warning', "You haven't uploaded 5 photos!");
+            if ( $count <= 4 || $count >= 11 )
+                return $this->alert('warning', "You haven't uploaded at least 5 photos!");
 
             $payload = [
                 'to' => 'photosAll',

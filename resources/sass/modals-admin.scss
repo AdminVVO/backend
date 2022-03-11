@@ -66,6 +66,16 @@
                     overflow: auto;
                     width: 100%;
 
+                    ._pdleftright32 {
+                        @include responsive(600px) {
+                            padding: 0 32px !important;
+                        }
+
+                        @include responsive(450px) {
+                            padding: 0 22px !important;
+                        }
+                    }
+
                     .site-content {
                         padding-bottom: 28px;
 
@@ -157,6 +167,35 @@
                                     @include responsive(618px) {
                                         justify-content: center;
                                     }
+                                }
+                            }
+                        }
+
+                        ._block-chan_listing {
+                            padding: 34px 50px 22px;
+
+                            @include responsive(650px) {
+                                padding: 34px 30px 22px;
+                            }
+
+                            @include responsive(536px) {
+                                padding: 21px 18px 22px;
+                            }
+
+                            .search_content {
+                                margin: 0;
+                            }
+
+                            .content_change_gallery {
+                                height: 486px;
+                                overflow: auto;
+                                margin: 40px 0 37px;
+                                gap: 24px;
+
+                                .check_click {
+                                    gap: 15px;
+                                    max-width: 458px;
+                                    width: 100%;
                                 }
                             }
                         }

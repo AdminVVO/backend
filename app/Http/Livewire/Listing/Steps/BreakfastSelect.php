@@ -27,7 +27,7 @@ class BreakfastSelect extends Component
         $validation = Validator::make([
            'description' => $this->description,
         ],[
-            'description' => 'required|in:Bed and breakfast,Nature lodge,Farm stay',
+            'description' => 'required|in:bed_breakfast,nature_lodge,farm_stay',
         ]);
 
             if ($validation->fails())

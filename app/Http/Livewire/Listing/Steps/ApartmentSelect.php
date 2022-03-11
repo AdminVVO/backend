@@ -27,7 +27,7 @@ class ApartmentSelect extends Component
         $validation = Validator::make([
            'description' => $this->description,
         ],[
-            'description' => 'required|in:Rental unit,Condominium (Condo),Loft,Serviced apartment,Vacation home',
+            'description' => 'required|in:rental_unique,condominiun,loft,serviced_apartm,vacation_home',
         ]);
 
             if ($validation->fails())

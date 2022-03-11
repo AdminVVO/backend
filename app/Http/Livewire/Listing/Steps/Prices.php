@@ -10,7 +10,7 @@ class Prices extends Component
 {
     use LivewireAlert;
 
-    public $price = 0;
+    public $price;
     public $disableS = false;
     public $disableR = true;
 

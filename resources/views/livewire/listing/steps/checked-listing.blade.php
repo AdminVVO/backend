@@ -79,7 +79,6 @@
                                                     @endif
                                                 @endforeach
                                             @endif
-
                                         </div>
                                     </div>
                                 </div>
@@ -87,7 +86,8 @@
                                 <div class="_pd">
                                     <div class="content-amenities">
                                         <h2 class="h2-guests" style="margin-bottom: 22px;">Location</h2>
-                                        <div class="contact-map" id='mapCheckout' style="width:560px; height:530px;"></div>
+                                        <h3 class="_txteh16 _txtcapi">{{ $content['address'] }}</h3>
+                                        <div class="contact-map" id='mapCheckout' style="width:520px; height:530px;"></div>
                                         <p class="_txtec14">Don't worry, we'll share your address with guests who are booked and as outlined in our privacy policy at vvoutlet.com/privacy_policy</p>
                                     </div>
                                 </div>

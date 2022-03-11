@@ -3,12 +3,13 @@
 <script src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script> <!-- libreria js de 2 calendarios date-range-piker -->
 <script src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
 
-<script src="{{ URL::asset('js/app.js') }}" type="text/javascript"></script>
+{{-- <script src="{{ URL::asset('js/app.js') }}" type="text/javascript"></script> --}}
 
 <script src="{{ URL::asset('js/application.js') }}"></script>
 <script src="{{ URL::asset('assets/js/owl.carousel.min.js') }}"></script>
 <script src="{{ URL::asset('assets/js/script.js') }}"></script>
 <script src="{{ URL::asset('assets/js/modals.js') }}"></script>
+{{-- @if (!Auth::check())<script src="{{ URL::asset('assets/js/modals-session.js') }}"></script>@endif --}}
 <script src="{{ URL::asset('assets/js/modals-orig.js') }}"></script>
 <script src="{{ URL::asset('assets/js/slider_home.js') }}"></script>
 <script src="{{ URL::asset('assets/js/select.js') }}"></script>

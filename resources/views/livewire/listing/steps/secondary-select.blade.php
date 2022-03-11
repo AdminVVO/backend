@@ -7,7 +7,7 @@
                     <div class="scroll">
                         <div class="_grid">
                             <label class="_width fx">
-                                <input type="radio" name="secondarynext" wire:model.defer="description" value="Guesthouse">
+                                <input type="radio" name="secondarynext" wire:model.defer="description" value="guesthouse">
                                 <div class="_rect-b">
                                     <div class="_img-f">
                                         <img src="{{ URL::asset('assets/img/card/next21.jpg') }}" alt="">
@@ -20,7 +20,7 @@
                             </label>
 
                             <label class="_width fx">
-                                <input type="radio" name="secondarynext" wire:model.defer="description" value="Guest suite">
+                                <input type="radio" name="secondarynext" wire:model.defer="description" value="guest_suite">
                                 <div class="_rect-b">
                                     <div class="_img-f">
                                         <img src="{{ URL::asset('assets/img/card/next22.jpg') }}" alt="">
@@ -33,7 +33,7 @@
                             </label>
 
                             <label class="_width fx">
-                                <input type="radio" name="secondarynext" wire:model.defer="description" value="Farm stay">
+                                <input type="radio" name="secondarynext" wire:model.defer="description" value="farm_stay">
                                 <div class="_rect-b">
                                     <div class="_img-f">
                                         <img src="{{ URL::asset('assets/img/card/next23.jpg') }}" alt="">
@@ -46,7 +46,7 @@
                             </label>
 
                             <label class="_width fx">
-                                <input type="radio" name="secondarynext" wire:model.defer="description" value="Vacation home">
+                                <input type="radio" name="secondarynext" wire:model.defer="description" value="vacation_home">
                                 <div class="_rect-b">
                                     <div class="_img-f">
                                         <img src="{{ URL::asset('assets/img/card/next5.jpg') }}" alt="">

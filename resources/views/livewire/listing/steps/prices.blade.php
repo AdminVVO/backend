@@ -17,10 +17,10 @@
                                         </span>
                                     </button>
 
-                                    <p class="_binput_dolar fx">
+                                    <label class="_binput_dolar fx">
                                         <span aria-hidden="true" class="h2-50">$</span>
-                                        <input type="number" class="h2-50 input_numberdollar" wire:model.lazy="price" value="0">
-                                    </p>
+                                        <input type="number" class="h2-50 input_numberdollar" wire:model.lazy="price" onKeyUp="ajustar()" placeholder="150">
+                                    </label>
 
                                     <button class="_btn" type="button" aria-label="aumentar valor" {{ $disableS ? 'disabled' : '' }} wire:click="buttonSumar">
                                         <span>

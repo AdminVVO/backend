@@ -60,6 +60,16 @@
   overflow: auto;
   width: 100%;
 }
+@media (max-width: 600px) {
+  .container_admin-host .pd_anhost-modal .modal_content-anhost .modal_block .content_hidden-anhost ._pdleftright32 {
+    padding: 0 32px !important;
+  }
+}
+@media (max-width: 450px) {
+  .container_admin-host .pd_anhost-modal .modal_content-anhost .modal_block .content_hidden-anhost ._pdleftright32 {
+    padding: 0 22px !important;
+  }
+}
 .container_admin-host .pd_anhost-modal .modal_content-anhost .modal_block .content_hidden-anhost .site-content {
   padding-bottom: 28px;
 }
@@ -147,6 +157,33 @@
   .container_admin-host .pd_anhost-modal .modal_content-anhost .modal_block .content_hidden-anhost .site-content ._block-about ._flex ._fbtn-br {
     justify-content: center;
   }
+}
+.container_admin-host .pd_anhost-modal .modal_content-anhost .modal_block .content_hidden-anhost .site-content ._block-chan_listing {
+  padding: 34px 50px 22px;
+}
+@media (max-width: 650px) {
+  .container_admin-host .pd_anhost-modal .modal_content-anhost .modal_block .content_hidden-anhost .site-content ._block-chan_listing {
+    padding: 34px 30px 22px;
+  }
+}
+@media (max-width: 536px) {
+  .container_admin-host .pd_anhost-modal .modal_content-anhost .modal_block .content_hidden-anhost .site-content ._block-chan_listing {
+    padding: 21px 18px 22px;
+  }
+}
+.container_admin-host .pd_anhost-modal .modal_content-anhost .modal_block .content_hidden-anhost .site-content ._block-chan_listing .search_content {
+  margin: 0;
+}
+.container_admin-host .pd_anhost-modal .modal_content-anhost .modal_block .content_hidden-anhost .site-content ._block-chan_listing .content_change_gallery {
+  height: 486px;
+  overflow: auto;
+  margin: 40px 0 37px;
+  gap: 24px;
+}
+.container_admin-host .pd_anhost-modal .modal_content-anhost .modal_block .content_hidden-anhost .site-content ._block-chan_listing .content_change_gallery .check_click {
+  gap: 15px;
+  max-width: 458px;
+  width: 100%;
 }
 .container_admin-host .pd_anhost-modal .modal_content-anhost .modal_block .content_hidden-anhost .site-content ._block-booking {
   padding: 34px 50px 31px;

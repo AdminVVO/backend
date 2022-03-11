@@ -10,7 +10,6 @@ class MapsManually extends Component
 {
     use LivewireAlert;
 
-    public $disabled = true;
     public $street = '';
     public $suite = '';
     public $city = '';
@@ -38,18 +37,6 @@ class MapsManually extends Component
 
     public function next()
     {
-        $payload = [
-            'to' => 'guests',
-            'from' => 'maps',
-            'content' => $this->content,
-            'img' => 'guests',
-        ];
-        
-        $this->emitUp('next', $payload);
-    }
-    
-    public function submitAddress()
-    {
         $validation = Validator::make([
             'street'   => $this->street,
             'suite'    => $this->suite,
@@ -75,7 +62,14 @@ class MapsManually extends Component
         $this->content['state']    = $this->state;
         $this->content['zip_code'] = $this->zip_code;
         $this->content['country']  = $this->country;
-        $this->disabled = false;
-        $this->alert('success', 'The address has been validated, you can now continue...');
+
+        $payload = [
+            'to' => 'guests',
+            'from' => 'mapsmanually',
+            'content' => $this->content,
+            'img' => 'guests',
+        ];
+        
+        $this->emitUp('next', $payload);
     }
 }

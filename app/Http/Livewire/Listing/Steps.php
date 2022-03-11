@@ -2,14 +2,23 @@
 
 namespace App\Http\Livewire\Listing;
 
-use App\Models\Listings;
-use Illuminate\Support\Collection;
+use App\Models\AddressListing;
+use App\Models\GuestsListing;
+use App\Models\Listing\ListingBookingDetails;
+use App\Models\Listing\ListingCalendarAvailability;
+use App\Models\Listing\ListingHouseRulers;
+use App\Models\Listing\ListingLocation;
+use App\Models\Listing\ListingPolicies;
+use App\Models\Listing\ListingPricing;
+use App\Models\Listing\ListingPropertyRoomd;
+use App\Models\Listing\Listings;
+use File;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\Component;
-use File;
 use Storage;
+use Str;
 
 class Steps extends Component
 {
@@ -23,6 +32,7 @@ class Steps extends Component
         'description' => '',
         'space' => '',
         'location' => [],
+        'address' => [],
         'guests' => [],
         'offers' => [],
         'photos' => [],
@@ -183,6 +193,12 @@ class Steps extends Component
             $this->imgShow = $this->ShowImg( $payload['img'] );
         }
 
+        if ( $payload['from'] === 'mapsmanually' ){
+            $this->step = $payload['to'];
+            $this->saveData( $payload['content'], 'address' );
+            $this->imgShow = $this->ShowImg( $payload['img'] );
+        }
+
         if ( $payload['from'] === 'guest' ){
             $this->step = $payload['to'];
             $this->saveData( $payload['content'], 'guests' );
@@ -263,47 +279,147 @@ class Steps extends Component
 
     public function sendChecklisting()
     {
-        if ( $this->listinEdit == '' )
-            Listings::create([
-                'user_id'      => Auth::id(),
-                'step'         => $this->step,
-                'host'         => $this->content['host'],
-                'description'  => $this->content['description'],
-                'space'        => $this->content['space'],
-                'location'      => json_encode($this->content['location']),
-                'guests'       => json_encode( $this->content['guests'] ),
-                'offers'       => json_encode( $this->content['offers'] ),
-                'photos'       => json_encode( $this->content['photos'] ),
-                'placeTitle'   => $this->content['placeTitle'],
-                'placeOptions' => json_encode( $this->content['placeOptions'] ),
-                'placeComment' => $this->content['placeComment'],
-                'prices'       => $this->content['prices'],
-                'featurs'      => json_encode( $this->content['featurs'] ),
-                'img'          => $this->ShowImg( $this->content['host'] ),
-                'status'       => 'Completed',
+        $folderAuth = Auth::user()->name . '-' . Auth::id();
+
+        if ( $this->listinEdit == '' ){
+
+            $permitted_chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+            $internalTitle = Str::random(2) . '-' . substr( str_shuffle( $permitted_chars ), 0, 4) . ' ' . strtoupper( $this->content['host'] );
+
+            $Listings = Listings::create([
+                'step'           => $this->step,
+                'title'          => $this->content['placeTitle'],
+                'internal_title' => $internalTitle,
+                'number_guests'  => $this->content['guests']['guests'],
+                'descriptions'   => $this->content['placeComment'],
+                'amenities'      => isset( $this->content['offers']['amenities'] ) ? $this->content['offers']['amenities'] : $this->content['offers'] ,
+                'safety'      => isset( $this->content['offers']['safety'] ) ? $this->content['offers']['safety'] : $this->content['offers'] ,
+                'photos'         => $this->content['photos'],
+                'status'         => 'Listed',
+                'user_id'        => Auth::id(),
             ]);
 
-        if ( $this->listinEdit != '' )
+            ListingPropertyRoomd::create([
+                'like_place'    => $this->content['host'],
+                'property_type' => $this->content['description'],
+                'listing_type'  => $this->content['space'],
+                'bed'           => $this->content['guests']['beds'],
+                'bedrooms'      => $this->content['guests']['bedrooms'],
+                'bathrooms'     => $this->content['guests']['bathrooms'],
+                'listing_id'    => $Listings['id_listings'],
+                'user_id'       => Auth::id(),
+            ]);
+
+            ListingCalendarAvailability::create([
+                'listing_id'    => $Listings['id_listings'],
+                'user_id'       => Auth::id(),
+            ]);
+
+            ListingHouseRulers::create([
+                'listing_id'    => $Listings['id_listings'],
+                'user_id'       => Auth::id(),
+            ]);
+
+            ListingPolicies::create([
+                'listing_id'    => $Listings['id_listings'],
+                'user_id'       => Auth::id(),
+            ]);
+
+            ListingBookingDetails::create([
+                'listing_id'    => $Listings['id_listings'],
+                'user_id'       => Auth::id(),
+            ]);
+
+            if ( !empty( $this->content['address'] ) )
+                ListingLocation::create([
+                    'country'    => $this->content['address']['country'],
+                    'street'     => $this->content['address']['street'],
+                    'city'       => $this->content['address']['city'],
+                    'state'      => $this->content['address']['state'],
+                    'suite'      => $this->content['address']['suite'],
+                    'zip_code'   => $this->content['address']['zip_code'],
+                    'latitude'   => $this->content['location']['latitude'],
+                    'longitude'  => $this->content['location']['longitude'],
+                    'listing_id' => $Listings['id_listings'],
+                    'user_id'    => Auth::id(),
+                ]);
+
+            if ( $this->content['prices'] != 0 )
+                ListingPricing::create([
+                    'base_price' => $this->content['prices'],
+                    'listing_id' => $Listings['id_listings'],
+                    'user_id'    => Auth::id(),
+                ]);
+        }
+
+        if ( $this->listinEdit != '' ){
             Listings::where([
                 'user_id' => Auth::id(),
                 'id_listings' => $this->listinEdit,
             ])->update([
-                'step'         => $this->step,
-                'host'         => $this->content['host'],
-                'description'  => $this->content['description'],
-                'space'        => $this->content['space'],
-                'location'      => json_encode($this->content['location']),
-                'guests'       => json_encode( $this->content['guests'] ),
-                'offers'       => json_encode( $this->content['offers'] ),
-                'photos'       => json_encode( $this->content['photos'] ),
-                'placeTitle'   => $this->content['placeTitle'],
-                'placeOptions' => json_encode( $this->content['placeOptions'] ),
-                'placeComment' => $this->content['placeComment'],
-                'prices'       => $this->content['prices'],
-                'featurs'      => json_encode( $this->content['featurs'] ),
-                'img'          => $this->ShowImg( $this->content['host'] ),
-                'status'       => 'Completed',
+                'step'           => $this->step,
+                'title'          => $this->content['placeTitle'],
+                'number_guests'  => $this->content['guests']['guests'],
+                'descriptions'   => $this->content['placeComment'],
+                'amenities'      => isset( $this->content['offers']['amenities'] ) ? $this->content['offers']['amenities'] : $this->content['offers'] ,
+                'safety'      => isset( $this->content['offers']['safety'] ) ? $this->content['offers']['safety'] : $this->content['offers'] ,
+                'photos'         => $this->content['photos'],
+                'status'         => 'Listed',
+            ]); 
+
+           ListingPropertyRoomd::where([
+                'user_id' => Auth::id(),
+                'listing_id' => $this->listinEdit,
+            ])->update([
+                'like_place'    => $this->content['host'],
+                'property_type' => $this->content['description'],
+                'listing_type'  => $this->content['space'],
+                'bed'           => $this->content['guests']['beds'],
+                'bedrooms'      => $this->content['guests']['bedrooms'],
+                'bathrooms'     => $this->content['guests']['bathrooms'],
             ]);
+
+            if ( !empty($this->content['address']) )
+                ListingLocation::where([
+                    'user_id' => Auth::id(),
+                    'listing_id' => $this->listinEdit,
+                ])->update([
+                    'country'   => $this->content['address']['country'],
+                    'street'    => $this->content['address']['street'],
+                    'city'      => $this->content['address']['city'],
+                    'state'     => $this->content['address']['state'],
+                    'suite'     => $this->content['address']['suite'],
+                    'zip_code'  => $this->content['address']['zip_code'],
+                    'latitude'  => $this->content['location']['latitude'],
+                    'longitude' => $this->content['location']['longitude'],
+                ]);
+
+            if ( $this->content['prices'] != 0 )
+                ListingPricing::where([
+                    'user_id' => Auth::id(),
+                    'listing_id' => $this->listinEdit,
+                ])->update([
+                    'base_price' => $this->content['prices'],
+                ]);
+        }
+
+        if ( File::isDirectory( storage_path('app/public/tempFilepond/' . $folderAuth) ) ){
+            foreach ($this->content['photos'] as $key => $value) {
+                $explodeName = explode('-', $value);
+                    $fileIn = 'public/tempFilepond/' . $folderAuth . '/' . $explodeName[1];
+                $fileOut = 'public/uploadListing/' . $value;
+
+                Storage::copy($fileIn, $fileOut);
+            }
+
+            File::deleteDirectory( storage_path('app/public/tempFilepond/' . $folderAuth) );
+
+            if ( !empty( $this->content['oldPhotos'] ) ) {
+                foreach ($this->content['oldPhotos'] as $key => $value) {
+                    Storage::disk('uploadListing')->delete( $value );
+                }
+            }
+        }
             
         $this->alert('success', 'Your listing will be published soon.');
     }
@@ -316,23 +432,73 @@ class Steps extends Component
             return redirect()->route('listing');
 
         if ( $this->listinEdit == '' ){
-            Listings::create([
-                'user_id'      => Auth::id(),
-                'step'         => $this->step,
-                'host'         => $this->content['host'],
-                'description'  => $this->content['description'],
-                'space'        => $this->content['space'],
-                'location'      => json_encode($this->content['location']),
-                'guests'       => json_encode( $this->content['guests'] ),
-                'offers'       => json_encode( $this->content['offers'] ),
-                'photos'       => json_encode( $this->content['photos'] ),
-                'placeTitle'   => $this->content['placeTitle'],
-                'placeOptions' => json_encode( $this->content['placeOptions'] ),
-                'placeComment' => $this->content['placeComment'],
-                'prices'       => $this->content['prices'],
-                'featurs'      => json_encode( $this->content['featurs'] ),
-                'img'          => $this->ShowImg( $this->content['host'] ),
+
+            $permitted_chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+            $internalTitle = Str::random(2) . '-' . substr( str_shuffle( $permitted_chars ), 0, 4) . ' ' . strtoupper( $this->content['host'] );
+
+            $Listings = Listings::create([
+                'step'           => $this->step,
+                'title'          => $this->content['placeTitle'],
+                'internal_title' => $internalTitle,
+                'number_guests'  => isset( $this->content['guests']['guests'] ) ? $this->content['guests']['guests'] : 0,
+                'descriptions'   => $this->content['placeComment'],
+                'amenities'      => isset( $this->content['offers']['amenities'] ) ? $this->content['offers']['amenities'] : $this->content['offers'] ,
+                'safety'      => isset( $this->content['offers']['safety'] ) ? $this->content['offers']['safety'] : $this->content['offers'] ,
+                'photos'         => $this->content['photos'],
+                'user_id'        => Auth::id(),
             ]);
+
+            ListingPropertyRoomd::create([
+                'like_place'    => $this->content['host'],
+                'property_type' => $this->content['description'],
+                'listing_type'  => $this->content['space'],
+                'bed'           => isset( $this->content['guests']['beds'] ) ? $this->content['guests']['beds'] : 0,
+                'bedrooms'      => isset( $this->content['guests']['bedrooms'] ) ? $this->content['guests']['bedrooms'] : 0,
+                'bathrooms'     => isset( $this->content['guests']['bathrooms'] ) ? $this->content['guests']['bathrooms'] : 0,
+                'listing_id'    => $Listings['id_listings'],
+                'user_id'       => Auth::id(),
+            ]);
+
+            ListingCalendarAvailability::create([
+                'listing_id'    => $Listings['id_listings'],
+                'user_id'       => Auth::id(),
+            ]);
+
+            ListingHouseRulers::create([
+                'listing_id'    => $Listings['id_listings'],
+                'user_id'       => Auth::id(),
+            ]);
+
+            ListingPolicies::create([
+                'listing_id'    => $Listings['id_listings'],
+                'user_id'       => Auth::id(),
+            ]);
+
+            ListingBookingDetails::create([
+                'listing_id'    => $Listings['id_listings'],
+                'user_id'       => Auth::id(),
+            ]);
+
+            if ( !empty( $this->content['address'] ) )
+                ListingLocation::create([
+                    'country'    => $this->content['address']['country'],
+                    'street'     => $this->content['address']['street'],
+                    'city'       => $this->content['address']['city'],
+                    'state'      => $this->content['address']['state'],
+                    'suite'      => $this->content['address']['suite'],
+                    'zip_code'   => $this->content['address']['zip_code'],
+                    'latitude'   => $this->content['location']['latitude'],
+                    'longitude'  => $this->content['location']['longitude'],
+                    'listing_id' => $Listings['id_listings'],
+                    'user_id'    => Auth::id(),
+                ]);
+
+            if ( $this->content['prices'] != 0 )
+                ListingPricing::create([
+                    'base_price' => $this->content['prices'],
+                    'listing_id' => $Listings['id_listings'],
+                    'user_id'    => Auth::id(),
+                ]);
         }
 
         if ( $this->listinEdit != '' ){
@@ -340,21 +506,49 @@ class Steps extends Component
                 'user_id' => Auth::id(),
                 'id_listings' => $this->listinEdit,
             ])->update([
-                'step'         => $this->step,
-                'host'         => $this->content['host'],
-                'description'  => $this->content['description'],
-                'space'        => $this->content['space'],
-                'location'      => json_encode($this->content['location']),
-                'guests'       => json_encode( $this->content['guests'] ),
-                'offers'       => json_encode( $this->content['offers'] ),
-                'photos'       => json_encode( $this->content['photos'] ),
-                'placeTitle'   => $this->content['placeTitle'],
-                'placeOptions' => json_encode( $this->content['placeOptions'] ),
-                'placeComment' => $this->content['placeComment'],
-                'prices'       => $this->content['prices'],
-                'featurs'      => json_encode( $this->content['featurs'] ),
-                'img'          => $this->ShowImg( $this->content['host'] ),
+                'step'           => $this->step,
+                'title'          => $this->content['placeTitle'],
+                'number_guests'  => isset( $this->content['guests']['guests'] ) ? $this->content['guests']['guests'] : 0,
+                'descriptions'   => $this->content['placeComment'],
+                'amenities'      => isset( $this->content['offers']['amenities'] ) ? $this->content['offers']['amenities'] : $this->content['offers'] ,
+                'safety'      => isset( $this->content['offers']['safety'] ) ? $this->content['offers']['safety'] : $this->content['offers'] ,
+                'photos'         => $this->content['photos'],
+            ]); 
+
+           ListingPropertyRoomd::where([
+                'user_id' => Auth::id(),
+                'listing_id' => $this->listinEdit,
+            ])->update([
+                'like_place'    => $this->content['host'],
+                'property_type' => $this->content['description'],
+                'listing_type'  => $this->content['space'],
+                'bed'           => isset( $this->content['guests']['beds'] ) ? $this->content['guests']['beds'] : 0,
+                'bedrooms'      => isset( $this->content['guests']['bedrooms'] ) ? $this->content['guests']['bedrooms'] : 0,
+                'bathrooms'     => isset( $this->content['guests']['bathrooms'] ) ? $this->content['guests']['bathrooms'] : 0,
             ]);
+
+            if ( !empty($this->content['address']) )
+                ListingLocation::where([
+                    'user_id' => Auth::id(),
+                    'listing_id' => $this->listinEdit,
+                ])->update([
+                    'country'   => $this->content['address']['country'],
+                    'street'    => $this->content['address']['street'],
+                    'city'      => $this->content['address']['city'],
+                    'state'     => $this->content['address']['state'],
+                    'suite'     => $this->content['address']['suite'],
+                    'zip_code'  => $this->content['address']['zip_code'],
+                    'latitude'  => $this->content['location']['latitude'],
+                    'longitude' => $this->content['location']['longitude'],
+                ]);
+
+            if ( $this->content['prices'] != 0 )
+                ListingPricing::where([
+                    'user_id' => Auth::id(),
+                    'listing_id' => $this->listinEdit,
+                ])->update([
+                    'base_price' => $this->content['prices'],
+                ]);
         }
 
         if ( File::isDirectory( storage_path('app/public/tempFilepond/' . $folderAuth) ) ){
@@ -380,22 +574,68 @@ class Steps extends Component
 
     public function continueCreate($payload)
     {
-        $Listings = Listings::where([
-            'id_listings' => $payload,
-            'status'      => 'in process',
-            'user_id'     => Auth::id()
-        ])->first();
+        $Listings = Listings::select(
+            'listings.id_listings',
+            'listings.step',
+            'listings.title',
+            'listings.internal_title',
+            'listings.number_guests',
+            'listings.descriptions',
+            'listings.amenities',
+            'listings.safety',
+            'listings.photos',
+            'listing_property_roomds.like_place',
+            'listing_property_roomds.property_type',
+            'listing_property_roomds.listing_type',
+            'listing_property_roomds.bed',
+            'listing_property_roomds.bedrooms',
+            'listing_property_roomds.bathrooms',
+            'listing_locations.country',
+            'listing_locations.street',
+            'listing_locations.city',
+            'listing_locations.state',
+            'listing_locations.suite',
+            'listing_locations.zip_code',
+            'listing_locations.latitude',
+            'listing_locations.longitude',
+            'listing_pricings.base_price',
+        )->where([
+            'listings.id_listings' => $payload,
+            'listings.status'      => 'in process',
+            'listings.user_id'     => Auth::id()
+        ])
+         ->leftJoin('listing_property_roomds', 'listings.id_listings', 'listing_property_roomds.listing_id')
+         ->leftJoin('listing_locations', 'listings.id_listings', 'listing_locations.listing_id')
+         ->leftJoin('listing_pricings', 'listings.id_listings', 'listing_pricings.listing_id')
+         ->first();
 
         $this->listinEdit = $Listings['id_listings'];
         $this->step = $Listings['step'];
-        $this->content['host'] = $Listings['host'];
-        $this->content['description'] = $Listings['description'];
-        $this->content['space'] = $Listings['space'];
-        $this->content['location'] = json_decode( $Listings['location'] );
-        $this->content['guests'] = json_decode( $Listings['guests'] );
-        $this->content['offers'] = json_decode( $Listings['offers'] );
-        $this->content['photos'] = json_decode( $Listings['photos'] );
-        $this->content['oldPhotos'] = json_decode( $Listings['photos'] );
+        $this->content['host'] = $Listings['like_place'];
+        $this->content['description'] = $Listings['property_type'];
+        $this->content['space'] = $Listings['listing_type'];
+        $this->content['location'] = [
+            'latitude' => $Listings['latitude'],
+            'longitude' => $Listings['longitude']
+        ];
+        $this->content['address'] = [
+            'country' => $Listings['country'],
+            'city' => $Listings['city'],
+            'state' => $Listings['state'],
+            'street' => $Listings['street'],
+            'suite' => $Listings['suite'],
+            'zip_code' => $Listings['zip_code']
+        ];
+        $this->content['guests'] = [
+            'guests' => $Listings['number_guests'],
+            'beds' => $Listings['bed'],
+            'bedrooms' => $Listings['bedrooms'],
+            'bathrooms' => $Listings['bathrooms'],
+        ];
+        $this->content['offers']['amenities'] = $Listings['amenities'];
+        $this->content['offers']['safety'] = $Listings['safety'];
+        $this->content['photos'] = $Listings['photos'];
+        $this->content['oldPhotos'] = $Listings['photos'];
             if ( empty( $this->content['photos'] ) ) {
                 $folderAuth = Auth::user()->name . '-' . Auth::id();
 
@@ -403,13 +643,12 @@ class Steps extends Component
                     File::deleteDirectory( storage_path('app/public/tempFilepond/' . $folderAuth) );
             };
 
-        $this->content['placeTitle'] = $Listings['placeTitle'];
-        $this->content['placeOptions'] = json_decode( $Listings['placeOptions'] );
-        $this->content['placeComment'] = $Listings['placeComment'];
-        $this->content['prices'] = $Listings['prices'];
-        $this->content['featurs'] = json_decode( $Listings['featurs'] );
+        $this->content['placeTitle'] = $Listings['title'];
+        // $this->content['placeOptions'] = $Listings['placeOptions'];
+        $this->content['placeComment'] = $Listings['descriptions'];
+        $this->content['prices'] = $Listings['base_price'];
+        // $this->content['featurs'] = $Listings['featurs'];
         $this->imgShow = $this->ShowImg( $Listings['step'] );
         $this->exitSave = $Listings['step'] == 'init' || $Listings['step'] == 'finish' ? false : true;
-
     }
 }

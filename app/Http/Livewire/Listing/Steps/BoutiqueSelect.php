@@ -28,7 +28,7 @@ class BoutiqueSelect extends Component
         $validation = Validator::make([
            'description' => $this->description,
         ],[
-            'description' => 'required|in:Hotel,Boat,Resort,Camper/RV,Treehouse,Campsite,Castle',
+            'description' => 'required|in:hotel,boat,resort,camper_rv,treehouse,campsite,castle',
         ]);
 
             if ($validation->fails())

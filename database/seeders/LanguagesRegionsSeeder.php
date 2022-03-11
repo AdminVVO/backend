@@ -89,7 +89,7 @@ class LanguagesRegionsSeeder extends Seeder
                 'suggested' => true
             ],
             [
-                'code' => 'US',
+                'code' => 'EN',
                 'name' => 'United States',
                 'native' => 'United States',
                 'currency' => 'USD',

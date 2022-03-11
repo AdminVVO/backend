@@ -13,7 +13,6 @@
         .mapboxgl-ctrl-group  {
             visibility:hidden !important;
         }
-        /*#mapStep1 {  top: 0; bottom: 0; width: 100%; }*/
     </style>
 
 @endpush
@@ -195,15 +194,14 @@
                     geocoder.addTo('#geocoder');
 
                     geocoder.on('result', (e) => {
-                        console.log(`Longitude: ${e.result.center[0]}, Latitude: ${e.result.center[1]}, Address: ${e.result.place_name}`);
                         map.flyTo({center: [ e.result.center[0], e.result.center[1] ], zoom: 8});
                     });
 
                     const geolocate = new mapboxgl.GeolocateControl({
                         positionOptions: {},
                         showAccuracyCircle: false, // elimina radio circle 
-                        showUserLocation: false, // Elimina icon circle
-                        trackUserLocation: false,
+                        showUserLocation: true, // Elimina icon circle
+                        trackUserLocation: true,
                     });
 
                     const marker = new mapboxgl.Marker({
@@ -245,11 +243,11 @@
                             container: 'mapCheckout',
                             style: 'mapbox://styles/mapbox/streets-v11', 
                             center: [ latitude, longitude ],
-                            zoom: 8 
+                            zoom: 13 
                         });
 
                         const marker = new mapboxgl.Marker({
-                            draggable: true
+                            draggable: false
                         }).setLngLat([ latitude, longitude ]).addTo(map);
 
                         map.doubleClickZoom.disable(); // Desactiva zoom doble click en el mapa
@@ -331,12 +329,12 @@
                         imageValidateSizeMaxWidth: '1440',
                         imageValidateSizeMinHeight: '512',
                         imageValidateSizeMaxHeight: '900',
-                        acceptedFileTypes: ['image/png', 'image/jpeg'],
+                        acceptedFileTypes: ['image/png', 'image/jpeg', 'image/jpg'],
                         maxFileSize: '2MB',
                         maxFiles: 10,
                         required: true,
                         credits:false,
-                        labelIdle: `<div><h3 class="h2-guests filepond--label-action" style="margin-bottom: 4px;">Drag your photos here</h3><p class="_txtec">Add at least 10 photos</p></div>`,
+                        labelIdle: `<div><h3 class="h2-guests filepond--label-action" style="margin-bottom: 4px;">Drag your photos here</h3><p class="_txtec">Add at least 5 photos, maximum 10 photos.</p></div>`,
                     });
                 }
             })
@@ -360,6 +358,13 @@
                 });
            })
         });
+        function ajustar() {
+            var texto = document.querySelector(".input_numberdollar");
+            var txt = texto.value;
+            var tamano = txt.length;
+            tamano*=1; //el valor multiplicativo debe cambiarse dependiendo del tamaño de la fuente
+            texto.style.width=tamano+"ch";
+        }
         $(document).on('click', '[sendLocation]', function(){ 
             const location = {
                 Longitude: $('[inputLongitud]').val(),

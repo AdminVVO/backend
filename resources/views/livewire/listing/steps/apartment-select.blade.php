@@ -7,7 +7,7 @@
                     <div class="scroll">
                         <div class="_grid">
                             <label class="_width fx">
-                                <input type="radio" name="apartmentnext" wire:model.defer="description" value="Rental unit">
+                                <input type="radio" name="apartmentnext" wire:model.defer="description" value="rental_unique">
                                 <div class="_rect-b">
                                     <div class="_img-f">
                                         <img src="{{ URL::asset('assets/img/card/next1.jpg') }}" alt="">
@@ -20,7 +20,7 @@
                             </label>
 
                             <label class="_width fx">
-                                <input type="radio" name="apartmentnext" wire:model.defer="description" value="Condominium (Condo)">
+                                <input type="radio" name="apartmentnext" wire:model.defer="description" value="condominiun">
                                 <div class="_rect-b">
                                     <div class="_img-f">
                                         <img src="{{ URL::asset('assets/img/card/next2.jpg') }}" alt="">
@@ -33,7 +33,7 @@
                             </label>
 
                             <label class="_width fx">
-                                <input type="radio" name="apartmentnext" wire:model.defer="description" value="Loft">
+                                <input type="radio" name="apartmentnext" wire:model.defer="description" value="loft">
                                 <div class="_rect-b">
                                     <div class="_img-f">
                                         <img src="{{ URL::asset('assets/img/card/next3.jpg') }}" alt="">
@@ -46,7 +46,7 @@
                             </label>
 
                             <label class="_width fx">
-                                <input type="radio" name="apartmentnext" wire:model.defer="description" value="Serviced apartment">
+                                <input type="radio" name="apartmentnext" wire:model.defer="description" value="serviced_apartm">
                                 <div class="_rect-b">
                                     <div class="_img-f">
                                         <img src="{{ URL::asset('assets/img/card/next4.jpg') }}" alt="">
@@ -59,7 +59,7 @@
                             </label>
 
                             <label class="_width fx">
-                                <input type="radio" name="apartmentnext" wire:model.defer="description" value="Vacation home">
+                                <input type="radio" name="apartmentnext" wire:model.defer="description" value="vacation_home">
                                 <div class="_rect-b">
                                     <div class="_img-f">
                                         <img src="{{ URL::asset('assets/img/card/next5.jpg') }}" alt="">

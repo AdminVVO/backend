@@ -21,6 +21,25 @@ $(function() {
 
     $(".daterangepicker").addClass("fixed");
 
+    // listing-status-popup2.php
+    $('._date-check_des').daterangepicker({
+        autoUpdateInput: false,
+        locale: {
+            cancelLabel: 'Clear dates <span class="_svg-asm"><img src="assets/img/icons/down-right.svg" alt=""></span>',
+            applyLabel: 'Save'
+        }
+    });
+
+    $('._date-check_des').on('apply.daterangepicker', function(ev, picker) {
+        $('._date-check_des').val(picker.startDate.format('MM/DD/YYYY'));
+        $('._date-check-out').val(picker.endDate.format('MM/DD/YYYY'));
+    });
+
+    $('._date-check_des').on('cancel.daterangepicker', function(ev, picker) {
+        $('._date-check_des').val('');
+        $('._date-check-out').val('');
+    });
+
     $(".daterangepicker").append("<div class='pd_c-modal'><div class='modal_content-c'></div></div>");
     // MOVER DIV
     $(".ranges").appendTo(".modal_content-c");

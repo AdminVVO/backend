@@ -8,18 +8,8 @@ use Auth;
 class AccountController extends Controller
 {
     public function viewAccount()
-    {   
-        $auth = Auth::user();
-        $name = explode(' ', $auth->name );
-        $last_name = explode(' ', $auth->last_name );
-
-        $auth = [
-            'name' => $name[0],
-            'last_name' => $last_name[0],
-            'email' => $auth->email
-        ];
-        
-        return view('account.Account', compact('auth'));
+    {          
+        return view('account.Account');
     }
 
     public function viewPersonalInfo()
@@ -45,5 +35,10 @@ class AccountController extends Controller
     public function viewGlobalPreferences()
     {
         return view('account.GlobalPreferenc');
+    }
+
+    public function viewBlockAccount()
+    {
+        return view('blocked.blocked');
     }
 }

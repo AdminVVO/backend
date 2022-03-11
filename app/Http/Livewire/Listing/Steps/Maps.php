@@ -44,17 +44,12 @@ class Maps extends Component
         $this->content['latitude'] = $payload['Latitude'];
 
         $payload = [
-            'to' => 'guests',
+            'to' => 'mapsmanually',
             'from' => 'maps',
             'content' => $this->content,
-            'img' => 'guests',
+            'img' => 'mapsmanually',
         ];
         
         $this->emitUp('next', $payload);
-    }
-
-    public function enterManually()
-    {
-        $this->emitUp('enterManuallyMaps', 'mapsmanually');
     }
 }

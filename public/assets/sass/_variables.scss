@@ -48,6 +48,16 @@ $letter-spacing: 0.2rem;
 
 
 //---------- iconos tamaños color ----------
+@mixin _i-griswhite10 {
+  font-size: 10px;
+  color: #D1D1D1;
+}
+
+@mixin _i-gris10 {
+  font-size: 10px;
+  color: #7D7D7D;
+}
+
 @mixin _i-gris16 {
   font-size: 16px;
   color: #7D7D7D;
@@ -58,14 +68,72 @@ $letter-spacing: 0.2rem;
   color: #7D7D7D;
 }
 
+@mixin _i-gris22 {
+  font-size: 22px;
+  color: #7D7D7D;
+}
+
 @mixin _i-gris25 {
   font-size: 25px;
   color: #7D7D7D;
 }
 
+
+@mixin _i-verde8 {
+  font-size: 8px;
+  color: #2DDAB4;
+}
+
+@mixin _i-verde10 {
+  font-size: 10px;
+  color: #2DDAB4;
+}
+
+@mixin _i-verde16 {
+  font-size: 16px;
+  color: #2DDAB4;
+}
+
 @mixin _i-verde30 {
   font-size: 30px;
   color: #2DDAB4;
+}
+
+@mixin _i-verde40 {
+  font-size: 40px;
+  color: #2DDAB4;
+}
+
+@mixin _i-verde42 {
+  font-size: 42px;
+  color: #2DDAB4;
+}
+
+
+
+@mixin _i-red8 {
+  font-size: 8px;
+  color: #FF5A5F;
+}
+
+@mixin _i-red10 {
+  font-size: 10px;
+  color: #FF5A5F;
+}
+
+@mixin _i-red14 {
+  font-size: 14px;
+  color: #FF5A5F;
+}
+
+@mixin _i-red16 {
+  font-size: 16px;
+  color: #FF5A5F;
+}
+
+@mixin _i-red20 {
+  font-size: 20px;
+  color: #FF5A5F;
 }
 
 
@@ -107,6 +175,16 @@ $letter-spacing: 0.2rem;
   }
 }
 
+@mixin h2_publishgris {
+  font-size: 35px;
+  font-weight: normal;
+  color: #7D7D7D;
+
+  @include responsive(900px) {
+    font-size: 30px;
+  }
+}
+
 @mixin h2_publish {
   font-size: 35px;
   font-weight: bold;
@@ -115,6 +193,16 @@ $letter-spacing: 0.2rem;
 
   @include responsive(900px) {
     font-size: 30px;
+  }
+}
+
+@mixin h24_negro {
+  font-size: 24px;
+  font-weight: normal;
+  color: #2A2A2A;
+
+  @include responsive(900px) {
+    font-size: 21px;
   }
 }
 
@@ -362,6 +450,12 @@ $letter-spacing: 0.2rem;
   color: #333333;
 }
 
+@mixin _txtec-black20 {
+  font-size: 20px;
+  font-weight: normal;
+  color: #333333;
+}
+
 @mixin _txtec14 {
   font-size: 14px;
   line-height: 24px;
@@ -413,6 +507,7 @@ $letter-spacing: 0.2rem;
   font-weight: normal;
   white-space: nowrap;
   font-size: 18px;
+  cursor: pointer;
   transition: .3s ease;
 
   @include responsive(1400px) {
@@ -446,6 +541,7 @@ $letter-spacing: 0.2rem;
 }
 
 @mixin btn-celest {
+  width: fit-content;
   display: inline-block;
   padding: 16px 50px;
   border-radius: 10px;
@@ -479,6 +575,11 @@ $letter-spacing: 0.2rem;
   font-size: 18px;
   font-weight: bold;
   padding: 16px 50px;
+  transition: .3s ease;
+
+  &:hover {
+    background-color: #DC383D;
+  }
 
   @include responsive(1400px) {
     padding: 15px 40px;
@@ -604,6 +705,8 @@ $letter-spacing: 0.2rem;
 }
 
 @mixin _txtehlinear {
+  cursor: pointer;
+  width: fit-content;
   color: #333333;
   font-weight: bold;
   font-size: 18px;
@@ -701,6 +804,7 @@ $letter-spacing: 0.2rem;
 }
 
 @mixin _btnsmleft {
+  width: fit-content;
   display: inline-flex;
   align-items: center;
   gap: 5.5px;
@@ -716,6 +820,11 @@ $letter-spacing: 0.2rem;
 
   @include responsive(900px) {
     font-size: 14px;
+  }
+
+  &:disabled {
+    opacity: .4;
+    cursor: not-allowed;
   }
 
   span {
@@ -756,6 +865,7 @@ $letter-spacing: 0.2rem;
 }
 
 @mixin _btnsmblu {
+  width: fit-content;
   display: inline-block;
   cursor: pointer;
   color: #00B5DD;
@@ -957,7 +1067,6 @@ $letter-spacing: 0.2rem;
 }
 
 @mixin btn_lc {
-  cursor: pointer;
   outline: none;
   border-style: none;
   border-radius: 5px;

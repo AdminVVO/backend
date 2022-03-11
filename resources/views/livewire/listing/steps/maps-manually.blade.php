@@ -22,20 +22,20 @@
 
                             <div class="_flfpc" style="gap: 20px;">
                                 <div class="block_date">
-                                    <div class="txt-check-in">Apt, suite, etc. (Optional)</div>
-                                    <input type="text" class="_numcard @error('suite') error_input @enderror" wire:model.lazy="suite">
-                                    @error('suite')
+                                    <div class="txt-check-in">City</div>
+                                    <input type="text" class="_numcard @error('city') error_input @enderror" wire:model.lazy="city">
+                                    @error('city')
                                         <div  class="_txterror">
                                             <i class="fas fa-exclamation-circle icon1"></i> 
                                             {{ $message }}
                                         </div>
                                     @enderror
                                 </div>
-
+                                
                                 <div class="block_date">
-                                    <div class="txt-check-in">City</div>
-                                    <input type="text" class="_numcard @error('city') error_input @enderror" wire:model.lazy="city">
-                                    @error('city')
+                                    <div class="txt-check-in">State (Optional)</div>
+                                    <input type="text" class="_numcard @error('state') error_input @enderror" wire:model.lazy="state">
+                                    @error('state')
                                         <div  class="_txterror">
                                             <i class="fas fa-exclamation-circle icon1"></i> 
                                             {{ $message }}
@@ -46,9 +46,9 @@
 
                             <div class="_flfpc">
                                 <div class="block_date">
-                                    <div class="txt-check-in">State (Optional)</div>
-                                    <input type="text" class="_numcard @error('state') error_input @enderror" wire:model.lazy="state">
-                                    @error('state')
+                                    <div class="txt-check-in">Apt, suite, etc. (Optional)</div>
+                                    <input type="text" class="_numcard @error('suite') error_input @enderror" wire:model.lazy="suite">
+                                    @error('suite')
                                         <div  class="_txterror">
                                             <i class="fas fa-exclamation-circle icon1"></i> 
                                             {{ $message }}
@@ -102,6 +102,6 @@
             </svg>
             <span>Back</span>
         </div>
-        <button type="button" {{ $disabled ? 'disabled' : '' }} class="btn-celest btns-modals" wire:click="next">Next</button>
+        <button type="button" class="btn-celest btns-modals" wire:click="next">Next</button>
     </div>
 </div>

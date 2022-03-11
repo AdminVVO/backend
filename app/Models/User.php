@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Auth;
 
 class User extends Authenticatable
 {
@@ -51,5 +52,19 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'date_birth'        => 'datetime:d-m-Y',
         'other_phone'       => 'array',
+        'promotions'        => 'boolean',
     ];
+
+    public function scopeFullName()
+    {
+        $xplodeName = explode(' ', $this->where('id_user', Auth::id())->pluck('name')->first());
+        $xplodeLastName = explode(' ', $this->where('id_user', Auth::id())->pluck('last_name')->first());
+
+        return $xplodeName[0] .' '. $xplodeLastName[0];
+    }
+
+    public function scopeAvatar()
+    {
+        return $this->pluck('avatar')->first();
+    }
 }

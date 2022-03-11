@@ -28,7 +28,7 @@ class CreateUsersTable extends Migration
             $table->string('language_default')->default('US');
             $table->string('currency_default')->default('USD');
             $table->string('timezone_default')->default('UTC-04:30');
-            $table->boolean('promotions')->nullable();
+            $table->boolean('promotions')->default(false);
             $table->string('google_id')->nullable();
             $table->string('google_token')->nullable();
             $table->string('facebook_id')->nullable();

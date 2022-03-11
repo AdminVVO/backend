@@ -27,7 +27,7 @@ class UniqueSelect extends Component
         $validation = Validator::make([
            'description' => $this->description,
         ],[
-            'description' => "required|in:Barn,Boat,Bus,Camper/RV,Treehouse,Campsite,Castle,Dome house,Earth house,Farm stay,Houseboat,Hut,Island,Lighthouse,Plane,Ranch,Religious building,Shepherd's,Shipping container,Tent,Tiny house,Tower,Train,Windmill,Vacation home,Other",
+            'description' => "required|in:barn,boat,bus,camper_rv,treehouse,campsite,castle,dome_house,earth_house,farm_stay,houseboat,hut,island,lighthouse,plane,ranch,religious_building,shepherds,shipping_container,tent,tiny_house,tower,train,windmill,vacation_home,other",
         ]);
 
             if ($validation->fails())

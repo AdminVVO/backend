@@ -8,7 +8,7 @@
                         <div class="scroll">
                             <div class="_grid">
                                 <label class="_width fx">
-                                    <input type="radio" name="uniquenext" wire:model.defer="description" value="Barn">
+                                    <input type="radio" name="uniquenext" wire:model.defer="description" value="barn">
                                     <div class="_rect-b">
                                         <div class="_img-f">
                                             <img src="{{ URL::asset('assets/img/card/next24.jpg') }}" alt="">
@@ -21,7 +21,7 @@
                                 </label>
 
                                 <label class="_width fx">
-                                    <input type="radio" name="uniquenext" wire:model.defer="description" value="Boat">
+                                    <input type="radio" name="uniquenext" wire:model.defer="description" value="boat">
                                     <div class="_rect-b">
                                         <div class="_img-f">
                                             <img src="{{ URL::asset('assets/img/card/next25.jpg') }}" alt="">
@@ -34,7 +34,7 @@
                                 </label>
 
                                 <label class="_width fx">
-                                    <input type="radio" name="uniquenext" wire:model.defer="description" value="Bus">
+                                    <input type="radio" name="uniquenext" wire:model.defer="description" value="bus">
                                     <div class="_rect-b">
                                         <div class="_img-f">
                                             <img src="{{ URL::asset('assets/img/card/next26.jpg') }}" alt="">
@@ -47,7 +47,7 @@
                                 </label>
 
                                 <label class="_width fx">
-                                    <input type="radio" name="uniquenext" wire:model.defer="description" value="Camper/RV">
+                                    <input type="radio" name="uniquenext" wire:model.defer="description" value="camper_rv">
                                     <div class="_rect-b">
                                         <div class="_img-f">
                                             <img src="{{ URL::asset('assets/img/card/next27.jpg') }}" alt="">
@@ -60,7 +60,7 @@
                                 </label>
 
                                 <label class="_width fx">
-                                    <input type="radio" name="uniquenext" wire:model.defer="description" value="Treehouse">
+                                    <input type="radio" name="uniquenext" wire:model.defer="description" value="treehouse">
                                     <div class="_rect-b">
                                         <div class="_img-f">
                                             <img src="{{ URL::asset('assets/img/card/next28.jpg') }}" alt="">
@@ -73,7 +73,7 @@
                                 </label>
 
                                 <label class="_width fx">
-                                    <input type="radio" name="uniquenext" wire:model.defer="description" value="Campsite">
+                                    <input type="radio" name="uniquenext" wire:model.defer="description" value="campsite">
                                     <div class="_rect-b">
                                         <div class="_img-f">
                                             <img src="{{ URL::asset('assets/img/card/next29.jpg') }}" alt="">
@@ -86,7 +86,7 @@
                                 </label>
 
                                 <label class="_width fx">
-                                    <input type="radio" name="uniquenext" wire:model.defer="description" value="Castle">
+                                    <input type="radio" name="uniquenext" wire:model.defer="description" value="castle">
                                     <div class="_rect-b">
                                         <div class="_img-f">
                                             <img src="{{ URL::asset('assets/img/card/next30.jpg') }}" alt="">
@@ -99,7 +99,7 @@
                                 </label>
 
                                 <label class="_width fx">
-                                    <input type="radio" name="uniquenext" wire:model.defer="description" value="Dome house">
+                                    <input type="radio" name="uniquenext" wire:model.defer="description" value="dome_house">
                                     <div class="_rect-b">
                                         <div class="_img-f">
                                             <img src="{{ URL::asset('assets/img/card/next16.jpg') }}" alt="">
@@ -112,7 +112,7 @@
                                 </label>
 
                                 <label class="_width fx">
-                                    <input type="radio" name="uniquenext" wire:model.defer="description" value="Earth house">
+                                    <input type="radio" name="uniquenext" wire:model.defer="description" value="earth_house">
                                     <div class="_rect-b">
                                         <div class="_img-f">
                                             <img src="{{ URL::asset('assets/img/card/next12.jpg') }}" alt="">
@@ -125,7 +125,7 @@
                                 </label>
 
                                 <label class="_width fx">
-                                    <input type="radio" name="uniquenext" wire:model.defer="description" value="Farm stay">
+                                    <input type="radio" name="uniquenext" wire:model.defer="description" value="farm_stay">
                                     <div class="_rect-b">
                                         <div class="_img-f">
                                             <img src="{{ URL::asset('assets/img/card/next15.jpg') }}" alt="">
@@ -138,7 +138,7 @@
                                 </label>
 
                                 <label class="_width fx">
-                                    <input type="radio" name="uniquenext" wire:model.defer="description" value="Houseboat">
+                                    <input type="radio" name="uniquenext" wire:model.defer="description" value="houseboat">
                                     <div class="_rect-b">
                                         <div class="_img-f">
                                             <img src="{{ URL::asset('assets/img/card/next13.jpg') }}" alt="">
@@ -151,7 +151,7 @@
                                 </label>
 
                                 <label class="_width fx">
-                                    <input type="radio" name="uniquenext" wire:model.defer="description" value="Hut">
+                                    <input type="radio" name="uniquenext" wire:model.defer="description" value="hut">
                                     <div class="_rect-b">
                                         <div class="_img-f">
                                             <img src="{{ URL::asset('assets/img/card/next14.jpg') }}" alt="">
@@ -164,7 +164,7 @@
                                 </label>
 
                                 <label class="_width fx">
-                                    <input type="radio" name="uniquenext" wire:model.defer="description" value="Island">
+                                    <input type="radio" name="uniquenext" wire:model.defer="description" value="island">
                                     <div class="_rect-b">
                                         <div class="_img-f">
                                             <img src="{{ URL::asset('assets/img/card/next31.jpg') }}" alt="">
@@ -177,7 +177,7 @@
                                 </label>
 
                                 <label class="_width fx">
-                                    <input type="radio" name="uniquenext" wire:model.defer="description" value="Lighthouse">
+                                    <input type="radio" name="uniquenext" wire:model.defer="description" value="lighthouse">
                                     <div class="_rect-b">
                                         <div class="_img-f">
                                             <img src="{{ URL::asset('assets/img/card/next19.jpg') }}" alt="">
@@ -190,7 +190,7 @@
                                 </label>
 
                                 <label class="_width fx">
-                                    <input type="radio" name="uniquenext" wire:model.defer="description" value="Plane">
+                                    <input type="radio" name="uniquenext" wire:model.defer="description" value="plane">
                                     <div class="_rect-b">
                                         <div class="_img-f">
                                             <img src="{{ URL::asset('assets/img/card/next32.jpg') }}" alt="">
@@ -203,7 +203,7 @@
                                 </label>
 
                                 <label class="_width fx">
-                                    <input type="radio" name="uniquenext" wire:model.defer="description" value="Ranch">
+                                    <input type="radio" name="uniquenext" wire:model.defer="description" value="ranch">
                                     <div class="_rect-b">
                                         <div class="_img-f">
                                             <img src="{{ URL::asset('assets/img/card/next33.jpg') }}" alt="">
@@ -216,7 +216,7 @@
                                 </label>
 
                                 <label class="_width fx">
-                                    <input type="radio" name="uniquenext" wire:model.defer="description" value="Religious building">
+                                    <input type="radio" name="uniquenext" wire:model.defer="description" value="religious_building">
                                     <div class="_rect-b">
                                         <div class="_img-f">
                                             <img src="{{ URL::asset('assets/img/card/next34.jpg') }}" alt="">
@@ -229,7 +229,7 @@
                                 </label>
 
                                 <label class="_width fx">
-                                    <input type="radio" name="uniquenext" wire:model.defer="description" value="Shepherd's">
+                                    <input type="radio" name="uniquenext" wire:model.defer="description" value="shepherds">
                                     <div class="_rect-b">
                                         <div class="_img-f">
                                             <img src="{{ URL::asset('assets/img/card/next19.jpg') }}" alt="">
@@ -242,7 +242,7 @@
                                 </label>
 
                                 <label class="_width fx">
-                                    <input type="radio" name="uniquenext" wire:model.defer="description" value="Shipping container">
+                                    <input type="radio" name="uniquenext" wire:model.defer="description" value="shipping_container">
                                     <div class="_rect-b">
                                         <div class="_img-f">
                                             <img src="{{ URL::asset('assets/img/card/next35.jpg') }}" alt="">
@@ -255,7 +255,7 @@
                                 </label>
 
                                 <label class="_width fx">
-                                    <input type="radio" name="uniquenext" wire:model.defer="description" value="Tent">
+                                    <input type="radio" name="uniquenext" wire:model.defer="description" value="tent">
                                     <div class="_rect-b">
                                         <div class="_img-f">
                                             <img src="{{ URL::asset('assets/img/card/next36.jpg') }}" alt="">
@@ -268,7 +268,7 @@
                                 </label>
 
                                 <label class="_width fx">
-                                    <input type="radio" name="uniquenext" wire:model.defer="description" value="Tiny house">
+                                    <input type="radio" name="uniquenext" wire:model.defer="description" value="tiny_house">
                                     <div class="_rect-b">
                                         <div class="_img-f">
                                             <img src="{{ URL::asset('assets/img/card/next20.jpg') }}" alt="">
@@ -281,7 +281,7 @@
                                 </label>
 
                                 <label class="_width fx">
-                                    <input type="radio" name="uniquenext" wire:model.defer="description" value="Tower">
+                                    <input type="radio" name="uniquenext" wire:model.defer="description" value="tower">
                                     <div class="_rect-b">
                                         <div class="_img-f">
                                             <img src="{{ URL::asset('assets/img/card/next37.jpg') }}" alt="">
@@ -294,7 +294,7 @@
                                 </label>
 
                                 <label class="_width fx">
-                                    <input type="radio" name="uniquenext" wire:model.defer="description" value="Train">
+                                    <input type="radio" name="uniquenext" wire:model.defer="description" value="train">
                                     <div class="_rect-b">
                                         <div class="_img-f">
                                             <img src="{{ URL::asset('assets/img/card/next38.jpg') }}" alt="">
@@ -307,7 +307,7 @@
                                 </label>
 
                                 <label class="_width fx">
-                                    <input type="radio" name="uniquenext" wire:model.defer="description" value="Windmill">
+                                    <input type="radio" name="uniquenext" wire:model.defer="description" value="windmill">
                                     <div class="_rect-b">
                                         <div class="_img-f">
                                             <img src="{{ URL::asset('assets/img/card/next39.jpg') }}" alt="">
@@ -320,7 +320,7 @@
                                 </label>
 
                                 <label class="_width fx">
-                                    <input type="radio" name="uniquenext" wire:model.defer="description" value="Vacation home">
+                                    <input type="radio" name="uniquenext" wire:model.defer="description" value="vacation_home">
                                     <div class="_rect-b">
                                         <div class="_img-f">
                                             <img src="{{ URL::asset('assets/img/card/next5.jpg') }}" alt="">
@@ -333,7 +333,7 @@
                                 </label>
 
                                 <label class="_width fx">
-                                    <input type="radio" name="uniquenext" wire:model.defer="description" value="Other">
+                                    <input type="radio" name="uniquenext" wire:model.defer="description" value="other">
                                     <div class="_rect-b">
                                         <div class="_img-f" style="padding: 21px 0;">
                                             <span class="_bg-border">

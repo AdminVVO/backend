@@ -23,6 +23,14 @@ class ListingsController extends Controller
         return view('listing.ListingSteps');
     }
 
+    public function viewListinShow($listing)
+    {
+        if ( Listings::where([ 'id_listings' => $listing ])->doesntExist() )
+            return redirect()->route('listing');
+
+        return view('listing.ListingShow', ['listing' => $listing]);
+    }
+
     public function uploadFileDragzone(Request $request)
     {
         if ( $request->hasFile('uploadPhoto')) {

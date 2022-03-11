@@ -2,11 +2,12 @@
 
 namespace App\Http\Livewire\Listing\Steps;
 
+use App\Models\AmenitiesSafety;
 use Auth;
-use Livewire\Component;
+use File;
 use Illuminate\Support\Facades\Validator;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
-use File;
+use Livewire\Component;
 
 class CheckedListing extends Component
 {
@@ -27,21 +28,45 @@ class CheckedListing extends Component
         $this->content['avatar']    = Auth::user()->avatar;
         $this->content['title']     = $this->listing['placeTitle'];
         $this->content['comment']   = $this->listing['placeComment'];
-        $this->content['guests']    = $this->listing['guests'];
         $this->content['location']  = $this->listing['location'];
+
+        $this->content['guests']    = [
+            $this->listing['guests']['guests'] == 1 ? 'Guest' : 'Guests' => $this->listing['guests']['guests'],
+            $this->listing['guests']['beds'] == 1 ? 'Bed' : 'Beds' => $this->listing['guests']['beds'],
+            $this->listing['guests']['bedrooms'] == 1 ? 'Bedroom' : 'Bedrooms' => $this->listing['guests']['bedrooms'],
+            $this->listing['guests']['bathrooms'] == 1 ? 'Bathroom' : 'Bathrooms' => $this->listing['guests']['bathrooms'],
+        ];
+
+        $country  = $this->listing['address']['country'];
+        $state    = $this->listing['address']['state'] != '' ? ' ' . $this->listing['address']['state'] . ' ' : ' ';
+        $city     = $this->listing['address']['city'];
+        $street   = $this->listing['address']['street'];
+        $suite    = $this->listing['address']['suite'] != '' ? ' ' . $this->listing['address']['suite'] : '';
+        $zip_code = $this->listing['address']['zip_code'] != '' ? ' ' . $this->listing['address']['zip_code'] . ' ' : ' ';
+            $this->content['address'] = "Address: {$country}{$state}{$city}{$zip_code}{$street}{$suite}";
 
         if (File::exists( storage_path('app/public/uploadListing/' . $this->listing['photos'][0] ) ) ) {
             $this->content['img']       = count( $this->listing['photos'] ) != 0 ? $this->listing['photos'][0] : $this->listing['host'] ;
+            
         }else{
             $imgFile = explode('-', $this->listing['photos'][0] );
             $this->showImg   = true;
             $this->content['img'] = $folderAuth . '/' . $imgFile[1];
         }
 
-        foreach ($this->listing['offers'] as $key => $value) {
-            $this->content['amenities'][ $key ]['name'] = $value;
-            $this->content['amenities'][ $key ]['icon'] = $this->Icons( $value );
-        }
+        $i = 0;
+
+        $amenities = AmenitiesSafety::whereIn('code', array_merge( $this->listing['offers']['amenities'], $this->listing['offers']['safety'] ) )->pluck('name', 'code');
+            foreach ($this->listing['offers']['amenities'] as $key => $value) {
+                $this->content['amenities'][ $i ]['name'] = $amenities[ $value ];
+                $this->content['amenities'][ $i ]['icon'] = $this->Icons( $value );
+                $i++;
+            }
+            foreach ($this->listing['offers']['safety'] as $key => $value) {
+                $this->content['amenities'][ $i ]['name'] = $amenities[ $value ];
+                $this->content['amenities'][ $i ]['icon'] = $this->Icons( $value );
+                $i++;
+            }
 
         $this->emit('postAdded');
     }
@@ -103,108 +128,97 @@ class CheckedListing extends Component
     public function Icons($payload)
     {
         switch ( $payload ) {
-            case 'Exercise equipment':
-                return 'exercise-blu.svg';
-                break;
 
-            case 'Washer':
-                return 'washer-blu.svg';
-                break;
-
-            case 'Outdoor shower':
-                return 'shower-blu.svg';
-                break;
-
-            case 'Fire extinguisher':
-                return 'extinguisher-blu.svg';
-                break;
-
-            case 'Pool':
+            case 'pool':
                 return 'pool-blu.svg';
                 break;
 
-            case 'Hot tub':
+            case 'hot_tub':
                 return 'hot-blu.svg';
                 break;
 
-
-            case 'Patio':
+            case 'patio':
                 return 'patio-blu.svg';
                 break;
 
-
-            case 'Fire pit':
-                return 'fire-blu.svg';
-                break;
-
-
-            case 'BBQ grill':
+            case 'bbq_grill':
                 return 'grill-blu.svg';
                 break;
 
+            case 'fire_pit':
+                return 'fire-blu.svg';
+                break;
 
-            case 'Pool table':
+            case 'pool_table':
                 return 'table-blu.svg';
                 break;
 
-
-            case 'Outdoor dining area':
-                return 'outdoor-blu.svg';
-                break;
-
-
-            case 'Indoor fireplace':
+            case 'indoor_fireplace':
                 return 'indoor-blu.svg';
                 break;
 
-
-            case 'Wifi':
-                return 'wifi-blu.svg';
+            case 'outdoor_dining':
+                return 'outdoor-blu.svg';
                 break;
 
+            case 'exercise_equipment':
+                return 'exercise-blu.svg';
+                break;
+
+
+
+            case 'wifi':
+                return 'wifi-blu.svg';
+                break;
 
             case 'TV':
                 return 'tv-blu.svg';
                 break;
 
-
-            case 'Kitchen':
+            case 'kitchen':
                 return 'kitchen-blu.svg';
                 break;
 
+            case 'washer':
+                return 'washer-blu.svg';
+                break;
 
-            case 'Free parking on premises':
+            case 'free_parking':
                 return 'parking-blu.svg';
                 break;
 
-
-            case 'Dedicated worspace':
-                return 'dedicated-blu.svg';
-                break;
-
-
-            case 'Air conditioning':
-                return 'air-blu.svg';
-                break;
-
-
-            case 'Paid parking on premises':
+            case 'paid_parking':
                 return 'paid-blu.svg';
                 break;
 
+            case 'air_conditioning':
+                return 'air-blu.svg';
+                break;
 
-            case 'Smoke alarm':
+            case 'dedicated_worspace':
+                return 'dedicated-blu.svg';
+                break;
+
+            case 'outdoor_shower':
+                return 'shower-blu.svg';
+                break;
+
+
+
+            case 'smoke_alarm':
                 return 'smoke-blu.svg';
                 break;
 
-
-            case 'First aid kit':
+            case 'first_kit':
                 return 'first-blu.svg';
                 break;
 
-
-            case 'Caroom monoxide alarm':
+            case 'monoxide_alarm':
                 return 'carbon-blu.svg';
+                break;
+
+            case 'fire_extinguisher':
+                return 'extinguisher-blu.svg';
                 break;
         }
     }

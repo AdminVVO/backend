@@ -40,10 +40,10 @@ class Guests extends Component
             return $this->alert('warning', 'Invalid number of guests');
 
         $content = [
-            $this->guests == 1 ? 'Guest' : 'Guests' => $this->guests,
-            $this->beds == 1 ? 'Bed' : 'Beds' => $this->beds,
-            $this->bedrooms == 1 ? 'Bedroom' : 'Bedrooms' => $this->bedrooms,
-            $this->bathrooms == 1 ? 'Bathroom' : 'Bathrooms' => $this->bathrooms
+            'guests' => $this->guests,
+            'beds' => $this->beds,
+            'bedrooms' => $this->bedrooms,
+            'bathrooms' => $this->bathrooms
         ];
 
         $payload = [

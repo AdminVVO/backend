@@ -8,7 +8,7 @@
                         <div class="scroll">
                             <div class="_grid">
                                 <label class="_width fx">
-                                    <input type="radio" name="housenext" wire:model.defer="description" value="Residential home">
+                                    <input type="radio" name="housenext" wire:model.defer="description" value="residential_home">
                                     <div class="_rect-b">
                                         <div class="_img-f">
                                             <img src="{{ URL::asset('assets/img/card/next6.jpg') }}" alt="">
@@ -21,7 +21,7 @@
                                 </label>
 
                                 <label class="_width fx">
-                                    <input type="radio" name="housenext" wire:model.defer="description" value="Cabin">
+                                    <input type="radio" name="housenext" wire:model.defer="description" value="cabin">
                                     <div class="_rect-b">
                                         <div class="_img-f">
                                             <img src="{{ URL::asset('assets/img/card/next7.jpg') }}" alt="">
@@ -34,7 +34,7 @@
                                 </label>
 
                                 <label class="_width fx">
-                                    <input type="radio" name="housenext" wire:model.defer="description" value="Villa">
+                                    <input type="radio" name="housenext" wire:model.defer="description" value="villa">
                                     <div class="_rect-b">
                                         <div class="_img-f">
                                             <img src="{{ URL::asset('assets/img/card/next8.jpg') }}" alt="">
@@ -47,7 +47,7 @@
                                 </label>
 
                                 <label class="_width fx">
-                                    <input type="radio" name="housenext" wire:model.defer="description" value="Townhouse">
+                                    <input type="radio" name="housenext" wire:model.defer="description" value="townhouse">
                                     <div class="_rect-b">
                                         <div class="_img-f">
                                             <img src="{{ URL::asset('assets/img/card/next9.jpg') }}" alt="">
@@ -60,7 +60,7 @@
                                 </label>
 
                                 <label class="_width fx">
-                                    <input type="radio" name="housenext" wire:model.defer="description" value="Cottage">
+                                    <input type="radio" name="housenext" wire:model.defer="description" value="cottage">
                                     <div class="_rect-b">
                                         <div class="_img-f">
                                             <img src="{{ URL::asset('assets/img/card/next10.jpg') }}" alt="">
@@ -73,7 +73,7 @@
                                 </label>
 
                                 <label class="_width fx">
-                                    <input type="radio" name="housenext" wire:model.defer="description" value="Bungalow">
+                                    <input type="radio" name="housenext" wire:model.defer="description" value="bungalow">
                                     <div class="_rect-b">
                                         <div class="_img-f">
                                             <img src="{{ URL::asset('assets/img/card/next11.jpg') }}" alt="">
@@ -86,7 +86,7 @@
                                 </label>
 
                                 <label class="_width fx">
-                                    <input type="radio" name="housenext" wire:model.defer="description" value="Earth house">
+                                    <input type="radio" name="housenext" wire:model.defer="description" value="earth_house">
                                     <div class="_rect-b">
                                         <div class="_img-f">
                                             <img src="{{ URL::asset('assets/img/card/next13.jpg') }}" alt="">
@@ -99,7 +99,7 @@
                                 </label>
 
                                 <label class="_width fx">
-                                    <input type="radio" name="housenext" wire:model.defer="description" value="Houseboat">
+                                    <input type="radio" name="housenext" wire:model.defer="description" value="houseboat">
                                     <div class="_rect-b">
                                         <div class="_img-f">
                                             <img src="{{ URL::asset('assets/img/card/next14.jpg') }}" alt="">
@@ -112,7 +112,7 @@
                                 </label>
 
                                 <label class="_width fx">
-                                    <input type="radio" name="housenext" wire:model.defer="description" value="Hut">
+                                    <input type="radio" name="housenext" wire:model.defer="description" value="hut">
                                     <div class="_rect-b">
                                         <div class="_img-f">
                                             <img src="{{ URL::asset('assets/img/card/next15.jpg') }}" alt="">
@@ -125,7 +125,7 @@
                                 </label>
 
                                 <label class="_width fx">
-                                    <input type="radio" name="housenext" wire:model.defer="description" value="Farm stay">
+                                    <input type="radio" name="housenext" wire:model.defer="description" value="farm_stay">
                                     <div class="_rect-b">
                                         <div class="_img-f">
                                             <img src="{{ URL::asset('assets/img/card/next16.jpg') }}" alt="">
@@ -138,7 +138,7 @@
                                 </label>
 
                                 <label class="_width fx">
-                                    <input type="radio" name="housenext" wire:model.defer="description" value="Dome house">
+                                    <input type="radio" name="housenext" wire:model.defer="description" value="dome_house">
                                     <div class="_rect-b">
                                         <div class="_img-f">
                                             <img src="{{ URL::asset('assets/img/card/next17.jpg') }}" alt="">
@@ -151,7 +151,7 @@
                                 </label>
 
                                 <label class="_width fx">
-                                    <input type="radio" name="housenext" wire:model.defer="description" value="Chalet">
+                                    <input type="radio" name="housenext" wire:model.defer="description" value="chalet">
                                     <div class="_rect-b">
                                         <div class="_img-f">
                                             <img src="{{ URL::asset('assets/img/card/next18.jpg') }}" alt="">
@@ -164,7 +164,7 @@
                                 </label>
 
                                 <label class="_width fx">
-                                    <input type="radio" name="housenext" wire:model.defer="description" value="Lighthouse">
+                                    <input type="radio" name="housenext" wire:model.defer="description" value="lighthouse">
                                     <div class="_rect-b">
                                         <div class="_img-f">
                                             <img src="{{ URL::asset('assets/img/card/next19.jpg') }}" alt="">
@@ -177,7 +177,7 @@
                                 </label>
 
                                 <label class="_width fx">
-                                    <input type="radio" name="housenext" wire:model.defer="description" value="Shepherd's hut">
+                                    <input type="radio" name="housenext" wire:model.defer="description" value="shepherds_hut">
                                     <div class="_rect-b">
                                         <div class="_img-f">
                                             <img src="{{ URL::asset('assets/img/card/next20.jpg') }}" alt="">

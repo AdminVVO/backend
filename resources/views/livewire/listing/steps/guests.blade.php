@@ -143,7 +143,7 @@
                     </div>
                 </div>
                 <div class="_block-jsb">
-                    <div class="_btnsmleft" wire:click="returnBack('maps')">
+                    <div class="_btnsmleft" wire:click="returnBack('mapsmanually')">
                         <svg xmlns="http://www.w3.org/2000/svg" width="6.052" height="10.584" viewBox="0 0 6.052 10.584">
                             <path d="M5.294,1.824l4,4.005a.753.753,0,0,0,1.068,0,.763.763,0,0,0,0-1.071L5.83.22A.755.755,0,0,0,4.787.2L.221,4.755A.756.756,0,0,0,1.289,5.826Z" transform="translate(0 10.584) rotate(-90)" fill="#333"/>
                         </svg>

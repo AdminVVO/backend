@@ -2,13 +2,14 @@
 
 namespace App\Models;
 
+use App\Traits\Uuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Listings extends Model
 {
-    use HasFactory, SoftDeletes;
+    use HasFactory, SoftDeletes, Uuids;
     
     protected $primaryKey = 'id_listings';
 
@@ -18,8 +19,6 @@ class Listings extends Model
         'host',
         'description',
         'space',
-        'location',
-        'guests',
         'offers',
         'photos',
         'placeTitle',
@@ -33,6 +32,13 @@ class Listings extends Model
 
     protected $dates = [
         'deleted_at'
+    ];
+
+    protected $casts = [
+        'offers' => 'array',
+        'photos' => 'array',
+        'placeOptions' => 'array',
+        'featurs' => 'array',
     ];
 }
 
