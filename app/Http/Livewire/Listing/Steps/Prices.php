@@ -11,6 +11,7 @@ class Prices extends Component
     use LivewireAlert;
 
     public $price;
+    public $first_guest;
     public $disableS = false;
     public $disableR = true;
 
@@ -44,7 +45,10 @@ class Prices extends Component
         $payload = [
             'to' => 'featurs',
             'from' => 'prices',
-            'content' => $this->price,
+            'content' => [
+                'base' => $this->price,
+                'first_guest' => $this->first_guest == null ? false : $this->first_guest,
+            ],
             'img' => 'featurs',
         ];
         

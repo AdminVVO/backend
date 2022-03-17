@@ -4,7 +4,7 @@
     </div>
     <div class="modal_block-welcome">
         <div class="content_welcome-email content-f-r">
-            <form wire:submit.prevent="submitLogIn">
+            <form wire:submit.prevent="" submitLogIn>
                 <h4>Name</h4>
                 <input type="text" wire:model.defer="name" class="_input-mod @error('name') error_input @enderror">
                 @error('name')
@@ -23,9 +23,10 @@
                     </div>
                 @enderror   
 
-                <p>Make sure it matches the name that appears on your official ID.</p>
+                <p style="margin-bottom: 15px;">Make sure it matches the name that appears on your official ID.</p>
 
-                <div class="selected-modal">
+                <h4>Gender</h4>
+                <div class="selected-modal" style="margin: 11px 0 20px;">
                     <select wire:model.defer="gender" class="@error('gender') error_input @enderror">
                         <option value="" selected disabled>Choose option...</option>
                         <option value="Male">Male</option>
@@ -43,9 +44,9 @@
 
                 <h4>Date of birth</h4>
                 <label class="_lbl-date">
-                    <input type="text" name="calendar" wire:model.defer="dateBirth" placeholder="dd/mm/yyyy" maxlength="10" class="_input-mod date date-v-modals @error('dateBirth') error_input @enderror">
-                    @error('dateBirth')
-                        <div  class="_txterror">
+                    <input type="text" name="calendar" wire:model.defer="birth" placeholder="dd/mm/yyyy" maxlength="10" id="initDate" class="_input-mod date date-v-modals ">
+                    @error('birth')
+                        <div style="display: block;" class="_txterror">
                             <i class="fas fa-exclamation-circle icon1"></i> 
                             {{ $message }}
                         </div>
@@ -65,7 +66,7 @@
                     @enderror  
                 @else
                     <h4 style="margin-top: 23px;">Phone Number</h4>
-                    <input type="text" wire:model.defer="phone" class="_input-mod email-modals @error('phone') error_input @enderror" placeholder="Examples@demo.com">
+                    <input type="text" wire:model.defer="phone" class="_input-mod email-modals @error('phone') error_input @enderror" placeholder="+1 999-99-999">
                     @error('phone')
                         <div  class="_txterror">
                             <i class="fas fa-exclamation-circle icon1"></i> 
@@ -79,7 +80,7 @@
                 <p style="text-align: center !important;">By selecting <b>Accept and Continue</b>, I agree to the VVOUTLET <a href="#">Terms of Service</a>. <a href="#">Payment Terms of Service</a>, and <a href="#">Anti-Discrimination Policy</a>. I also acknowledge the <a href="#">Privacy Policy</a>.</p>
 
                 <div class="block_a">
-                    <button class="btn_email-code btns-modals" type="submit">Accept and continue <div class="loading-btn loading-btn-modal"></div></button>
+                    <button class="btn_email-code" type="submit">Accept and continue</button>
                 </div>
 
                 <div class="_line-hr" style="border-top-color: #E3EDF3; margin: 20px 0;"></div>

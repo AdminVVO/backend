@@ -29,6 +29,8 @@ class Listings extends Model
         'amenities',
         'safety',
         'photos',
+        'category',
+        'featurs',
         'user_id',
     ];
 
@@ -37,6 +39,8 @@ class Listings extends Model
     ];
 
     protected $casts = [
+        'category' => 'array',
+        'featurs' => 'array',
         'photos' => 'array',
         'amenities' => 'array',
         'safety' => 'array',
@@ -44,5 +48,6 @@ class Listings extends Model
         'restricted_checkout_days' => 'array',
         'minimum_stay_custom' => 'array',
         'scenic_views' => 'array',
+        'other_discount_array' => 'array',
     ];
 }

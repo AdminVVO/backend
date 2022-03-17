@@ -52,25 +52,25 @@
                                             <th class="cal_tod_br cal_tod_bg">
                                                 @switch( $content['advance_notice'] )
                                                     @case(1)
-                                                        <span class="_txtec16">{{ $i + 30 }}</span>
+                                                        <span class="_txtec16">{{ date('j')   }}</span>
                                                         @break
                                                     @case(2)
-                                                        <span class="_txtec16">{{ $i + 29 }}</span>
+                                                        <span class="_txtec16">{{ date('j') + $i }}</span>
                                                         @break
                                                     @case(3)
-                                                        <span class="_txtec16">{{ $i + 28 }}</span>
+                                                        <span class="_txtec16">{{ date('j') + $i }}</span>
                                                         @break
                                                     @case(4)
-                                                        <span class="_txtec16">{{ $i + 27 }}</span>
+                                                        <span class="_txtec16">{{ date('j') + $i }}</span>
                                                         @break
                                                     @case(5)
-                                                        <span class="_txtec16">{{ $i + 26 }}</span>
+                                                        <span class="_txtec16">{{ date('j') + $i }}</span>
                                                         @break
                                                 @endswitch
                                             </th>
                                         @endfor
                                         <th class="cal_tod_br cal_tod_icon">
-                                            <span class="_txtec16">31</span>
+                                            <span class="_txtec16">{{ date('j') + $content['advance_notice']  }}</span>
                                             <i class="far fa-user-circle _i-verde40"></i>
                                         </th>
                                     </tr>
@@ -151,30 +151,30 @@
                                             <th class="cal_tod_br cal_tod_bg">
                                                 @switch( $content['preparation_time'] )
                                                     @case(1)
-                                                        <span class="_txtec16">{{ $i + 10 }}</span>
+                                                        <span class="_txtec16">{{ $i + (date('j') - 1) }}</span>
                                                         @break
                                                     @case(2)
-                                                        <span class="_txtec16">{{ $i + 9 }}</span>
+                                                        <span class="_txtec16">{{ $i + (date('j') - 2) }}</span>
                                                         @break
                                                     @case(3)
-                                                        <span class="_txtec16">{{ $i + 8 }}</span>
+                                                        <span class="_txtec16">{{ $i + (date('j') - 3) }}</span>
                                                         @break
                                                     @case(4)
-                                                        <span class="_txtec16">{{ $i + 7 }}</span>
+                                                        <span class="_txtec16">{{ $i + (date('j') - 4) }}</span>
                                                         @break
                                                     @case(5)
-                                                        <span class="_txtec16">{{ $i + 6 }}</span>
+                                                        <span class="_txtec16">{{ $i + (date('j') - 5) }}</span>
                                                         @break
                                                 @endswitch
                                             </th>
                                         @endfor
                                         <th class="cal_tod_br cal_tod_icon">
-                                            <span class="_txtec16">11</span>
+                                            <span class="_txtec16">{{ date('j') }}</span>
                                             <i class="far fa-user-circle _i-verde40"></i>
                                         </th>
                                         @for ($i = 0; $i <= $content['preparation_time'] - 1; $i++)
                                             <th class="cal_tod_br cal_tod_bg">
-                                                <span class="_txtec16">{{ $i + 12 }}</span>
+                                                <span class="_txtec16">{{ $i + date('j') + 1 }}</span>
                                             </th>
                                         @endfor
                                     </tr>
@@ -255,13 +255,13 @@
                         <div class="fx fx-fd-c" style="margin-top: 25px; gap: 11px;">
                             <table style="border-collapse: collapse; border-spacing: 0; width: 100%; margin: 0;">
                                 <tr class="fx fx-fw-w" style="gap: 36px;">
-                                    @for ($i = 0; $i <= $content['availability_window'] - 1; $i++)
+                                    @for ($i = 0; $i <= $content['availability_window']; $i++)
                                         <th class="cal_tod_b_br">
                                             <div>
-                                                <p class="_txtec16" style="margin-bottom: 5px;">{{ Carbon\Carbon::parse( strtotime( '2022/' . ( $i + date('n') ) . '/21' . " - 1 month"), 'UTC')->locale('en')->isoFormat('MMM') }}</p>
-                                                @if ( $i + 1  == $content['availability_window'])
+                                                <p class="_txtec16" style="margin-bottom: 5px;">{{ Carbon\Carbon::createFromDate(0000, date('m') + $i )->format('F') }}</p>
+                                                @if ( $i == $content['availability_window'] )
                                                     <i class="far fa-user-circle _i-verde40"></i>
-                                                @endif  
+                                                @endif
                                             </div>
                                         </th>
                                     @endfor

@@ -335,13 +335,13 @@ $(document).ready(function() {
     });
 
     $(".modal-anhost").click(function() {
-        $(".container_admin-host").css({'display': 'none'});
-        $(".page-category").css({'overflow': 'auto'});
+        $(this).parents(".container_admin-host").hide();
+        $(this).parents(".page-category").css({'overflow': 'auto'});
     });
 
     $(".modal_content-anhost .close span").click(function() {
-        $(".container_admin-host").css({'display': 'none'});
-        $(".page-category").css({'overflow': 'auto'});
+        $(this).parents(".container_admin-host").hide();
+        $(this).parents(".page-category").css({'overflow': 'auto'});
     });
 
     // click y cambia color estilos el input
@@ -423,11 +423,12 @@ $(document).ready(function() {
         $(this).parents('.show_form_input').find(".click_remove_another_lenth").prop('disabled', false);
 
         var html = '';
-        html += '<div class="block_input fx fx-fd-c" style="gap: 30px;">';
-        html += '<div>';
+        html += '<div class="block_input">';
+        html += '<div class="fx fx-fw-w" style="gap: 30px;">';
+        html += '<div class="mx480">';
         html += '<div class="txt-check-in">Length of stay</div>';
         html += '<div class="selected-modal mxw576" style="margin: 0;">';
-        html += '<select>';
+        html += '<select>'
         html += '<option selected disabled>Select length of stay</option>';
         html += '<option value="7" disabled>Weekly (1 week)</option>';
         html += '<option value="28" disabled>Monthly (4 weeks)</option>';
@@ -437,16 +438,19 @@ $(document).ready(function() {
         html += '<i class="fas fa-chevron-down"></i>';
         html += '</div>';
         html += '</div>';
-        html += '<div class="_flfpc mxw576">';
+        html += '<div class="mxw80">';
+        html += '<div class="_flfpc">';
         html += '<div class="txt-check-in">Discount</div>';
         html += '<label class="before_icon_input">';
-        html += '<span class="_txtec">%</span>';
-        html += '<input type="text" class="number" maxlength="2">';
+        html += '<input type="text" class="number" style="padding: 16px 0 16px 16px;" maxlength="2">';
+        html += '<span class="_txtec" style="padding: 16px 16px 16px 0;">%</span>';
         html += '</label>';
+        html += '</div>';
+        html += '</div>';
+        html += '</div>';
         html += '<button class="_btnsmleft click_remove_another_lenth" style="margin-top: 10px;">';
         html += '<span>Remove</span>';
         html += '</button>';
-        html += '</div>';
         html += '</div>';
 
         $(this).parents('.show_form_input').find(".cont_add_another").append(html);
@@ -472,23 +476,89 @@ $(document).ready(function() {
         $(this).parents('.show_form_input').find(".click_remove_another_lenth").prop('disabled', false);
 
         let discount = '';
-        discount += '<div class="block_input fx fx-fd-c" style="gap: 30px;">';
-        discount += '<div class="_flfpc mxw576">';
+        discount += '<div class="block_input">';
+        discount += '<div class="fx fx-fw-w" style="gap: 30px;">';
+        discount += '<div class="mx480">';
         discount += '<div class="txt-check-in">Day before arrival</div>';
-        discount += '<input type="text" class="_numcard number" maxlength="2">';
+        discount += '<input type="text" class="_inputreal number" maxlength="2">';
         discount += '</div>';
-        discount += '<div class="_flfpc mxw576">';
+        discount += '<div class="mxw80">';
+        discount += '<div class="_flfpc">';
         discount += '<div class="txt-check-in">Discount</div>';
         discount += '<label class="before_icon_input">';
-        discount += '<span class="_txtec">%</span>';
-        discount += '<input type="text" class="number" maxlength="2">';
+        discount += '<input type="text" class="number" style="padding: 16px 0 16px 16px;" maxlength="2">';
+        discount += '<span class="_txtec" style="padding: 16px 16px 16px 0;">%</span>';
         discount += '</label>';
+        discount += '</div>';
+        discount += '</div>';
+        discount += '</div>';
         discount += '<button class="_btnsmleft click_remove_another_lenth" style="margin-top: 10px;">';
         discount += '<span>Remove</span>';
         discount += '</button>';
         discount += '</div>';
-        discount += '</div>';
 
         $(this).parents('.show_form_input').find(".cont_add_another").append(discount);
     });
+
+
+    // click es show more
+    $(".click_show_more").on('click', function() {
+        $(this).parent().find(".show_more_info").show();
+        $(this).parent().find(".click_show_more").hide();
+    });
+
+
+    // create step6 - click la flecha y que deslize cada bloque
+    $(".click_bloques_amenitles").on('click', function() {
+        $('._content-favorite, .c_amenitles').animate({
+            scrollTop: $(".bloque_guest_favorite").css({'background': 'red'}).offset().top
+        }, 600);
+    });
 });
+
+
+// validar formato de fecha con jquery
+$(document).ready(validateFecha);
+function validateFecha() {
+    var flag1 = true;
+    $(document).on('keydown','.date-v-modals',function(e){
+        if($(this).val().length == 4 && flag1) {
+            $(this).val($(this).val() + "/");
+            flag1 = true;
+        }
+
+        else if($(this).val().length == 7 && flag1) {
+            $(this).val($(this).val() + "/");
+            flag1 = false;
+        }
+    });
+};
+
+// $(document).ready(function() {
+//     let $lis = $(".c_amenitles");
+//     activo = 0;
+//     cantidad = $lis.length;
+
+//     // $lis.hide();
+
+//     $lis.each(function(index) {
+//         $lis.eq(index).css({'background': 'red'});
+//     });
+
+//     $lis.eq(activo).fadeIn();
+
+//     $(".click_bloques_amenitles").click(function(evt) {
+//         evt.preventDefault();
+//         activo += 1;
+
+//         if (activo > cantidad - 1) {
+//             activo = 0;
+//         }
+
+//         showAmenitles();
+//     });
+
+//     function showAmenitles() {
+//         $lis.eq(activo).fadeIn();
+//     }
+// });

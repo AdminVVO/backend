@@ -115,6 +115,11 @@ header .book-form ._bef-places {
   font-size: 18px;
   font-weight: 400;
 }
+@media (max-width: 1100px) {
+  .menu a, .menu span {
+    font-size: 16px;
+  }
+}
 .menu a {
   display: flex;
   align-items: center;
@@ -135,6 +140,12 @@ header .book-form ._bef-places {
   border-radius: 50%;
   border: 2px solid #FF5A5F;
   margin-right: 5px;
+}
+@media (max-width: 1100px) {
+  .menu_perfil span img {
+    width: 40px;
+    height: 40px;
+  }
 }
 .menu .menu_home-content {
   position: absolute;
@@ -205,14 +216,24 @@ header .book-form ._bef-places {
     display: none;
   }
 }
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 1100px) {
   .logo-menu img {
-    width: 150px;
+    width: 185px;
   }
 
   header {
     position: fixed;
     background-color: #283646;
     border-bottom: 1px solid #ffffff29;
+  }
+}
+@media screen and (max-width: 1000px) {
+  .logo-menu img {
+    width: 172px;
+  }
+}
+@media screen and (max-width: 890px) {
+  .logo-menu img {
+    width: 162px;
   }
 }

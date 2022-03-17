@@ -723,6 +723,30 @@ input {
 .container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome .phone:hover {
   box-shadow: 0 0 15px rgba(40, 54, 70, 0.1);
 }
+.container-welcome .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome .phone::placeholder,
+.container-number .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome .phone::placeholder,
+.container-options1 .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome .phone::placeholder,
+.container-ineed .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome .phone::placeholder,
+.container-welcome-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome .phone::placeholder,
+.container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome .phone::placeholder,
+.container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome .phone::placeholder,
+.container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome .phone::placeholder,
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome .phone::placeholder,
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome .phone::placeholder {
+  color: #E3EDF3;
+}
+.container-welcome .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome .phone:focus,
+.container-number .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome .phone:focus,
+.container-options1 .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome .phone:focus,
+.container-ineed .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome .phone:focus,
+.container-welcome-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome .phone:focus,
+.container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome .phone:focus,
+.container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome .phone:focus,
+.container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome .phone:focus,
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome .phone:focus,
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome .phone:focus {
+  border: 1px solid #7D7D7D;
+}
 .container-welcome .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome p,
 .container-number .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome p,
 .container-options1 .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome p,

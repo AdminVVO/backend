@@ -24,6 +24,7 @@
         "vue-template-compiler": "^2.6.12"
     },
     "dependencies": {
+        "alpinejs": "^3.9.1",
         "intl-tel-input": "^17.0.15",
         "v-click-outside": "^3.1.2",
         "vue-router": "^3.5.3",

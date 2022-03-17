@@ -93,6 +93,13 @@ $("._menu_options").on("click", function() {
 
 
 
+$(".container_admin-host .click_afuera_modal").click(function() {
+    $(this).parents($bef_places).removeClass("is-active");
+});
+
+$(".modal_content-anhost .click_x_modal").click(function() {
+    $(this).parents($bef_places).removeClass("is-active");
+});
 
 $(".click_guest").on("click", function() {
     let toggleClass = $(this).parent($bef_places).hasClass('is-active') ? true : false;
@@ -102,3 +109,10 @@ $(".click_guest").on("click", function() {
         $(this).parent($bef_places).toggleClass("is-active");
     }
 });
+
+// $(window).resize(function() {
+//     if ($(window).width() < 758) {
+//     }
+//    else {
+//    }
+// });

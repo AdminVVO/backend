@@ -94,7 +94,7 @@
                             <li><a href="#">Manage</a></li>
                             <li><a href="{{ route('host') }}">Host and experience</a></li>
                             <li><a href="{{ route('account') }}">Account</a></li>
-                            <li><a href="#">Log out</a></li>
+                            <li><a href="{{ route('logout') }}">Log out</a></li>
                         </ul>
                     </div>
                 </div>

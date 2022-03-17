@@ -17,12 +17,14 @@
                 <p class="_txtec">Choose a property type that's most like your place to set expectations for guests and help your listing appear in the right searches.</p>
             </div>
 
+
             <form wire:submit.prevent="submitProperty" class="show_form_input">
                 <div class="fx fx-fd-c" style="gap: 30px;">
-                    <div>
-                        <div class="txt-check-in">Which is most like your place?</div>
+                    <div class="fx fx-fw-w" style="gap: 30px;">
+                        <div class="mxf245">
+                            <div class="txt-check-in">Which is most like your place?</div>
 
-                        <div class="selected-modal" style="margin: 0;">
+                            <div class="selected-modal" style="margin: 0;">
                             <select wire:model="content.like_place" wire:click="changeEvent($event.target.value)" class="@error('like_place') error_input @enderror">
                                 <option selected>Choose option...</option>
                                 @foreach ($selectPlace as $key => $element)
@@ -30,58 +32,59 @@
                                 @endforeach
                             </select>
 
-                            <i class="fas fa-chevron-down"></i>
-                        </div>
-                        @error('like_place')
-                            <div class="_txterror" style="display: block;">
-                                <i class="fas fa-exclamation-circle icon1"></i> 
-                                {{ $message }}
+                                <i class="fas fa-chevron-down"></i>
                             </div>
-                        @enderror
-                    </div>
-
-                    <div>
-                        <div class="txt-check-in">Property type</div>
-                        <div class="selected-modal" style="margin: 0;">
-                            <select wire:model.defer="content.property_type" class="@error('property_type') error_input @enderror">
-                                <option selected>Choose option...</option>
-                                @foreach ($selectDescribPlace as $key => $element)
-                                    <option value="{{ $key }}">{{ $element }}</option>
-                                @endforeach
-                            </select>
-
-                            <i class="fas fa-chevron-down"></i>
+                            @error('like_place')
+                                <div class="_txterror" style="display: block;">
+                                    <i class="fas fa-exclamation-circle icon1"></i> 
+                                    {{ $message }}
+                                </div>
+                            @enderror
                         </div>
-                        @error('property_type')
-                            <div class="_txterror" style="display: block;">
-                                <i class="fas fa-exclamation-circle icon1"></i> 
-                                {{ $message }}
+
+                        <div class="mxf245">
+                            <div class="txt-check-in">Property type</div>
+                            <div class="selected-modal" style="margin: 0;">
+                                <select wire:model.defer="content.property_type" class="@error('property_type') error_input @enderror">
+                                    <option selected>Choose option...</option>
+                                    @foreach ($selectDescribPlace as $key => $element)
+                                        <option value="{{ $key }}">{{ $element }}</option>
+                                    @endforeach
+                                </select>
+
+                                <i class="fas fa-chevron-down"></i>
                             </div>
-                        @enderror
+                            @error('property_type')
+                                <div class="_txterror" style="display: block;">
+                                    <i class="fas fa-exclamation-circle icon1"></i> 
+                                    {{ $message }}
+                                </div>
+                            @enderror
+                            
+                            <p class="_txtec16" style="margin-top: 12px;">A rented place within a multi-unit residential building or complex.</p>
+                        </div>
+
+                        <div class="mxf245">
+                            <div class="txt-check-in">Listing type</div>
+
+                            <div class="selected-modal" style="margin: 0;">
+                                <select wire:model.defer="content.listing_type" class="_numcard @error('listing_type') error_input @enderror">
+                                    <option value="entire_place">Entire place</option>
+                                    <option value="private_room">Private room</option>
+                                    <option value="shared_room">Shared room</option>
+                                </select>
                         
-                        <p class="_txtec16" style="margin-top: 12px;">A rented place within a multi-unit residential building or complex.</p>
-                    </div>
-
-                    <div>
-                        <div class="txt-check-in">Listing type</div>
-
-                        <div class="selected-modal" style="margin: 0;">
-                            <select wire:model.defer="content.listing_type" class="_numcard @error('listing_type') error_input @enderror">
-                                <option value="entire_place">Entire place</option>
-                                <option value="private_room">Private room</option>
-                                <option value="shared_room">Shared room</option>
-                            </select>
-                    
-                            <i class="fas fa-chevron-down"></i>
-                        </div>
-                        @error('listing_type')
-                            <div class="_txterror" style="display: block;">
-                                <i class="fas fa-exclamation-circle icon1"></i> 
-                                {{ $message }}
+                                <i class="fas fa-chevron-down"></i>
                             </div>
-                        @enderror
+                            @error('listing_type')
+                                <div class="_txterror" style="display: block;">
+                                    <i class="fas fa-exclamation-circle icon1"></i> 
+                                    {{ $message }}
+                                </div>
+                            @enderror
 
-                        <span class="_txtec16" style="margin-top: 12px;">Guests have the whole place to themselves. This usually includes a bedroom, a bathroom, and a kitchen.</span>
+                            <p class="_txtec16" style="margin-top: 12px;">Guests have the whole place to themselves. This usually includes a bedroom, a bathroom, and a kitchen.</p>
+                        </div>
                     </div>
 
                     <div class="_flfpc">

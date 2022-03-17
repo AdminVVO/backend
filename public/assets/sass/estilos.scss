@@ -115,6 +115,10 @@ body {
     justify-content: flex-start;
   }
 
+  &-jc-r {
+    justify-content: right;
+  }
+
   &-fw-w {
     flex-wrap: wrap;
   }
@@ -438,6 +442,49 @@ body {
 
 
 
+
+
+
+
+
+// tamaño de max-width con width
+.mxw80 {
+  max-width: 80px;
+  width: 100%;
+}
+
+.mxw100 {
+  max-width: 100px;
+  width: 100%;
+}
+
+.mxw445 {
+  max-width: 445px;
+  width: 100%;
+}
+
+.mxw466 {
+  max-width: 466px;
+  width: 100%;
+}
+
+.mxw576 {
+  max-width: 576px;
+  width: 100%;
+}
+
+
+
+
+// tamaño de max-width con flex
+.mxf245 {
+  flex: 245px;
+  max-width: 100%;
+}
+
+
+
+
 button {
   outline: none;
   border-style: none;
@@ -450,6 +497,168 @@ select, textarea {
   background: none;
   outline: none;
 }
+
+
+
+// inputs diseño
+// input search plugin mapa - create step4
+.mapboxgl-ctrl-geocoder {
+  width: 100%;
+  max-width: 100%;
+  box-shadow: none;
+}
+
+.mapboxgl-ctrl-geocoder--icon {
+  display: none;
+}
+
+.mapboxgl-ctrl-geocoder--input {
+  padding: 0 !important;
+  height: 29px !important;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+
+
+
+
+
+.mapboxgl-canvas {
+  border-radius: 10px;
+}
+
+
+
+// responsive modal submenu guest
+._z4lmgp {
+  ._bef-places-modal {
+    padding: 0;
+    margin-top: 0;
+    margin-bottom: 1rem;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+    max-width: 376px;
+    max-height: -webkit-fill-available;
+    z-index: 999;
+
+    @include responsive(758px) {
+      border: transparent;
+    }
+
+    ._c-h {
+      display: none;
+
+      @include responsive(758px) {
+        display: flex;
+      }
+    }
+  }
+}
+
+.x_modal {
+  cursor: pointer;
+  color: white;
+  font-size: 18px;
+  padding: 13px 19.2px;
+  background: #FF5A5F;
+  border-radius: 0px 10px 0px 10px;
+}
+
+._bef-places {
+  display: none;
+  width: 405px;
+  position: absolute;
+  right: 0;
+  z-index: 10;
+  border-radius: 10px;
+  background-color: $color-white;
+  border: 3px solid #E3EDF3;
+  box-shadow: 0 0 15px rgb(40 54 70 / 10%);
+  max-height: -moz-calc(100vh - 150px);
+  overflow-x: hidden;
+  margin-top: 13px;
+  overflow-y: auto;
+  padding: 5px 22px 34px;
+
+  @include responsive(438px) {
+    width: 100%;
+  }
+
+  ._cont-places {
+    padding-top: 23px;
+    padding-bottom: 23px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    ._inf {
+      width: 65%;
+
+      ._txteh {
+        margin-bottom: 3px;
+      }
+    }
+
+    &:not(:last-child) {
+      border-bottom: 2px solid #E3EDF3;
+    }
+
+    ._2btns {
+      display: inline-flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 104px;
+      height: 32px;
+
+      ._btn {
+        width: 32px;
+        height: 32px;
+        display: inline-flex;
+        border-width: 2px;
+        border-style: solid;
+        border-color: #E3EDF3;
+        color: #00B5DD;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        transition: all .3s ease;
+
+        &:disabled {
+          cursor: not-allowed;
+          color: #E3EDF3;
+          border-color: #E3EDF3;
+          transition: all .3s ease;
+
+          &:hover {
+            color: #E3EDF3;
+            border-color: #E3EDF3;
+          }
+        }
+
+        &:hover {
+          border-color: #7D7D7D;
+          color: #00B5DD;
+        }
+      }
+    }
+  }
+}
+
+.modal-anhost-guest {
+  position: absolute;
+  z-index: 999;
+  inset: 0px;
+  background: rgba(40, 54, 70, 0.95);
+}
+
+
+
 
 .h_reservation_form {
   .header_admin {
@@ -535,6 +744,7 @@ select, textarea {
   position: relative;
   display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: 13px;
   padding: 16px;
   border-radius: 10px;
@@ -956,6 +1166,16 @@ select, textarea {
 
   .block_gap {
     gap: 0 !important;
+  }
+
+  .show_form_input {
+    ._grid_photos5 {
+      max-width: 100%;
+
+      ._show_modal-photos {
+        height: auto;
+      }
+    }
   }
 }
 
@@ -2066,17 +2286,18 @@ input[type=number]::-webkit-outer-spin-button {
           }
 
           ._absolute {
-            position: relative;
             display: flex;
             justify-content: center;
+            flex-direction: column;
+            gap: 25px;
 
             .input-enter_map {
-              position: absolute;
-              top: -31px;
+              margin: 0 auto;
             }
           }
 
           .contact-map {
+            margin: auto;
             width: 100%;
             height: 650px;
 
@@ -2524,6 +2745,10 @@ input[type=number]::-webkit-outer-spin-button {
     width: 100%;
   }
 
+  &:hover {
+    border: 2px solid #00B5DD;
+  }
+
   ._img-fondo {
     width: 100%;
     height: 106px;
@@ -2585,6 +2810,10 @@ input[type=number]::-webkit-outer-spin-button {
 
   @include responsive(400px) {
     width: 100%;
+  }
+
+  &:hover {
+    border: 2px solid #00B5DD;
   }
 
   ._img-f {
@@ -3692,6 +3921,10 @@ input[type=number]::-webkit-outer-spin-button {
   border: 2px solid #E3EDF3;
 
   ul {
+    &:hover {
+      background-color: rgb(227 237 243 / 30%);
+    }
+
     &:not(:last-child) {
       border-bottom: 2px solid #E3EDF3;
     }
@@ -3836,6 +4069,12 @@ input[type=number]::-webkit-outer-spin-button {
   }
 
   tbody {
+    tr {
+      &:hover {
+        background-color: rgba(227, 237, 243, 0.3);
+      }
+    }
+
     td {
       padding: 34px 0 34px 21px;
     }
@@ -5075,11 +5314,6 @@ select {
   }
 }
 
-.mxw576 {
-  max-width: 576px;
-  width: 100%;
-}
-
 .selected-modal {
   position: relative;
   display: flex;
@@ -5114,7 +5348,7 @@ select {
 
   i {
     position: absolute;
-    right: 21px;
+    right: 18px;
     top: 0;
     bottom: 0;
     display: flex;
@@ -5124,7 +5358,7 @@ select {
 
   svg {
     position: absolute;
-    right: 21px;
+    right: 18px;
     top: 0;
     bottom: 0;
     height: 100%;
@@ -5219,9 +5453,6 @@ select {
 }
 
 // BEFORE CLICK FORM GUESTS
-.menuGuest, ._bef-places {
-  width: 100%;
-}
 .book-f_home{
   &.is-active {
     ._bef-places {
@@ -5236,7 +5467,52 @@ select {
     }
   }
 }
+.selected-modal {
+  @include responsive(360px) {
+    width: 100%;
+  }
+}
 .content_show_modal_left {
+  @include responsive(360px) {
+    width: 100%;
+  }
+
+  .select_btn-border {
+    @include responsive(360px) {
+      width: 100%;
+    }
+  }
+
+  .container_admin-host {
+    display: none;
+    height: fit-content;
+    width: fit-content;
+    margin-top: 4.4rem;
+
+    @include responsive(758px) {
+      height: auto;
+      width: auto;
+      margin-top: 0;
+      position: fixed;
+    }
+
+    .modal-anhost-guest {
+      position: unset; 
+  
+      @include responsive(758px) {
+        position: absolute;
+      }
+    }
+  
+    .pd_anhost-modal {
+      display: contents;
+  
+      @include responsive(758px) {
+        display: flex;
+      }
+    }
+  }
+
   &.is-active {
     .select_btn-border {
       border: 1px solid #7D7D7D;
@@ -5246,85 +5522,9 @@ select {
       left: 0;
       display: block;
     }
-  }
-}
 
-._bef-places {
-  display: none;
-  width: 405px;
-  position: absolute;
-  right: 0;
-  z-index: 10;
-  border-radius: 10px;
-  background-color: $color-white;
-  border: 3px solid #E3EDF3;
-  box-shadow: 0 0 15px rgb(40 54 70 / 10%);
-  max-height: -moz-calc(100vh - 150px);
-  overflow-x: hidden;
-  margin-top: 13px;
-  overflow-y: auto;
-  padding: 5px 22px 34px;
-
-  @include responsive(438px) {
-    width: 100%;
-  }
-
-  ._cont-places {
-    padding-top: 29px;
-    padding-bottom: 29px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    ._inf {
-      width: 65%;
-
-      ._txteh {
-        margin-bottom: 3px;
-      }
-    }
-
-    &:not(:last-child) {
-      border-bottom: 2px solid #E3EDF3;
-    }
-
-    ._2btns {
-      display: inline-flex;
-      align-items: center;
-      justify-content: space-between;
-      width: 104px;
-      height: 32px;
-
-      ._btn {
-        width: 32px;
-        height: 32px;
-        display: inline-flex;
-        border-width: 2px;
-        border-style: solid;
-        border-color: #E3EDF3;
-        color: #00B5DD;
-        align-items: center;
-        justify-content: center;
-        border-radius: 50%;
-        transition: all .3s ease;
-
-        &:disabled {
-          cursor: not-allowed;
-          color: #E3EDF3;
-          border-color: #E3EDF3;
-          transition: all .3s ease;
-
-          &:hover {
-            color: #E3EDF3;
-            border-color: #E3EDF3;
-          }
-        }
-
-        &:hover {
-          border-color: #7D7D7D;
-          color: #00B5DD;
-        }
-      }
+    .container_admin-host {
+      display: block;
     }
   }
 }
@@ -5408,6 +5608,10 @@ select {
 
   &::placeholder {
     color: #E3EDF3;
+  }
+
+  &:focus {
+    border: 1px solid #7D7D7D;
   }
 }
 
@@ -6442,6 +6646,10 @@ select {
       &:hover {
         box-shadow: 0 0 15px rgb(40 54 70 / 10%);
       }
+
+      &:focus {
+        border: 1px solid #7D7D7D;
+      }
     }
   }
 }
@@ -7219,6 +7427,35 @@ select {
   color: #E3EDF3;
   font-weight: normal;
   font-size: 18px;
+}
+
+// input real con padding 16px
+._inputreal {
+  padding: 16px;
+  border: 1px solid #E3EDF3;
+  color: #7D7D7D;
+  font-size: 18px;
+  font-weight: normal;
+  line-height: 24px;
+  border-radius: 10px;
+  width: 100%;
+  transition: all .3s ease;
+
+  &::placeholder {
+    color: #E3EDF3;
+  }
+
+  &:focus {
+    border: 1px solid #7D7D7D;
+  }
+
+  &:focus + .fa-credit-card{
+    color: #7D7D7D;
+  }
+
+  &:hover {
+    box-shadow: 0 0 15px rgb(40 54 70 / 10%);
+  }
 }
 
 ._numcard {

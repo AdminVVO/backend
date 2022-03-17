@@ -34,21 +34,24 @@
 
                             <p class="_txteh">Price per night</p>
                         </div>
-
-                        <p class="h3">Keep in mind, places like usually range from <a href="" class="_txtblu">S/93</a> to <a href="" class="_txtblu">S/156</a>.</p>
                     </div>
 
-                    <div class="bg_check-gris" style="margin-top: 65px;">
-                        <div class="_block fx fx-ai-c fx-jc-sb">
-                            <div class="bg-check">
+                    <label class="block-lb fx-ai-c fx-jc-fs" style="margin-top: 65px;">
+                        <input type="checkbox" name="check_instructions" wire:model.defer="first_guest">
+                        <div class="before_check">
+                            <div class="flex-centrado" style="width: inherit;">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16.693" height="12.448" viewBox="0 0 16.693 12.448">
-                                    <path d="M5.67,16.781.244,11.356a.835.835,0,0,1,0-1.18l1.18-1.18a.835.835,0,0,1,1.18,0L6.26,12.65l7.828-7.828a.835.835,0,0,1,1.18,0L16.449,6a.835.835,0,0,1,0,1.18l-9.6,9.6A.835.835,0,0,1,5.67,16.781Z" transform="translate(0 -4.577)" fill="#fff"/>
+                                    <path d="M5.67,16.781.244,11.356a.835.835,0,0,1,0-1.18l1.18-1.18a.835.835,0,0,1,1.18,0L6.26,12.65l7.828-7.828a.835.835,0,0,1,1.18,0L16.449,6a.835.835,0,0,1,0,1.18l-9.6,9.6A.835.835,0,0,1,5.67,16.781Z" transform="translate(0 -4.577)" fill="#fff"></path>
                                 </svg>
                             </div>
-
-                            <p class="h3">Offer a 20% discount for your first 3 guests to help you get booked faster. <a href="" class="_txteh">Learn more</a></p>
                         </div>
-                    </div>
+
+                        <div class="bfx_svg">
+                            <div class="w100">
+                                <p class="h3">Offer a 20% discount for your first 3 guests to help you get booked faster. <a class="_txteh">Learn more</a></p>
+                            </div>
+                        </div>
+                    </label>
                 </div>
             </div>
         </div>

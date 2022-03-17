@@ -144,6 +144,10 @@ header {
         color: white;
         font-size: 18px;
         font-weight: 400;  
+
+        @include responsive(1100px) {
+            font-size: 16px;
+        }
     }
 
     a {
@@ -165,6 +169,11 @@ header {
                 border-radius: 50%;
                 border: 2px solid $color-love-red;   
                 margin-right: 5px;
+
+                @include responsive(1100px) {
+                    width: 40px;
+                    height: 40px;
+                }
             }
         }
     }
@@ -255,10 +264,10 @@ header {
 }
 
 
-@media screen and (max-width:700px) {
+@media screen and (max-width: 1100px) {
     .logo-menu{
         img{
-            width: 150px;
+            width: 185px;
         }
     }
     header{
@@ -268,4 +277,21 @@ header {
         // padding: 10px 0; 
     }
 } 
+
+@media screen and (max-width: 1000px) {
+    .logo-menu{
+        img{
+            width: 172px;
+        }
+    }
+}
+
+
+@media screen and (max-width: 890px) {
+    .logo-menu {
+        img {
+            width: 162px;
+        }
+    }
+}
 

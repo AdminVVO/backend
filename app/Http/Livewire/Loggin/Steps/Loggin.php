@@ -10,6 +10,11 @@ class Loggin extends Component
     public $logIn = false;
     public $sendInputEmail = '';
     public $sendInputPhone = '';
+    public $phone = '';
+
+    public $listeners = [
+        'submitInputPhone',
+    ];
 
     public function render()
     {
@@ -21,48 +26,54 @@ class Loggin extends Component
         $this->sendInputEmail = '';
         $this->sendInputPhone = '';
         $this->logIn = !$this->logIn;
+            if ( $this->logIn === false ) {
+                $this->phone = '';
+                $this->dispatchBrowserEvent('telDOMChanged');
+            }
     }
 
-    public function submitInput()
+    public function submitInputEmail()
     {
-        if ( $this->logIn ) {
-            $validation = Validator::make([
-               'sendInputEmail' => $this->sendInputEmail,
-            ],[
-                'sendInputEmail' => 'required|email',
-            ]);
-        }
-
-        if ( !$this->logIn ) {
-            $validation = Validator::make([
-               'sendInputPhone' => $this->sendInputPhone,
-            ],[
-                'sendInputPhone' => 'required',
-            ]);
-        }
+        $validation = Validator::make([
+           'sendInputEmail' => $this->sendInputEmail,
+        ],[
+            'sendInputEmail' => 'required|email',
+        ]);
 
             if ($validation->fails())
                 $validation->validate();
 
-        if ( $this->logIn )
-            $payload = [
+        $payload = [
+            'to' => 'verification',
+            'from' => 'loggin',
+            'content' => [
+                'type' => 'email',
+                'recipients' => $this->sendInputEmail,
+            ],
+        ];        
+
+        $this->emitUp('eventSteps', $payload);
+    }
+
+    public function submitInputPhone($payload)
+    {
+        $validation = Validator::make([
+           'sendInputPhone' => $payload,
+        ],[
+            'sendInputPhone' => 'required',
+        ]);
+
+            if ($validation->fails())
+                $validation->validate();
+
+        $payload = [
                 'to' => 'verification',
                 'from' => 'loggin',
                 'content' => [
-                    'type' => 'email',
-                    'recipients' => $this->sendInputEmail,
+                    'type' => 'phone',
+                    'recipients' => $payload,
                 ],
-            ];        
-
-        if ( !$this->logIn )
-            $payload = [
-                    'to' => 'verification',
-                    'from' => 'loggin',
-                    'content' => [
-                        'type' => 'phone',
-                        'recipients' => $this->sendInputPhone,
-                    ],
-                ];
+            ];
 
         $this->emitUp('eventSteps', $payload);
     }

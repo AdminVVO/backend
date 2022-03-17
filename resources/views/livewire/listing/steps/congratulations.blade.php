@@ -7,7 +7,7 @@
                     <p class="_txtec">I want to be the first to welcome you to vvoutlet.</p>
                     <p class="_txtec">Hosts and hostesses are at the heart of everything we do, and we're</p>
                     <p class="_txtec">excited for you to experience the magic of hosting.</p>
-                    <button class="btn-celest">Let's do it</button>
+                    <a href="{{ route('listing-show', $url ) }}" class="btn-celest">Let's do it</a>
                 </div>
             </div>
         </div>

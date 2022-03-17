@@ -11,7 +11,21 @@ class ContentRight extends Component
     public $listing;
     private $content = [];
 
+    public $listeners = [
+        'reloadQuery',
+    ];
+
     public function mount()
+    {
+        $this->initFuntionsStar();
+    }
+
+    public function render()
+    {
+        return view('livewire.listing.details.content-right', ['content' => $this->content]);
+    }
+        
+    public function initFuntionsStar()
     {
         $query = Listings::select(
             'id_listings',
@@ -40,8 +54,8 @@ class ContentRight extends Component
         $this->content = $mergeQuery;
     }
 
-    public function render()
+    public function reloadQuery()
     {
-        return view('livewire.listing.details.content-right', ['content' => $this->content]);
+        $this->initFuntionsStar();
     }
 }

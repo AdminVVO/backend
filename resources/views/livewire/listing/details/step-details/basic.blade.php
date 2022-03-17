@@ -17,7 +17,7 @@
                 <div class="form_input">
                     <div class="_flfpc">
                         <div class="txt-check-in">Title</div>
-                        <input type="text" wire:model.defer="content.title" class="_numcard txt_upper input_cant_view @error('title') error_input @enderror" maxlength="50">
+                        <input type="text" wire:model.defer="content.title" class="_numcard input_cant_view @error('title') error_input @enderror" maxlength="50">
                         @error('title')
                             <div  class="_txterror">
                                 <i class="fas fa-exclamation-circle icon1"></i> 
@@ -74,35 +74,42 @@
             <div class="show_info">
                 <div class="_width_text">
                     <p class="_txtec">{{ $content['descriptions'] }}</p>
+
+                    <span class="_txtec show_more_info" style="display: none;">
+                        @if ( $content['space'] != '' )
+                        <br>
+                            <h3 class="_txteh">The space</h3>
+                            <div class="show_info">
+                                <div class="_width_text">
+                                    <p class="_txtec">{{ $content['space'] }}</p>
+                                </div>
+                            </div>
+                        @endif
+                        @if ( $content['guest_access'] != '' )
+                        <br>
+                            <h3 class="_txteh">Guest access</h3>
+                            <div class="show_info">
+                                <div class="_width_text">
+                                    <p class="_txtec">{{ $content['guest_access'] }}</p>
+                                </div>
+                            </div>
+                        @endif
+                        @if ( $content['other_details'] != '' )
+                        <br>
+                            <h3 class="_txteh">Other details to note</h3>
+                            <div class="show_info">
+                                <div class="_width_text">
+                                    <p class="_txtec">{{ $content['other_details'] }}</p>
+                                </div>
+                            </div>
+                        @endif
+
+                    </span>
                 </div>
+                @if ( $content['space'] != '' || $content['guest_access'] != '' || $content['other_details'] != '' )
+                    <div class="_txtehlinear click_show_more">Show more</div>
+                @endif
             </div>
-            @if ( $content['space'] != '' )
-            <br>
-                <h3 class="_txteh">The space</h3>
-                <div class="show_info">
-                    <div class="_width_text">
-                        <p class="_txtec">{{ $content['space'] }}</p>
-                    </div>
-                </div>
-            @endif
-            @if ( $content['guest_access'] != '' )
-            <br>
-                <h3 class="_txteh">Guest access</h3>
-                <div class="show_info">
-                    <div class="_width_text">
-                        <p class="_txtec">{{ $content['guest_access'] }}</p>
-                    </div>
-                </div>
-            @endif
-            @if ( $content['other_details'] != '' )
-            <br>
-                <h3 class="_txteh">Other details to note</h3>
-                <div class="show_info">
-                    <div class="_width_text">
-                        <p class="_txtec">{{ $content['other_details'] }}</p>
-                    </div>
-                </div>
-            @endif
 
             <div class="_width_text show_text">
                 <p class="_txtec">Give guests a sense of what it's like to stay at your place, including why they'll love staying there.</p>

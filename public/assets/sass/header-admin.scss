@@ -62,6 +62,115 @@
     top: 0; 
     margin-bottom: 80px; 
     background-color: $color-background2;
+
+    @include responsive(1600px) {
+        margin-bottom: 60px;
+    }
+
+    @include responsive(1300px) {
+        margin-bottom: 35px;
+    }
+
+    @include responsive(890px) {
+        padding: 16px 0;
+    }
+
+    .medio {
+        @include responsive(890px) {
+            justify-content: center;
+        }
+    }
+
+    ._mv-places {
+        @include responsive(890px) {
+            position: fixed;
+            bottom: 0;
+            padding: 20px 0;
+            background: white;
+            left: 0;
+            right: 0;
+            border-top: 2px solid #E3EDF3;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+        }
+    }
+
+    .book-form {
+        @include responsive(1450px) {
+            display: block;
+        }
+
+        @include responsive(890px) {
+            padding: 0 5px;
+            max-width: 430px;
+            width: 90%;
+        }
+
+        ._flex-js {
+            @include responsive(1000px) {
+                gap: 25px;
+            }
+
+            ._flex {
+                @include responsive(890px) {
+                    flex-direction: column;
+                    gap: 4px;
+                }
+
+                .icon_red {
+                    @include responsive(890px) {
+                        font-size: 20px;
+                        margin-top: 0;
+                    }
+                }
+
+                span {
+                    @include responsive(890px) {
+                        color: #283646;
+                        font-size: 12px;
+                    }
+                }
+
+                .fa-chevron-down {
+                    @include responsive(890px) {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+
+    .menu {
+        @include responsive(890px) {
+            display: none;
+        }
+    }
+
+    ._puntos3 {
+        ._menu-m {
+            @include responsive(890px) {
+                top: -10rem;
+            }
+
+            ._menu-options-items {
+                @include responsive(890px) {
+                    width: 230px;
+                }
+            }
+        }
+
+        &.is-active {
+            ._menu-m {
+                @include responsive(890px) {
+                    top: -10rem;
+                    right: 0;
+                }
+            }
+        }
+    }
 }
 
 .header_admin.fixed {

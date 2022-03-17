@@ -137,63 +137,110 @@
 
             <form wire:submit.prevent="submitOtherStay" class="show_form_input" style="margin-top: 30px;">
                 <div class="fx fx-fd-c" style="gap: 30px;">
-                     <div class="_flfpc">
-                        <div class="block_date">
-                            <div class="txt-check-in">Length of stay</div>
-                            <div class="selected-modal mxw576" style="margin: 0;">
-                                <select wire:model.defer="content.other_discount" class="@error('other_discount') error_input @enderror">
-                                    <option selected>Select length of stay</option>
-                                    <option value="Weekly (1 week)">Weekly (1 week)</option>
-                                    <option value="Monthly (4 weeks)">Monthly (4 weeks)</option>
-                                    <option value="8 weeks">8 weeks</option>
-                                    <option value="12 weeks">12 weeks</option>
-                                </select>
+                    <div class="cont_add_another fx fx-fd-c" style="gap: 30px;">
+                        <div class="block_input">
+                            <div class="fx fx-fw-w" style="gap: 30px;">
+                                <div class="mx480">
+                                    <div class="txt-check-in">Length of stay</div>
+                                    <div class="selected-modal mxw576" style="margin: 0;">
+                                        <select wire:model.defer="inputStays.0" class="@error('inputStays.0') error_input @enderror">
+                                            <option selected>Select length of stay</option>
+                                            <option value="Weekly (1 week)">Weekly (1 week)</option>
+                                            <option value="Monthly (4 weeks)">Monthly (4 weeks)</option>
+                                            <option value="8 weeks">8 weeks</option>
+                                            <option value="12 weeks">12 weeks</option>
+                                        </select>
 
-                                <i class="fas fa-chevron-down"></i>
+                                        <i class="fas fa-chevron-down"></i>
+                                    </div>
+                                    @error('inputStays.0')
+                                        <div style="display: block;" class="_txterror">
+                                            <i class="fas fa-exclamation-circle icon1"></i> 
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
+                                </div>
+
+                                <div class="mxw80">
+                                    <div class="_flfpc">
+                                        <div class="txt-check-in">Discount</div>
+
+                                        <label class="before_icon_input">
+                                            <input type="text" class="number" style="padding: 16px 0 16px 16px;" maxlength="2" wire:model.defer="inputStaysDiscount.0">
+                                            <span class="_txtec" style="padding: 16px 16px 16px 0;">%</span>
+                                        </label>
+                                        @error('inputStaysDiscount.0')
+                                            <div style="display: block;" class="_txterror">
+                                                <i class="fas fa-exclamation-circle icon1"></i> 
+                                                {{ $message }}
+                                            </div>
+                                        @enderror
+                                    </div>
+                                </div>
                             </div>
-                            @error('other_discount')
-                                <div style="display: block;" class="_txterror">
-                                    <i class="fas fa-exclamation-circle icon1"></i> 
-                                    {{ $message }}
-                                </div>
-                            @enderror
                         </div>
 
-                        <div class="block_date">
-                            <div class="txt-check-in">Discount</div>
+                        @foreach ( $inputs as $key => $value )
+                            {{-- @if ( $loop->iteration >= 2) --}}
+                                <div class="block_input">
+                                    <div class="fx fx-fw-w" style="gap: 30px;">
+                                        <div class="mx480">
+                                            <div class="txt-check-in">Length of stay</div>
+                                            <div class="selected-modal mxw576" style="margin: 0;">
+                                                <select wire:model="inputStays.{{ $value }}">
+                                                    <option selected>Select length of stay</option>
+                                                    <option value="Weekly (1 week)">Weekly (1 week)</option>
+                                                    <option value="Monthly (4 weeks)">Monthly (4 weeks)</option>
+                                                    <option value="8 weeks">8 weeks</option>
+                                                    <option value="12 weeks">12 weeks</option>
+                                                </select>
 
-                            <label class="before_icon_input @error('other_discount_porcent') error_input @enderror">
-                                <span class="_txtec">%</span>
-                                <input type="text" class="number" maxlength="2" wire:model.defer="content.other_discount_porcent">
-                            </label>
-                            @error('other_discount_porcent')
-                                <div style="display: block;" class="_txterror">
-                                    <i class="fas fa-exclamation-circle icon1"></i> 
-                                    {{ $message }}
+                                                <i class="fas fa-chevron-down"></i>
+                                            </div>
+                                            @error('inputStays.'.$value)
+                                                <div style="display: block;" class="_txterror">
+                                                    <i class="fas fa-exclamation-circle icon1"></i> 
+                                                    {{ $message }}
+                                                </div>
+                                            @enderror
+                                        </div>
+
+                                        <div class="mxw80">
+                                            <div class="_flfpc">
+                                                <div class="txt-check-in">Discount</div>
+
+                                                <label class="before_icon_input">
+                                                    <input type="text" class="number" style="padding: 16px 0 16px 16px;" maxlength="2" wire:model="inputStaysDiscount.{{ $value }}">
+                                                    <span class="_txtec" style="padding: 16px 16px 16px 0;">%</span>
+                                                </label>
+                                                @error('inputStaysDiscount.'.$value)
+                                                    <div style="display: block;" class="_txterror">
+                                                        <i class="fas fa-exclamation-circle icon1"></i> 
+                                                        {{ $message }}
+                                                    </div>
+                                                @enderror
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <button class="_btnsmleft" style="margin-top: 10px;" wire:click.prevent="removeInputs({{$value}})">
+                                        <span>Remove</span>
+                                    </button>
                                 </div>
-                            @enderror
-
-                        </div>
+                            {{-- @endif --}}
+                        @endforeach
                     </div>
-
-                    <div>
-                        <a href="#" class="_btnsmleft">
+                    @if ( count( $inputs ) <= 1 )
+                        <div class="_btnsmleft" wire:click.prevent="addInputs({{ count( $inputs ) }})">
                             <span>Add another length-of-stay</span>
-                        </a>
+                        </div>
+                    @endif
+
+                    <div class="fx fx-fw-w fx-jc-sb" style="gap: 12px;">
+                        <div class="_btnsmleft click_cancel_listing" wire:click='disabledClass("other_discount")'>
+                            <span>Cancel</span>
+                        </div>
+                        <button class="btn-celest">Save</button>
                     </div>
-                </div>
-
-                <div class="fx-fd-c _bgpadd-f" style="margin: 19px 0 30px; gap: 11px; padding: 35px 49px 35px 50px;">
-                    <div class="_txteh">About length-of-stay discounts</div>
-
-                    <p class="_txtec">Length-of-stay discounts apply to the length you choose or longer. For example, weekly discounts apply to reservations that are 7 days or longer. If you offer multiple length-of-stay discounts, the longest discount will be applied.</p>
-                </div>
-
-                <div class="fx fx-fw-w fx-jc-sb" style="gap: 12px;">
-                    <div class="_btnsmleft click_cancel_listing" wire:click='disabledClass("other_discount")'>
-                        <span>Cancel</span>
-                    </div>
-                    <button class="btn-celest">Save</button>
                 </div>
             </form>
         </div>

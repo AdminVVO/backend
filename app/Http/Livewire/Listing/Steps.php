@@ -38,11 +38,12 @@ class Steps extends Component
         'photos' => [],
         'oldPhotos' => [],
         'placeTitle' => '',
-        'placeOptions' => [],
+        'category' => [],
         'placeComment' => '',
-        'prices' => 0,
+        'prices' => [],
         'featurs' => [],
     ];
+    public $url = '';
     public $listinEdit = '';
 
     public $listeners = [
@@ -235,7 +236,7 @@ class Steps extends Component
 
         if ( $payload['from'] === 'describeToPlacesOptions' ){
             $this->step = $payload['to'];
-            $this->saveData( $payload['content'], 'placeOptions' );
+            $this->saveData( $payload['content'], 'category' );
             $this->imgShow = $this->ShowImg( $payload['img'] );
         }
 
@@ -262,6 +263,7 @@ class Steps extends Component
             $this->sendChecklisting();
             $this->imgShow = $this->ShowImg( $payload['img'] );
             $this->exitSave = $payload['to'] == 'congratulations' ? false : true;
+
         }
 
         $this->exitSave = $this->step == 'letGo' || $this->step == 'finish' || $this->step == 'congratulations' || $this->step == 'host' ? false : true;
@@ -293,8 +295,10 @@ class Steps extends Component
                 'number_guests'  => $this->content['guests']['guests'],
                 'descriptions'   => $this->content['placeComment'],
                 'amenities'      => isset( $this->content['offers']['amenities'] ) ? $this->content['offers']['amenities'] : $this->content['offers'] ,
-                'safety'      => isset( $this->content['offers']['safety'] ) ? $this->content['offers']['safety'] : $this->content['offers'] ,
+                'safety'         => isset( $this->content['offers']['safety'] ) ? $this->content['offers']['safety'] : $this->content['offers'] ,
                 'photos'         => $this->content['photos'],
+                'category'       => $this->content['category'],
+                'featurs'        => $this->content['featurs'],
                 'status'         => 'Listed',
                 'user_id'        => Auth::id(),
             ]);
@@ -346,7 +350,8 @@ class Steps extends Component
 
             if ( $this->content['prices'] != 0 )
                 ListingPricing::create([
-                    'base_price' => $this->content['prices'],
+                    'base_price' => $this->content['prices']['base'],
+                    'first_guest'=> $this->content['prices']['first_guest'],
                     'listing_id' => $Listings['id_listings'],
                     'user_id'    => Auth::id(),
                 ]);
@@ -362,8 +367,10 @@ class Steps extends Component
                 'number_guests'  => $this->content['guests']['guests'],
                 'descriptions'   => $this->content['placeComment'],
                 'amenities'      => isset( $this->content['offers']['amenities'] ) ? $this->content['offers']['amenities'] : $this->content['offers'] ,
-                'safety'      => isset( $this->content['offers']['safety'] ) ? $this->content['offers']['safety'] : $this->content['offers'] ,
+                'safety'         => isset( $this->content['offers']['safety'] ) ? $this->content['offers']['safety'] : $this->content['offers'] ,
                 'photos'         => $this->content['photos'],
+                'category'       => $this->content['category'],
+                'featurs'        => $this->content['featurs'],
                 'status'         => 'Listed',
             ]); 
 
@@ -399,7 +406,8 @@ class Steps extends Component
                     'user_id' => Auth::id(),
                     'listing_id' => $this->listinEdit,
                 ])->update([
-                    'base_price' => $this->content['prices'],
+                    'base_price' => $this->content['prices']['base'],
+                    'first_guest'=> $this->content['prices']['first_guest'],
                 ]);
         }
 
@@ -420,7 +428,8 @@ class Steps extends Component
                 }
             }
         }
-            
+
+        $this->url = $this->listinEdit != '' ? $this->listinEdit : $Listings['id_listings'] ;
         $this->alert('success', 'Your listing will be published soon.');
     }
 
@@ -443,8 +452,10 @@ class Steps extends Component
                 'number_guests'  => isset( $this->content['guests']['guests'] ) ? $this->content['guests']['guests'] : 0,
                 'descriptions'   => $this->content['placeComment'],
                 'amenities'      => isset( $this->content['offers']['amenities'] ) ? $this->content['offers']['amenities'] : $this->content['offers'] ,
-                'safety'      => isset( $this->content['offers']['safety'] ) ? $this->content['offers']['safety'] : $this->content['offers'] ,
+                'safety'         => isset( $this->content['offers']['safety'] ) ? $this->content['offers']['safety'] : $this->content['offers'] ,
                 'photos'         => $this->content['photos'],
+                'category'       => $this->content['category'],
+                'featurs'        => $this->content['featurs'],
                 'user_id'        => Auth::id(),
             ]);
 
@@ -495,7 +506,8 @@ class Steps extends Component
 
             if ( $this->content['prices'] != 0 )
                 ListingPricing::create([
-                    'base_price' => $this->content['prices'],
+                    'base_price' => $this->content['prices']['base'],
+                    'first_guest'=> $this->content['prices']['first_guest'],
                     'listing_id' => $Listings['id_listings'],
                     'user_id'    => Auth::id(),
                 ]);
@@ -511,8 +523,10 @@ class Steps extends Component
                 'number_guests'  => isset( $this->content['guests']['guests'] ) ? $this->content['guests']['guests'] : 0,
                 'descriptions'   => $this->content['placeComment'],
                 'amenities'      => isset( $this->content['offers']['amenities'] ) ? $this->content['offers']['amenities'] : $this->content['offers'] ,
-                'safety'      => isset( $this->content['offers']['safety'] ) ? $this->content['offers']['safety'] : $this->content['offers'] ,
+                'safety'         => isset( $this->content['offers']['safety'] ) ? $this->content['offers']['safety'] : $this->content['offers'] ,
                 'photos'         => $this->content['photos'],
+                'category'       => $this->content['category'],
+                'featurs'        => $this->content['featurs'],
             ]); 
 
            ListingPropertyRoomd::where([
@@ -547,7 +561,8 @@ class Steps extends Component
                     'user_id' => Auth::id(),
                     'listing_id' => $this->listinEdit,
                 ])->update([
-                    'base_price' => $this->content['prices'],
+                    'base_price' => $this->content['prices']['base'],
+                    'first_guest'=> $this->content['prices']['first_guest'],
                 ]);
         }
 
@@ -584,6 +599,8 @@ class Steps extends Component
             'listings.amenities',
             'listings.safety',
             'listings.photos',
+            'listings.category',
+            'listings.featurs',
             'listing_property_roomds.like_place',
             'listing_property_roomds.property_type',
             'listing_property_roomds.listing_type',
@@ -599,6 +616,7 @@ class Steps extends Component
             'listing_locations.latitude',
             'listing_locations.longitude',
             'listing_pricings.base_price',
+            'listing_pricings.first_guest',
         )->where([
             'listings.id_listings' => $payload,
             'listings.status'      => 'in process',
@@ -644,10 +662,11 @@ class Steps extends Component
             };
 
         $this->content['placeTitle'] = $Listings['title'];
-        // $this->content['placeOptions'] = $Listings['placeOptions'];
+        $this->content['category'] = $Listings['category'];
         $this->content['placeComment'] = $Listings['descriptions'];
-        $this->content['prices'] = $Listings['base_price'];
-        // $this->content['featurs'] = $Listings['featurs'];
+        $this->content['prices']['base'] = $Listings['base_price'];
+        $this->content['prices']['first_guest'] = $Listings['first_guest'];
+        $this->content['featurs'] = $Listings['featurs'];
         $this->imgShow = $this->ShowImg( $Listings['step'] );
         $this->exitSave = $Listings['step'] == 'init' || $Listings['step'] == 'finish' ? false : true;
     }

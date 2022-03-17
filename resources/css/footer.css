@@ -5,7 +5,7 @@ footer {
 .footer {
   margin-top: 80px;
   background-color: #283646;
-  padding: 50px 15px;
+  padding: 50px 0;
   overflow: hidden;
 }
 .footer .footer-container {
@@ -90,7 +90,7 @@ footer {
 
 .copyright {
   background-color: #283646;
-  padding: 0 0 48px;
+  padding-top: 50px;
 }
 .copyright_content {
   display: flex;

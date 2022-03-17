@@ -10,9 +10,6 @@
         .filepond--item {
             width: calc(50% - 0.5em);
         }
-        .mapboxgl-ctrl-group  {
-            visibility:hidden !important;
-        }
     </style>
 
 @endpush
@@ -152,7 +149,7 @@
 
         {{-- Congratulations Listings --}}
         @if ( $step === 'congratulations')
-            @livewire('listing.steps.congratulations')
+            @livewire('listing.steps.congratulations', ['url' => $url])
         @endif
 
     </div>
@@ -186,6 +183,12 @@
                         center: [ latitude, longitude ],
                         zoom: 8 
                     });
+                    const nav = new mapboxgl.NavigationControl({
+                        showCompass: false,
+                        showZoom: true,
+                        visualizePitch: false
+                    });
+                    map.addControl(nav,"top-left");
 
                     const geocoder = new MapboxGeocoder({
                         accessToken: mapboxgl.accessToken,
@@ -280,22 +283,32 @@
                         return false;
                     }
                 });
-                
+
                 const $cover_photos = $(".show_cover_photo");
                 $(document).mouseup(e => {
                     if (!$cover_photos.is(e.target) && $cover_photos.has(e.target).length === 0) {
-                        $(".content_add_photos").removeClass("is-active");
+                        $("._show_modal-photos").removeClass("is-active");
                     }
                 });
                 
                 $(".click_cover_photos").on("click", function() {
-                    $(".content_add_photos.is-active").removeClass("is-active");
-                    $(this).parents(".content_add_photos").toggleClass("is-active");
+                    let toggleClass = $(this).parents("._show_modal-photos").hasClass('is-active') ? true : false;
+                    console.log("toggleClass", toggleClass);
+                    $("._show_modal-photos").removeClass("is-active");
+
+                    if(!toggleClass) {
+                        $(this).parents("._show_modal-photos").toggleClass("is-active");
+                    }
                 });
 
                 $(".click_options_photos").on("click", function() {
-                    $('.content_add_photos.is-active').removeClass("is-active");
-                    $(this).parents(".content_add_photos").toggleClass("is-active");
+                    let toggleClass = $(this).parents("._show_modal-photos").hasClass('is-active') ? true : false;
+                    console.log("toggleClass", toggleClass);
+                    $("._show_modal-photos").removeClass("is-active");
+
+                    if(!toggleClass) {
+                        $(this).parents("._show_modal-photos").toggleClass("is-active");
+                    }
                 });
                 
                 if ( $(".my-pond").length ) {
@@ -325,10 +338,8 @@
                             load: null,
                             fetch: null,
                         },
-                        imageValidateSizeMinWidth: '512',
-                        imageValidateSizeMaxWidth: '1440',
-                        imageValidateSizeMinHeight: '512',
-                        imageValidateSizeMaxHeight: '900',
+                        imageValidateSizeMaxWidth: '1500',
+                        imageValidateSizeMaxHeight: '1500',
                         acceptedFileTypes: ['image/png', 'image/jpeg', 'image/jpg'],
                         maxFileSize: '2MB',
                         maxFiles: 10,
@@ -343,18 +354,28 @@
                 const $cover_photos = $(".show_cover_photo");
                 $(document).mouseup(e => {
                     if (!$cover_photos.is(e.target) && $cover_photos.has(e.target).length === 0) {
-                        $(".content_add_photos").removeClass("is-active");
+                        $("._show_modal-photos").removeClass("is-active");
                     }
                 });
                 
                 $(".click_cover_photos").on("click", function() {
-                    $(".content_add_photos.is-active").removeClass("is-active");
-                    $(this).parents(".content_add_photos").toggleClass("is-active");
+                    let toggleClass = $(this).parents("._show_modal-photos").hasClass('is-active') ? true : false;
+                    console.log("toggleClass", toggleClass);
+                    $("._show_modal-photos").removeClass("is-active");
+
+                    if(!toggleClass) {
+                        $(this).parents("._show_modal-photos").toggleClass("is-active");
+                    }
                 });
 
                 $(".click_options_photos").on("click", function() {
-                    $('.content_add_photos.is-active').removeClass("is-active");
-                    $(this).parents(".content_add_photos").toggleClass("is-active");
+                    let toggleClass = $(this).parents("._show_modal-photos").hasClass('is-active') ? true : false;
+                    console.log("toggleClass", toggleClass);
+                    $("._show_modal-photos").removeClass("is-active");
+
+                    if(!toggleClass) {
+                        $(this).parents("._show_modal-photos").toggleClass("is-active");
+                    }
                 });
            })
         });

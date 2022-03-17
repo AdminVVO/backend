@@ -31,3 +31,26 @@
     @endif
 
 </div>
+
+@push('scripts')
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            Livewire.hook('component.initialized', (component) => {
+                $(document).ready(iniciar);
+                $("[submitLogIn]").submit(function(event) {
+                    Livewire.emit('submitLogIn', $('#initDate').val())
+                });
+            })
+
+            Livewire.hook('element.updated', (el, component) => {
+                $(document).ready(iniciar);
+                $("[submitLogIn]").submit(function(event) {
+                    Livewire.emit('submitLogIn', $('#initDate').val())
+                });
+            })
+        });
+        $("[sendNumber]").submit(function(event) {
+            Livewire.emit('submitInputPhone', $("#phone").val())
+        });
+    </script>
+@endpush

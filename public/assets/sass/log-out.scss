@@ -544,6 +544,14 @@ input {
                             &:hover {
                                 box-shadow: 0 0 15px rgb(40 54 70 / 10%);
                             }
+
+                            &::placeholder {
+                                color: #E3EDF3;
+                            }
+
+                            &:focus {
+                                border: 1px solid #7D7D7D;
+                            }
                         }
     
                         p {

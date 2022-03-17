@@ -3,7 +3,7 @@
         <div class="content_hidden cs-next">
             <div class="content_mr" style="max-width: 658px; width: 100%;">
                 <div class="content_step content_step9">
-                    <h2 class="h2_publish txt_center" style="margin-bottom: 39px;">Now, let's describe your place</h2>
+                    <h2 class="h2_publish txt_center" style="margin-bottom: 39px;">Let's give your place a name</h2>
                     <div class="txt-check-in">Create your title</div>
                     <div style="margin-top: 12px;">
                         <textarea class="_txtarea" placeholder="Cheerful 1-bedroom residential home with hot tub" maxlength="50" style="font-size: 32px; line-height: normal; height: auto;" wire:model.lazy="describPlaceTitle"></textarea>

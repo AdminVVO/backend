@@ -13,28 +13,14 @@
                                         <path d="M15.741,3A8.235,8.235,0,0,0,7.5,11.241c0,6.181,8.241,15.305,8.241,15.305s8.241-9.124,8.241-15.305A8.235,8.235,0,0,0,15.741,3Zm0,11.185a2.943,2.943,0,1,1,2.943-2.943A2.944,2.944,0,0,1,15.741,14.185Z" transform="translate(-6.5 -2)" fill="none" stroke="#ff5a5f" stroke-width="2"/>
                                     </svg>
                                 </span>
-
-                                {{-- <input type="text" placeholder="Enter your Address" class="_input-map"> --}}
                                 <div id="geocoder" class="_input-map"></div>
                             </div>
 
                             <button class="input-wrapper use_current_locat none" style="width: 100%;" clickCurrency>
-                                <span>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24.638" height="25.225" viewBox="0 0 24.638 25.225">
-                                        <path d="M14.775,21.443l-3.059-9.131H1.773L20.893,1.581Z" transform="translate(2.053 0.515)" fill="none" stroke="#ff5a5f" stroke-width="2"/>
-                                    </svg>
-                                </span>
                                 <p class="_txtec">use my current location</p>
                             </button>
-
-                            {{-- <div class="input-wrapper none">
-                                <span></span>
-                                 <a href="javascript:void(0)" class="_txtehlinear" wire:click="enterManually">Enter Address manually</a>
-                            </div> --}}
                         </div>
-
-
-                        <div class="contact-map" id='mapStep1' style="margin-top: 180px;width:560px; height:530px;"></div>
+                        <div class="contact-map" id='mapStep1' style="margin-top: 20px;width:560px; height:530px;"></div>
                     </div>
                     <input type="hidden" inputLatitud>
                     <input type="hidden" inputLongitud>

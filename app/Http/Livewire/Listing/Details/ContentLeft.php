@@ -19,10 +19,15 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\Component;
+use Livewire\WithFileUploads;
+use Str;
 
 class ContentLeft extends Component
 {
     use LivewireAlert;
+    use WithFileUploads;
+    
+    public $images = [];
 
     public $listing;
     public $stepBar = '';
@@ -33,6 +38,7 @@ class ContentLeft extends Component
         'Decrease' => false,
     ];
     public $classActive = [
+        'photos' => false,
         'title' => false,
         'descriptions' => false,
         'link' => false,
@@ -81,6 +87,7 @@ class ContentLeft extends Component
         'primary_listing' => false,
     ];
 
+
     public $selectPlace = [
         'apartment' => 'Apartament',
         'house' => 'House',
@@ -98,10 +105,18 @@ class ContentLeft extends Component
 
     public $selectDescribPlace = [];
 
+    /* Variables para Add Inputs */
+    public $inputs = [];
+    public $inputStays = [];
+    public $inputStaysDiscount = [];
+
+
     public function mount()
     {
-        $this->queryOneBars($this->listing);
-        $this->stepBar = 'details';
+        // $this->queryOneBars($this->listing);
+        $this->queryTwoBars($this->listing);
+        // $this->stepBar = 'details';
+        $this->stepBar = 'pricing';
 
         if ( $this->stepBar === 'details') {
             if ( $this->content['number_guests'] >= 5 ) 
@@ -155,7 +170,15 @@ class ContentLeft extends Component
     public function disabledClass($payload)
     {
         $this->content = $this->oldContent;
-        $this->changeEvent( $this->content['like_place'] );
+            if ( $payload === 'property' || $payload === 'rooms_spaces' )
+                $this->changeEvent( $this->content['like_place'] );
+
+            if ( $payload === 'other_discount' ){
+                $this->reset(['inputs','inputStays','inputStaysDiscount',]);
+                $this->inputStays = isset( $this->oldContent['inputStays'] ) ? $this->oldContent['inputStays'] : [];
+                $this->inputStaysDiscount = isset( $this->oldContent['inputStaysDiscount'] ) ? $this->oldContent['inputStaysDiscount'] : [];
+            }
+
         $this->classActive[ $payload ] = false;
     }
 
@@ -286,6 +309,7 @@ class ContentLeft extends Component
             'listing_pricings.listing_currency',
             'listing_pricings.weekly_discount',
             'listing_pricings.monthly_discount',
+            'listing_pricings.other_discount_array',
             'listing_pricings.other_discount',
             'listing_pricings.other_discount_porcent',
             'listing_pricings.early_bird_discount',
@@ -362,6 +386,22 @@ class ContentLeft extends Component
         $this->content['restricted_checkout_days']     = $query['restricted_checkout_days'];
         $this->content['currency']                     = Currencs::pluck('name', 'code');
         $this->oldContent = $this->content;
+
+
+        $this->inputStays = [
+            0 => '12 weeks',
+            1 => '8 weeks',
+            
+        ];
+
+        $this->inputStaysDiscount = [
+            0 => '10',
+            1 => '20',
+            
+        ];
+        $this->inputs[ count( $this->inputStays ) - 1 ] = count( $this->inputStays ) - 1;
+        // array_push($this->inputs, count( $this->inputStays ) - 1);
+
     }
 
     /* Query Select Tree Options Bars */
@@ -479,6 +519,116 @@ class ContentLeft extends Component
 
         $this->oldContent = $this->content;
     }
+
+    public function changeArray($array, $value1, $value2)
+    {
+        $positionOne = array_splice($array, $value1, 1);
+        $positionTwo = array_splice($array, 0, $value2);
+        return array_merge( $positionTwo, $positionOne, $array );
+    }
+
+
+    public function addInputs($i)
+    {
+        $i = $i + 1;
+        $this->inputs[ $i ] = $i;
+        $this->inputStays[ $i ] = '';
+        $this->inputStaysDiscount[ $i ] = '';
+
+        // $xxx = [
+        //     'inputs' => $this->inputs,
+        //     'inputStays' => $this->inputStays,
+        //     'inputStaysDiscount' => $this->inputStaysDiscount,
+        // ];
+        // dd($xxx);
+    }
+
+    public function removeInputs($i)
+    {
+        unset($this->inputs[ $i ]);
+        unset($this->inputStays[ $i ]);
+        unset($this->inputStaysDiscount[ $i ]);
+
+
+        // $xxx = [
+        //     'inputs' => $this->inputs,
+        //     'inputStays' => $this->inputStays,
+        //     'inputStaysDiscount' => $this->inputStaysDiscount,
+        // ];
+        // dd($xxx);
+    }
+
+
+
+
+    /* Function Galeri Cover */
+        public function returnCover( $payload )
+        {
+            $this->content['photos'] = $this->changeArray( $this->content['photos'], $payload, 0);
+        }
+
+    /* Function Galeri Up */
+        public function returnUp( $payload )
+        {
+            $this->content['photos'] = $this->changeArray( $this->content['photos'], $payload, $payload - 1);
+        }
+
+    /* Function Galeri Down */
+        public function returnDown( $payload )
+        {
+            $this->content['photos'] = $this->changeArray( $this->content['photos'], $payload, $payload + 1);
+        }
+
+    /* Function Galeri Delete */
+        public function returnDelete( $payload )
+        {
+            unset( $this->content['photos'][$payload]);
+        }
+
+    /* Function Galeri Delete */
+        public function SavePhotos()
+        {
+            if ( count( $this->content['photos'] ) == 0 )
+                return $this->alert('warning', 'Validation has failed.!');
+
+            Listings::where([
+                'user_id'     => Auth::id(),
+                'id_listings' => $this->listing,
+            ])->update([
+                'photos' => $this->content['photos'],
+            ]);
+
+            $this->alert('success', 'Update has been successful!');
+            $this->reset(['classActive']);
+            $this->queryOneBars($this->listing);
+        }
+
+    /* Function Save New Upload */
+        public function updateProfile()
+        {
+            if ( count( $this->images ) == 0 )
+                return $this->alert('warning', 'You have not uploaded any image!');
+
+            foreach ($this->images as $key => $value) {
+                $nameOriginal = $value->getClientOriginalName();
+                $extension = pathinfo( $nameOriginal, PATHINFO_EXTENSION);
+                $filename = Auth::id() . '-' . Str::random(10) . '.' . $extension;
+
+                $this->oldContent['photos'][] = $filename;
+                    $value->storeAs('uploadListing', $filename, 'public');
+            }
+
+            Listings::where([
+                'user_id'     => Auth::id(),
+                'id_listings' => $this->listing,
+            ])->update([
+                'photos' => $this->oldContent['photos'],
+            ]);
+
+            $this->alert('success', 'Update has been successful!');
+            $this->dispatchBrowserEvent('pondReset');
+            $this->queryOneBars($this->listing);
+        }
 
     /* Seccion Title */
         public function submitTitle()
@@ -655,6 +805,7 @@ class ContentLeft extends Component
             $this->alert('success', 'Update has been successful!');
             $this->reset(['classActive']);
             $this->queryOneBars($this->listing);
+            $this->emit('reloadQuery');
         }
 
     /* Seccion Amenities */
@@ -1015,16 +1166,34 @@ class ContentLeft extends Component
         public function submitOtherStay()
         {
             $validation = Validator::make([
-               'other_discount'         => $this->content['other_discount'],
-               'other_discount_porcent' => $this->content['other_discount_porcent'],
+               // 'other_discount'         => $this->content['other_discount'],
+               // 'other_discount_porcent' => $this->content['other_discount_porcent'],
+               'inputStays'           => $this->inputStays,
+               'inputStaysDiscount'   => $this->inputStaysDiscount,
             ],[
-                'other_discount'         => 'required|in:Weekly (1 week),Monthly (4 weeks),8 weeks,12 weeks',
-                'other_discount_porcent' => 'required|integer|min:0|max:100|digits_between:0,3',
+                // 'other_discount'         => 'required|in:Weekly (1 week),Monthly (4 weeks),8 weeks,12 weeks',
+                // 'other_discount_porcent' => 'required|integer|min:0|max:100|digits_between:0,2',
+                'inputStays.0'           => 'required|in:Weekly (1 week),Monthly (4 weeks),8 weeks,12 weeks',
+                'inputStaysDiscount.0'   => 'required|integer|min:10|max:100|digits_between:0,2',
+
+                'inputStays.*'           => 'required|in:Weekly (1 week),Monthly (4 weeks),8 weeks,12 weeks',
+                'inputStaysDiscount.*'   => 'required|integer|min:10|max:100|digits_between:0,2',
             ]);
 
                 if ($validation->fails())
-                    $validation->validate();
-            
+                    return $this->alert('warning', 'Validation has failed.!');
+                    // $validation->validate();
+
+        $xxx = [
+            'inputs' => $this->inputs,
+            'inputStays' => $this->inputStays,
+            'inputStaysDiscount' => $this->inputStaysDiscount,
+        ];
+        dd($xxx);
+
+
+          dd($this->inputStays);
+
             ListingPricing::where([
                 'user_id'    => Auth::id(),
                 'listing_id' => $this->listing,

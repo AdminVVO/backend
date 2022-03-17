@@ -17,6 +17,8 @@ class ListingPricing extends Model
         'listing_currency',
         'weekly_discount',
         'monthly_discount',
+        'first_guest',
+        'other_discount_array',
         'other_discount',
         'other_discount_porcent',
         'early_bird_discount',
@@ -41,5 +43,10 @@ class ListingPricing extends Model
 
     protected $dates = [
         'deleted_at'
+    ];
+
+    protected $casts = [
+        'first_guest' => 'boolean',
+        'other_discount_array' => 'array',
     ];
 }

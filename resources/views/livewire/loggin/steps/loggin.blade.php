@@ -6,8 +6,7 @@
         <div class="content_welcome">
             <h3>Welcome to vvoutlet</h3>
 
-            <form wire:submit.prevent="submitInput">
-                @if ( $logIn )
+                <form wire:submit.prevent="submitInputEmail" style="display: {{ $logIn ? 'block' : 'none' }} ;">
                     <h4>Email</h4>
                     <input type="text" class="_input-mod @error('sendInputEmail') error_input @enderror" placeholder="examples@gmail.com" wire:model.defer="sendInputEmail">
                     @error('sendInputEmail')
@@ -15,26 +14,41 @@
                             <i class="fas fa-exclamation-circle icon1"></i> 
                             {{ $message }}
                         </div>
-                    @enderror   
-                @else
+                    @enderror    
+
+                    <p>We'll call or text you to confirm your number. <br>Standard message and data rates apply. <a href="#">Privacy Policy</a>.</p>
+                    <div class="block_a">
+                        <button type="submit" class="btn-number btns-modals">
+                            Continue
+                            <div class="loading-btn loading-btn-modal"></div>
+                        </button>
+                    </div>
+                </form>
+
+                <form wire:submit.prevent sendNumber style="display: {{ !$logIn ? 'block' : 'none' }} ;">
                     <h4>Phone Number</h4>
-                    <input type="text" class="_input-mod @error('sendInputPhone') error_input @enderror" placeholder="+1 (800) 756-850" wire:model.defer="sendInputPhone">
+                    <x-tel-input
+                        wire:model="phone"
+                        id="phone"
+                        name="phone"
+                        class="form-input _input-mod"
+                    /> 
+                    <input wire:model="phone_country" type="hidden" id="phone_country" name="phone_country">
                     @error('sendInputPhone')
-                        <div  class="_txterror">
+                        <div style="display: block;"  class="_txterror">
                             <i class="fas fa-exclamation-circle icon1"></i> 
                             {{ $message }}
                         </div>
                     @enderror   
-                @endif
 
-                <p>We'll call or text you to confirm your number. <br>Standard message and data rates apply. <a href="#">Privacy Policy</a>.</p>
-                <div class="block_a">
-                    <button type="submit" class="btn-number btns-modals">
-                        Continue
-                        <div class="loading-btn loading-btn-modal"></div>
-                    </button>
-                </div>
-            </form>
+                    <p>We'll call or text you to confirm your number. <br>Standard message and data rates apply. <a href="#">Privacy Policy</a>.</p>
+                    <div class="block_a">
+                        <button type="submit" class="btn-number btns-modals">
+                            Continue
+                            <div class="loading-btn loading-btn-modal"></div>
+                        </button>
+                    </div>
+                </form>
             
             <p>or</p>
 
@@ -58,23 +72,23 @@
                 </a>
 
                 @if ( $logIn )
-                <a href="#" wire:click="changeState">
-                    <div class="contend_red">
-                        <div class="flex_icon">
-                            <i class="fas fa-phone" aria-hidden="true"></i>
+                    <a href="#" wire:click="changeState">
+                        <div class="contend_red">
+                            <div class="flex_icon">
+                                <i class="fas fa-phone" aria-hidden="true"></i>
+                            </div>
+                            Continue with Phone
                         </div>
-                        Continue with Phone
-                    </div>
-                </a>
+                    </a>
                 @else
-                <a href="#" wire:click="changeState">
-                    <div class="contend_red">
-                        <div class="flex_icon">
-                            <i class="fas fa-envelope"></i>
+                    <a href="#" wire:click="changeState">
+                        <div class="contend_red">
+                            <div class="flex_icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            Continue with Email
                         </div>
-                        Continue with Email
-                    </div>
-                </a>
+                    </a>
                 @endif
             </div>
         </div>

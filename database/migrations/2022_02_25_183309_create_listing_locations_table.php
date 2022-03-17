@@ -20,7 +20,7 @@ class CreateListingLocationsTable extends Migration
             $table->string('city')->nullable();
             $table->string('state')->nullable();
             $table->string('suite')->nullable();
-            $table->integer('zip_code')->nullable();
+            $table->string('zip_code')->nullable();
             $table->mediumText('neighborhood_description')->nullable();
             $table->mediumText('getting_around')->nullable();
             $table->string('location_sharing')->default('Specific location');

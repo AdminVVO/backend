@@ -12,10 +12,14 @@ class LoggInOut extends Component
     public $name = '';
     public $last_name = '';
     public $gender = '';
-    public $dateBirth = '';
+    public $birth = '';
     public $email = '';
     public $phone = '';
     public $promotion = false;
+
+    public $listeners = [
+        'submitLogIn',
+    ];
 
     public function mount()
     {
@@ -27,21 +31,22 @@ class LoggInOut extends Component
         return view('livewire.loggin.steps.logg-in-out');
     }
 
-    public function submitLogIn()
+    public function submitLogIn($payload)
     {
         $yearInQuestion = date("Y-m-d",strtotime( date("Y-m-d") . "- 18 year"));
+
         $validation = Validator::make([
            'name'      => $this->name,
            'last_name' => $this->last_name,
            'gender'    => $this->gender,
-           'dateBirth' => $this->dateBirth,
+           'birth'     => $payload,
            'email'     => $this->email,
            'phone'     => $this->phone
         ],[
             'name'      => 'required|string|min:3',
             'last_name' => 'required|string|min:3',
             'gender'    => 'required|in:Male,Female',
-            'dateBirth' => 'required|date|before:' . $yearInQuestion,
+            'birth'     => 'required|date|before:' . $yearInQuestion,
             'email'     => 'required|email',
             'phone'     => 'required',
         ]);
@@ -55,7 +60,7 @@ class LoggInOut extends Component
                 'name'      => $this->name,
                 'last_name' => $this->last_name,
                 'gender'    => $this->gender,
-                'dateBirth' => $this->dateBirth,
+                'dateBirth' => $payload,
                 'email'     => $this->email,
                 'phone'     => $this->phone,
                 'promotion' => $this->promotion,

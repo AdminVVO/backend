@@ -87,6 +87,8 @@ Route::middleware(['AccountDisable'])->group( function(){
                 Route::get('', [ReservationController::class, 'viewReservation'])->name('reservations');
         });
 
+
+
     });
 });
 
@@ -97,6 +99,8 @@ Route::middleware(['auth'])->group( function(){
             Route::get('blocked', [AccountController::class, 'viewBlockAccount'])->middleware(['AccountNotDisable'])->name('blocked');
     });
 
+    ## Routes Logiut
+    Route::get('logout', [HomeController::class, 'logout'])->name('logout');
 });
 
 ## Routes Login and Register Google

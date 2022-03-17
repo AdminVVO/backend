@@ -30,6 +30,8 @@ class CreateListingsTable extends Migration
             $table->json('amenities')->nullable();
             $table->json('safety')->nullable();
             $table->json('photos')->nullable();
+            $table->json('category')->nullable();
+            $table->json('featurs')->nullable();
 
             $table->unsignedInteger('user_id');
             $table->foreign('user_id')

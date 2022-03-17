@@ -92,4 +92,15 @@ class HomeController extends Controller
             ], 404); 
         }
     }
+
+    public function logout(Request $request)
+    {
+        try {
+            Auth::logout();
+            return redirect('/');  
+
+        } catch (Exception $e) {
+
+        }
+    }
 }

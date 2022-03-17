@@ -43,51 +43,52 @@
                     @foreach ( $content as $element )
                         <tr>
                             <td>
-                                <div class="checkbox-item checkbox-item_img">
-                                    <label class="check_click" style="gap: 20px; width: 100%;">
-                                        <input type="radio" name="listing">
-                                        <div class="bg_check_click">
-                                            <div class="_cont-l-img">
-                                                <div class="_ad-list_img">
-                                                    <img src="{{ URL::asset('storage/uploadListing/') }}/{{ $element['photos'] }}">
+                                <a href="{{ route('listing-show', $element['id_listings'] ) }}">
+                                    <div class="checkbox-item checkbox-item_img">
+                                        <label class="check_click" style="gap: 20px; width: 100%;">
+                                            <div class="bg_check_click">
+                                                <div class="_cont-l-img">
+                                                    <div class="_ad-list_img">
+                                                        <img src="{{ URL::asset('storage/uploadListing/') }}/{{ $element['photos'] }}">
+                                                    </div>
+                                                </div>
+
+                                                <div class="flex_text fx fx-jc-sb">
+                                                    <div class="_f-t">
+                                                        <h3 class="_txteh txt_upper">{{ $element['title'] }}</h3>
+                                                        <p class="_txtec16 text_tm1">{{ $element['internal_title'] }}</p>
+                                                    </div>
+
+                                                    <div class="icon fx fx-ai-fs">
+                                                        @if ( $element['status'] === 'Listed' )
+                                                            <div class="_iconposit">
+                                                                <i class="fas fa-circle _i-verde10"></i>
+                                                            </div>
+                                                        @endif
+
+                                                        @if ( $element['status'] === 'Snoozed' )
+                                                            <div class="_iconposit">
+                                                                <i class="fas fa-moon _i-gris10"></i>
+                                                            </div>
+                                                        @endif
+                                                        
+                                                        @if ( $element['status'] === 'Unlisted' )
+                                                            <div class="_iconposit">
+                                                                <i class="fas fa-circle _i-red10"></i>
+                                                            </div>
+                                                        @endif
+                                                        
+                                                        @if ( $element['status'] === 'Deactivate' )
+                                                            <div class="_iconposit">
+                                                                <i class="fas fa-circle _i-griswhite10"></i>
+                                                            </div>
+                                                        @endif
+                                                    </div>
                                                 </div>
                                             </div>
-
-                                            <div class="flex_text fx fx-jc-sb">
-                                                <div class="_f-t">
-                                                    <h3 class="_txteh txt_upper">{{ $element['title'] }}</h3>
-                                                    <p class="_txtec16">{{ $element['internal_title'] }}</p>
-                                                </div>
-
-                                                <div class="icon fx fx-ai-fs">
-                                                    @if ( $element['status'] === 'Listed' )
-                                                        <div class="_iconposit">
-                                                            <i class="fas fa-circle _i-verde10"></i>
-                                                        </div>
-                                                    @endif
-
-                                                    @if ( $element['status'] === 'Snoozed' )
-                                                        <div class="_iconposit">
-                                                            <i class="fas fa-moon _i-gris10"></i>
-                                                        </div>
-                                                    @endif
-                                                    
-                                                    @if ( $element['status'] === 'Unlisted' )
-                                                        <div class="_iconposit">
-                                                            <i class="fas fa-circle _i-red10"></i>
-                                                        </div>
-                                                    @endif
-                                                    
-                                                    @if ( $element['status'] === 'Deactivate' )
-                                                        <div class="_iconposit">
-                                                            <i class="fas fa-circle _i-griswhite10"></i>
-                                                        </div>
-                                                    @endif
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </label>
-                                </div>
+                                        </label>
+                                    </div>
+                                </a>
                             </td>
                         </tr>
                     @endforeach

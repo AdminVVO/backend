@@ -36,6 +36,8 @@
     {{-- @include('language.Language') --}}
     @yield('content')
     @include('layouts.Footer')
+
+    @stack('alpine_scripts')
     @livewireScripts
     @include('layouts.Scripts')
     @laravelTelInputScripts

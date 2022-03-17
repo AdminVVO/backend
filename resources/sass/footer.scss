@@ -2,12 +2,16 @@
 
 footer {
     margin-top: auto;
+
+    // @include responsive(890px) {
+    //     padding-bottom: 4rem;
+    // }
 }
 
 .footer {
-    margin-top: 80px; 
+    margin-top: 80px;
     background-color: $color-background2;
-    padding: 50px 15px;
+    padding: 50px 0;
     overflow: hidden;
 
     .footer-container {
@@ -110,7 +114,7 @@ footer {
 
 .copyright {
     background-color: $color-background2;
-    padding: 0 0 48px;
+    padding-top: 50px;
 
     &_content {
         display: flex;

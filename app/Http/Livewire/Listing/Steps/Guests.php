@@ -10,10 +10,10 @@ class Guests extends Component
 {
     use LivewireAlert;
 
-    public $guests = 0;
-    public $beds = 0;
-    public $bedrooms = 0;
-    public $bathrooms = 0;
+    public $guests = 1;
+    public $beds = 1;
+    public $bedrooms = 1;
+    public $bathrooms = 1;
     public $disableS1 = false;
     public $disableR1 = true;
     public $disableS2 = false;
@@ -36,9 +36,6 @@ class Guests extends Component
 
     public function next()
     {
-        if ( $this->guests === 0 || $this->beds === 0 || $this->bedrooms === 0 || $this->bathrooms === 0)
-            return $this->alert('warning', 'Invalid number of guests');
-
         $content = [
             'guests' => $this->guests,
             'beds' => $this->beds,
@@ -110,50 +107,50 @@ class Guests extends Component
     public function buttonRestar($payload)
     {
         if ( $payload == 'guests' ) {
-            if ( $this->guests <= 0 )
+            if ( $this->guests <= 1 )
                 return;
 
             $this->guests = $this->guests - 1;
             $this->disableS1 = false;
 
 
-            if ( $this->guests <= 0 )
+            if ( $this->guests <= 1 )
                 $this->disableR1 = true;
         }
         
         if ( $payload == 'beds' ) {
-            if ( $this->beds <= 0 )
+            if ( $this->beds <= 1 )
                 return;
 
             $this->beds = $this->beds - 1;
             $this->disableS2 = false;
 
 
-            if ( $this->beds <= 0 )
+            if ( $this->beds <= 1 )
                 $this->disableR2 = true;
         }
         
         if ( $payload == 'bedrooms' ) {
-            if ( $this->bedrooms <= 0 )
+            if ( $this->bedrooms <= 1 )
                 return;
 
             $this->bedrooms = $this->bedrooms - 1;
             $this->disableS3 = false;
 
 
-            if ( $this->bedrooms <= 0 )
+            if ( $this->bedrooms <= 1 )
                 $this->disableR3 = true;
         }
         
         if ( $payload == 'bathrooms' ) {
-            if ( $this->bathrooms <= 0 )
+            if ( $this->bathrooms <= 1 )
                 return;
 
             $this->bathrooms = $this->bathrooms - 1;
             $this->disableS4 = false;
 
 
-            if ( $this->bathrooms <= 0 )
+            if ( $this->bathrooms <= 1 )
                 $this->disableR4 = true;
         }
     }
