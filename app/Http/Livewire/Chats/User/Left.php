@@ -70,10 +70,6 @@ class Left extends Component
                 $queryFilterChat = $query;
                     $firstChat = clone $queryFilterChat->first();
                     $this->firstChat = $firstChat->id_chats;
-
-                // $this->emit('postAdded', $post->id);
-
-
             }
 
         }

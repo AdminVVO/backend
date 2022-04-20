@@ -98,12 +98,19 @@
                     <div class="menu_home-content-items">
                         <ul>
                             <li><a href="{{ route('messageUserIndex') }}">Message</a></li>
-                            <form id="form" action="{{route('messageUserIndex' )}}" method="POST">
-                                @csrf
-                                <input type="hidden" name="id" value="a71cafd0-70d6-45ca-b691-078925a3c34e">
-                                {{-- <input type="hidden" name="id" value="e60d16e4-008c-4e47-a007-4339ebca8d6f"> --}}
-                            </form>
-                            <li><a href="javascript:void(0)" onclick="$('#form').submit()">MessageID</a></li>
+                            @if ( Auth::user()->rol_id != 1 )
+                                <form id="MessageID-1" action="{{route('messageUserIndex' )}}" method="POST">
+                                    @csrf
+                                    <input type="hidden" name="id" value="1">
+                                </form>
+                                <li><a href="javascript:void(0)" onclick="$('#MessageID-1').submit()">MessageID-1</a></li>
+
+                                <form id="MessageID-2" action="{{route('messageUserIndex' )}}" method="POST">
+                                    @csrf
+                                    <input type="hidden" name="id" value="2">
+                                </form>
+                                <li><a href="javascript:void(0)" onclick="$('#MessageID-2').submit()">MessageID-2</a></li>
+                            @endif
                             <li><a href="#">Trips</a></li>
                             <li><a href="#">Wishlists</a></li>
                         </ul>

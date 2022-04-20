@@ -28,8 +28,7 @@ class Center extends Component
     ];
 
     protected $listeners = [
-        'loadChat' => 'loadChatSelect',
-        'eventPush' => 'refreshSectionChats'
+        'loadChat' => 'loadChatSelect'
     ];
 
     public function mount($id)
@@ -82,7 +81,9 @@ class Center extends Component
                 $this->contentChat['onChat'] = '';
                 $this->contentChat['oldListing'] = '';
                 $this->contentChat['receiver_id'] = $queryName->user_id;
-                $this->contentChat['name'] = $queryIdChat->transmitter_id === Auth::id() ? User::Name( $queryIdChat->receiver_id ) : User::Name( $queryIdChat->transmitter_id );
+                $this->contentChat['name'] = isset( $queryIdChat ) ? 
+                                                    $queryIdChat->transmitter_id === Auth::id() ? User::Name( $queryIdChat->receiver_id ) : User::Name( $queryIdChat->transmitter_id ) : 
+                                                        $queryName->userChat->name ;
                 $this->contentChat['title'] = $queryName->title;
                 $this->contentChat['messages'] = [];
             }
@@ -149,7 +150,6 @@ class Center extends Component
 
     public function loadChatSelect($payload)
     {
-        // dd($payload);
         if ( $payload != '') {
 
             if ( $this->contentChat['onListing'] !== '' ) {

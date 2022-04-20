@@ -143,8 +143,8 @@
                     <div class="type-a-m pd11-35-24">
                         {{-- MESSAGES INPUT  --}}
                         @if ( $contentChat['name'] != '' && $contentChat['receiver_id'] != '' )
-                            @if ( Auth::user()->rol_id !== 1)
-                                <form wire:submit.prevent="sendMessageInput">
+                            <form wire:submit.prevent="sendMessageInput">
+                                @if ( Auth::user()->rol_id !== 1)
                                     <div class="fx fx-ai-c gp13">
                                             <input type="file" id="message_input__file" style="display: none;">
                                             <label for="message_input__file" class="div_env_img btn_circle_flecha cr-p">
@@ -167,9 +167,7 @@
                                                 </div>
                                             @enderror
                                     </div>
-                                </form>
-                            @else
-                                <form wire:submit.prevent="sendMessageInput">
+                                @else
                                     <div class="fx fx-ai-fe gp13">
                                         <div class="fx fx-ai-c gp2">
                                             <div class="content_icons_type_msg">
@@ -200,7 +198,9 @@
                                         </div>
 
                                         <div class="input-type-msg">
-                                            <textarea rows="1" placeholder="Type a message" class="w-input-textarea-msg f-input-cont js-msg-type-txt"></textarea>
+                                            
+                                            <input type="text" class="input_msg @error('message') error_input @enderror" placeholder="Type a message" wire:model.defer="message">
+                                            {{-- <textarea rows="1" placeholder="Type a message" class="w-input-textarea-msg f-input-cont js-msg-type-txt" wire:model.defer="message"></textarea> --}}
 
                                             <div class="div_env_ch fx pd-r-l16">
                                                 <button class="click_envio_chat">
@@ -209,8 +209,8 @@
                                             </div>
                                         </div>
                                     </div>
-                                </form>
-                            @endif
+                                @endif
+                            </form>
                         @endif
                         {{-- MESSAGES INPUT END --}}
                     </div>
