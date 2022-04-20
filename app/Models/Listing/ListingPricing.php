@@ -23,8 +23,7 @@ class ListingPricing extends Model
         'other_discount_porcent',
         'early_bird_discount',
         'early_bird_discount_porcent',
-        'last_minute_discount',
-        'last_minute_discount_porcent',
+        'last_minute_discount_array',
         'cleaning_fee',
         'pet_fee',
         'linens_fee',
@@ -35,6 +34,7 @@ class ListingPricing extends Model
         'community_fee',
         'community_type',
         'extra_guest_fee',
+        'extra_guest',
         'weekend_nightly_fee',
 
         'listing_id',
@@ -48,5 +48,6 @@ class ListingPricing extends Model
     protected $casts = [
         'first_guest' => 'boolean',
         'other_discount_array' => 'array',
+        'last_minute_discount_array' => 'array',
     ];
 }

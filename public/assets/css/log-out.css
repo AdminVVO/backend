@@ -807,6 +807,19 @@ input {
   color: #fff;
   font-weight: normal;
   font-size: 18px;
+  transition: 0.3s ease;
+}
+.container-welcome .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome .block_a button:hover,
+.container-number .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome .block_a button:hover,
+.container-options1 .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome .block_a button:hover,
+.container-ineed .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome .block_a button:hover,
+.container-welcome-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome .block_a button:hover,
+.container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome .block_a button:hover,
+.container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome .block_a button:hover,
+.container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome .block_a button:hover,
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome .block_a button:hover,
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome .block_a button:hover {
+  background-color: #0096B7;
 }
 .container-welcome .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome .block_redes,
 .container-number .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome .block_redes,
@@ -1002,6 +1015,19 @@ input {
   color: #fff;
   font-weight: normal;
   font-size: 18px;
+  transition: 0.3s ease;
+}
+.container-welcome .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome-email .block_a button:hover,
+.container-number .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome-email .block_a button:hover,
+.container-options1 .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome-email .block_a button:hover,
+.container-ineed .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome-email .block_a button:hover,
+.container-welcome-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome-email .block_a button:hover,
+.container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome-email .block_a button:hover,
+.container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome-email .block_a button:hover,
+.container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome-email .block_a button:hover,
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome-email .block_a button:hover,
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome-email .block_a button:hover {
+  background-color: #0096B7;
 }
 .container-welcome .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome-email .block_redes,
 .container-number .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome-email .block_redes,
@@ -1385,6 +1411,19 @@ input {
   color: #fff;
   font-weight: normal;
   font-size: 18px;
+  transition: 0.3s ease;
+}
+.container-welcome .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_number .block_a button:hover,
+.container-number .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_number .block_a button:hover,
+.container-options1 .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_number .block_a button:hover,
+.container-ineed .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_number .block_a button:hover,
+.container-welcome-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_number .block_a button:hover,
+.container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_number .block_a button:hover,
+.container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_number .block_a button:hover,
+.container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_number .block_a button:hover,
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_number .block_a button:hover,
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_number .block_a button:hover {
+  background-color: #0096B7;
 }
 .container-welcome .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_email h3,
 .container-number .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_email h3,
@@ -1528,6 +1567,19 @@ input {
   color: #fff;
   font-weight: normal;
   font-size: 18px;
+  transition: 0.3s ease;
+}
+.container-welcome .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_email .block_a button:hover,
+.container-number .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_email .block_a button:hover,
+.container-options1 .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_email .block_a button:hover,
+.container-ineed .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_email .block_a button:hover,
+.container-welcome-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_email .block_a button:hover,
+.container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_email .block_a button:hover,
+.container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_email .block_a button:hover,
+.container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_email .block_a button:hover,
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_email .block_a button:hover,
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_email .block_a button:hover {
+  background-color: #0096B7;
 }
 .container-welcome .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options-email h3,
 .container-number .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options-email h3,
@@ -1794,6 +1846,19 @@ input {
   color: #fff;
   font-weight: normal;
   font-size: 18px;
+  transition: 0.3s ease;
+}
+.container-welcome .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options-email .block_a button:hover,
+.container-number .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options-email .block_a button:hover,
+.container-options1 .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options-email .block_a button:hover,
+.container-ineed .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options-email .block_a button:hover,
+.container-welcome-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options-email .block_a button:hover,
+.container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options-email .block_a button:hover,
+.container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options-email .block_a button:hover,
+.container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options-email .block_a button:hover,
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options-email .block_a button:hover,
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options-email .block_a button:hover {
+  background-color: #0096B7;
 }
 .container-welcome .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options h3,
 .container-number .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options h3,
@@ -2066,6 +2131,19 @@ input {
   color: #fff;
   font-weight: normal;
   font-size: 18px;
+  transition: 0.3s ease;
+}
+.container-welcome .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options .block_a button:hover,
+.container-number .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options .block_a button:hover,
+.container-options1 .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options .block_a button:hover,
+.container-ineed .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options .block_a button:hover,
+.container-welcome-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options .block_a button:hover,
+.container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options .block_a button:hover,
+.container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options .block_a button:hover,
+.container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options .block_a button:hover,
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options .block_a button:hover,
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_options .block_a button:hover {
+  background-color: #0096B7;
 }
 .container-welcome .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_confirm h3,
 .container-number .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_confirm h3,
@@ -2261,6 +2339,19 @@ input {
   color: #fff;
   font-weight: normal;
   font-size: 18px;
+  transition: 0.3s ease;
+}
+.container-welcome .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_confirm .block_a button:hover,
+.container-number .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_confirm .block_a button:hover,
+.container-options1 .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_confirm .block_a button:hover,
+.container-ineed .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_confirm .block_a button:hover,
+.container-welcome-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_confirm .block_a button:hover,
+.container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_confirm .block_a button:hover,
+.container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_confirm .block_a button:hover,
+.container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_confirm .block_a button:hover,
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_confirm .block_a button:hover,
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_confirm .block_a button:hover {
+  background-color: #0096B7;
 }
 .container-welcome .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_need h3,
 .container-number .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_need h3,
@@ -2421,6 +2512,19 @@ input {
   color: #fff;
   font-weight: normal;
   font-size: 18px;
+  transition: 0.3s ease;
+}
+.container-welcome .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_need .content_a button:hover,
+.container-number .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_need .content_a button:hover,
+.container-options1 .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_need .content_a button:hover,
+.container-ineed .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_need .content_a button:hover,
+.container-welcome-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_need .content_a button:hover,
+.container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_need .content_a button:hover,
+.container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_need .content_a button:hover,
+.container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_need .content_a button:hover,
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_need .content_a button:hover,
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_need .content_a button:hover {
+  background-color: #0096B7;
 }
 .container-welcome .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_need-email h3,
 .container-number .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_need-email h3,
@@ -2581,6 +2685,19 @@ input {
   color: #fff;
   font-weight: normal;
   font-size: 18px;
+  transition: 0.3s ease;
+}
+.container-welcome .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_need-email .content_a button:hover,
+.container-number .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_need-email .content_a button:hover,
+.container-options1 .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_need-email .content_a button:hover,
+.container-ineed .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_need-email .content_a button:hover,
+.container-welcome-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_need-email .content_a button:hover,
+.container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_need-email .content_a button:hover,
+.container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_need-email .content_a button:hover,
+.container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_need-email .content_a button:hover,
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_need-email .content_a button:hover,
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_need-email .content_a button:hover {
+  background-color: #0096B7;
 }
 .container-welcome .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_security h3,
 .container-number .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_security h3,
@@ -2802,6 +2919,19 @@ input {
   color: #fff;
   font-weight: normal;
   font-size: 18px;
+  transition: 0.3s ease;
+}
+.container-welcome .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_security .content_a .block_a button:hover,
+.container-number .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_security .content_a .block_a button:hover,
+.container-options1 .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_security .content_a .block_a button:hover,
+.container-ineed .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_security .content_a .block_a button:hover,
+.container-welcome-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_security .content_a .block_a button:hover,
+.container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_security .content_a .block_a button:hover,
+.container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_security .content_a .block_a button:hover,
+.container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_security .content_a .block_a button:hover,
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_security .content_a .block_a button:hover,
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-number .content_mr .content_security .content_a .block_a button:hover {
+  background-color: #0096B7;
 }
 
 .iti {

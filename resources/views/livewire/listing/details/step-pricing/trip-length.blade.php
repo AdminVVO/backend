@@ -6,50 +6,44 @@
             <h3 class="_txteh">Minimum stay</h3>
             <div class="_width_text show_info">
                 @if ( $content['minimum_stay'] != '' && $content['minimum_stay'] != 0 )
-                    <div class="_width_text show_info">
-                        <span class="_txtec">{{ $content['minimum_stay'] }} nights</span>
-                    </div>
+                    <span class="_txtec">{{ $content['minimum_stay'] }} nights</span>
+                        @if ( count( $content['minimum_stay_custom'] ) != 0 )
+                            @if ( $content['minimum_stay_custom']['sundays'] != '' )
+                                <p class="_txtec">Sundays: {{ $content['minimum_stay_custom']['sundays'] }} nights</p>
+                            @endif
+
+                            @if ( $content['minimum_stay_custom']['mondays'] != '' )
+                                <p class="_txtec">Mondays: {{ $content['minimum_stay_custom']['mondays'] }} nights</p>
+                            @endif
+
+                            @if ( $content['minimum_stay_custom']['tuesdays'] != '' )
+                                <p class="_txtec">Tuesdays: {{ $content['minimum_stay_custom']['tuesdays'] }} nights</p>
+                            @endif
+
+                            @if ( $content['minimum_stay_custom']['wednesdays'] != '' )
+                                <p class="_txtec">Wednesdays: {{ $content['minimum_stay_custom']['wednesdays'] }} nights</p>
+                            @endif
+
+                            @if ( $content['minimum_stay_custom']['thursdays'] != '' )
+                                <p class="_txtec">Thursdays: {{ $content['minimum_stay_custom']['thursdays'] }} nights</p>
+                            @endif
+
+                            @if ( $content['minimum_stay_custom']['fridays'] != '' )
+                             <p class="_txtec">Fridays: {{ $content['minimum_stay_custom']['fridays'] }} nights</p>
+                            @endif
+
+                            @if ( $content['minimum_stay_custom']['saturdays'] != '' )
+                                <p class="_txtec">Saturdays: {{ $content['minimum_stay_custom']['saturdays'] }} nights</p>
+                            @endif
+                        @endif
                 @else
-                    <div class="_width_text show_info">
-                        <span class="_txtec">Not set</span>
-                    </div>
+                    <span class="_txtec">Not set</span>
                 @endif
             </div>
-            @if ( count( $content['minimum_stay_custom'] ) != 0 )
-                <div class="_width_text show_info">
-                    @if ( $content['minimum_stay_custom']['sundays'] != '' )
-                        <p class="_txtec">Sundays: {{ $content['minimum_stay_custom']['sundays'] }} nights</p>
-                    @endif
-
-                    @if ( $content['minimum_stay_custom']['mondays'] != '' )
-                        <p class="_txtec">Mondays: {{ $content['minimum_stay_custom']['mondays'] }} nights</p>
-                    @endif
-
-                    @if ( $content['minimum_stay_custom']['tuesdays'] != '' )
-                        <p class="_txtec">Tuesdays: {{ $content['minimum_stay_custom']['tuesdays'] }} nights</p>
-                    @endif
-
-                    @if ( $content['minimum_stay_custom']['wednesdays'] != '' )
-                        <p class="_txtec">Wednesdays: {{ $content['minimum_stay_custom']['wednesdays'] }} nights</p>
-                    @endif
-
-                    @if ( $content['minimum_stay_custom']['thursdays'] != '' )
-                        <p class="_txtec">Thursdays: {{ $content['minimum_stay_custom']['thursdays'] }} nights</p>
-                    @endif
-
-                    @if ( $content['minimum_stay_custom']['fridays'] != '' )
-                     <p class="_txtec">Fridays: {{ $content['minimum_stay_custom']['fridays'] }} nights</p>
-                    @endif
-
-                    @if ( $content['minimum_stay_custom']['saturdays'] != '' )
-                        <p class="_txtec">Saturdays: {{ $content['minimum_stay_custom']['saturdays'] }} nights</p>
-                    @endif
-                </div>
-            @endif
 
             <form wire:submit.prevent="submitMinTrip" class="show_form_input" style="margin-top: 35px;">
                 <div class="fx fx-fd-c" style="gap: 30px;">
-                    <div class="_flfpc">
+                    <div class="_flfpc mxw445">
                         <div class="txt-check-in">Minimum Nights</div>
                         <input type="text" wire:model.defer="content.minimum_stay" class="_numcard @error('minimum_stay') error_input @enderror">
                         @error('minimum_stay')
@@ -141,19 +135,15 @@
             <h3 class="_txteh">Maximum stay</h3>
             <div class="_width_text show_info">
                 @if ( $content['maximum_stay'] != '' && $content['maximum_stay'] != 0 )
-                    <div class="_width_text show_info">
-                        <span class="_txtec">{{ $content['maximum_stay'] }} nights</span>
-                    </div>
+                    <span class="_txtec">{{ $content['maximum_stay'] }} nights</span>
                 @else
-                    <div class="_width_text show_info">
-                        <span class="_txtec">Not set</span>
-                    </div>
+                    <span class="_txtec">Not set</span>
                 @endif
             </div>
 
             <form wire:submit.prevent="submitMaxTrip" class="show_form_input" style="margin-top: 35px;">
                 <div class="fx fx-fd-c" style="gap: 30px;">
-                    <div class="_flfpc mxw576">
+                    <div class="_flfpc mxw445">
                         <div class="txt-check-in">Maximum Nights</div>
                         <input type="text" wire:model.defer="content.maximum_stay" class="_numcard @error('maximum_stay') error_input @enderror">
                         @error('maximum_stay')

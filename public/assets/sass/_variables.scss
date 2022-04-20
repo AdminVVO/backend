@@ -46,106 +46,26 @@ $letter-spacing: 0.2rem;
 // SPACING
 
 
-
-//---------- iconos tamaños color ----------
-@mixin _i-griswhite10 {
-  font-size: 10px;
-  color: #D1D1D1;
-}
-
-@mixin _i-gris10 {
-  font-size: 10px;
-  color: #7D7D7D;
-}
-
-@mixin _i-gris16 {
-  font-size: 16px;
-  color: #7D7D7D;
-}
-
-@mixin _i-gris18 {
-  font-size: 18px;
-  color: #7D7D7D;
-}
-
-@mixin _i-gris22 {
-  font-size: 22px;
-  color: #7D7D7D;
-}
-
-@mixin _i-gris25 {
-  font-size: 25px;
-  color: #7D7D7D;
-}
-
-
-@mixin _i-verde8 {
-  font-size: 8px;
-  color: #2DDAB4;
-}
-
-@mixin _i-verde10 {
-  font-size: 10px;
-  color: #2DDAB4;
-}
-
-@mixin _i-verde16 {
-  font-size: 16px;
-  color: #2DDAB4;
-}
-
-@mixin _i-verde30 {
-  font-size: 30px;
-  color: #2DDAB4;
-}
-
-@mixin _i-verde40 {
-  font-size: 40px;
-  color: #2DDAB4;
-}
-
-@mixin _i-verde42 {
-  font-size: 42px;
-  color: #2DDAB4;
-}
-
-
-
-@mixin _i-red8 {
-  font-size: 8px;
-  color: #FF5A5F;
-}
-
-@mixin _i-red10 {
-  font-size: 10px;
-  color: #FF5A5F;
-}
-
-@mixin _i-red14 {
-  font-size: 14px;
-  color: #FF5A5F;
-}
-
-@mixin _i-red16 {
-  font-size: 16px;
-  color: #FF5A5F;
-}
-
-@mixin _i-red20 {
-  font-size: 20px;
-  color: #FF5A5F;
-}
+// en orden
+$limit: 100;
+$unit: 1px;
+$porcentaje: 1%;
+$cant: 300;
 
 
 
 
-//---------- SHADOW MENU BAR ----------
+//---------- SOMBRAS SHADOW MENU BAR ----------
 @mixin _shadow-black3-6 {
   box-shadow: 0 3px 6px rgb(0 0 0 / 16%);
 }
 
 @mixin _shadow-bazul20 {
   box-shadow: 0 0 20px rgb(40 54 70 / 8%);
+}
+
+@mixin _shadow-celest10 {
+  box-shadow: 0 0 10px #E3EDF3;
 }
 
 
@@ -407,6 +327,7 @@ $letter-spacing: 0.2rem;
   background-color: #E3EDF3;
   border-radius: 50%;
   max-width: 56px;
+  min-width: 56px;
   width: 100%;
   height: 56px;
   border: 3px solid #E3EDF3;
@@ -468,33 +389,6 @@ $letter-spacing: 0.2rem;
   line-height: 16px;
   font-weight: normal;
   color: #7D7D7D;
-}
-
-@mixin block-a-trad {
-
-  .btn-celest-traduct {
-    display: flex;
-    align-items: stretch;
-    padding: 16.2px 49.5px;
-    border-radius: 10px;
-    background-color: #00B5DD;
-    color: #fff;
-    font-weight: normal;
-    font-size: 18px;
-
-    @include responsive(900px) {
-      padding: 15px 30px;
-      font-size: 16px;
-    }
-
-    .ic-r {
-      margin-right: 10px;
-
-      @include responsive(900px) {
-        width: 20px;
-      }
-    }
-  }
 }
 
 @mixin btn-border {
@@ -564,6 +458,24 @@ $letter-spacing: 0.2rem;
 
   @include responsive(900px) {
     font-size: 14px;
+  }
+}
+
+@mixin btn-celest-min {
+  cursor: pointer;
+  width: fit-content;
+  display: inline-block;
+  padding: 10px 14px;
+  border-radius: 5px;
+  background-color: #00B5DD;
+  color: $color-white;
+  font-weight: normal;
+  white-space: nowrap;
+  font-size: 14px;
+  transition: .3s ease;
+
+  &:hover {
+    background-color: #0096B7;
   }
 }
 
@@ -732,6 +644,33 @@ $letter-spacing: 0.2rem;
   }
 }
 
+@mixin _txtehlinear16 {
+  cursor: pointer;
+  width: fit-content;
+  color: #333333;
+  font-weight: bold;
+  font-size: 16px;
+  position: relative;
+  display: inline-block;
+
+  &::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    background-color: #333333;
+    bottom: 0;
+  }
+
+  @include responsive(1400px) {
+    font-size: 16px;
+  }
+
+  @include responsive(900px) {
+    font-size: 14px;
+  }
+}
+
 @mixin _txtlinearnormal {
   color: #7D7D7D;
   font-weight: normal;
@@ -796,10 +735,12 @@ $letter-spacing: 0.2rem;
 
   @media screen and (max-width: 1400px) {
     font-size: 16px;
+    line-height: 20px;
   }
 
   @media screen and (max-width: 900px){
     font-size: 14px;
+    line-height: 18px;
   }
 }
 

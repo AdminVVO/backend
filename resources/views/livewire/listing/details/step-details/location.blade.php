@@ -257,7 +257,10 @@
                 </div>
 
                 <div class="contmap_w100h425">
-                    <img src="{{ URL::asset('assets/img/card/map.jpg') }}" alt="">
+                    <x-map-listing-basic
+                        latitude="{{ $content['latitude'] }}"
+                        longitude="{{ $content['longitude'] }}"
+                    />
                 </div>
 
                 <div class="fx fx-ai-fs fx-jc-sb" style="gap: 72px; margin-top: 56px;">

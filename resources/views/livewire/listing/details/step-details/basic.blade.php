@@ -15,7 +15,7 @@
 
             <form wire:submit.prevent="submitTitle" class="show_form_input" style="display: none;">
                 <div class="form_input">
-                    <div class="_flfpc">
+                    <div class="_flfpc mxw576">
                         <div class="txt-check-in">Title</div>
                         <input type="text" wire:model.defer="content.title" class="_numcard input_cant_view @error('title') error_input @enderror" maxlength="50">
                         @error('title')
@@ -29,7 +29,7 @@
                         </p>
                     </div>
 
-                    <div class="_flfpc">
+                    <div class="_flfpc mxw576">
                         <div class="txt-check-in">Internal name</div>
                         <input type="text" wire:model.defer="content.internal_title" class="_numcard input_cant_view @error('internal_title') error_input @enderror" maxlength="40">
                         @error('internal_title')
@@ -239,31 +239,23 @@
     <div class="fx fx-ai-b fx-jc-sb" style="gap: 25px;">
         <div class="w100">
             <h3 class="_txteh">Custom link</h3>
-            @if ( $content['custom_link'] != '' )
-                <div class="_width_text show_info">
+            <div class="_width_text show_info">
+                @if ( $content['custom_link'] != '' )
                     <span class="_txtec">{{ env('APP_URL') }}{{ $content['custom_link'] }}</span>
-                </div>
-            @else
-                <div class="_width_text show_info">
+                @else
                     <span class="_txtec">Not set</span>
-                </div>
-            @endif
+                @endif
+            </div>
 
             <form wire:submit.prevent="submitLink" class="show_form_input">
                 <div class="_flfpc">
                     <div class="txt-check-in">Link</div>
-
-                    <label class="before_icon_input @error('custom_link') error_input @enderror">
-                        <span class="_txtec">vvoutlet.com/h/</span>
-                        <input type="text" class="_input input_cant_view" wire:model.defer="content.custom_link" style="padding-left: 0;">
-                    </label>
-                    @error('custom_link')
-                        <div class="_txterror">
-                            <i class="fas fa-exclamation-circle icon1"></i> 
-                            {{ $message }}
-                        </div>
-                        <br>
-                    @enderror
+                    <div class="link_label_input">
+                        <label class="before_icon_input @error('custom_link') error_input @enderror">
+                            <span class="_txtec">vvoutlet.com/h/</span>
+                            <input type="text" class="_input input_cant_view" wire:model.defer="content.custom_link" style="padding-left: 0;">
+                        </label>
+                    </div>
                     <div style="margin-top: 12px;">
                         <p class="_txtec">A memorable and unique link can make it easy to share your listing on business cards, websites, or social media.</p>
                         <p class="_txtec">Ex: vvoutlet.com/h/private-room-in-barcelona-center. <a href="#" class="_txtehlinear">Review our custom link policy.</a></p>
@@ -271,6 +263,13 @@
                             <span class="_txtec16 views_num">0</span><span class="_txtec16">/100</span>
                         </p>
                     </div>
+                    @error('custom_link')
+                        <div class="_txterror">
+                            <i class="fas fa-exclamation-circle icon1"></i> 
+                            {{ $message }}
+                        </div>
+                        <br>
+                    @enderror
                 </div>
 
                 <div class="fx fx-fw-w fx-jc-sb" style="gap: 12px; margin-top: 25px;">
@@ -308,7 +307,7 @@
             </div>
 
             <form wire:submit.prevent="submitLanguage" class="show_form_input">
-                <div class="selected-modal mxw576" style="margin: 0;">
+                <div class="selected-modal mxw445" style="margin: 0;">
                     <select wire:model.defer="content.language_default" class="@error('language_default') error_input @enderror">
                         <option selected disabled>Add language</option>
                         @foreach ( $content['language'] as $key => $element)
@@ -353,6 +352,7 @@
                 <div class="_txtec">
                     @if ( $content['resort'] != '' )
                         <p class="_txtec">Resort Email: {{ $content['resort'] }}</p>
+                        <p class="_txtec">Resort Template: {{ $content['template'] }}</p>
                     @endif
                     @if ( $content['status'] == 'Listed' )
                         <div class="_iconposit">
@@ -486,14 +486,32 @@
                     </div>
 
                     <div class="_flfpc">
-                        <div class="txt-check-in">Resort Email</div>
-                        <input type="text" class="_numcard email-modals @error('resort') error_input @enderror" placeholder="Examples@demo.com" wire:model.defer="content.resort">
-                        @error('resort')
-                            <div  class="_txterror">
-                                <i class="fas fa-exclamation-circle icon1"></i> 
-                                {{ $message }}
-                            </div>
-                        @enderror
+                        <div class="mxw445">
+                            <div class="txt-check-in">Resort Email</div>
+                            <input type="text" class="_numcard email-modals @error('resort') error_input @enderror" placeholder="Examples@demo.com" wire:model.defer="content.resort">
+                            @error('resort')
+                                <div  class="_txterror">
+                                    <i class="fas fa-exclamation-circle icon1"></i> 
+                                    {{ $message }}
+                                </div>
+                            @enderror
+                        </div>
+
+                        <div class="selected-modal mxw445" style="margin: 0;">
+                            <select wire:model.defer="content.template" class="@error('template') error_input @enderror">
+                                <option selected>Choose option...</option>
+                                <option value="MS Code">MS Code</option>
+                                <option value="Source">Source</option>
+                            </select>
+                            @error('template')
+                                <div  class="_txterror">
+                                    <i class="fas fa-exclamation-circle icon1"></i> 
+                                    {{ $message }}
+                                </div>
+                            @enderror
+
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
                     </div>
 
                 </div>

@@ -37,6 +37,7 @@ class User extends Authenticatable
         'service_fee',
         'constributions',
         'govermen_id',
+        'rol_id',
     ];
 
     protected $hidden = [
@@ -65,6 +66,19 @@ class User extends Authenticatable
 
     public function scopeAvatar()
     {
-        return $this->pluck('avatar')->first();
+        return $this->where('id_user', Auth::id())->pluck('avatar')->first();
+    }
+
+    public function listingChat()
+    {
+        return $this->hasMany(Listings::class, 'user_id');
+    }
+
+    public function scopeName($query, $code)
+    {
+        $xplodeName = explode(' ', $this->where('id_user', $code )->pluck('name')->first());
+        $xplodeLastName = explode(' ', $this->where('id_user', $code )->pluck('last_name')->first());
+
+        return $xplodeName[0] .' '. $xplodeLastName[0];
     }
 }

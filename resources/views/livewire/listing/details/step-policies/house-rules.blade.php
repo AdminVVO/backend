@@ -70,7 +70,9 @@
             <h3 class="_txteh">Additional rules</h3>
             <div class="_width_text show_info">
                 @if ( $content['additional_rules'] != '' && $content['additional_rules'] != 0 )
-                    <span class="_txtec">{{ $content['additional_rules'] }}</span>
+                    <span class="_txtec">
+                        {{ $content['additional_rules'] }}
+                    </span>
                 @else
                     <span class="_txtec">Not set</span>
                 @endif

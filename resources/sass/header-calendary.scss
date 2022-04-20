@@ -8,7 +8,6 @@
     .header {
         position: sticky;   
         top: 0; 
-        margin-bottom: 94px; 
         background-color: $color-background2;
 
         @include responsive(1140px) {
@@ -27,7 +26,54 @@
     }
 }
 
+.mrb-94 {
+    .header {
+        margin-bottom: 94px;
+    }
+}
+
+.mrb-60 {
+    .header {
+        margin-bottom: 60px;
+    }
+}
+
 .header.fixed {
     position: sticky;
     animation: none;  
 }
+
+// @media screen and (max-width: 890px) {
+//     .header {
+//         padding: 16px 0;
+//     }
+
+//     header .medio, header .container-medio {
+//         justify-content: center;
+//     }
+
+//     .menu {
+//         position: fixed;
+//         bottom: 0;
+//         padding: 20px 0;
+//         background: white;
+//         left: 0;
+//         right: 0;
+//         border-top: 2px solid #E3EDF3;
+//         width: 100%;
+        
+//         a {
+//             color: #333;
+//         }
+//     }
+
+//     ._txt-perfil {
+//         display: none;
+//     }
+
+//     .menu_items, .menu_perfil {
+//         flex-direction: column;
+//         justify-content: center;
+//         margin-right: 0;
+//     }
+// }

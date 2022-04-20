@@ -27,6 +27,7 @@ class CreateListingsTable extends Migration
             $table->string('language_default')->default('EN');
             $table->string('status')->default('in process');
             $table->string('resort')->nullable();
+            $table->string('template')->nullable();
             $table->json('amenities')->nullable();
             $table->json('safety')->nullable();
             $table->json('photos')->nullable();

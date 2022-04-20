@@ -10,6 +10,8 @@ class ContentRight extends Component
 {
     public $listing;
     private $content = [];
+    public $search;
+    public $sortBy = 'ASC';
 
     public $listeners = [
         'reloadQuery',
@@ -17,11 +19,11 @@ class ContentRight extends Component
 
     public function mount()
     {
-        $this->initFuntionsStar();
     }
 
     public function render()
     {
+        $this->initFuntionsStar();
         return view('livewire.listing.details.content-right', ['content' => $this->content]);
     }
         
@@ -35,9 +37,15 @@ class ContentRight extends Component
             'photos',
             'created_at',
         )->where([
-            'user_id' => Auth::id()
+            'user_id' => Auth::id(),
         ])
-        ->whereNotIn('status', ['in process']);
+        ->whereNotIn('status', ['in process'] )
+        ->orderBy('updated_at', $this->sortBy );
+
+            if ( $this->search != '' ) {
+                $query = $query->where('title','like', '%' . $this->search . '%');
+                $query = $query->Orwhere('internal_title','like', '%' . $this->search . '%');
+            }
 
         $cloneQueryOne = clone $query;
             $queryIn = clone $cloneQueryOne->where('id_listings', $this->listing)->get();
@@ -54,8 +62,18 @@ class ContentRight extends Component
         $this->content = $mergeQuery;
     }
 
+    public function sortBy()
+    {
+        if ( $this->sortBy === 'ASC' )
+            return $this->sortBy = 'DESC';
+
+        if ( $this->sortBy === 'DESC' )
+            return $this->sortBy = 'ASC';
+    }
+
     public function reloadQuery()
     {
+        $this->reset(['search','sortBy','content']);
         $this->initFuntionsStar();
     }
 }

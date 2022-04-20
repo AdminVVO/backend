@@ -21,7 +21,7 @@ header.fixed {
     transform: translateY(0%);
   }
 }
-header .medio {
+header .medio, header .container-medio {
   position: relative;
   display: flex;
   justify-content: space-between;

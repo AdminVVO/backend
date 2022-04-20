@@ -1,0 +1,541 @@
+.header_admin .medio {
+  max-width: 1760px;
+  width: 90%;
+}
+
+._mv-places {
+  transition: none;
+}
+
+.cont-h2 .h2-guests {
+  margin: 27px 0;
+}
+
+.btn_circle_flecha {
+  display: none;
+  margin-bottom: 15px;
+}
+.btn_circle_flecha svg {
+  width: 10px;
+  margin-right: 2px;
+}
+
+@media screen and (max-width: 1400px) {
+  body ._txtec {
+    font-size: 18px;
+  }
+  body ._txteh {
+    font-size: 18px;
+  }
+  body ._txtblu16 {
+    font-size: 16px;
+  }
+  body .btn-celest {
+    font-size: 18px;
+    padding: 16px 50px;
+  }
+}
+@media screen and (max-width: 1100px) {
+  body .menu .menu_home-content-items {
+    border: 1px solid #E3EDF3;
+  }
+  body .menu .menu_home-content-items ul li a {
+    font-size: 14px;
+  }
+  body .header .menu_items,
+body .header_admin .menu_items {
+    margin-right: 43px;
+  }
+  body .header .menu_items img,
+body .header_admin .menu_items img {
+    width: 18px;
+    margin-right: 6px;
+  }
+  body .header .logo-menu,
+body .header_admin .logo-menu {
+    width: 150px;
+  }
+  body .header .menu a, body .header .menu span,
+body .header_admin .menu a,
+body .header_admin .menu span {
+    font-size: 14px;
+  }
+  body .header .menu_perfil,
+body .header_admin .menu_perfil {
+    margin-right: 17px;
+  }
+  body .header .menu_perfil span,
+body .header_admin .menu_perfil span {
+    gap: 2px;
+  }
+  body .header .menu_perfil span img,
+body .header_admin .menu_perfil span img {
+    width: 40px;
+    height: 40px;
+    border: transparent;
+    box-shadow: 0 0 0 1.5px #FF5A5F;
+  }
+  body .header .menu i.fa-bars,
+body .header_admin .menu i.fa-bars {
+    font-size: 16px;
+  }
+  body ._flex-js ._flex i {
+    font-size: 12px;
+  }
+  body ._flex-js ._flex .icon_red {
+    font-size: 18px;
+  }
+  body ._flex-js ._flex span {
+    font-size: 14px;
+  }
+  body ._puntos3 ._menu-m.is-active {
+    top: 40px;
+  }
+  body ._menu-m {
+    right: -145px;
+  }
+  body ._menu-options-items {
+    min-width: 230px;
+    width: auto;
+  }
+  body ._menu-options-items ._txtec {
+    font-size: 14px;
+  }
+  body ._menu-options-items ul li ._b-flex {
+    padding: 10px 10px 10px 16px;
+    align-items: center;
+  }
+  body ._menu-options-items ul li ._b-flex svg {
+    width: 14px;
+  }
+  body ._menu-options-items ul li ._b-flex i {
+    font-size: 14px;
+  }
+  body .content_icon-leng {
+    top: 101px;
+    padding: 7px 8px;
+  }
+  body .content_icon-leng img {
+    width: 28px;
+  }
+  body .pd-130-0-50 {
+    padding: 110px 0 30px;
+  }
+  body ._txtec {
+    font-size: 16px;
+  }
+  body ._txtec16 {
+    font-size: 14px;
+    line-height: inherit;
+  }
+  body ._txteh {
+    font-size: 16px;
+  }
+  body ._txtblu16 {
+    font-size: 14px;
+  }
+  body .h2-guests {
+    line-height: inherit;
+    font-size: 23px;
+  }
+  body ._txtbold7d14 {
+    font-size: 12px;
+  }
+  body .h2_publish {
+    font-size: 33px;
+    line-height: inherit;
+  }
+  body .selected-modal select {
+    padding: 14px 38px 14px 18px;
+    font-size: 16px;
+  }
+  body .selected-modal svg {
+    width: 12px;
+  }
+  body .btn-white {
+    padding: 14px 18px;
+    border-radius: 8px;
+  }
+  body .btn-celest {
+    padding: 14px 24px;
+    font-size: 16px;
+  }
+  body .cont-h2 .h2-guests {
+    margin: 24px 0;
+  }
+  body .search_content {
+    padding: 12.6px 17px;
+    border: 1px solid #E3EDF3;
+    border-radius: 8px;
+  }
+  body .search_content .input-wrapper i {
+    font-size: 23px;
+  }
+  body .search_content .input-wrapper input {
+    margin-left: 14px;
+    font-size: 16px;
+  }
+  body ._cont-l-img ._ad-list_img {
+    width: 70px;
+    height: 60px;
+  }
+  body ._badsdoller img {
+    width: 18px;
+  }
+  body .check_click input:checked + .bg_check_click {
+    box-shadow: #00B5DD 0px 0px 0px 2px inset;
+  }
+  body .bg_check_click {
+    box-shadow: #E3EDF3 0 0 0 1px inset;
+  }
+  body .bk-icon-des_fbas.gp10 {
+    gap: 8px;
+  }
+  body .bk-icon-des_fbas ._i-red22 {
+    font-size: 20px;
+  }
+  body ._fleft-tb svg {
+    width: 9px;
+  }
+  body ._fright-tb svg {
+    width: 9px;
+  }
+  body .section_calendar_admin .medio_calendar_admin ._fleft-tb {
+    margin-bottom: 1.6rem;
+  }
+  body .section_calendar_admin .medio_calendar_admin ._main-list-fech ._fright-tb {
+    margin-bottom: 1.6rem;
+  }
+  body .section_calendar_admin .medio_calendar_admin .right_bk_show {
+    border: 1px solid #E3EDF3 !important;
+  }
+  body .section_calendar_admin .medio_calendar_admin .right_bk_show.active-info {
+    flex: 372px !important;
+    width: 372px !important;
+    min-width: 372px !important;
+  }
+  body .block-pd-cl:not(:last-child) {
+    border-bottom: 1px solid #E3EDF3 !important;
+  }
+  body .block-pd-cl .gp21 {
+    gap: 18px;
+  }
+  body .block-pd-cl ._bkgris {
+    border-radius: 8px !important;
+    padding: 12px 29px !important;
+  }
+  body .block-pd-cl.rs {
+    padding: 0 30px 20px !important;
+  }
+  body .block-pd-cl.sw-pf {
+    padding: 21px 30px 29px !important;
+  }
+  body .block-pd-cl.sw-pf ._pf-msg {
+    max-width: 54px;
+    min-width: 54px;
+    height: 54px;
+    border: 2px solid #E3EDF3;
+  }
+  body .block-pd-cl.checks {
+    padding: 21px 30px 19px !important;
+  }
+}
+@media screen and (max-width: 900px) {
+  body .is-calendar-open .left_calendar_admin {
+    flex: 0 1 0%;
+    margin: 0;
+    padding: 0;
+    opacity: 0;
+  }
+  body .is-calendar-open .medio_calendar_admin {
+    flex: 1 1 0%;
+    opacity: 1;
+  }
+  body .btn_circle_flecha {
+    display: flex;
+  }
+  body .pd-130-0-50 {
+    padding: 0;
+    padding-bottom: 4rem;
+  }
+  body .container-medio {
+    width: 100%;
+  }
+  body .header_admin {
+    padding: 0;
+    display: block;
+    border: none;
+  }
+  body .header_admin ._mv-places {
+    padding: 14px 0;
+    border-top: 1px solid #E3EDF3;
+  }
+  body .header_admin .logo-menu {
+    display: none;
+  }
+  body .header_admin ._puntos3 ._menu-m {
+    top: -7rem;
+  }
+  body .header_admin ._puntos3.is-active ._menu-m {
+    top: -7rem;
+  }
+  body .header_admin .book-form ._flex-js a:nth-child(3) ._flex .icon_red {
+    color: #FF5A5F;
+  }
+  body .header_admin .book-form ._flex-js a:nth-child(3) ._flex span {
+    color: #333333;
+  }
+  body .header_admin .book-form ._flex-js ._flex .icon_red {
+    color: #b0b0b0;
+  }
+  body .header_admin .book-form ._flex-js ._flex span {
+    font-size: 10px;
+    line-height: 12px;
+    color: #7D7D7D;
+  }
+  body .content_icon-leng {
+    display: none;
+  }
+  body footer {
+    display: none;
+  }
+  body .cont-h2 {
+    padding: 24px 20px 0;
+  }
+  body .left_calendar_admin .section-listing {
+    padding: 0 20px 20px;
+  }
+  body .h2-guests {
+    font-size: 25px;
+  }
+  body .h2_publish {
+    font-size: 35px;
+  }
+  body .cont-h2 .h2-guests {
+    margin-top: 0;
+  }
+  body .left_calendar_admin .pd-t10 {
+    padding-top: 0;
+  }
+}
+
+.selected-modal {
+  width: fit-content;
+  margin: 0;
+}
+
+._txteh {
+  margin: 0;
+}
+
+._txtblu, ._txtblu16 {
+  margin: 0;
+  line-height: inherit;
+}
+
+.pd-130-0-50 {
+  padding: 130px 0 50px;
+}
+
+.pd-r30 {
+  padding-right: 30px;
+}
+
+._ck2ag {
+  position: absolute;
+  top: 9px;
+  right: 8px;
+}
+
+._tb-reservations tbody tr:not(:last-child) {
+  border-bottom: none;
+}
+._tb-reservations tbody td {
+  padding: 0;
+}
+
+._cont-l-img ._ad-list_img {
+  width: 75px;
+  height: 65px;
+}
+
+.check_click {
+  width: 100%;
+}
+.check_click input:checked + .bg_check_click {
+  box-shadow: #00B5DD 0px 0px 0px 2px inset;
+}
+
+.bg_check_click {
+  width: 100%;
+  cursor: pointer;
+  padding: 9px 8px;
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  box-shadow: #E3EDF3 0px 0px 0px 2px inset;
+  position: relative;
+}
+.bg_check_click ._f-t {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.left_calendar_admin {
+  flex: 0 0 400px;
+  transition: all 0.5s ease;
+}
+@media (max-width: 900px) {
+  .left_calendar_admin {
+    flex: 1 1 0%;
+    padding: 0;
+  }
+}
+
+.medio_calendar_admin {
+  flex: 1 1 0%;
+  transition: all 0.5s ease;
+}
+@media (max-width: 900px) {
+  .medio_calendar_admin {
+    flex: 0 1 0%;
+  }
+}
+
+.section_calendar_admin .medio_calendar_admin ._header-btns4 {
+  margin-bottom: 15px;
+}
+.section_calendar_admin .medio_calendar_admin .ps_shw_bk {
+  position: relative;
+}
+.section_calendar_admin .medio_calendar_admin ._fleft-tb {
+  margin: 0 12.6px 1.8rem 11.6px;
+  cursor: pointer;
+}
+.section_calendar_admin .medio_calendar_admin ._fright-tb {
+  margin-left: 12.6px;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+.section_calendar_admin .medio_calendar_admin ._bkgris {
+  border-radius: 10px;
+  background-color: rgba(227, 237, 243, 0.3);
+  padding: 14px 31px;
+}
+.section_calendar_admin .medio_calendar_admin ._tb-reservations thead tr {
+  border-bottom: 0;
+}
+.section_calendar_admin .medio_calendar_admin ._tb-reservations thead th {
+  padding: 6.5px;
+  width: 80px;
+  text-align: center;
+  background-color: #FFFFFF;
+  box-shadow: #E3EDF3 0px 0px 0px 1px inset;
+}
+.section_calendar_admin .medio_calendar_admin ._tb-reservations thead .active_blue_tb {
+  background-color: #00B5DD;
+}
+.section_calendar_admin .medio_calendar_admin ._tb-reservations thead .active_blue_tb ._txtbold7d14 {
+  color: #FFFFFF;
+}
+.section_calendar_admin .medio_calendar_admin ._tb-reservations tbody .active_br_blue_table {
+  border: 2px solid #00B5DD;
+}
+.section_calendar_admin .medio_calendar_admin ._tb-reservations tbody td {
+  padding: 6.5px;
+  width: 80px;
+  height: 78px;
+  text-align: center;
+  background-color: #FFFFFF;
+  box-shadow: #E3EDF3 0px 0px 0px 1px inset;
+  position: relative;
+  overflow: hidden;
+}
+.section_calendar_admin .medio_calendar_admin ._tb-reservations tbody .not-linetb {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  right: 50%;
+  transform: rotate(45deg);
+  width: 2px;
+  height: 132%;
+  background-color: #E3EDF3;
+}
+.section_calendar_admin .medio_calendar_admin ._tb-reservations tbody ._ctly-htg-ver {
+  background-color: #E3EDF3;
+}
+.section_calendar_admin .medio_calendar_admin ._main-list-fech {
+  padding-top: 25px;
+  padding-right: 68.6px;
+}
+.section_calendar_admin .medio_calendar_admin ._main-list-fech ._scrolltable {
+  padding-bottom: 18px;
+  overflow: overlay;
+}
+.section_calendar_admin .medio_calendar_admin ._main-list-fech ._tb-reservations {
+  min-width: max-content;
+}
+.section_calendar_admin .medio_calendar_admin ._main-list-fech ._fright-tb {
+  margin-bottom: 1.8rem;
+}
+.section_calendar_admin .medio_calendar_admin .tbody-list-doller {
+  margin: 0 0 25px 35px;
+  background-color: #FFFFFF;
+}
+.section_calendar_admin .medio_calendar_admin .tbody-list-doller ._scrolltable {
+  height: 100%;
+  overflow: auto;
+}
+.section_calendar_admin .medio_calendar_admin .tbody-list-doller ._scrolltable::-webkit-scrollbar:horizontal {
+  display: none;
+}
+.section_calendar_admin .medio_calendar_admin .right_bk_show {
+  flex: 93px;
+  width: 93px;
+  min-width: 93px;
+  max-width: 100%;
+  background-color: #FFFFFF;
+  border: 2px solid #E3EDF3;
+  box-shadow: -30px 0 40px 0 rgba(0, 0, 0, 0.29);
+  transition: all 0.3s ease;
+  z-index: 1;
+}
+.section_calendar_admin .medio_calendar_admin .right_bk_show .ow-a {
+  overflow: hidden;
+}
+.section_calendar_admin .medio_calendar_admin .right_bk_show.active-info {
+  flex: 414px;
+  width: 414px;
+  min-width: 414px;
+}
+.section_calendar_admin .medio_calendar_admin .right_bk_show.active-info .ow-a {
+  overflow: auto;
+}
+.section_calendar_admin .medio_calendar_admin .right_bk_show.active-info .show-inf-details-calendar {
+  opacity: 1;
+  visibility: visible;
+}
+.section_calendar_admin .medio_calendar_admin .right_bk_show.active-info .object {
+  padding-right: 12rem;
+}
+.section_calendar_admin .medio_calendar_admin .right_bk_show.active-info ._fright-tb {
+  transform: rotate(180deg);
+}
+.section_calendar_admin .medio_calendar_admin .right_bk_show .block-pd-cl:not(:last-child) {
+  border-bottom: 2px solid #E3EDF3;
+}
+.section_calendar_admin .medio_calendar_admin .right_bk_show .block-pd-cl.rs {
+  padding: 0 32px 22px;
+}
+.section_calendar_admin .medio_calendar_admin .right_bk_show .block-pd-cl.sw-pf {
+  padding: 23px 32px 31px;
+}
+.section_calendar_admin .medio_calendar_admin .right_bk_show .block-pd-cl.checks {
+  padding: 23px 32px 21px;
+}
+.section_calendar_admin .medio_calendar_admin .right_bk_show .show-inf-details-calendar {
+  transition: all 0.3s ease;
+  opacity: 0;
+  visibility: hidden;
+}

@@ -1,15 +1,51 @@
-<div class="block">
+<div class="block {{ $classActive['cleaning'] ? 'edit_listing_post' : ''}}">
     <h2 class="h2-guests">Additional charges</h2>
 
     <div class="fx fx-ai-b fx-jc-sb" style="gap: 25px;">
         <div class="w100">
             <h3 class="_txteh">Cleaning fee</h3>
-            <div class="_width_text">
-                <span class="_txtec">$40 per stay, including short stays</span>
+            <div class="_width_text show_info">
+                @if ( $content['cleaning_fee'] != '' && $content['cleaning_fee'] != 0 )
+                    <span class="_txtec">{{ $content['cleaning_fee'] }}$ per stay</span>
+                @else
+                    <span class="_txtec">Not set</span>
+                @endif
             </div>
+
+            <div class="_width_text show_text">
+                <p class="_txtec">Set a fee to cover cleaning after each stay. For any excess cleaning, there's AirCover.</p>
+
+                <a href="#" class="_txtehlinear">Learn about cleaning fees</a>
+            </div>
+
+            <form wire:submit.prevent="submitCleaning" class="show_form_input" style="margin-top: 32px;">
+                <div class="fx fx-fd-c" style="gap: 30px;">
+                    <div class="_flfpc mxw445">
+                        <div class="txt-check-in">Cleaning fee</div>
+
+                        <label class="before_icon_input @error('cleaning_fee') error_input @enderror">
+                            <span class="_txtec">$</span>
+                            <input type="text" class="number" wire:model.defer="content.cleaning_fee">
+                        </label>
+                        @error('cleaning_fee')
+                            <div style="display: block;" class="_txterror">
+                                <i class="fas fa-exclamation-circle icon1"></i> 
+                                {{ $message }}
+                            </div>
+                        @enderror
+                    </div>
+
+                    <div class="fx fx-fw-w fx-jc-sb" style="gap: 12px;">
+                        <div class="_btnsmleft click_cancel_listing" wire:click='disabledClass("cleaning")'>
+                            <span>Cancel</span>
+                        </div>
+                        <button class="btn-celest">Save</button>
+                    </div>
+                </div>
+            </form>
         </div>
 
-        <div class="_btnsm">
+        <div class="_btnsm edit" wire:click='activeClass("cleaning")'>
             <span class="_fcontent">
                 Edit
                 <span class="_svg-asm">
@@ -24,21 +60,23 @@
     <div class="fx fx-ai-b fx-jc-sb" style="gap: 25px;">
         <div class="w100">
             <h3 class="_txteh">Pet fee</h3>
-            <div class="_width_text">
+            <div class="_width_text show_info">
                 @if ( $content['pet_fee'] != '' && $content['pet_fee'] != 0 )
-                    <div class="_width_text show_info">
-                        <span class="_txtec">{{ $content['pet_fee'] }}$ fee for Pets</span>
-                    </div>
+                    <span class="_txtec">{{ $content['pet_fee'] }}$ fee for Pets</span>
                 @else
-                    <div class="_width_text show_info">
-                        <span class="_txtec">Pets stay for free</span>
-                    </div>
+                    <span class="_txtec">Pets stay for free</span>
                 @endif
+            </div>
+
+            <div class="_width_text show_text">
+                <p class="_txtec">Set a fee to cover cleaning after each stay. For any excess cleaning, there's AirCover.</p>
+
+                <a href="#" class="_txtehlinear">Learn about pet fees</a>
             </div>
 
             <form wire:submit.prevent="submitPets" class="show_form_input" style="margin-top: 48px;">
                 <div class="form_input">
-                    <div class="_flfpc">
+                    <div class="_flfpc mxw445">
                         <div class="txt-check-in">Fee per reservation</div>
 
                         <label class="before_icon_input @error('pet_fee') error_input @enderror">
@@ -80,13 +118,9 @@
             <h3 class="_txteh">Linens fee</h3>
             <div class="_width_text show_info">
                 @if ( $content['linens_fee'] != '' && $content['linens_fee'] != 0 )
-                    <div class="_width_text show_info">
-                        <span class="_txtec">{{ $content['linens_fee'] }}$ fee for Linens</span>
-                    </div>
+                    <span class="_txtec">{{ $content['linens_fee'] }}$ fee for Linens</span>
                 @else
-                    <div class="_width_text show_info">
-                        <span class="_txtec">Not set</span>
-                    </div>
+                    <span class="_txtec">Not set</span>
                 @endif
             </div>
 
@@ -96,7 +130,7 @@
 
             <form wire:submit.prevent="submitLinens" class="show_form_input" style="margin-top: 30px;">
                 <div class="fx fx-fd-c" style="gap: 30px;">
-                    <div class="_flfpc">
+                    <div class="_flfpc mxw445">
                         <div class="txt-check-in">Fee per reservation</div>
 
                         <label class="before_icon_input @error('linens_fee') error_input @enderror">
@@ -138,13 +172,9 @@
             <h3 class="_txteh">Resort fee</h3>
             <div class="_width_text show_info">
                 @if ( $content['resort_fee'] != '' && $content['resort_fee'] != 0 )
-                    <div class="_width_text show_info">
-                        <span class="_txtec">{{ $content['resort_fee'] }}{{ $content['resort_type'] == 'porcent' ? '%' : '$' }} fee for Resort</span>
-                    </div>
+                    <span class="_txtec">{{ $content['resort_fee'] }}{{ $content['resort_type'] == 'porcent' ? '%' : '$' }} fee for Resort</span>
                 @else
-                    <div class="_width_text show_info">
-                        <span class="_txtec">Not set</span>
-                    </div>
+                    <span class="_txtec">Not set</span>
                 @endif
             </div>
 
@@ -155,7 +185,7 @@
             <form wire:submit.prevent="submitResort" class="show_form_input" style="margin-top: 30px;">
                 <div class="fx fx-fd-c" style="gap: 30px;">
                      <div class="resort_fee_flex">
-                        <div class="block_date">
+                        <div class="mxw445">
                             <div class="txt-check-in">Fee per reservation</div>
 
                             <label class="before_icon_input @error('resort_fee') error_input @enderror">
@@ -169,7 +199,7 @@
                                 </div>
                             @enderror
                         </div>
-                        <div class="block_date">
+                        <div class="mxw100">
                             <div class="txt-check-in">Type</div>
                             <div class="selected-modal" style="margin: 0;">
                                 <select wire:model.defer="content.resort_type" class="@error('resort_type') error_input @enderror">
@@ -229,7 +259,7 @@
             <form wire:submit.prevent="submitManagement" class="show_form_input" style="margin-top: 30px;">
                 <div class="fx fx-fd-c" style="gap: 30px;">
                     <div class="resort_fee_flex">
-                        <div class="block_date">
+                        <div class="mxw445">
                             <div class="txt-check-in">Fee per reservation</div>
                             <input type="text" wire:model.defer="content.management_fee" class="_numcard @error('management_fee') error_input @enderror">
                             @error('management_fee')
@@ -240,7 +270,7 @@
                             @enderror
                         </div>
 
-                        <div class="block_date">
+                        <div class="mxw100">
                             <div class="txt-check-in">Type</div>
                             <div class="selected-modal" style="margin: 0;">
                                 <select wire:model.defer="content.management_type" class="@error('management_type') error_input @enderror">
@@ -299,7 +329,7 @@
             <form wire:submit.prevent="submitCommunity" class="show_form_input" style="margin-top: 30px;">
                 <div class="fx fx-fd-c" style="gap: 30px;">
                     <div class="resort_fee_flex">
-                        <div class="block_date">
+                        <div class="mxw445">
                             <div class="txt-check-in">Fee per reservation</div>
                             <input type="text" wire:model.defer="content.community_fee" class="_numcard @error('community_fee') error_input @enderror">
                             @error('community_fee')
@@ -310,7 +340,7 @@
                             @enderror
                         </div>
 
-                        <div class="block_date">
+                        <div class="mxw100">
                             <div class="txt-check-in">Type</div>
                             <div class="selected-modal" style="margin: 0;">
                                 <select wire:model.defer="content.community_type" class="@error('community_type') error_input @enderror">
@@ -357,13 +387,9 @@
             <h3 class="_txteh">Extra guest fee</h3>
             <div class="_width_text show_info">
                 @if ( $content['extra_guest_fee'] != '' && $content['extra_guest_fee'] != 0 )
-                    <div class="_width_text show_info">
-                        <span class="_txtec">{{ $content['extra_guest_fee'] }}$ fee for Extra guest</span>
-                    </div>
+                    <span class="_txtec">{{ $content['extra_guest_fee'] }}$ fee for {{ $content['extra_guest'] }} Extra guest</span>
                 @else
-                    <div class="_width_text show_info">
-                        <span class="_txtec">Not set</span>
-                    </div>
+                    <span class="_txtec">Not set</span>
                 @endif
             </div>
 
@@ -374,7 +400,7 @@
             <form wire:submit.prevent="submitExtrGuest" class="show_form_input" style="margin-top: 30px;">
                 <div class="fx fx-fd-c" style="gap: 30px;">
 
-                    <div class="_flfpc">
+                    <div class="_flfpc mxw445">
                         <label class="before_icon_input @error('extra_guest_fee') error_input @enderror">
                             <span class="_txtec">$</span>
                             <input type="text" wire:model.defer="content.extra_guest_fee" class="number">
@@ -387,11 +413,11 @@
                         @enderror
                     </div>
 
-                    <div class="fx fx-ai-b fx-jc-sb" style="gap: 25px;">
+                    <div class="_flfpc mxw445" style="gap: 25px;">
                         <span class="_txtec">Number of guests</span>
 
                         <div class="_2btns">
-                            <button class="_btn" type="button" aria-label="disminuir valor" disabled="">
+                            <button class="_btn" type="button" aria-label="disminuir valor" {{ $disableButton['DecreaseGuest'] ? 'disabled' : '' }} wire:click="decreaseGuest">
                                 <span>
                                     <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" role="presentation" focusable="false">
                                         <path d="m2 16h28"></path>
@@ -399,9 +425,9 @@
                                 </span>
                             </button>
                             
-                            <span>4</span>
+                            <span>{{ $content['extra_guest'] }}</span>
 
-                            <button class="_btn" type="button" aria-label="aumentar valor">
+                            <button class="_btn" type="button" aria-label="aumentar valor" {{ $disableButton['IncreaseGuest'] ? 'disabled' : '' }} wire:click="increaseGuest">
                                 <span>
                                     <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" role="presentation" focusable="false">
                                         <path d="m2 16h28m-14-14v28"></path>
@@ -438,13 +464,9 @@
             <h3 class="_txteh">Weekend nightly price</h3>
             <div class="_width_text show_info">
                 @if ( $content['weekend_nightly_fee'] != '' && $content['weekend_nightly_fee'] != 0 )
-                    <div class="_width_text show_info">
-                        <span class="_txtec">{{ $content['weekend_nightly_fee'] }}$ fee for Weekend nightly</span>
-                    </div>
+                    <span class="_txtec">{{ $content['weekend_nightly_fee'] }}$ fee for Weekend nightly</span>
                 @else
-                    <div class="_width_text show_info">
-                        <span class="_txtec">Not set</span>
-                    </div>
+                    <span class="_txtec">Not set</span>
                 @endif
             </div>
 
@@ -454,7 +476,7 @@
 
             <form wire:submit.prevent="submitNighly" class="show_form_input" style="margin-top: 30px;">
                 <div class="fx fx-fd-c" style="gap: 30px;">
-                    <div class="_flfpc">
+                    <div class="_flfpc mxw445">
                         <label class="before_icon_input @error('weekend_nightly_fee') error_input @enderror">
                             <span class="_txtec">$</span>
                             <input type="text" wire:model.defer="content.weekend_nightly_fee" class="number">

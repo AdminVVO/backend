@@ -6,7 +6,6 @@
 .h_not .header {
   position: sticky;
   top: 0;
-  margin-bottom: 94px;
   background-color: #283646;
 }
 @media (max-width: 1140px) {
@@ -22,6 +21,14 @@
 
 .mrb-0 .header {
   margin-bottom: 0;
+}
+
+.mrb-94 .header {
+  margin-bottom: 94px;
+}
+
+.mrb-60 .header {
+  margin-bottom: 60px;
 }
 
 .header.fixed {

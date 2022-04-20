@@ -1,8 +1,20 @@
-@if ( Route::currentRouteName() == 'reservations' || Route::currentRouteName() == 'listing-show' )
+@if ( in_array( Route::currentRouteName(),['reservations', 'listing-show'],) )
     <div class="h_admin mrb-0">
-@else
+@endif
+
+@if ( in_array( Route::currentRouteName(),['ReservCreate', 'ReservPreview'],) )
+    <div class="h_admin h_reservation_form">
+@endif
+
+@if ( in_array( Route::currentRouteName(),['messageUserIndex'],) )
+    <div class="h_admin h_not h_pa">
+@endif
+
+@if ( !in_array( Route::currentRouteName(),['reservations', 'listing-show', 'ReservCreate', 'ReservPreview', 'messageUserIndex']) )
     <div class="h_admin">
 @endif
+
+
     <header class="entero header_admin">
         <div class="medio">
             <a href="{{ route('/') }}" class="logo-menu">
@@ -85,7 +97,13 @@
                 <div class="menu_home-content">
                     <div class="menu_home-content-items">
                         <ul>
-                            <li><a href="#">Message</a></li>
+                            <li><a href="{{ route('messageUserIndex') }}">Message</a></li>
+                            <form id="form" action="{{route('messageUserIndex' )}}" method="POST">
+                                @csrf
+                                <input type="hidden" name="id" value="a71cafd0-70d6-45ca-b691-078925a3c34e">
+                                {{-- <input type="hidden" name="id" value="e60d16e4-008c-4e47-a007-4339ebca8d6f"> --}}
+                            </form>
+                            <li><a href="javascript:void(0)" onclick="$('#form').submit()">MessageID</a></li>
                             <li><a href="#">Trips</a></li>
                             <li><a href="#">Wishlists</a></li>
                         </ul>

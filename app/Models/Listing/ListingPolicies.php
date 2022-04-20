@@ -27,4 +27,10 @@ class ListingPolicies extends Model
     protected $dates = [
         'deleted_at'
     ];
+
+    protected $casts = [
+        'checkin_window_start' => 'array',
+        'checkin_window_end' => 'array',
+        'checkout_time' => 'array',
+    ];
 }

@@ -2,7 +2,7 @@ $(document).ready(iniciar);
 
 function iniciar() {
     $('.date-v-modals').datepicker({
-        dateFormat: "yy-mm-dd",
+        dateFormat: "yy/mm/dd",
         autoclose: true,
         todayHighlight: true,
         selectOtherMonths: true,
@@ -10,12 +10,7 @@ function iniciar() {
         yearRange: '-100:+0',
         autoclose: true,
         // minDate: 0, // Desactivar los dias pasados
-        orientation: "button",
-
-        // onSelect: function(dateText) {
-        //     console.log("dateText", dateText)
-        //     $('#endDate').val( dateText )
-        // }
+        orientation: "button"
     });
 }
 

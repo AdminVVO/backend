@@ -54,4 +54,21 @@ class RoomsProperty extends Model
         }
     }
 
+    public function scopeTypeListing($query, $type)
+    {
+        switch ( $type ) {
+            case 'entire_place':
+                return 'Entire place';
+                break;
+
+            case 'private_room':
+                return 'Private room';
+                break;
+                
+            case 'shared_room':
+                return 'Shared room';
+                break;
+        }
+    }
+
 }

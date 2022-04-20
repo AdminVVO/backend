@@ -59,14 +59,12 @@
 					</ul>
 				</div>
 			</div>
-		</div>
-	</div>
 
-	<div class="copyright entero">
-		<div class="medio">
-			<div class="copyright_content">
-				<p>&copy; 2021 vvoutlet <span>·</span> <a href="#">Privacy</a> <span>·</span></p>
-				<p><a href="#"> Terms</a> <span>·</span> <a href="#">Sitemap</a></p>
+			<div class="copyright entero">
+				<div class="copyright_content">
+					<p>&copy; 2021 vvoutlet <span>·</span> <a href="#">Privacy</a> <span>·</span></p>
+					<p><a href="#"> Terms</a> <span>·</span> <a href="#">Sitemap</a></p>
+				</div>
 			</div>
 		</div>
 	</div>

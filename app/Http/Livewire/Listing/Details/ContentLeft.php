@@ -36,6 +36,8 @@ class ContentLeft extends Component
     public $disableButton = [
         'Increase' => false,
         'Decrease' => false,
+        'IncreaseGuest' => false,
+        'DecreaseGuest' => false,
     ];
     public $classActive = [
         'photos' => false,
@@ -60,6 +62,7 @@ class ContentLeft extends Component
         'other_discount' => false,
         'early_bird_discount' => false,
         'last_minute_discount' => false,
+        'cleaning' => false,
         'pets' => false,
         'linens' => false,
         'resort' => false,
@@ -100,23 +103,37 @@ class ContentLeft extends Component
     private $listinType = [
         'entire_place' => 'Entire place',
         'private_room' => 'Private room',
-        'shared_room' => 'Shared room',
+        'shared_room' => 'Shared room'
+    ];
+
+    protected $listeners = [
+        'latlong' => 'latlong'
     ];
 
     public $selectDescribPlace = [];
 
-    /* Variables para Add Inputs */
+    /* Variables para Add Inputs Discount Stays*/
     public $inputs = [];
+    public $i = 1;
     public $inputStays = [];
     public $inputStaysDiscount = [];
+    public $disableAdd = false;
+
+    /* Variables para Add Inputs LastMin Discount*/
+    public $inputsLast = [];
+    public $iLast = 1;
+    public $inputLast = [];
+    public $inputLastDiscount = [];
+    public $disableAddLast = false;
 
 
     public function mount()
     {
-        // $this->queryOneBars($this->listing);
-        $this->queryTwoBars($this->listing);
-        // $this->stepBar = 'details';
-        $this->stepBar = 'pricing';
+        $this->queryOneBars($this->listing);
+        $this->stepBar = 'details';
+
+        // $this->queryTreeBars($this->listing);
+        // $this->stepBar = 'policies';
 
         if ( $this->stepBar === 'details') {
             if ( $this->content['number_guests'] >= 5 ) 
@@ -174,10 +191,30 @@ class ContentLeft extends Component
                 $this->changeEvent( $this->content['like_place'] );
 
             if ( $payload === 'other_discount' ){
-                $this->reset(['inputs','inputStays','inputStaysDiscount',]);
-                $this->inputStays = isset( $this->oldContent['inputStays'] ) ? $this->oldContent['inputStays'] : [];
-                $this->inputStaysDiscount = isset( $this->oldContent['inputStaysDiscount'] ) ? $this->oldContent['inputStaysDiscount'] : [];
+                $this->reset(['inputStays', 'inputStaysDiscount','inputs','i','disableAdd']);
+                $this->inputs = $this->oldContent['inputs'];
+                $this->i = $this->oldContent['i'];
+                $this->disableAdd = $this->oldContent['disableAdd'];
+                $this->inputStays = $this->oldContent['inputStays'];
+                $this->inputStaysDiscount = $this->oldContent['inputStaysDiscount'];
             }
+
+            if ( $payload === 'last_minute_discount' ){
+                $this->reset(['inputLast', 'inputLastDiscount','inputsLast','iLast','disableAddLast']);
+                $this->inputsLast = $this->oldContent['inputsLast'];
+                $this->iLast = $this->oldContent['iLast'];
+                $this->disableAddLast = $this->oldContent['disableAddLast'];
+                $this->inputLast = $this->oldContent['inputLast'];
+                $this->inputLastDiscount = $this->oldContent['inputLastDiscount'];
+            }
+
+            if ( $payload === 'location_sharing' ){
+                $this->dispatchBrowserEvent('refreshMapbox', [
+                    'latitude' => $this->content['latitude'],
+                    'longitude' => $this->content['longitude'],
+                ]);
+            }
+            
 
         $this->classActive[ $payload ] = false;
     }
@@ -198,6 +235,7 @@ class ContentLeft extends Component
             'listings.language_default',
             'listings.status',
             'listings.resort',
+            'listings.template',
             'listings.amenities',
             'listings.safety',
             'listing_locations.country',
@@ -246,6 +284,7 @@ class ContentLeft extends Component
         $this->content['language_default'] = $query['language_default'];
         $this->content['status'] = $query['status'];
         $this->content['resort'] = $query['resort'];
+        $this->content['template'] = $query['template'];
 
 
         $this->content['amenities'] = $query['amenities'];
@@ -310,12 +349,9 @@ class ContentLeft extends Component
             'listing_pricings.weekly_discount',
             'listing_pricings.monthly_discount',
             'listing_pricings.other_discount_array',
-            'listing_pricings.other_discount',
-            'listing_pricings.other_discount_porcent',
             'listing_pricings.early_bird_discount',
             'listing_pricings.early_bird_discount_porcent',
-            'listing_pricings.last_minute_discount',
-            'listing_pricings.last_minute_discount_porcent',
+            'listing_pricings.last_minute_discount_array',
             'listing_pricings.cleaning_fee',
             'listing_pricings.pet_fee',
             'listing_pricings.linens_fee',
@@ -325,6 +361,7 @@ class ContentLeft extends Component
             'listing_pricings.management_type',
             'listing_pricings.community_fee',
             'listing_pricings.community_type',
+            'listing_pricings.extra_guest',
             'listing_pricings.extra_guest_fee',
             'listing_pricings.weekend_nightly_fee',
             'listing_calendar_availabilities.minimum_stay',
@@ -351,8 +388,6 @@ class ContentLeft extends Component
         $this->content['listing_currency']             = $query['listing_currency'];
         $this->content['weekly_discount']              = $query['weekly_discount'];
         $this->content['monthly_discount']             = $query['monthly_discount'];
-        $this->content['other_discount']               = $query['other_discount'];
-        $this->content['other_discount_porcent']       = $query['other_discount_porcent'];
         $this->content['early_bird_discount']          = $query['early_bird_discount'];
         $this->content['early_bird_discount_porcent']  = $query['early_bird_discount_porcent'];
         $this->content['last_minute_discount']         = $query['last_minute_discount'];
@@ -366,6 +401,7 @@ class ContentLeft extends Component
         $this->content['management_type']              = $query['management_type'];
         $this->content['community_fee']                = $query['community_fee'];
         $this->content['community_type']               = $query['community_type'];
+        $this->content['extra_guest']                  = $query['extra_guest'];
         $this->content['extra_guest_fee']              = $query['extra_guest_fee'];
         $this->content['weekend_nightly_fee']          = $query['weekend_nightly_fee'];
         $this->content['minimum_stay']                 = $query['minimum_stay'];
@@ -387,21 +423,55 @@ class ContentLeft extends Component
         $this->content['currency']                     = Currencs::pluck('name', 'code');
         $this->oldContent = $this->content;
 
+        /* Codigo para llenar los inputs repetidos - Discount Stays*/
+            $this->reset(['inputStays', 'inputStaysDiscount','inputs','disableAdd','i']);
+            if ( count( $query['other_discount_array'] ) != 0 ) {
+                $this->i = 5;
+                foreach ( $query['other_discount_array'] as $key => $value) {
+                    array_push($this->inputs , $key );
+                    $this->inputStays[ $key ] = $value['type'];
+                    $this->inputStaysDiscount[ $key ] = $value['discont'];
+                }
+                    if ( count( $this->inputs ) >= 3 )
+                        $this->disableAdd = true;
+            }
 
-        $this->inputStays = [
-            0 => '12 weeks',
-            1 => '8 weeks',
-            
-        ];
+            if ( count( $this->inputStays ) == 0 ){
+                array_push($this->inputs ,0);
+                $this->inputStays[ 0 ] = '';
+                $this->inputStaysDiscount[ 0 ] = '';
+            }
+        
+        $this->oldContent['disableAdd'] = $this->disableAdd;
+        $this->oldContent['inputs'] = $this->inputs;
+        $this->oldContent['i'] = $this->i;
+        $this->oldContent['inputStays'] = $this->inputStays;
+        $this->oldContent['inputStaysDiscount'] = $this->inputStaysDiscount;
 
-        $this->inputStaysDiscount = [
-            0 => '10',
-            1 => '20',
-            
-        ];
-        $this->inputs[ count( $this->inputStays ) - 1 ] = count( $this->inputStays ) - 1;
-        // array_push($this->inputs, count( $this->inputStays ) - 1);
+        /* Codigo para llenar los inputs repetidos - Discount LastMinute*/
+            $this->reset(['inputLast', 'inputLastDiscount','inputsLast','disableAddLast','iLast']);
+            if ( count( $query['last_minute_discount_array'] ) != 0 ) {
+                $this->iLast = 5;
+                foreach ( $query['last_minute_discount_array'] as $key => $value) {
+                    array_push($this->inputsLast , $key );
+                    $this->inputLast[ $key ] = $value['type'];
+                    $this->inputLastDiscount[ $key ] = $value['discont'];
+                }
+                    if ( count( $this->inputsLast ) >= 3 )
+                        $this->disableAddLast = true;
+            }
 
+            if ( count( $this->inputLast ) == 0 ){
+                array_push($this->inputsLast ,0);
+                $this->inputLast[ 0 ] = '';
+                $this->inputLastDiscount[ 0 ] = '';
+            }
+        
+        $this->oldContent['disableAddLast'] = $this->disableAddLast;
+        $this->oldContent['inputsLast'] = $this->inputsLast;
+        $this->oldContent['iLast'] = $this->iLast;
+        $this->oldContent['inputLast'] = $this->inputLast;
+        $this->oldContent['inputLastDiscount'] = $this->inputLastDiscount;
     }
 
     /* Query Select Tree Options Bars */
@@ -435,9 +505,17 @@ class ContentLeft extends Component
         $this->content['title']                  = $query['title'];
         $this->content['cancellation_policy']    = $query['cancellation_policy'];
         $this->content['instant_book']           = $query['instant_book'];
-        $this->content['checkin_window_start']   = $query['checkin_window_start'];
-        $this->content['checkin_window_end']     = $query['checkin_window_end'];
-        $this->content['checkout_time']          = $query['checkout_time'];
+
+     
+        $this->content['checkin_window_start']['time'] = count( $query['checkin_window_start'] ) != 0 ? $query['checkin_window_start']['time'] : '';
+        $this->content['checkin_window_start']['type'] = count( $query['checkin_window_start'] ) != 0 ? $query['checkin_window_start']['type'] : 'AM';
+        $this->content['checkin_window_end']['time'] = count( $query['checkin_window_end'] ) != 0 ? $query['checkin_window_end']['time'] : '';
+        $this->content['checkin_window_end']['type'] = count( $query['checkin_window_end'] ) != 0 ? $query['checkin_window_end']['type'] : 'AM';
+        $this->content['checkout_time']['time'] = count( $query['checkout_time'] ) != 0 ? $query['checkout_time']['time'] : '';
+        $this->content['checkout_time']['type'] = count( $query['checkout_time'] ) != 0 ? $query['checkout_time']['type'] : 'AM';
+
+
+
         $this->content['security_deposit']       = $query['security_deposit'];
         $this->content['suitable_for_children']  = $query['suitable_for_children'];
         $this->content['suitable_for_infants']   = $query['suitable_for_infants'];
@@ -449,13 +527,8 @@ class ContentLeft extends Component
         $this->content['local_laws']             = $query['local_law'];
         $this->content['primary_listing']        = $query['primary_listing'];
 
-        for ($i = 0; $i <= 23; $i++) { 
-            if ( $i <= 11 )
-                $this->content['time'][] = $i . ':00 AM';
-
-            if ( $i >= 12 )
-                $this->content['time'][] = $i . ':00 PM';
-        };
+        for ($i = 1; $i <= 12; $i++)
+            $this->content['time'][] = $i . ':00';
 
         $this->oldContent = $this->content;
     }
@@ -509,13 +582,8 @@ class ContentLeft extends Component
         $this->content['arrival_instructions']            = $query['arrival_instructions'];
         $this->content['wifi_details']                    = $query['wifi_details'];
 
-        for ($i = 0; $i <= 23; $i++) { 
-            if ( $i <= 11 )
-                $this->content['time'][] = $i . ':00 AM';
-
-            if ( $i >= 12 )
-                $this->content['time'][] = $i . ':00 PM';
-        };
+        for ($i = 1; $i <= 12; $i++)
+            $this->content['time'][] = $i . ':00';
 
         $this->oldContent = $this->content;
     }
@@ -526,41 +594,7 @@ class ContentLeft extends Component
         $positionTwo = array_splice($array, 0, $value2);
         return array_merge( $positionTwo, $positionOne, $array );
     }
-
-
-    public function addInputs($i)
-    {
-        $i = $i + 1;
-        $this->inputs[ $i ] = $i;
-        $this->inputStays[ $i ] = '';
-        $this->inputStaysDiscount[ $i ] = '';
-
-        // $xxx = [
-        //     'inputs' => $this->inputs,
-        //     'inputStays' => $this->inputStays,
-        //     'inputStaysDiscount' => $this->inputStaysDiscount,
-        // ];
-        // dd($xxx);
-    }
-
-    public function removeInputs($i)
-    {
-        unset($this->inputs[ $i ]);
-        unset($this->inputStays[ $i ]);
-        unset($this->inputStaysDiscount[ $i ]);
-
-
-        // $xxx = [
-        //     'inputs' => $this->inputs,
-        //     'inputStays' => $this->inputStays,
-        //     'inputStaysDiscount' => $this->inputStaysDiscount,
-        // ];
-        // dd($xxx);
-    }
-
-
-
-
+    
     /* Function Galeri Cover */
         public function returnCover( $payload )
         {
@@ -784,11 +818,13 @@ class ContentLeft extends Component
         public function submitStatus()
         {
             $validation = Validator::make([
-               'status' => $this->content['status'],
-               'resort' => $this->content['resort'],
+               'status'   => $this->content['status'],
+               'resort'   => $this->content['resort'],
+               'template' => $this->content['template'],
             ],[
-                'status' => 'required|in:Listed,Snoozed,Unlisted,Deactivate',
-                'resort' => 'required|email',
+                'status'   => 'required|in:Listed,Snoozed,Unlisted,Deactivate',
+                'resort'   => 'required|email',
+                'template' => 'required|in:MS Code,Source',
             ]);
 
                 if ($validation->fails())
@@ -798,8 +834,9 @@ class ContentLeft extends Component
                 'user_id'     => Auth::id(),
                 'id_listings' => $this->listing,
             ])->update([
-                'status' => $this->content['status'],
-                'resort' => $this->content['resort'],
+                'status'   => $this->content['status'],
+                'resort'   => $this->content['resort'],
+                'template' => $this->content['template'],
             ]);
 
             $this->alert('success', 'Update has been successful!');
@@ -942,6 +979,13 @@ class ContentLeft extends Component
             $this->queryOneBars($this->listing);
         }
 
+    /* Function Change Latitud Longitud */
+        public function latlong( $latitud, $longitud )
+        {
+            $this->content['latitude'] = $latitud;
+            $this->content['longitude'] = $longitud;
+        }
+
     /* Seccion Location Sharing */
         public function submitLocationSharing()
         {
@@ -960,11 +1004,17 @@ class ContentLeft extends Component
             ])->update([
                 'location_sharing'  => $this->content['location_sharing'],
                 'privacy_cancellations'  => $this->content['privacy_cancellations'],
+                'latitude'  => $this->content['latitude'],
+                'longitude'  => $this->content['longitude'],
             ]);
 
             $this->alert('success', 'Update has been successful!');
             $this->reset(['classActive']);
             $this->queryOneBars($this->listing);
+            $this->dispatchBrowserEvent('refreshMapbox', [
+                'latitude' => $this->content['latitude'],
+                'longitude' => $this->content['longitude'],
+            ]);
         }
 
     /* Seccion Scenic */
@@ -1163,43 +1213,62 @@ class ContentLeft extends Component
         }
 
     /* Seccion Other Stay */
+        public function addInputs($i)
+        {
+            if ( $this->disableAdd )
+                return;
+
+            $i = $i + 1;
+            $this->i = $i;
+            array_push($this->inputs ,$i);
+            $this->inputStays[ $i ] = '';
+            $this->inputStaysDiscount[ $i ] = '';
+            if ( count( $this->inputs ) >= 3 )
+                $this->disableAdd = true;
+
+        }
+
+        public function removeInputs($i)
+        {
+            $index = '';
+            foreach ( $this->inputs as $key => $value)
+                if ( $value === $i )
+                    $index = $key;
+
+            unset($this->inputs[ $index ]);
+            unset($this->inputStays[ $i ]);
+            unset($this->inputStaysDiscount[ $i ]);
+
+            if ( count( $this->inputs ) <= 2 )
+                $this->disableAdd = false;
+        }
+
         public function submitOtherStay()
         {
             $validation = Validator::make([
-               // 'other_discount'         => $this->content['other_discount'],
-               // 'other_discount_porcent' => $this->content['other_discount_porcent'],
                'inputStays'           => $this->inputStays,
                'inputStaysDiscount'   => $this->inputStaysDiscount,
             ],[
-                // 'other_discount'         => 'required|in:Weekly (1 week),Monthly (4 weeks),8 weeks,12 weeks',
-                // 'other_discount_porcent' => 'required|integer|min:0|max:100|digits_between:0,2',
-                'inputStays.0'           => 'required|in:Weekly (1 week),Monthly (4 weeks),8 weeks,12 weeks',
-                'inputStaysDiscount.0'   => 'required|integer|min:10|max:100|digits_between:0,2',
-
                 'inputStays.*'           => 'required|in:Weekly (1 week),Monthly (4 weeks),8 weeks,12 weeks',
                 'inputStaysDiscount.*'   => 'required|integer|min:10|max:100|digits_between:0,2',
             ]);
 
                 if ($validation->fails())
-                    return $this->alert('warning', 'Validation has failed.!');
-                    // $validation->validate();
+                    $validation->validate();
 
-        $xxx = [
-            'inputs' => $this->inputs,
-            'inputStays' => $this->inputStays,
-            'inputStaysDiscount' => $this->inputStaysDiscount,
-        ];
-        dd($xxx);
-
-
-          dd($this->inputStays);
+            $content = [];
+            $itera = 0;
+            foreach ($this->inputStays as $key => $value) {
+                $content[ $itera ]['type'] = $value;
+                $content[ $itera ]['discont'] = $this->inputStaysDiscount[ $key ];
+                $itera++;
+            }
 
             ListingPricing::where([
                 'user_id'    => Auth::id(),
                 'listing_id' => $this->listing,
             ])->update([
-                'other_discount'         => $this->content['other_discount'] != 0 ? $this->content['other_discount'] : '',
-                'other_discount_porcent' => $this->content['other_discount'] != 0 ? $this->content['other_discount_porcent'] : 0,
+                'other_discount_array' => $content,
             ]);
 
             $this->alert('success', 'Update has been successful!');
@@ -1234,15 +1303,77 @@ class ContentLeft extends Component
             $this->queryTwoBars($this->listing);
         }
 
-    /* Seccion Address */
+    /* Seccion Last Minute */
+        public function addInputsLast($i)
+        {
+            if ( $this->disableAddLast )
+                return;
+
+            $i = $i + 1;
+            $this->iLast = $i;
+            array_push($this->inputsLast ,$i);
+            $this->inputLast[ $i ] = '';
+            $this->inputLastDiscount[ $i ] = '';
+            if ( count( $this->inputsLast ) >= 3 )
+                $this->disableAddLast = true;
+        }
+
+        public function removeInputsLast($i)
+        {
+            $index = '';
+            foreach ( $this->inputsLast as $key => $value)
+                if ( $value === $i )
+                    $index = $key;
+
+            unset($this->inputsLast[ $index ]);
+            unset($this->inputLast[ $i ]);
+            unset($this->inputLastDiscount[ $i ]);
+
+            if ( count( $this->inputsLast ) <= 2 )
+                $this->disableAddLast = false;
+        }
+
         public function submitLastMinute()
         {
             $validation = Validator::make([
-               'last_minute_discount'         => $this->content['last_minute_discount'],
-               'last_minute_discount_porcent' => $this->content['last_minute_discount_porcent'],
+               'inputLast'           => $this->inputLast,
+               'inputLastDiscount'   => $this->inputLastDiscount,
             ],[
-                'last_minute_discount'         => 'required|in:0,1,2,3,4,5',
-                'last_minute_discount_porcent' => 'required|integer|min:0|max:100|digits_between:0,3',
+                'inputLast.*'           => 'required|in:0,1,2,3,4,5',
+                'inputLastDiscount.*'   => 'required|integer|min:0|max:100|digits_between:0,3',
+            ]);
+
+                if ($validation->fails())
+                    return $this->alert('warning', 'Validation has failed.!');
+                    // $validation->validate();
+
+            $content = [];
+            $itera = 0;
+            foreach ($this->inputLast as $key => $value) {
+                $content[ $itera ]['type'] = $value;
+                $content[ $itera ]['discont'] = $this->inputLastDiscount[ $key ];
+                $itera++;
+            }
+
+            ListingPricing::where([
+                'user_id'    => Auth::id(),
+                'listing_id' => $this->listing,
+            ])->update([
+                'last_minute_discount_array' => $content,
+            ]);
+
+            $this->alert('success', 'Update has been successful!');
+            $this->reset(['classActive']);
+            $this->queryTwoBars($this->listing);
+        }
+
+    /* Seccion Pets */
+        public function submitCleaning()
+        {
+            $validation = Validator::make([
+               'cleaning_fee'         => $this->content['cleaning_fee'],
+            ],[
+                'cleaning_fee' => 'required|integer|min:0|max:500',
             ]);
 
                 if ($validation->fails())
@@ -1252,8 +1383,7 @@ class ContentLeft extends Component
                 'user_id'    => Auth::id(),
                 'listing_id' => $this->listing,
             ])->update([
-                'last_minute_discount'         => $this->content['last_minute_discount'] != 0 ? $this->content['last_minute_discount'] : '',
-                'last_minute_discount_porcent' => $this->content['last_minute_discount'] != 0 ? $this->content['last_minute_discount_porcent'] : 0,
+                'cleaning_fee' => $this->content['cleaning_fee'],
             ]);
 
             $this->alert('success', 'Update has been successful!');
@@ -1418,9 +1548,11 @@ class ContentLeft extends Component
         public function submitExtrGuest()
         {
             $validation = Validator::make([
-               'extra_guest_fee'         => $this->content['extra_guest_fee'],
+               'extra_guest_fee' => $this->content['extra_guest_fee'],
+               'extra_guest'     => $this->content['extra_guest'],
             ],[
                 'extra_guest_fee' => 'required|integer|min:0|max:500',
+                'extra_guest'     => 'required|integer|min:0|max:5',
             ]);
 
                 if ($validation->fails())
@@ -1431,11 +1563,38 @@ class ContentLeft extends Component
                 'listing_id' => $this->listing,
             ])->update([
                 'extra_guest_fee' => $this->content['extra_guest_fee'],
+                'extra_guest' => $this->content['extra_guest'],
             ]);
 
             $this->alert('success', 'Update has been successful!');
             $this->reset(['classActive']);
             $this->queryTwoBars($this->listing);
+        }
+
+        public function increaseGuest()
+        {
+            if ( $this->content['extra_guest'] >= 5 ) 
+                return;
+
+            $this->content['extra_guest'] = $this->content['extra_guest'] + 1;
+
+            $this->disableButton['DecreaseGuest'] = false;
+
+            if ( $this->content['extra_guest'] >= 5 ) 
+                $this->disableButton['IncreaseGuest'] = true;
+        }
+
+        public function decreaseGuest()
+        {
+            if ( $this->content['extra_guest'] <= 0 ) 
+                return;
+
+            $this->content['extra_guest'] = $this->content['extra_guest'] - 1;
+
+            $this->disableButton['IncreaseGuest'] = false;
+
+            if ( $this->content['extra_guest'] <= 0 ) 
+                $this->disableButton['DecreaseGuest'] = true;
         }
 
     /* Seccion Nighly */
@@ -1519,7 +1678,7 @@ class ContentLeft extends Component
             $validation = Validator::make([
                'advance_notice' => $this->content['advance_notice'],
             ],[
-                'advance_notice' => 'required|in:0,1,2,3,4,5',
+                'advance_notice' => 'required|in:0,1,2,3,4,5,6,7',
             ]);
 
                 if ($validation->fails())
@@ -1683,11 +1842,15 @@ class ContentLeft extends Component
         public function submitCheckinWindow()
         {
             $validation = Validator::make([
-               'checkin_window_start' => $this->content['checkin_window_start'],
-               'checkin_window_end' => $this->content['checkin_window_end'],
+               'checkin_window_start'      => $this->content['checkin_window_start']['time'],
+               'checkin_window_start_type' => $this->content['checkin_window_start']['type'],
+               'checkin_window_end'        => $this->content['checkin_window_end']['time'],
+               'checkin_window_end_type'   => $this->content['checkin_window_end']['type'],
             ],[
-                'checkin_window_start' => 'required|in:' . implode(',', $this->content['time']),
-                'checkin_window_end' => 'required|in:' . implode(',', $this->content['time']),
+                'checkin_window_start'      => 'required|in:' . implode(',', $this->content['time']),
+                'checkin_window_start_type' => 'required|in:AM,PM',
+                'checkin_window_end'        => 'required|in:' . implode(',', $this->content['time']),
+                'checkin_window_end_type'   => 'required|in:AM,PM',
             ]);
                 if ($validation->fails())
                     $validation->validate();
@@ -1696,8 +1859,14 @@ class ContentLeft extends Component
                 'user_id'    => Auth::id(),
                 'listing_id' => $this->listing,
             ])->update([
-                'checkin_window_start' => $this->content['checkin_window_start'],
-                'checkin_window_end' => $this->content['checkin_window_end'],
+                'checkin_window_start' => [
+                    'time' => $this->content['checkin_window_start']['time'],
+                    'type' => $this->content['checkin_window_start']['type'],
+                ],
+                'checkin_window_end' => [
+                    'time' => $this->content['checkin_window_end']['time'],
+                    'type' => $this->content['checkin_window_end']['type'],
+                ],
             ]);
 
             $this->alert('success', 'Update has been successful!');
@@ -1709,9 +1878,11 @@ class ContentLeft extends Component
         public function submitCheckTime()
         {
             $validation = Validator::make([
-               'checkout_time' => $this->content['checkout_time'],
+               'checkout_time'      => $this->content['checkout_time']['time'],
+               'checkout_time_type' => $this->content['checkout_time']['type'],
             ],[
-                'checkout_time' => 'required|in:' . implode(',', $this->content['time']),
+                'checkout_time'      => 'required|in:' . implode(',', $this->content['time']),
+                'checkout_time_type' => 'required|in:AM,PM',
             ]);
                 if ($validation->fails())
                     $validation->validate();
@@ -1720,7 +1891,10 @@ class ContentLeft extends Component
                 'user_id'    => Auth::id(),
                 'listing_id' => $this->listing,
             ])->update([
-                'checkout_time' => $this->content['checkout_time'],
+                'checkout_time' => [
+                    'time' => $this->content['checkout_time']['time'],
+                    'type' => $this->content['checkout_time']['type'],
+                ]
             ]);
 
             $this->alert('success', 'Update has been successful!');
@@ -2132,5 +2306,11 @@ class ContentLeft extends Component
             $this->alert('success', 'Update has been successful!');
             $this->reset(['classActive']);
             $this->queryFourBars($this->listing);
+        }
+
+    /* Seccion ModalFeedBack */
+        public function modalFeedback()
+        {
+            $this->dispatchBrowserEvent('openModalFeedback');
         }
 }

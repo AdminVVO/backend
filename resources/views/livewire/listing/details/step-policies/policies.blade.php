@@ -345,24 +345,22 @@
         <div class="w100">
             <h3 class="_txteh">Check-in window</h3>
             <div class="_width_text show_info">
-                @if ( $content['checkin_window_start'] != '' )
-                    <div class="_width_text show_info">
-                        <span class="_txtec">{{ $content['checkin_window_start'] }} - {{ $content['checkin_window_end'] }} (next day)</span>
-                    </div>
+                @if ( $content['checkin_window_start']['time'] != '' )
+                    <span class="_txtec">{{ $content['checkin_window_start']['time'] }} {{ $content['checkin_window_start']['type'] }} - {{ $content['checkin_window_end']['time'] }} {{ $content['checkin_window_end']['type'] }} (next day)</span>
                 @else
-                    <div class="_width_text show_info">
-                        <span class="_txtec">Not set</span>
-                    </div>
+                    <span class="_txtec">Not set</span>
                 @endif
             </div>
 
             <form wire:submit.prevent="submitCheckinWindow" class="show_form_input" style="margin-top: 29px;">
                 <div class="fx fx-fd-c" style="gap: 30px;">
-                    <div class="_flfpc">
-                        <div class="block_date">
-                            <div class="txt-check-in">Select Start Time</div>
+
+                    <div class="fx fx-fw-w" style="gap: 30px;">
+                        <div class="mxw445">
+                            <div class="txt-check-in">Select start time</div>
+                            
                             <div class="selected-modal" style="margin: 0;">
-                                <select wire:model.defer="content.checkin_window_start">
+                                <select wire:model.defer="content.checkin_window_start.time">
                                     <option value="0" selected>Choose option...</option>
                                     @foreach ($content['time'] as $element)
                                         <option value="{{ $element }}">{{ $element }}</option>
@@ -378,10 +376,33 @@
                                 </div>
                             @enderror
                         </div>
-                        <div class="block_date">
-                            <div class="txt-check-in">Select End Time</div>
+
+                        <div class="mxw100">
+                            <div class="txt-check-in">Afternoon</div>
+
                             <div class="selected-modal" style="margin: 0;">
-                                <select wire:model.defer="content.checkin_window_end">
+                                <select wire:model.defer="content.checkin_window_start.type">
+                                    <option value="AM">AM</option>
+                                    <option value="PM">PM</option>
+                                </select>
+
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            @error('checkin_window_start_type')
+                                <div style="margin-top: 20px; display: block;" class="_txterror">
+                                    <i class="fas fa-exclamation-circle icon1"></i> 
+                                    {{ $message }}
+                                </div>
+                            @enderror
+                        </div>
+                    </div>
+
+                    <div class="fx fx-fw-w" style="gap: 30px;">
+                        <div class="mxw445">
+                            <div class="txt-check-in">Select end time</div>
+                            
+                            <div class="selected-modal" style="margin: 0;">
+                                <select wire:model.defer="content.checkin_window_end.time">
                                     <option value="0" selected>Choose option...</option>
                                     @foreach ($content['time'] as $element)
                                         <option value="{{ $element }}">{{ $element }} (next day)</option>
@@ -397,10 +418,29 @@
                                 </div>
                             @enderror
                         </div>
+
+                        <div class="mxw100">
+                            <div class="txt-check-in">Afternoon</div>
+
+                            <div class="selected-modal" style="margin: 0;">
+                                <select wire:model.defer="content.checkin_window_end.type">
+                                    <option value="AM">AM</option>
+                                    <option value="PM">PM</option>
+                                </select>
+
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            @error('checkin_window_end_type')
+                                <div style="margin-top: 20px; display: block;" class="_txterror">
+                                    <i class="fas fa-exclamation-circle icon1"></i> 
+                                    {{ $message }}
+                                </div>
+                            @enderror
+                        </div>
                     </div>
 
                     <div class="fx fx-fw-w fx-jc-sb" style="gap: 12px;">
-                        <div class="_btnsmleft click_cancel_listing" wire:click='disabledClass("checkin_window")'>
+                        <div class="_btnsmleft" wire:click='disabledClass("checkin_window")'>
                             <span>Cancel</span>
                         </div>
                         <button class="btn-celest">Save</button>
@@ -425,19 +465,66 @@
         <div class="w100">
             <h3 class="_txteh">Checkout time</h3>
             <div class="_width_text show_info">
-                @if ( $content['checkout_time'] != '' )
-                    <div class="_width_text show_info">
-                        <span class="_txtec">{{ $content['checkout_time'] }}</span>
-                    </div>
+                @if ( $content['checkout_time']['time'] != '' )
+                    <span class="_txtec">{{ $content['checkout_time']['time'] }} {{ $content['checkout_time']['type'] }}</span>
                 @else
-                    <div class="_width_text show_info">
-                        <span class="_txtec">Not set</span>
-                    </div>
+                    <span class="_txtec">Not set</span>
                 @endif
             </div>
 
             <form wire:submit.prevent="submitCheckTime" class="show_form_input" style="margin-top: 30px;">
-                <div class="_flfpc">
+                <div class="fx fx-fd-c" style="gap: 30px;">
+                    <div class="fx fx-fw-w" style="gap: 30px;">
+                        <div class="mxw445">
+                            <div class="txt-check-in">Select end time</div>
+                            
+                            <div class="selected-modal" style="margin: 0;">
+                                <select wire:model.defer="content.checkout_time.time">
+                                    <option value="0" selected>Choose option...</option>
+                                    @foreach ($content['time'] as $element)
+                                        <option value="{{ $element }}">{{ $element }} (next day)</option>
+                                    @endforeach
+                                </select>
+
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            @error('checkout_time')
+                                <div style="margin-top: 20px; display: block;" class="_txterror">
+                                    <i class="fas fa-exclamation-circle icon1"></i> 
+                                    {{ $message }}
+                                </div>
+                            @enderror
+                        </div>
+
+                        <div class="mxw100">
+                            <div class="txt-check-in">Afternoon</div>
+
+                            <div class="selected-modal" style="margin: 0;">
+                                <select wire:model.defer="content.checkout_time.type">
+                                    <option value="AM">AM</option>
+                                    <option value="PM">PM</option>
+                                </select>
+
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            @error('checkout_time_type')
+                                <div style="margin-top: 20px; display: block;" class="_txterror">
+                                    <i class="fas fa-exclamation-circle icon1"></i> 
+                                    {{ $message }}
+                                </div>
+                            @enderror
+                        </div>
+                    </div>
+
+                    <div class="fx fx-jc-sb" style="gap: 12px;">
+                        <div class="_btnsmleft click_cancel_listing" wire:click='disabledClass("check_time")'>
+                            <span>Cancel</span>
+                        </div>
+                        <button class="btn-celest">Save</button>
+                    </div>
+                </div>
+
+           {{--      <div class="_flfpc">
                     <div class="block_date">
                         <div class="txt-check-in">Select time</div>
                         <div class="selected-modal" style="margin: 0;">
@@ -464,7 +551,7 @@
                         <span>Cancel</span>
                     </div>
                     <button class="btn-celest">Save</button>
-                </div>
+                </div> --}}
             </form>
         </div>
 
@@ -485,13 +572,9 @@
             <h3 class="_txteh">Security deposit</h3>
             <div class="_width_text show_info">
                 @if ( $content['security_deposit'] != '' )
-                    <div class="_width_text show_info">
-                        <span class="_txtec">{{ $content['security_deposit'] }}$ deposit.</span>
-                    </div>
+                    <span class="_txtec">{{ $content['security_deposit'] }}$ deposit.</span>
                 @else
-                    <div class="_width_text show_info">
-                        <span class="_txtec">Not set</span>
-                    </div>
+                    <span class="_txtec">Not set</span>
                 @endif
             </div>
 
@@ -500,7 +583,7 @@
             </div>
 
             <form wire:submit.prevent="submitSecureDeposit" class="show_form_input" style="margin-top: 30px;">
-                <div class="_flfpc mxw576">
+                <div class="_flfpc mxw445">
                     <label class="before_icon_input @error('security_deposit') error_input @enderror">
                         <span class="_txtec">$</span>
                         <input type="text" class="number" wire:model.defer="content.security_deposit">

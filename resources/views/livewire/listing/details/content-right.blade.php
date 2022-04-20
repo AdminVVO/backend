@@ -7,7 +7,7 @@
         <div class="search_content">
             <div class="input-wrapper">
                 <i class="fas fa-search"></i>
-                <input type="text" name="" placeholder="Search listings...">
+                <input type="text" wire:model="search" placeholder="Search listings...">
             </div>
         </div>
     </div>
@@ -22,16 +22,13 @@
                                 <div>
                                     <span class="_txtec" style="margin-right: 2px;">Sort by:</span>
 
-                                    <div class="selected-2" style="margin-left: 0;">
-                                        <select name="" id="">
-                                            <option selected disabled>Last modified</option>
-                                        </select>
-                                        
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="10.584" height="6.053" viewBox="0 0 10.584 6.053">
-                                            <g transform="translate(-241.416 -417)">
-                                                <path d="M11.482,13.071l4,4.006a.753.753,0,0,0,1.068,0,.763.763,0,0,0,0-1.072l-4.535-4.539a.755.755,0,0,0-1.043-.022L6.408,16a.757.757,0,0,0,1.068,1.072Z" transform="translate(235.228 405.754)" fill="#7d7d7d"/>
-                                            </g>
-                                        </svg>
+                                    <div class="selected-2" style="margin-left: 0;" wire:click="sortBy">
+                                        <span class="_txtec" style="margin-right: 20px;">Last modified</span>
+                                        @if ( $sortBy === 'ASC')
+                                            <i class="fas fa-angle-up"></i>
+                                        @else
+                                            <i class="fas fa-angle-down"></i>
+                                        @endif
                                     </div>
                                 </div>
                             </div>

@@ -3,8 +3,8 @@
 use App\Http\Controllers\AccountController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ListingsController;
-use App\Http\Controllers\LoginOrRegisterForEmailPhoneController;
 use App\Http\Controllers\LoginOrRegisterForSocialsController;
+use App\Http\Controllers\MessageChats;
 use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\internaController;
 use Illuminate\Support\Facades\Route;
@@ -85,12 +85,29 @@ Route::middleware(['AccountDisable'])->group( function(){
         Route::prefix('reservations')->group( function(){
             ## Reservations Index
                 Route::get('', [ReservationController::class, 'viewReservation'])->name('reservations');
+                Route::get('ResortAll', [ReservationController::class, 'viewReservationForm'])->name('reservationsResort');
+                Route::get('Create', [ReservationController::class, 'viewReservationFormCreate'])->name('ReservCreate');
+                Route::get('Update/{id}', [ReservationController::class, 'viewReservationFormUpdate'])->name('ReservUpdate');
+                Route::get('SendResort/{id}', [ReservationController::class, 'viewReservationFormSendResort'])->name('ReservSendResort');
+                Route::get('Preview/{id}', [ReservationController::class, 'viewReservationFormPreview'])->name('ReservPreview');
+        });
+
+        ## Routes Messages
+        Route::prefix('message')->group( function(){
+            ## Reservations Index
+                Route::get('', [MessageChats::class, 'viewMessageUser'])->name('messageUserIndex');
+                Route::post('', [MessageChats::class, 'viewMessageUserPost'])->name('messageUserIndex');
         });
 
 
 
     });
 });
+
+## Route Not Login 
+    ## Route Confirme Resort Reservation and Preview Reservation Resort 
+        Route::get('ConfirmResort/{id}', [ReservationController::class, 'viewReservationFormConfirmnResort'])->name('ConfirmResort');
+
 
 Route::middleware(['auth'])->group( function(){
     ## Routes Account Disabled

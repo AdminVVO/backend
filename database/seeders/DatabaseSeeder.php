@@ -23,9 +23,13 @@ class DatabaseSeeder extends Seeder
         $this->call([RoomsPropertySeeder::class]);
         $this->call([AmenitiesSafetySeeder::class]);
         $this->call([ScenicViewsSeeder::class]);
+        $this->call([RolesSeeder::class]);
 
         ## Secondary Seeders
         $this->call([UserSeeder::class]);
         $this->call([CardCategorySeeder::class]);
+        
+        // $this->call([Chats::class]);
+        // $this->call([MessageChats::class]);
     }
 }

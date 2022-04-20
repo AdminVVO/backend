@@ -1,0 +1,772 @@
+@import "_variables";
+
+.header_admin {
+    .medio {
+      max-width: 1760px;
+      width: 90%;
+    }
+}
+
+._mv-places {
+    transition: none;
+}
+
+.cont-h2 {
+    .h2-guests {
+        margin: 27px 0;
+    }
+}
+
+// btn left <
+.btn_circle_flecha {
+    display: none;
+    margin-bottom: 15px;
+
+    svg {
+        width: 10px;
+        margin-right: 2px;
+    }
+}
+
+// FUENTES, @MEDIA WIDTH TAMAÑOS ETC
+body {
+    @media screen and (max-width: 1400px) {
+        ._txtec {
+            font-size: 18px;
+        }
+
+        ._txteh {
+            font-size: 18px;
+        }
+
+        ._txtblu16 {
+            font-size: 16px;
+        }
+
+        .btn-celest {
+            font-size: 18px;
+            padding: 16px 50px;
+        }
+    }
+
+    @media screen and (max-width: 1100px) {
+        // header
+        .menu {
+            .menu_home-content-items {
+                border: 1px solid #E3EDF3;
+        
+                ul {
+                    li {
+                        a {
+                            font-size: 14px;
+                        }
+                    }
+                }
+            }
+        }
+        
+        .header,
+        .header_admin {
+            .menu_items {
+                margin-right: 43px;
+        
+                img {
+                    width: 18px;
+                    margin-right: 6px;
+                }
+            }
+        
+            .logo-menu {
+                width: 150px;
+            }
+        
+            .menu a, .menu span {
+                font-size: 14px;
+            }
+        
+            .menu_perfil {
+                margin-right: 17px;
+        
+                span {
+                    gap: 2px;
+        
+                    img {
+                        width: 40px;
+                        height: 40px;
+                        border: transparent;
+                        box-shadow: 0 0 0 1.5px $color-secundary;
+                    }
+                }
+            }
+        
+            .menu i.fa-bars {
+                font-size: 16px;
+            }
+        }
+
+        ._flex-js {
+            ._flex {
+                i {
+                    font-size: 12px;
+                }
+      
+                .icon_red {
+                    font-size: 18px;
+                }
+        
+                span {
+                    font-size: 14px;
+                }
+            }
+        }
+
+        // submenu nav header
+        ._puntos3 {
+            ._menu-m {
+                &.is-active {
+                    top: 40px;
+                }
+            }
+        }
+
+        ._menu-m {
+            right: -145px;
+        }
+
+        ._menu-options-items {
+            min-width: 230px;
+            width: auto;
+      
+            ._txtec {
+                font-size: 14px;
+            }
+      
+            ul {
+                li {
+                    ._b-flex {
+                        padding: 10px 10px 10px 16px;
+                        align-items: center;
+            
+                        svg {
+                            width: 14px;
+                        }
+            
+                        i {
+                            font-size: 14px;
+                        }
+                    }
+                }
+            }
+        }
+
+        .content_icon-leng {
+            top: 101px;
+            padding: 7px 8px;
+            
+            img {
+                width: 28px;
+            }
+        }
+
+        // padding
+        .pd-130-0-50 {
+            padding: 110px 0 30px;
+        }
+
+        ._txtec {
+            font-size: 16px;
+        }
+
+        ._txtec16 {
+            font-size: 14px;
+            line-height: inherit;
+        }
+
+        ._txteh {
+            font-size: 16px;
+        }
+
+        ._txtblu16 {
+            font-size: 14px;
+        }
+
+        .h2-guests {
+            line-height: inherit;
+            font-size: 23px;
+        }
+
+        ._txtbold7d14 {
+            font-size: 12px;
+        }
+
+        .h2_publish {
+            font-size: 33px;
+            line-height: inherit;
+        }
+
+        .selected-modal {
+            select {
+                padding: 14px 38px 14px 18px;
+                font-size: 16px;
+            }
+
+            svg {
+                width: 12px;
+            }
+        }
+
+        .btn-white {
+            padding: 14px 18px;
+            border-radius: 8px;
+        }
+
+        .btn-celest {
+            padding: 14px 24px;
+            font-size: 16px;
+        }
+
+        .cont-h2 {
+            .h2-guests {
+                margin: 24px 0;
+            }
+        }
+
+        .search_content {
+            padding: 12.6px 17px;
+            border: 1px solid $color-background;
+            border-radius: 8px;
+
+            .input-wrapper {
+                i {
+                    font-size: 23px;
+                }
+
+                input {
+                    margin-left: 14px;
+                    font-size: 16px;
+                }
+            }
+        }
+
+        ._cont-l-img {
+            ._ad-list_img {
+                width: 70px;
+                height: 60px;
+            }
+        }
+
+        ._badsdoller {
+            img {
+                width: 18px;
+            }
+        }
+
+        .check_click input:checked + .bg_check_click {
+            box-shadow: $color-primary 0px 0px 0px 2px inset;
+        }
+
+        .bg_check_click {
+            box-shadow: $color-background 0 0 0 1px inset;
+        }
+
+        .bk-icon-des_fbas {
+            &.gp10 {
+                gap: 8px;
+            }
+
+            ._i-red22 {
+                font-size: 20px;
+            }
+        }
+
+        ._fleft-tb {
+            svg {
+                width: 9px;
+            }
+        }
+
+        ._fright-tb {
+            svg {
+                width: 9px;
+            }
+        }
+
+        .section_calendar_admin {
+            .medio_calendar_admin {
+                ._fleft-tb {
+                    margin-bottom: 1.6rem;
+                }
+
+                ._main-list-fech {
+                    ._fright-tb {
+                        margin-bottom: 1.6rem;
+                    }
+                }
+
+                .right_bk_show {
+                    border: 1px solid $color-background !important;
+    
+                    &.active-info {
+                        flex: 372px !important;
+                        width: 372px !important;
+                        min-width: 372px !important;
+                    }
+                }
+            }
+        }
+
+        .block-pd-cl {
+            &:not(:last-child) {
+                border-bottom: 1px solid $color-background !important;
+            }
+
+            .gp21 {
+                gap: 18px;
+            }
+
+            ._bkgris {
+                border-radius: 8px !important;
+                padding: 12px 29px !important;
+            }
+
+            &.rs {
+                padding: 0 30px 20px !important;
+            }
+
+            &.sw-pf {
+                padding: 21px 30px 29px !important;
+
+                ._pf-msg {
+                    max-width: 54px;
+                    min-width: 54px;
+                    height: 54px;
+                    border: 2px solid $color-background;
+                }
+            }
+
+            &.checks {
+                padding: 21px 30px 19px !important;
+            }
+        }
+    }
+
+    @media screen and (max-width: 900px) {
+        // animacion
+        .is-calendar-open {
+            .left_calendar_admin {
+                flex: 0 1 0%;
+                margin: 0;
+                padding: 0;
+                opacity: 0;
+            }
+
+            .medio_calendar_admin {
+                flex: 1 1 0%;
+                opacity: 1;
+            }
+        }
+
+        // btn left <
+        .btn_circle_flecha {
+            display: flex;
+        }
+
+        // padding
+        .pd-130-0-50 {
+            // padding: 24px 0 4.8rem;
+            padding: 0;
+            padding-bottom: 4rem;
+        }
+
+        .container-medio {
+            width: 100%;
+        }
+
+        // submenu header
+        .header_admin {
+            padding: 0;
+            display: block;
+            border: none;
+
+            ._mv-places {
+                padding: 14px 0;
+                border-top: 1px solid $color-background;
+            }
+
+            .logo-menu {
+                display: none;
+            }
+
+            ._puntos3 {
+                ._menu-m {
+                    top: -7rem;
+                }
+                
+                &.is-active {
+                    ._menu-m {
+                        top: -7rem;
+                    }
+                }
+            }
+
+            // active nav icon calendar
+            .book-form {
+                ._flex-js {
+                    a {
+                        &:nth-child(3) {
+                            ._flex {
+                                .icon_red {
+                                    color: $color-secundary;
+                                }
+
+                                span {
+                                    color: $color-black;
+                                }
+                            }
+                        }
+                    }
+
+                    ._flex {
+                        .icon_red {
+                            color: #b0b0b0;
+                        }
+
+                        span {
+                            font-size: 10px;
+                            line-height: 12px;
+                            color: $color-text;
+                        }
+                    }
+                }
+            }
+        }
+
+        // icon leng
+        .content_icon-leng {
+            display: none;
+        }
+
+        footer {
+            display: none;
+        }
+
+        .cont-h2 {
+            padding: 24px 20px 0;
+        }
+
+        .left_calendar_admin {
+            .section-listing {
+                padding: 0 20px 20px;
+            }
+        }
+
+        .h2-guests {
+            font-size: 25px;
+        }
+
+        .h2_publish {
+            font-size: 35px;
+        }
+
+        .cont-h2 {
+            .h2-guests {
+                margin-top: 0;
+            }
+        }
+
+        .left_calendar_admin {
+            .pd-t10 {
+                padding-top: 0;
+            }
+        }
+    }
+}
+
+// ---------- OTROS ----------
+// select white fit-content
+.selected-modal {
+    width: fit-content;
+    margin: 0;
+}
+
+
+// TEXTOS
+._txteh {
+    margin: 0;
+}
+
+._txtblu, ._txtblu16 {
+    margin: 0;
+    line-height: inherit;
+}
+
+// PADDINGS
+.pd-130-0-50 {
+    padding: 130px 0 50px;
+}
+
+.pd-r30 {
+    padding-right: 30px;
+}
+
+// check circle azul y gris
+._ck2ag {
+    position: absolute;
+    top: 9px;
+    right: 8px;
+}
+
+// TABLA
+._tb-reservations {
+    tbody {
+        tr {
+            &:not(:last-child) {
+                border-bottom: none;
+            }
+        }
+
+        td {
+            padding: 0;
+        }
+    }
+}
+
+// imagenes de la tabla
+._cont-l-img {
+    ._ad-list_img {
+        width: 75px;
+        height: 65px;
+    }
+}
+
+.check_click {
+    width: 100%;
+
+    input:checked + .bg_check_click {
+        box-shadow: $color-primary 0px 0px 0px 2px inset;
+    }
+}
+
+.bg_check_click {
+    width: 100%;
+    cursor: pointer;
+    padding: 9px 8px;
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    box-shadow: $color-background 0px 0px 0px 2px inset;
+    position: relative;
+
+    ._f-t {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+    }
+}
+
+
+// section_calendar_admin
+.left_calendar_admin {
+    flex: 0 0 400px;
+    transition: all .5s ease;
+
+    @include responsive(900px) {
+        flex: 1 1 0%;
+        padding: 0;
+    }
+}
+
+.medio_calendar_admin {
+    flex: 1 1 0%;
+    transition: all .5s ease;
+
+    @include responsive(900px) {
+        flex: 0 1 0%;
+    }
+}
+
+.section_calendar_admin {
+    .medio_calendar_admin {
+        // 4 botones arriba december - today - 16 opportunities - layers
+        ._header-btns4 {
+            margin-bottom: 15px;
+        }
+
+        .ps_shw_bk {
+            position: relative;
+        }
+
+        // flecha del thead left blue
+        ._fleft-tb {
+            margin: 0 12.6px 1.8rem 11.6px;
+            cursor: pointer;
+        }
+
+        // flecha del thead right blue
+        ._fright-tb {
+            margin-left: 12.6px;
+            transition: transform .3s ease;
+            cursor: pointer;
+        }
+
+        ._bkgris {
+            border-radius: 10px;
+            background-color: rgba(227, 237, 243, 0.3);
+            padding: 14px 31px;
+        }
+
+        ._tb-reservations {
+            thead {
+                tr {
+                    border-bottom: 0;
+                }
+
+                th {
+                    padding: 6.5px;
+                    width: 80px;
+                    text-align: center;
+                    background-color: $color-white;
+                    box-shadow: $color-background 0px 0px 0px 1px inset;
+                }
+
+                .active_blue_tb {
+                    background-color: $color-primary;
+        
+                    ._txtbold7d14 {
+                        color: $color-white;
+                    }
+                }
+            }
+
+            tbody {
+                .active_br_blue_table {
+                    border: 2px solid $color-primary;
+                }
+
+                td {
+                    padding: 6.5px;
+                    width: 80px;
+                    height: 78px;
+                    text-align: center;
+                    background-color: $color-white;
+                    box-shadow: $color-background 0px 0px 0px 1px inset;
+                    position: relative;
+                    overflow: hidden;
+                }
+
+                .not-linetb {
+                    position: absolute;
+                    top: -12px;
+                    left: 50%;
+                    right: 50%;
+                    transform: rotate(45deg);
+                    width: 2px;
+                    height: 132%;
+                    background-color: $color-background;
+                }
+
+                ._ctly-htg-ver {
+                    background-color: $color-background;
+                }
+            }
+        }
+
+        ._main-list-fech {
+            padding-top: 25px;
+            padding-right: 68.6px;
+
+            ._scrolltable {
+                padding-bottom: 18px;
+                overflow: overlay;
+            }
+
+            ._tb-reservations {
+                min-width: max-content;
+            }
+
+            ._fright-tb {
+                margin-bottom: 1.8rem;
+            }
+        }
+
+        // medio del cuadro dollar nivel
+        .tbody-list-doller {
+            margin: 0 0 25px 35px;
+            background-color: $color-white;
+
+            ._scrolltable {
+                height: 100%;
+                overflow: auto;
+
+                &::-webkit-scrollbar:horizontal{
+                    display: none;
+                }
+            }
+        }
+
+        // right rectangulo blanco contenido del click show info <
+        .right_bk_show {
+            flex: 93px;
+            width: 93px;
+            min-width: 93px;
+            max-width: 100%;
+            background-color: $color-white;
+            border: 2px solid $color-background;
+            box-shadow: -30px 0 40px 0 rgb(0 0 0 / 29%);
+            transition: all .3s ease;
+            z-index: 1;
+
+            .ow-a {
+                overflow: hidden;
+            }
+
+            &.active-info {
+                flex: 414px;
+                width: 414px;
+                min-width: 414px;
+
+                .ow-a {
+                    overflow: auto;
+                }
+
+                .show-inf-details-calendar {
+                    opacity: 1;
+                    visibility: visible;
+                }
+
+                .object {
+                    padding-right: 12rem;
+                }
+
+                ._fright-tb {
+                    transform: rotate(180deg);
+                }
+            }
+
+            .block-pd-cl {
+                &:not(:last-child) {
+                    border-bottom: 2px solid $color-background;
+                }
+
+                &.rs {
+                    padding: 0 32px 22px;
+                }
+
+                &.sw-pf {
+                    padding: 23px 32px 31px;
+                }
+
+                &.checks {
+                    padding: 23px 32px 21px;
+                }
+            }
+
+            .show-inf-details-calendar {
+                transition: all .3s ease;
+                opacity: 0;
+                visibility: hidden;
+            }
+        }
+    }
+}
+

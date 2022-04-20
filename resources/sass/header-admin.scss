@@ -71,18 +71,18 @@
         margin-bottom: 35px;
     }
 
-    @include responsive(890px) {
+    @include responsive(900px) {
         padding: 16px 0;
     }
 
     .medio {
-        @include responsive(890px) {
+        @include responsive(900px) {
             justify-content: center;
         }
     }
 
     ._mv-places {
-        @include responsive(890px) {
+        @include responsive(900px) {
             position: fixed;
             bottom: 0;
             padding: 20px 0;
@@ -103,7 +103,7 @@
             display: block;
         }
 
-        @include responsive(890px) {
+        @include responsive(900px) {
             padding: 0 5px;
             max-width: 430px;
             width: 90%;
@@ -115,27 +115,27 @@
             }
 
             ._flex {
-                @include responsive(890px) {
+                @include responsive(900px) {
                     flex-direction: column;
                     gap: 4px;
                 }
 
                 .icon_red {
-                    @include responsive(890px) {
+                    @include responsive(900px) {
                         font-size: 20px;
                         margin-top: 0;
                     }
                 }
 
                 span {
-                    @include responsive(890px) {
+                    @include responsive(900px) {
                         color: #283646;
                         font-size: 12px;
                     }
                 }
 
                 .fa-chevron-down {
-                    @include responsive(890px) {
+                    @include responsive(900px) {
                         display: none;
                     }
                 }
@@ -144,19 +144,19 @@
     }
 
     .menu {
-        @include responsive(890px) {
+        @include responsive(900px) {
             display: none;
         }
     }
 
     ._puntos3 {
         ._menu-m {
-            @include responsive(890px) {
+            @include responsive(900px) {
                 top: -10rem;
             }
 
             ._menu-options-items {
-                @include responsive(890px) {
+                @include responsive(900px) {
                     width: 230px;
                 }
             }
@@ -164,7 +164,7 @@
 
         &.is-active {
             ._menu-m {
-                @include responsive(890px) {
+                @include responsive(900px) {
                     top: -10rem;
                     right: 0;
                 }

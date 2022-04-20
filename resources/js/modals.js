@@ -66,7 +66,7 @@ $(document).ready(function() {
     $(".tabs_items_group .tabs_items").on("click", function() {
         $(this).siblings(".tabs_items.active_tabs").removeClass("active_tabs");
         $(this).addClass("active_tabs");
-    })
+    });
 
     $('.tabs_items_group > .tabs_items').click(function (e) {
         return false;
@@ -168,7 +168,7 @@ $(document).ready(function() {
 
 
     // TEXTAREA - muestra numeros al escribir
-    $("._txtarea").keyup(function(event) {
+    $("._txtarea").keyup(function() {
         $(".views_num").text($(this).val().length);
     });
 
@@ -355,17 +355,25 @@ $(document).ready(function() {
         $(this).parents(".before_icon_input").removeClass("labelfocus");
     });
 
+    $(document).on('focus click', '.label_click_input :input', function() {
+        $('label[for="' + this.id + '"]');
+        $(this).parents(".label_click_input").addClass("labelfocusbr2");
+    }).on('blur', '.label_click_input :input', function() {
+        $('label[for="' + this.id + '"]');
+        $(this).parents(".label_click_input").removeClass("labelfocusbr2");
+    });
+
+
 
     $("._input").keyup(function() {
         var value = $(this).val().length;
 
-        if(value > 0) {
+        if (value > 0) {
             $(this).parents(".link_label_input").find(".text_placeholder").removeClass("text_placeholder").addClass("_txtec");
         } else {
             $(this).parents(".link_label_input").find("._txtec").removeClass("_txtec").addClass("text_placeholder");
         }
-    })
-
+    });
 
     // listing post - location sharing click en 2 opciones aparece descrip.
     $(".check_click input:radio").click(function() {
@@ -416,7 +424,7 @@ $(document).ready(function() {
             $(this).parents(".show_form_input").find(".number").val("13");
             $(this).parents(".show_form_input").find("._tip31").val("31");
         }
-    })
+    });
 
     // listing post - add a discount of other stays, click add
     $(".click_add_another_lenth").click(function() {
@@ -508,57 +516,173 @@ $(document).ready(function() {
     });
 
 
-    // create step6 - click la flecha y que deslize cada bloque
-    $(".click_bloques_amenitles").on('click', function() {
-        $('._content-favorite, .c_amenitles').animate({
-            scrollTop: $(".bloque_guest_favorite").css({'background': 'red'}).offset().top
-        }, 600);
+
+
+    // $(".click_bloques_amenitles").on("click", function() {
+        // ------- animate click toggle del contenido - aparece y desaparece -------
+        // $('._content-favorite, .c_amenitles').animate({
+        //    width: ["toggle", "swing"],
+        //    height: ["toggle", "swing"],
+        //    opacity: "toggle"
+        // });
+    // });
+
+
+
+    // messages chats
+    $(".bx_msg_received, .bx_msg").on("click", function() {
+        $(this).siblings(".bx_msg_received.active_msg_received, .bx_msg.active_msg_received").removeClass("active_msg_received");
+        $(this).addClass("active_msg_received");
+    });
+
+    // messages hide details btn click
+    $(".click_hide_details_mesg, .click_x_hide_details").on("click", function() {
+        // $(this).parents(".section_messages_user").find(".header_msg_lateral_restime").find(".btn-celest").text('Hide details' == 'Show details' ? 'Hide details' : 'Show details');
+        $(this).parents(".section_messages_user").toggleClass("is-main-info-open");
+        $(this).parents("body").toggleClass("is-main-info-nav");
+
+        var that = $(this).parents(".section_messages_user").find(".header_msg_lateral_restime").find(".btn-celest");
+        var texto = that.html();
+
+        if (texto == 'Details') {
+            that.html('Hide details');
+        } else {
+            that.html('Details');
+        }
+    });
+
+    $(window).bind("resize", function() {
+        resizeBotonTextoMessage();
+    });
+
+    resizeBotonTextoMessage();
+
+    function resizeBotonTextoMessage() {
+        if ($(this).width() >= 1360) {
+            $(".section_messages_user").removeClass("show_msg_text");
+
+            $(".show_msg_text").find(".header_msg_lateral_restime").find(".btn-celest").html("Hide details");
+            $(".section_messages_user").find(".header_msg_lateral_restime").find(".btn-celest").html("Hide details");
+            $(".is-main-info-open").find(".header_msg_lateral_restime").find(".btn-celest").html("Details");
+        } else {
+            $(".section_messages_user").addClass("show_msg_text");
+
+            $(".show_msg_text").find(".header_msg_lateral_restime").find(".btn-celest").html("Details");
+            $(".is-main-info-open").find(".header_msg_lateral_restime").find(".btn-celest").html("Hide details");
+        }
+    }
+
+    $(".bx_msg_received, .bx_msg, .click_behind_mesg").on("click", function() {
+        $(this).parents(".section_messages_user").toggleClass("is-message-open");
+        $(this).parents("body").toggleClass("is-message-open-nav");
+    });
+
+    // messages - icono msg, click en alguna pregunta y mostrar en el input
+    $(".option_ic_msg").on("click", function(){
+        var value = $(this).attr("value");
+        
+        $(this).parents(".type-a-m").find(".input-type-msg").find(".w-input-textarea-msg").val(value).css({'height': '19px', 'overflow': 'hidden'});
+    });
+
+
+    // messages - scroll top hacia abajo, chat online
+    chatMsg();
+    function chatMsg() {
+        var test = $(".c-msg-chat").height();
+        $(".c-msg-chat").scrollTop(test);
+    }
+    
+
+    // messages - click en el icono denunciar al chat
+    $(".click_msg_icon_denuncia").on("click", function(){
+        $('html,body').animate({
+            scrollTop: $("body").offset().top
+        }, 0);
+
+        $(".container_user_f_p").css({'display': 'block'});
+        $(".page-category").css({'overflow': 'hidden'});
+    });
+
+    // messages - click en el icono archivo del type a message
+    $(".click_send_archive_msg").on("click", function() {
+        $(this).parents(".content_icons_type_msg").removeClass("active-icon-msg");
+    });
+
+    $(document).on('focus click', '.f-input-cont', function() {
+        $(this).parents().find(".input-type-msg").addClass("focus-type");
+    }).on('blur', '.f-input-cont', function() {
+        $(this).parents().find(".input-type-msg").removeClass("focus-type");
+    });
+
+    // messages - type a message debera valida texto
+    $(".w-input-textarea-msg").keyup(function() {
+        var value = $(this).val().length;
+
+        if (value > 0) {
+            // $(this).parents(".input-type-msg").find(".click_envio_chat").prop('disabled', false);
+            $(this).parents(".input-type-msg").find(".click_envio_chat i").removeClass("_i-celest24").addClass("_i-gris24");
+        } else {
+            // $(this).parents(".input-type-msg").find(".click_envio_chat").prop('disabled', true);
+            $(this).parents(".input-type-msg").find(".click_envio_chat i").addClass("_i-celest24").removeClass("_i-gris24");
+        }
+    });
+
+    // calendar - click en < info
+    $(".click_info_calendar_tb").on("click", function() {
+        $(this).parents(".tbody-list-doller").find(".right_bk_show").toggleClass("active-info");
+    });
+
+    $(".click-list-calendar, .click_behind_calendar").on("click", function() {
+        $(this).parents(".section_calendar_admin").toggleClass("is-calendar-open");
     });
 });
 
+// messages - modal del icono denunciar check other y se abrira el textarea
+function hideShowJacks(val) {
+    if (val == "Y") {
+        $("._txta-modls").show();
+    } else {
+        $("._txta-modls").hide();
+    }
+}
 
-// validar formato de fecha con jquery
-$(document).ready(validateFecha);
-function validateFecha() {
-    var flag1 = true;
-    $(document).on('keydown','.date-v-modals',function(e){
-        if($(this).val().length == 4 && flag1) {
-            $(this).val($(this).val() + "/");
-            flag1 = true;
+// escribir el input y aparesca el signo / para fechas
+$(document).ready(validateFechaMascara);
+function validateFechaMascara() {
+    $(".date-v-modals").mask("9999/99/99");
+}
+
+// create step6 - click la flecha y que deslize cada bloque
+$(document).ready(function() {
+    let $lis = $("._content-favorite .c_amenitles");
+    activo = 0;
+    cantidad = $lis.length;
+
+    $(".click_bloques_amenitles").click(function(evt) {
+        evt.preventDefault();
+        activo += 1;
+
+        if (activo > cantidad -1) {
+            activo = 0;
+            $(this).parent().find(".btn-bt_abs span").css({'transform': 'rotate(0)'});
         }
 
-        else if($(this).val().length == 7 && flag1) {
-            $(this).val($(this).val() + "/");
-            flag1 = false;
+        else if (activo >= cantidad -1) {
+            $(this).parent().find(".btn-bt_abs span").css({'transform': 'rotate(180deg)'});
         }
+
+        showAmenitles();
     });
-};
 
-// $(document).ready(function() {
-//     let $lis = $(".c_amenitles");
-//     activo = 0;
-//     cantidad = $lis.length;
+    $(".c_amenitles").on('custom', function(event) {
+        scrollValue = event.target.offsetTop;
 
-//     // $lis.hide();
+        $('._content-favorite, .c_amenitles').stop().animate({
+            scrollTop: scrollValue
+        });
+    });
 
-//     $lis.each(function(index) {
-//         $lis.eq(index).css({'background': 'red'});
-//     });
-
-//     $lis.eq(activo).fadeIn();
-
-//     $(".click_bloques_amenitles").click(function(evt) {
-//         evt.preventDefault();
-//         activo += 1;
-
-//         if (activo > cantidad - 1) {
-//             activo = 0;
-//         }
-
-//         showAmenitles();
-//     });
-
-//     function showAmenitles() {
-//         $lis.eq(activo).fadeIn();
-//     }
-// });
+    function showAmenitles() {
+        $lis.eq(activo).trigger("custom");
+    }
+});

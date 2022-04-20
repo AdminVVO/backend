@@ -39,6 +39,13 @@ class CreateUsersTable extends Migration
             $table->string('constributions')->default(false);
             $table->datetime('last_login_at')->nullable();
             $table->string('last_login_ip')->nullable();
+
+            $table->unsignedInteger('rol_id');
+            $table->foreign('rol_id')
+                ->references('id_roles')
+                ->on('roles')
+                ->onDelete('cascade');
+
             $table->rememberToken();
             $table->timestamps();
             $table->softDeletes();

@@ -33,7 +33,7 @@
                     <div class="menu_home-content">
                         <div class="menu_home-content-items">
                             <ul>
-                                <li><a href="#">Message</a></li>
+                                <li><a href="{{ route('messageUserIndex') }}">Message</a></li>
                                 <li><a href="#">Trips</a></li>
                                 <li><a href="#">Wishlists</a></li>
                             </ul>

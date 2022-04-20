@@ -56,6 +56,7 @@ const $puntos = $('._menu-options');
 const $puntosHeader = $('._puntos3');
 const $puntos_pastguest = $('._menu-options_pastguest');
 const $bef_places = $('.content_show_modal_left');
+const $ps_abs_modal_icon_msg = $('.content_icons_type_msg');
 
 // admin-reservations.php
 $(document).mouseup(e => {
@@ -73,6 +74,14 @@ $(document).mouseup(e => {
 $(document).mouseup(e => {
     if (!$bef_places.is(e.target) && $bef_places.has(e.target).length === 0) {
         $bef_places.removeClass('is-active');
+    }
+});
+
+// messages.php - icon msg
+$(document).mouseup(e => {
+    if (!$ps_abs_modal_icon_msg.is(e.target) && $ps_abs_modal_icon_msg.has(e.target).length === 0) {
+        // $(".section_messages_user").find(".medio_msg_user").find($ps_abs_modal_icon_msg).removeClass('active-icon-msg');
+        $ps_abs_modal_icon_msg.removeClass('active-icon-msg');
     }
 });
 
@@ -105,8 +114,18 @@ $(".click_guest").on("click", function() {
     let toggleClass = $(this).parent($bef_places).hasClass('is-active') ? true : false;
     $($bef_places).removeClass("is-active");
 
-    if(!toggleClass) {
+    if (!toggleClass) {
         $(this).parent($bef_places).toggleClass("is-active");
+    }
+});
+
+$(".click_icon_msg").on("click", function() {
+    // $ps_abs_modal_icon_msg.toggleClass('active-icon-msg');
+    let toggleClass = $(this).parent($ps_abs_modal_icon_msg).hasClass('active-icon-msg') ? true : false;
+    $ps_abs_modal_icon_msg.removeClass("active-icon-msg");
+
+    if (!toggleClass) {
+        $(this).parent($ps_abs_modal_icon_msg).toggleClass("active-icon-msg");
     }
 });
 

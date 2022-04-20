@@ -46,12 +46,12 @@ $(document).ready(function() {
     });
 
     // CSS - max-width: 1505px;
-    $(window).bind("resize", function () {
+    $(window).bind("resize", function() {
         if ($(this).width() < 1450) {
             $(".book-form").appendTo(".section-places .block_places");
             $('.daterangepicker').removeClass('fixed');
         }
-    })
+    });
 });
 
 $("._location-he header ._mv-places ._remove").remove();

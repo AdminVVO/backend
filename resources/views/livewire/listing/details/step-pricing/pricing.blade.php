@@ -40,7 +40,7 @@
             <form wire:submit.prevent="submitPrice" class="show_form_input" style="display: none;">
                 <div class="form_input">
                     <div class="_flfpc">
-                        <label class="before_icon_input mxw576">
+                        <label class="before_icon_input mxw445">
                             <span class="_txtec">$</span>
                             <input type="text" class="number @error('base_price') error_input @enderror" wire:model.defer="content.base_price">
                             @error('base_price')
@@ -84,7 +84,7 @@
 
             <form wire:submit.prevent="submitCurrency" class="show_form_input">
                 <div>
-                    <div class="selected-modal mxw576" style="margin: 0;">
+                    <div class="selected-modal mxw445" style="margin: 0;">
                         <select wire:model.defer="content.listing_currency" class="@error('listing_currency') error_input @enderror">
                             <option selected disabled>Add currency</option>
                             @foreach ( $content['currency'] as $key => $element)

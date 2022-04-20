@@ -6,8 +6,8 @@
                     <h2 class="h2_publish" style="margin-bottom: 31px;">Let guests know what your place has to offer</h2>
 
                     <div style="position: relative;">
-                        <div class="_content-favorite scroll">
-                            <div class="c_amenitles" style="padding: 0 0 48.8px;">
+                        <div class="_content-favorite">
+                            <div class="c_amenitles primero" style="padding: 0 0 48.8px;">
                                 <h3 class="h2-guests" style="margin-bottom: 25px;">Do you have any standout amenities?</h3>
 
                                 <div class="fx fx-fw-w">
@@ -121,7 +121,7 @@
                                 </div>
                             </div>
 
-                            <div class="c_amenitles">
+                            <div class="c_amenitles segundo">
                                 <h3 class="h2-guests" style="margin-bottom: 25px;">What about these guest favorites?</h3>
 
                                 <div class="fx fx-fw-w">
@@ -235,7 +235,7 @@
                                 </div>
                             </div>
 
-                            <div class="c_amenitles">
+                            <div class="c_amenitles tercero">
                                 <h3 class="h2-guests" style="margin-bottom: 25px;">Have any of these safety items?</h3>
 
                                 <div class="fx fx-fw-w">
@@ -290,7 +290,7 @@
                             </div>
                         </div>
 
-                        <button class="btn-bt_abs">
+                        <button class="btn-bt_abs click_bloques_amenitles">
                             <span>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="14.652" height="8.378" viewBox="0 0 14.652 8.378">
                                     <path d="M13.516,17.1l5.54-5.545a1.043,1.043,0,0,1,1.479,0,1.056,1.056,0,0,1,0,1.483l-6.278,6.282a1.045,1.045,0,0,1-1.444.031L6.493,13.042a1.047,1.047,0,0,1,1.479-1.483Z" transform="translate(-6.188 -11.246)" fill="#00b5dd"/>

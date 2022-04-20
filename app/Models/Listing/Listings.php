@@ -2,6 +2,7 @@
 
 namespace App\Models\Listing;
 
+use App\Models\User;
 use App\Traits\Uuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -26,6 +27,7 @@ class Listings extends Model
         'language_default',
         'status',
         'resort',
+        'template',
         'amenities',
         'safety',
         'photos',
@@ -49,5 +51,19 @@ class Listings extends Model
         'minimum_stay_custom' => 'array',
         'scenic_views' => 'array',
         'other_discount_array' => 'array',
+        'last_minute_discount_array' => 'array',
+        'checkin_window_start' => 'array',
+        'checkin_window_end' => 'array',
+        'checkout_time' => 'array',
     ];
+
+    public function userChat()
+    {
+        return $this->belongsTo(User::class, 'user_id')->select(['id_user', 'name']);
+    }
+
+    public function chatListing()
+    {
+        return $this->hasMany(Chats::class, 'listing_id');
+    }
 }

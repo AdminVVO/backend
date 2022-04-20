@@ -7,7 +7,7 @@
             <div class="_width_text show_info">
                 <p class="_txtec">{{ $content['place_name'] }} - {{ $content['property_name'] }}</p>
                 <p class="_txtec">Listing type: {{ $content['listing_type_name'] }}</p>
-                @if ( $content['floors'] != '' || $content['additional_areas'] != 0 )
+                @if ( $content['floors'] != '' && $content['floors'] != 0 )
                     <p class="_txtec">Floors have: {{ $content['floors'] }}</p>
                     <p class="_txtec">Floor listing on: {{ $content['floors_on'] }}</p>
                 @endif
@@ -139,8 +139,10 @@
                 <p class="_txtec">Bedrooms: {{ $content['bedrooms'] }}</p>
                 <p class="_txtec">Bed: {{ $content['bed'] }}</p>
                 <p class="_txtec">Bathrooms: {{ $content['bathrooms'] }}</p>
-                @if ( $content['additional_areas'] != '' || $content['additional_areas'] != 0 )
+                @if ( $content['additional_areas'] != '' && $content['additional_areas'] != 0 )
                     <p class="_txtec">Additional areas: {{ $content['additional_areas'] }}</p>
+                @endif
+                @if ( $content['shared_areas'] != '' && $content['shared_areas'] != 0 )
                     <p class="_txtec">Guests may share some areas: {{ $content['shared_areas'] }}</p>
                 @endif
             </div>

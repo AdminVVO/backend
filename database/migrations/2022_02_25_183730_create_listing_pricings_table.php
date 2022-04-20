@@ -21,12 +21,9 @@ class CreateListingPricingsTable extends Migration
             $table->integer('weekly_discount')->default(0);
             $table->integer('monthly_discount')->default(0);
             $table->json('other_discount_array')->default('[]');
-            $table->string('other_discount')->nullable();
-            $table->integer('other_discount_porcent')->default(0);
             $table->string('early_bird_discount')->nullable();
             $table->integer('early_bird_discount_porcent')->default(0);
-            $table->string('last_minute_discount')->nullable();
-            $table->integer('last_minute_discount_porcent')->default(0);
+            $table->json('last_minute_discount_array')->default('[]');
             $table->integer('cleaning_fee')->default(0);
             $table->integer('pet_fee')->default(0);
             $table->integer('linens_fee')->default(0);
@@ -37,6 +34,7 @@ class CreateListingPricingsTable extends Migration
             $table->integer('community_fee')->default(0);
             $table->string('community_type')->default('porcent');
             $table->integer('extra_guest_fee')->default(0);
+            $table->integer('extra_guest')->default(0);
             $table->integer('weekend_nightly_fee')->default(0);
 
             $table->unsignedInteger('user_id');

@@ -377,6 +377,43 @@
                         $(this).parents("._show_modal-photos").toggleClass("is-active");
                     }
                 });
+
+                $(document).ready(function() {
+                    let $lis = $("._content-favorite .c_amenitles");
+                    activo = 0;
+                    cantidad = $lis.length;
+
+                    $(".click_bloques_amenitles").click(function(evt) {
+                        evt.preventDefault();
+                        activo += 1;
+
+                        if (activo > cantidad -1) {
+                            activo = 0;
+                            $(this).parent().find(".btn-bt_abs span").css({'transform': 'rotate(0)'});
+                        }
+
+                        else if (activo >= cantidad -1) {
+                            $(this).parent().find(".btn-bt_abs span").css({'transform': 'rotate(180deg)'});
+                        }
+
+                        showAmenitles();
+                    });
+
+                    $(".c_amenitles").on('custom', function(event) {
+                        scrollValue = event.target.offsetTop;
+
+                        $('._content-favorite, .c_amenitles').stop().animate({
+                            scrollTop: scrollValue
+                        });
+                    });
+
+                    function showAmenitles() {
+                        $lis.eq(activo).trigger("custom");
+                    }
+                });
+
+
+
            })
         });
         function ajustar() {

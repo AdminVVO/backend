@@ -1,3 +1,64 @@
+._txtblu {
+  display: inline-block;
+  margin-bottom: 0;
+}
+
+._txteh {
+  margin-bottom: 0;
+}
+
+body .container_user_f_p {
+  display: none;
+}
+body .container_user_f_p .pd_anhost-modal .modal_content-anhost {
+  max-width: 687px;
+  overflow: hidden;
+}
+body .container_user_f_p .pd_anhost-modal .modal_content-anhost .block-lb {
+  width: 100%;
+}
+body .container_user_f_p .pd_anhost-modal .modal_content-anhost ._txta-modls {
+  display: none;
+}
+body .container_user_f_p .pd_anhost-modal .modal_content-anhost ._txta-modls::placeholder {
+  color: #E3EDF3;
+}
+body .container_user_f_p .pd_anhost-modal .modal_content-anhost ._nmcfd {
+  display: flex;
+  flex-direction: column;
+}
+body .container_user_f_p .pd_anhost-modal .modal_content-anhost ._nmcfd ._jro6to {
+  padding: 34px 0;
+}
+body .container_user_f_p .pd_anhost-modal .modal_content-anhost ._nmcfd ._jro6to:not(:last-child) {
+  border-bottom: 1px solid #E3EDF3;
+}
+body .container_user_f_p .pd_anhost-modal .modal_content-anhost .close span {
+  border-radius: 0 0 0 10px;
+}
+body .container_user_f_p .pd_anhost-modal .modal_content-anhost .close span:hover {
+  background-color: #DC383D;
+}
+body .container_user_f_p .pd_anhost-modal .modal_content-anhost ._cont_mrg {
+  margin-top: 2%;
+  margin-bottom: 10px;
+}
+body .container_user_f_p .pd_anhost-modal .modal_content-anhost .modal_block .content_hidden-anhost {
+  margin-bottom: 0;
+}
+body .container_user_f_p .pd_anhost-modal .modal_content-anhost ._pdleftright35 {
+  padding: 0 35px 35px;
+}
+body .container_user_f_p .pd_anhost-modal .modal_content-anhost .btn-celest {
+  border-radius: 8px;
+}
+body .container_user_f_p .pd_anhost-modal .modal_content-anhost ._fxbtn {
+  justify-content: end;
+  display: flex;
+  border-top: 2px solid #E3EDF3;
+  padding: 27px 35px;
+}
+
 .container_admin-host {
   position: absolute;
   top: 0;
@@ -70,6 +131,9 @@
     padding: 0 22px !important;
   }
 }
+.container_admin-host .pd_anhost-modal .modal_content-anhost .modal_block .content_hidden-anhost .reservation-details-cont ._block-jsb {
+  padding-top: 0;
+}
 .container_admin-host .pd_anhost-modal .modal_content-anhost .modal_block .content_hidden-anhost .site-content {
   padding-bottom: 28px;
 }
@@ -110,13 +174,6 @@
 }
 .container_admin-host .pd_anhost-modal .modal_content-anhost .modal_block .content_hidden-anhost .site-content ._flex_users ._b .h5_red {
   font-weight: normal;
-}
-.container_admin-host .pd_anhost-modal .modal_content-anhost .modal_block .content_hidden-anhost .site-content ._txtblu {
-  display: inline-block;
-  margin-bottom: 0;
-}
-.container_admin-host .pd_anhost-modal .modal_content-anhost .modal_block .content_hidden-anhost .site-content ._txteh {
-  margin-bottom: 0;
 }
 .container_admin-host .pd_anhost-modal .modal_content-anhost .modal_block .content_hidden-anhost .site-content ._block-about {
   padding: 34px 50px 22px;

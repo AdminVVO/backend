@@ -6,20 +6,16 @@
             <h3 class="_txteh">Advance notice</h3>
             <div class="_width_text show_info">
                 @if ( $content['advance_notice'] != '' && $content['advance_notice'] != 0 )
-                    <div class="_width_text show_info">
-                        <span class="_txtec">At least {{ $content['advance_notice'] }} day's notice.</span>
-                    </div>
+                    <span class="_txtec">At least {{ $content['advance_notice'] }} day's notice.</span>
                 @else
-                    <div class="_width_text show_info">
-                        <span class="_txtec">Not set</span>
-                    </div>
+                    <span class="_txtec">Not set</span>
                 @endif
             </div>
 
             <form wire:submit.prevent="submitAdvanceNotic" class="show_form_input">
                 <div class="fx fx-fd-c" style="gap: 23px;">
                     <div class="">
-                        <div class="selected-modal mxw576" style="margin: 0;">
+                        <div class="selected-modal mxw445" style="margin: 0;">
                             <select wire:model.lazy="content.advance_notice" class="@error('advance_notice') error_input @enderror">
                                 <option selected value="0">Same day (customizable cutoff hour)</option>
                                 <option value="1">At least 1 day's notice</option>
@@ -27,6 +23,8 @@
                                 <option value="3">At least 3 day's notice</option>
                                 <option value="4">At least 4 day's notice</option>
                                 <option value="5">At least 5 day's notice</option>
+                                <option value="6">At least 6 day's notice</option>
+                                <option value="7">At least 7 day's notice</option>
                             </select>
 
                             <i class="fas fa-chevron-down"></i>
@@ -50,23 +48,7 @@
                                     <tr>
                                         @for ($i = 0; $i <= $content['advance_notice'] - 1; $i++)
                                             <th class="cal_tod_br cal_tod_bg">
-                                                @switch( $content['advance_notice'] )
-                                                    @case(1)
-                                                        <span class="_txtec16">{{ date('j')   }}</span>
-                                                        @break
-                                                    @case(2)
-                                                        <span class="_txtec16">{{ date('j') + $i }}</span>
-                                                        @break
-                                                    @case(3)
-                                                        <span class="_txtec16">{{ date('j') + $i }}</span>
-                                                        @break
-                                                    @case(4)
-                                                        <span class="_txtec16">{{ date('j') + $i }}</span>
-                                                        @break
-                                                    @case(5)
-                                                        <span class="_txtec16">{{ date('j') + $i }}</span>
-                                                        @break
-                                                @endswitch
+                                                <span class="_txtec16">{{ date('j') + $i }}</span>
                                             </th>
                                         @endfor
                                         <th class="cal_tod_br cal_tod_icon">
@@ -107,20 +89,16 @@
             <h3 class="_txteh">Preparation time</h3>
             <div class="_width_text show_info">
                 @if ( $content['preparation_time'] != '' && $content['preparation_time'] != 0 )
-                    <div class="_width_text show_info">
-                        <span class="_txtec">At least {{ $content['preparation_time'] }} day's preparation.</span>
-                    </div>
+                    <span class="_txtec">At least {{ $content['preparation_time'] }} day's preparation.</span>
                 @else
-                    <div class="_width_text show_info">
-                        <span class="_txtec">Not set</span>
-                    </div>
+                    <span class="_txtec">Not set</span>
                 @endif
             </div>
 
             <form wire:submit.prevent="submitPreparation" class="show_form_input">
                 <div class="fx fx-fd-c" style="gap: 23px;">
                     <div class="">
-                        <div class="selected-modal mxw576" style="margin: 0;">
+                        <div class="selected-modal mxw445" style="margin: 0;">
                             <select wire:model.lazy="content.preparation_time" class="@error('preparation_time') error_input @enderror">
                                 <option selected value="">Choose option...</option>
                                 <option value="1">Block 1 nigth before and after each reservation</option>
@@ -128,6 +106,8 @@
                                 <option value="3">Block 3 nigths before and after each reservation</option>
                                 <option value="4">Block 4 nigths before and after each reservation</option>
                                 <option value="5">Block 5 nigths before and after each reservation</option>
+                                <option value="6">Block 6 nigths before and after each reservation</option>
+                                <option value="7">Block 7 nigths before and after each reservation</option>
                             </select>
 
                             <i class="fas fa-chevron-down"></i>
@@ -164,6 +144,12 @@
                                                         @break
                                                     @case(5)
                                                         <span class="_txtec16">{{ $i + (date('j') - 5) }}</span>
+                                                        @break
+                                                    @case(6)
+                                                        <span class="_txtec16">{{ $i + (date('j') - 6) }}</span>
+                                                        @break
+                                                    @case(7)
+                                                        <span class="_txtec16">{{ $i + (date('j') - 7) }}</span>
                                                         @break
                                                 @endswitch
                                             </th>
@@ -214,20 +200,16 @@
             <h3 class="_txteh">Availability window</h3>
             <div class="_width_text show_info">
                 @if ( $content['availability_window'] != '' && $content['availability_window'] != 0 )
-                    <div class="_width_text show_info">
-                        <span class="_txtec">{{ $content['availability_window'] }} months in advance.</span>
-                    </div>
+                    <span class="_txtec">{{ $content['availability_window'] }} months in advance.</span>
                 @else
-                    <div class="_width_text show_info">
-                        <span class="_txtec">Not set</span>
-                    </div>
+                    <span class="_txtec">Not set</span>
                 @endif
             </div>
 
             <form wire:submit.prevent="submitAvailability" class="show_form_input">
                 <div class="fx fx-fd-c" style="gap: 23px;">
                     <div class="">
-                        <div class="selected-modal mxw576" style="margin: 0;">
+                        <div class="selected-modal mxw445" style="margin: 0;">
                             <select wire:model.lazy="content.availability_window" class="@error('availability_window') error_input @enderror">
                                 <option selected value="0">Choose option...</option>
                                 <option value="1">1 months in advance</option>
@@ -297,15 +279,11 @@
             <h3 class="_txteh">Restricted check-in days</h3>
             <div class="_width_text show_info">
                 @if ( count( $content['restricted_checkin_days'] ) != 0 )
-                    <div class="_width_text show_info">
-                        @foreach ( $content['restricted_checkin_days'] as $element)
-                            <p><span class="_txtec">{{ $element }}</span></p>
-                        @endforeach
-                    </div>
+                    @foreach ( $content['restricted_checkin_days'] as $element)
+                        <p><span class="_txtec">{{ $element }}</span></p>
+                    @endforeach
                 @else
-                    <div class="_width_text show_info">
-                        <span class="_txtec">Not set</span>
-                    </div>
+                    <span class="_txtec">Not set</span>
                 @endif
             </div>
 
@@ -480,15 +458,11 @@
             <h3 class="_txteh">Restricted checkout days</h3>
             <div class="_width_text show_info">
                 @if ( count( $content['restricted_checkout_days'] ) != 0 )
-                    <div class="_width_text show_info">
-                        @foreach ( $content['restricted_checkout_days'] as $element)
-                            <p><span class="_txtec">{{ $element }}</span></p>
-                        @endforeach
-                    </div>
+                    @foreach ( $content['restricted_checkout_days'] as $element)
+                        <p><span class="_txtec">{{ $element }}</span></p>
+                    @endforeach
                 @else
-                    <div class="_width_text show_info">
-                        <span class="_txtec">Not set</span>
-                    </div>
+                    <span class="_txtec">Not set</span>
                 @endif
             </div>
 

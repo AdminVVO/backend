@@ -16,10 +16,10 @@ class CreateListingPoliciesTable extends Migration
         Schema::create('listing_policies', function (Blueprint $table) {
             $table->increments('id_listing_policies');
             $table->string('cancellation_policy')->default('Moderate');
-            $table->string('instant_book')->default('on');
-            $table->string('checkin_window_start')->nullable();
-            $table->string('checkin_window_end')->nullable();
-            $table->string('checkout_time')->nullable();
+            $table->string('instant_book')->default('off');
+            $table->json('checkin_window_start')->default('[]');
+            $table->json('checkin_window_end')->default('[]');
+            $table->json('checkout_time')->default('[]');
             $table->string('security_deposit')->nullable();
 
             $table->unsignedInteger('user_id');
