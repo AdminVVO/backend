@@ -8,6 +8,12 @@ use Illuminate\Http\Request;
 
 class ReservationController extends Controller
 {
+   /* Crear Reservacion Send Form */ 
+        public function viewReservationCreateSendForm($id)
+        {
+            return view('reservation.client.indexClient', compact('id'));
+        }
+    
     public function viewReservation()
     {
         return view('reservation.ReservationsIndex');
@@ -16,11 +22,6 @@ class ReservationController extends Controller
     public function viewReservationForm()
     {
         return view('reservation.ReservationsForm');
-    }
-
-    public function viewReservationFormCreate($id = null)
-    {
-        return view('reservation.ReservationsFormStore', compact('id'));
     }
 
     public function viewReservationFormUpdate($id)

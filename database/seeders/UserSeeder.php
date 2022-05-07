@@ -18,6 +18,7 @@ class UserSeeder extends Seeder
             [
                 'name'             => 'Lenier Leonardo',
                 'last_name'        => 'Rivas Granados',
+                'full_name'        => 'Lenier Leonardo Rivas Granados',
                 'date_birth'       => '2021-01-25',
                 'email'            => 'lenier@gmail.com',
                 'password'         => 'lenier@gmail.com@2021-01-25',
@@ -31,6 +32,7 @@ class UserSeeder extends Seeder
             [
                 'name'             => 'Daniela Dani',
                 'last_name'        => 'Gonzales',
+                'full_name'        => 'Daniela Dani Gonzales',
                 'date_birth'       => '2021-01-25',
                 'email'            => 'daniela@gmail.com',
                 'password'         => 'daniela@gmail.com@2021-01-25',
@@ -44,6 +46,7 @@ class UserSeeder extends Seeder
             [
                 'name'             => 'Developer Dev',
                 'last_name'        => 'Program Pro',
+                'full_name'        => 'Developer Dev Program Pro',
                 'date_birth'       => '2021-01-25',
                 'email'            => 'Dev@gmail.com',
                 'password'         => 'Dev@gmail.com@2021-01-25',

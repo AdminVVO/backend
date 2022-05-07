@@ -10,7 +10,10 @@
 <script src="{{ URL::asset('js/application.js') }}"></script>
 <script src="{{ URL::asset('assets/js/owl.carousel.min.js') }}"></script>
 <script src="{{ URL::asset('assets/js/script.js') }}"></script>
-<script src="{{ URL::asset('assets/js/modals.js') }}"></script>
+
+	{{-- Desactivado ese scripts para el correcto funcionamiento de la vista chat.. Falta migrar los css restantes de las demas vistas... --}}
+		{{-- <script src="{{ URL::asset('assets/js/modals.js') }}"></script> --}}
+		
 <script src="{{ URL::asset('assets/js/enter-otp.js') }}"></script>
 {{-- @if (!Auth::check())<script src="{{ URL::asset('assets/js/modals-session.js') }}"></script>@endif --}}
 <script src="{{ URL::asset('assets/js/modals-orig.js') }}"></script>

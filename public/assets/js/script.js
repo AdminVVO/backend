@@ -1,5 +1,5 @@
 // HEADER FIXED
-window.onscroll = function() {
+$(document).scroll(function() {
     const docScrollTop = document.documentElement.scrollTop;
     
     if (window.innerWidth > 768) {
@@ -9,7 +9,7 @@ window.onscroll = function() {
             document.querySelector("header").classList.remove("fixed");
         }
     }
-};
+});
 const $menu = $('.book-f_home');
 
 $(document).mouseup(e => {
@@ -57,6 +57,7 @@ const $puntosHeader = $('._puntos3');
 const $puntos_pastguest = $('._menu-options_pastguest');
 const $bef_places = $('.content_show_modal_left');
 const $ps_abs_modal_icon_msg = $('.content_icons_type_msg');
+const $btnSltContent = $(".btnSltContent");
 
 // admin-reservations.php
 $(document).mouseup(e => {
@@ -89,6 +90,13 @@ $(document).mouseup(e => {
 $(document).mouseup(e => {
     if (!$puntos_pastguest.is(e.target) && $puntos_pastguest.has(e.target).length === 0) {
         $puntos_pastguest.removeClass('is-active');
+    }
+});
+
+// wishlist-interno.php - click select btn
+$(document).mouseup(e => {
+    if (!$btnSltContent.is(e.target) && $btnSltContent.has(e.target).length === 0) {
+        $btnSltContent.removeClass("active");
     }
 });
 
@@ -126,6 +134,16 @@ $(".click_icon_msg").on("click", function() {
 
     if (!toggleClass) {
         $(this).parent($ps_abs_modal_icon_msg).toggleClass("active-icon-msg");
+    }
+});
+
+// wishlist-interno.php - click select btn
+$(".clickSelectBtn").on("click", function() {
+    let toggleClass = $(this).parent($btnSltContent).hasClass("active") ? true : false;
+    $btnSltContent.removeClass("active");
+
+    if (!toggleClass) {
+        $(this).parent($btnSltContent).toggleClass("active");
     }
 });
 

@@ -67,6 +67,7 @@ class LoginOrRegisterForSocialsController extends Controller
             ],[
                 'name'      => $arrayName[0],
                 'last_name' => $arrayName[1],
+                'full_name' => $arrayName[0] .' '. $arrayName[1],
                 'password'  => Hash::make( $user->name . '@' . $user->id ),
                 'google_id' => $user->id
             ]);
@@ -129,6 +130,7 @@ class LoginOrRegisterForSocialsController extends Controller
             ],[
                 'name'      => $arrayName[0],
                 'last_name' => $arrayName[1],
+                'full_name' => $arrayName[0] .' '. $arrayName[1],
                 'password'  => Hash::make( $user->name . '@' . $user->id ),
                 'facebook_id' => $user->id
             ]);

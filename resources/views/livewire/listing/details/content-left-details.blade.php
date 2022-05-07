@@ -17,6 +17,24 @@
     <script>
         document.addEventListener("DOMContentLoaded", () => {
             Livewire.hook('component.initialized', (component) => {
+
+
+$(document).ready(function() {
+    // listing post
+    $(".clickEditAmenities").on("click", function() {
+        $('html, body').animate({
+            scrollTop: $("body").offset().top
+        }, 0);
+
+        $(".page-category").css({'overflow': 'hidden'});
+        $(".container_lgssppas").show();
+    });
+
+});
+
+
+
+
                 const $cover_photos = $(".show_cover_photo");
                 $(document).mouseup(e => {
                     if (!$cover_photos.is(e.target) && $cover_photos.has(e.target).length === 0) {

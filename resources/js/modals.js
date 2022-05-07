@@ -14,36 +14,30 @@ $(".btn-red").addClass("btns-modals");
 
 $(document).ready(function() {
     $('#btnLeng').click(function() {
-        $('.container-leng').css({'display': 'block'});
+        $('.container-leng').show();
         $('.page-category').css({'overflow': 'hidden'});
     })
 
     $('.x').click(function() {
-        $('.container-leng').css({'display': 'none'});
+        $('.container-leng').hide();
         $('.page-category').css({'overflow': 'auto'});
     })
 
     $('.modal-lang').click(function() {
-        $('.container-leng').css({'display': 'none'});
+        $('.container-leng').hide();
         $('.page-category').css({'overflow': 'auto'});
     })
 
     $('.currency-click').click(function() {
-        $('.content_hidden_currency').css({'display': 'block'});
-        $('._lgcth').css({'display': 'none'});
+        $('.content_hidden_currency').show();
+        $('._lgcth').hide();
     })
 
     $('.leng-click').click(function() {
-        $('.content_hidden_currency').css({'display': 'none'});
-        $('._lgcth').css({'display': 'block'});
-    })
-
-    // --- OCULTAR SCROLL BODY ---
-    // $('.').click(function() {
-        // $('.page-category').css({'overflow': 'hidden'}); // ocultar
-        // $('.page-category').css({'overflow': 'auto'}); // aparecer
-    // })
-})
+        $('.content_hidden_currency').hide();
+        $('._lgcth').show();
+    });
+});
 
 
 // ------------- ACTIVE JQUERY -------------
@@ -101,43 +95,43 @@ $(document).ready(function() {
 
     // payments & payouts
     $(".tabs_payments").click(function() {
-        $("._cont-payout").css({'display': 'none'});
-        $("._cont-ein").css({'display': 'none'});
-        $("._cont-sf").css({'display': 'none'});
-        $("._cont-gc").css({'display': 'none'});
-        $("._cont-payments").css({'display': 'block'});
+        $("._cont-payout").hide();
+        $("._cont-ein").hide();
+        $("._cont-sf").hide();
+        $("._cont-gc").hide();
+        $("._cont-payments").show();
     })
 
     $(".tabs_payouts").click(function() {
-        $("._cont-payments").css({'display': 'none'});
-        $("._cont-ein").css({'display': 'none'});
-        $("._cont-sf").css({'display': 'none'});
-        $("._cont-gc").css({'display': 'none'});
-        $("._cont-payout").css({'display': 'block'});
+        $("._cont-payments").hide();
+        $("._cont-ein").hide();
+        $("._cont-sf").hide();
+        $("._cont-gc").hide();
+        $("._cont-payout").show();
     })
 
     $(".tabs_taxes").click(function() {
-        $("._cont-payout").css({'display': 'none'});
-        $("._cont-payments").css({'display': 'none'});
-        $("._cont-sf").css({'display': 'none'});
-        $("._cont-gc").css({'display': 'none'});
-        $("._cont-ein").css({'display': 'block'});
+        $("._cont-payout").hide();
+        $("._cont-payments").hide();
+        $("._cont-sf").hide();
+        $("._cont-gc").hide();
+        $("._cont-ein").show();
     })
 
     $(".tabs_service-fee").click(function() {
-        $("._cont-payout").css({'display': 'none'});
-        $("._cont-payments").css({'display': 'none'});
-        $("._cont-ein").css({'display': 'none'});
-        $("._cont-gc").css({'display': 'none'});
-        $("._cont-sf").css({'display': 'block'});
+        $("._cont-payout").hide();
+        $("._cont-payments").hide();
+        $("._cont-ein").hide();
+        $("._cont-gc").hide();
+        $("._cont-sf").show();
     })
 
     $(".tabs_guest-contri").click(function() {
-        $("._cont-payout").css({'display': 'none'});
-        $("._cont-payments").css({'display': 'none'});
-        $("._cont-ein").css({'display': 'none'});
-        $("._cont-sf").css({'display': 'none'});
-        $("._cont-gc").css({'display': 'block'});
+        $("._cont-payout").hide();
+        $("._cont-payments").hide();
+        $("._cont-ein").hide();
+        $("._cont-sf").hide();
+        $("._cont-gc").show();
     })
 
 
@@ -154,8 +148,8 @@ $(document).ready(function() {
     // CREATE STEP 11 QUESTIONS - click +1 more
     $(".more_icons").click(function() {
         $(".show_user_icons").css({'display': 'flex'});
-        $(".usr_icons_more").css({'display': 'none'});
-        $(".more_icons").css({'display': 'none'});
+        $(".usr_icons_more").hide();
+        $(".more_icons").hide();
         $(".more_icons_show").css({'display': 'flex'});
     })
 
@@ -202,13 +196,13 @@ $(document).ready(function() {
 
     // PERFIL INTERNO.PHP - edit profile click
     $(".click_editprofile").click(function() {
-        $(".p_interna_none").css({'display': 'none'});
-        $("._fr-block").css({'display': 'block'});
+        $(".p_interna_none").hide();
+        $("._fr-block").show();
     });
 
     $(".click_cancelprofile").click(function() {
-        $(".p_interna_none").css({'display': 'block'});
-        $("._fr-block").css({'display': 'none'});
+        $(".p_interna_none").show();
+        $("._fr-block").hide();
     });
 
 
@@ -278,11 +272,11 @@ $(document).ready(function() {
     // perfil-interno.php - click add more leng | speak
     $(".add_more-leng").click(function() {
         $(".add_more_leng_show").css({'display': 'flex'});
-        $(".add_more-leng").css({'display': 'none'});
+        $(".add_more-leng").hide();
     });
 
     $(".add_more.txtred_x").click(function() {
-        $(this).parent(".input_border").css({'display': 'none'});
+        $(this).parent(".input_border").hide();
     });
 
 
@@ -304,44 +298,7 @@ $(document).ready(function() {
     // listing post pricing - minimum stay, click Customize minimum stay requirements
     $(".click_minumum_nights").click(function() {
         $(".show_minimum_nights").css({'display': 'flex'});
-        $(".click_minumum_nights").css({'display': 'none'});
-    });
-
-
-    // listing post - anuncio modal click_x_anuncio
-    setTimeout(showModalAnuncio, 1000);
-
-    function showModalAnuncio() {
-        let cookieAccepted = sessionStorage.getItem("cookieAccepted");
-        if (cookieAccepted != "yes") {
-            sessionStorage.setItem("cookieAccepted", "yes");
-            $(".anuncio_start_hosting").show();
-        }
-    }
-
-    $(".click_x_anuncio").click(function() {
-        $(".anuncio_start_hosting").hide();
-    });
-
-
-    // listing post - click give-feedback modal
-    $(".click_give_feedback").click(function() {
-        $('html,body').animate({
-            scrollTop: $("body").offset().top
-        }, 10);
-
-        $(".container_give-feedback").css({'display': 'block'});
-        $(".page-category").css({'overflow': 'hidden'});
-    });
-
-    $(".modal-anhost").click(function() {
-        $(this).parents(".container_admin-host").hide();
-        $(this).parents(".page-category").css({'overflow': 'auto'});
-    });
-
-    $(".modal_content-anhost .close span").click(function() {
-        $(this).parents(".container_admin-host").hide();
-        $(this).parents(".page-category").css({'overflow': 'auto'});
+        $(".click_minumum_nights").hide();
     });
 
     // click y cambia color estilos el input
@@ -384,31 +341,6 @@ $(document).ready(function() {
         } else if (value === '2') {
             $(".show_text_check_location ._txtec").text("Anyone looking for a place to stay will be able to see your ad marker. If necessary, you can drag the marker to adjust the location.");
         }
-    });
-
-    // listing post - scenic views click
-    $(".click_scenic_views").click(function() {
-        $('html,body').animate({
-            scrollTop: $("body").offset().top
-        }, 10);
-
-        $(".container_scenic_views").css({'display': 'block'});
-        $(".page-category").css({'overflow': 'hidden'});
-    });
-
-    // listing post - pricing click show
-    $(".click_preview_guests_pay").click(function() {
-        $('html,body').animate({
-            scrollTop: $("body").offset().top
-        }, 10);
-
-        $(".container_preview_guests_pay").css({'display': 'block'});
-        $(".page-category").css({'overflow': 'hidden'});
-    });
-
-    $(".click_close").click(function() {
-        $(".container_preview_guests_pay").css({'display': 'none'});
-        $(".page-category").css({'overflow': 'auto'});
     });
 
     // todos los input sea numericos
@@ -591,17 +523,7 @@ $(document).ready(function() {
         var test = $(".c-msg-chat").height();
         $(".c-msg-chat").scrollTop(test);
     }
-    
 
-    // messages - click en el icono denunciar al chat
-    $(".click_msg_icon_denuncia").on("click", function(){
-        $('html,body').animate({
-            scrollTop: $("body").offset().top
-        }, 0);
-
-        $(".container_user_f_p").css({'display': 'block'});
-        $(".page-category").css({'overflow': 'hidden'});
-    });
 
     // messages - click en el icono archivo del type a message
     $(".click_send_archive_msg").on("click", function() {
@@ -627,15 +549,62 @@ $(document).ready(function() {
         }
     });
 
-    // calendar - click en < info
-    $(".click_info_calendar_tb").on("click", function() {
-        $(this).parents(".tbody-list-doller").find(".right_bk_show").toggleClass("active-info");
+    // remove class dandole click alguna opcion del modal popup
+    $(".menu_home-content .menu_home-content-items ul li").on("click", function() {
+        $("._header-menu").removeClass("is-active");
     });
 
-    $(".click-list-calendar, .click_behind_calendar").on("click", function() {
-        $(this).parents(".section_calendar_admin").toggleClass("is-calendar-open");
+    // active click - add payments paypal opt2 1
+    $("._dggtcgcggrg ._brinfimg").on("click", function() {
+        $(this).parents("._dggtcgcggrg").find("._brinfimg.active").removeClass("active");
+        $(this).addClass("active");
+    });
+
+    // click - add payments paypal opt2 1
+    $(".showW9").on("click", function() {
+        $(this).parents().find(".substituteW9").show();
+        $(this).parents().find(".substituteW8").hide();
+        $(this).parents().find(".substituteW8BEN").hide();
+    });
+
+    $(".showW8").on("click", function() {
+        $(this).parents().find(".substituteW8").show();
+        $(this).parents().find(".substituteW9").hide();
+        $(this).parents().find(".substituteW8BEN").hide();
+    });
+
+    $(".showW8BEN").on("click", function() {
+        $(this).parents().find(".substituteW8BEN").show();
+        $(this).parents().find(".substituteW9").hide();
+        $(this).parents().find(".substituteW8").hide();
     });
 });
+
+
+// imagenes +5 more
+$(document).ready(moreImgsPerfls);
+function moreImgsPerfls() {
+    var obj = $(this).find(".imgs_more").find("._pf-msg");
+
+    $.each(obj, function(i) {
+        if ((i + 1) >= 5) {
+            let $lis = $(".imgs_more ._pf-msg");
+            activo = 0;
+            
+            if (activo = 3) {
+                $lis.eq(activo).addClass("show_more_imgs");
+                $(".show_more_imgs img").before($("._moreusrmsg").appendTo(".show_more_imgs"));
+            }
+
+            $("._moreusrmsg ._nswusrs-js").html(i - 3);
+
+            if((i - 3) >= 10) {
+                $("._moreusrmsg ._nswusrs-js").html(9);
+                $(this).closest("._pf-msg").remove();
+            }
+        }
+    });
+}
 
 // messages - modal del icono denunciar check other y se abrira el textarea
 function hideShowJacks(val) {
@@ -643,6 +612,60 @@ function hideShowJacks(val) {
         $("._txta-modls").show();
     } else {
         $("._txta-modls").hide();
+    }
+}
+
+// Anuncios, Notificaiones - Mini Modal
+$(document).ready(anunciosNoti);
+function anunciosNoti() {
+    
+    // listing post - anuncio modal click_x_anuncio
+    setTimeout(showModalAnuncio, 1000);
+    function showModalAnuncio() {
+        let cookieAccepted = sessionStorage.getItem("cookieAccepted");
+        if (cookieAccepted != "yes") {
+            sessionStorage.setItem("cookieAccepted", "yes");
+            $(".anuncio_start_hosting").show();
+        }
+    }
+
+    $(".click_x_anuncio").click(function() {
+        $(".anuncio_start_hosting").hide();
+    });
+
+
+    // Notification
+
+    // $(".shw_ntf_adm").toggle(localStorage.menuWindow==="true");
+    
+    // $(".menu-btn").click(function(event) {
+    //     event.stopPropagation();
+    //     localStorage.menuWindow = $(".shw_ntf_adm").toggle().is(":visible");
+    // });
+
+    // $(".click_hide_shwntfadm").on("click", function() {
+    //     $(this).parents(".shw_ntf_adm").hide();
+    // });
+}
+
+
+function hideShowListingStatus(val) {
+    if (val == "unlisted") {
+        $('html, body').animate({
+            scrollTop: $("body").offset().top
+        }, 0);
+
+        $(".container_lspud").show();
+        $(".page-category").css({'overflow': 'hidden'});
+    }
+
+    if (val == "snoozed") {
+        $('html, body').animate({
+            scrollTop: $("body").offset().top
+        }, 0);
+
+        $(".container_lspopupdesct").show();
+        $(".page-category").css({'overflow': 'hidden'});
     }
 }
 

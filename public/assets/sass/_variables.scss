@@ -47,7 +47,7 @@ $letter-spacing: 0.2rem;
 
 
 // en orden
-$limit: 100;
+$limit: 300;
 $unit: 1px;
 $porcentaje: 1%;
 $cant: 300;
@@ -434,6 +434,43 @@ $cant: 300;
   }
 }
 
+@mixin btn-celest-select {
+  width: fit-content;
+  display: inline-block;
+  padding: 16px 30px;
+  border-radius: 10px;
+  background-color: #00B5DD;
+  color: $color-white;
+  font-weight: bold;
+  white-space: nowrap;
+  font-size: 18px;
+  transition: .3s ease;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #0096B7;
+  }
+
+  svg {
+    margin-top: 2px;
+    transition: all .3s ease;
+  }
+
+  @include responsive(1400px) {
+    padding: 14px 24px;
+    font-size: 16px;
+    font-weight: normal;
+
+    .gp10 {
+      gap: 8px;
+    }
+
+    svg {
+      width: 12px;
+    }
+  }
+}
+
 @mixin btn-celest {
   width: fit-content;
   display: inline-block;
@@ -744,6 +781,23 @@ $cant: 300;
   }
 }
 
+@mixin _txtec333 {
+  color: #333;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 24px;
+
+  @media screen and (max-width: 1400px) {
+    font-size: 16px;
+    line-height: 20px;
+  }
+
+  @media screen and (max-width: 900px){
+    font-size: 14px;
+    line-height: 18px;
+  }
+}
+
 @mixin _btnsmleft {
   width: fit-content;
   display: inline-flex;
@@ -757,10 +811,7 @@ $cant: 300;
 
   @include responsive(1400px) {
     font-size: 16px;
-  }
-
-  @include responsive(900px) {
-    font-size: 14px;
+    gap: 3.5px;
   }
 
   &:disabled {
@@ -790,6 +841,13 @@ $cant: 300;
     }
   }
 
+  img {
+    @include responsive(1400px) {
+      margin-top: 1px;
+      width: 5px;
+    }
+  }
+
   svg {
     margin-top: 3.5px;
 
@@ -799,7 +857,7 @@ $cant: 300;
     }
 
     @include responsive(900px) {
-      margin-top: 1;
+      margin-top: 1px;
       width: 4px;
     }
   }
@@ -819,6 +877,34 @@ $cant: 300;
   }
 
   @include responsive(900px) {
+    font-size: 14px;
+  }
+
+  span {
+    position: relative;
+
+    &::before {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 1px;
+      background-color: #00B5DD;
+      right: 0;
+      bottom: 0;
+    }
+  }
+}
+
+@mixin _btnsmblu16 {
+  width: fit-content;
+  display: inline-block;
+  cursor: pointer;
+  color: #00B5DD;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: bold;
+
+  @include responsive(1400px) {
     font-size: 14px;
   }
 

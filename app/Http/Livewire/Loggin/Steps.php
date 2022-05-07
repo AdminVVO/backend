@@ -84,6 +84,7 @@ class Steps extends Component
             $authUser = User::create([
                 'name'       => $payload['name'],
                 'last_name'  => $payload['last_name'],
+                'full_name'  => $payload['name'] .' '. $payload['last_name'],
                 'date_birth' => $payload['dateBirth'],
                 'sex'        => $payload['gender'],
                 'email'      => $payload['email'],

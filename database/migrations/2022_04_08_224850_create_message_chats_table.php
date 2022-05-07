@@ -17,6 +17,8 @@ class CreateMessageChatsTable extends Migration
             $table->increments('id_message_chats');
             $table->text('message')->nullable();
             $table->string('type')->default('message');
+            $table->string('original_name')->nullable();
+            $table->boolean('report')->default(false);
 
             $table->unsignedInteger('user_id');
             $table->foreign('user_id')

@@ -228,6 +228,7 @@ body .header_admin ._mv-places {
 }
 
 .bx_msg {
+  position: relative;
   border-radius: 10px;
   border: 2px solid #E3EDF3;
   background-color: #FFFFFF;
@@ -245,6 +246,11 @@ body .header_admin ._mv-places {
   transition: all 0.3s ease;
   box-shadow: 0 0 10px #e3edf3;
 }
+.bx_msg ._ck2ag {
+  position: absolute;
+  top: 9px;
+  right: 8px;
+}
 
 .bk_det {
   display: flex;
@@ -261,7 +267,55 @@ body .header_admin ._mv-places {
   margin-bottom: 5px;
 }
 
+.search_content {
+  margin: 23px 0 0;
+  padding: 0 0 0 19px;
+}
+.search_content .input-wrapper i {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.search_content .input-wrapper input {
+  padding: 14.6px 19px 14.6px 0;
+}
+
+@media screen and (min-width: 1800px) {
+  .content_icons_type_msg.active-icon-msg .popupMsgMore {
+    padding-bottom: 4.3rem;
+  }
+
+  .moreIconMsg {
+    max-width: 52px;
+    min-width: 52px;
+    height: 52px;
+  }
+  .moreIconMsg i {
+    font-size: 23px;
+  }
+
+  .hvIconTxt {
+    font-size: 16px;
+  }
+}
 @media screen and (max-width: 1800px) {
+  .msgsHamburPopup {
+    width: 253px;
+  }
+
+  .search_content {
+    margin: 0 0 23px 0;
+    padding: 0 0 0 15px;
+  }
+  .search_content .input-wrapper i {
+    font-size: 20px;
+  }
+  .search_content .input-wrapper input {
+    margin-left: 12px;
+    font-size: 16px;
+    padding: 12px 15px 12px 0;
+  }
+
   .menu .menu_home-content-items {
     border: 1px solid #E3EDF3;
   }
@@ -382,10 +436,6 @@ body .header_admin ._mv-places {
   }
   body .modal_icon_msg .nv li {
     line-height: normal;
-  }
-  body .btn_circle_243-3 {
-    width: 32px;
-    height: 32px;
   }
   body .btn_circle_243-3 .h2-guests {
     font-size: 20px !important;
@@ -857,6 +907,9 @@ body .header_admin ._mv-places {
     flex: 1 1 0%;
     opacity: 1;
   }
+  body .search_content {
+    margin: 0 20px 23px;
+  }
   body .section_messages_user .pd-130-0-60 {
     padding: 0;
   }
@@ -958,9 +1011,6 @@ body .header_admin ._mv-places {
   body .section_messages_user .medio_msg_user .content1 .header_msg_lateral_restime .pd32-35 {
     padding: 18.5px 24px;
   }
-  body .section_messages_user .medio_msg_user .content1 .header_msg_lateral_restime .mxw-p100 .btn-celest {
-    display: none;
-  }
   body .section_messages_user .medio_msg_user .content1 .c-msg-chat {
     overflow: auto;
     padding: 24px 22px 0;
@@ -1005,6 +1055,15 @@ body .header_admin ._mv-places {
   height: 52px;
 }
 
+body .is-msg-open-new .right_msg_user {
+  flex: 0 1 0%;
+  margin: 0;
+  padding: 0;
+  opacity: 0;
+}
+body .is-msg-open-new .right_msg_user .bkg_white .ow-o {
+  overflow: hidden;
+}
 @media (max-width: 1360px) {
   body .is-main-info-open .left_msg_user {
     flex: 0 1 0%;

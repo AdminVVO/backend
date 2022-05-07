@@ -206,18 +206,16 @@ header {
             @include _shadow-black3-6;
 
             ul {
-
                 li {
+                    cursor: pointer;
                     display: block;
                     margin: 0 0 1px;
 
-                    a {
-                        color: $color-text-submenu;
-                        font-size: 16px;
-                        line-height: 24px;
-                        padding: 10px 10px 10px 16px;
-                        transition: all .3s ease;
-                    }
+                    color: $color-text-submenu;
+                    font-size: 16px;
+                    line-height: 24px;
+                    padding: 10px 10px 10px 16px;
+                    transition: all .3s ease;
                 }
             }
 

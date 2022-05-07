@@ -15,6 +15,8 @@ class MessageChats extends Model
     protected $fillable = [
         'message',
         'type',
+        'original_name',
+        'report',
         'user_id',
         'chats_id',
     ];
@@ -24,6 +26,7 @@ class MessageChats extends Model
     ];
 
     protected $casts = [
+        'report' => 'boolean',
     ];
 
     public function user()

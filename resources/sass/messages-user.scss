@@ -281,6 +281,7 @@ body {
 
 // messages.php
 .bx_msg {
+  position: relative;
   border-radius: 10px;
   border: 2px solid #E3EDF3;
   background-color: $color-white;
@@ -298,6 +299,12 @@ body {
   &.active_msg_received {
     transition: all .3s ease;
     box-shadow: 0 0 10px #e3edf3;
+  }
+
+  ._ck2ag {
+    position: absolute;
+    top: 9px;
+    right: 8px;
   }
 }
 
@@ -319,8 +326,70 @@ body {
   }
 }
 
+// search icon
+.search_content {
+  margin: 23px 0 0;
+  padding: 0 0 0 19px;
+
+  .input-wrapper {
+    i {
+      @include flex-centrado;
+    }
+
+    input {
+      padding: 14.6px 19px 14.6px 0;
+    }
+  }
+}
+
+@media screen and (min-width: 1800px) {
+  .content_icons_type_msg {
+    &.active-icon-msg {
+      .popupMsgMore {
+        padding-bottom: 4.3rem;
+      }
+    }
+  }
+
+  .moreIconMsg {
+    max-width: 52px;
+    min-width: 52px;
+    height: 52px;
+
+    i {
+      font-size: 23px;
+    }
+  }
+
+  .hvIconTxt {
+    font-size: 16px;
+  }
+}
+
 // max-width 1800px
 @media screen and (max-width: 1800px) {
+  .msgsHamburPopup {
+    width: 253px;
+  }
+
+  // search icon
+  .search_content {
+    margin: 0 0 23px 0;
+    padding: 0 0 0 15px;
+
+    .input-wrapper {
+      i {
+        font-size: 20px;
+      }
+
+      input {
+        margin-left: 12px;
+        font-size: 16px;
+        padding: 12px 15px 12px 0;
+      }
+    }
+  }
+
   .menu {
     .menu_home-content-items {
       border: 1px solid #E3EDF3;
@@ -487,8 +556,8 @@ body {
     }
 
     .btn_circle_243-3 {
-      width: 32px;
-      height: 32px;
+      // width: 32px;
+      // height: 32px;
 
       .h2-guests {
         font-size: 20px !important;
@@ -1154,6 +1223,11 @@ body {
       }
     }
 
+    // search icon
+    .search_content {
+      margin: 0 20px 23px;
+    }
+
     .section_messages_user {
       .pd-130-0-60 {
         padding: 0;
@@ -1296,11 +1370,11 @@ body {
               padding: 18.5px 24px;
             }
 
-            .mxw-p100 {
-              .btn-celest {
-                display: none;
-              }
-            }
+            // .mxw-p100 {
+            //   .btn-celest {
+            //     display: none;
+            //   }
+            // }
           }
 
           .c-msg-chat {
@@ -1368,6 +1442,21 @@ body {
 
 // animaciones
 body {
+  .is-msg-open-new {
+    .right_msg_user {
+      flex: 0 1 0%;
+      margin: 0;
+      padding: 0;
+      opacity: 0;
+  
+      .bkg_white {
+        .ow-o {
+          overflow: hidden;
+        }
+      }
+    }
+  }
+
   .is-main-info-open {
     @include responsive(1360px) {
       .left_msg_user {

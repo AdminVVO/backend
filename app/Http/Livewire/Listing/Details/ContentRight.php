@@ -9,8 +9,8 @@ use Auth;
 class ContentRight extends Component
 {
     public $listing;
-    private $content = [];
-    public $search;
+    public $content = [];
+    public $search = '';
     public $sortBy = 'ASC';
 
     public $listeners = [
@@ -24,7 +24,7 @@ class ContentRight extends Component
     public function render()
     {
         $this->initFuntionsStar();
-        return view('livewire.listing.details.content-right', ['content' => $this->content]);
+        return view('livewire.listing.details.content-right');
     }
         
     public function initFuntionsStar()

@@ -35,6 +35,7 @@
 
     {{-- @include('language.Language') --}}
     @yield('content')
+    @yield('modals')
     @include('layouts.Footer')
 
     @stack('alpine_scripts')

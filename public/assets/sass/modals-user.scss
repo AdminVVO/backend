@@ -1,0 +1,712 @@
+@import "_variables";
+
+// MODALS OTROS CLASES
+body {
+    // trips-upcoming-popup.php
+    .container_tsugpp {
+        display: none;
+
+        .pd_anhost-modal {
+            .modal_content-anhost {
+                max-width: 1760px;
+                overflow: hidden;
+
+                .modal_block {
+                    overflow-y: hidden;
+                }
+
+                .left_trips_popup_cont {
+                    flex: 0 0 570px;
+                    overflow: auto;
+
+                    margin-top: 50px;
+                }
+
+                .right_trips_popup_cont {
+                    flex: 1 1 0%;
+                    transition: all .5s ease;
+
+                    width: 100%;
+                }
+
+                .contact-map {
+                    width: 100%;
+                    height: 100%;
+
+                    iframe {
+                        width: 100%;
+                        height: 100%;
+                    }
+                }
+
+                .bk-icon-des {
+                    gap: 19px;
+                }
+
+                .trips_upcoming_inf {
+                    padding: 17px 35px 23px 35px;
+
+                    &:not(:last-child) {
+                        border-bottom: 2px solid #E3EDF3;
+                    }
+
+                    .show_profile {
+                        margin-top: 5px;
+                        gap: 8px;
+                    }
+
+                    &:nth-child(1) {
+                        padding: 0 35px 23px 35px;
+                    }
+
+                    &:nth-child(2) {
+                        padding: 33px 35px 20px 35px;
+                    }
+
+                    &:nth-child(3) {
+                        padding: 23px 35px;
+                    }
+                }
+
+                @include responsive(1400px) {
+                    .left_trips_popup_cont {
+                        flex: 0 0 490px;
+                        margin-top: 24px;
+                    }
+
+                    .trips_upcoming_inf {
+                        padding: 22px 24px !important;
+
+                        &:nth-child(1) {
+                            padding-top: 0 !important;
+                        }
+                    }
+
+                    .bk-icon-des {
+                       gap: 10px;
+                    }
+                }
+
+                @include responsive(900px) {
+                    .left_trips_popup_cont {
+                        flex: 0 0 330px;
+                    }
+
+                    .mnw-p47 {
+                        min-width: 100%;
+                    }
+                }
+
+                @include responsive(600px) {
+                    .left_trips_popup_cont {
+                        flex: 1 1 0%;
+                        margin-top: 0;
+                    }
+
+                    .right_trips_popup_cont {
+                        flex: 0 1 0;
+                    }
+
+                    .mnw-p47 {
+                        min-width: 48%;
+                    }
+                }
+
+                @include responsive(470px) {
+                    .mnw-p47 {
+                        min-width: 100%;
+                    }
+
+                    .trips_upcoming_inf {
+                        &:nth-child(2) {
+                            .mnw-p47 {
+                                min-width: 48%;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .pd-b13 {
+        padding-bottom: 13px;
+    }
+
+    // trips-past-popup.php
+    .container_tsptpp {
+        display: none;
+
+        .pd_anhost-modal {
+            .modal_content-anhost {
+                max-width: 580px;
+                overflow: hidden;
+
+                .bk-icon-des {
+                    gap: 19px;
+                }
+
+                .trips_upcoming_inf {
+                    padding: 17px 35px 23px 35px;
+
+                    &.pd-t0 {
+                        padding-top: 0 !important;
+                    }
+
+                    &:not(:last-child) {
+                        border-bottom: 2px solid #E3EDF3;
+                    }
+
+                    .show_profile {
+                        margin-top: 5px;
+                        gap: 8px;
+                    }
+
+                    &:nth-child(3) {
+                        padding: 23px 35px;
+                    }
+                }
+
+                @include responsive(1400px) {
+                    max-width: 480px;
+
+                    .trips_upcoming_inf {
+                        padding: 16px 35px !important;
+                    }
+
+                    .show_profile {
+                        margin-top: 3px;
+                        gap: 6px;
+                    }
+
+                    .bk-icon-des {
+                       gap: 10px;
+                    }
+                }
+
+                @include responsive(600px) {
+                    .trips_upcoming_inf {
+                        padding: 22px 24px !important;
+
+                        &.pd-t0 {
+                            padding-top: 16px !important;
+                        }
+                    }
+
+                    .mnw-p47 {
+                        min-width: 48%;
+                    }
+                }
+
+                @include responsive(470px) {
+                    .mnw-p47 {
+                        min-width: 100%;
+                    }
+
+                    .trips_upcoming_inf {
+                        &:nth-child(2) {
+                            .mnw-p47 {
+                                min-width: 48%;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    // trips-past-popup1.php
+    .container_tsptpp1 {
+        display: none;
+    }
+
+    // trips-canceled.popup.php
+    .container_tscdpp {
+        display: none;
+
+        .pd_anhost-modal {
+            .modal_content-anhost {
+                max-width: 580px;
+                overflow: hidden;
+
+                .bk-icon-des {
+                    gap: 19px;
+                }
+
+                .trips_upcoming_inf {
+                    padding: 23px 35px;
+
+                    &.pd-t0 {
+                        padding-top: 0 !important;
+                    }
+
+                    &:not(:last-child) {
+                        border-bottom: 2px solid #E3EDF3;
+                    }
+
+                    .show_profile {
+                        margin-top: 5px;
+                        gap: 8px;
+                    }
+                }
+
+                @include responsive(1400px) {
+                    max-width: 480px;
+
+                    .bk-icon-des {
+                       gap: 10px;
+                    }
+
+                    .gp15 {
+                        gap: 8px;
+                    }
+
+                    .gp24 {
+                        gap: 18px;
+                    }
+
+                    .gp8 {
+                        gap: 5px;
+                    }
+
+                    .gp21 {
+                        gap: 14px;
+                    }
+
+                    .mnw45px {
+                        min-width: 38px;
+                        width: 38px;
+                    }
+                }
+
+                @include responsive(600px) {
+                    .trips_upcoming_inf {
+                        padding: 22px 24px !important;
+
+                        &.pd-t0 {
+                            padding-top: 16px !important;
+                        }
+                    }
+
+                    .mnw-p47 {
+                        min-width: 48%;
+                    }
+                }
+
+                @include responsive(470px) {
+                    .mnw-p47 {
+                        min-width: 100%;
+                    }
+                }
+            }
+        }
+    }
+
+    // Payments & payouts = add payments-paypal-opt2
+    .container_adpsplot2 {
+        display: none;
+
+        .pd_anhost-modal {
+            align-items: inherit;
+
+            .modal_content-anhost {
+                max-width: 1300px;
+                overflow: hidden;
+
+                @include responsive(1400px) {
+                    max-width: 800px;
+
+                    .mr-t54 {
+                        margin-top: 42px;
+                    }
+                }
+
+                ._zjunba {
+                    padding: 30px 50px;
+
+                    .gp17 {
+                        @include responsive(1400px) {
+                            gap: 8px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    // Payments & payouts = add payments-paypal-opt2 - 1
+    .container_adpsplot21 {
+        display: none;
+
+        .pd_anhost-modal {
+            .modal_content-anhost {
+                max-width: 1300px;
+                overflow: hidden;
+
+                .mxw882 {
+                    max-width: 882px;
+                    width: 100%;
+                }
+
+                .mxw259 {
+                    max-width: 259px;
+                    width: 100%;
+                }
+
+                .pdbgsubmit {
+                    padding: 34px 0;
+                }
+
+                .flex0-329 {
+                    flex: 0 0 329px;
+                }
+
+                .gp52-18 {
+                    gap: 18px;
+                    grid-column-gap: 52px;
+                }
+
+                .gp51-11 {
+                    gap: 11px;
+                    grid-column-gap: 51px;
+                }
+
+                .gp33-18 {
+                    gap: 18px;
+                    grid-column-gap: 33px;
+                }
+
+                .gp30-11 {
+                    gap: 11px;
+                    grid-column-gap: 30px;
+                }
+
+                .w259 {
+                    width: 259px;
+                }
+
+                @include responsive(1400px) {
+                    max-width: 800px;
+
+                    .pdbgsubmit {
+                        padding: 28px 0;
+                    }
+
+                    .gp51-11 {
+                        grid-column-gap: 28px;
+                    }
+
+                    .gp32 {
+                        gap: 23px;
+                    }
+
+                    .gp25 {
+                        gap: 23px;
+                    }
+
+                    .gp17 {
+                        gap: 15px;
+                    }
+
+                    .gp11 {
+                        gap: 6px;
+                    }
+
+                    .gp52-18,
+                    .gp33-18,
+                    .gp30-11 {
+                        gap: 11px;
+                    }
+
+                    ._dggtcgcggrg {
+                        grid-template-columns: 1fr 1fr;
+                        grid-column-gap: 45px;
+                        grid-row-gap: 16px;
+                    }
+
+                    .blimgApples {
+                        max-width: 108px;
+                    }
+
+                    .binfApples {
+                        padding: 26px 17px;
+                    }
+
+                    .mr-t12 {
+                        margin-top: 10px;
+                    }
+
+                    .mr-t19 {
+                        margin-top: 16px;
+                    }
+
+                    .gp19 {
+                        gap: 17px;
+                    }
+                }
+
+                @include responsive(813px) {
+                    .flex0-329 {
+                        flex: 100%;
+                    }
+                    
+                    ._dggtcgcggrg {
+                        grid-template-columns: 1fr;
+                    }
+                }
+
+                ._zjunba {
+                    padding: 30px 50px;
+
+                    .gp17 {
+                        @include responsive(1400px) {
+                            gap: 8px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    // Payments & payouts = add payments-paypal-opt2 - 4
+    .container_adpsplot24 {
+        display: none;
+
+        .pd_anhost-modal {
+            align-items: inherit;
+
+            .modal_content-anhost {
+                max-width: 1300px;
+                overflow: hidden;
+
+                .flex0-520 {
+                    flex: 0 0 520px;
+                }
+
+                @include responsive(1400px) {
+                    max-width: 800px;
+
+                    .gp43 {
+                        gap: 33px;
+                    }
+
+                    .mr-t50 {
+                        margin-top: 42px;
+                    }
+
+                    .flex0-520 {
+                        flex: 0 0 100%;
+                    }
+
+                    .gp8 {
+                        gap: 6px;
+                    }
+
+                    .wics {
+                        width: 40px;
+                    }
+                }
+
+                ._zjunba {
+                    padding: 30px 50px;
+
+                    .gp17 {
+                        @include responsive(1400px) {
+                            gap: 8px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    // Payments % payouts = add payments bank transfer opt2
+    .container_adpsbktrot2 {
+        display: none;
+
+        .pd_anhost-modal {
+            align-items: inherit;
+
+            .modal_content-anhost {
+                max-width: 1300px;
+                overflow: hidden;
+
+                .txt-check-in {
+                    padding-left: 11px;
+                }
+
+                .mxw300 {
+                    max-width: 300px;
+                }
+
+                @include responsive(1400px) {
+                    max-width: 800px;
+
+                    .gp25 {
+                        gap: 20px;
+                    }
+
+                    .gp76 {
+                        gap: 56px;
+                    }
+
+                    .gp9 {
+                        gap: 5px;
+                    }
+                }
+
+                @include responsive(600px) {
+                    .mxw300 {
+                        max-width: 100%;
+                    }
+                }
+
+                ._zjunba {
+                    padding: 30px 50px;
+
+                    .gp17 {
+                        @include responsive(1400px) {
+                            gap: 8px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    // Payments & payouts = add payments bank transfer opt2 - 4
+    .container_adpsbktrot24 {
+        display: none;
+
+        .pd_anhost-modal {
+            align-items: inherit;
+
+            .modal_content-anhost {
+                max-width: 1300px;
+                overflow: hidden;
+
+                .flex0-520 {
+                    flex: 0 0 520px;
+                }
+
+                @include responsive(1400px) {
+                    max-width: 800px;
+
+                    .gp43 {
+                        gap: 33px;
+                    }
+
+                    .mr-t50 {
+                        margin-top: 42px;
+                    }
+
+                    .flex0-520 {
+                        flex: 0 0 100%;
+                    }
+
+                    .gp8 {
+                        gap: 6px;
+                    }
+
+                    .wics {
+                        width: 40px;
+                    }
+                }
+
+                ._zjunba {
+                    padding: 30px 50px;
+
+                    .gp17 {
+                        @include responsive(1400px) {
+                            gap: 8px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    // Payments & payouts = add payments payoneer opt2 - 4
+    .container_adpsprot24 {
+        display: none;
+
+        .pd_anhost-modal {
+            align-items: inherit;
+
+            .modal_content-anhost {
+                max-width: 1300px;
+                overflow: hidden;
+
+                .flex0-520 {
+                    flex: 0 0 520px;
+                }
+
+                @include responsive(1400px) {
+                    max-width: 800px;
+
+                    .gp43 {
+                        gap: 33px;
+                    }
+
+                    .mr-t50 {
+                        margin-top: 42px;
+                    }
+
+                    .flex0-520 {
+                        flex: 0 0 100%;
+                    }
+
+                    .gp8 {
+                        gap: 6px;
+                    }
+
+                    .wics {
+                        width: 40px;
+                    }
+                }
+
+                ._zjunba {
+                    padding: 30px 50px;
+
+                    .gp17 {
+                        @include responsive(1400px) {
+                            gap: 8px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    // Payments & payouts = add-payments-payoneer-opt2
+    .container_adpsprot2 {
+        display: none;
+
+        .pd_anhost-modal {
+            align-items: inherit;
+
+            .modal_content-anhost {
+                max-width: 1300px;
+                overflow: hidden;
+
+                @include responsive(1400px) {
+                    max-width: 800px;
+
+                    .mr-t54 {
+                        margin-top: 42px;
+                    }
+                }
+
+                ._zjunba {
+                    padding: 30px 50px;
+
+                    .gp17 {
+                        @include responsive(1400px) {
+                            gap: 8px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -3,13 +3,14 @@
 }
 
 header {
-  position: relative;
+  position: sticky;
   top: 0;
   margin-bottom: 80px;
   background-color: #283646;
 }
 
 header.fixed {
+  position: sticky;
   animation: none;
 }
 

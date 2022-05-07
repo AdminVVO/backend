@@ -26,9 +26,6 @@
                 <input type="text" name="" placeholder="Search reservation...">
             </div>
         </div>
-        <div class="input-wrapper">
-            <a href="{{ route('ReservCreate') }}" class="btn-celest">Reservar!!</a>
-        </div>
 
         <div class="_scrolltable">
             <div class="_width _tb-listings">

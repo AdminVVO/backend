@@ -1,18 +1,8 @@
 @import "_variables";
 
-// globals textos
-._txtblu {
-    display: inline-block;
-    margin-bottom: 0;
-}
-
-._txteh {
-    margin-bottom: 0;
-}
-
 // MODALS OTROS CLASES
-// Messages modal del icono anuncio
 body {
+    // Messages modal del icono anuncio
     .container_user_f_p {
         display: none;
 
@@ -50,10 +40,6 @@ body {
                 .close {
                     span {
                         border-radius: 0 0 0 10px;
-
-                        &:hover {
-                            background-color: #DC383D;
-                        }
                     }
                 }
 
@@ -85,6 +71,1300 @@ body {
             }
         }
     }
+
+    // Calendar individual - popup private note add >
+    .container_popup_ntpve {
+        display: none;
+
+        .pd_anhost-modal {
+            .modal_content-anhost {
+                max-width: 648px;
+                overflow: hidden;
+
+                ._zjunba {
+                    padding: 29px 50px 54px;
+                }
+
+                ._numcard {
+                    padding-left: 17px !important;
+                }
+            }
+        }
+    }
+
+    // Calendar individual - Create new custom setting
+    .container_ci_nw_cs {
+        display: none;
+
+        .pd_anhost-modal {
+            .modal_content-anhost {
+                max-width: 860px;
+                overflow: hidden;
+
+                ._zjunba {
+                    padding: 29px 50px 54px;
+                }
+
+                ._numcard {
+                    padding-left: 17px !important;
+                }
+            }
+        }
+    }
+
+    // Popup modal listing post
+    .container_popup_rsapid {
+        // display: none;
+
+        .pd_anhost-modal {
+            align-items: inherit;
+
+            .modal_content-anhost {
+                max-width: 796px;
+                overflow: hidden;
+
+                @include responsive(1400px) {
+                    max-width: 716px;
+
+                    .mr-t63 {
+                        margin-top: 43px;
+                    }
+
+                    .mr-t31 {
+                        margin-top: 21px;
+                    }
+                }
+            }
+        }
+    }
+
+    .container_poliandrulesedit {
+        display: none;
+
+        .pd_anhost-modal {
+            .modal_content-anhost {
+                max-width: 860px;
+                overflow: hidden;
+
+                @include responsive(1400px) {
+                    max-width: 780px;
+
+                    .mr-t54 {
+                        margin-top: 38px;
+                    }
+
+                    .gp49 {
+                        gap: 29px;
+                    }
+
+                    .gp19 {
+                        gap: 14px;
+                    }
+
+                    .gp7 {
+                        gap: 2px;
+                    }
+                }
+
+                ._zjunba {
+                    padding: 49px 50px 54px;
+
+                    @include responsive(1400px) {
+                        padding: 29px 44px 38px;
+                    }
+                }
+            }
+        }
+    }
+
+    // listing-status-popup-deactivate.php
+    .container_lspopupdesct {
+        display: none;
+
+        .pd_anhost-modal {
+            .modal_content-anhost {
+                max-width: 860px;
+                overflow: hidden;
+
+                @include responsive(1400px) {
+                    max-width: 780px;
+
+                    .gp18 {
+                        gap: 10px;
+                    }
+
+                    .mr-t20 {
+                        margin-top: 14px;
+                    }
+
+                    .block-lb {
+                        gap: 8px;
+                    }
+                }
+
+                ._zjunba {
+                    padding: 49px 50px 54px;
+
+                    @include responsive(1400px) {
+                        padding: 29px 44px 38px;
+                    }
+                }
+            }
+        }
+    }
+
+    // listing-status-popup-amenities.php
+    .container_lgssppas {
+        display: none;
+
+        .pd_anhost-modal {
+            .modal_content-anhost {
+                max-width: 860px;
+                overflow: hidden;
+
+                @include responsive(1400px) {
+                    max-width: 780px;
+
+                    .mr-b76 {
+                        margin-bottom: 40px;
+                    }
+
+                    .gp18 {
+                        gap: 10px;
+                    }
+
+                    .mr-t16 {
+                        margin-top: 8px;
+                    }
+
+                    ._bkpd352btns {
+                        padding: 25.5px 0;
+                    }
+
+                    .gp24 {
+                        gap: 14px;
+                    }
+
+                    .gp30 {
+                        gap: 20px;
+                    }
+                }
+
+                .modal_block {
+                    .content_hidden-anhost {
+                        margin: 0 32px;
+                        overflow: hidden;
+
+                        @include responsive(1400px) {
+                            margin: 0 24.5px;
+                        }
+
+                        @include responsive(600px) {
+                            margin: 0;
+                        }
+
+                        ._wpwi48 {
+                            padding: 0 18px;
+                            padding-bottom: 2rem !important;
+                            height: 100%;
+                            overflow: auto;
+
+                            @include responsive(1400px) {
+                                padding: 0 10.5px;
+                            }
+
+                            @include responsive(600px) {
+                                padding: 0 24px;
+                            }
+                        }
+                    }
+                }
+
+                ._zjunba {
+                    padding: 30px 50px;
+
+                    .gp17 {
+                        @include responsive(1400px) {
+                            gap: 8px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    // listing-status-popup-amenities1.php
+    .container_lgssppas1 {
+        display: none;
+
+        .pd_anhost-modal {
+            .modal_content-anhost {
+                max-width: 718px;
+                overflow: hidden;
+
+                @include responsive(1400px) {
+                    .mr-b50 {
+                        margin-bottom: 36px;
+                    }
+
+                    ._bkpd352btns {
+                        padding: 25px 0;
+                    }
+
+                    .gp17 {
+                        gap: 10px;
+                    }
+
+                    .mr-t26 {
+                        margin-top: 16px;
+                    }
+                }
+
+                ._wpwi48 {
+                    padding: 0 43px;
+
+                    @include responsive(1400px) {
+                        padding: 0 35px;
+                    }
+                }
+
+                .modal_block {
+                    .content_hidden-anhost {
+                        margin-bottom: 0;
+                    }
+                }
+
+                .block-lb {
+                    gap: 17px;
+
+                    @include responsive(1400px) {
+                        gap: 8px;
+                    }
+                }
+
+                ._zjunba {
+                    padding: 30px 43px;
+
+                    .gp17 {
+                        @include responsive(1400px) {
+                            gap: 10px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    // listing-instant-off-popup3.php
+    .container_lsitofpp3 {
+        display: none;
+
+        .pd_anhost-modal {
+            align-items: inherit;
+
+            .modal_content-anhost {
+                max-width: 860px;
+                overflow: hidden;
+
+                @include responsive(1400px) {
+                    max-width: 780px;
+
+                    .mr-t20 {
+                        margin-top: 14px;
+                    }
+
+                    .mr-t57 {
+                        margin-top: 37px;
+                    }
+
+                    .gp35 {
+                        gap: 15px;
+                    }
+
+                    .gp20 {
+                        gap: 14px;
+                    }
+
+                    .mr-b26 {
+                        margin-bottom: 16px;
+                    }
+                }
+
+                .block-lb {
+                    gap: 17px;
+
+                    @include responsive(1400px) {
+                        gap: 10px;
+                    }
+                }
+
+                ._zjunba {
+                    padding: 30px 50px;
+                    margin-top: auto;
+
+                    .gp17 {
+                        @include responsive(1400px) {
+                            gap: 8px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    // listing-status-popup-unlisted.php
+    .container_lspud {
+        display: none;
+
+        .pd_anhost-modal {
+            .modal_content-anhost {
+                max-width: 860px;
+                overflow: hidden;
+
+                @include responsive(1400px) {
+                    max-width: 780px;
+
+                    .gp18 {
+                        gap: 12px;
+                    }
+                }
+
+                ._bkdatepd14 {
+                    @include responsive(1400px) {
+                        padding: 12px;
+                        border-radius: 8px;
+                    }
+
+                    svg {
+                        min-width: max-content;
+
+                        @include responsive(1400px) {
+                            min-width: 9px;
+                        }
+                    }
+                }
+
+                ._zjunba {
+                    padding: 30px 50px;
+
+                    .gp17 {
+                        @include responsive(1400px) {
+                            gap: 8px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .container_lsitofpp2 {
+        display: none;
+
+        .pd_anhost-modal {
+            align-items: inherit;
+
+            .modal_content-anhost {
+                max-width: 860px;
+                overflow: hidden;
+
+                @include responsive(1400px) {
+                    max-width: 780px;
+
+                    .mr-b26 {
+                        margin-bottom: 16px;
+                    }
+
+                    .gp15 {
+                        gap: 10px;
+                    }
+
+                    .gp50 {
+                        gap: 29px;
+                    }
+
+                    .mr-t57 {
+                        margin-top: 41px;
+                    }
+
+                    .gp7 {
+                        gap: 2px;
+                    }
+                }
+
+                ._zjunba {
+                    padding: 30px 50px;
+                    margin-top: auto;
+
+                    .gp17 {
+                        @include responsive(1400px) {
+                            gap: 8px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .container_lsitofpp1 {
+        display: none;
+
+        .pd_anhost-modal {
+            align-items: inherit;
+
+            .modal_content-anhost {
+                max-width: 860px;
+                overflow: hidden;
+
+                @include responsive(1400px) {
+                    max-width: 780px;
+
+                    .mr-b26 {
+                        margin-bottom: 16px;
+                    }
+
+                    .gp15 {
+                        gap: 10px;
+                    }
+
+                    .mr-t45 {
+                        margin-top: 35px;
+                    }
+
+                    .gp20 {
+                        gap: 14px;
+                    }
+                }
+
+                .block-lb {
+                    gap: 17px;
+
+                    @include responsive(1400px) {
+                        gap: 10px;
+                    }
+                }
+
+                ._zjunba {
+                    padding: 30px 50px;
+                    margin-top: auto;
+
+                    .gp17 {
+                        @include responsive(1400px) {
+                            gap: 8px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .container_lsadrspp {
+        display: none;
+
+        .pd_anhost-modal {
+            .modal_content-anhost {
+                max-width: 860px;
+                overflow: hidden;
+
+                @include responsive(1400px) {
+                    max-width: 780px;
+
+                    .gp16 {
+                        gap: 10px;
+                    }
+
+                    .gp28 {
+                        gap: 20px;
+                    }
+                }
+            }
+        }
+    }
+
+    .container_lsctls {
+        display: none;
+
+        .pd_anhost-modal {
+            .modal_content-anhost {
+                max-width: 860px;
+                overflow: hidden;
+
+                @include responsive(1400px) {
+                    max-width: 780px;
+
+                    .gp16 {
+                        gap: 8px;
+                    }
+
+                    .mr-t35 {
+                        margin-top: 25px;
+                    }
+
+                    .gp35 {
+                        gap: 25px;
+                    }
+                }
+
+                ._zjunba {
+                    padding: 49px 50px 54px;
+
+                    @include responsive(1400px) {
+                        padding: 29px 44px 38px;
+                    }
+                }
+            }
+        }
+    }
+
+    // listing-status-popup-deactive.php
+    .container_lssppde {
+        display: none;
+
+        .pd_anhost-modal {
+            align-items: inherit;
+
+            .modal_content-anhost {
+                max-width: 860px;
+                overflow: hidden;
+
+                @include responsive(1400px) {
+                    max-width: 780px;
+
+                    .mr-t20 {
+                        margin-top: 14px;
+                    }
+
+                    .mr-t57 {
+                        margin-top: 37px;
+                    }
+
+                    .gp35 {
+                        gap: 15px;
+                    }
+
+                    .gp20 {
+                        gap: 14px;
+                    }
+
+                    .mr-b26 {
+                        margin-bottom: 16px;
+                    }
+                }
+
+                .block-lb {
+                    gap: 17px;
+
+                    @include responsive(1400px) {
+                        gap: 10px;
+                    }
+                }
+
+                ._zjunba {
+                    padding: 30px 50px;
+                    margin-top: auto;
+
+                    .gp17 {
+                        @include responsive(1400px) {
+                            gap: 8px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    // listing-status-popup-deactive1.php
+    .container_lssppde1 {
+        display: none;
+
+        .pd_anhost-modal {
+            align-items: inherit;
+
+            .modal_content-anhost {
+                max-width: 860px;
+                overflow: hidden;
+
+                @include responsive(1400px) {
+                    max-width: 780px;
+
+                    .mr-t20 {
+                        margin-top: 14px;
+                    }
+
+                    .mr-t57 {
+                        margin-top: 37px;
+                    }
+
+                    .gp35 {
+                        gap: 15px;
+                    }
+
+                    .gp20 {
+                        gap: 14px;
+                    }
+
+                    .mr-b26 {
+                        margin-bottom: 16px;
+                    }
+                }
+
+                .block-lb {
+                    gap: 17px;
+
+                    @include responsive(1400px) {
+                        gap: 10px;
+                    }
+                }
+
+                ._zjunba {
+                    padding: 30px 50px;
+                    margin-top: auto;
+
+                    .gp17 {
+                        @include responsive(1400px) {
+                            gap: 8px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    // listing-status-popup-deactive3.php
+    .container_lssppde3 {
+        display: none;
+
+        .pd_anhost-modal {
+            align-items: inherit;
+
+            .modal_content-anhost {
+                max-width: 860px;
+                overflow: hidden;
+
+                @include responsive(1400px) {
+                    max-width: 780px;
+
+                    .mr-b26 {
+                        margin-bottom: 16px;
+                    }
+
+                    .gp18 {
+                        gap: 9px;
+                    }
+
+                    .mr-t56 {
+                        margin-top: 36px;
+                    }
+                }
+
+                ._txttdu3 {
+                    width: fit-content;
+                }
+
+                @include responsive(600px) {
+                    .bk-icon-des {
+                        flex-direction: column;
+                    }
+
+                    .mnw-p48 {
+                        min-width: auto;
+                        width: fit-content;
+                    }
+                }
+
+                ._zjunba {
+                    padding: 30px 50px;
+                    margin-top: auto;
+
+                    .gp17 {
+                        @include responsive(1400px) {
+                            gap: 8px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    // popup-rooms-spaces-step1.php
+    .container_pprssss1 {
+        display: none;
+
+        .pd_anhost-modal {
+            .modal_content-anhost {
+                max-width: 860px;
+                overflow: hidden;
+
+                @include responsive(1400px) {
+                    max-width: 780px;
+
+                    .mr-b25 {
+                        margin-bottom: 15px;
+                    }
+
+                    .gp18 {
+                        gap: 10px;
+                    }
+
+                    .mr-t16 {
+                        margin-top: 8px;
+                    }
+
+                    ._bkpd352btns {
+                        padding: 25.5px 0;
+                    }
+                }
+
+                .modal_block {
+                    .content_hidden-anhost {
+                        margin: 0 32px;
+                        overflow: hidden;
+
+                        @include responsive(1400px) {
+                            margin: 0 24.5px;
+                        }
+
+                        @include responsive(600px) {
+                            margin: 0;
+                        }
+
+                        ._wpwi48 {
+                            padding: 0 18px;
+                            height: 100%;
+                            overflow: auto;
+
+                            @include responsive(1400px) {
+                                padding: 0 10.5px;
+                            }
+
+                            @include responsive(600px) {
+                                padding: 0 24px;
+                            }
+                        }
+                    }
+                }
+
+                ._zjunba {
+                    padding: 30px 50px;
+
+                    .gp17 {
+                        @include responsive(1400px) {
+                            gap: 8px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    // popup-rooms-spaces-step2.php
+    .container_pprssss2 {
+        display: none;
+
+        .pd_anhost-modal {
+            align-items: inherit;
+
+            .modal_content-anhost {
+                max-width: 860px;
+                overflow: hidden;
+
+                @include responsive(1400px) {
+                    max-width: 780px;
+
+                    .mr-b30 {
+                        margin-bottom: 20px;
+                    }
+
+                    .gp18 {
+                        gap: 10px;
+                    }
+
+                    .mr-t16 {
+                        margin-top: 8px;
+                    }
+
+                    ._bkpd50 {
+                        padding: 35.5px 0;
+
+                        .gp30 {
+                            gap: 25.5px;
+                        }
+
+                        .mr-t14 {
+                            margin-top: 10px;
+                        }
+
+                        .gp8 {
+                            gap: 4px;
+                        }
+                    }
+                }
+
+                .modal_block {
+                    .content_hidden-anhost {
+                        margin: 0;
+                        margin-right: 44px;
+                        overflow: hidden;
+
+                        @include responsive(1400px) {
+                            margin-right: 29px;
+                        }
+
+                        @include responsive(600px) {
+                            margin-right: 0;
+                        }
+
+                        ._wpwi48 {
+                            padding-right: 6px;
+                            padding-bottom: 24px;
+                            height: 100%;
+                            overflow: auto;
+
+                            @include responsive(600px) {
+                                padding-right: 24px;
+                            }
+                        }
+
+                        .block-lb {
+                            gap: 17px;
+
+                            @include responsive(1400px) {
+                                gap: 13px;
+                            }
+                        }
+                    }
+                }
+
+                ._zjunba {
+                    padding: 30px 50px;
+                    margin-top: auto;
+
+                    .gp17 {
+                        @include responsive(1400px) {
+                            gap: 8px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+// quitar todo el @media tamaños etc dentro del modal
+body {
+    @media screen and (max-width: 1400px) {
+        ._ntñsfts {
+            // input real
+            ._inputreal {
+                padding: 11px 14px;
+                font-size: 16px;
+            }
+
+            ._hredtax120 {
+                height: 80px;
+
+                ._redtxt {
+                    width: 296px;
+                }
+
+                ._bkgred {
+                    left: -28rem;
+                }
+            }
+
+            // modal user
+            .reservation-details-cont {
+                ._block-jsb,
+                ._flex_users,
+                ._block-about,
+                ._block-booking,
+                ._block-uestpaid,
+                ._block-link,
+                ._block-privatenote,
+                ._block-support,
+                ._desurl,
+                ._block-commquest {
+                    padding: 22px 35px;
+
+                    .mr-t16 {
+                        margin-top: 8px;
+                    }
+        
+                    .mr25-0 {
+                        margin: 16px 0;
+                    }
+                }
+
+                ._w {
+                    width: 16px;
+                    
+                    i {
+                        font-size: 18px;
+                    }
+                }
+            }
+
+            ._flex_users {
+                ._pf-msg {
+                    margin-right: 14px;
+                }
+            }
+
+            ._flex-icons {
+                i {
+                    font-size: 14px !important;
+                }
+            }
+
+            // perfil
+            ._pf-msg {
+                max-width: 52px;
+                min-width: 52px;
+                height: 52px;
+                border: 2px solid #E3EDF3;
+            }
+
+            // perfil mini more
+            .imgs_more {
+                ._pf-msg {
+                    max-width: 42px;
+                    min-width: 42px;
+                    height: 42px;
+                    border: 1px solid #E3EDF3;
+                }
+            }
+
+            // textarea
+            ._txta-modls {
+                padding: 12px;
+                font-size: 16px;
+                line-height: 20px;
+                border: 1px solid #E3EDF3;
+
+                &:focus {
+                    border: 1px solid #7D7D7D;
+                }
+            }
+
+            // modal position absolute en close X
+            &._par0t0modls {
+                ._pt47psr {
+                  padding-top: 36px;
+                }
+            }
+
+            // iconos
+            ._i-red22 {
+                font-size: 18px;
+            }
+
+            ._i-red20 {
+                font-size: 17px;
+            }
+
+            .bk-icon-des_fbas {
+                gap: 8px !important;
+            }
+
+            .trips_upcoming_inf {
+                &:not(:last-child) {
+                    border-bottom: 1px solid #E3EDF3 !important;
+                }
+            }
+
+            .block-lb {
+                gap: 10px;
+            }
+
+            // checkbox red - celest
+            .checkbox_custom {
+                max-width: 65px;
+                height: 32px;
+                border: 1px solid $color-background;
+    
+                &::before {
+                    max-width: 32px;
+                    min-height: 32px;
+                    border: 1px solid $color-background;
+                }
+            }
+    
+            .check_i {
+                &::after {
+                    max-width: 32px;
+                    min-height: 32px;
+                    font-size: 12.5px;
+                }
+    
+                &:checked {
+                    &::before {
+                        left: 32px;
+                        top: -1px;
+                    }
+    
+                    &::after {
+                        max-width: 32px;
+                        min-height: 34px;
+                        font-size: 12.5px;
+                        left: 32px;
+                    }
+                }
+            }
+
+            // listing status popup deactive3 - gaps
+            ._cg13rg70 {
+                column-gap: 8px;
+                row-gap: 42px;
+            }
+
+            // 2 botones + y -
+            ._2btnsgris {
+                gap: 12px;
+
+                ._btn {
+                    width: 33px;
+                    min-width: 33px;
+                    height: 33px;
+                    min-height: 33px;
+                    border-width: 1px;
+                }
+
+                svg {
+                    width: 13px;
+                    height: 13px;
+                }
+            }
+
+            ._brpd180 {
+                padding: 16px 10px;
+                border: 1px solid #E3EDF3;
+
+                .gp12 {
+                    gap: 3.5px;
+                }
+            }
+
+            .hr {
+                &:not(:last-child) {
+                    border-bottom: 1px solid #E3EDF3;
+                }
+            }
+
+            .bd_b_celest2 {
+                border-bottom: 1px solid #E3EDF3;
+            }
+
+            .selected-modal {
+                margin: 0;
+
+                select {
+                    padding: 13px 36px 13px 14px;
+                    font-size: 16px;
+                }
+
+                i {
+                    right: 14px;
+                    font-size: 14px;
+                }
+            }
+
+            .txt-check-in {
+                font-size: 12px;
+                border-left: 2px solid #00B5DD;
+                padding-left: 11px;
+            }
+
+            // lineal red nivel
+            ._nlporcrd {
+                height: 8px;
+            }
+
+            // padding left - right content
+            ._wpwi48 {
+                padding: 0 35px;
+            }
+
+            ._zjunba {
+                padding: 20px 35px !important;
+            }
+
+            .h2_publish {
+                font-size: 26px !important;
+                line-height: inherit;
+            }
+
+            .h2-guests,
+            ._txtboldff25 {
+                font-size: 18px !important;
+                line-height: inherit;
+            }
+
+            ._txtec,
+            ._txtblu,
+            ._txteh,
+            ._txtehlinear,
+            ._btnsmblu,
+            ._txtec333,
+            ._txttdu3,
+            ._txtlineargris18,
+            ._lahrbold {
+                font-size: 16px !important;
+                line-height: 1.375em;
+                // font-weight: normal;
+            }
+
+            ._txtec16 {
+                font-size: 14px !important;
+                line-height: inherit;
+            }
+
+            ._txtec14 {
+                font-size: 12px !important;
+                line-height: inherit;
+            }
+
+            // botones
+            .btn-bd-white {
+                padding: 12px 14px;
+                border: 1px solid #E3EDF3;
+
+                .flex {
+                    gap: 8px !important;
+
+                    .icon {
+                        width: 17px;
+                    }
+                }
+            }
+
+            // botones
+            .btn-celest,
+            .btn-border {
+                padding: 14px 24px;
+                font-size: 16px;
+            }
+
+            // icons grande width 40px
+            .bk-icon-des_fbas {
+                .w40 {
+                    width: 33px;
+                    min-width: 33px;
+                }
+            }
+
+            // check circle
+            .before_check {
+                width: 30px;
+                min-width: 30px;
+                max-width: 30px;
+                height: 30px;
+                min-height: 30px;
+                border-radius: 50%;
+                border: 2px solid #E3EDF3;
+
+                svg {
+                    width: 13.6px;
+                }
+            }
+
+            .block-lb input:checked + .before_check {
+                border: 2px solid #E3EDF3;
+            }
+
+            // icon X modal
+            .modal_content-anhost .close span {
+                padding: 0 !important;
+                width: 36px !important;
+                height: 36px !important;
+                display: flex !important;
+                justify-content: center !important;
+                align-items: center !important;
+                font-size: 16px !important;
+                padding-bottom: 3px !important;
+            }
+
+            // + 4 perfiles
+            ._moreusrmsg {
+                &::before {
+                    font-size: 14px;
+                }
+            }
+        }
+    }
+
+    @media screen and (max-width: 600px) {
+        ._ntñsfts {
+            ._hredtax120 {
+                display: none;
+            }
+
+            // modal user
+            .reservation-details-cont {
+                ._block-jsb,
+                ._flex_users,
+                ._block-about,
+                ._block-booking,
+                ._block-uestpaid,
+                ._block-link,
+                ._block-privatenote,
+                ._block-support,
+                ._desurl,
+                ._block-commquest {
+                    padding: 18px 24px;
+                }
+            }
+
+            // listing status popup deactive3 - gaps
+            ._cg13rg70 {
+                flex-direction: column;
+            }
+
+            // padding left - right content
+            ._wpwi48 {
+                padding: 0 24px;
+            }
+
+            ._zjunba {
+                padding: 16px 24px !important;
+            }
+        }
+    }
+}
+
+// width px
+.w40 {
+    width: 40px;
+    min-width: 40px;
+}
+
+// paddings - calendar individual
+._wpwi48 {
+    padding: 0 50px;
+
+    @include responsive(600px) {
+        padding: 0 24px !important;
+    }
+}
+
+._goqbqk {
+    padding: 0 30px;
+
+    @include responsive(600px) {
+        padding: 0 24px;
+    }
+}
+
+._zjunba {
+    @include responsive(600px) {
+        margin-top: auto;
+        padding: 16px 24px !important;
+        border-top: 1px solid #E3EDF3;
+    }
+}
+
+._fxbtn {
+    @include responsive(600px) {
+        margin-top: auto;
+    }
 }
 
 // MODALS PAGOS
@@ -95,6 +1375,20 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
+
+    // globals textos
+    ._txtblu {
+        display: inline-block;
+        margin-bottom: 0;
+    }
+
+    ._txteh {
+        margin-bottom: 0;
+    }
+
+    .selected-modal {
+        margin: 0;
+    }
 
     .modal-anhost {
         position: absolute;
@@ -113,8 +1407,13 @@ body {
         max-height: 100vh;
         inset: 0px;
 
-        @include responsive(536px) {
-            padding: 10px;
+        @include responsive(1400px) {
+            padding: 28px;
+        }
+
+        @include responsive(600px) {
+            padding: 0;
+            align-items: inherit;
         }
 
         .modal_content-anhost {
@@ -128,6 +1427,11 @@ body {
             border-radius: 10px;
             z-index: 999;
 
+            @include responsive(600px) {
+                border-radius: 0;
+                max-width: none !important;
+            }
+
             .close {
                 display: flex;
                 justify-content: end;
@@ -139,10 +1443,27 @@ body {
                     padding: 13px 19.2px;
                     background: #FF5A5F;
                     border-radius: 0px 10px 0px 10px;
+
+                    &:hover {
+                        background-color: #DC383D;
+                    }
+
+                    @include responsive(600px) {
+                        border-radius: 0 0 0 10px;
+                    }
                 }
             }
 
+            ._zjunba {
+                display: flex;
+                align-items: center;
+                gap: 14px;
+                flex-wrap: wrap;
+                justify-content: space-between;
+            }
+
             .modal_block {
+                height: 100%;
                 display: flex;
                 width: 100%;
                 overflow-x: auto;
@@ -166,6 +1487,10 @@ body {
                     .reservation-details-cont {
                         ._block-jsb {
                             padding-top: 0;
+
+                            @include responsive(600px) {
+                                padding-top: 18px;
+                            }
                         }
                     }
 
@@ -180,7 +1505,7 @@ body {
                             gap: 22px;
                             flex-wrap: wrap;
                       
-                            @include responsive(536px) {
+                            @include responsive(600px) {
                                 padding: 21px 18px;
                                 gap: 10px;
                             }
@@ -190,7 +1515,7 @@ body {
                             padding: 34px 50px 34px;
                             align-items: flex-start;
                       
-                            @include responsive(536px) {
+                            @include responsive(600px) {
                                 padding: 21px 18px 24px;
                             }
                       
@@ -198,7 +1523,7 @@ body {
                                 padding: 17px 31px;
                                 border-radius: 10px;
                       
-                                @include responsive(536px) {
+                                @include responsive(600px) {
                                     padding: 12px 18px;
                                 }
                             }
@@ -215,7 +1540,7 @@ body {
                         ._block-about {
                             padding: 34px 50px 22px;
                       
-                            @include responsive(536px) {
+                            @include responsive(600px) {
                                 padding: 21px 18px 22px;
                             }
                       
@@ -262,7 +1587,7 @@ body {
                                 padding: 34px 30px 22px;
                             }
                       
-                            @include responsive(536px) {
+                            @include responsive(600px) {
                                 padding: 21px 18px 22px;
                             }
                       
@@ -287,7 +1612,7 @@ body {
                         ._block-booking {
                             padding: 34px 50px 31px;
                       
-                            @include responsive(536px) {
+                            @include responsive(600px) {
                                 padding: 24px 18px 21px;
                             }
                         }
@@ -295,12 +1620,12 @@ body {
                         ._block-uestpaid {
                             padding: 30px 50px 34px;
                       
-                            @include responsive(536px) {
+                            @include responsive(600px) {
                                 padding: 20px 18px 24px;
                             }
                       
                             .h2-guests {
-                                @include responsive(536px) {
+                                @include responsive(600px) {
                                     margin-top: 0 !important;
                                 }
                             }
@@ -309,7 +1634,7 @@ body {
                         ._block-link {
                             padding: 31px 50px 31px;
                       
-                            @include responsive(536px) {
+                            @include responsive(600px) {
                                 padding: 21px 18px 21px;
                             }
                         }
@@ -317,7 +1642,7 @@ body {
                         ._block-privatenote {
                             padding: 26px 50px 34px;
                       
-                            @include responsive(536px) {
+                            @include responsive(600px) {
                                 padding: 16px 18px 24px;
                             }
                       
@@ -329,7 +1654,7 @@ body {
                         ._block-support {
                             padding: 27px 50px 32px;
                       
-                            @include responsive(536px) {
+                            @include responsive(600px) {
                                 padding: 17px 18px 22px;
                             }
                       
@@ -346,7 +1671,7 @@ body {
                             flex-direction: column;
                             gap: 15px;
                       
-                            @include responsive(536px) {
+                            @include responsive(600px) {
                                 padding: 24px 18px 23px;
                             }
                       
@@ -358,7 +1683,7 @@ body {
                         ._block-commquest {
                             padding: 27px 50px;
                       
-                            @include responsive(536px) {
+                            @include responsive(600px) {
                                 padding: 17px 18px;
                             }
                       

@@ -14,17 +14,17 @@ class SendMessage implements ShouldBroadcast
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
-    public string $message;
-    public int $user_id;
+    public string $onChat;
+    public int $onReceived;
     /**
      * Create a new event instance.
      *
      * @return void
      */
-    public function __construct(int $user_id, string $message)
+    public function __construct(string $onChat, int $onReceived)
     {
-        $this->message = $message;
-        $this->user_id = $user_id;
+        $this->onChat = $onChat;
+        $this->onReceived = $onReceived;
     }
 
     /**

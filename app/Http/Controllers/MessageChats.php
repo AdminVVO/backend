@@ -7,19 +7,26 @@ use Illuminate\Http\Request;
 
 class MessageChats extends Controller
 {
+
     public function viewMessageUser()
     {     
-        return view('chats.chat-user');
+        return view('chats.chat-message');
     }
 
     public function viewMessageUserPost(Request $request)
     {     
+        $Listings = Listings::pluck('id_listings');
+        
+        if ( count( $Listings ) != 0 ) {
+            if ( $request->id === "2" ) {
+                return view('chats.chat-message', ['listing' => $Listings[1] ]);
 
-        $Listings = Listings::select('id_listings')->get();
+            } else {
+                return view('chats.chat-message', ['listing' => $Listings[0] ]);
 
-        // dd($Listings[0]->id_listings);
+            }
+        }
 
-
-        return view('chats.chat-user', ['request' => $Listings[0]->id_listings ]);
+        return view('chats.chat-message');
     }
 }

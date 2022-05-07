@@ -15,8 +15,14 @@ class CreateChatsTable extends Migration
     {
         Schema::create('chats', function (Blueprint $table) {
             $table->uuid('id_chats')->primary();
-            $table->boolean('archived')->default(false);
-            $table->boolean('favorites')->default(false);
+            $table->boolean('archived_transm')->default(false);
+            $table->boolean('favorites_transm')->default(false);
+            $table->boolean('unread_transm')->default(false);
+            $table->boolean('archived_receiv')->default(false);
+            $table->boolean('favorites_receiv')->default(false);
+            $table->boolean('unread_receiv')->default(false);
+            $table->boolean('order_receiver')->default(false);
+            $table->boolean('order_transmitter')->default(false);
 
             $table->unsignedInteger('transmitter_id');
             $table->foreign('transmitter_id')

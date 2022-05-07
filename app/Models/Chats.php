@@ -18,8 +18,14 @@ class Chats extends Model
         'transmitter_id',
         'receiver_id',
         'listing_id',
-        'archived',
-        'favorites',
+        'archived_transm',
+        'favorites_transm',
+        'unread_transm',
+        'archived_receiv',
+        'favorites_receiv',
+        'unread_receiv',
+        'order_receiver',
+        'order_transmitter',
     ];
 
     protected $dates = [
@@ -27,8 +33,14 @@ class Chats extends Model
     ];
 
     protected $casts = [
-        'archived' => 'boolean',
-        'favorites' => 'boolean',
+        'archived_transm' => 'boolean',
+        'favorites_transm' => 'boolean',
+        'unread_transm' => 'boolean',
+        'archived_receiv' => 'boolean',
+        'favorites_receiv' => 'boolean',
+        'unread_receiv' => 'boolean',
+        'order_receiver' => 'boolean',
+        'order_transmitter' => 'boolean',
     ];
 
     public function transmitter()
@@ -49,5 +61,38 @@ class Chats extends Model
     public function listing()
     {
         return $this->belongsTo(Listings::class, 'listing_id');
+    }
+
+    public function scopeFavority($query, $code, $type)
+    {
+        /* ROLS ID == 1 */
+        if ( $type )
+            return $this->where('id_chats', $code)->pluck('favorites_receiv')->first();
+
+        /* ROLS ID != 1 */
+        if ( !$type )
+            return $this->where('id_chats', $code)->pluck('favorites_transm')->first();
+    }
+
+    public function scopeArchive($query, $code, $type)
+    {
+        /* ROLS ID == 1 */
+        if ( $type )
+            return $this->where('id_chats', $code)->pluck('archived_receiv')->first();
+
+        /* ROLS ID != 1 */
+        if ( !$type )
+            return $this->where('id_chats', $code)->pluck('archived_transm')->first();
+    }
+
+    public function scopeUnread($query, $code, $type)
+    {
+        /* ROLS ID == 1 */
+        if ( $type )
+            return $this->where('id_chats', $code)->pluck('unread_receiv')->first();
+
+        /* ROLS ID != 1 */
+        if ( !$type )
+            return $this->where('id_chats', $code)->pluck('unread_transm')->first();
     }
 }

@@ -6,11 +6,11 @@
     <div class="h_admin h_reservation_form">
 @endif
 
-@if ( in_array( Route::currentRouteName(),['messageUserIndex'],) )
-    <div class="h_admin h_not h_pa">
+@if ( in_array( Route::currentRouteName(),['messageUserIndex', 'calendarIndex'],) )
+    <div class="h_admin mrb-0 h_not h_pa">
 @endif
 
-@if ( !in_array( Route::currentRouteName(),['reservations', 'listing-show', 'ReservCreate', 'ReservPreview', 'messageUserIndex']) )
+@if ( !in_array( Route::currentRouteName(),['reservations', 'listing-show', 'ReservCreate', 'ReservPreview', 'messageUserIndex', 'calendarIndex']) )
     <div class="h_admin">
 @endif
 

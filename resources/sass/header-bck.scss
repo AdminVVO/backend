@@ -8,14 +8,15 @@
 }
 
 header {
-    position: relative;   
+    position: sticky;   
     top: 0; 
     margin-bottom: 80px; 
     background-color: $color-background2;
 }
 
 header.fixed {
-    animation: none;  
+    position: sticky;
+    animation: none;
 }
 
 header .book-form {

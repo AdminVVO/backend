@@ -21,7 +21,7 @@ class ReservationFormAll extends Component
             'checkin',
             'checkout',
             'date'
-        )->get();
+        )->whereNotNull('vvo_confirm')->get();
     }
 
     public function render()

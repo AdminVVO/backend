@@ -28,9 +28,115 @@
     }
 }
 
+._10toigd {
+    display: none;
+}
+
+._btnsmleft {
+    gap: 0;
+    display: block;
+}
+
+._btnsmleft span::before {
+    bottom: 0;
+}
+
+._wpwi48 {
+    @include responsive(1800px) {
+        padding: 0 35px;
+    }
+
+    @include responsive(600px) {
+        padding: 0 24px;
+    }
+}
+
 // FUENTES, @MEDIA WIDTH TAMAÑOS ETC
 body {
-    @media screen and (max-width: 1400px) {
+    @media screen and (max-width: 1800px) {
+        // Calendar individual - popup private note add >
+        .container_popup_ntpve {
+
+            .pd_anhost-modal {
+                .modal_content-anhost {
+                    max-width: 568px;
+                }
+            }
+        }
+
+        // Calendar individual - Create new custom setting
+        .container_ci_nw_cs {
+            .pd_anhost-modal {
+                .modal_content-anhost {
+                    max-width: 780px;
+
+                    ._zjunba {
+                        padding: 16px 35px 28px;
+                    }
+
+                    .mr-t16 {
+                        margin-top: 0;
+                    }
+
+                    .gp25 {
+                        gap: 24px;
+                    }
+
+                    .gp7 {
+                        gap: 0;
+                    }
+
+                    .gp21, .gp13 {
+                        gap: 10px;
+                    }
+                }
+            }
+        }
+
+        .modal_content-anhost {
+            .close {
+                span {
+                    padding: 0 !important;
+                    width: 36px !important;
+                    height: 36px !important;
+                    display: flex !important;
+                    justify-content: center !important;
+                    align-items: center !important;
+                    font-size: 16px !important;
+                    padding-bottom: 3px !important;
+                }
+            }
+
+            .h2_publish {
+                font-size: 24px;
+            }
+        }
+
+        ._txta-modls {
+            padding: 12px;
+            font-size: 16px;
+            line-height: 20px;
+            border: 1px solid $color-background;
+
+            &:focus {
+                border: 1px solid #7D7D7D;
+            }
+        }
+
+        // footer cancel save content modal
+        ._zgc1p6 {
+            margin-top: auto;
+            padding: 16px 24px;
+            border-top: 1px solid #E3EDF3;
+        }
+
+        // input
+        ._numcard {
+            padding: 11px !important;
+            padding-left: 13px !important;
+            font-size: 16px !important;
+        }
+
         ._txtec {
             font-size: 18px;
         }
@@ -47,9 +153,15 @@ body {
             font-size: 18px;
             padding: 16px 50px;
         }
-    }
 
-    @media screen and (max-width: 1100px) {
+        .btn-celest-n {
+            font-size: 14px !important;
+            line-height: 18px !important;
+            font-weight: 600 !important;
+            border-radius: 8px !important;
+            padding: 8px 15px !important;
+        }
+
         // header
         .menu {
             .menu_home-content-items {
@@ -173,13 +285,26 @@ body {
             padding: 110px 0 30px;
         }
 
-        ._txtec {
+        .pd-145-0-50 {
+            padding: 110px 0 30px;
+        }
+
+        ._txtec, ._txtblu {
             font-size: 16px;
+            line-height: 1.375em;
         }
 
         ._txtec16 {
             font-size: 14px;
             line-height: inherit;
+        }
+
+        ._txtboldff14, ._txt-white14 {
+            font-size: 12px;
+        }
+
+        ._bkgrsdoll {
+            font-size: 16px;
         }
 
         ._txteh {
@@ -212,6 +337,10 @@ body {
 
             svg {
                 width: 12px;
+            }
+
+            i {
+                font-size: 14px;
             }
         }
 
@@ -291,6 +420,157 @@ body {
             }
         }
 
+        .txt-check-in {
+            font-size: 12px;
+            border-left: 2px solid $color-primary;
+            padding-left: 12px;
+        }
+
+        .before_icon_input {
+            border-radius: 8px;
+
+            span {
+                display: flex;
+                align-items: center;
+                padding: 0;
+                padding-right: 0;
+                padding-left: 12px;
+            }
+
+            input {
+                padding: 12px;
+                padding-left: 0;
+                font-size: 16px;
+            }
+        }
+
+        .hr {
+            &:not(:last-child) {
+                border-bottom: 1px solid $color-background;
+            }
+        }
+
+        ._btnsmleft {
+            font-size: 16px;
+            line-height: 20px;
+
+            img {
+                width: 5.5px;
+            }
+        }
+
+        .section_calendar_indv_admin {
+            table {
+                thead {
+                    tr {
+                        th {
+                            padding: 12px 0;
+                        }
+                    }
+                }
+            }
+
+            .h2_publish {
+                font-size: 26px;
+                line-height: 30px;
+            }
+
+            .font25-select {
+                select {
+                    font-size: 26px !important;
+                    padding-right: 24px !important;
+                }
+
+                svg {
+                    width: 12px;
+                    right: 0;
+                }
+            }
+
+            .medio-cl-indv {
+                .calend-right-indv {
+                    flex: 0 0 354px;
+                    width: 354px;
+                    min-width: 354px;
+                    border: 1px solid $color-background;
+
+                    ._bkgris {
+                        padding: 24px;
+                        border-radius: 8px;
+
+                        &.txt-center {
+                            text-align: left;
+                        }
+
+                        ._txteh {
+                            font-size: 16px;
+                            margin-bottom: 8px;
+                            line-height: 20px;
+                        }
+
+                        ._txtec {
+                            line-height: 20px;
+                        }
+                    }
+
+                    ._txteh {
+                        font-size: 18px;
+                    }
+
+                    .pd50 {
+                        padding: 24px;
+
+                        .mr-b76 {
+                            margin-bottom: 48px;
+                        }
+                    }
+
+                    .pd23 {
+                        padding: 24px;
+                    }
+
+                    .gp24 {
+                        gap: 15px;
+                    }
+
+                    .desc {
+                        ._txtec14, ._txtehlinear14 {
+                            font-size: 12px;
+                            line-height: 16px;
+                        }
+                    }
+
+                    .prt {
+                        &.pd23 {
+                            padding-top: 32px;
+                        }
+
+                        .gp24 {
+                            gap: 32px;
+                        }
+
+                        .desc {
+                            &.mr-t24 {
+                                margin-top: 48px;
+                            }
+                        }
+                    }
+
+                    ._kr7m4r {
+                        border-top: 1px solid $color-background;
+
+                        &.pd23 {
+                            padding: 16px 24px;
+                        }
+                    }
+
+                    .mr-t24 {
+                        margin-top: 8px;
+                    }
+                }
+            }
+        }
+
         .section_calendar_admin {
             .medio_calendar_admin {
                 ._fleft-tb {
@@ -348,6 +628,138 @@ body {
                 padding: 21px 30px 19px !important;
             }
         }
+
+        .checkbox_custom {
+            max-width: 65px;
+            height: 32px;
+            border: 1px solid $color-background;
+
+            &::before {
+                max-width: 32px;
+                min-height: 32px;
+                border: 1px solid $color-background;
+            }
+        }
+
+        .check_i {
+            &::after {
+                max-width: 32px;
+                min-height: 32px;
+                font-size: 12.5px;
+            }
+
+            &:checked {
+                &::before {
+                    left: 32px;
+                    top: -1px;
+                }
+
+                &::after {
+                    max-width: 32px;
+                    min-height: 34px;
+                    font-size: 12.5px;
+                    left: 32px;
+                }
+            }
+        }
+    }
+
+    @media screen and (max-width: 1439px) {
+        .section_calendar_indv_admin {
+            table {
+                tbody {
+                    ._bkgrequestcld, ._bkgcurrentlycld {
+                        left: 8px;
+                        right: 8px;
+                        bottom: 8px;
+                    }
+                }
+            }
+
+            .medio-cl-indv {
+                .hd-cont {
+                    ._kr7m4r {
+                        flex-direction: column;
+
+                        &.fx-ai-c {
+                            align-items: flex-start;
+                        }
+
+                        &.gp16 {
+                            gap: 24px;
+                        }
+                    }
+                }
+
+                .sc-cont {
+                    &.mr-t26 {
+                        margin-top: 24px;
+                    }
+                }
+
+                .calend-left-indv {
+                    padding: 24px;
+                    border-radius: 8px 0 0 8px;
+
+                    ._5q6vv {
+                        padding: 12px;
+                    }
+                }
+            }
+        }
+    }
+
+    @media screen and (max-width: 1125px) {
+        .section_calendar_indv_admin {
+            ._19r7tqhd {
+                &::before {
+                    border: none;
+                }
+            }
+
+            table {
+                thead {
+                    tr {
+                        th {
+                            &::before {
+                                border: 2px solid $color-secundary;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .medio-cl-indv {
+                .calend-right-indv {
+                    position: fixed;
+                    inset: 0;
+                    z-index: 99;
+                    top: 100vh;
+                    opacity: 0;
+                    visibility: hidden;
+                    transition: all .4s ease;
+
+                    flex: none;
+                    width: auto;
+                    min-width: auto;
+
+                    ._10toigd {
+                        display: block;
+                        padding: 24px 24px 0;
+                    }
+                }
+            }
+
+            &.is-main-info-open {
+                .medio-cl-indv {
+                    .calend-right-indv {
+                        top: 0;
+                        opacity: 1;
+                        visibility: visible;
+                    }
+                }
+            }
+        }
     }
 
     @media screen and (max-width: 900px) {
@@ -372,7 +784,7 @@ body {
         }
 
         // padding
-        .pd-130-0-50 {
+        .pd-130-0-50, .pd-145-0-50 {
             // padding: 24px 0 4.8rem;
             padding: 0;
             padding-bottom: 4rem;
@@ -479,6 +891,45 @@ body {
                 padding-top: 0;
             }
         }
+
+        .section_calendar_indv_admin {
+            table {
+                tbody {
+                    ._bkgcurrentlycld, ._bkgrequestcld {
+                        position: absolute;
+                        bottom: 4px;
+                        left: 4px;
+                        right: 4px;
+                        padding: 6.6px 8px;
+                    }
+                }
+            }
+
+            .medio-cl-indv {
+                padding: 24px;
+
+                .calend-left-indv {
+                    padding: 0;
+
+                    ._5q6vv {
+                        padding: 6px;
+                    }
+                }
+            }
+        }
+    }
+
+    @media screen and (max-width: 600px) {
+        // Calendar individual - Create new custom setting
+        .container_ci_nw_cs {
+            .pd_anhost-modal {
+                .modal_content-anhost {
+                    ._zjunba {
+                        padding: 16px 24px 38px;
+                    }
+                }
+            }
+        }
     }
 }
 
@@ -495,6 +946,10 @@ body {
     margin: 0;
 }
 
+._txtec14 {
+    line-height: 20px;
+}
+
 ._txtblu, ._txtblu16 {
     margin: 0;
     line-height: inherit;
@@ -503,6 +958,10 @@ body {
 // PADDINGS
 .pd-130-0-50 {
     padding: 130px 0 50px;
+}
+
+.pd-145-0-50 {
+    padding: 145px 0 50px;
 }
 
 .pd-r30 {
@@ -582,6 +1041,114 @@ body {
 
     @include responsive(900px) {
         flex: 0 1 0%;
+    }
+}
+
+.section_calendar_indv_admin {
+    table {
+        thead {
+            tr {
+                border-bottom: none;
+
+                th {
+                    background-color: $color-secundary;
+                    padding: 15.5px 0;
+                    min-width: 8px;
+                    min-height: 68px;
+                    width: 14.285%;
+                    box-shadow: $color-white 0px 0px 0px 1px inset;
+
+                    &::before {
+                        content: "";
+                        border: 3px solid $color-secundary;
+                        display: block;
+                        position: absolute;
+                        inset: -1px;
+                        z-index: 3;
+                        pointer-events: none;
+                    }
+                }
+            }
+        }
+
+        tbody {
+            ._17oofu3 {
+                &:disabled {
+                    cursor: not-allowed;
+                    box-shadow: none;
+
+                    ._bkgrsdoll {
+                        opacity: .3;
+                    }
+                }
+            }
+
+            ._bkgrsdoll, ._bkgcurrentlycld {
+                margin-top: auto;
+            }
+
+            ._bkgcurrentlycld, ._bkgrequestcld {
+                position: absolute;
+                bottom: 12px;
+                left: 11px;
+                right: 11px;
+            }
+
+            // perfil tamaño
+            ._pf-msg {
+                max-width: 29px;
+                min-width: 29px;
+                height: 29px;
+                border: 1px solid $color-background;
+            }
+
+            tr {
+                &:hover {
+                    background-color: transparent;
+                }
+
+                td {
+                    min-width: 8px;
+                    min-height: 68px;
+                    width: 14.285%;
+                    position: relative;
+                    background-color: $color-white;
+
+                    &:not(:last-child) {
+                        border-right: 1px solid $color-white;
+                    }
+                }
+            }
+        }
+    }
+
+    .medio-cl-indv {
+        .calend-left-indv {
+            flex: 1 1 0%;
+            border-radius: 10px 0 0 10px;
+            padding: 31px 43px;
+        }
+
+        .calend-right-indv {
+            flex: 0 0 414px;
+            width: 414px;
+            min-width: 414px;
+            border: 2px solid $color-background;
+
+            .pd50 {
+                padding: 50px 32px 26px;
+            }
+
+            .pd23 {
+                padding: 23px 32px;
+            }
+
+            ._bkgris {
+                border-radius: 10px;
+                background-color: rgba(227, 237, 243, 0.3);
+                padding: 14px 30px;
+            }
+        }
     }
 }
 

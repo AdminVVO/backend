@@ -536,7 +536,60 @@
     </div>
 </div>
 
-<div class="block {{ $classActive['amenities'] ? 'edit_listing_post' : ''}}">
+<div class="block">
+    <div class="fx fx-ai-b fx-jc-sb" style="gap: 25px;">
+        <div class="w100" style="width: 100%;">
+            <h3 class="_txteh">Amenities</h3>
+            <div class="show_info">
+                <div class="_width_text _width_flex fx">
+                    <div class="w">
+                        <p class="_txtec">Essentials</p>
+                        <p class="_txtec">Air conditioning</p>
+                        <p class="_txtec">Dedicated workspace</p>
+                        <p class="_txtec">Dryer</p>
+                        <p class="_txtec">Hair dryer</p>
+                        <p class="_txtec">Heating</p>
+                        <p class="_txtec">Hot tub</p>
+                        <p class="_txtec">Kitchen</p>
+                        <p class="_txtec">Pool</p>
+                        <p class="_txtec">TV</p>
+                        <p class="_txtec">Washer</p>
+                        <p class="_txtec">Wifi</p>
+                    </div>
+
+                    <div class="w">
+                        <p class="_txtec">Hot water</p>
+                        <p class="_txtec">Shampoo</p>
+                        <p class="_txtec">Hangers</p>
+                        <p class="_txtec">Iron</p>
+                        <p class="_txtec">Carbon monoxide alarm</p>
+                        <p class="_txtec">Fire extinguisher</p>
+                        <p class="_txtec">First aid kit</p>
+                        <p class="_txtec">Smoke alarm</p>
+                        <p class="_txtec">Elevator</p>
+                        <p class="_txtec">Free parking on premises</p>
+                        <p class="_txtec">Gym</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="_width_text show_text">
+                <p class="_txtec">Choose how located states are displayed before booking.</p>
+            </div>
+        </div>
+
+        <div class="_btnsm clickEditAmenities">
+            <span class="_fcontent">
+                Edit
+                <span class="_svg-asm">
+                    <img src="{{ URL::asset('assets/img/icons/down-right.svg') }}" alt="">
+                </span>
+            </span>
+        </div>
+    </div>
+</div>
+
+{{-- <div class="block {{ $classActive['amenities'] ? 'edit_listing_post' : ''}}">
     <div class="fx fx-ai-b fx-jc-sb" style="gap: 25px;">
         <div class="w100" style="width: 100%;">
             <h3 class="_txteh">Amenities</h3>
@@ -1125,4 +1178,4 @@
             </span>
         </div>
     </div>
-</div>
+</div> --}}

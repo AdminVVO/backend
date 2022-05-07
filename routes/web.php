@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AccountController;
+use App\Http\Controllers\CalendarController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ListingsController;
 use App\Http\Controllers\LoginOrRegisterForSocialsController;
@@ -86,17 +87,25 @@ Route::middleware(['AccountDisable'])->group( function(){
             ## Reservations Index
                 Route::get('', [ReservationController::class, 'viewReservation'])->name('reservations');
                 Route::get('ResortAll', [ReservationController::class, 'viewReservationForm'])->name('reservationsResort');
-                Route::get('Create', [ReservationController::class, 'viewReservationFormCreate'])->name('ReservCreate');
                 Route::get('Update/{id}', [ReservationController::class, 'viewReservationFormUpdate'])->name('ReservUpdate');
                 Route::get('SendResort/{id}', [ReservationController::class, 'viewReservationFormSendResort'])->name('ReservSendResort');
                 Route::get('Preview/{id}', [ReservationController::class, 'viewReservationFormPreview'])->name('ReservPreview');
+                
+                ## Create reservation for cliente send form chat
+                    Route::get('send_form/{reservation}', [ReservationController::class, 'viewReservationCreateSendForm'])->name('ReservCreate');
         });
 
         ## Routes Messages
         Route::prefix('message')->group( function(){
-            ## Reservations Index
+            ## Messages Index
                 Route::get('', [MessageChats::class, 'viewMessageUser'])->name('messageUserIndex');
                 Route::post('', [MessageChats::class, 'viewMessageUserPost'])->name('messageUserIndex');
+        });
+
+        ## Routes Calendar
+        Route::prefix('calendar')->group( function(){
+            ## Calendar Index
+                Route::get('', [CalendarController::class, 'viewCalendar'])->name('calendarIndex');
         });
 
 
