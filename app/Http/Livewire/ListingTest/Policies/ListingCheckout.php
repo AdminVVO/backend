@@ -1,0 +1,76 @@
+<?php
+
+namespace App\Http\Livewire\ListingTest\Policies;
+
+use App\Models\Listing\ListingPolicies;
+use Auth;
+use Illuminate\Support\Facades\Validator;
+use Jantinnerezo\LivewireAlert\LivewireAlert;
+use Livewire\Component;
+
+class ListingCheckout extends Component
+{
+    use LivewireAlert;
+
+    public $listingId;
+    public $out;
+    public $inputOut;
+    public $inputOutType;
+    public $time;
+
+    public function mount()
+    {
+        $this->inputOut = $this->out['time'];
+        $this->inputOutType = $this->out['type'];
+
+        for ($i = 1; $i <= 12; $i++)
+            $this->time[] = $i . ':00';
+    }
+
+    public function render()
+    {
+        return view('livewire.listing-test.policies.listing-checkout');
+    }
+
+    public function reloadInputs()
+    {
+        $this->inputOut = $this->out['time'];
+        $this->inputOutType = $this->out['type'];
+    }
+
+    public function reloadInputsInvers()
+    {
+        $this->out['time'] = $this->inputOut;
+        $this->out['type'] = $this->inputOutType;
+    }
+
+    public function SubmitCheckOut()
+    {      
+        $this->resetValidation();    
+
+        $validation = Validator::make([
+           'inputOut'     => $this->inputOut,
+           'inputOutType' => $this->inputOutType,
+        ],[
+            'inputOut'     => 'required|in:' . implode(',', $this->time),
+            'inputOutType' => 'required|in:AM,PM',
+        ]);
+
+            if ($validation->fails())
+                $validation->validate();
+        
+        ListingPolicies::where([
+            'user_id'     => Auth::id(),
+            'listing_id' => $this->listingId,
+        ])->update([
+            'checkout_time' => [
+                'time' => $this->inputOut,
+                'type' => $this->inputOutType,
+            ]
+        ]);
+
+        $this->emitTo('listing-test.right-details', 'reloadSubmit', 'rules');
+        $this->reloadInputsInvers();
+        $this->alert('success', 'Update has been successful!');
+    }
+}

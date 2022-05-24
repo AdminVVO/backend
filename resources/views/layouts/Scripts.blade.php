@@ -21,6 +21,9 @@
 <script src="{{ URL::asset('assets/js/select.js') }}"></script>
 <script src="{{ URL::asset('assets/js/date-piker.js') }}"></script>
 <script src="{{ URL::asset('assets/js/date-range-piker.js') }}"></script>
+<script src="{{ URL::asset('assets/js/lightpick.js') }}"></script>
+
 
 @yield('script')
 @stack('scripts')
+

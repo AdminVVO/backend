@@ -130,9 +130,9 @@
                                                                 @if ( $element['type'] === 'message' )
                                                                     <p class="_txtec">{{ $element['message'] }}</p>
                                                                 @endif
-
+                                                                
                                                                 @if ( $element['type'] === 'OnUrl' )
-                                                                    <p class="_txtec">Enter the link to make your reservation. Link: <a href="{{ $element['message'] }}">Click Me!</a></p>
+                                                                    <p class="_txtec">Enter the link to make your reservation. <a href="{{ route('ReservCreate', ['reservation' => $element['message']] ) }}" target="_blank">Click Me!</a></p>
                                                                 @endif
 
                                                                 @if ( $element['type'] === 'OnImagen' )

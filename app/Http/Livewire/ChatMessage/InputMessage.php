@@ -104,8 +104,10 @@ class InputMessage extends Component
     {
         $this->resetValidation();
 
-        if ( strlen( $this->onChat ) === 0 && $this->mountListing !== true )
+        if ( strlen( $this->onChat ) === 0 && $this->mountListing !== true ){
+            $this->reset(['message', 'mountListing']);
             return $this->alert('warning', 'You have not selected a conversation.');
+        }
 
         $validation = Validator::make([
            'message' => $this->message,

@@ -15,9 +15,9 @@ class CreateListingBookingDetailsTable extends Migration
     {
         Schema::create('listing_booking_details', function (Blueprint $table) {
             $table->increments('id_listing_booking_details');
-            $table->string('checkin_window_start')->nullable();
-            $table->string('checkin_window_end')->nullable();
-            $table->string('checkout_time')->nullable();
+            $table->json('checkin_window_start')->default('[]');
+            $table->json('checkin_window_end')->default('[]');
+            $table->json('checkout_time')->default('[]');
             $table->string('guidebooks')->nullable();
             $table->mediumText('interaction_with_guests')->default('I plan');
             $table->string('interaction_with_guests_comment')->nullable();

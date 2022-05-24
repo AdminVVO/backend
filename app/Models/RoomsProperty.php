@@ -15,6 +15,7 @@ class RoomsProperty extends Model
         'code',
         'name',
         'type',
+        'name_type',
     ];
 
     public function scopePropertyName($query, $code)
@@ -25,8 +26,6 @@ class RoomsProperty extends Model
 
     public function scopeTypeName($query, $type)
     {
-        $type = $this->where('type', $type)->pluck('type')->first();
-
         switch ( $type ) {
             case 'apartment':
                 return 'Apartment';

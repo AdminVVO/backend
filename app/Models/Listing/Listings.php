@@ -34,6 +34,7 @@ class Listings extends Model
         'category',
         'featurs',
         'user_id',
+        'snooze',
     ];
 
     protected $dates = [
@@ -55,6 +56,7 @@ class Listings extends Model
         'checkin_window_start' => 'array',
         'checkin_window_end' => 'array',
         'checkout_time' => 'array',
+        'snooze' => 'array',
     ];
 
     public function userChat()

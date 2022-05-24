@@ -21,6 +21,7 @@ class ListingCalendarAvailability extends Model
         'availability_window',
         'restricted_checkin_days',
         'restricted_checkout_days',
+        'snooze',
 
         'listing_id',
         'user_id',
@@ -32,7 +33,8 @@ class ListingCalendarAvailability extends Model
 
     protected $casts = [
         'restricted_checkin_days' => 'array',
-        'restricted_checkin_days' => 'array',
+        'restricted_checkout_days' => 'array',
         'minimum_stay_custom' => 'array',
+        'snooze' => 'array',
     ];
 }

@@ -1,4 +1,4 @@
-@if ( in_array( Route::currentRouteName(),['reservations', 'listing-show'],) )
+@if ( in_array( Route::currentRouteName(),['reservations', 'listing-show', 'reservationsChange'],) )
     <div class="h_admin mrb-0">
 @endif
 
@@ -10,7 +10,7 @@
     <div class="h_admin mrb-0 h_not h_pa">
 @endif
 
-@if ( !in_array( Route::currentRouteName(),['reservations', 'listing-show', 'ReservCreate', 'ReservPreview', 'messageUserIndex', 'calendarIndex']) )
+@if ( !in_array( Route::currentRouteName(),['reservations', 'listing-show', 'ReservCreate', 'ReservPreview', 'messageUserIndex', 'calendarIndex', 'reservationsChange']) )
     <div class="h_admin">
 @endif
 

@@ -1,4 +1,4 @@
-<div class="block {{ $classActive['title'] ? 'edit_listing_post' : ''}}">
+{{-- <div class="block {{ $classActive['title'] ? 'edit_listing_post' : ''}}">
     <h2 class="h2-guests">Listing basics</h2>
 
     <div class="fx fx-ai-b fx-jc-sb" style="gap: 25px;">
@@ -65,7 +65,7 @@
             </span>
         </div>
     </div>
-</div>
+</div> --}}
 
 <div class="block {{ $classActive['descriptions'] ? 'edit_listing_post' : ''}}">
     <div class="fx fx-ai-b fx-jc-sb" style="gap: 25px;">

@@ -36,6 +36,8 @@ class ListingPricing extends Model
         'extra_guest_fee',
         'extra_guest',
         'weekend_nightly_fee',
+        'max_people',
+        'allow',
 
         'listing_id',
         'user_id',
@@ -49,5 +51,6 @@ class ListingPricing extends Model
         'first_guest' => 'boolean',
         'other_discount_array' => 'array',
         'last_minute_discount_array' => 'array',
+        'allow' => 'array',
     ];
 }

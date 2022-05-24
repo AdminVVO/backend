@@ -31,4 +31,8 @@ class ListingPropertyRoomd extends Model
     protected $dates = [
         'deleted_at'
     ];
+
+    protected $casts = [
+        'additional_areas' => 'array',
+    ];
 }

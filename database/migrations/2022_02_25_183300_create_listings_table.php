@@ -33,6 +33,7 @@ class CreateListingsTable extends Migration
             $table->json('photos')->nullable();
             $table->json('category')->nullable();
             $table->json('featurs')->nullable();
+            $table->json('snooze')->default('[]');
 
             $table->unsignedInteger('user_id');
             $table->foreign('user_id')

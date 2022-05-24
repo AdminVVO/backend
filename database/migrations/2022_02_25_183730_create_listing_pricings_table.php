@@ -17,6 +17,8 @@ class CreateListingPricingsTable extends Migration
             $table->increments('id_listing_pricings');
             $table->integer('base_price')->nullable();
             $table->string('listing_currency')->default('USD');
+            $table->integer('max_people')->default(0);
+            $table->json('allow')->default('[]');
             $table->boolean('first_guest')->default(false);
             $table->integer('weekly_discount')->default(0);
             $table->integer('monthly_discount')->default(0);

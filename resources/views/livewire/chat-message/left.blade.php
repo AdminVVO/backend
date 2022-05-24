@@ -157,15 +157,4 @@
 
 @push('scripts')
 
-    <script>
-        Livewire.hook('message.processed', (message, component) => {
-
-            $(document).ready(function() {
-                // $(".bx_msg_received, .bx_msg").on("click", function() {
-                //     $(this).siblings(".bx_msg_received.active_msg_received, .bx_msg.active_msg_received").removeClass("active_msg_received");
-                //     $(this).addClass("active_msg_received");
-                // });
-            });
-        })
-    </script>
 @endpush

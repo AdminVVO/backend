@@ -41,7 +41,7 @@
                                 </div>
                             @enderror
                         </div>
-
+like_place
                         <div class="mxf245">
                             <div class="txt-check-in">Property type</div>
                             <div class="selected-modal" style="margin: 0;">

@@ -61,6 +61,15 @@ class Center extends Component
             $this->content['name'] = $queryName->userChat->name ;
             $this->content['title'] = $queryName->title;
             $this->content['messages'] = [];
+            $this->content['offline'] = false;
+
+                if (
+                    DB::table('sessions')->where(
+                            'user_id', $queryName->user_id 
+                    )->exists()
+                ) {
+                    $this->content['offline'] = true;
+                }
         }
     }
 

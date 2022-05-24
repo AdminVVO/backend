@@ -93,6 +93,12 @@ Route::middleware(['AccountDisable'])->group( function(){
                 
                 ## Create reservation for cliente send form chat
                     Route::get('send_form/{reservation}', [ReservationController::class, 'viewReservationCreateSendForm'])->name('ReservCreate');
+                
+                ## Change or Cancel Reservations
+                Route::get('change-cancel', [ReservationController::class, 'viewChangeOrCancelReservations'])->name('reservationsChangeCancel');
+
+                ## Change Reservations
+                Route::get('change', [ReservationController::class, 'viewChangeReservations'])->name('reservationsChange');
         });
 
         ## Routes Messages

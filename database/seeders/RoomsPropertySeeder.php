@@ -13,297 +13,356 @@ class RoomsPropertySeeder extends Seeder
             [
                 'code' => 'rental_unique',
                 'name' => 'Rental Unit',
-                'type' => 'apartment'
+                'type' => 'apartment',
+                'name_type' => 'Apartments'
             ],
             [
                 'code' => 'condominiun',
                 'name' => 'Condominium (Condo)',
-                'type' => 'apartment'
+                'type' => 'apartment',
+                'name_type' => 'Apartments'
             ],
             [
                 'code' => 'serviced_apartm',
                 'name' => 'Serviced apartment',
-                'type' => 'apartment'
+                'type' => 'apartment',
+                'name_type' => 'Apartments'
             ],
             [
                 'code' => 'loft',
                 'name' => 'Loft',
-                'type' => 'apartment'
+                'type' => 'apartment',
+                'name_type' => 'Apartments'
             ],
             [
                 'code' => 'vacation_home',
                 'name' => 'Vacation Home',
-                'type' => 'apartment'
+                'type' => 'apartment',
+                'name_type' => 'Apartments'
             ],
             [
                 'code' => 'residential_home',
                 'name' => 'Residential Home',
-                'type' => 'house'
+                'type' => 'house',
+                'name_type' => 'House'
             ],
             [
                 'code' => 'cabin',
                 'name' => 'Cabin',
-                'type' => 'house'
+                'type' => 'house',
+                'name_type' => 'House'
             ],
             [
                 'code' => 'villa',
                 'name' => 'Villa',
-                'type' => 'house'
+                'type' => 'house',
+                'name_type' => 'House'
             ],
             [
                 'code' => 'townhouse',
                 'name' => 'Townhouse',
-                'type' => 'house'
+                'type' => 'house',
+                'name_type' => 'House'
             ],
             [
                 'code' => 'cottage',
                 'name' => 'Cottage',
-                'type' => 'house'
+                'type' => 'house',
+                'name_type' => 'House'
             ],
             [
                 'code' => 'bungalow',
                 'name' => 'Bungalow',
-                'type' => 'house'
+                'type' => 'house',
+                'name_type' => 'House'
             ],
             [
                 'code' => 'earth_house',
                 'name' => 'Earth House',
-                'type' => 'house'
+                'type' => 'house',
+                'name_type' => 'House'
             ],
             [
                 'code' => 'houseboat',
                 'name' => 'Houseboat',
-                'type' => 'house'
+                'type' => 'house',
+                'name_type' => 'House'
             ],
             [
                 'code' => 'hut',
                 'name' => 'Hut',
-                'type' => 'house'
+                'type' => 'house',
+                'name_type' => 'House'
             ],
             [
                 'code' => 'farm_stay',
                 'name' => 'Farm Stay',
-                'type' => 'house'
+                'type' => 'house',
+                'name_type' => 'House'
             ],
             [
                 'code' => 'dome_house',
                 'name' => 'Dome house',
-                'type' => 'house'
+                'type' => 'house',
+                'name_type' => 'House'
             ],
             [
                 'code' => 'chalet',
                 'name' => 'Chalet',
-                'type' => 'house'
+                'type' => 'house',
+                'name_type' => 'House'
             ],
             [
                 'code' => 'lighthouse',
                 'name' => 'Lighthouse',
-                'type' => 'house'
+                'type' => 'house',
+                'name_type' => 'House'
             ],
             [
                 'code' => 'shepherds_hut',
                 'name' => "Shepherd's hut",
-                'type' => 'house'
+                'type' => 'house',
+                'name_type' => 'House'
             ],
             [
                 'code' => 'guesthouse',
                 'name' => 'Guesthouse',
-                'type' => 'secondary'
+                'type' => 'secondary',
+                'name_type' => 'Attached house'
             ],
             [
                 'code' => 'guest_suite',
                 'name' => 'Guest Suite',
-                'type' => 'secondary'
+                'type' => 'secondary',
+                'name_type' => 'Attached house'
             ],
             [
                 'code' => 'farm_stay',
                 'name' => 'Farm Stay',
-                'type' => 'secondary'
+                'type' => 'secondary',
+                'name_type' => 'Attached house'
             ],
             [
                 'code' => 'vacation_home',
                 'name' => 'Vacation Home',
-                'type' => 'secondary'
+                'type' => 'secondary',
+                'name_type' => 'Attached house'
             ],
             [
                 'code' => 'barn',
                 'name' => 'Barn',
-                'type' => 'unique'
+                'type' => 'unique',
+                'name_type' => 'Unique accommodation'
             ],
             [
                 'code' => 'boat',
                 'name' => 'Boat',
-                'type' => 'unique'
+                'type' => 'unique',
+                'name_type' => 'Unique accommodation'
             ],
             [
                 'code' => 'bus',
                 'name' => 'Bus',
-                'type' => 'unique'
+                'type' => 'unique',
+                'name_type' => 'Unique accommodation'
             ],
             [
                 'code' => 'camper_rv',
                 'name' => 'Camper/RV',
-                'type' => 'unique'
+                'type' => 'unique',
+                'name_type' => 'Unique accommodation'
             ],
             [
                 'code' => 'treehouse',
                 'name' => 'Treehouse',
-                'type' => 'unique'
+                'type' => 'unique',
+                'name_type' => 'Unique accommodation'
             ],
             [
                 'code' => 'campsite',
                 'name' => 'Campsite',
-                'type' => 'unique'
+                'type' => 'unique',
+                'name_type' => 'Unique accommodation'
             ],
             [
                 'code' => 'castle',
                 'name' => 'Castle',
-                'type' => 'unique'
+                'type' => 'unique',
+                'name_type' => 'Unique accommodation'
             ],
             [
                 'code' => 'dome_house',
                 'name' => 'Dome House',
-                'type' => 'unique'
+                'type' => 'unique',
+                'name_type' => 'Unique accommodation'
             ],
             [
                 'code' => 'earth_house',
                 'name' => 'Earth House',
-                'type' => 'unique'
+                'type' => 'unique',
+                'name_type' => 'Unique accommodation'
             ],
             [
                 'code' => 'farm_stay',
                 'name' => 'Farm Stay',
-                'type' => 'unique'
+                'type' => 'unique',
+                'name_type' => 'Unique accommodation'
             ],
             [
                 'code' => 'houseboat',
                 'name' => 'Houseboat',
-                'type' => 'unique'
+                'type' => 'unique',
+                'name_type' => 'Unique accommodation'
             ],
             [
                 'code' => 'hut',
                 'name' => 'Hut',
-                'type' => 'unique'
+                'type' => 'unique',
+                'name_type' => 'Unique accommodation'
             ],
             [
                 'code' => 'island',
                 'name' => 'Island',
-                'type' => 'unique'
+                'type' => 'unique',
+                'name_type' => 'Unique accommodation'
             ],
             [
                 'code' => 'lighthouse',
                 'name' => 'Lighthouse',
-                'type' => 'unique'
+                'type' => 'unique',
+                'name_type' => 'Unique accommodation'
             ],
             [
                 'code' => 'plane',
                 'name' => 'Plane',
-                'type' => 'unique'
+                'type' => 'unique',
+                'name_type' => 'Unique accommodation'
             ],
             [
                 'code' => 'ranch',
                 'name' => 'Ranch',
-                'type' => 'unique'
+                'type' => 'unique',
+                'name_type' => 'Unique accommodation'
             ],
             [
                 'code' => 'religious_building',
                 'name' => 'Religious Building',
-                'type' => 'unique'
+                'type' => 'unique',
+                'name_type' => 'Unique accommodation'
             ],
             [
                 'code' => 'shepherds',
                 'name' => "Shepherd's",
-                'type' => 'unique'
+                'type' => 'unique',
+                'name_type' => 'Unique accommodation'
             ],
             [
                 'code' => 'shipping_container',
                 'name' => 'Shipping Container',
-                'type' => 'unique'
+                'type' => 'unique',
+                'name_type' => 'Unique accommodation'
             ],
             [
                 'code' => 'tent',
                 'name' => 'Tent',
-                'type' => 'unique'
+                'type' => 'unique',
+                'name_type' => 'Unique accommodation'
             ],
             [
                 'code' => 'tiny_house',
                 'name' => 'Tiny House',
-                'type' => 'unique'
+                'type' => 'unique',
+                'name_type' => 'Unique accommodation'
             ],
             [
                 'code' => 'tower',
                 'name' => 'Tower',
-                'type' => 'unique'
+                'type' => 'unique',
+                'name_type' => 'Unique accommodation'
             ],
             [
                 'code' => 'train',
                 'name' => 'Train',
-                'type' => 'unique'
+                'type' => 'unique',
+                'name_type' => 'Unique accommodation'
             ],
             [
                 'code' => 'windmill',
                 'name' => 'Windmill',
-                'type' => 'unique'
+                'type' => 'unique',
+                'name_type' => 'Unique accommodation'
             ],
             [
                 'code' => 'vacation_home',
                 'name' => 'Vacation Home',
-                'type' => 'unique'
+                'type' => 'unique',
+                'name_type' => 'Unique accommodation'
             ],
             [
                 'code' => 'other',
                 'name' => 'Other',
-                'type' => 'unique'
+                'type' => 'unique',
+                'name_type' => 'Unique accommodation'
             ],
             [
                 'code' => 'bed_breakfast',
                 'name' => 'Bed and Breakfast',
-                'type' => 'breakfast'
+                'type' => 'breakfast',
+                'name_type' => 'Bed and breakfasts'
             ],
             [
                 'code' => 'nature_lodge',
                 'name' => 'Nature Lodge',
-                'type' => 'breakfast'
+                'type' => 'breakfast',
+                'name_type' => 'Bed and breakfasts'
             ],
             [
                 'code' => 'farm_stay',
                 'name' => 'Farm Stay',
-                'type' => 'breakfast'
+                'type' => 'breakfast',
+                'name_type' => 'Bed and breakfasts'
             ],
             [
                 'code' => 'hotel',
                 'name' => 'Hotel',
-                'type' => 'boutique'
+                'type' => 'boutique',
+                'name_type' => 'Boutique hotel'
             ],
             [
                 'code' => 'boat',
                 'name' => 'Boat',
-                'type' => 'boutique'
+                'type' => 'boutique',
+                'name_type' => 'Boutique hotel'
             ],
             [
                 'code' => 'resort',
                 'name' => 'Resort',
-                'type' => 'boutique'
+                'type' => 'boutique',
+                'name_type' => 'Boutique hotel'
             ],
             [
                 'code' => 'camper_rv',
                 'name' => 'Camper/RV',
-                'type' => 'boutique'
+                'type' => 'boutique',
+                'name_type' => 'Boutique hotel'
             ],
             [
                 'code' => 'treehouse',
                 'name' => 'Treehouse',
-                'type' => 'boutique'
+                'type' => 'boutique',
+                'name_type' => 'Boutique hotel'
             ],
             [
                 'code' => 'campsite',
                 'name' => 'Campsite',
-                'type' => 'boutique'
+                'type' => 'boutique',
+                'name_type' => 'Boutique hotel'
             ],
             [
                 'code' => 'castle',
                 'name' => 'Castle',
-                'type' => 'boutique'
+                'type' => 'boutique',
+                'name_type' => 'Boutique hotel'
             ],
         ];
 

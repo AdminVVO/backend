@@ -23,7 +23,7 @@ class CreateListingPropertyRoomdsTable extends Migration
             $table->integer('bedrooms')->nullable();
             $table->integer('bed')->nullable();
             $table->integer('bathrooms')->nullable();
-            $table->integer('additional_areas')->nullable();
+            $table->json('additional_areas')->default('[]');
             $table->string('shared_areas')->nullable();
 
             $table->unsignedInteger('user_id');
