@@ -22,7 +22,7 @@
             <div class="section-account">
                 <h2 class="h2">Account</h2>
                 <p class="span-guests">
-                    <span class="_txteh" style="margin-bottom: 0;">{{ \App\Models\User::FullName() }}</span>, {{ Auth::user()->email }}<span class="_p">·</span><span class="_txtblu">Go to profile</span>
+                    <span class="_txteh" style="margin-bottom: 0;">{{ \App\Models\User::FullName() }}</span>, {{ Auth::user()->email }}<span class="_p">·</span><a class="_txtblu" href="{{ route('profile', Auth::id()) }}">Go to profile</a>
                 </p>
 
                 <div class="_flex-account">

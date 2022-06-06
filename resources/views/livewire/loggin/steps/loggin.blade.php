@@ -16,7 +16,7 @@
                         </div>
                     @enderror    
 
-                    <p>We'll call or text you to confirm your number. <br>Standard message and data rates apply. <a href="#">Privacy Policy</a>.</p>
+                    <p>We will send you an email to confirm your email. <br>Standard message and data rates apply. <a href="#">Privacy Policy</a>.</p>
                     <div class="block_a">
                         <button type="submit" class="btn-number btns-modals">
                             Continue

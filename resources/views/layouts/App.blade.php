@@ -17,25 +17,16 @@
 </head>
 
 <body class="page-category">
-    {{-- @if (Auth::check())
-        <script>window.Laravel = {!! json_encode(['isLoggedin' => true,'user' => Auth::user(),]) !!}</script>
-    @else
-        <script>window.Laravel = {!! json_encode(['isLoggedin' => false,]) !!}</script>
-    @endif --}}
-
-    {{-- <div id="entorn-vue">
-        <application></application>
-    </div> --}}
 
     @yield('header')
 
-    @if (!Auth::check())
+    @if ( !Auth::check() )
         @include('loggin.LogInLogOut')
     @endif
 
-    {{-- @include('language.Language') --}}
-    @yield('content')
-    @yield('modals')
+    @include('language.Language')
+        @yield('content')
+        @yield('modals')
     @include('layouts.Footer')
 
     @stack('alpine_scripts')

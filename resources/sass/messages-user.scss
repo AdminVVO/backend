@@ -473,64 +473,46 @@ body {
 
     // MODALS MESSAGE ICON DENUNCIA
     .container_user_f_p {
-      .pd_anhost-modal {
-        .modal_content-anhost {
-          max-width: 568px;
+      .poyxwh {
+        padding: 16px 24px 40px !important;
+      }
 
-          // check negro circle
-          .block-lb {
-            input:checked + .before_check {
-              border: 1px solid #E3EDF3;
+      .fxfbwhmhbrzi {
+        max-width: 568px;
+      }
+
+      .cwhfcbbpfx {
+        width: 36px;
+        height: 36px;
+        font-size: 16px;
+      }
+
+      ._fxbtn {
+        border-top: 1px solid #E3EDF3;
+        padding: 16px 24px;
+      }
+
+      .popup-report-page {
+        // check negro circle
+        .block-lb {
+          input:checked + .before_check {
+            border: 1px solid #E3EDF3;
+          }
+        }
+
+        ._nmcfd {
+          ._jro6to {
+            padding: 24px 0;
+
+            &:not(:last-child) {
+              border-bottom: 1px solid #E3EDF3;
             }
           }
+        }
 
-          ._nmcfd {
-            ._jro6to {
-              padding: 24px 0;
-
-              &:not(:last-child) {
-                border-bottom: 1px solid #E3EDF3;
-              }
-            }
-          }
-
-          .close {
-            span {
-              padding: 0;
-              width: 36px;
-              height: 36px;
-              @include flex-centrado;
-              font-size: 16px;
-              padding-bottom: 3px;
-            }
-          }
-
-          ._fxbtn {
-            border-top: 1px solid #E3EDF3;
-            padding: 16px 24px;
-          }
-
-          .btn-celest {
-            padding: 14px 24px;
-          }
-
-          .modal_block {
-            .content_hidden-anhost {
-              ._pdleftright35 {
-                padding: 24px;
-              }
-
-              .h2_publish {
-                font-size: 24px;
-                line-height: 30px;
-              }
-
-              ._cont_mrg {
-                margin-top: 1%;
-                margin-bottom: 8px;
-              }
-            }
-          }
+        .h2_publish {
+          font-size: 24px;
+          line-height: 30px;
         }
       }
     }
@@ -612,22 +594,26 @@ body {
     }
 
     ._txta-modls {
-      padding: 12px 16px;
-      border: 1px solid #E3EDF3;
+      padding: 12px;
+      border: 0;
+      box-shadow: 0 0 0 1px #E3EDF3 inset;
       resize: none;
-      line-height: inherit;
       font-size: 16px;
+      line-height: 20px;
+      border-radius: 8px;
       height: auto;
 
       &:focus {
-        border: 1px solid #7D7D7D;
+        border: 0;
+        box-shadow: 0 0 0 2px #7D7D7D inset;
       }
     }
 
     .btn-celest {
       font-size: 16px;
-      padding: 14px 48px;
+      padding: 14px 24px;
       line-height: inherit;
+      font-weight: normal;
     }
 
     ._txtec {

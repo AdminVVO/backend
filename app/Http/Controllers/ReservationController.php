@@ -45,9 +45,9 @@ class ReservationController extends Controller
         return view('reservation.ReservationsFormConfirmResort', compact('id'));
     }
 
-    public function viewChangeOrCancelReservations()
+    public function viewChangeOrCancelReservations($id)
     {
-        return view('reservation.ChangeOrCancelReservations');
+        return view('reservation.ChangeOrCancelReservations', compact('id'));
     }
 
     public function viewChangeReservations()

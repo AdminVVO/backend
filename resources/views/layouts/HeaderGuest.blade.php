@@ -5,13 +5,6 @@
                 <img src="{{ URL::asset('assets/img/logo.png') }}" alt="logo">
             </a>
 
-            <div class="_mv-places">
-                <div class="book-form book-f_home _remove">
-                    @include('places.Places')
-                    @include('places.BeforePlaces')
-                </div>
-            </div>
-
             @if ( Auth::check() )
                 <div class="menu _header-menu">
                     <a href="#" class="menu_items">
@@ -60,12 +53,12 @@
 
                     <div class="menu_home-content">
                         <div class="menu_home-content-items">
-                            <ul>
-                               <li><a href="javascript:void(0)" id="butnSign">Sign up</a></li>
-                            </ul>
-                            <ul>
-                                <li><a href="javascript:void(0)" id="butnLogin">Log in</a></li>
-                            </ul>
+                        <ul>
+                            <li class="butnSignModl">Sign up</li>
+                        </ul>
+                        <ul>
+                            <li class="butnLoginModl">Log in</li>
+                        </ul>
                         </div>
                     </div>
                 </div>

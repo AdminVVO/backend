@@ -19,7 +19,7 @@
             <span class="_fcontent">
                 Edit
                 <span class="_svg-asm">
-                    <img src="{{ URL::asset('assets/img/icons/down-right') }}.svg" alt="">
+                    <img src="{{ URL::asset('assets/img/icons/down-right.svg') }}" alt="">
                 </span>
             </span>
         </div>

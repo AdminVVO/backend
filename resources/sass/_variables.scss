@@ -99,10 +99,6 @@ $cant: 300;
   font-size: 35px;
   font-weight: normal;
   color: #7D7D7D;
-
-  @include responsive(900px) {
-    font-size: 30px;
-  }
 }
 
 @mixin h2_publish {
@@ -110,20 +106,12 @@ $cant: 300;
   font-weight: bold;
   line-height: 42px;
   color: $color-h2_publish;
-
-  @include responsive(900px) {
-    font-size: 30px;
-  }
 }
 
 @mixin h24_negro {
   font-size: 24px;
   font-weight: normal;
   color: #2A2A2A;
-
-  @include responsive(900px) {
-    font-size: 21px;
-  }
 }
 
 @mixin h2-guests {
@@ -131,20 +119,12 @@ $cant: 300;
   font-size: 25px;
   line-height: 30px;
   color: $color-h2_publish;
-
-  @include responsive(900px) {
-    font-size: 20px;
-  }
 }
 
 @mixin h2-50 {
   font-size: 50px;
   color: $color-black;
   font-weight: normal;
-
-  @include responsive(900px) {
-    font-size: 46px;
-  }
 }
 
 @mixin h3 {
@@ -152,8 +132,9 @@ $cant: 300;
   color: $color-h2_publish;
   font-weight: normal;
 
-  @include responsive(900px) {
+  @include responsive(1400px) {
     font-size: 16px;
+    line-height: 20px;
   }
 }
 
@@ -207,6 +188,11 @@ $cant: 300;
   &:hover {
     background-color: $bg-hover-btn;
   }
+
+  &:active {
+    transform: scale(0.96);
+    background-color: $bg-hover-btn;
+  }
 }
 
 @mixin h-paragraph {
@@ -250,18 +236,20 @@ $cant: 300;
   color: $color-text;
 
   @media screen and (max-width: 1400px) {
+    line-height: inherit;
     font-size: 16px;
+    letter-spacing: normal;
   }
-
-  @media screen and (max-width: 900px){
-    font-size: 14px;
-  }
-
 }
 
 @mixin _line-hr {
-  border-top-width: 3px;
+  border-top-color: #E3EDF3;
+  border-top-width: 2px;
   border-top-style: solid;
+
+  @include responsive(1400px) {
+    border-top-width: 1px;
+  }
 }
 
 @mixin _txtblu {
@@ -274,10 +262,7 @@ $cant: 300;
 
   @include responsive(1400px) {
     font-size: 16px;
-  }
-
-  @include responsive(900px) {
-    font-size: 14px;
+    line-height: 20px;
   }
 }
 
@@ -326,12 +311,12 @@ $cant: 300;
 @mixin _pf-msg {
   background-color: #E3EDF3;
   border-radius: 50%;
-  max-width: 56px;
-  min-width: 56px;
+  max-width: 60px;
+  min-width: 60px;
   width: 100%;
-  height: 56px;
+  height: 60px;
   border: 3px solid #E3EDF3;
-  margin-right: 14px;
+  margin-right: 16px;
 
   img {
     width: 100%;
@@ -339,21 +324,38 @@ $cant: 300;
     object-fit: cover;
     border-radius: 50%;
   }
+
+  @include responsive(1400px) {
+    border: 2px solid #E3EDF3;
+  }
 }
 
-@mixin _btngpay {
-  display: flex;
-  align-items: center;
-  background-color: #283646;
+@mixin btn-black {
+  width: fit-content;
+  display: inline-block;
+  padding: 16px 50px;
   border-radius: 10px;
+  background-color: #283646;
   color: $color-white;
-  font-size: 25px;
   font-weight: normal;
-  line-height: 30px;
-  padding: 12px 82.9px;
+  white-space: nowrap;
+  font-size: 18px;
+  transition: background-color 0.3s ease;
 
-  ._gics {
-    margin-right: 6.6px;
+  &:active {
+    transform: scale(0.96);
+  }
+
+  &.mx210 {
+    width: 100% !important;
+    max-width: 210px !important;
+  }
+
+  @include responsive(1400px) {
+    padding: 14px 24px;
+    font-size: 16px;
+    line-height: 20px;
+    border-radius: 8px;
   }
 }
 
@@ -362,6 +364,11 @@ $cant: 300;
   line-height: 20px;
   font-weight: normal;
   color: #7D7D7D;
+
+  @include responsive(1400px) {
+    font-size: 14px;
+    line-height: 18px;
+  }
 }
 
 @mixin _txtecbold16 {
@@ -402,14 +409,15 @@ $cant: 300;
   white-space: nowrap;
   font-size: 18px;
   cursor: pointer;
-  transition: .3s ease;
+  transition: background-color .3s ease;
+
+  &:active {
+    transform: scale(0.96);
+    background-color: $bg-black-places;
+  }
 
   @include responsive(1400px) {
     font-size: 16px;
-  }
-
-  @include responsive(900px) {
-    font-size: 14px;
   }
 }
 
@@ -423,14 +431,15 @@ $cant: 300;
   font-weight: normal;
   white-space: nowrap;
   font-size: 18px;
-  transition: .3s ease;
+  transition: background-color .3s ease;
+
+  &:active {
+    transform: scale(0.96);
+    background-color: $color-secundary;
+  }
 
   @include responsive(1400px) {
     font-size: 16px;
-  }
-
-  @include responsive(900px) {
-    font-size: 14px;
   }
 }
 
@@ -444,10 +453,15 @@ $cant: 300;
   font-weight: bold;
   white-space: nowrap;
   font-size: 18px;
-  transition: .3s ease;
+  transition: background-color .3s ease;
   cursor: pointer;
 
   &:hover {
+    background-color: #0096B7;
+  }
+
+  &:active {
+    transform: scale(0.96);
     background-color: #0096B7;
   }
 
@@ -481,20 +495,23 @@ $cant: 300;
   font-weight: bold;
   white-space: nowrap;
   font-size: 18px;
-  transition: .3s ease;
+  transition: background-color .3s ease;
 
   &:hover {
     background-color: #0096B7;
   }
 
-  @include responsive(1400px) {
-    padding: 15px 40px;
-    font-size: 16px;
-    font-weight: normal;
+  &:active {
+    transform: scale(0.96);
+    background-color: #0096B7;
   }
 
-  @include responsive(900px) {
-    font-size: 14px;
+  @include responsive(1400px) {
+    padding: 14px 24px;
+    font-size: 16px;
+    font-weight: normal;
+    line-height: 20px;
+    border-radius: 8px;
   }
 }
 
@@ -509,9 +526,14 @@ $cant: 300;
   font-weight: normal;
   white-space: nowrap;
   font-size: 14px;
-  transition: .3s ease;
+  transition: background-color .3s ease;
 
   &:hover {
+    background-color: #0096B7;
+  }
+
+  &:active {
+    transform: scale(0.96);
     background-color: #0096B7;
   }
 }
@@ -524,20 +546,24 @@ $cant: 300;
   font-size: 18px;
   font-weight: bold;
   padding: 16px 50px;
-  transition: .3s ease;
+  transition: background-color .3s ease;
+  cursor: pointer;
 
   &:hover {
     background-color: #DC383D;
   }
 
-  @include responsive(1400px) {
-    padding: 15px 40px;
-    font-size: 16px;
-    font-weight: normal;
+  &:active {
+    transform: scale(0.96);
+    background-color: #DC383D;
   }
 
-  @include responsive(900px) {
-    font-size: 14px;
+  @include responsive(1400px) {
+    padding: 14px 24px;
+    font-size: 16px;
+    font-weight: normal;
+    line-height: 20px;
+    border-radius: 8px;
   }
 }
 
@@ -576,6 +602,22 @@ $cant: 300;
       margin-left: 16px;
     }
   }
+
+  @include responsive(1400px) {
+    .s-usr_icons {
+      ._suis {
+        min-width: 21px;
+
+        i {
+          font-size: 18px;
+        }
+      }
+
+      ._suisinfo {
+        margin-left: 10px;
+      }
+    }
+  }
 }
 
 @mixin t-cth {
@@ -584,6 +626,7 @@ $cant: 300;
   border-radius: 10px;
   padding: 9px 18px;
   margin-bottom: 4px;
+  gap: 12px;
   display: flex;
   justify-content: space-between;
 
@@ -593,6 +636,18 @@ $cant: 300;
     font-size: 18px;
     line-height: 24px;
   }
+
+  @include responsive(1400px) {
+    margin-top: 12px;
+    border-radius: 8px;
+    padding: 8px 12px;
+    margin-bottom: 0;
+
+    ._txtect {
+      font-size: 16px;
+      line-height: inherit;
+    }
+  }
 }
 
 @mixin f-cthdes {
@@ -601,6 +656,7 @@ $cant: 300;
   padding: 9px 18px;
   margin-bottom: 4px;
   display: flex;
+  gap: 12px;
   justify-content: space-between;
 
   ._txtecred {
@@ -608,6 +664,16 @@ $cant: 300;
     line-height: 24px;
     font-weight: bold;
     color: #FF5A5F;
+  }
+
+  @include responsive(1400px) {
+    padding: 8px 12px;
+    border-radius: 8px;
+
+    ._txtecred {
+      font-size: 16px;
+      line-height: inherit;
+    }
   }
 }
 
@@ -618,6 +684,13 @@ $cant: 300;
   border-left: 3px solid #00B5DD;
   padding-left: 16px;
   margin-bottom: 12px;
+
+  @include responsive(1400px) {
+    font-size: 12px;
+    border-left: 2px solid #00B5DD;
+    padding-left: 12px;
+    margin-bottom: 8px;
+  }
 }
 
 @mixin _txtprivat {
@@ -631,7 +704,6 @@ $cant: 300;
   color: #333333;
   font-weight: bold;
   font-size: 16px;
-
   @include responsive(900px) {
     font-size: 14px;
   }
@@ -644,12 +716,14 @@ $cant: 300;
   line-height: 24px;
   margin-bottom: 2px;
 
-  @include responsive(1400px) {
-    font-size: 16px;
+  &.txt18 {
+    font-size: 18px !important;
+    line-height: 24px !important;
+    margin: 0 !important;
   }
 
-  @include responsive(900px) {
-    font-size: 14px;
+  @include responsive(1400px) {
+    font-size: 16px;
   }
 }
 
@@ -675,10 +749,6 @@ $cant: 300;
   @include responsive(1400px) {
     font-size: 16px;
   }
-
-  @include responsive(900px) {
-    font-size: 14px;
-  }
 }
 
 @mixin _txtehlinear16 {
@@ -702,10 +772,6 @@ $cant: 300;
   @include responsive(1400px) {
     font-size: 16px;
   }
-
-  @include responsive(900px) {
-    font-size: 14px;
-  }
 }
 
 @mixin _txtlinearnormal {
@@ -728,10 +794,6 @@ $cant: 300;
   @include responsive(1400px) {
     font-size: 16px;
   }
-
-  @include responsive(900px) {
-    font-size: 14px;
-  }
 }
 
 @mixin _txtred {
@@ -742,10 +804,6 @@ $cant: 300;
 
   @media screen and (max-width: 1400px) {
     font-size: 16px;
-  }
-
-  @media screen and (max-width: 900px){
-    font-size: 14px;
   }
 }
 
@@ -758,10 +816,6 @@ $cant: 300;
   @media screen and (max-width: 1400px) {
     font-size: 16px;
   }
-
-  @media screen and (max-width: 900px){
-    font-size: 14px;
-  }
 }
 
 @mixin _txtec {
@@ -770,14 +824,14 @@ $cant: 300;
   font-size: 18px;
   line-height: 24px;
 
+  &.txt18 {
+    font-size: 18px !important;
+    line-height: 24px !important;
+  }
+
   @media screen and (max-width: 1400px) {
     font-size: 16px;
     line-height: 20px;
-  }
-
-  @media screen and (max-width: 900px){
-    font-size: 14px;
-    line-height: 18px;
   }
 }
 
@@ -790,11 +844,6 @@ $cant: 300;
   @media screen and (max-width: 1400px) {
     font-size: 16px;
     line-height: 20px;
-  }
-
-  @media screen and (max-width: 900px){
-    font-size: 14px;
-    line-height: 18px;
   }
 }
 
@@ -834,10 +883,6 @@ $cant: 300;
       @include responsive(1400px) {
         bottom: 1px;
       }
-
-      @include responsive(900px) {
-        bottom: 2px;
-      }
     }
   }
 
@@ -855,11 +900,6 @@ $cant: 300;
       margin-top: 2px;
       width: 5px;
     }
-
-    @include responsive(900px) {
-      margin-top: 1px;
-      width: 4px;
-    }
   }
 }
 
@@ -874,10 +914,6 @@ $cant: 300;
 
   @include responsive(1400px) {
     font-size: 16px;
-  }
-
-  @include responsive(900px) {
-    font-size: 14px;
   }
 
   span {
@@ -934,10 +970,6 @@ $cant: 300;
 
   @media screen and (max-width: 1400px) {
     font-size: 16px;
-  }
-
-  @media screen and (max-width: 900px) {
-    font-size: 14px;
   }
 
   ._fcontent {
@@ -1158,6 +1190,10 @@ $cant: 300;
   @keyframes #{$name} {
     @content;
   }
+}
+
+@mixin animate($animation, $duration, $method, $times) {
+  animation: $animation $duration $method $times;
 }
 
 

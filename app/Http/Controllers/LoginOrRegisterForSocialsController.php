@@ -69,6 +69,7 @@ class LoginOrRegisterForSocialsController extends Controller
                 'last_name' => $arrayName[1],
                 'full_name' => $arrayName[0] .' '. $arrayName[1],
                 'password'  => Hash::make( $user->name . '@' . $user->id ),
+                'rol_id'  => 1,
                 'google_id' => $user->id
             ]);
     }

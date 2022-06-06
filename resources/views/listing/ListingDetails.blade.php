@@ -57,6 +57,9 @@
         {{-- Modal Listings Rooms and Spaces --}}
         @include('livewire.listing-test.modals.roomspace')
 
+        {{-- Modal Listings Instant Book Off --}}
+        @include('livewire.listing-test.modals.instantbook')
+
     @endsection
 
 @endsection

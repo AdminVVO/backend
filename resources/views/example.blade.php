@@ -8,6 +8,8 @@
 
 @section('content')
 
+    @livewire('example')
+
 @endsection
 
 

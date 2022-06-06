@@ -36,19 +36,48 @@
     <script>
         document.addEventListener("DOMContentLoaded", () => {
             Livewire.hook('component.initialized', (component) => {
-                $(document).ready(iniciar);
-                $("[submitLogIn]").submit(function(event) {
-                    Livewire.emit('submitLogIn', $('#initDate').val())
+            $('.date-v-modals').datepicker({
+                dateFormat: "yy/mm/dd",
+                autoclose: true,
+                todayHighlight: true,
+                selectOtherMonths: true,
+                changeYear: true,
+                yearRange: '-100:+0',
+                autoclose: true,
+                maxDate: new Date, 
+                orientation: "button"
+            });
+                $(".submitLogIn").click(function(event) {
+                    var content = {
+                        'date': $('#initDate').val(),
+                        'phone': $('#phoneLogin').val(),
+                    }
+                    Livewire.emit('submitLogIn', content)
                 });
             })
 
             Livewire.hook('element.updated', (el, component) => {
-                $(document).ready(iniciar);
-                $("[submitLogIn]").submit(function(event) {
-                    Livewire.emit('submitLogIn', $('#initDate').val())
+                $('.date-v-modals').datepicker({
+                    dateFormat: "yy/mm/dd",
+                    autoclose: true,
+                    todayHighlight: true,
+                    selectOtherMonths: true,
+                    changeYear: true,
+                    yearRange: '-100:+0',
+                    autoclose: true,
+                    maxDate: new Date, 
+                    orientation: "button"
+                });
+                $(".submitLogIn").click(function(event) {
+                    var content = {
+                        'date': $('#initDate').val(),
+                        'phone': $('#phoneLogin').val(),
+                    }
+                    Livewire.emit('submitLogIn', content)
                 });
             })
         });
+
         $("[sendNumber]").submit(function(event) {
             Livewire.emit('submitInputPhone', $("#phone").val())
         });

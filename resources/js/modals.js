@@ -42,6 +42,14 @@ $(document).ready(function() {
 
 // ------------- ACTIVE JQUERY -------------
 $(document).ready(function() {
+    // ACTIVE NAVBAR
+    $(document).ready(function() {
+        $(".nav__links-txt .li__links-txt .tabs_items").click(function(){
+            $(".tabs_items").removeClass("active_tabs");
+            $(this).addClass("active_tabs");
+        });
+    });
+
     $('.nav-leng ul li .btn-a').click(function(){
        $('.btn-a').removeClass("activ");
        $(this).addClass("activ");
@@ -518,8 +526,8 @@ $(document).ready(function() {
 
 
     // messages - scroll top hacia abajo, chat online
-    chatMsg();
-    function chatMsg() {
+    chatMsgScrollTop();
+    function chatMsgScrollTop() {
         var test = $(".c-msg-chat").height();
         $(".c-msg-chat").scrollTop(test);
     }
@@ -534,49 +542,6 @@ $(document).ready(function() {
         $(this).parents().find(".input-type-msg").addClass("focus-type");
     }).on('blur', '.f-input-cont', function() {
         $(this).parents().find(".input-type-msg").removeClass("focus-type");
-    });
-
-    // messages - type a message debera valida texto
-    $(".w-input-textarea-msg").keyup(function() {
-        var value = $(this).val().length;
-
-        if (value > 0) {
-            // $(this).parents(".input-type-msg").find(".click_envio_chat").prop('disabled', false);
-            $(this).parents(".input-type-msg").find(".click_envio_chat i").removeClass("_i-celest24").addClass("_i-gris24");
-        } else {
-            // $(this).parents(".input-type-msg").find(".click_envio_chat").prop('disabled', true);
-            $(this).parents(".input-type-msg").find(".click_envio_chat i").addClass("_i-celest24").removeClass("_i-gris24");
-        }
-    });
-
-    // remove class dandole click alguna opcion del modal popup
-    $(".menu_home-content .menu_home-content-items ul li").on("click", function() {
-        $("._header-menu").removeClass("is-active");
-    });
-
-    // active click - add payments paypal opt2 1
-    $("._dggtcgcggrg ._brinfimg").on("click", function() {
-        $(this).parents("._dggtcgcggrg").find("._brinfimg.active").removeClass("active");
-        $(this).addClass("active");
-    });
-
-    // click - add payments paypal opt2 1
-    $(".showW9").on("click", function() {
-        $(this).parents().find(".substituteW9").show();
-        $(this).parents().find(".substituteW8").hide();
-        $(this).parents().find(".substituteW8BEN").hide();
-    });
-
-    $(".showW8").on("click", function() {
-        $(this).parents().find(".substituteW8").show();
-        $(this).parents().find(".substituteW9").hide();
-        $(this).parents().find(".substituteW8BEN").hide();
-    });
-
-    $(".showW8BEN").on("click", function() {
-        $(this).parents().find(".substituteW8BEN").show();
-        $(this).parents().find(".substituteW9").hide();
-        $(this).parents().find(".substituteW8").hide();
     });
 });
 
@@ -615,10 +580,33 @@ function hideShowJacks(val) {
     }
 }
 
+//-------- CLICK IMG GALLERYS LATERAL --------
+$(document).ready(internaModalGallery);
+function internaModalGallery() {
+    let $modalImgsG = $("._img-modal");
+    let gallerysList = $("._pbkgallery");
+
+    $.each(gallerysList, function(list) {
+        let $view = $(this).find("._link-img", list);
+        let $galleryImg = $(this).find("._img-wh", list).attr("src");
+
+        $view.on("click", function() {
+            $modalImgsG.attr("src", $galleryImg);
+        });
+    });
+}
+
+//------- ACTIVE LATERAL SLIDER IMG GALLERYS --------
+$(document).ready(function() {
+    $('._cgprelright ._pbkgallery').click(function(){
+       $('._pbkgallery').removeClass("active");
+       $(this).addClass("active");
+    });
+});
+
 // Anuncios, Notificaiones - Mini Modal
 $(document).ready(anunciosNoti);
 function anunciosNoti() {
-    
     // listing post - anuncio modal click_x_anuncio
     setTimeout(showModalAnuncio, 1000);
     function showModalAnuncio() {
@@ -667,12 +655,6 @@ function hideShowListingStatus(val) {
         $(".container_lspopupdesct").show();
         $(".page-category").css({'overflow': 'hidden'});
     }
-}
-
-// escribir el input y aparesca el signo / para fechas
-$(document).ready(validateFechaMascara);
-function validateFechaMascara() {
-    $(".date-v-modals").mask("9999/99/99");
 }
 
 // create step6 - click la flecha y que deslize cada bloque

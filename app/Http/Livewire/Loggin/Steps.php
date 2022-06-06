@@ -90,6 +90,7 @@ class Steps extends Component
                 'email'      => $payload['email'],
                 'phone'      => $payload['phone'],
                 'promotions' => $payload['promotion'],
+                'rol_id'     => 1,
                 'password'   => $payload['email'] . '@' . $payload['dateBirth']
             ]);
             

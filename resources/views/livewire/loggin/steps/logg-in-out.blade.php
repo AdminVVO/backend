@@ -4,7 +4,7 @@
     </div>
     <div class="modal_block-welcome">
         <div class="content_welcome-email content-f-r">
-            <form wire:submit.prevent="" submitLogIn>
+            <form>
                 <h4>Name</h4>
                 <input type="text" wire:model.defer="name" class="_input-mod @error('name') error_input @enderror">
                 @error('name')
@@ -66,9 +66,15 @@
                     @enderror  
                 @else
                     <h4 style="margin-top: 23px;">Phone Number</h4>
-                    <input type="text" wire:model.defer="phone" class="_input-mod email-modals @error('phone') error_input @enderror" placeholder="+1 999-99-999">
+                    <x-tel-input
+                        wire:model="phoneLogin"
+                        id="phoneLogin"
+                        name="phoneLogin"
+                        class="form-input _input-mod"
+                    /> 
+                    <input wire:model="phone_country" type="hidden" id="phone_country" name="phone_country">
                     @error('phone')
-                        <div  class="_txterror">
+                        <div style="display: block;"  class="_txterror">
                             <i class="fas fa-exclamation-circle icon1"></i> 
                             {{ $message }}
                         </div>
@@ -80,7 +86,7 @@
                 <p style="text-align: center !important;">By selecting <b>Accept and Continue</b>, I agree to the VVOUTLET <a href="#">Terms of Service</a>. <a href="#">Payment Terms of Service</a>, and <a href="#">Anti-Discrimination Policy</a>. I also acknowledge the <a href="#">Privacy Policy</a>.</p>
 
                 <div class="block_a">
-                    <button class="btn_email-code" type="submit">Accept and continue</button>
+                    <button class="btn_email-code submitLogIn" type="button" >Accept and continue</button>
                 </div>
 
                 <div class="_line-hr" style="border-top-color: #E3EDF3; margin: 20px 0;"></div>

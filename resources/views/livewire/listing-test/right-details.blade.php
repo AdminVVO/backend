@@ -80,11 +80,14 @@
             });
             
             $(".click_give_feedback").on("click", function(){
-                $('html, body').animate({
-                    scrollTop: $("body").offset().top
-                }, 0);
-                $(".page-category").css({'overflow': 'hidden'});
+                animateTopModals();
                 $(".container_give-feedback").show();
+            });
+
+            $(".clickInstantBookon").on("click", function(e) {
+                window.livewire.emitTo('listing-test.instant-book', 'initComponent');
+                animateTopModals();
+                $(".container_poliandrulesedit").show();
             });
         })
     </script>

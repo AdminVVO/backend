@@ -3,11 +3,14 @@
 use App\Http\Controllers\AccountController;
 use App\Http\Controllers\CalendarController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\InternaController;
 use App\Http\Controllers\ListingsController;
 use App\Http\Controllers\LoginOrRegisterForSocialsController;
 use App\Http\Controllers\MessageChats;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ReservationController;
-use App\Http\Controllers\internaController;
+use App\Http\Controllers\TripsController;
+use App\Http\Controllers\Wishlists;
 use Illuminate\Support\Facades\Route;
 /*
 |--------------------------------------------------------------------------
@@ -21,10 +24,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::middleware(['AccountDisable'])->group( function(){
-
-    Route::get('/', function () {
-        return view('home.Home');
-    })->name('/');
+    
+    Route::get('/example', function () {
+        return view('example');
+    })->name('/example');
 
     Route::get('/category', function () {
         return view('category.Category');
@@ -33,10 +36,6 @@ Route::middleware(['AccountDisable'])->group( function(){
     Route::get('/host', function () {
         return view('host.Host');
     })->name('host');
-
-    Route::get('/interna', function () {
-        return view('interna.Interna');
-    })->name('/interna');
 
     Route::get('/search', function () {
         return view('search.search');
@@ -50,6 +49,21 @@ Route::middleware(['AccountDisable'])->group( function(){
     Route::get('/blog', function () {
         return view('blog.Blog');
     })->name('/blog');
+
+
+
+
+
+
+    ## Routes Home
+    Route::get('/', [HomeController::class, 'viewHome'])->name('/');
+    Route::get('/login', function () { return back(); })->name('login');
+
+    ## Routes Profile
+    Route::prefix('profile')->group( function(){
+        ## Profile Index
+            Route::get('{id}', [ProfileController::class, 'viewProfile'])->name('profile');
+    });
 
     Route::middleware(['auth'])->group( function(){
 
@@ -80,6 +94,15 @@ Route::middleware(['AccountDisable'])->group( function(){
             ## Listing Steps
                 Route::post('uploadFilePhoto', [ListingsController::class, 'uploadFileDragzone'])->name('uploadFilePhoto');
                 Route::delete('uploadFilePhoto', [ListingsController::class, 'deleteFileDragzone'])->name('deleteFilePhoto');
+
+            ## Listing Show details Client
+                Route::get('client-show/{id}', [ListingsController::class, 'viewListingClientDetails'])->name('client-show');
+        });
+
+        ## Routes Reservations Sections
+        Route::prefix('interna')->group( function(){
+            ## Listing Index
+            Route::get('client-show/{id}', [InternaController::class, 'viewListingClientDetails'])->name('client-show');
         });
 
         ## Routes Reservations Sections
@@ -95,10 +118,22 @@ Route::middleware(['AccountDisable'])->group( function(){
                     Route::get('send_form/{reservation}', [ReservationController::class, 'viewReservationCreateSendForm'])->name('ReservCreate');
                 
                 ## Change or Cancel Reservations
-                Route::get('change-cancel', [ReservationController::class, 'viewChangeOrCancelReservations'])->name('reservationsChangeCancel');
+                Route::get('change-cancel/{id}', [ReservationController::class, 'viewChangeOrCancelReservations'])->name('reservationsChangeCancel');
 
                 ## Change Reservations
                 Route::get('change', [ReservationController::class, 'viewChangeReservations'])->name('reservationsChange');
+        });
+
+        ## Routes Trips
+        Route::prefix('trips')->group( function(){
+            ## Trips Index
+                Route::get('', [TripsController::class, 'viewIndexTrips'])->name('trips');
+        });
+
+        ## Routes Wishlist
+        Route::prefix('wishlist')->group( function(){
+            ## Trips Index
+                Route::get('', [Wishlists::class, 'viewWishlists'])->name('wishlist');
         });
 
         ## Routes Messages

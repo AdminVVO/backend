@@ -82,4 +82,9 @@ class User extends Authenticatable
 
         return $xplodeName[0] .' '. $xplodeLastName[0];
     }
+
+    public function scopeAvatarInterna($query, $code)
+    {
+        return $this->where('id_user', $code)->pluck('avatar')->first();
+    }
 }

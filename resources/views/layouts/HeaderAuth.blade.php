@@ -1,12 +1,12 @@
-@if ( in_array( Route::currentRouteName(),['reservations', 'listing-show', 'reservationsChange'],) )
+@if ( in_array( Route::currentRouteName(),['reservations', 'listing-show', 'reservationsChange','wishlist']) )
     <div class="h_admin mrb-0">
 @endif
 
-@if ( in_array( Route::currentRouteName(),['ReservCreate', 'ReservPreview'],) )
+@if ( in_array( Route::currentRouteName(),['ReservCreate', 'ReservPreview']) )
     <div class="h_admin h_reservation_form">
 @endif
 
-@if ( in_array( Route::currentRouteName(),['messageUserIndex', 'calendarIndex'],) )
+@if ( in_array( Route::currentRouteName(),['messageUserIndex', 'calendarIndex']) )
     <div class="h_admin mrb-0 h_not h_pa">
 @endif
 

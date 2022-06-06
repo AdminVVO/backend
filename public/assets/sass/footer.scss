@@ -22,22 +22,35 @@ footer {
 
         @include responsive(1445px) {
             display: grid;
-			grid-template-columns: 1fr 1fr 1fr;
+			grid-template-columns: 1fr 1fr 1fr 1fr;
             gap: 70px;
         }
 
-        @include responsive(1010px) {
+        @include responsive(1130px) {
+            grid-template-columns: 1fr 1fr 1fr;
+        }
+
+        @include responsive(800px) {
             grid-template-columns: 1fr 1fr;
         }
 
-        @include responsive(660px) {
+        @include responsive(743px) {
+            gap: 48px;
             grid-template-columns: 1fr;
 
             .footer-logo {
-                margin: auto;
-                text-align: center;
+                align-items: center;
+
+                .cont__ictxtfootr {
+                    align-items: center;
+                }
+
+                .footer-icon {
+                    align-items: center;
+                }
 
                 .footer-social {
+                    gap: 8px;
                     justify-content: center;
 
                     a {
@@ -53,37 +66,43 @@ footer {
         }
 
         .footer-logo {
+            display: flex;
+            flex-direction: column;
+            gap: 28.4px;
+
+            .cont__ictxtfootr {
+                display: flex;
+                flex-direction: column;
+                gap: 27.4px;
+            }
 
             .footer-icon {
+                display: flex;
+                flex-direction: column;
+                gap: 26px;
                 color: $color-white;
+
+                ._icrmrg {
+                    display: flex;
+                    align-items: center;
+                    gap: 16px;
+                }
 
                 p {
                     font-size: 16px;
 
                     i {
                         font-size: 20px;
-                        margin: 28.4px 16px 0 0;
-                    }
-
-                    &:nth-child(2) {
-                        
-                        i {
-                            margin-top: 26px;
-                        }
                     }
                 }
             }
 
             .footer-social {
                 display: flex;
-                margin-top: 27.4px;
+                gap: 25px;
 
-                a {
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
+                .link__icon-footer {
                     color: $color-white;
-                    margin-right: 25px;
 
                     i {
                         font-size: 20px;
@@ -92,23 +111,25 @@ footer {
             }
         }
 
-        .footer-links strong {
-            color: $color-white;
-            font-size: 20px;
-            font-weight: 600;
-        }
-
-        .footer-links ul {
-			margin-top: 28px;
-
-            li a {
-                display: inline-block;
+        .footer-links {
+            strong {
                 color: $color-white;
-                margin-bottom: 19px;
-                font-weight: 400;
-                font-size: 16px;
+                font-size: 20px;
+                font-weight: 600;
             }
-		}
+
+            ul {
+                margin-top: 28px;
+            }
+
+            li {
+                margin-bottom: 19px;
+            }
+
+            ._txt-white16 {
+                display: inline-block;
+            }
+        }
     }
 }
 
@@ -134,13 +155,85 @@ footer {
             font-size: 16px;
             font-weight: normal;
 
-            span {
+            .ptics {
                 margin: 0 19px;
             }
 
             a {
                 color: $color-white;
                 font-size: 16px;
+            }
+        }
+    }
+}
+
+body {
+    @include responsive(1400px) {
+        .footer {
+            padding: 48px 0 24px;
+
+            .footer-container {
+                .footer-logo {
+                    gap: 26px;
+
+                    img {
+                        width: 150px;
+                    }
+
+                    .cont__ictxtfootr {
+                        gap: 26px;
+                    }
+
+                    .footer-icon {
+                        gap: 26px;
+
+                        ._icrmrg {
+                            gap: 12px;
+                        }
+
+                        p {
+                            i {
+                                font-size: 18px;
+                            }
+                        }
+                    }
+
+                    .footer-social {
+                        .link__icon-footer {
+                            i {
+                                font-size: 18px;
+                            }
+                        }
+                    }
+                }
+
+                .footer-links {
+                    strong {
+                        font-size: 16px;
+                    }
+
+                    ul {
+                        margin-top: 16px;
+                    }
+
+                    li {
+                        margin-bottom: 16px;
+                    }
+                }
+            }
+        }
+
+        ._txt-white16 {
+            font-size: 14px;
+            line-height: 18px;
+        }
+
+        .copyright {
+            padding-top: 72px;
+
+            p {
+                font-size: 14px;
+                line-height: 18px;
             }
         }
     }

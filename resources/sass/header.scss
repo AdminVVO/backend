@@ -125,8 +125,56 @@ header {
             top: 85px;
             opacity: 1;
             visibility: visible;
+
+            @include responsive(1400px) {
+                top: 75px;
+            }
         }
     }
+}
+
+.menu__text-link {
+    display: inline-block;
+    font-size: 14px;
+    line-height: 18px;
+    color: #7D7D7D !important;
+    display: flex;
+    white-space: nowrap;
+    width: 100%;
+    font-weight: normal;
+    align-items: center;
+
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+    margin: 0;
+    padding: 0;
+    text-align: inherit;
+    padding: 12px 16px;
+
+    &:hover {
+        background-color: rgba(237, 237, 243, .5);
+    }
+}
+
+.wf10a {
+    -webkit-flex: 1 0 auto;
+    flex: 1 0 auto;
+}
+
+.bold__menu-text-link {
+    color: #2A2A2A !important;
+}
+
+// notification punto rojo submenu
+.not__ics-circle {
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    top: -2px;
+    vertical-align: top;
+    background-color: #FF5A5F;
+    border-radius: 50%
 }
 
 .menu { 
@@ -143,7 +191,7 @@ header {
     a, span {
         color: white;
         font-size: 18px;
-        font-weight: 400;  
+        // font-weight: 400;  
 
         @include responsive(1100px) {
             font-size: 16px;
@@ -185,6 +233,12 @@ header {
         visibility: hidden;
         opacity: 0;
         transition: all .3s ease;
+        border-radius: 10px;
+        border: 2px solid #E3EDF3;
+
+        @include responsive(1400px) {
+            border: 1px solid #E3EDF3;
+        }
 
         @include responsive(768px) {
             margin-top: -10px;
@@ -197,48 +251,66 @@ header {
             opacity: 1;
         }
 
+        .menu__triang-ics {
+            top: -6px;
+            right: 10px;
+            bottom: 0;
+        }
+
         &-items {
             position: relative;
+            padding: 8px 0;
             width: 240px;
             background-color: $color-white;
             border-radius: 10px;
-            border: 2px solid #E3EDF3;
             @include _shadow-black3-6;
+
+            .br-line {
+                margin: 8px 0;
+                height: 1px;
+                background-color: $color-background-perfile;
+            }
+
+            .cl_7d-menu {
+                li,
+                a {
+                    color: #7d7d7d;
+                }
+            }
 
             ul {
                 li {
                     cursor: pointer;
                     display: block;
-                    margin: 0 0 1px;
 
                     color: $color-text-submenu;
                     font-size: 16px;
                     line-height: 24px;
                     padding: 10px 10px 10px 16px;
-                    transition: all .3s ease;
+
+                    a {
+                        font-size: 16px;
+                        color: $color-text-submenu;
+                        transition: all .3s ease;
+                    }
                 }
             }
 
-            .br-line {
-                margin: 4px 0;
-                border: 1px solid $color-background-perfile;
-            }
+            // &:before {
+            //     content: "";
+            //     position: absolute;
+            //     top: -17px;
+            //     left: 93%;
+            //     transform: translateX(-50%);
+            //     z-index: 1;
+            //     border: 8px solid;
+            //     border-color: transparent transparent $color-background-perfile transparent;
 
-            &:before {
-                content: "";
-                position: absolute;
-                top: -17px;
-                left: 93%;
-                transform: translateX(-50%);
-                z-index: 1;
-                border: 8px solid;
-                border-color: transparent transparent $color-background-perfile transparent;
-
-                @include responsive(768px) {
-                    top: -17px;
-                    left: 94.5%;
-                }
-            }
+            //     @include responsive(768px) {
+            //         top: -17px;
+            //         left: 94.5%;
+            //     }
+            // }
         }
     }
     

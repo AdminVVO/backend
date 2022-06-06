@@ -9,7 +9,8 @@ $(document).ready(function(){
     
     
      
-    $(".content-dots span.dot").on("click",function(){
+    $(document).on("click", ".content-dots span.dot", function() {
+    // $(".content-dots span.dot").on("click",function(){
         var index_dot = $(this).index();
         $(this).siblings("span.dot_active").removeClass("dot_active");   
         $(this).addClass("dot_active"); 
@@ -17,21 +18,22 @@ $(document).ready(function(){
         $(this).parent(".content-dots").siblings(".card_img").children("img").eq(index_dot).addClass("card_img_active");    
     })  
     
-    $('.content-dots > span').click(function (e) {
+    $(document).on("click", ".content-dots > span, .card_love", function() {
         return false;
     });
     
     
-    $('.owl-carousel').owlCarousel({
-        loop:true,   
-        margin:35, 
-        nav:true,  
-        mouseDrag:false,
-        autoWidth:true, 
-        responsive:{
+    $('.caroursel_home').owlCarousel({
+        loop: true,
+        margin: 35,
+        nav: true,
+        mouseDrag: false,
+        autoWidth: true,
+        responsive: {
             0:{
                 items:1
             },
+
             700:{
                 items:2,
                 margin:25 
@@ -45,12 +47,12 @@ $(document).ready(function(){
 
     
     $(".owl-item.active:first").children(".card_items").addClass("card_items_active"); 
-    $(".owl-carousel .owl-nav button.owl-next").on("click",function(){
+    $(".caroursel_home .owl-nav button.owl-next").on("click",function(){
         $(".owl-item.active").children(".card_items").removeClass("card_items_active");
         $(".owl-item.active:first").children(".card_items").addClass("card_items_active"); 
         
     })  
-    $(".owl-carousel .owl-nav button.owl-prev").on("click",function(){
+    $(".caroursel_home .owl-nav button.owl-prev").on("click",function(){
         $(".owl-item.active").children(".card_items").removeClass("card_items_active");
         $(".owl-item.active:first").children(".card_items").addClass("card_items_active"); 
         

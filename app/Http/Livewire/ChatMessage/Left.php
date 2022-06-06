@@ -69,7 +69,7 @@ class Left extends Component
                                     return $query->where('unread_transm', true);
                                 
                             })
-                            ->where('receiver.full_name', 'like', '%' . $this->search . '%')
+                            ->where('receiver.full_name', 'ilike', '%' . $this->search . '%')
                             ->orderBy('order_transmitter', 'DESC')
                             ->orderBy('updated_at', 'DESC')
                             ->get();
@@ -92,8 +92,8 @@ class Left extends Component
                                 
                             })
                             ->where(function ($query) {
-                                $query->where('listings.title', 'like', '%' . $this->search . '%')
-                                      ->orWhere('transmitter.full_name', 'like', '%' . $this->search . '%');
+                                $query->where('listings.title', 'ilike', '%' . $this->search . '%')
+                                      ->orWhere('transmitter.full_name', 'ilike', '%' . $this->search . '%');
                             })
                             ->orderBy('order_receiver', 'DESC')
                             ->orderBy('updated_at', 'DESC')

@@ -6,68 +6,11 @@ body {
     .container_user_f_p {
         display: none;
 
-        .pd_anhost-modal {
-            .modal_content-anhost {
-                max-width: 687px;
-                overflow: hidden;
+        .fxfbwhmhbrzi {
+            max-width: 789px;
 
-                // check negro circle
-                .block-lb {
-                    width: 100%;
-                }
-
-                ._txta-modls {
-                    display: none;
-
-                    &::placeholder {
-                      color: #E3EDF3;
-                    }
-                }
-                
-                ._nmcfd {
-                    display: flex;
-                    flex-direction: column;
-                
-                    ._jro6to {
-                        padding: 34px 0;
-            
-                        &:not(:last-child) {
-                            border-bottom: 1px solid #E3EDF3;
-                        }
-                    }
-                }
-
-                .close {
-                    span {
-                        border-radius: 0 0 0 10px;
-                    }
-                }
-
-                ._cont_mrg {
-                    margin-top: 2%;
-                    margin-bottom: 10px;
-                }
-
-                .modal_block {
-                    .content_hidden-anhost {
-                        margin-bottom: 0;
-                    }
-                }
-
-                ._pdleftright35 {
-                    padding: 0 35px 35px;
-                }
-
-                .btn-celest {
-                    border-radius: 8px;
-                }
-
-                ._fxbtn {
-                    justify-content: end;
-                    display: flex;
-                    border-top: 2px solid #E3EDF3;
-                    padding: 27px 35px;
-                }
+            @include responsive(1400px) {
+                max-width: 568px;
             }
         }
     }
@@ -82,11 +25,11 @@ body {
                 overflow: hidden;
 
                 ._zjunba {
-                    padding: 29px 50px 54px;
+                    padding: 29px 50px 35px;
                 }
 
                 ._numcard {
-                    padding-left: 17px !important;
+                    padding-left: 17px;
                 }
             }
         }
@@ -102,11 +45,11 @@ body {
                 overflow: hidden;
 
                 ._zjunba {
-                    padding: 29px 50px 54px;
+                    padding: 29px 50px 35px;
                 }
 
                 ._numcard {
-                    padding-left: 17px !important;
+                    padding-left: 17px;
                 }
             }
         }
@@ -116,24 +59,21 @@ body {
     .container_popup_rsapid {
         // display: none;
 
-        .pd_anhost-modal {
-            align-items: inherit;
+        .fxfbwhmhbrzi {
+            max-width: 796px;
 
-            .modal_content-anhost {
-                max-width: 796px;
-                overflow: hidden;
+            @include responsive(1400px) {
+                max-width: 716px;
+            }
+        }
 
-                @include responsive(1400px) {
-                    max-width: 716px;
+        @include responsive(1400px) {
+            .mr-t63 {
+                margin-top: 43px;
+            }
 
-                    .mr-t63 {
-                        margin-top: 43px;
-                    }
-
-                    .mr-t31 {
-                        margin-top: 21px;
-                    }
-                }
+            .mr-t31 {
+                margin-top: 21px;
             }
         }
     }
@@ -167,11 +107,7 @@ body {
                 }
 
                 ._zjunba {
-                    padding: 49px 50px 54px;
-
-                    @include responsive(1400px) {
-                        padding: 29px 44px 38px;
-                    }
+                    padding: 49px 50px 35px;
                 }
             }
         }
@@ -203,11 +139,7 @@ body {
                 }
 
                 ._zjunba {
-                    padding: 49px 50px 54px;
-
-                    @include responsive(1400px) {
-                        padding: 29px 44px 38px;
-                    }
+                    padding: 49px 50px 35px;
                 }
             }
         }
@@ -259,7 +191,7 @@ body {
                             margin: 0 24.5px;
                         }
 
-                        @include responsive(600px) {
+                        @include responsive(743px) {
                             margin: 0;
                         }
 
@@ -273,7 +205,7 @@ body {
                                 padding: 0 10.5px;
                             }
 
-                            @include responsive(600px) {
+                            @include responsive(743px) {
                                 padding: 0 24px;
                             }
                         }
@@ -281,7 +213,7 @@ body {
                 }
 
                 ._zjunba {
-                    padding: 30px 50px;
+                    padding: 30px 50px 35px;
 
                     .gp17 {
                         @include responsive(1400px) {
@@ -343,7 +275,7 @@ body {
                 }
 
                 ._zjunba {
-                    padding: 30px 43px;
+                    padding: 30px 43px 35px;
 
                     .gp17 {
                         @include responsive(1400px) {
@@ -399,7 +331,7 @@ body {
                 }
 
                 ._zjunba {
-                    padding: 30px 50px;
+                    padding: 30px 50px 35px;
                     margin-top: auto;
 
                     .gp17 {
@@ -436,16 +368,60 @@ body {
                     }
 
                     svg {
-                        min-width: max-content;
-
-                        @include responsive(1400px) {
-                            min-width: 9px;
-                        }
+                        min-width: 9px;
                     }
                 }
 
                 ._zjunba {
-                    padding: 30px 50px;
+                    padding: 30px 50px 35px;
+
+                    .gp17 {
+                        @include responsive(1400px) {
+                            gap: 8px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .container_lsitofpp3 {
+        display: none;
+
+        .pd_anhost-modal {
+            align-items: inherit;
+
+            .modal_content-anhost {
+                max-width: 860px;
+                overflow: hidden;
+
+                @include responsive(1400px) {
+                    max-width: 780px;
+
+                    .mr-b26 {
+                        margin-bottom: 16px;
+                    }
+
+                    .gp15 {
+                        gap: 10px;
+                    }
+
+                    .gp50 {
+                        gap: 29px;
+                    }
+
+                    .mr-t57 {
+                        margin-top: 41px;
+                    }
+
+                    .gp7 {
+                        gap: 2px;
+                    }
+                }
+
+                ._zjunba {
+                    padding: 30px 50px 35px;
+                    margin-top: auto;
 
                     .gp17 {
                         @include responsive(1400px) {
@@ -492,7 +468,7 @@ body {
                 }
 
                 ._zjunba {
-                    padding: 30px 50px;
+                    padding: 30px 50px 35px;
                     margin-top: auto;
 
                     .gp17 {
@@ -544,7 +520,7 @@ body {
                 }
 
                 ._zjunba {
-                    padding: 30px 50px;
+                    padding: 30px 50px 35px;
                     margin-top: auto;
 
                     .gp17 {
@@ -605,11 +581,7 @@ body {
                 }
 
                 ._zjunba {
-                    padding: 49px 50px 54px;
-
-                    @include responsive(1400px) {
-                        padding: 29px 44px 38px;
-                    }
+                    padding: 30px 50px 35px;
                 }
             }
         }
@@ -659,7 +631,7 @@ body {
                 }
 
                 ._zjunba {
-                    padding: 30px 50px;
+                    padding: 30px 50px 35px;
                     margin-top: auto;
 
                     .gp17 {
@@ -716,7 +688,7 @@ body {
                 }
 
                 ._zjunba {
-                    padding: 30px 50px;
+                    padding: 30px 50px 35px;
                     margin-top: auto;
 
                     .gp17 {
@@ -760,7 +732,7 @@ body {
                     width: fit-content;
                 }
 
-                @include responsive(600px) {
+                @include responsive(743px) {
                     .bk-icon-des {
                         flex-direction: column;
                     }
@@ -772,7 +744,7 @@ body {
                 }
 
                 ._zjunba {
-                    padding: 30px 50px;
+                    padding: 30px 50px 35px;
                     margin-top: auto;
 
                     .gp17 {
@@ -823,7 +795,7 @@ body {
                             margin: 0 24.5px;
                         }
 
-                        @include responsive(600px) {
+                        @include responsive(743px) {
                             margin: 0;
                         }
 
@@ -836,7 +808,7 @@ body {
                                 padding: 0 10.5px;
                             }
 
-                            @include responsive(600px) {
+                            @include responsive(743px) {
                                 padding: 0 24px;
                             }
                         }
@@ -844,7 +816,202 @@ body {
                 }
 
                 ._zjunba {
-                    padding: 30px 50px;
+                    padding: 30px 50px 35px;
+
+                    .gp17 {
+                        @include responsive(1400px) {
+                            gap: 8px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    // edit-rooms-and-spaces.php
+    .container_etrsadss {
+        display: none;
+
+        .pd_anhost-modal {
+            .modal_content-anhost {
+                max-width: 687px;
+                overflow: hidden;
+
+                @include responsive(1400px) {
+                    .mr-b25 {
+                        margin-bottom: 15px;
+                    }
+
+                    .gp18 {
+                        gap: 10px;
+                    }
+
+                    .mr-t16 {
+                        margin-top: 8px;
+                    }
+
+                    ._bkpd352btns {
+                        padding: 25.5px 0;
+                    }
+                }
+
+                .modal_block {
+                    .content_hidden-anhost {
+                        margin: 0 32px;
+                        overflow: hidden;
+
+                        @include responsive(1400px) {
+                            margin: 0 24.5px;
+                        }
+
+                        @include responsive(743px) {
+                            margin: 0;
+                        }
+
+                        ._wpwi48 {
+                            padding: 0 18px;
+                            height: 100%;
+                            overflow: auto;
+
+                            @include responsive(1400px) {
+                                padding: 0 10.5px;
+                            }
+
+                            @include responsive(743px) {
+                                padding: 0 24px;
+                            }
+                        }
+                    }
+                }
+
+                ._zjunba {
+                    padding: 30px 50px 35px;
+
+                    .gp17 {
+                        @include responsive(1400px) {
+                            gap: 8px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    // add-sleeping-arrangement.php
+    .container_adsgat {
+        display: none;
+
+        .pd_anhost-modal {
+            .modal_content-anhost {
+                max-width: 687px;
+                overflow: hidden;
+
+                @include responsive(1400px) {
+                    .mr-b25 {
+                        margin-bottom: 15px;
+                    }
+
+                    .gp18 {
+                        gap: 10px;
+                    }
+
+                    .mr-t16 {
+                        margin-top: 8px;
+                    }
+
+                    ._bkpd352btns {
+                        padding: 25.5px 0;
+                    }
+                }
+
+                .modal_block {
+                    .content_hidden-anhost {
+                        margin: 0 32px;
+                        overflow: hidden;
+
+                        @include responsive(1400px) {
+                            margin: 0 24.5px;
+                        }
+
+                        @include responsive(743px) {
+                            margin: 0;
+                        }
+
+                        ._wpwi48 {
+                            padding: 0 18px;
+                            height: 100%;
+                            overflow: auto;
+
+                            @include responsive(1400px) {
+                                padding: 0 10.5px;
+                            }
+
+                            @include responsive(743px) {
+                                padding: 0 24px;
+                            }
+                        }
+                    }
+                }
+
+                ._zjunba {
+                    padding: 30px 50px 35px;
+
+                    .gp17 {
+                        @include responsive(1400px) {
+                            gap: 8px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    // learn-more-number-of-beds.php
+    .container_lnmenrofbs {
+        display: none;
+
+        .pd_anhost-modal {
+            .modal_content-anhost {
+                max-width: 687px;
+                overflow: hidden;
+
+                @include responsive(1400px) {
+                    .mr-b25 {
+                        margin-bottom: 15px;
+                    }
+                }
+
+                .modal_block {
+                    .content_hidden-anhost {
+                        margin: 0 32px;
+                        overflow: hidden;
+
+                        @include responsive(1400px) {
+                            margin: 0 24.5px;
+                        }
+
+                        @include responsive(743px) {
+                            margin: 0;
+                        }
+
+                        ._wpwi48 {
+                            padding: 0 18px;
+                            height: 100%;
+                            overflow: auto;
+
+                            @include responsive(1400px) {
+                                padding: 0 10.5px;
+                            }
+
+                            @include responsive(743px) {
+                                padding: 0 24px;
+                            }
+                        }
+                    }
+                }
+
+                ._zjunba {
+                    padding: 30px 50px 35px;
 
                     .gp17 {
                         @include responsive(1400px) {
@@ -861,8 +1028,6 @@ body {
         display: none;
 
         .pd_anhost-modal {
-            align-items: inherit;
-
             .modal_content-anhost {
                 max-width: 860px;
                 overflow: hidden;
@@ -909,7 +1074,7 @@ body {
                             margin-right: 29px;
                         }
 
-                        @include responsive(600px) {
+                        @include responsive(743px) {
                             margin-right: 0;
                         }
 
@@ -919,7 +1084,7 @@ body {
                             height: 100%;
                             overflow: auto;
 
-                            @include responsive(600px) {
+                            @include responsive(743px) {
                                 padding-right: 24px;
                             }
                         }
@@ -935,8 +1100,7 @@ body {
                 }
 
                 ._zjunba {
-                    padding: 30px 50px;
-                    margin-top: auto;
+                    padding: 30px 50px 35px;
 
                     .gp17 {
                         @include responsive(1400px) {
@@ -947,12 +1111,34 @@ body {
             }
         }
     }
+
+    // popup-languages-speak.php
+    .container-languages-speak {
+        // display: block;
+
+        .fxfbwhmhbrzi {
+            max-width: 798px;
+
+            @include responsive(1400px) {
+                max-width: 568px;
+            }
+        }
+    }
 }
 
 // quitar todo el @media tamaños etc dentro del modal
 body {
     @media screen and (max-width: 1400px) {
         ._ntñsfts {
+            // text decoration underline
+            ._txtdecblu18 {
+                font-size: 16px;
+            }
+
+            ._txtdecblu16 {
+                font-size: 14px;
+            }
+
             // input real
             ._inputreal {
                 padding: 11px 14px;
@@ -1025,6 +1211,11 @@ body {
 
             // perfil mini more
             .imgs_more {
+                .w142 {
+                    width: 122px;
+                    min-width: 122px;
+                }
+
                 ._pf-msg {
                     max-width: 42px;
                     min-width: 42px;
@@ -1075,19 +1266,6 @@ body {
                 gap: 10px;
             }
 
-            // checkbox red - celest
-            .checkbox_custom {
-                max-width: 65px;
-                height: 32px;
-                border: 1px solid $color-background;
-    
-                &::before {
-                    max-width: 32px;
-                    min-height: 32px;
-                    border: 1px solid $color-background;
-                }
-            }
-    
             .check_i {
                 &::after {
                     max-width: 32px;
@@ -1097,7 +1275,7 @@ body {
     
                 &:checked {
                     &::before {
-                        left: 32px;
+                        left: 22px;
                         top: -1px;
                     }
     
@@ -1105,7 +1283,7 @@ body {
                         max-width: 32px;
                         min-height: 34px;
                         font-size: 12.5px;
-                        left: 32px;
+                        left: 22px;
                     }
                 }
             }
@@ -1116,36 +1294,12 @@ body {
                 row-gap: 42px;
             }
 
-            // 2 botones + y -
-            ._2btnsgris {
-                gap: 12px;
-
-                ._btn {
-                    width: 33px;
-                    min-width: 33px;
-                    height: 33px;
-                    min-height: 33px;
-                    border-width: 1px;
-                }
-
-                svg {
-                    width: 13px;
-                    height: 13px;
-                }
-            }
-
             ._brpd180 {
                 padding: 16px 10px;
                 border: 1px solid #E3EDF3;
 
                 .gp12 {
                     gap: 3.5px;
-                }
-            }
-
-            .hr {
-                &:not(:last-child) {
-                    border-bottom: 1px solid #E3EDF3;
                 }
             }
 
@@ -1185,6 +1339,7 @@ body {
 
             ._zjunba {
                 padding: 20px 35px !important;
+                padding-bottom: 28px !important;
             }
 
             .h2_publish {
@@ -1260,10 +1415,6 @@ body {
                 min-height: 30px;
                 border-radius: 50%;
                 border: 2px solid #E3EDF3;
-
-                svg {
-                    width: 13.6px;
-                }
             }
 
             .block-lb input:checked + .before_check {
@@ -1291,7 +1442,7 @@ body {
         }
     }
 
-    @media screen and (max-width: 600px) {
+    @media screen and (max-width: 743px) {
         ._ntñsfts {
             ._hredtax120 {
                 display: none;
@@ -1325,6 +1476,7 @@ body {
 
             ._zjunba {
                 padding: 16px 24px !important;
+                padding-bottom: 16px !important;
             }
         }
     }
@@ -1340,7 +1492,7 @@ body {
 ._wpwi48 {
     padding: 0 50px;
 
-    @include responsive(600px) {
+    @include responsive(743px) {
         padding: 0 24px !important;
     }
 }
@@ -1348,24 +1500,20 @@ body {
 ._goqbqk {
     padding: 0 30px;
 
-    @include responsive(600px) {
+    @include responsive(743px) {
         padding: 0 24px;
     }
 }
 
 ._zjunba {
-    @include responsive(600px) {
+    @include responsive(743px) {
         margin-top: auto;
         padding: 16px 24px !important;
         border-top: 1px solid #E3EDF3;
     }
 }
 
-._fxbtn {
-    @include responsive(600px) {
-        margin-top: auto;
-    }
-}
+
 
 // MODALS PAGOS
 .container_admin-host {
@@ -1375,6 +1523,17 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
+
+    // plugin calendario modal
+    .lightpick__months {
+        background-color: rgba(227, 237, 243, 0.3);
+        justify-content: space-between;
+        padding: 14px;
+
+        @include responsive(743px) {
+            justify-content: center;
+        }
+    }
 
     // globals textos
     ._txtblu {
@@ -1411,7 +1570,7 @@ body {
             padding: 28px;
         }
 
-        @include responsive(600px) {
+        @include responsive(743px) {
             padding: 0;
             align-items: inherit;
         }
@@ -1427,7 +1586,7 @@ body {
             border-radius: 10px;
             z-index: 999;
 
-            @include responsive(600px) {
+            @include responsive(743px) {
                 border-radius: 0;
                 max-width: none !important;
             }
@@ -1448,7 +1607,7 @@ body {
                         background-color: #DC383D;
                     }
 
-                    @include responsive(600px) {
+                    @include responsive(743px) {
                         border-radius: 0 0 0 10px;
                     }
                 }
@@ -1475,7 +1634,7 @@ body {
                     width: 100%;
 
                     ._pdleftright32 {
-                        @include responsive(600px) {
+                        @include responsive(743px) {
                             padding: 0 32px !important;
                         }
 
@@ -1488,7 +1647,7 @@ body {
                         ._block-jsb {
                             padding-top: 0;
 
-                            @include responsive(600px) {
+                            @include responsive(743px) {
                                 padding-top: 18px;
                             }
                         }
@@ -1505,7 +1664,7 @@ body {
                             gap: 22px;
                             flex-wrap: wrap;
                       
-                            @include responsive(600px) {
+                            @include responsive(743px) {
                                 padding: 21px 18px;
                                 gap: 10px;
                             }
@@ -1515,7 +1674,7 @@ body {
                             padding: 34px 50px 34px;
                             align-items: flex-start;
                       
-                            @include responsive(600px) {
+                            @include responsive(743px) {
                                 padding: 21px 18px 24px;
                             }
                       
@@ -1523,7 +1682,7 @@ body {
                                 padding: 17px 31px;
                                 border-radius: 10px;
                       
-                                @include responsive(600px) {
+                                @include responsive(743px) {
                                     padding: 12px 18px;
                                 }
                             }
@@ -1540,7 +1699,7 @@ body {
                         ._block-about {
                             padding: 34px 50px 22px;
                       
-                            @include responsive(600px) {
+                            @include responsive(743px) {
                                 padding: 21px 18px 22px;
                             }
                       
@@ -1587,7 +1746,7 @@ body {
                                 padding: 34px 30px 22px;
                             }
                       
-                            @include responsive(600px) {
+                            @include responsive(743px) {
                                 padding: 21px 18px 22px;
                             }
                       
@@ -1612,7 +1771,7 @@ body {
                         ._block-booking {
                             padding: 34px 50px 31px;
                       
-                            @include responsive(600px) {
+                            @include responsive(743px) {
                                 padding: 24px 18px 21px;
                             }
                         }
@@ -1620,12 +1779,12 @@ body {
                         ._block-uestpaid {
                             padding: 30px 50px 34px;
                       
-                            @include responsive(600px) {
+                            @include responsive(743px) {
                                 padding: 20px 18px 24px;
                             }
                       
                             .h2-guests {
-                                @include responsive(600px) {
+                                @include responsive(743px) {
                                     margin-top: 0 !important;
                                 }
                             }
@@ -1634,7 +1793,7 @@ body {
                         ._block-link {
                             padding: 31px 50px 31px;
                       
-                            @include responsive(600px) {
+                            @include responsive(743px) {
                                 padding: 21px 18px 21px;
                             }
                         }
@@ -1642,7 +1801,7 @@ body {
                         ._block-privatenote {
                             padding: 26px 50px 34px;
                       
-                            @include responsive(600px) {
+                            @include responsive(743px) {
                                 padding: 16px 18px 24px;
                             }
                       
@@ -1654,7 +1813,7 @@ body {
                         ._block-support {
                             padding: 27px 50px 32px;
                       
-                            @include responsive(600px) {
+                            @include responsive(743px) {
                                 padding: 17px 18px 22px;
                             }
                       
@@ -1671,7 +1830,7 @@ body {
                             flex-direction: column;
                             gap: 15px;
                       
-                            @include responsive(600px) {
+                            @include responsive(743px) {
                                 padding: 24px 18px 23px;
                             }
                       
@@ -1683,7 +1842,7 @@ body {
                         ._block-commquest {
                             padding: 27px 50px;
                       
-                            @include responsive(600px) {
+                            @include responsive(743px) {
                                 padding: 17px 18px;
                             }
                       

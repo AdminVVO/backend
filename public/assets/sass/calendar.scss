@@ -1,5 +1,6 @@
 @import "_variables";
 
+// modificando calendario
 .header_admin {
     .medio {
       max-width: 1760px;
@@ -19,13 +20,7 @@
 
 // btn left <
 .btn_circle_flecha {
-    display: none;
-    margin-bottom: 15px;
-
-    svg {
-        width: 10px;
-        margin-right: 2px;
-    }
+    margin: -12px;
 }
 
 ._10toigd {
@@ -46,12 +41,56 @@
         padding: 0 35px;
     }
 
-    @include responsive(600px) {
+    @include responsive(743px) {
         padding: 0 24px;
     }
 }
 
 // FUENTES, @MEDIA WIDTH TAMAÑOS ETC
+@media screen and (max-width: 1800px) {
+    .checkbox_custom {
+        max-width: 55px;
+        height: 32px;
+        border: 1px solid $color-background;
+
+        &:checked {
+            &::before {
+                left: 22px;
+            }
+        }
+    
+        &::before {
+            top: -1px;
+            max-width: 32px;
+            min-height: 32px;
+            border: 1px solid $color-background;
+        }
+    }
+
+    .check_i {
+        &::after {
+            max-width: 32px;
+            min-height: 32px;
+            font-size: 12.5px;
+            top: -1px;
+        }
+
+        &:checked {
+            &::before {
+                left: 22px;
+                top: -1px;
+            }
+
+            &::after {
+                max-width: 32px;
+                min-height: 34px;
+                font-size: 12.5px;
+                left: 22px;
+            }
+        }
+    }
+}
+
 body {
     @media screen and (max-width: 1800px) {
         // Calendar individual - popup private note add >
@@ -132,9 +171,9 @@ body {
 
         // input
         ._numcard {
-            padding: 11px !important;
-            padding-left: 13px !important;
+            padding: 12px !important;
             font-size: 16px !important;
+            line-height: 20px !important;
         }
 
         ._txtec {
@@ -150,14 +189,16 @@ body {
         }
 
         .btn-celest {
-            font-size: 18px;
-            padding: 16px 50px;
+            padding: 14px 24px;
+            font-size: 16px;
+            font-weight: normal;
+            line-height: 20px;
+            border-radius: 8px;
         }
 
         .btn-celest-n {
             font-size: 14px !important;
             line-height: 18px !important;
-            font-weight: 600 !important;
             border-radius: 8px !important;
             padding: 8px 15px !important;
         }
@@ -166,9 +207,13 @@ body {
         .menu {
             .menu_home-content-items {
                 border: 1px solid #E3EDF3;
+                width: 210px;
         
                 ul {
                     li {
+                        padding: 10px 10px 10px 16px;
+                        font-size: 14px;
+
                         a {
                             font-size: 14px;
                         }
@@ -331,27 +376,24 @@ body {
 
         .selected-modal {
             select {
-                padding: 14px 38px 14px 18px;
+                padding: 12.5px 32px 12.5px 12px;
                 font-size: 16px;
             }
 
             svg {
+                right: 12px;
                 width: 12px;
             }
 
             i {
                 font-size: 14px;
+                right: 12px;
             }
         }
 
         .btn-white {
             padding: 14px 18px;
             border-radius: 8px;
-        }
-
-        .btn-celest {
-            padding: 14px 24px;
-            font-size: 16px;
         }
 
         .cont-h2 {
@@ -460,13 +502,9 @@ body {
         }
 
         .section_calendar_indv_admin {
-            table {
-                thead {
-                    tr {
-                        th {
-                            padding: 12px 0;
-                        }
-                    }
+            .thead {
+                .th {
+                    padding: 12px 0;
                 }
             }
 
@@ -573,6 +611,10 @@ body {
 
         .section_calendar_admin {
             .medio_calendar_admin {
+                ._header-btns4 {
+                    margin-bottom: 13px;
+                }
+
                 ._fleft-tb {
                     margin-bottom: 1.6rem;
                 }
@@ -626,40 +668,6 @@ body {
 
             &.checks {
                 padding: 21px 30px 19px !important;
-            }
-        }
-
-        .checkbox_custom {
-            max-width: 65px;
-            height: 32px;
-            border: 1px solid $color-background;
-
-            &::before {
-                max-width: 32px;
-                min-height: 32px;
-                border: 1px solid $color-background;
-            }
-        }
-
-        .check_i {
-            &::after {
-                max-width: 32px;
-                min-height: 32px;
-                font-size: 12.5px;
-            }
-
-            &:checked {
-                &::before {
-                    left: 32px;
-                    top: -1px;
-                }
-
-                &::after {
-                    max-width: 32px;
-                    min-height: 34px;
-                    font-size: 12.5px;
-                    left: 32px;
-                }
             }
         }
     }
@@ -717,18 +725,6 @@ body {
                 }
             }
 
-            table {
-                thead {
-                    tr {
-                        th {
-                            &::before {
-                                border: 2px solid $color-secundary;
-                            }
-                        }
-                    }
-                }
-            }
-
             .medio-cl-indv {
                 .calend-right-indv {
                     position: fixed;
@@ -763,6 +759,10 @@ body {
     }
 
     @media screen and (max-width: 900px) {
+        ._10toigd {
+            display: block;
+        }
+
         // animacion
         .is-calendar-open {
             .left_calendar_admin {
@@ -776,11 +776,6 @@ body {
                 flex: 1 1 0%;
                 opacity: 1;
             }
-        }
-
-        // btn left <
-        .btn_circle_flecha {
-            display: flex;
         }
 
         // padding
@@ -863,12 +858,25 @@ body {
         }
 
         .cont-h2 {
-            padding: 24px 20px 0;
+            padding: 24px 0 0 20px;
+
+            .h2-guests {
+                margin-right: 20px;
+            }
+
+            .search_content {
+                margin-right: 20px;
+            }
         }
 
         .left_calendar_admin {
             .section-listing {
-                padding: 0 20px 20px;
+                padding: 0 20px 20px 0;
+                margin-bottom: 0;
+
+                &::-webkit-scrollbar {
+                    display: none; 
+                }
             }
         }
 
@@ -917,9 +925,21 @@ body {
                 }
             }
         }
+
+        .section_calendar_admin {
+            .medio_calendar_admin {
+                ._main-list-fech {
+                    padding-top: 24px;
+                }
+
+                .tbody-list-doller {
+                    margin-bottom: 20px;
+                }
+            }
+        }
     }
 
-    @media screen and (max-width: 600px) {
+    @media screen and (max-width: 743px) {
         // Calendar individual - Create new custom setting
         .container_ci_nw_cs {
             .pd_anhost-modal {
@@ -1008,12 +1028,13 @@ body {
 
 .bg_check_click {
     width: 100%;
+    height: 100%;
     cursor: pointer;
     padding: 9px 8px;
     display: flex;
     align-items: center;
     gap: 11px;
-    box-shadow: $color-background 0px 0px 0px 2px inset;
+    box-shadow: $color-background 0px 0px 0px 1px inset;
     position: relative;
 
     ._f-t {
@@ -1045,32 +1066,26 @@ body {
 }
 
 .section_calendar_indv_admin {
-    table {
-        thead {
-            tr {
-                border-bottom: none;
+    .thead {
+        margin: -1px;
+        position: sticky;
+        top: 0;
+        z-index: 9;
 
-                th {
-                    background-color: $color-secundary;
-                    padding: 15.5px 0;
-                    min-width: 8px;
-                    min-height: 68px;
-                    width: 14.285%;
-                    box-shadow: $color-white 0px 0px 0px 1px inset;
+        .th {
+            background-color: $color-secundary;
+            padding: 15.5px 0;
+            min-width: 8px;
+            min-height: 38px;
+            width: 14.285%;
+            @include flex-centrado;
 
-                    &::before {
-                        content: "";
-                        border: 3px solid $color-secundary;
-                        display: block;
-                        position: absolute;
-                        inset: -1px;
-                        z-index: 3;
-                        pointer-events: none;
-                    }
-                }
+            &:not(:last-child) {
+                border-right: 1px solid $color-white;
             }
         }
-
+    }
+    table {
         tbody {
             ._17oofu3 {
                 &:disabled {
@@ -1153,25 +1168,35 @@ body {
 }
 
 .section_calendar_admin {
+    .calendar_scroll {
+        &::-webkit-scrollbar {
+            background-color: #fafafa;
+            width: 15px;
+            height: 15px;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background-color: #c1c1c1;
+            border: 3px solid #fafafa;
+            border-radius: 12px;
+        }
+    }
+
     .medio_calendar_admin {
         // 4 botones arriba december - today - 16 opportunities - layers
         ._header-btns4 {
-            margin-bottom: 15px;
-        }
-
-        .ps_shw_bk {
-            position: relative;
+            margin-bottom: 16px;
         }
 
         // flecha del thead left blue
         ._fleft-tb {
-            margin: 0 12.6px 1.8rem 11.6px;
+            margin: 0 14.6px 1.8rem 11.6px;
             cursor: pointer;
         }
 
         // flecha del thead right blue
         ._fright-tb {
-            margin-left: 12.6px;
+            margin-left: 14.6px;
             transition: transform .3s ease;
             cursor: pointer;
         }
@@ -1189,6 +1214,7 @@ body {
                 }
 
                 th {
+                    cursor: pointer;
                     padding: 6.5px;
                     width: 80px;
                     text-align: center;
@@ -1206,8 +1232,21 @@ body {
             }
 
             tbody {
+                tr {
+                    position: relative;
+
+                    &::before {
+                        content: "";
+                        position: absolute;
+                        inset: 0;
+                        z-index: 1;
+                    }
+                }
+
                 .active_br_blue_table {
-                    border: 2px solid $color-primary;
+                    &::before {
+                        box-shadow: $color-primary 0 0 0 2px inset;
+                    }
                 }
 
                 td {
@@ -1243,7 +1282,7 @@ body {
             padding-right: 68.6px;
 
             ._scrolltable {
-                padding-bottom: 18px;
+                padding-bottom: 15px;
                 overflow: overlay;
             }
 

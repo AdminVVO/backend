@@ -23,6 +23,7 @@ class LoggInOut extends Component
 
     public function mount()
     {
+        // $this->content['type'] == 'email';
         $this->content['type'] == 'email' ? $this->email = $this->content['recipients'] : $this->phone = $this->content['recipients'];
     }
 
@@ -33,13 +34,21 @@ class LoggInOut extends Component
 
     public function submitLogIn($payload)
     {
+        if ( $payload['phone'] != null ) {
+            $this->phone = $payload['phone'];
+        }
+
+        if ( $payload['date'] != null ) {
+            $this->birth = $payload['date'];
+        }
+
         $yearInQuestion = date("Y-m-d",strtotime( date("Y-m-d") . "- 18 year"));
 
         $validation = Validator::make([
            'name'      => $this->name,
            'last_name' => $this->last_name,
            'gender'    => $this->gender,
-           'birth'     => $payload,
+           'birth'     => $this->birth,
            'email'     => $this->email,
            'phone'     => $this->phone
         ],[
@@ -52,7 +61,7 @@ class LoggInOut extends Component
         ]);
 
             if ($validation->fails())
-                $validation->validate();
+                return $validation->validate();
 
         $payload = [
             'from' => 'loggInOut',
@@ -60,7 +69,7 @@ class LoggInOut extends Component
                 'name'      => $this->name,
                 'last_name' => $this->last_name,
                 'gender'    => $this->gender,
-                'dateBirth' => $payload,
+                'dateBirth' => $this->birth,
                 'email'     => $this->email,
                 'phone'     => $this->phone,
                 'promotion' => $this->promotion,

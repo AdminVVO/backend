@@ -12,12 +12,7 @@
 }
 
 .btn_circle_flecha {
-  display: none;
-  margin-bottom: 15px;
-}
-.btn_circle_flecha svg {
-  width: 10px;
-  margin-right: 2px;
+  margin: -12px;
 }
 
 ._10toigd {
@@ -38,12 +33,45 @@
     padding: 0 35px;
   }
 }
-@media (max-width: 600px) {
+@media (max-width: 743px) {
   ._wpwi48 {
     padding: 0 24px;
   }
 }
 
+@media screen and (max-width: 1800px) {
+  .checkbox_custom {
+    max-width: 55px;
+    height: 32px;
+    border: 1px solid #E3EDF3;
+  }
+  .checkbox_custom:checked::before {
+    left: 22px;
+  }
+  .checkbox_custom::before {
+    top: -1px;
+    max-width: 32px;
+    min-height: 32px;
+    border: 1px solid #E3EDF3;
+  }
+
+  .check_i::after {
+    max-width: 32px;
+    min-height: 32px;
+    font-size: 12.5px;
+    top: -1px;
+  }
+  .check_i:checked::before {
+    left: 22px;
+    top: -1px;
+  }
+  .check_i:checked::after {
+    max-width: 32px;
+    min-height: 34px;
+    font-size: 12.5px;
+    left: 22px;
+  }
+}
 @media screen and (max-width: 1800px) {
   body .container_popup_ntpve .pd_anhost-modal .modal_content-anhost {
     max-width: 568px;
@@ -94,9 +122,9 @@
     border-top: 1px solid #E3EDF3;
   }
   body ._numcard {
-    padding: 11px !important;
-    padding-left: 13px !important;
+    padding: 12px !important;
     font-size: 16px !important;
+    line-height: 20px !important;
   }
   body ._txtec {
     font-size: 18px;
@@ -108,18 +136,25 @@
     font-size: 16px;
   }
   body .btn-celest {
-    font-size: 18px;
-    padding: 16px 50px;
+    padding: 14px 24px;
+    font-size: 16px;
+    font-weight: normal;
+    line-height: 20px;
+    border-radius: 8px;
   }
   body .btn-celest-n {
     font-size: 14px !important;
     line-height: 18px !important;
-    font-weight: 600 !important;
     border-radius: 8px !important;
     padding: 8px 15px !important;
   }
   body .menu .menu_home-content-items {
     border: 1px solid #E3EDF3;
+    width: 210px;
+  }
+  body .menu .menu_home-content-items ul li {
+    padding: 10px 10px 10px 16px;
+    font-size: 14px;
   }
   body .menu .menu_home-content-items ul li a {
     font-size: 14px;
@@ -238,22 +273,20 @@ body .header_admin .menu i.fa-bars {
     line-height: inherit;
   }
   body .selected-modal select {
-    padding: 14px 38px 14px 18px;
+    padding: 12.5px 32px 12.5px 12px;
     font-size: 16px;
   }
   body .selected-modal svg {
+    right: 12px;
     width: 12px;
   }
   body .selected-modal i {
     font-size: 14px;
+    right: 12px;
   }
   body .btn-white {
     padding: 14px 18px;
     border-radius: 8px;
-  }
-  body .btn-celest {
-    padding: 14px 24px;
-    font-size: 16px;
   }
   body .cont-h2 .h2-guests {
     margin: 24px 0;
@@ -325,7 +358,7 @@ body .header_admin .menu i.fa-bars {
   body ._btnsmleft img {
     width: 5.5px;
   }
-  body .section_calendar_indv_admin table thead tr th {
+  body .section_calendar_indv_admin .thead .th {
     padding: 12px 0;
   }
   body .section_calendar_indv_admin .h2_publish {
@@ -398,6 +431,9 @@ body .header_admin .menu i.fa-bars {
   body .section_calendar_indv_admin .medio-cl-indv .calend-right-indv .mr-t24 {
     margin-top: 8px;
   }
+  body .section_calendar_admin .medio_calendar_admin ._header-btns4 {
+    margin-bottom: 13px;
+  }
   body .section_calendar_admin .medio_calendar_admin ._fleft-tb {
     margin-bottom: 1.6rem;
   }
@@ -437,31 +473,6 @@ body .header_admin .menu i.fa-bars {
   body .block-pd-cl.checks {
     padding: 21px 30px 19px !important;
   }
-  body .checkbox_custom {
-    max-width: 65px;
-    height: 32px;
-    border: 1px solid #E3EDF3;
-  }
-  body .checkbox_custom::before {
-    max-width: 32px;
-    min-height: 32px;
-    border: 1px solid #E3EDF3;
-  }
-  body .check_i::after {
-    max-width: 32px;
-    min-height: 32px;
-    font-size: 12.5px;
-  }
-  body .check_i:checked::before {
-    left: 32px;
-    top: -1px;
-  }
-  body .check_i:checked::after {
-    max-width: 32px;
-    min-height: 34px;
-    font-size: 12.5px;
-    left: 32px;
-  }
 }
 @media screen and (max-width: 1439px) {
   body .section_calendar_indv_admin table tbody ._bkgrequestcld, body .section_calendar_indv_admin table tbody ._bkgcurrentlycld {
@@ -493,9 +504,6 @@ body .header_admin .menu i.fa-bars {
   body .section_calendar_indv_admin ._19r7tqhd::before {
     border: none;
   }
-  body .section_calendar_indv_admin table thead tr th::before {
-    border: 2px solid #FF5A5F;
-  }
   body .section_calendar_indv_admin .medio-cl-indv .calend-right-indv {
     position: fixed;
     inset: 0;
@@ -519,6 +527,9 @@ body .header_admin .menu i.fa-bars {
   }
 }
 @media screen and (max-width: 900px) {
+  body ._10toigd {
+    display: block;
+  }
   body .is-calendar-open .left_calendar_admin {
     flex: 0 1 0%;
     margin: 0;
@@ -528,9 +539,6 @@ body .header_admin .menu i.fa-bars {
   body .is-calendar-open .medio_calendar_admin {
     flex: 1 1 0%;
     opacity: 1;
-  }
-  body .btn_circle_flecha {
-    display: flex;
   }
   body .pd-130-0-50, body .pd-145-0-50 {
     padding: 0;
@@ -578,10 +586,20 @@ body .header_admin .menu i.fa-bars {
     display: none;
   }
   body .cont-h2 {
-    padding: 24px 20px 0;
+    padding: 24px 0 0 20px;
+  }
+  body .cont-h2 .h2-guests {
+    margin-right: 20px;
+  }
+  body .cont-h2 .search_content {
+    margin-right: 20px;
   }
   body .left_calendar_admin .section-listing {
-    padding: 0 20px 20px;
+    padding: 0 20px 20px 0;
+    margin-bottom: 0;
+  }
+  body .left_calendar_admin .section-listing::-webkit-scrollbar {
+    display: none;
   }
   body .h2-guests {
     font-size: 25px;
@@ -611,8 +629,14 @@ body .header_admin .menu i.fa-bars {
   body .section_calendar_indv_admin .medio-cl-indv .calend-left-indv ._5q6vv {
     padding: 6px;
   }
+  body .section_calendar_admin .medio_calendar_admin ._main-list-fech {
+    padding-top: 24px;
+  }
+  body .section_calendar_admin .medio_calendar_admin .tbody-list-doller {
+    margin-bottom: 20px;
+  }
 }
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 743px) {
   body .container_ci_nw_cs .pd_anhost-modal .modal_content-anhost ._zjunba {
     padding: 16px 24px 38px;
   }
@@ -675,12 +699,13 @@ body .header_admin .menu i.fa-bars {
 
 .bg_check_click {
   width: 100%;
+  height: 100%;
   cursor: pointer;
   padding: 9px 8px;
   display: flex;
   align-items: center;
   gap: 11px;
-  box-shadow: #E3EDF3 0px 0px 0px 2px inset;
+  box-shadow: #E3EDF3 0px 0px 0px 1px inset;
   position: relative;
 }
 .bg_check_click ._f-t {
@@ -710,25 +735,24 @@ body .header_admin .menu i.fa-bars {
   }
 }
 
-.section_calendar_indv_admin table thead tr {
-  border-bottom: none;
+.section_calendar_indv_admin .thead {
+  margin: -1px;
+  position: sticky;
+  top: 0;
+  z-index: 9;
 }
-.section_calendar_indv_admin table thead tr th {
+.section_calendar_indv_admin .thead .th {
   background-color: #FF5A5F;
   padding: 15.5px 0;
   min-width: 8px;
-  min-height: 68px;
+  min-height: 38px;
   width: 14.285%;
-  box-shadow: #FFFFFF 0px 0px 0px 1px inset;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.section_calendar_indv_admin table thead tr th::before {
-  content: "";
-  border: 3px solid #FF5A5F;
-  display: block;
-  position: absolute;
-  inset: -1px;
-  z-index: 3;
-  pointer-events: none;
+.section_calendar_indv_admin .thead .th:not(:last-child) {
+  border-right: 1px solid #FFFFFF;
 }
 .section_calendar_indv_admin table tbody ._17oofu3:disabled {
   cursor: not-allowed;
@@ -788,18 +812,25 @@ body .header_admin .menu i.fa-bars {
   padding: 14px 30px;
 }
 
-.section_calendar_admin .medio_calendar_admin ._header-btns4 {
-  margin-bottom: 15px;
+.section_calendar_admin .calendar_scroll::-webkit-scrollbar {
+  background-color: #fafafa;
+  width: 15px;
+  height: 15px;
 }
-.section_calendar_admin .medio_calendar_admin .ps_shw_bk {
-  position: relative;
+.section_calendar_admin .calendar_scroll::-webkit-scrollbar-thumb {
+  background-color: #c1c1c1;
+  border: 3px solid #fafafa;
+  border-radius: 12px;
+}
+.section_calendar_admin .medio_calendar_admin ._header-btns4 {
+  margin-bottom: 16px;
 }
 .section_calendar_admin .medio_calendar_admin ._fleft-tb {
-  margin: 0 12.6px 1.8rem 11.6px;
+  margin: 0 14.6px 1.8rem 11.6px;
   cursor: pointer;
 }
 .section_calendar_admin .medio_calendar_admin ._fright-tb {
-  margin-left: 12.6px;
+  margin-left: 14.6px;
   transition: transform 0.3s ease;
   cursor: pointer;
 }
@@ -812,6 +843,7 @@ body .header_admin .menu i.fa-bars {
   border-bottom: 0;
 }
 .section_calendar_admin .medio_calendar_admin ._tb-reservations thead th {
+  cursor: pointer;
   padding: 6.5px;
   width: 80px;
   text-align: center;
@@ -824,8 +856,17 @@ body .header_admin .menu i.fa-bars {
 .section_calendar_admin .medio_calendar_admin ._tb-reservations thead .active_blue_tb ._txtbold7d14 {
   color: #FFFFFF;
 }
-.section_calendar_admin .medio_calendar_admin ._tb-reservations tbody .active_br_blue_table {
-  border: 2px solid #00B5DD;
+.section_calendar_admin .medio_calendar_admin ._tb-reservations tbody tr {
+  position: relative;
+}
+.section_calendar_admin .medio_calendar_admin ._tb-reservations tbody tr::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+.section_calendar_admin .medio_calendar_admin ._tb-reservations tbody .active_br_blue_table::before {
+  box-shadow: #00B5DD 0 0 0 2px inset;
 }
 .section_calendar_admin .medio_calendar_admin ._tb-reservations tbody td {
   padding: 6.5px;
@@ -855,7 +896,7 @@ body .header_admin .menu i.fa-bars {
   padding-right: 68.6px;
 }
 .section_calendar_admin .medio_calendar_admin ._main-list-fech ._scrolltable {
-  padding-bottom: 18px;
+  padding-bottom: 15px;
   overflow: overlay;
 }
 .section_calendar_admin .medio_calendar_admin ._main-list-fech ._tb-reservations {

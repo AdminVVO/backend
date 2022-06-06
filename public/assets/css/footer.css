@@ -17,24 +17,36 @@ footer {
 @media (max-width: 1445px) {
   .footer .footer-container {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     gap: 70px;
   }
 }
-@media (max-width: 1010px) {
+@media (max-width: 1130px) {
+  .footer .footer-container {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+@media (max-width: 800px) {
   .footer .footer-container {
     grid-template-columns: 1fr 1fr;
   }
 }
-@media (max-width: 660px) {
+@media (max-width: 743px) {
   .footer .footer-container {
+    gap: 48px;
     grid-template-columns: 1fr;
   }
   .footer .footer-container .footer-logo {
-    margin: auto;
-    text-align: center;
+    align-items: center;
+  }
+  .footer .footer-container .footer-logo .cont__ictxtfootr {
+    align-items: center;
+  }
+  .footer .footer-container .footer-logo .footer-icon {
+    align-items: center;
   }
   .footer .footer-container .footer-logo .footer-social {
+    gap: 8px;
     justify-content: center;
   }
   .footer .footer-container .footer-logo .footer-social a {
@@ -45,31 +57,41 @@ footer {
     text-align: center;
   }
 }
+.footer .footer-container .footer-logo {
+  display: flex;
+  flex-direction: column;
+  gap: 28.4px;
+}
+.footer .footer-container .footer-logo .cont__ictxtfootr {
+  display: flex;
+  flex-direction: column;
+  gap: 27.4px;
+}
 .footer .footer-container .footer-logo .footer-icon {
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
   color: #FFFFFF;
+}
+.footer .footer-container .footer-logo .footer-icon ._icrmrg {
+  display: flex;
+  align-items: center;
+  gap: 16px;
 }
 .footer .footer-container .footer-logo .footer-icon p {
   font-size: 16px;
 }
 .footer .footer-container .footer-logo .footer-icon p i {
   font-size: 20px;
-  margin: 28.4px 16px 0 0;
-}
-.footer .footer-container .footer-logo .footer-icon p:nth-child(2) i {
-  margin-top: 26px;
 }
 .footer .footer-container .footer-logo .footer-social {
   display: flex;
-  margin-top: 27.4px;
+  gap: 25px;
 }
-.footer .footer-container .footer-logo .footer-social a {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.footer .footer-container .footer-logo .footer-social .link__icon-footer {
   color: #FFFFFF;
-  margin-right: 25px;
 }
-.footer .footer-container .footer-logo .footer-social a i {
+.footer .footer-container .footer-logo .footer-social .link__icon-footer i {
   font-size: 20px;
 }
 .footer .footer-container .footer-links strong {
@@ -80,12 +102,11 @@ footer {
 .footer .footer-container .footer-links ul {
   margin-top: 28px;
 }
-.footer .footer-container .footer-links ul li a {
-  display: inline-block;
-  color: #FFFFFF;
+.footer .footer-container .footer-links li {
   margin-bottom: 19px;
-  font-weight: 400;
-  font-size: 16px;
+}
+.footer .footer-container .footer-links ._txt-white16 {
+  display: inline-block;
 }
 
 .copyright {
@@ -111,10 +132,57 @@ footer {
   font-size: 16px;
   font-weight: normal;
 }
-.copyright_content p span {
+.copyright_content p .ptics {
   margin: 0 19px;
 }
 .copyright_content p a {
   color: #FFFFFF;
   font-size: 16px;
+}
+
+@media (max-width: 1400px) {
+  body .footer {
+    padding: 48px 0 24px;
+  }
+  body .footer .footer-container .footer-logo {
+    gap: 26px;
+  }
+  body .footer .footer-container .footer-logo img {
+    width: 150px;
+  }
+  body .footer .footer-container .footer-logo .cont__ictxtfootr {
+    gap: 26px;
+  }
+  body .footer .footer-container .footer-logo .footer-icon {
+    gap: 26px;
+  }
+  body .footer .footer-container .footer-logo .footer-icon ._icrmrg {
+    gap: 12px;
+  }
+  body .footer .footer-container .footer-logo .footer-icon p i {
+    font-size: 18px;
+  }
+  body .footer .footer-container .footer-logo .footer-social .link__icon-footer i {
+    font-size: 18px;
+  }
+  body .footer .footer-container .footer-links strong {
+    font-size: 16px;
+  }
+  body .footer .footer-container .footer-links ul {
+    margin-top: 16px;
+  }
+  body .footer .footer-container .footer-links li {
+    margin-bottom: 16px;
+  }
+  body ._txt-white16 {
+    font-size: 14px;
+    line-height: 18px;
+  }
+  body .copyright {
+    padding-top: 72px;
+  }
+  body .copyright p {
+    font-size: 14px;
+    line-height: 18px;
+  }
 }

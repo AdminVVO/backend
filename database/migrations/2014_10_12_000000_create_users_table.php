@@ -26,7 +26,7 @@ class CreateUsersTable extends Migration
             $table->string('phone')->nullable()->unique();
             $table->json('other_phone')->default('[]');
             $table->string('sex')->nullable();
-            $table->string('language_default')->default('US');
+            $table->string('language_default')->default('EN');
             $table->string('currency_default')->default('USD');
             $table->string('timezone_default')->default('UTC-04:30');
             $table->boolean('promotions')->default(false);
