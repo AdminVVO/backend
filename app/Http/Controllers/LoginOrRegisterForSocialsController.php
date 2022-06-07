@@ -12,10 +12,10 @@ class LoginOrRegisterForSocialsController extends Controller
 {
     public function loginWithGoogle()
     {
-        $authUser = User::where('id_user', 1)->first();
-        Auth::login($authUser);
+        // $authUser = User::where('id_user', 1)->first();
+        // Auth::login($authUser);
 
-        return redirect()->route('/');
+        // return redirect()->route('/');
 
 
         return Socialite::driver('google')->redirect();
@@ -24,20 +24,12 @@ class LoginOrRegisterForSocialsController extends Controller
     public function callbackFromGoogle()
     {
         $response_callback = request()->all();
+        
+        if ( Auth::check() )
+            return redirect()->route('/');
 
         try {
             $user = Socialite::driver('google')->user();
-
-                if ( Auth::check() ) {
-
-                    User::where([
-                        'id_user' => Auth::id(),
-                    ])->update([
-                        'google_id' => $user->id
-                    ]);
-
-                    return redirect()->route('/');
-                }
 
             $authUser = $this->findOrCreateUserGoogle($user);
 
@@ -88,20 +80,12 @@ class LoginOrRegisterForSocialsController extends Controller
     public function callbackFromFacebook()
     {
         $response_callback = request()->all();
+        
+        if ( Auth::check() )
+            return redirect()->route('/');
 
         try {
             $user = Socialite::driver('facebook')->user();
-
-                if ( Auth::check() ) {
-
-                    User::where([
-                        'id_user' => Auth::id(),
-                    ])->update([
-                        'facebook_id' => $user->id
-                    ]);
-
-                    return redirect()->route('/');
-                }
 
             $authUser = $this->findOrCreateUserFacebook($user);
 

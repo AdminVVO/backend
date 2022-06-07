@@ -95,7 +95,7 @@ class Steps extends Component
             ]);
             
             Auth::login( $authUser );
-            return $this->flash('success', 'Welcome to Vvoutlet.', [], route('/'));
+            return $this->flash('success', 'Welcome to Vvoutlet.', [], route::current());
 
         } catch (Exception $e) {
             return $this->alert('error', $e->getMessage());
@@ -154,10 +154,10 @@ class Steps extends Component
             if ( $authUser ) {
 
                 if ( $authUser->acount_actived == 0)
-                    return $this->flash('error', 'Your account is deactivated.', [], route('/'));
+                    return $this->flash('error', 'Your account is deactivated.', [], route::current());
 
                 Auth::login( $authUser );
-                    return $this->flash('success', 'Welcome to Vvoutlet.', [], route('/'));
+                    return $this->flash('success', 'Welcome to Vvoutlet.', [], route::current());
             }
 
             $this->step = $to;

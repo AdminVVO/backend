@@ -14,9 +14,8 @@ class Wishlists extends Model
     protected $fillable = [
         'name',
         'avatar',
-
-        'listing_id',
         'user_id',
+        'listing_id',
     ];
 
     protected $casts = [

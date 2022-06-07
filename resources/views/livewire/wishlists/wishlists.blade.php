@@ -24,7 +24,7 @@
 
                                 <div>
                                     <div class="h2-guests">{{ $element['name'] }}</div>
-                                    <div class="_txtec">Nov 10 - Dec 30</div>
+                                    <div class="_txtec">{{ Carbon\Carbon::parse( $element['created_at'], 'UTC')->locale('en')->isoFormat('ll') }}</div>
                                 </div>
                             </div>
                         </button>

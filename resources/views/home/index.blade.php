@@ -53,7 +53,7 @@
 	                <h2 class="h2-pano">Homes and apartments all</h2>
 	                <h1 class="h1">Orlando <br> Florida</h1>
 	                <div class="block_a">
-	                    <a href="#" class="btn-h">See all Post</a>
+	                    <a href="{{ route('search') }}" class="btn-h">See all Post</a>
 	                </div>
 	            </div>
 

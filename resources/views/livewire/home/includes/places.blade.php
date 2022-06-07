@@ -1,4 +1,4 @@
-<form action="">
+<form wire:submit.prevent="SubmitPlaces">
     <div class="_flex-js">
         <div class="inputBox">
             <div class="place_select">
@@ -16,7 +16,7 @@
                     <span>Check in</span>
                     <i class="far fa-calendar-alt">
                         <!-- <input type="month" name="fecha" value="2019-08"> -->
-                        <input type="text" class="_date-check" value="" id="check_in" placeholder="Add dates" readonly>
+                        <input type="text" class="_date-check" value="" id="check_in" placeholder="Add dates" readonly wire:model.defer="inputDateIn">
                     </i>
                 </div>
             </label>
@@ -28,7 +28,7 @@
                     <span>Check Out</span>
                     <i class="far fa-calendar-alt">
                         <!-- <input type="month" name="fecha" value="2019-08"> -->
-                        <input type="text" class="_date-check-out" value="" id="" placeholder="Add dates" readonly>
+                        <input type="text" class="_date-check-out" value="" id="" placeholder="Add dates" readonly wire:model.defer="inputDateOut">
                     </i>
                 </div>
             </label>
@@ -46,5 +46,5 @@
         </div>
     </div>
 
-    <input type="submit" value="Search" class="btn">
+    <button type="submit" class="btn">Send</button>
 </form>

@@ -117,7 +117,7 @@
                         <hr class="br-line">
                         <ul>
                             <li><a href="#">Manage</a></li>
-                            <li><a href="{{ route('host') }}">Host and experience</a></li>
+                            <li><a href="{{ route('signup-host') }}">Host and experience</a></li>
                             <li><a href="{{ route('account') }}">Account</a></li>
                             <li><a href="{{ route('logout') }}">Log out</a></li>
                         </ul>

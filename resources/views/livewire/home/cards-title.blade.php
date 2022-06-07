@@ -1,6 +1,6 @@
 <div class="flex cards_content owl-carousel caroursel_home">
     @foreach ($contentListing as $element)
-        <a href="/" class="card_items item ">
+        <a href="{{ route('interna', $element['id_listings'] ) }}" class="card_items item ">
             @if ( Auth::check() )
                 <button type="button" class="card_love">
                     <svg xmlns="http://www.w3.org/2000/svg" width="27.003" height="23.878" viewBox="0 0 27.003 23.878">

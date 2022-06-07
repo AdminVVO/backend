@@ -1,4 +1,6 @@
-<div class="_location-he">
+@if ( in_array( Route::currentRouteName(),['/']) )
+	<div class="_location-he">
+@endif
 	<header class="entero header">
 	    <div class="medio">
 	        <a href="{{ route('/') }}" class="logo-menu">
@@ -13,7 +15,7 @@
 
             @if ( Auth::check() )
                 <div class="menu _header-menu">
-                    <a href="#" class="menu_items">
+                    <a href="{{ route('signup-host') }}" class="menu_items">
                         <img src="{{ URL::asset('assets/img/icons/hotel.png') }}" alt="">
                         Become a Host
                     </a>
@@ -39,7 +41,7 @@
                             <hr class="br-line">
                             <ul>
                                 <li><a href="#">Manage</a></li>
-                                <li><a href="{{ route('host') }}">Host and experience</a></li>
+                                <li><a href="{{ route('signup-host') }}">Host and experience</a></li>
                                 <li><a href="{{ route('account') }}">Account</a></li>
                                 <li><a href="{{ route('logout') }}">Log out</a></li>
                             </ul>
@@ -48,7 +50,7 @@
                 </div>
             @else
 		        <div class="menu _header-menu">
-		            <a href="#" class="menu_items">
+		            <a href="{{ route('signup-host') }}" class="menu_items">
 		                <img src="{{ URL::asset('assets/img/icons/hotel.png') }}" alt="">
 		                Become a Host
 		            </a>
@@ -71,4 +73,6 @@
             @endif
 	    </div>
 	</header>
-</div>
+@if ( in_array( Route::currentRouteName(),['/']) )
+	</div>
+@endif

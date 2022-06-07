@@ -3,12 +3,14 @@
 use App\Http\Controllers\AccountController;
 use App\Http\Controllers\CalendarController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\HostController;
 use App\Http\Controllers\InternaController;
 use App\Http\Controllers\ListingsController;
 use App\Http\Controllers\LoginOrRegisterForSocialsController;
 use App\Http\Controllers\MessageChats;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ReservationController;
+use App\Http\Controllers\SearchController;
 use App\Http\Controllers\TripsController;
 use App\Http\Controllers\Wishlists;
 use Illuminate\Support\Facades\Route;
@@ -33,13 +35,6 @@ Route::middleware(['AccountDisable'])->group( function(){
         return view('category.Category');
     })->name('/category');
 
-    Route::get('/host', function () {
-        return view('host.Host');
-    })->name('host');
-
-    Route::get('/search', function () {
-        return view('search.search');
-    })->name('/search');
     Route::get('/searchflexible', function () {
         return view('searchflexible.searchflexible');
     })->name('/search');
@@ -57,12 +52,24 @@ Route::middleware(['AccountDisable'])->group( function(){
 
     ## Routes Home
     Route::get('/', [HomeController::class, 'viewHome'])->name('/');
-    Route::get('/login', function () { return back(); })->name('login');
+    // Route::get('/login', function () { return back(); })->name('login');
+
+    ## Routes Search
+    Route::get('search', [SearchController::class, 'viewSearch'])->name('search');
+
+    ## Routes Host
+    Route::get('signup-host', [HostController::class, 'viewSignHost'])->name('signup-host');
 
     ## Routes Profile
     Route::prefix('profile')->group( function(){
         ## Profile Index
             Route::get('{id}', [ProfileController::class, 'viewProfile'])->name('profile');
+    });
+
+    ## Routes Interna
+    Route::prefix('interna')->group( function(){
+        ## Interna Index
+        Route::get('{id}', [InternaController::class, 'viewListingClientDetails'])->name('interna');
     });
 
     Route::middleware(['auth'])->group( function(){
@@ -94,15 +101,6 @@ Route::middleware(['AccountDisable'])->group( function(){
             ## Listing Steps
                 Route::post('uploadFilePhoto', [ListingsController::class, 'uploadFileDragzone'])->name('uploadFilePhoto');
                 Route::delete('uploadFilePhoto', [ListingsController::class, 'deleteFileDragzone'])->name('deleteFilePhoto');
-
-            ## Listing Show details Client
-                Route::get('client-show/{id}', [ListingsController::class, 'viewListingClientDetails'])->name('client-show');
-        });
-
-        ## Routes Reservations Sections
-        Route::prefix('interna')->group( function(){
-            ## Listing Index
-            Route::get('client-show/{id}', [InternaController::class, 'viewListingClientDetails'])->name('client-show');
         });
 
         ## Routes Reservations Sections
@@ -173,9 +171,9 @@ Route::middleware(['auth'])->group( function(){
 ## Routes Login and Register Google
 Route::prefix('google')->name('google.')->group( function(){
     ## We start the process of logging in through Google
-    Route::get('login', [LoginOrRegisterForSocialsController::class, 'loginWithGoogle'])->name('login');
+    Route::get('login', [LoginOrRegisterForSocialsController::class, 'loginWithGoogle'])->middleware(['api'])->name('login');
     ## We received the response from Google
-    Route::any('callback', [LoginOrRegisterForSocialsController::class, 'callbackFromGoogle'])->name('callback');
+    Route::any('callback', [LoginOrRegisterForSocialsController::class, 'callbackFromGoogle'])->middleware(['api'])->name('callback');
 });
 
 ## Routes Login and Register Facebook

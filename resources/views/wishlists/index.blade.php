@@ -22,17 +22,18 @@
                 <h1 class="h2-guests mr-b25">Wishlist</h1>
 
                 <div class="grid__3cl">
-                    @forelse($content as $element)
+                    @forelse($content as $key => $element)
                         <a href="#">
                             <div class="brbsbcp">
                                 <div class="dggtc11g">
-                                    <img src="{{ URL::asset('storage/uploadListing/') }}/{{ $element['photos'][0] }}" alt="">
-                                    <img src="{{ URL::asset('storage/uploadListing/') }}/{{ $element['photos'][1] }}" alt="">
+                                    @foreach ($element['avatar'] as $avatar)
+                                        <img src="{{ URL::asset('storage/uploadListing/') }}/{{ $avatar }}" alt="">
+                                    @endforeach
                                 </div>
 
                                 <div class="fxjcgfwpt">
-                                    <h2 class="_txteh">{{ $element['name'] }}</h2>
-                                    <div class="txtec_nrl">Nov 10 - Dec 08, 2021</div>
+                                    <h2 class="_txteh">{{ $key }}</h2>
+                                    <div class="txtec_nrl">{{ Carbon\Carbon::parse( $element['created_at'], 'UTC')->locale('en')->isoFormat('ll') }}</div>
                                 </div>
                             </div>
                         </a>

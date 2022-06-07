@@ -7,7 +7,7 @@
 
             @if ( Auth::check() )
                 <div class="menu _header-menu">
-                    <a href="#" class="menu_items">
+                    <a href="{{ route('signup-host') }}" class="menu_items">
                         <img src="{{ URL::asset('assets/img/icons/hotel.png') }}" alt="">
                         Become a Host
                     </a>
@@ -33,7 +33,7 @@
                             <hr class="br-line">
                             <ul>
                                 <li><a href="#">Manage</a></li>
-                                <li><a href="{{ route('host') }}">Host and experience</a></li>
+                                <li><a href="{{ route('signup-host') }}">Host and experience</a></li>
                                 <li><a href="{{ route('account') }}">Account</a></li>
                                 <li><a href="{{ route('logout') }}">Log out</a></li>
                             </ul>
@@ -42,7 +42,7 @@
                 </div>
             @else
                 <div class="menu _header-menu">
-                    <a href="#" class="menu_items">
+                    <a href="{{ route('signup-host') }}" class="menu_items">
                         <img src="{{ URL::asset('assets/img/icons/hotel.png') }}" alt="">
                         Become a Host
                     </a>

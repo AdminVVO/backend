@@ -27,12 +27,6 @@ class Wishlists extends Component
 
     public function NewWishlists()
     {
-        if ( modelWishlists::where([
-            'listing_id' => $this->listingId,
-            'user_id' => Auth::id() 
-        ])->exists() )
-            return $this->alert('warning', 'Listing is already added to favorites!');
-
         $this->steps = 'created';
     }
 
@@ -57,5 +51,6 @@ class Wishlists extends Component
         ]);
         $this->steps = 'init';
         $this->alert('success', 'Update has been successful!');
+        $this->reset(['inputWishlists']);
     }
 }

@@ -4,18 +4,18 @@
 
 @section('css')
 
-    <link href="{{ URL::asset('assets/css/header-admin.css') }}" rel="stylesheet"/>
+    <link href="{{ URL::asset('assets/css/header-bck.css') }}" rel="stylesheet"/>
+    <link href="{{ URL::asset('assets/css/home.css') }}" rel="stylesheet"/>
     <link href="{{ URL::asset('assets/css/interna.css') }}" rel="stylesheet"/>
     <link href="{{ URL::asset('assets/css/owl.carousel.min.css') }}" rel="stylesheet"/>
     <link href="{{ URL::asset('assets/css/owl.theme.default.min.css') }}" rel="stylesheet"/>
-    {{-- <link href="{{ URL::asset('assets/css/modals-admin.css') }}" rel="stylesheet"/> --}}
     <link href="{{ URL::asset('assets/css/modals-user.css') }}" rel="stylesheet"/>
 
 @endsection
 
 @section('header')
 
-    @include('layouts.HeaderAuth')
+    @include('layouts.HeaderHome')
 
 @endsection
 

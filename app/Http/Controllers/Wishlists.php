@@ -11,14 +11,21 @@ class Wishlists extends Controller
     public function viewWishlists()
     {
         $content = modelWishlists::select(
-            'wishlists.name',
-            'listings.photos',
+            'name',
+            'avatar',
+            'listing_id',
+            'created_at',
         )->where([
-            'wishlists.user_id' => Auth::id()
+            'user_id' => Auth::id()
         ])
-        ->leftJoin('listings', 'wishlists.listing_id', 'listings.id_listings')
-        ->get();
+        ->get()->toArray();
 
-        return view('wishlists.index', ['content' => $content]);
+        foreach ($content as $key => $value) {
+            $categorias[ $value['name'] ]['avatar'][] = $value['avatar'];
+            $categorias[ $value['name'] ]['listing'] = $value['listing_id'];
+            $categorias[ $value['name'] ]['created_at'] = $value['created_at'];
+        }
+
+        return view('wishlists.index', ['content' => $categorias]);
     }
 }

@@ -29,6 +29,7 @@ class CreateWishlistsTable extends Migration
                 ->references('id_listings')
                 ->on('listings')
                 ->onDelete('cascade');
+
             $table->timestamps();
         });
     }
