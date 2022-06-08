@@ -1,43 +1,39 @@
-// document.querySelectorAll('.selected-modal').forEach(setupSelector);
-// document.querySelectorAll('.custom-anytime').forEach(setupSelector);
+const $vvo_select = $(".vvo-select");
+$.when($(".vvo-select select").hide("fast", function(){ 
+  
+    var select = $(this);
+    var selected = select.find(":selected").text()
+    var options = "";
+    
+    select.find("option").each( function(){
+        options += '<li id="' + $(this).val() + '">' + $(this).text() + '</li>';
+    });
+    
+    select.after('<div class="new-select"><span>' + selected + '</span><ul>' + options + '</ul></div>');
 
-// function setupSelector(selector) {
-//   selector.addEventListener('change', e => {
-//     // console.log('changed', e.target.value)
-//   })
+})).done(function(){
+    $(".new-select span").on("click", function(){
+        // $(this).parents(".vvo-select").addClass("prueba");
+        // $(this).parent().find("ul").toggle("fast");
 
-//   selector.addEventListener('mousedown', e => {
-//     if(window.innerWidth >= 420) {
-//       e.preventDefault();
+        let toggleClass = $(this).parents(".vvo-select").hasClass("active") ? true : false;
+        $(".vvo-select").removeClass("active");
 
-//       const select = selector.children[0];
-//       const dropDown = document.createElement('ul');
-//       dropDown.className = "selector-options";
+        if (!toggleClass) {
+            $(this).parents(".vvo-select").toggleClass("active");
+        }
+    });
+    
+    $(".new-select li").on("click", function(){
+        $(this).closest(".old-select").find("select").val($(this).attr("id"));
+        $(this).closest(".new-select").find("span").text($(this).text());
+        // $(this).parent().slideUp("fast");
+        $(this).parents(".vvo-select").removeClass("active");
+    });
+});
 
-//       [...select.children].forEach(option => {
-//         const dropDownOption = document.createElement('li');
-//         dropDownOption.textContent = option.textContent;
-
-//         dropDownOption.addEventListener('mousedown', (e) => {
-//           e.stopPropagation();
-//           select.value = option.value;
-//           selector.value = option.value;
-//           select.dispatchEvent(new Event('change'));
-//           selector.dispatchEvent(new Event('change'));
-//           dropDown.remove();
-//         });
-
-//         dropDown.appendChild(dropDownOption);   
-//       });
-
-//       selector.appendChild(dropDown);
-
-//       // handle click out
-//       document.addEventListener('click', (e) => {
-//         if(!selector.contains(e.target)) {
-//           dropDown.remove();
-//         }
-//       });
-//     }
-//   });
-// }
+$(document).mouseup(e => {
+    if (!$vvo_select.is(e.target) && $vvo_select.has(e.target).length === 0) {
+        $vvo_select.removeClass("active");
+    }
+});

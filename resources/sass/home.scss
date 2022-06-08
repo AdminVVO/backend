@@ -279,10 +279,24 @@
         padding: 16px 34px 16px 31px; 
     }
   }
+
+  @include responsive(743px) {
+    .tabs {
+        .con_flex {
+            flex-direction: column;
+        }
+    }
+  }
+
   @media screen and (max-width:500px) {
+    .vvo-select {
+        width: 100% !important;
+    }
+
     .tabs_select{
         flex-direction: column;
     }
+
     .tabs_select .custom-anytime{
         width: 100%;
         select{

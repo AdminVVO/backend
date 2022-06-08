@@ -4,17 +4,24 @@ namespace App\Http\Livewire\Home;
 
 use App\Models\Listing\Listings;
 use App\Models\RoomsProperty;
+use App\Models\Wishlists;
 use Livewire\Component;
+use Auth;
 
 class CardsFilters extends Component
 {
     public $contentListing;
+    public $wishlists;
     public $category;
     public $filter_categ = null;
-
+    
+    protected $listeners = [
+        'reLoadRender' => 'reLoadRender'
+    ];
 
     public function mount()
     {
+        $this->wishlists = Wishlists::where('user_id', Auth::id())->distinct('listing_id')->pluck('listing_id')->toArray();
         $this->category = RoomsProperty::pluck('name_type', 'type');
     }
 
@@ -48,4 +55,11 @@ class CardsFilters extends Component
     {
         $this->filter_categ = $payload;
     }
+
+    public function resetFilter()
+    {
+        $this->filter_categ = null;
+    }
+
+    public function reLoadRender(){ }
 }

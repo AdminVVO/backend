@@ -1,56 +1,52 @@
 <div>
     <div class="tabs entero">
         <div class="medio">
-            <div class="content-scroll-local">
-                <div class="tabs_items_group">
-                    @foreach ($category as $key => $element)
-                        <h3 class="tabs_items {{ $key === $filter_categ ? 'active_tabs' : '' }}" wire:click="changeCateg('{{$key}}')">{{ $element }}</h3>
-                    @endforeach
+            <div class="con_flex fx fx-ai-c fx-jc-sb gp22 wh-p100" wire:ignore>
+                <div class="navcont__flech-fx seven">
+                    <div class="cont_nav">
+                        <div class="nav__links-txt scroll_n owl-carousel carousel_btn_nav">
+                            @foreach ($category as $key => $element)
+                                <button type="button" class="li__links-txt">
+                                    <span class="tabs_items {{ $key === $filter_categ ? 'active_tabs' : '' }}" wire:click="changeCateg('{{$key}}')">{{ $element }}</span>
+                                </button>
+                            @endforeach
+                        </div>
+                        <div class="vvo_owl_nav"></div>
+                    </div>
+                </div>                
+                <div class="tabs_select">
+                    <div class="vvo-select blue" style="min-width: 130px;">
+                        <select name="" id="">
+                            <option value="disabled">Anytime</option>
+                            <option value="">Option 1</option>
+                            <option value="">Option 2</option>
+                            <option value="">Option 3</option>
+                        </select>
+                    </div>
+
+                    <div class="vvo-select blue" style="min-width: 130px;">
+                        <select name="" id="">
+                            <option value="disabled">Guests</option>
+                            <option value="">Option 1</option>
+                            <option value="">Option 2</option>
+                            <option value="">Option 3</option>
+                        </select>
+                    </div>
+
+                    <button type="button" class="btn-celest nrml" wire:click="resetFilter">
+                        <div class="fx fx-ai-c gp8">
+                            <i class="fal fa-filter"></i>
+                            Reset Filters
+                        </div>
+                    </button>
                 </div>
-
-                <div class="btn-right-scroll">
-                    <span class="bg-btn-right">
-                        <i class="fas fa-chevron-right"></i>
-                    </span>
-                </div>
-            </div>
-            <div class="tabs_select">
-                <label class="custom-anytime">
-                    <select name="" id="">
-                        <option value="">Anytime</option>
-                        <option value="">Option 1</option>
-                        <option value="">Option 2</option>
-                        <option value="">Option 3</option>
-                    </select>
-                    <i class="far fa-chevron-down"></i>
-                </label>
-
-                <label class="custom-anytime">
-                    <select name="" id="">
-                        <option value="">Guests</option>
-                        <option value="">Option 1</option>
-                        <option value="">Option 2</option>
-                        <option value="">Option 3</option>
-                    </select>
-                    <i class="far fa-chevron-down"></i>
-                </label>
-
-                <label class="custom-anytime">
-                    <select name="" id="">
-                        <option value="">Filters</option>
-                        <option value="">Option 1</option>
-                        <option value="">Op tion 2</option>
-                        <option value="">Option 3</option>
-                    </select>
-                    <i class="far fa-chevron-down"></i>
-                </label>
-            </div>
+            </div>        
         </div>
     </div>
     <div class="tabs_card entero">
         <div class="medio">
             @forelse ($contentListing as $element)
-                <a href="/" class="card_items">
+                <a href="{{ route('interna', $element['id_listings'] ) }}" class="card_items">
 
                     <div class="card_top">
                         <div class="card_top_price">
@@ -64,17 +60,21 @@
                     </div>
 
                     @if ( Auth::check() )
-                        <button>
-                            <div class="card_love">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="27.003" height="23.878" viewBox="0 0 27.003 23.878">
-                                    <g transform="translate(1.002 -1.245)" fill="rgba(222,222,222,0.38)" stroke="#dedede" stroke-width="2">
-                                        <path d="M22.573,3.743a6.677,6.677,0,0,0-9.111.664L12.5,5.4l-.962-.991a6.677,6.677,0,0,0-9.111-.664,7.011,7.011,0,0,0-.483,10.151l9.448,9.756a1.531,1.531,0,0,0,2.212,0l9.448-9.756a7.007,7.007,0,0,0-.479-10.151Z" />
-                                        <path d="M22.573,3.743a6.677,6.677,0,0,0-9.111.664L12.5,5.4l-.962-.991a6.677,6.677,0,0,0-9.111-.664,7.011,7.011,0,0,0-.483,10.151l9.448,9.756a1.531,1.531,0,0,0,2.212,0l9.448-9.756a7.007,7.007,0,0,0-.479-10.151Z" />
-                                    </g>
-                                </svg>
-                            </div>
-                        </button>
+                        @if ( in_array($element['id_listings'], $wishlists))
+                            <button type="button" class="card_love icon_solid">
+                        @else
+                            <button type="button" class="card_love showFavorite" wire:click="$emitTo('home.wishlists', 'addListingIdFilter', '{{ $element['id_listings']  }}')">
+                        @endif
+                    @else
+                        <button type="button" class="card_love butnSignModl">
                     @endif
+                        <svg xmlns="http://www.w3.org/2000/svg" width="27.003" height="23.878" viewBox="0 0 27.003 23.878">
+                            <g transform="translate(1.002 -1.245)" fill="rgba(222,222,222,0.38)" stroke="#dedede" stroke-width="2">
+                                <path d="M22.573,3.743a6.677,6.677,0,0,0-9.111.664L12.5,5.4l-.962-.991a6.677,6.677,0,0,0-9.111-.664,7.011,7.011,0,0,0-.483,10.151l9.448,9.756a1.531,1.531,0,0,0,2.212,0l9.448-9.756a7.007,7.007,0,0,0-.479-10.151Z" />
+                                <path d="M22.573,3.743a6.677,6.677,0,0,0-9.111.664L12.5,5.4l-.962-.991a6.677,6.677,0,0,0-9.111-.664,7.011,7.011,0,0,0-.483,10.151l9.448,9.756a1.531,1.531,0,0,0,2.212,0l9.448-9.756a7.007,7.007,0,0,0-.479-10.151Z" />
+                            </g>
+                        </svg>
+                    </button>
 
                     <div class="card_img">
                         <img src="{{ URL::asset('storage/uploadListing/' . $element['photos'][0]) }}" alt="">
@@ -99,7 +99,9 @@
                     </div>
                 </a>
             @empty
-                <p>No have Listing</p>
+                <div class="medio now__listabscard">
+                    <p>No Have Listing</p>
+                </div>
             @endforelse
         </div>
     </div>

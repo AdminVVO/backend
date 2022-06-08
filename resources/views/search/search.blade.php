@@ -9,6 +9,7 @@
     <link href="{{ URL::asset('assets/css/location.css') }}" rel="stylesheet"/>
     <link href="{{ URL::asset('assets/css/dates-location.css') }}" rel="stylesheet"/>
     <link href="{{ URL::asset('assets/css/search-flexible.css') }}" rel="stylesheet"/>
+    <link href="{{ URL::asset('assets/css/modals-user.css') }}" rel="stylesheet"/>
 
 @endsection
 
@@ -38,6 +39,13 @@
         </div>
     </section>
 
+    @section('modals')
+
+        {{-- Modal Favority --}}
+        @include('home.modals.favorite')
+
+    @endsection
+
 @endsection
 
 @section('script')
@@ -45,4 +53,11 @@
     <script src="{{ URL::asset('assets/js/owl.carousel.min.js') }}"></script>
     <script src="{{ URL::asset('assets/js/slider_home.js') }}"></script>
     <script src="{{ URL::asset('assets/js/modals-min.js') }}"></script>
+
+    <script>
+        window.addEventListener('closedModalFavority', event => {
+            $(".container_user-host, .container_admin-host, .container_preview_guests_pay").hide();
+            $(".page-category").css({'overflow': 'auto'});
+        })
+    </script>
 @endsection

@@ -6,6 +6,13 @@
 <!-- libreria js de mascara - patrones de los inputs -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.js"></script>
 
+<script src="{{ URL::asset('assets/js/select.js') }}"></script>
+<script src="{{ URL::asset('assets/js/click-min.js') }}"></script>
+<script src="{{ URL::asset('assets/js/vvo-focus-blur.js') }}"></script>
+<script src="{{ URL::asset('assets/js/vvo-keyup.js') }}"></script>
+<script src="{{ URL::asset('assets/js/vvo-mask.js') }}"></script>
+<script src="{{ URL::asset('assets/js/vvo-carousel.js') }}"></script>
+
 <!-- libreria js de un calendario date-piker -->
 <script src="https://code.jquery.com/ui/jquery-ui-git.js"></script> 
 <script src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
