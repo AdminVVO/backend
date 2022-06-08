@@ -65,6 +65,11 @@
         border-radius: 10px 0 0 10px;
         padding: 7px 11px 7px 12px;
         z-index: 20;
+        transition: .3s ease;
+
+        &:hover {
+            background-color: #DC383D;
+        }
     }
 
 }

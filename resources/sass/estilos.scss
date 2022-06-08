@@ -151,6 +151,10 @@ body {
   &-fd-c {
     flex-direction: column
   }
+
+  &-fd-rr {
+    flex-direction: row-reverse;
+  }
 }
 
 .txt-center {
@@ -493,6 +497,47 @@ body {
 
 
 // botones
+// boton de lenguaje
+.leng_btn {
+  background: $color-white;
+  cursor: pointer;
+  text-align: left;
+  font-size: 18px;
+  line-height: 24px;
+  border-radius: 8px;
+  color: rgb(34, 34, 34);
+  padding: 11px 16px;
+  width: 100%;
+
+  ._txtec {
+    font-size: 16px;
+  }
+
+  &.active {
+    box-shadow: 0 0 0 1px #7D7D7D inset;
+  }
+
+  &:hover {
+    background-color: rgba(227, 237, 243, .5);
+  }
+
+  &:active {
+    box-shadow: 0 0 0 1px #7D7D7D inset;
+  }
+
+  @include responsive(1400px) {
+    font-size: 14px;
+    line-height: 18px;
+    padding: 9px 12px;
+
+    .h3,
+    ._txtec {
+      font-size: inherit;
+      line-height: inherit;
+    }
+  }
+}
+
 // botones del check in y out
 .btn__checkcaldmd {
   position: relative;
@@ -1590,6 +1635,77 @@ body {
 // ------ end animate ------
 
 // otros
+.lsnpm {
+  list-style: none;
+  margin: -8px;
+  padding: 0;
+
+  @media screen and (min-width: 1400px) {
+    margin: -16px;
+  }
+}
+
+.dibpwva {
+  display: inline-block;
+  padding: 8px;
+  width: 50%;
+  vertical-align: top;
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    width: 1px;
+    height: 60%;
+    top: 50%;
+    left: 15px;
+    transform: translate(-1rem, -50%);
+    background-color: #E3EDF3;
+  }
+
+  @media screen and (min-width: 743px) {
+    width: 33.33%;
+  }
+
+  @media screen and (min-width: 900px) {
+    width: 25%;
+  }
+
+  @media screen and (min-width: 1128px) {
+    width: 20%;
+  }
+
+  @media screen and (min-width: 1400px) {
+    width: 19.6%;
+    padding: 16px;
+
+    &::before {
+      width: 2px;
+      height: 58%;
+    }
+  }
+}
+
+// no have listing - home.php
+.now__listabscard {
+  background: rgba(227, 237, 243, .3);
+  box-shadow: 0 0 0 2px #e3edf3 inset;
+  border-radius: 12px;
+  padding: 24px;
+  min-height: 300px;
+  justify-content: center !important;
+  text-align: center;
+
+  p {
+    color: #7D7D7D;
+    font-size: 18px;
+
+    @include responsive(1400px) {
+      font-size: 16px;
+    }
+  }
+}
+
 // select vvo
 .vvo-select {
   position: relative;
@@ -1604,9 +1720,22 @@ body {
   cursor: pointer;
   height: 54px;
   box-shadow: 0 0 0 1px #e3edf3 inset;
+  transition: background-color .3s ease, box-shadow .3s ease;
 
   &.active {
+    box-shadow: 0 0 0 2px #7D7D7D inset;
+
+    &.blue {
+      background-color: #0096B7 !important;
+    }
+
     .new-select {
+      span {
+        &::after {
+          transform: rotate(180deg);
+        }
+      }
+
       ul {
         display: block !important;
       }
@@ -1634,6 +1763,7 @@ body {
         top: 0;
         right: 18px;
         color: #00B5DD;
+        transition: transform .3s ease;
       }
     }
   
@@ -1655,7 +1785,7 @@ body {
       li {
         color: #7D7D7D;
         line-height: 52px;
-        padding: 0px 20px;
+        padding: 0px 14px;
         font-size: 18px;
         text-align: left;
         list-style: none;
@@ -1678,7 +1808,7 @@ body {
   &.blue {
     color: $color-white;
     background-color: #00B5DD !important;
-    box-shadow: 0 0 0 1px #00B5DD inset !important;
+    box-shadow: none !important;
 
     span {
       &::after {
@@ -1692,6 +1822,26 @@ body {
     -webkit-border-radius: 8px;
     -moz-border-radius: 8px;
     border-radius: 8px;
+
+    &.btnselect {
+      height: 48px !important;
+
+      .new-select {
+        span {
+          height: 48px !important;
+          line-height: 48px !important;
+          padding: 0 38px 0 14px !important;
+
+          &::after {
+            right: 14px !important;
+          }
+        }
+
+        ul {
+          top: 3.3rem !important;
+        }
+      }
+    }
 
     .new-select {
       span {
@@ -1709,6 +1859,7 @@ body {
       ul {
         top: 3rem;
         border-radius: 8px;
+        max-height: 18.45rem;
 
         li {
           line-height: 42px;
@@ -2073,38 +2224,6 @@ body {
   align-items: center;
   gap: 22px;
   width: 100%;
-
-  &.seven {
-    .navcont__flech-block {
-      display: none;
-    }
-  }
-
-  @include responsive(1520px) {
-    &.seven {
-      .navcont__flech-block {
-        display: flex;
-      }
-    }
-  }
-
-  @include responsive(1400px) {
-    gap: 0;
-
-    &.seven {
-      .navcont__flech-block {
-        display: none;
-      }
-    }
-  }
-
-  @include responsive(1260px) {
-    &.seven {
-      .navcont__flech-block {
-        display: flex;
-      }
-    }
-  }
 }
 
 // nav boton next y prev
@@ -2127,7 +2246,7 @@ body {
   }
 }
 
-.vvo_owl_nav {
+.vvo_nav_flech {
   .owl-prev,
   .owl-next {
     position: absolute;
@@ -2163,7 +2282,7 @@ body {
       content: "";
       position: absolute;
       width: 44px;
-      height: 44px;
+      height: 58px;
       background-color: $color-white;
     }
 
@@ -2177,14 +2296,28 @@ body {
       z-index: 1;
       border-radius: 50%;
     }
+
+    i {
+      padding-top: 1px;
+      z-index: 3;
+      color: $color-white;
+    }
   }
 
   .owl-prev {
     left: 0;
+
+    i {
+      padding-right: 1.6px;
+    }
   }
 
   .owl-next {
     right: 0;
+
+    i {
+      padding-left: 1.6px;
+    }
   }
 }
 
@@ -2288,11 +2421,12 @@ body {
   }
 
   @include responsive(1400px) {
-    font-size: 16px;
-    line-height: 40px;
+    font-size: 14px;
+    line-height: normal;
 
     .tabs_items {
-      padding: 0 18px;
+      padding: 14px;
+      line-height: 18px;
     }
   }
 }
@@ -8417,18 +8551,44 @@ input[type=number]::-webkit-outer-spin-button {
     }
   }
 
-  .sl_guests {
+  .vvo-select {
+    min-width: 160px;
 
-      select {
-          padding: 16px 38px 16px 32px;
+    .new-select {
+      span {
+        padding: 0 50px 0 24px;
+
+        &::after {
+          right: 24px;
+        }
       }
+
+      ul {
+        li {
+          padding: 0 20px;
+        }
+      }
+    }
   }
 
-  .sl_filters {
+  .btn-celest {
+    font-weight: normal;
+  }
 
-      select {
-          padding: 16px 32px 16px 33px;
+  @include responsive(1400px) {
+    gap: 14px;
+
+    .vvo-select {
+      min-width: 130px;
+
+      .new-select {
+        ul {
+          li {
+            padding: 0 12px;
+          }
+        }
       }
+    }
   }
 }
 

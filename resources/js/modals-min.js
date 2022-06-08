@@ -29,6 +29,15 @@ $(document).on("click", ".mdatrnormlusr, .xhidemdusr", function() {
     $(this).parents(".contusrnmrlmdl").hide();
 });
 
+// modal global
+$(document).ready(function() {
+    // Lenguajes
+    $("#btnLeng").on("click", function() {
+        animateTopModals();
+        $(".container_leng_region").show();
+    })
+});
+
 // clicks modals - user
 $(document).ready(function() {
     // ---------------------- index.php ----------------------
@@ -97,7 +106,7 @@ $(document).ready(function() {
         $(".container-gallerys-share").show();
     });
 
-    $(".showFavorite").on("click", function() {
+    $(document).on("click", ".showFavorite", function() {
         animateTopModals();
         $(".container-wishlists-create").show();
     });

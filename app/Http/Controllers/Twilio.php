@@ -13,8 +13,8 @@ class Twilio extends Controller
         $auth_token = config('services.twilio.TWILIO_AUTH_TOKEN');
         $phone = config('services.twilio.TWILIO_WHATSAPP_NUMBER');
         $twilio = new Client($account_sid, $auth_token);
-        $twilio->messages->create('whatsapp:' . $recipients, [
-            'from' => 'whatsapp:' . $phone,
+        $twilio->messages->create($recipients, [
+            'from' => $phone,
             'body' => 'Your verification code is: ' . $message
         ] );
     }

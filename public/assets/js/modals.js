@@ -13,11 +13,6 @@ $(".btn-red").append("<div class='loading-btn_red'></div>");
 $(".btn-red").addClass("btns-modals");
 
 $(document).ready(function() {
-    $('#btnLeng').click(function() {
-        $('.container-leng').show();
-        $('.page-category').css({'overflow': 'hidden'});
-    })
-
     $('.x').click(function() {
         $('.container-leng').hide();
         $('.page-category').css({'overflow': 'auto'});
@@ -28,13 +23,13 @@ $(document).ready(function() {
         $('.page-category').css({'overflow': 'auto'});
     })
 
-    $('.currency-click').click(function() {
-        $('.content_hidden_currency').show();
+    $(".currency-click").on("click", function() {
+        $('._lgcac').show();
         $('._lgcth').hide();
     })
 
-    $('.leng-click').click(function() {
-        $('.content_hidden_currency').hide();
+    $(".leng-click").on("click", function() {
+        $('._lgcac').hide();
         $('._lgcth').show();
     });
 });
@@ -44,8 +39,13 @@ $(document).ready(function() {
 $(document).ready(function() {
     // ACTIVE NAVBAR
     $(document).ready(function() {
-        $(".nav__links-txt .li__links-txt .tabs_items").click(function(){
-            $(".tabs_items").removeClass("active_tabs");
+        $(".js_navlinkstabs .li__links-txt .tabs_items").click(function(){
+            $(this).parents().find(".js_navlinkstabs .tabs_items").removeClass("active_tabs");
+            $(this).addClass("active_tabs");
+        });
+
+        $(".js_navlinkstabsleng .li__links-txt .tabs_items").click(function(){
+            $(this).parents().find(".js_navlinkstabsleng .tabs_items").removeClass("active_tabs");
             $(this).addClass("active_tabs");
         });
     });
@@ -55,13 +55,13 @@ $(document).ready(function() {
        $(this).addClass("activ");
     });
 
-    $('.content_leng-choose .flex_content .btn_leng').click(function(){
-        $('.btn_leng').removeClass("active");
+    $(".section__legrg .leng_btn").on("click", function(){
+        $(this).parents().find(".section__legrg .leng_btn").removeClass("active");
         $(this).addClass("active");
     });
 
-    $('.content_hidden_currency .flex_content .btn_choose').click(function(){
-        $('.btn_choose').removeClass("active");
+    $(".section__currency .leng_btn").on("click", function(){
+        $(this).parents().find(".section__currency .leng_btn").removeClass("active");
         $(this).addClass("active");
     });
 

@@ -2,8 +2,7 @@
     <div>
         <div class="_cont-places">
             <div class="_inf">
-                <div class="_txteh">Adultos</div>
-                <div class="_txtec">Edad: 13 años o más</div>
+                <div class="_txteh">Adults</div>
             </div>
             <div class="_2btns">
                 <button class="_btn" {{ $disableButton['Decrease']['adult'] ? 'disabled' : '' }} type="button" aria-label="disminuir valor" wire:click="buttonDecrease('adult')">
@@ -28,8 +27,8 @@
 
         <div class="_cont-places">
             <div class="_inf">
-                <div class="_txteh">Niños</div>
-                <div class="_txtec">De 2 a 12 años</div>
+                <div class="_txteh">Childres</div>
+                <div class="_txtec">Ages 2-12</div>
             </div>
             <div class="_2btns">
                 <button class="_btn" {{ $disableButton['Decrease']['kids'] ? 'disabled' : '' }} type="button" aria-label="disminuir valor" wire:click="buttonDecrease('kids')">
@@ -54,8 +53,8 @@
 
         <div class="_cont-places">
             <div class="_inf">
-                <div class="_txteh">Bebés</div>
-                <div class="_txtec">Menos de 2 años</div>
+                <div class="_txteh">Infants</div>
+                <div class="_txtec">Under 2</div>
             </div>
             <div class="_2btns">
                 <button class="_btn" {{ $disableButton['Decrease']['infant'] ? 'disabled' : '' }} type="button" aria-label="disminuir valor" wire:click="buttonDecrease('infant')">
@@ -80,8 +79,8 @@
 
         <div class="_cont-places">
             <div class="_inf">
-                <div class="_txteh">Mascotas</div>
-                <a href="#" class="_btnsm">¿Llevarás un animal de asistencia?</a>
+                <div class="_txteh">Pets</div>
+                <a href="#" class="_txtlinearnormal">Bringing an assistance animal?</a>
             </div>
             <div class="_2btns">
                 <button class="_btn" {{ $disableButton['Decrease']['pets'] ? 'disabled' : '' }} type="button" aria-label="disminuir valor" wire:click="buttonDecrease('pets')">
@@ -105,5 +104,5 @@
         </div>
     </div>
 
-    <div class="_txtec">Si tienes la suerte de tener más de 2 mascotas contigo, asegúrate de avisarle a tu anfitrión.</div>
+    <div class="_txtec">If you are lucky enough to have more than 2 pets with you, be sure to let your host know.</div>
 </div>

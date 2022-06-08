@@ -135,8 +135,7 @@ header {
 
 .menu__text-link {
     display: inline-block;
-    font-size: 14px;
-    line-height: 18px;
+    font-size: 18px !important;
     color: #7D7D7D !important;
     display: flex;
     white-space: nowrap;
@@ -150,10 +149,16 @@ header {
     margin: 0;
     padding: 0;
     text-align: inherit;
-    padding: 12px 16px;
+    padding: 16px 20px;
 
     &:hover {
         background-color: rgba(237, 237, 243, .5);
+    }
+
+    @include responsive(1400px) {
+        padding: 12px 16px !important;
+        font-size: 14px !important;
+        line-height: 18px !important;
     }
 }
 
@@ -260,10 +265,14 @@ header {
         &-items {
             position: relative;
             padding: 8px 0;
-            width: 240px;
+            width: 270px;
             background-color: $color-white;
             border-radius: 10px;
             @include _shadow-black3-6;
+
+            @include responsive(1400px) {
+                width: 240px;
+            }
 
             .br-line {
                 margin: 8px 0;

@@ -1,139 +1,184 @@
-<div>
-    <div class="nav nav-leng" id="nav-leng">
-        <ul>
-            <li class="leng-click"><a class="btn-a {{ $classActive == 'language' ? 'activ' : '' }}" wire:click="changeClass('language')">Language and region</a></li>
-            <li class="currency-click"><a class="btn-a {{ $classActive == 'currency' ? 'activ' : '' }}" wire:click="changeClass('currency')">Currency</a></li>
-        </ul>
-    </div>
+<div class="whfxoyx">
+    <div class="poyxwh">
+        <div class="popup_leng_modal">
+            <div class="navcont__flech-fx">
+                <div class="cont_nav">
+                    <div class="nav__links-txt scroll_n owl-carousel leng_btn_nav js_navlinkstabsleng" wire:ignore>
+                        <button type="button" class="li__links-txt " wire:click="changeClass('language')">
+                            <span class="tabs_items {{ $classActive == 'language' ? 'active_tabs' : '' }}">Language and region</span>
+                        </button>
 
-    <div class="modal_block">
-        @if ( $classActive == 'language' )
-            <div class="content_hidden _lgcth">
-                <div class="search_content">
-                    <div class="input-wrapper">
-                        <i class="fas fa-search"></i>
-                        <input type="text" placeholder="Search languages" wire:model="inputSearch">
+                        <button type="button" class="li__links-txt " wire:click="changeClass('currency')">
+                            <span class="tabs_items {{ $classActive == 'currency' ? 'active_tabs' : '' }}">Currency</span>
+                        </button>
                     </div>
+
+                    <div class="vvo_owl_navleng vvo_nav_flech"></div>
                 </div>
+            </div>
+            
+            @if ( $classActive == 'language' )
+                <div class="content_hidden _lgcth">
+                    <section class="cont_fxtl">
+                        <label for="ipt__search" class="search_content mrnone">
+                            <div class="input-wrapper">
+                                <i class="far fa-search"></i>
+                                <input type="text" id="ipt__search" placeholder="Search languages" wire:model="inputSearch">
+                            </div>
+                        </label>
+                    </section>
 
-                @if ( $inputSearch )
-                    <strong>Choose a language and region</strong>
-                    <div class="content_leng-choose">
-                        <div class="flex_content">
-                            @foreach ($language as $element)
-                                @if ( !$element['suggested'] )
-                                    @if ( Auth::check() && $element['code'] === $authlanguage )
-                                        <div class="btn_leng hr active">
-                                            <h4>{{ $element['languages'] }}</h4>
-                                            <p>{{ $element['name'] }}</p>
-                                        </div>
-                                    @else
-                                        @if ( Auth::check() )
-                                            <div class="btn_leng hr" wire:click="changeLanguage('{{ $element['code'] }}')">
-                                        @else
-                                            <div class="btn_leng hr">
+                    @if ( $inputSearch )
+                        <section class="cont_fxtl mr-t24">
+                            <h2 class="h2-guests">Choose a language and region</h2>
+                            <div class="content_leng section__legrg">
+                                <ul class="lsnpm fx fx-fw-w">
+                                    @foreach ($language as $element)
+                                        @if ( !$element['suggested'] )
+                                            @if ( Auth::check() && $element['code'] === $authlanguage )
+                                                <li class="dibpwva">
+                                                    <button type="button" class="leng_btn active">
+                                                        <div class="h3">{{ $element['languages'] }}</div>
+                                                        <div class="_txtec">{{ $element['name'] }}</div>
+                                                    </button>
+                                                </li>
+                                            @else
+                                                @if ( Auth::check() )
+                                                    <li class="dibpwva">
+                                                        <button type="button" class="leng_btn" wire:click="changeLanguage('{{ $element['code'] }}')">
+                                                @else
+                                                    <li class="dibpwva">
+                                                        <button type="button" class="leng_btn">
+                                                @endif
+                                                        <div class="h3">{{ $element['languages'] }}</div>
+                                                        <div class="_txtec">{{ $element['name'] }}</div>
+                                                    </button>
+                                                </li>
+                                            @endif
                                         @endif
-                                            <h4>{{ $element['languages'] }}</h4>
-                                            <p>{{ $element['name'] }}</p>
-                                        </div>
-                                    @endif
-                                @endif
-                            @endforeach
-                        </div>
-                    </div>
-                @else
-                    <strong>Suggested languages and regions</strong>
-                    <div class="content_leng-choose content_leng">
-                        <div class="flex_content">
-                            @foreach ($language as $element)
-                                @if ( $element['suggested'] )
-                                    @if ( Auth::check() && $element['code'] === $authlanguage )
-                                        <div class="btn_leng hr {{ $element['code'] === $authlanguage ? 'active' : '' }}">
-                                            <h4>{{ $element['languages'] }}</h4>
-                                            <p>{{ $element['name'] }}</p>
-                                        </div>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        </section>
+                    @else
+                        <section class="cont_fxtl mr-t24">
+                            <h2 class="h2-guests">Suggested languages and regions</h2>
+                            <div class="content_leng section__legrg">
+                                <ul class="lsnpm fx fx-fw-w">
+                                    @foreach ($language as $element)
+                                        @if ( $element['suggested'] )
+                                            @if ( Auth::check() && $element['code'] === $authlanguage )
+                                                <li class="dibpwva">
+                                                    <button type="button" class="leng_btn active">
+                                                        <div class="h3">{{ $element['languages'] }}</div>
+                                                        <div class="_txtec">{{ $element['name'] }}</div>
+                                                    </button>
+                                                </li>
+                                            @else
+                                                @if ( $element['code'] === 'EN' && !Auth::check() )
+                                                    <li class="dibpwva">
+                                                        <button type="button" class="leng_btn active">
+                                                            <div class="h3">{{ $element['languages'] }}</div>
+                                                            <div class="_txtec">{{ $element['name'] }}</div>
+                                                        </button>
+                                                    </li>
+                                                @else
+                                                    @if ( Auth::check() )
+                                                        <li class="dibpwva">
+                                                            <button type="button" class="leng_btn" wire:click="changeLanguage('{{ $element['code'] }}')">
+                                                    @else
+                                                        <li class="dibpwva">
+                                                            <button type="button" class="leng_btn">
+                                                    @endif
+                                                            <div class="h3">{{ $element['languages'] }}</div>
+                                                            <div class="_txtec">{{ $element['name'] }}</div>
+                                                        </button>
+                                                    </li>
+                                                @endif
+                                            @endif
+                                        @endif
+                                    @endforeach
+                                </ul>
+                            </div>
+                        </section>
+
+                        <section class="cont_fxtl mr-t24">
+                            <h2 class="h2-guests">Choose a language and region</h2>
+                            <div class="content_leng section__legrg">
+                                <ul class="lsnpm fx fx-fw-w">
+                                    @foreach ($language as $element)
+                                        @if ( !$element['suggested'] )
+                                            @if ( Auth::check() && $element['code'] === $authlanguage )
+                                                <li class="dibpwva">
+                                                    <button type="button" class="leng_btn active">
+                                                        <div class="h3">{{ $element['languages'] }}</div>
+                                                        <div class="_txtec">{{ $element['name'] }}</div>
+                                                    </button>
+                                                </li>
+                                            @else
+                                                @if ( Auth::check() )
+                                                    <li class="dibpwva">
+                                                        <button type="button" class="leng_btn" wire:click="changeLanguage('{{ $element['code'] }}')">
+                                                @else
+                                                    <li class="dibpwva">
+                                                        <button type="button" class="leng_btn">
+                                                @endif
+                                                        <div class="h3">{{ $element['languages'] }}</div>
+                                                        <div class="_txtec">{{ $element['name'] }}</div>
+                                                    </button>
+                                                </li>
+                                            @endif
+                                        @endif
+                                    @endforeach
+                                </ul>
+                            </div>
+                        </section>
+                    @endif
+                </div>
+            @endif
+
+            @if ( $classActive == 'currency' )
+                <div class="content_hidden _lgcac">
+                    <section class="cont_fxtl">
+                        <h2 class="h2_publish">Choose a currency</h2>
+                        <div class="content_leng section__currency">
+                            <ul class="lsnpm fx fx-fw-w">
+                                @foreach ($currencs as $element)
+                                    @if ( Auth::check() && $element['code'] === $authcurrencs )
+                                        <li class="dibpwva">
+                                            <button type="button" class="leng_btn active">
+                                                <div class="h3">{{ $element['name'] }}</div>
+                                                <div class="_txtec">{{ $element['code'] }} - {{ $element['symbol'] }}</div>
+                                            </button>
+                                        </li>
                                     @else
-                                        @if ( $element['code'] === 'EN' && !Auth::check() )
-                                            <div class="btn_leng hr active">
-                                                <h4>{{ $element['languages'] }}</h4>
-                                                <p>{{ $element['name'] }}</p>
-                                            </div>
+                                        @if ( $element['code'] === 'USD' && !Auth::check() )
+                                            <li class="dibpwva">
+                                                <button type="button" class="leng_btn active">
+                                                    <div class="h3">{{ $element['name'] }}</div>
+                                                    <div class="_txtec">{{ $element['code'] }} - {{ $element['symbol'] }}</div>
+                                                </button>
+                                            </li>
                                         @else
                                             @if ( Auth::check() )
-                                                <div class="btn_leng hr" wire:click="changeLanguage('{{ $element['code'] }}')">
+                                                <li class="dibpwva">
+                                                    <button type="button" class="leng_btn" wire:click="changeCurrency('{{ $element['code'] }}')">
                                             @else
-                                                <div class="btn_leng hr">
+                                                <li class="dibpwva">
+                                                    <button type="button" class="leng_btn">
                                             @endif
-                                                <h4>{{ $element['languages'] }}</h4>
-                                                <p>{{ $element['name'] }}</p>
-                                            </div>
+                                                    <div class="h3">{{ $element['name'] }}</div>
+                                                    <div class="_txtec">{{ $element['code'] }} - {{ $element['symbol'] }}</div>
+                                                </button>
+                                            </li>
                                         @endif
                                     @endif
-                                @endif
-                            @endforeach
+                                @endforeach
+                            </ul>
                         </div>
-                    </div>
-
-                    <strong>Choose a language and region</strong>
-                    <div class="content_leng-choose">
-                        <div class="flex_content">
-                            @foreach ($language as $element)
-                                @if ( !$element['suggested'] )
-                                    @if ( Auth::check() && $element['code'] === $authlanguage )
-                                        <div class="btn_leng hr active">
-                                            <h4>{{ $element['languages'] }}</h4>
-                                            <p>{{ $element['name'] }}</p>
-                                        </div>
-                                    @else
-                                        @if ( Auth::check() )
-                                            <div class="btn_leng hr" wire:click="changeLanguage('{{ $element['code'] }}')">
-                                        @else
-                                            <div class="btn_leng hr">
-                                        @endif
-                                            <h4>{{ $element['languages'] }}</h4>
-                                            <p>{{ $element['name'] }}</p>
-                                        </div>
-                                    @endif
-                                @endif
-                            @endforeach
-                        </div>
-                    </div>
-                @endif
-            </div>
-        @endif
-
-        @if ( $classActive == 'currency' )
-            <div class="content_hidden_currency" style="display: block;">
-                <strong>Choose a currency</strong>
-                <div class="content_leng-choose">
-                    <div class="flex_content">
-                        @foreach ($currencs as $element)
-                            @if ( Auth::check() && $element['code'] === $authcurrencs )
-                                <div class="btn_choose hr active">
-                                    <h4>{{ $element['name'] }}</h4>
-                                    <p>{{ $element['code'] }} - {{ $element['symbol'] }}</p>
-                                </div>
-                            @else
-                                @if ( $element['code'] === 'USD' && !Auth::check() )
-                                    <div class="btn_choose hr active">
-                                        <h4>{{ $element['name'] }}</h4>
-                                        <p>{{ $element['code'] }} - {{ $element['symbol'] }}</p>
-                                    </div>
-                                @else
-                                    @if ( Auth::check() )
-                                        <div class="btn_choose hr" wire:click="changeCurrency('{{ $element['code'] }}')">
-                                    @else
-                                        <div class="btn_choose hr">
-                                    @endif
-                                        <h4>{{ $element['name'] }}</h4>
-                                        <p>{{ $element['code'] }} - {{ $element['symbol'] }}</p>
-                                    </div>
-                                @endif
-                            @endif
-                        @endforeach
-                    </div>
+                    </section>
                 </div>
-            </div>
-        @endif
+            @endif
+        </div>
     </div>
 </div>

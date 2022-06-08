@@ -132,6 +132,11 @@ $cant: 300;
   color: $color-h2_publish;
   font-weight: normal;
 
+  &.nrml {
+    font-size: 18px !important;
+    line-height: normal !important;
+  }
+
   @include responsive(1400px) {
     font-size: 16px;
     line-height: 20px;
@@ -506,8 +511,18 @@ $cant: 300;
     background-color: #0096B7;
   }
 
+  &.nrml {
+    &:active {
+      transform: none !important;
+    } 
+  }
+
+  &.selectbtn {
+    padding: 16px 24px;
+  }
+
   @include responsive(1400px) {
-    padding: 14px 24px;
+    padding: 14px 24px !important;
     font-size: 16px;
     font-weight: normal;
     line-height: 20px;

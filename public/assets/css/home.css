@@ -88,6 +88,10 @@ a {
   border-radius: 10px 0 0 10px;
   padding: 7px 11px 7px 12px;
   z-index: 20;
+  transition: 0.3s ease;
+}
+.home .content_leng:hover {
+  background-color: #DC383D;
 }
 
 .owl-carousel.owl-drag .owl-item {
