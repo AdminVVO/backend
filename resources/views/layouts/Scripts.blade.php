@@ -1,7 +1,6 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
- <!-- toggle -->
-<script src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.js"></script> <!-- libreria js de mascara - patrones de los inputs -->
+<link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.1.1/css/all.css">
 
 <!-- libreria js de mascara - patrones de los inputs -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.js"></script>

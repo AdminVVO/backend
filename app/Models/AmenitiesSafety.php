@@ -16,4 +16,10 @@ class AmenitiesSafety extends Model
         'name',
         'type',
     ];
+
+    public function scopeName($query, $code)
+    {
+        return $this->where([ 'code' => $code ])->pluck('name')->first();
+
+    }
 }

@@ -57,6 +57,7 @@ class Wishlists extends Component
 
     public function addListingIdFilter($payload)
     {
+        dd($payload);
         $this->reset(['inputWishlists','steps','photo','listingId','section']);
         $this->listingId = $payload;
         $this->section = 'filter';
@@ -66,6 +67,7 @@ class Wishlists extends Component
 
     public function addListingIdPopular($payload)
     {
+        dd($payload);
         $this->reset(['inputWishlists','steps','photo','listingId','section']);
         $this->listingId = $payload;
         $this->section = 'popular';

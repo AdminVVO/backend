@@ -1,5 +1,5 @@
 <div class="medio">
-    @forelse ($contentListing as $element)
+    @forelse ($contentAllListing as $element)
         <a href="{{ route('interna', $element['id_listings'] ) }}" class="card_items">
 
             <div class="card_top">

@@ -9,7 +9,7 @@ use Auth;
 
 class CardsAll extends Component
 {
-    public $contentListing;
+    public $contentAllListing;
     public $wishlists;
     
     protected $listeners = [
@@ -18,13 +18,18 @@ class CardsAll extends Component
 
     public function mount()
     {
-
+        $this->preLoad();
     }
 
     public function render()
     {
+        return view('livewire.home.cards-all');
+    }
+
+    public function preLoad()
+    {
         $this->wishlists = Wishlists::where('user_id', Auth::id())->distinct('listing_id')->pluck('listing_id')->toArray();
-        $this->contentListing = Listings::select(
+        $this->contentAllListing = Listings::select(
             'listings.id_listings',
             'listings.title',
             'listings.photos',
@@ -35,9 +40,10 @@ class CardsAll extends Component
         ->leftJoin('listing_property_roomds', 'listings.id_listings', 'listing_property_roomds.listing_id')
         ->leftJoin('listing_pricings', 'listings.id_listings', 'listing_pricings.listing_id')
         ->get();
-
-        return view('livewire.home.cards-all');
     }
 
-    public function reLoadRender(){ }
+    public function reLoadRender()
+    {
+        $this->preLoad();
+    }
 }

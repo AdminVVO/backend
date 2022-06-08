@@ -2,18 +2,19 @@
     <div class="tabs entero">
         <div class="medio">
             <div class="con_flex fx fx-ai-c fx-jc-sb gp22 wh-p100" wire:ignore>
-                <div class="navcont__flech-fx seven">
+                <div class="navcont__flech-fx">
                     <div class="cont_nav">
-                        <div class="nav__links-txt scroll_n owl-carousel carousel_btn_nav">
+                        <div class="nav__links-txt scroll_n owl-carousel carousel_btn_nav js_navlinkstabs">
                             @foreach ($category as $key => $element)
                                 <button type="button" class="li__links-txt">
                                     <span class="tabs_items {{ $key === $filter_categ ? 'active_tabs' : '' }}" wire:click="changeCateg('{{$key}}')">{{ $element }}</span>
                                 </button>
                             @endforeach
                         </div>
-                        <div class="vvo_owl_nav"></div>
+
+                        <div class="vvo_owl_nav vvo_nav_flech"></div>
                     </div>
-                </div>                
+                </div>             
                 <div class="tabs_select">
                     <div class="vvo-select blue" style="min-width: 130px;">
                         <select name="" id="">
@@ -33,12 +34,7 @@
                         </select>
                     </div>
 
-                    <button type="button" class="btn-celest nrml" wire:click="resetFilter">
-                        <div class="fx fx-ai-c gp8">
-                            <i class="fal fa-filter"></i>
-                            Reset Filters
-                        </div>
-                    </button>
+                    <button type="button" class="btn-celest nrml selectbtn" wire:click="resetFilter">Reset Filters</button>
                 </div>
             </div>        
         </div>
