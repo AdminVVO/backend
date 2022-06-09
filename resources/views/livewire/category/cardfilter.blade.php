@@ -3,10 +3,11 @@
         <div class="medio">
             <div class="content-scroll-local">
                 <div class="tabs_items_group select">
-                    @foreach ($categorys as $item)
-                        <h3 id="select" class="tabs_items" wire:click.prevent="changeCategory({{ $item->id }})">
-                            {{ $item->type }}
-                        </h3>
+                    @foreach ($category as $key => $element)
+                        <button type="button" class="li__links-txt">
+                            <span class="tabs_items {{ $key === $filter_categ ? 'active_tabs' : '' }}"
+                                wire:click="changeCateg('{{ $key }}')">{{ $element }}</span>
+                        </button>
                     @endforeach
                 </div>
                 <div class="btn-right-scroll">
@@ -34,21 +35,14 @@
                     </select>
                     <i class="far fa-chevron-down"></i>
                 </label>
-                <label class="custom-anytime">
-                    <select name="" id="">
-                        <option value="">Filters</option>
-                        <option value="">Option 1</option>
-                        <option value="">Op tion 2</option>
-                        <option value="">Option 3</option>
-                    </select>
-                    <i class="far fa-chevron-down"></i>
-                </label>
+
+                <button type="button" class="btn-celest nrml selectbtn" wire:click="resetFilter">Reset Filters</button>
             </div>
         </div>
     </div>
     <div class="tabs_card entero">
         <div class="medio">
-            @foreach ($sites as $item)
+            @forelse ($sites ?? '' as $item)
                 <a href="/" class="card_items">
                     <div class="card_top">
                         <div class="card_top_price">
@@ -57,7 +51,7 @@
                         </div>
                         <div class="card_top_dates">
                             <i class="fas fa-calendar"></i>
-                            <p>{{ $item->date }}</p>
+                            <p>24 dec - 31 dec</p>
                         </div>
                     </div>
                     <button>
@@ -75,9 +69,10 @@
                         </div>
                     </button>
                     <div class="card_img">
-                        <img src="{{ URL::asset('assets/img/card/' . $item->thumbNailUrl[0]) }}" alt="">
-                        <img src="{{ URL::asset('assets/img/card/' . $item->thumbNailUrl[1]) }}" alt="">
-                        <img src="{{ URL::asset('assets/img/card/' . $item->thumbNailUrl[2]) }}" alt="">
+
+                        <img src="{{ URL::asset('storage/uploadListing/' . $item->photos[0]) }}" alt="">
+                        <img src="{{ URL::asset('storage/uploadListing/' . $item->photos[1]) }}" alt="">
+                        <img src="{{ URL::asset('storage/uploadListing/' . $item->photos[2]) }}" alt="">
                     </div>
                     <div class="content-dots">
                         <span class="dot"></span>
@@ -95,16 +90,20 @@
                         <h3 class="h3-cards">{{ $item->distance }} miles away</h3>
                     </div>
                 </a>
-            @endforeach
+            @empty
+                <div class="medio now__listabscard">
+                    <p>No Have Listing</p>
+                </div>
+            @endforelse
         </div>
     </div>
 </div>
 
 @push('scripts')
     <script>
-        window.livewire.on('reloadClassCSs', function() {
+        Livewire.hook('message.processed', (message, component) => {
             $(".content-dots span.dot:first-child").addClass("dot_active");
             $(".card_img > img:first-child").addClass("card_img_active");
-        });
+        })
     </script>
 @endpush

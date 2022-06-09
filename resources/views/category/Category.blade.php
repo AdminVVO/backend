@@ -3,6 +3,7 @@
 @section('css')
 
     <link href="{{ URL::asset('assets/css/home.css') }}" rel="stylesheet" />
+    <link href="{{ URL::asset('assets/css/owl.carousel.min.css') }}" rel="stylesheet"/>
     <link href="{{ URL::asset('assets/css/header-bck.css') }}" rel="stylesheet" />
     <link href="{{ URL::asset('assets/css/category.css') }}" rel="stylesheet" />
 
@@ -65,4 +66,25 @@
             @livewire('category.cardpool')
         </div>
     </div>
+@endsection
+
+
+@section('script')
+
+	{{-- <script src="{{ URL::asset('assets/js/places.js') }}"></script> --}}
+	<script src="{{ URL::asset('assets/js/owl.carousel.min.js') }}"></script>
+	<script src="{{ URL::asset('assets/js/slider_home.js') }}"></script>
+    <script src="{{ URL::asset('assets/js/modals-min.js') }}"></script>
+
+    <script>
+		window.addEventListener('closedModalFavority', event => {
+	        $(".container_user-host, .container_admin-host, .container_preview_guests_pay").hide();
+    		$(".page-category").css({'overflow': 'auto'});
+		})
+        $(".nav__links-txt .li__links-txt .tabs_items").click(function(){
+            $(".tabs_items").removeClass("active_tabs");
+            $(this).addClass("active_tabs");
+        });
+	</script>
+
 @endsection

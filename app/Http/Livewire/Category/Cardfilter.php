@@ -2,33 +2,64 @@
 
 namespace App\Http\Livewire\Category;
 
+use App\Models\Listing\Listings;
+use App\Models\RoomsProperty;
+use App\Models\Wishlists;
+use Livewire\Component;
 use App\Models\CardCategory;
 use App\Models\Category;
-use Livewire\Component;
 
 class Cardfilter extends Component
 {
-    public $category = '';
-    public $sites;
-    public function updatingCategory()
+    public $contentListing;
+    public $wishlists;
+    public $category;
+    public $filter_categ = null;
+    
+    protected $listeners = [
+        'reLoadRender' => 'reLoadRender'
+    ];
+
+    public function mount()
     {
-        $this->resetPage();
+        $this->category = RoomsProperty::pluck('name_type', 'type');
     }
+
     public function render()
     {
-        if (!empty($this->category)) {
-            $this->sites = CardCategory::Where('card_categories.category_id', '=', $this->category)->get();
-        } else {
-            $this->sites = CardCategory::all();
-        }
-        $sites = $this->sites;
-        $categorys = Category::all();
-        return view('livewire.category.cardfilter',compact('sites', 'categorys'));
+        return view('livewire.category.cardfilter', ['categorys' => $this->category, 'sites'=>$this->preLoadContent()]);
     }
-    public function changeCategory($category)
+
+    public function preLoadContent()
     {
-        $this->category = $category;
-        $this->emit('reloadClassCSs');
-        
+        $this->contentListing = Listings::select(
+            'listings.id_listings',
+            'listings.title as title',
+            'listings.photos',
+            'listing_property_roomds.like_place',
+            'listing_property_roomds.property_type',
+            'listing_pricings.base_price as price',
+        )
+        ->leftJoin('listing_property_roomds', 'listings.id_listings', 'listing_property_roomds.listing_id')
+        ->leftJoin('listing_pricings', 'listings.id_listings', 'listing_pricings.listing_id')
+        ->where(function ($query) {
+            if ( $this->filter_categ != null )
+                return $query->where('listing_property_roomds.like_place', $this->filter_categ);
+        })
+        ->get();
+
+        return $this->contentListing;
     }
+
+    public function changeCateg($payload)
+    {
+        $this->filter_categ = $payload;
+    }
+
+    public function resetFilter()
+    {
+        $this->filter_categ = null;
+    }
+
+    public function reLoadRender(){ }
 }
