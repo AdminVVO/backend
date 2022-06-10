@@ -72,6 +72,7 @@
     }
 
     @include responsive(900px) {
+        display: contents !important;
         padding: 16px 0;
     }
 
@@ -112,6 +113,17 @@
         ._flex-js {
             @include responsive(1000px) {
                 gap: 25px;
+                justify-content: center;
+            }
+
+            @include responsive(900px) {
+                gap: 0;
+
+                > a,
+                ._puntos3 {
+                    max-width: 24%;
+                    flex: 1 1 0;
+                }
             }
 
             ._flex {

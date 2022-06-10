@@ -21,19 +21,18 @@ class CardsFilters extends Component
 
     public function mount()
     {
-        $this->wishlists = Wishlists::where('user_id', Auth::id())->distinct('listing_id')->pluck('listing_id')->toArray();
         $this->category = RoomsProperty::pluck('name_type', 'type');
     }
 
     public function render()
     {
         $this->preLoadContent();
-
         return view('livewire.home.cards-filters');
     }
 
     public function preLoadContent()
     {
+        $this->wishlists = Wishlists::where('user_id', Auth::id())->distinct('listing_id')->pluck('listing_id')->toArray();
         $this->contentListing = Listings::select(
             'listings.id_listings',
             'listings.title',

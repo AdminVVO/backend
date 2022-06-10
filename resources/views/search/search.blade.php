@@ -23,13 +23,13 @@
 @section('content')
 
     <section class="location"> 
-        @livewire('search.search')
+        @livewire('search.search', ['request' => $request])
     </section>
 
     <section class="dates-location">
         <div class="content_dates-local">
             <h3>Are your dates flexible?</h3>
-            <p>These stays are available within +/- 3 days of your current dates</p>
+            <p class="_txtec mr-t11 mr-b42">These stays are available within +/- 3 days of your current dates</p>
 
             @livewire('search.search-flexible')
 

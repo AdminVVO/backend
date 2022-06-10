@@ -10,6 +10,7 @@
 <link href="{{ URL::asset('assets/css/leng-modal.css') }}" rel="stylesheet"/>
 <link href="{{ URL::asset('assets/css/places.css') }}" rel="stylesheet"/>
 <link href="{{ URL::asset('assets/css/lightpick.css') }}" rel="stylesheet"/>
+<link href="{{ URL::asset('assets/css/modals-user.css') }}" rel="stylesheet"/>
 
 
 

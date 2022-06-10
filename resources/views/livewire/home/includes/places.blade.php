@@ -15,7 +15,7 @@
                 <div class="place_select">
                     <span>Check in</span>
                     <i class="far fa-calendar-alt">
-                        <input type="text" class="_date-check" value="" id="check_in" placeholder="Add dates" readonly wire:model.defer="inputDateIn">
+                        <input type="text" class="_date-check" id="check_in" placeholder="Add dates" readonly wire:model.defer="inputDateIn">
                     </i>
                 </div>
             </label>
@@ -26,7 +26,7 @@
                 <div class="place_select">
                     <span>Check Out</span>
                     <i class="far fa-calendar-alt">
-                        <input type="text" class="_date-check-out" value="" id="" placeholder="Add dates" readonly wire:model.defer="inputDateOut">
+                        <input type="text" class="_date-check-out" placeholder="Add dates" readonly wire:model.defer="inputDateOut">
                     </i>
                 </div>
             </label>

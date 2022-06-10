@@ -16,13 +16,9 @@ class CardsAll extends Component
         'reLoadRender' => 'reLoadRender'
     ];
 
-    public function mount()
-    {
-        $this->preLoad();
-    }
-
     public function render()
     {
+        $this->preLoad();
         return view('livewire.home.cards-all');
     }
 
@@ -42,8 +38,5 @@ class CardsAll extends Component
         ->get();
     }
 
-    public function reLoadRender()
-    {
-        $this->preLoad();
-    }
+    public function reLoadRender(){ }
 }

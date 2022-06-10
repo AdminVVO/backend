@@ -16,13 +16,15 @@ class CardsTitle extends Component
         'reLoadRender' => 'reLoadRender'
     ];
 
-    public function mount()
-    {
-        $this->wishlists = Wishlists::where('user_id', Auth::id())->distinct('listing_id')->pluck('listing_id')->toArray();
-    }
-
     public function render()
     {
+        $this->preLoad();
+        return view('livewire.home.cards-title');
+    }
+
+    public function preLoad()
+    {
+        $this->wishlists = Wishlists::where('user_id', Auth::id())->distinct('listing_id')->pluck('listing_id')->toArray();
         $this->contentListing = Listings::select(
             'listings.id_listings',
             'listings.title',
@@ -32,8 +34,6 @@ class CardsTitle extends Component
         )
         ->leftJoin('listing_property_roomds', 'listings.id_listings', 'listing_property_roomds.listing_id')
         ->get();
-
-        return view('livewire.home.cards-title');
     }
 
     public function reLoadRender(){ }

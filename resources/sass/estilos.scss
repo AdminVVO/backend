@@ -29,6 +29,12 @@
   width: 90%;
 }
 
+.vvo_ui {
+  @include responsive(743px) {
+    padding: 1.5rem 0 4rem;
+  }
+}
+
 // hover btn
 .btn_circle_243-3 {
   width: 41px;
@@ -250,10 +256,6 @@ body {
 }
 .s-paragraph {
   @include s-paragraph;
-}
-
-.n-paragraph {
-  @include n-paragraph;
 }
 
 .total_local {
@@ -1648,7 +1650,7 @@ body {
 .dibpwva {
   display: inline-block;
   padding: 8px;
-  width: 50%;
+  width: 100%;
   vertical-align: top;
   position: relative;
 
@@ -1661,6 +1663,10 @@ body {
     left: 15px;
     transform: translate(-1rem, -50%);
     background-color: #E3EDF3;
+  }
+
+  @media screen and (min-width: 400px) {
+    width: 50%;
   }
 
   @media screen and (min-width: 743px) {
@@ -1695,6 +1701,7 @@ body {
   min-height: 300px;
   justify-content: center !important;
   text-align: center;
+  width: -webkit-fill-available;
 
   p {
     color: #7D7D7D;
@@ -2211,10 +2218,10 @@ body {
 }
 
 .showfx743 {
-  display: flex;
+  display: flex !important;
 
   @media screen and (min-width: 743px) {
-    display: none;
+    display: none !important;
   }
 }
 
@@ -2298,7 +2305,7 @@ body {
     }
 
     i {
-      padding-top: 1px;
+      padding-top: .2px;
       z-index: 3;
       color: $color-white;
     }
@@ -12333,8 +12340,20 @@ input {
     }
   }
 
+  &:hover {
+    .flex-ic {
+      border: 3px solid #7D7D7D;
+    }
+  }
+
   @include responsive(1400px) {
     gap: 16px;
+
+    &:hover {
+      .flex-ic {
+        border: 1px solid #7D7D7D;
+      }
+    }
 
     .flex-ic {
       padding: 0;
@@ -13811,14 +13830,6 @@ input {
   color: transparent;
 
   .content-dots {
-    position: absolute;
-    text-align: justify;
-    left: 0;
-    right: 0;
-    bottom: 85px; 
-    padding: 0 15px;
-    z-index: 11;
-
     .dot {
       display: inline-block;
       cursor: pointer;
@@ -13860,6 +13871,19 @@ input {
     left: 0;
     background: linear-gradient(to bottom, transparent, rgb(0 0 0));
     z-index: 1;
+  }
+
+  @include responsive(1400px) {
+    width: 240px;
+    height: 360px;
+    border-radius: 8px;
+
+    .content-dots {
+      .dot {
+        width: 7px;
+        height: 7px;
+      }
+    }
   }
 }
 
@@ -14067,6 +14091,18 @@ input {
     fill: $color-white;
     stroke: $icon-love-br-red;
   }
+
+  @include responsive(1400px) {
+    width: 48px;
+    height: 48px;
+    right: -11.5px;
+
+    svg {
+      width: 20px;
+      margin-top: 11px;
+      margin-right: 8px;
+    }
+  }
 }
 
 .card_info {
@@ -14076,17 +14112,23 @@ input {
   left: 0;
   right: 0;
   padding: 15px;
-  z-index: 10;
+  z-index: 2;
+
+  @include responsive(1400px) {
+    padding: 14px 14px 1rem;
+  }
 }
 
 .card_info_text{
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
   margin: 14px 0 8px;
 
-  .card_info_rating{
-    display: none;
+  @include responsive(1400px) {
+    margin: 6px 0;
   }
 }
 
@@ -14205,6 +14247,15 @@ input {
   border-radius: 10px 0 0 10px;
   padding: 7px 11px 7px 12px;
   z-index: 29;
+  transition: .3s ease;
+
+  &:hover {
+    background-color: #DC383D;
+  }
+
+  @include responsive(743px) {
+    display: none;
+  }
 }
 
 .wo_home {
@@ -14246,8 +14297,8 @@ input {
 // responsivo 1400 desktop mobil real
 @media screen and (max-width: 1400px) {
   .h1 {
-    font-size: 120px;
-    line-height: 120px; 
+    font-size: 96px;
+    line-height: 96px; 
   }
 
   .h2_publish {
@@ -14256,11 +14307,17 @@ input {
   }
 
   .h2-pano {
-    font-size: 30px; 
+    font-size: 27px; 
+    line-height: normal;
+    margin-bottom: 12px;
   }
 
   .btn-h {
     padding: 15px 40px;
+  }
+
+  .block_a {
+    margin-top: 32px;
   }
 
   body {
@@ -14307,11 +14364,16 @@ input {
     .header,
     .header_admin {
       .menu_items {
-        margin-right: 43px;
+        margin-right: 24px;
     
         img {
           width: 18px;
           margin-right: 6px;
+        }
+
+        i {
+          margin-right: 6px;
+          font-size: 18px;
         }
       }
     
@@ -14470,10 +14532,6 @@ input {
 }
 
 @media screen and (max-width:500px) {
-  .card_info_text {
-    flex-direction: column;
-    align-items: flex-start; 
-  }
   .tabs_card_xl{
     .h2-cards{
       margin-bottom: 8px; 

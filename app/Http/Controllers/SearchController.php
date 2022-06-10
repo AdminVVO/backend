@@ -8,6 +8,7 @@ class SearchController extends Controller
 {
     public function viewSearch(Request $request)
     {
-        return view('search.search');
+        $request = $request->all();
+        return view('search.search', compact('request'));
     }
 }

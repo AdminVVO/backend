@@ -24,6 +24,7 @@ input {
 }
 
 .modal_block-welcome {
+    height: 100%;
     overflow-y: auto;
 }
 
@@ -87,8 +88,9 @@ input {
         max-height: 100vh;
         inset: 0px;
 
-        @include responsive(536px) {
-            padding: 10px;
+        @include responsive(743px) {
+            padding: 0px;
+            align-items: inherit;
         }
 
         .modal_content-addpymts {
@@ -232,6 +234,18 @@ input {
     }
 }
 
+body {
+    .container-welcome {
+        // display: block !important;
+
+        @include responsive(1400px) {
+            .selected-modal {
+                margin: 8px 0 16px;
+            }
+        }
+    }
+}
+
 .container-welcome, 
 .container-number, 
 .container-options1, 
@@ -248,6 +262,10 @@ input {
 	left: 0;
 	right: 0;
 	bottom: 0;
+
+    ._txteh {
+        margin: 0;
+    }
 
     .modal-welcome {
         position: absolute;
@@ -266,8 +284,9 @@ input {
         max-height: 100vh;
         inset: 0px;
 
-        @include responsive(536px) {
-            padding: 10px;
+        @include responsive(743px) {
+            padding: 0px;
+            align-items: inherit;
         }
 
         .modal_content-welcome {
@@ -277,12 +296,19 @@ input {
             height: 100%;
             max-width: 1300px;
             max-height: 936px;
-            border-radius: 10px;
+            border-radius: 12px;
             z-index: 999;
             position: relative;
             overflow: hidden;
-            @include responsive(1440px) {
-                max-width: 760px;
+
+            @include responsive(1400px) {
+                max-width: 1032px;
+                max-height: -webkit-fill-available;
+                height: auto;
+            }
+
+            @include responsive(743px) {
+                border-radius: 0;
             }
     
             & > span {
@@ -292,14 +318,31 @@ input {
                 color: white;
                 font-size: 18px;
                 padding: 13px 19.2px;
-                background: #FF5A5F;
+                background-color: #FF5A5F;
                 border-radius: 0 10px 0 10px;
+
+                &:hover {
+                    background-color: #DC383D;
+                }
+
+                @include responsive(1400px) {
+                    padding: 0;
+                    padding-bottom: 3px;
+                    @include flex-centrado;
+                    width: 36px;
+                    height: 36px;
+                    font-size: 16px;
+                }
+
+                @include responsive(743px) {
+                    border-radius: 0 0 0 10px;
+                }
             }
     
             .img-left {
                 width: 50%;
-                height: 100%;
-                @include responsive(1440px) {
+
+                @include responsive(743px) {
                     display: none;
                 }
     
@@ -314,7 +357,8 @@ input {
                 display: flex;
                 width: 50%;
                 border-radius: 10px;
-                @include responsive(1440px) {
+
+                @include responsive(743px) {
                     width: 100%;
                 }
     
@@ -322,7 +366,12 @@ input {
                     // display: none;
                     display: grid;
                     width: 100%;
-    
+
+                    @include responsive(743px) {
+                        display: flex;
+                        flex-direction: column;
+                    }
+
                     .log {
                         text-align: center;
                         border-bottom: 1px solid #E3EDF3;
@@ -332,12 +381,24 @@ input {
                         padding: 13px;
                         font-weight: bold;
                         color: #333333;
+
+                        @include responsive(1400px) {
+                            height: 48px;
+
+                            @include flex-centrado;
+                            padding: 2px;
+                        }
                     }
 
                     .content_welcome {
                         padding: 0 75px 42px;
-                        @include responsive(680px) {
-                            padding: 0 25px 25px;
+
+                        @include responsive(1400px) {
+                            padding: 24px;
+                        }
+
+                        @include responsive(743px) {
+                            padding-bottom: 40px;
                         }
 
                         h3 {
@@ -345,6 +406,11 @@ input {
                             text-align: center;
                             font-size: 35px;
                             font-weight: bold;
+
+                            @include responsive(1400px) {
+                                font-size: 22px;
+                                margin: 8px 0 24px;
+                            }
                         }
     
                         h4 {
@@ -353,6 +419,12 @@ input {
                             color: #7D7D7D;
                             border-left: 3px solid #00B5DD;
                             padding: 0 0 0 18px;
+
+                            @include responsive(1400px) {
+                                font-size: 12px;
+                                border-left: 2px solid #00B5DD;
+                                padding-left: 12px;
+                            }
                         }
     
                         .phone {
@@ -365,22 +437,26 @@ input {
                             width: 100%;
                             padding: 16px 18px;
                             font-size: 18px;
-                            border: 1px solid #E3EDF3;
+                            box-shadow: 0 0 0 1px #E3EDF3 inset;
                             color: #7D7D7D;
                             border-radius: 10px;
                             font-weight: normal;
                             transition: all .4s ease;
     
-                            &:hover {
-                                box-shadow: 0 0 15px rgb(40 54 70 / 10%);
-                            }
-
                             &::placeholder {
                                 color: #E3EDF3;
                             }
 
                             &:focus {
-                                border: 1px solid #7D7D7D;
+                                box-shadow: 0 0 0 2px #7D7D7D inset;
+                            }
+
+                            @include responsive(1400px) {
+                                font-size: 16px;
+                                padding: 12px;
+                                line-height: 20px;
+                                border-radius: 8px;
+                                margin: 8px 0 12px;
                             }
                         }
     
@@ -395,6 +471,11 @@ input {
                                 font-weight: bold;
                                 line-height: 28px;
                                 display: inline-block;
+                            }
+
+                            @include responsive(1400px) {
+                                font-size: 12px;
+                                line-height: 16px;
                             }
                         }
     
@@ -416,6 +497,14 @@ input {
                                     background-color: #0096B7;
                                 }
                             }
+
+                            @include responsive(1400px) {
+                                margin: 16px 0 24px;
+
+                                button {
+                                    font-size: 16px;
+                                }
+                            }
                         }
     
                         .block_redes {
@@ -428,6 +517,11 @@ input {
                                 color: #7D7D7D;
                                 font-size: 18px;
                                 font-weight: normal;
+                                transition: box-shadow .3s ease;
+
+                                &:hover {
+                                    box-shadow: 0 6px 16px rgb(0 0 0 / 3%);
+                                }
     
                                 .contend_red {
                                     display: flex;
@@ -442,6 +536,7 @@ input {
                                         align-items: center;
                                         justify-content: center;
                                         background-color: #00B5DD;
+                                        min-width: 53px;
                                         width: 53px;
                                         height: 53px;
                                         margin-right: 26.4px;
@@ -449,6 +544,27 @@ input {
                                         i {
                                             font-size: 20px;
                                             color: white;
+                                        }
+                                    }
+                                }
+                            }
+
+                            @include responsive(1400px) {
+                                display: grid;
+                                grid-template-columns: 1fr;
+                                border-radius: 8px;
+                                padding: 24px;
+                                gap: 16px;
+
+                                a {
+                                    .contend_red {
+                                        margin: 0;
+                                        gap: 16px;
+                                        font-size: 16px;
+                                        line-height: 20px;
+
+                                        .flex_icon {
+                                            margin: 0;
                                         }
                                     }
                                 }

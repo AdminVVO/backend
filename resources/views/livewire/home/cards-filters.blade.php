@@ -1,49 +1,46 @@
 <div>
     <div class="tabs entero">
         <div class="medio">
-            <div class="con_flex fx fx-ai-c fx-jc-sb gp22 wh-p100" wire:ignore>
-                <div class="navcont__flech-fx">
-                    <div class="cont_nav">
-                        <div class="nav__links-txt scroll_n owl-carousel carousel_btn_nav js_navlinkstabs">
-                            @foreach ($category as $key => $element)
-                                <button type="button" class="li__links-txt">
-                                    <span class="tabs_items {{ $key === $filter_categ ? 'active_tabs' : '' }}" wire:click="changeCateg('{{$key}}')">{{ $element }}</span>
-                                </button>
-                            @endforeach
-                        </div>
-
-                        <div class="vvo_owl_nav vvo_nav_flech"></div>
-                    </div>
-                </div>             
-                <div class="tabs_select">
-                    <div class="vvo-select blue" style="min-width: 130px;">
-                        <select name="" id="">
-                            <option value="disabled">Anytime</option>
-                            <option value="">Option 1</option>
-                            <option value="">Option 2</option>
-                            <option value="">Option 3</option>
-                        </select>
+            <div class="navcont__flech-fx" wire:ignore>
+                <div class="cont_nav">
+                    <div class="nav__links-txt scroll_n owl-carousel carousel_btn_nav js_navlinkstabs">
+                        @foreach ($category as $key => $element)
+                            <button type="button" class="li__links-txt">
+                                <span class="tabs_items {{ $key === $filter_categ ? 'active_tabs' : '' }}" wire:click="changeCateg('{{$key}}')">{{ $element }}</span>
+                            </button>
+                        @endforeach
                     </div>
 
-                    <div class="vvo-select blue" style="min-width: 130px;">
-                        <select name="" id="">
-                            <option value="disabled">Guests</option>
-                            <option value="">Option 1</option>
-                            <option value="">Option 2</option>
-                            <option value="">Option 3</option>
-                        </select>
-                    </div>
-
-                    <button type="button" class="btn-celest nrml selectbtn" wire:click="resetFilter">Reset Filters</button>
+                    <div class="vvo_owl_nav vvo_nav_flech"></div>
                 </div>
-            </div>        
+            </div>
+            <div class="tabs_select">
+                <div class="vvo-select blue btnselect">
+                    <select name="" id="">
+                        <option value="disabled">Anytime</option>
+                        <option value="">Option 1</option>
+                        <option value="">Option 2</option>
+                        <option value="">Option 3</option>
+                    </select>
+                </div>
+
+                <div class="vvo-select blue btnselect">
+                    <select name="" id="">
+                        <option value="disabled">Guests</option>
+                        <option value="">Option 1</option>
+                        <option value="">Option 2</option>
+                        <option value="">Option 3</option>
+                    </select>
+                </div>
+
+                <button type="button" class="btn-celest nrml selectbtn" wire:click="resetFilter">Reset Filters</button>
+            </div>   
         </div>
     </div>
     <div class="tabs_card entero">
         <div class="medio">
             @forelse ($contentListing as $element)
                 <a href="{{ route('interna', $element['id_listings'] ) }}" class="card_items">
-
                     <div class="card_top">
                         <div class="card_top_price">
                             <i class="fas fa-dollar-sign"></i>
@@ -59,7 +56,7 @@
                         @if ( in_array($element['id_listings'], $wishlists))
                             <button type="button" class="card_love icon_solid">
                         @else
-                            <button type="button" class="card_love showFavorite" wire:click="$emitTo('home.wishlists', 'addListingIdFilter', '{{ $element['id_listings']  }}')">
+                            <button type="button" class="card_love showFavorite" wire:click="$emitTo('home.wishlists', 'addListing', '{{ $element['id_listings']  }}')">
                         @endif
                     @else
                         <button type="button" class="card_love butnSignModl">
@@ -78,12 +75,13 @@
                         <img src="{{ URL::asset('storage/uploadListing/' . $element['photos'][2]) }}" alt="">
                     </div>
 
-                    <div class="content-dots">
-                        <span class="dot"></span>
-                        <span class="dot"></span>
-                        <span class="dot"></span>
-                    </div>
                     <div class="card_info">
+                        <div class="content-dots">
+                            <span class="dot"></span>
+                            <span class="dot"></span>
+                            <span class="dot"></span>
+                        </div>
+
                         <div class="card_info_text">
                             <h2 class="h2-cards">{{ $element['title'] }}</h2>
                             <div class="card_info_rating">

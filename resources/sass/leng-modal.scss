@@ -9,6 +9,10 @@
         @include responsive(1440px) {
             max-width: 1032px;
         }
+
+        @include responsive(743px) {
+            max-height: initial;
+        }
     }
 
     .h2-guests {

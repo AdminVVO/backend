@@ -12,6 +12,22 @@
 .content_search-flexible {
     margin-bottom: 43px;
 
+    .con_flex {
+        @include responsive(642px) {
+            flex-direction: column;
+        }
+    }
+
+    .tabs_select {
+        @include responsive(642px) {
+            flex-wrap: wrap;
+
+            .vvo-select {
+                flex: 1;
+            }
+        }
+    }
+
     .content-scroll-local {
         display: flex;
         max-width: 100%;

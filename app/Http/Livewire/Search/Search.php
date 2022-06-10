@@ -2,19 +2,23 @@
 
 namespace App\Http\Livewire\Search;
 
+use DateTime;
 use App\Models\Listing\Listings;
 use App\Models\RoomsProperty;
 use App\Models\Wishlists;
-use Livewire\Component;
 use Auth;
+use Carbon;
+use Livewire\Component;
 
 class Search extends Component
 {
+    public $request;
     public $contentListing;
     public $wishlists;
     public $places;
     public $category;
     public $countListing;
+    public $daysDiff = 0;
 
     public $inputPrice;
     public $inputPlace;
@@ -22,10 +26,18 @@ class Search extends Component
     public $filter_categ = null;
     public $filterPrice = null;
     public $filterPlace = null;
-
+    
+    protected $listeners = [
+        'reLoadRender' => 'reLoadRender'
+    ];
 
     public function mount()
     {
+        if ( count( $this->request ) != 0 ){
+            $daysDiffs = Carbon::createFromDate( $this->request['inputDateIn'] )->diff( $this->request['inputDateOut'] );
+                $this->daysDiff = $daysDiffs->days;
+        }
+
         $this->places = RoomsProperty::pluck('name_type', 'type');
     }
     public function render()
@@ -49,12 +61,8 @@ class Search extends Component
     {
         $this->category = RoomsProperty::where(function ($query) {
                 if ( $this->filterPlace != null )
-                    return $query->where('name_type', $this->filterPlace);
-
+                    return $query->where('type', $this->filterPlace);
             })->pluck('name', 'code');
-
-
-
 
         $this->wishlists = Wishlists::where('user_id', Auth::id())->distinct('listing_id')->pluck('listing_id')->toArray();
         $this->contentListing = Listings::select(
@@ -75,8 +83,12 @@ class Search extends Component
         ->leftJoin('listing_pricings', 'listings.id_listings', 'listing_pricings.listing_id')
         ->where(function ($query) {
             if ( $this->filter_categ != null )
-                return $query->where('listing_property_roomds.like_place', $this->filter_categ);
+                return $query->where('listing_property_roomds.property_type', $this->filter_categ);
 
+            if ( $this->filterPlace != null )
+                return $query->where('listing_property_roomds.like_place', $this->filterPlace);
+        })
+        ->where(function ($query) {
             if ( $this->filterPrice != null ){
                 if ( $this->filterPrice === '20' )
                     return $query->where('listing_pricings.base_price', '<=', '20');
@@ -97,6 +109,8 @@ class Search extends Component
 
     }
 
+    public function reLoadRender(){ }
+
     public function changeCateg($payload)
     {
         $this->filter_categ = $payload;
@@ -104,6 +118,6 @@ class Search extends Component
 
     public function resetFilter()
     {
-        $this->reset(['filter_categ','filterPrice']);
+        $this->reset(['filter_categ','filterPrice','filterPlace','inputPrice','inputPlace']);
     }
 }

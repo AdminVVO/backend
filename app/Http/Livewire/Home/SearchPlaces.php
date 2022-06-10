@@ -36,8 +36,8 @@ class SearchPlaces extends Component
         $this->disableButton['Decrease']['infant'] = true;
         $this->disableButton['Decrease']['pets'] = true;
 
-        $this->inputDateIn = Carbon::now()->format('d M Y');
-        $this->inputDateOut = Carbon::now()->format('d M Y');
+        $this->inputDateIn = Carbon::createFromDate('2022-05-21')->format('Y-m-d');
+        $this->inputDateOut = Carbon::createFromDate('2022-05-25')->format('Y-m-d');
     }
 
     public function render()

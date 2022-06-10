@@ -13,10 +13,11 @@ $(document).ready(function(){
     // $(".content-dots span.dot").on("click",function(){
         var index_dot = $(this).index();
         $(this).siblings("span.dot_active").removeClass("dot_active");   
-        $(this).addClass("dot_active"); 
-        $(this).parent(".content-dots").siblings(".card_img").children("img.card_img_active").removeClass("card_img_active");  
-        $(this).parent(".content-dots").siblings(".card_img").children("img").eq(index_dot).addClass("card_img_active");    
-    })  
+        $(this).addClass("dot_active");
+
+        $(this).parents(".card_info").siblings(".card_img").children("img.card_img_active").removeClass("card_img_active");  
+        $(this).parents(".card_info").siblings(".card_img").children("img").eq(index_dot).addClass("card_img_active");    
+    });
     
     $(document).on("click", ".content-dots > span, .card_love", function() {
         return false;
@@ -25,22 +26,23 @@ $(document).ready(function(){
     
     $('.caroursel_home').owlCarousel({
         loop: true,
-        margin: 35,
+        items: 5,
         nav: true,
         mouseDrag: false,
         autoWidth: true,
         responsive: {
             0:{
-                items:1
+                items: 1,
+                autoWidth: false
             },
 
-            700:{
-                items:2,
-                margin:25 
+            500:{
+                items: 2,
+                margin: 25,
             },
-            
-            1024:{
-                items:5
+
+            1400: {
+                margin: 35
             }
         }
     })

@@ -113,6 +113,10 @@ header {
             margin-top: 31px;
         }
     }
+
+    @include responsive(1400px) {
+        min-height: 80px;
+    }
 }
 
 ._mv-places {
@@ -188,7 +192,8 @@ header {
     &_items {
         margin-right: 50px;
 
-        img {
+        img,
+        i {
             margin-right: 10px;   
         }
     }
@@ -243,11 +248,6 @@ header {
 
         @include responsive(1400px) {
             border: 1px solid #E3EDF3;
-        }
-
-        @include responsive(768px) {
-            margin-top: -10px;
-            right: -7px;
         }
 
         &.active {
@@ -330,20 +330,17 @@ header {
     }  
 }
 
-
-
-
-
-@media screen and (max-width:768px) {
-    .menu{
-        & > a{
-            display: none; 
-        }
-    }
+.mnconfx {
+    display: flex;
+    align-items: center;
 }
 
 
-@media screen and (max-width: 1100px) {
+
+
+
+
+@include responsive(1100px) {
     .logo-menu{
         img{
             width: 185px;
@@ -351,13 +348,10 @@ header {
     }
     header{
         position: fixed;
-        background-color: $color-bg-header;
-        border-bottom: 1px solid #ffffff29;
-        // padding: 10px 0; 
     }
 } 
 
-@media screen and (max-width: 1000px) {
+@include responsive(1000px) {
     .logo-menu{
         img{
             width: 172px;
@@ -366,10 +360,133 @@ header {
 }
 
 
-@media screen and (max-width: 890px) {
+@include responsive(890px) {
     .logo-menu {
         img {
             width: 162px;
+        }
+    }
+}
+
+@include responsive(68px) {
+    .menu{
+        & > a{
+            display: none; 
+        }
+    }
+}
+
+@include responsive(743px) {
+    .page__home {
+        header {
+            .menu_items {
+                &.active {
+                    i {
+                        font-weight: 500;
+                        color: #FF5A5F;
+                    }
+
+                    a,
+                    span,
+                    .sub {
+                        color: #333;
+                        font-weight: 600;
+                    }
+                }
+            }
+        }
+    }
+
+    body {
+        header {
+            margin: 0;
+            height: 65px;
+            display: contents !important;
+
+            .mnconfx {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 0;
+
+                & > a,
+                .menu_items {
+                    max-width: 24%;
+                    flex: 1 1 0;
+                }
+            }
+
+            .medio {
+                justify-content: center;
+            }
+
+            .logo-menu {
+                display: none;
+            }
+
+            ._mv-places {
+                transition: none;
+            }
+
+            .menu {
+                position: fixed;
+                bottom: 0;
+                padding: 12px 0;
+                background-color: $color-white;
+                left: 0;
+                right: 0;
+                border-top: 1px solid #E3EDF3;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 100%;
+                z-index: 30;
+
+                a,
+                .menu span,
+                .menu_items .sub {
+                    color: #7D7D7D;
+                    font-size: 10px !important;
+                    line-height: 12px;
+                }
+
+                ._menu-bars {
+                    display: none
+                }
+
+                .hmen {
+                    max-width: 430px;
+                    width: 90%;
+                }
+
+                .menu_items {
+                    display: flex;
+                    width: fit-content;
+                    margin: 0;
+                    flex-direction: column;
+                    align-items: center;
+                    gap: 4px;
+                    text-align: center;
+
+                    i {
+                        font-size: 24px;
+                        font-weight: 500;
+                        margin: 0;
+                        color: #b0b0b0;
+                    }
+                }
+
+                .menu_home-content {
+                    display: none;
+                }
+
+                .menu__triang-ics {
+                    display: none;
+                }
+
+                .menu_home-content-items {
+                    display: none;
+                }
+            }
         }
     }
 }

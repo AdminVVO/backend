@@ -54,6 +54,7 @@ input {
 }
 
 .modal_block-welcome {
+  height: 100%;
   overflow-y: auto;
 }
 
@@ -99,9 +100,10 @@ input {
   max-height: 100vh;
   inset: 0px;
 }
-@media (max-width: 536px) {
+@media (max-width: 743px) {
   .container_add-payments .pd_addpymts-modal {
-    padding: 10px;
+    padding: 0px;
+    align-items: inherit;
   }
 }
 .container_add-payments .pd_addpymts-modal .modal_content-addpymts {
@@ -228,6 +230,12 @@ input {
   border-bottom: 2px solid #E3EDF3;
 }
 
+@media (max-width: 1400px) {
+  body .container-welcome .selected-modal {
+    margin: 8px 0 16px;
+  }
+}
+
 .container-welcome,
 .container-number,
 .container-options1,
@@ -244,6 +252,18 @@ input {
   left: 0;
   right: 0;
   bottom: 0;
+}
+.container-welcome ._txteh,
+.container-number ._txteh,
+.container-options1 ._txteh,
+.container-ineed ._txteh,
+.container-welcome-email ._txteh,
+.container-confirm-email ._txteh,
+.container-options-email ._txteh,
+.container-need-email ._txteh,
+.container-t-registro ._txteh,
+.container-msg-sent ._txteh {
+  margin: 0;
 }
 .container-welcome .modal-welcome,
 .container-number .modal-welcome,
@@ -279,7 +299,7 @@ input {
   max-height: 100vh;
   inset: 0px;
 }
-@media (max-width: 536px) {
+@media (max-width: 743px) {
   .container-welcome .pd_login-modal,
 .container-number .pd_login-modal,
 .container-options1 .pd_login-modal,
@@ -290,7 +310,8 @@ input {
 .container-need-email .pd_login-modal,
 .container-t-registro .pd_login-modal,
 .container-msg-sent .pd_login-modal {
-    padding: 10px;
+    padding: 0px;
+    align-items: inherit;
   }
 }
 .container-welcome .pd_login-modal .modal_content-welcome,
@@ -309,12 +330,12 @@ input {
   height: 100%;
   max-width: 1300px;
   max-height: 936px;
-  border-radius: 10px;
+  border-radius: 12px;
   z-index: 999;
   position: relative;
   overflow: hidden;
 }
-@media (max-width: 1440px) {
+@media (max-width: 1400px) {
   .container-welcome .pd_login-modal .modal_content-welcome,
 .container-number .pd_login-modal .modal_content-welcome,
 .container-options1 .pd_login-modal .modal_content-welcome,
@@ -325,7 +346,23 @@ input {
 .container-need-email .pd_login-modal .modal_content-welcome,
 .container-t-registro .pd_login-modal .modal_content-welcome,
 .container-msg-sent .pd_login-modal .modal_content-welcome {
-    max-width: 760px;
+    max-width: 1032px;
+    max-height: -webkit-fill-available;
+    height: auto;
+  }
+}
+@media (max-width: 743px) {
+  .container-welcome .pd_login-modal .modal_content-welcome,
+.container-number .pd_login-modal .modal_content-welcome,
+.container-options1 .pd_login-modal .modal_content-welcome,
+.container-ineed .pd_login-modal .modal_content-welcome,
+.container-welcome-email .pd_login-modal .modal_content-welcome,
+.container-confirm-email .pd_login-modal .modal_content-welcome,
+.container-options-email .pd_login-modal .modal_content-welcome,
+.container-need-email .pd_login-modal .modal_content-welcome,
+.container-t-registro .pd_login-modal .modal_content-welcome,
+.container-msg-sent .pd_login-modal .modal_content-welcome {
+    border-radius: 0;
   }
 }
 .container-welcome .pd_login-modal .modal_content-welcome > span,
@@ -344,8 +381,55 @@ input {
   color: white;
   font-size: 18px;
   padding: 13px 19.2px;
-  background: #FF5A5F;
+  background-color: #FF5A5F;
   border-radius: 0 10px 0 10px;
+}
+.container-welcome .pd_login-modal .modal_content-welcome > span:hover,
+.container-number .pd_login-modal .modal_content-welcome > span:hover,
+.container-options1 .pd_login-modal .modal_content-welcome > span:hover,
+.container-ineed .pd_login-modal .modal_content-welcome > span:hover,
+.container-welcome-email .pd_login-modal .modal_content-welcome > span:hover,
+.container-confirm-email .pd_login-modal .modal_content-welcome > span:hover,
+.container-options-email .pd_login-modal .modal_content-welcome > span:hover,
+.container-need-email .pd_login-modal .modal_content-welcome > span:hover,
+.container-t-registro .pd_login-modal .modal_content-welcome > span:hover,
+.container-msg-sent .pd_login-modal .modal_content-welcome > span:hover {
+  background-color: #DC383D;
+}
+@media (max-width: 1400px) {
+  .container-welcome .pd_login-modal .modal_content-welcome > span,
+.container-number .pd_login-modal .modal_content-welcome > span,
+.container-options1 .pd_login-modal .modal_content-welcome > span,
+.container-ineed .pd_login-modal .modal_content-welcome > span,
+.container-welcome-email .pd_login-modal .modal_content-welcome > span,
+.container-confirm-email .pd_login-modal .modal_content-welcome > span,
+.container-options-email .pd_login-modal .modal_content-welcome > span,
+.container-need-email .pd_login-modal .modal_content-welcome > span,
+.container-t-registro .pd_login-modal .modal_content-welcome > span,
+.container-msg-sent .pd_login-modal .modal_content-welcome > span {
+    padding: 0;
+    padding-bottom: 3px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 36px;
+    height: 36px;
+    font-size: 16px;
+  }
+}
+@media (max-width: 743px) {
+  .container-welcome .pd_login-modal .modal_content-welcome > span,
+.container-number .pd_login-modal .modal_content-welcome > span,
+.container-options1 .pd_login-modal .modal_content-welcome > span,
+.container-ineed .pd_login-modal .modal_content-welcome > span,
+.container-welcome-email .pd_login-modal .modal_content-welcome > span,
+.container-confirm-email .pd_login-modal .modal_content-welcome > span,
+.container-options-email .pd_login-modal .modal_content-welcome > span,
+.container-need-email .pd_login-modal .modal_content-welcome > span,
+.container-t-registro .pd_login-modal .modal_content-welcome > span,
+.container-msg-sent .pd_login-modal .modal_content-welcome > span {
+    border-radius: 0 0 0 10px;
+  }
 }
 .container-welcome .pd_login-modal .modal_content-welcome .img-left,
 .container-number .pd_login-modal .modal_content-welcome .img-left,
@@ -358,9 +442,8 @@ input {
 .container-t-registro .pd_login-modal .modal_content-welcome .img-left,
 .container-msg-sent .pd_login-modal .modal_content-welcome .img-left {
   width: 50%;
-  height: 100%;
 }
-@media (max-width: 1440px) {
+@media (max-width: 743px) {
   .container-welcome .pd_login-modal .modal_content-welcome .img-left,
 .container-number .pd_login-modal .modal_content-welcome .img-left,
 .container-options1 .pd_login-modal .modal_content-welcome .img-left,
@@ -402,7 +485,7 @@ input {
   width: 50%;
   border-radius: 10px;
 }
-@media (max-width: 1440px) {
+@media (max-width: 743px) {
   .container-welcome .pd_login-modal .modal_content-welcome .content_right,
 .container-number .pd_login-modal .modal_content-welcome .content_right,
 .container-options1 .pd_login-modal .modal_content-welcome .content_right,
@@ -429,6 +512,21 @@ input {
   display: grid;
   width: 100%;
 }
+@media (max-width: 743px) {
+  .container-welcome .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome,
+.container-number .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome,
+.container-options1 .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome,
+.container-ineed .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome,
+.container-welcome-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome,
+.container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome,
+.container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome,
+.container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome,
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome,
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome {
+    display: flex;
+    flex-direction: column;
+  }
+}
 .container-welcome .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .log,
 .container-number .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .log,
 .container-options1 .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .log,
@@ -448,6 +546,24 @@ input {
   font-weight: bold;
   color: #333333;
 }
+@media (max-width: 1400px) {
+  .container-welcome .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .log,
+.container-number .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .log,
+.container-options1 .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .log,
+.container-ineed .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .log,
+.container-welcome-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .log,
+.container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .log,
+.container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .log,
+.container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .log,
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .log,
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .log {
+    height: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2px;
+  }
+}
 .container-welcome .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome,
 .container-number .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome,
 .container-options1 .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome,
@@ -460,7 +576,7 @@ input {
 .container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome {
   padding: 0 75px 42px;
 }
-@media (max-width: 680px) {
+@media (max-width: 1400px) {
   .container-welcome .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome,
 .container-number .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome,
 .container-options1 .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome,
@@ -471,7 +587,21 @@ input {
 .container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome,
 .container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome,
 .container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome {
-    padding: 0 25px 25px;
+    padding: 24px;
+  }
+}
+@media (max-width: 743px) {
+  .container-welcome .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome,
+.container-number .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome,
+.container-options1 .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome,
+.container-ineed .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome,
+.container-welcome-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome,
+.container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome,
+.container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome,
+.container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome,
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome,
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome {
+    padding-bottom: 40px;
   }
 }
 .container-welcome .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome h3,
@@ -489,6 +619,21 @@ input {
   font-size: 35px;
   font-weight: bold;
 }
+@media (max-width: 1400px) {
+  .container-welcome .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome h3,
+.container-number .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome h3,
+.container-options1 .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome h3,
+.container-ineed .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome h3,
+.container-welcome-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome h3,
+.container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome h3,
+.container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome h3,
+.container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome h3,
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome h3,
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome h3 {
+    font-size: 22px;
+    margin: 8px 0 24px;
+  }
+}
 .container-welcome .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome h4,
 .container-number .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome h4,
 .container-options1 .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome h4,
@@ -504,6 +649,22 @@ input {
   color: #7D7D7D;
   border-left: 3px solid #00B5DD;
   padding: 0 0 0 18px;
+}
+@media (max-width: 1400px) {
+  .container-welcome .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome h4,
+.container-number .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome h4,
+.container-options1 .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome h4,
+.container-ineed .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome h4,
+.container-welcome-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome h4,
+.container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome h4,
+.container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome h4,
+.container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome h4,
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome h4,
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome h4 {
+    font-size: 12px;
+    border-left: 2px solid #00B5DD;
+    padding-left: 12px;
+  }
 }
 .container-welcome .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome .phone,
 .container-number .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome .phone,
@@ -523,23 +684,11 @@ input {
   width: 100%;
   padding: 16px 18px;
   font-size: 18px;
-  border: 1px solid #E3EDF3;
+  box-shadow: 0 0 0 1px #E3EDF3 inset;
   color: #7D7D7D;
   border-radius: 10px;
   font-weight: normal;
   transition: all 0.4s ease;
-}
-.container-welcome .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome .phone:hover,
-.container-number .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome .phone:hover,
-.container-options1 .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome .phone:hover,
-.container-ineed .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome .phone:hover,
-.container-welcome-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome .phone:hover,
-.container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome .phone:hover,
-.container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome .phone:hover,
-.container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome .phone:hover,
-.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome .phone:hover,
-.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome .phone:hover {
-  box-shadow: 0 0 15px rgba(40, 54, 70, 0.1);
 }
 .container-welcome .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome .phone::placeholder,
 .container-number .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome .phone::placeholder,
@@ -563,7 +712,25 @@ input {
 .container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome .phone:focus,
 .container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome .phone:focus,
 .container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome .phone:focus {
-  border: 1px solid #7D7D7D;
+  box-shadow: 0 0 0 2px #7D7D7D inset;
+}
+@media (max-width: 1400px) {
+  .container-welcome .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome .phone,
+.container-number .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome .phone,
+.container-options1 .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome .phone,
+.container-ineed .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome .phone,
+.container-welcome-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome .phone,
+.container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome .phone,
+.container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome .phone,
+.container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome .phone,
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome .phone,
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome .phone {
+    font-size: 16px;
+    padding: 12px;
+    line-height: 20px;
+    border-radius: 8px;
+    margin: 8px 0 12px;
+  }
 }
 .container-welcome .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome p,
 .container-number .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome p,
@@ -594,6 +761,21 @@ input {
   font-weight: bold;
   line-height: 28px;
   display: inline-block;
+}
+@media (max-width: 1400px) {
+  .container-welcome .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome p,
+.container-number .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome p,
+.container-options1 .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome p,
+.container-ineed .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome p,
+.container-welcome-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome p,
+.container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome p,
+.container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome p,
+.container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome p,
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome p,
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome p {
+    font-size: 12px;
+    line-height: 16px;
+  }
 }
 .container-welcome .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome .block_a,
 .container-number .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome .block_a,
@@ -639,6 +821,32 @@ input {
 .container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome .block_a button:hover {
   background-color: #0096B7;
 }
+@media (max-width: 1400px) {
+  .container-welcome .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome .block_a,
+.container-number .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome .block_a,
+.container-options1 .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome .block_a,
+.container-ineed .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome .block_a,
+.container-welcome-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome .block_a,
+.container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome .block_a,
+.container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome .block_a,
+.container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome .block_a,
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome .block_a,
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome .block_a {
+    margin: 16px 0 24px;
+  }
+  .container-welcome .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome .block_a button,
+.container-number .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome .block_a button,
+.container-options1 .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome .block_a button,
+.container-ineed .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome .block_a button,
+.container-welcome-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome .block_a button,
+.container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome .block_a button,
+.container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome .block_a button,
+.container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome .block_a button,
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome .block_a button,
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome .block_a button {
+    font-size: 16px;
+  }
+}
 .container-welcome .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome .block_redes,
 .container-number .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome .block_redes,
 .container-options1 .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome .block_redes,
@@ -667,6 +875,19 @@ input {
   color: #7D7D7D;
   font-size: 18px;
   font-weight: normal;
+  transition: box-shadow 0.3s ease;
+}
+.container-welcome .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome .block_redes a:hover,
+.container-number .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome .block_redes a:hover,
+.container-options1 .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome .block_redes a:hover,
+.container-ineed .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome .block_redes a:hover,
+.container-welcome-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome .block_redes a:hover,
+.container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome .block_redes a:hover,
+.container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome .block_redes a:hover,
+.container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome .block_redes a:hover,
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome .block_redes a:hover,
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome .block_redes a:hover {
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.03);
 }
 .container-welcome .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome .block_redes a .contend_red,
 .container-number .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome .block_redes a .contend_red,
@@ -699,6 +920,7 @@ input {
   align-items: center;
   justify-content: center;
   background-color: #00B5DD;
+  min-width: 53px;
   width: 53px;
   height: 53px;
   margin-right: 26.4px;
@@ -715,6 +937,51 @@ input {
 .container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome .block_redes a .contend_red .flex_icon i {
   font-size: 20px;
   color: white;
+}
+@media (max-width: 1400px) {
+  .container-welcome .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome .block_redes,
+.container-number .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome .block_redes,
+.container-options1 .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome .block_redes,
+.container-ineed .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome .block_redes,
+.container-welcome-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome .block_redes,
+.container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome .block_redes,
+.container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome .block_redes,
+.container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome .block_redes,
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome .block_redes,
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome .block_redes {
+    display: grid;
+    grid-template-columns: 1fr;
+    border-radius: 8px;
+    padding: 24px;
+    gap: 16px;
+  }
+  .container-welcome .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome .block_redes a .contend_red,
+.container-number .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome .block_redes a .contend_red,
+.container-options1 .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome .block_redes a .contend_red,
+.container-ineed .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome .block_redes a .contend_red,
+.container-welcome-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome .block_redes a .contend_red,
+.container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome .block_redes a .contend_red,
+.container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome .block_redes a .contend_red,
+.container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome .block_redes a .contend_red,
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome .block_redes a .contend_red,
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome .block_redes a .contend_red {
+    margin: 0;
+    gap: 16px;
+    font-size: 16px;
+    line-height: 20px;
+  }
+  .container-welcome .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome .block_redes a .contend_red .flex_icon,
+.container-number .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome .block_redes a .contend_red .flex_icon,
+.container-options1 .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome .block_redes a .contend_red .flex_icon,
+.container-ineed .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome .block_redes a .contend_red .flex_icon,
+.container-welcome-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome .block_redes a .contend_red .flex_icon,
+.container-confirm-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome .block_redes a .contend_red .flex_icon,
+.container-options-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome .block_redes a .contend_red .flex_icon,
+.container-need-email .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome .block_redes a .contend_red .flex_icon,
+.container-t-registro .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome .block_redes a .contend_red .flex_icon,
+.container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome .block_redes a .contend_red .flex_icon {
+    margin: 0;
+  }
 }
 .container-welcome .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome-email,
 .container-number .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome-email,

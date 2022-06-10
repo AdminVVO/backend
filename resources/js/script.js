@@ -2,7 +2,7 @@
 $(document).scroll(function() {
     const docScrollTop = document.documentElement.scrollTop;
     
-    if (window.innerWidth > 768) {
+    if (window.innerWidth > 743) {
         if(docScrollTop > 100) {
             document.querySelector("header").classList.add("fixed");
         } else {
@@ -44,6 +44,10 @@ $(document).mouseup(e => {
 if (!$menuBars.is(e.target) && $menuBars.has(e.target).length === 0) {
         $menuBars.removeClass('is-active');
     }
+});
+
+$("._header-menu .menu__text-link").on("click", function() {
+    $menuBars.removeClass("is-active");
 });
 
 $('._menu-bars').on('click', () => {

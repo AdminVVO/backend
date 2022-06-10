@@ -45,6 +45,11 @@ $(document).ready(function() {
         animateTopModals();
         $(".container-welcome").show();
     });
+    
+    $(".js__btnFavoriteUi").on("click", function() {
+        animateTopModals();
+        $(".container-wishlists").show();
+    });
 
     // ---------------------- trips ----------------------
     $(".showDetailsPastPopup").on("click", function() {

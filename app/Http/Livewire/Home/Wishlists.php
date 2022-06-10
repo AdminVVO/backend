@@ -18,12 +18,9 @@ class Wishlists extends Component
     public $photo;
     public $inputWishlists;
     public $wishlists;
-    public $section;
 
     protected $listeners = [
-        'addListingIdTitle' => 'addListingIdTitle',
-        'addListingIdFilter' => 'addListingIdFilter',
-        'addListingIdPopular' => 'addListingIdPopular',
+        'addListing' => 'addListing',
     ];
 
     public function render()
@@ -37,42 +34,16 @@ class Wishlists extends Component
         $this->steps = 'created';
     }
 
-    public function addListingInit()
+    public function addListing($payload)
     {
+        $this->reset(['inputWishlists','steps','photo','listingId']);
+        $this->listingId = $payload;
+
         $queryListing = Listings::where([
             'id_listings' => $this->listingId,
         ])->pluck('photos')->first();
 
         $this->photo = $queryListing[0];
-    }
-
-    public function addListingIdTitle($payload)
-    {
-        $this->reset(['inputWishlists','steps','photo','listingId','section']);
-        $this->listingId = $payload;
-        $this->section = 'title';
-
-        $this->addListingInit();
-    }
-
-    public function addListingIdFilter($payload)
-    {
-        dd($payload);
-        $this->reset(['inputWishlists','steps','photo','listingId','section']);
-        $this->listingId = $payload;
-        $this->section = 'filter';
-
-        $this->addListingInit();
-    }
-
-    public function addListingIdPopular($payload)
-    {
-        dd($payload);
-        $this->reset(['inputWishlists','steps','photo','listingId','section']);
-        $this->listingId = $payload;
-        $this->section = 'popular';
-
-        $this->addListingInit();
     }
 
     public function addFavority($payload)
@@ -83,17 +54,11 @@ class Wishlists extends Component
             'listing_id' => $this->listingId,
             'user_id'    => Auth::id(),
         ]);
+
+        $this->reset(['inputWishlists','steps','photo','listingId']);
         $this->dispatchBrowserEvent('closedModalFavority');
         $this->alert('success', 'Update has been successful!');
-
-        if ( $this->section == 'title' )
-            return $this->emitTo('home.cards-title', 'reLoadRender');
-
-        if ( $this->section == 'filter' )
-            return $this->emitTo('home.cards-filters', 'reLoadRender');
-
-        if ( $this->section == 'popular' )
-            return $this->emitTo('home.cards-all', 'reLoadRender');
+        $this->emit('reLoadRender');
     }
 
     public function SubmitWishlists()
@@ -115,17 +80,10 @@ class Wishlists extends Component
             'listing_id' => $this->listingId,
             'user_id'    => Auth::id(),
         ]);
-        $this->reset(['inputWishlists','steps','photo','listingId','section']);
+
+        $this->reset(['inputWishlists','steps','photo','listingId']);
         $this->dispatchBrowserEvent('closedModalFavority');
         $this->alert('success', 'Update has been successful!');
-
-        if ( $this->section == 'title' )
-            return $this->emitTo('home.cards-title', 'reLoadRender');
-
-        if ( $this->section == 'filter' )
-            return $this->emitTo('home.cards-filters', 'reLoadRender');
-
-        if ( $this->section == 'popular' )
-            return $this->emitTo('home.cards-all', 'reLoadRender');
+        $this->emit('reLoadRender');
     }
 }

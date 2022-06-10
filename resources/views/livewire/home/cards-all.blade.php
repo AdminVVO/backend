@@ -1,7 +1,6 @@
 <div class="medio">
     @forelse ($contentAllListing as $element)
         <a href="{{ route('interna', $element['id_listings'] ) }}" class="card_items">
-
             <div class="card_top">
                 <div class="card_top_price">
                     <i class="fas fa-dollar-sign"></i>
@@ -17,7 +16,7 @@
                 @if ( in_array($element['id_listings'], $wishlists))
                     <button type="button" class="card_love icon_solid">
                 @else
-                    <button type="button" class="card_love showFavorite" wire:click="$emitTo('home.wishlists', 'addListingIdPopular', '{{ $element['id_listings']  }}')">
+                    <button type="button" class="card_love showFavorite" wire:click="$emitTo('home.wishlists', 'addListing', '{{ $element['id_listings']  }}')">
                 @endif
             @else
                 <button type="button" class="card_love butnSignModl">
@@ -36,12 +35,13 @@
                 <img src="{{ URL::asset('storage/uploadListing/' . $element['photos'][2]) }}" alt="">
             </div>
 
-            <div class="content-dots">
-                <span class="dot"></span>
-                <span class="dot"></span>
-                <span class="dot"></span>
-            </div>
             <div class="card_info">
+                <div class="content-dots">
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                </div>
+
                 <div class="card_info_text">
                     <h2 class="h2-cards">{{ $element['title'] }}</h2>
                     <div class="card_info_rating">

@@ -1,11 +1,11 @@
 <div class="flex cards_content owl-carousel caroursel_home" wire:ignore.self>
     @foreach ($contentListing as $element)
-        <a href="{{ route('interna', $element['id_listings'] ) }}" class="card_items item">
+        <a href="{{ route('interna', $element['id_listings'] ) }}" class="card_items item ">
             @if ( Auth::check() )
                 @if ( in_array($element['id_listings'], $wishlists))
                     <button type="button" class="card_love icon_solid">
                 @else
-                    <button type="button" class="card_love showFavorite" wire:click="$emitTo('home.wishlists', 'addListingIdTitle', '{{ $element['id_listings']  }}')">
+                    <button type="button" class="card_love showFavorite" wire:click="$emitTo('home.wishlists', 'addListing', '{{ $element['id_listings']  }}')">
                 @endif
             @else
                 <button type="button" class="card_love butnSignModl">
@@ -24,17 +24,17 @@
                 <img src="{{ URL::asset('storage/uploadListing/' . $element['photos'][2]) }}" alt="">
             </div>
 
-            <div class="content-dots">
-                <span class="dot"></span>
-                <span class="dot"></span>
-                <span class="dot"></span>
-            </div>
             <div class="card_info">
-                <div class="card_info_text">
-                    <h2 class="h2-cards">{{ $element['title'] }}</h2>
-
+                <div class="content-dots">
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
                 </div>
-                <h3 class="h3-cards">{{ ucwords( \App\Models\RoomsProperty::TypeName( $element['like_place'] )  . ' - ' . \App\Models\RoomsProperty::PropertyName( $element['property_type'] ) ) }}</h3>
+
+                <div class="card_info_text">
+                    <h2 class="h2-cards text_tm1">{{ $element['title'] }}</h2>
+                </div>
+                <h3 class="h3-cards text_tm1">{{ ucwords( \App\Models\RoomsProperty::TypeName( $element['like_place'] )  . ' - ' . \App\Models\RoomsProperty::PropertyName( $element['property_type'] ) ) }}</h3>
             </div>
         </a>
     @endforeach

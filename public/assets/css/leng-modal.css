@@ -8,6 +8,11 @@
     max-width: 1032px;
   }
 }
+@media (max-width: 743px) {
+  .container_leng_region .fxfbwhmhbrzi {
+    max-height: initial;
+  }
+}
 .container_leng_region .h2-guests {
   font-size: 35px;
 }

@@ -16,7 +16,13 @@
     @laravelTelInputStyles
 </head>
 
-<body class="page-category">
+@if ( in_array( Route::currentRouteName(),['/']) )
+    <body class="page-category page__home vvo_ui" style="padding-top: 0px;">
+@endif
+
+@if ( !in_array( Route::currentRouteName(),['/']) )
+    <body class="page-category">
+@endif
 
     @yield('header')
 

@@ -15,7 +15,7 @@
                 <select wire:model="inputPlace">
                     <option value="">Type of place</option>
                     @foreach ($places as $key => $element)
-                        <option value="{{ $element }}">{{ $element }}</option>
+                        <option value="{{ $key }}">{{ $element }}</option>
                     @endforeach
                 </select>
                 <i class="far fa-chevron-down"></i>
@@ -39,12 +39,12 @@
     <div class="flex_local-dates">
         <div class="content_location-width">
             <div class="desc-location">
-                <h5>{{ $countListing }} stays in Orlando</h5>
+                <h5 class="_txtec">{{ $countListing }} stays in Orlando</h5>
             </div>
             <div class="content_view">
                 <div class="hidden_galerias">
                     @forelse ($contentListing as $element)
-                        <a href="#" class="content_galerias">
+                        <a href="{{ route('interna', $element['id_listings'] ) }}" class="content_galerias">
                             <div class="slideshow-container">
                                 <div class="star">
                                     <div class="content-star">
@@ -56,7 +56,7 @@
                                     @if ( in_array($element['id_listings'], $wishlists))
                                         <button type="button" class="card_love icon_solid">
                                     @else
-                                        <button type="button" class="card_love showFavorite" wire:click="$emitTo('home.wishlists', 'addListingIdFilter', '{{ $element['id_listings']  }}')">
+                                        <button type="button" class="card_love showFavorite" wire:click="$emitTo('home.wishlists', 'addListing', '{{ $element['id_listings']  }}')">
                                     @endif
                                 @else
                                     <button type="button" class="card_love butnSignModl">
@@ -91,7 +91,10 @@
                                     @endif
                                 @endforeach
                                 <p class="total_local">
-                                    <i class="fas fa-dollar-sign"></i> {{ $element['base_price'] }} / night <i class="far fa-long-arrow-right"></i> <span class="t">Total</span> <i class="fas fa-dollar-sign"></i> 5,387
+                                    <i class="fas fa-dollar-sign"></i> {{ $element['base_price'] }} / night 
+                                    @if ( $daysDiff != 0 )
+                                        <i class="far fa-long-arrow-right"></i> <span class="t">Total</span> <i class="fas fa-dollar-sign"></i> {{ $element['base_price'] * $daysDiff }}
+                                    @endif
                                 </p>
                             </div>
                         </a>

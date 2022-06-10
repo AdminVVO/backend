@@ -12,7 +12,17 @@ class SearchFlexible extends Component
     public $contentListing;
     public $wishlists;
     
-    public function mount()
+    protected $listeners = [
+        'reLoadRender' => 'reLoadRender'
+    ];
+    
+    public function render()
+    {
+        $this->preLoad();
+        return view('livewire.search.search-flexible');
+    }
+
+    public function preLoad()
     {
         $this->wishlists = Wishlists::where('user_id', Auth::id())->distinct('listing_id')->pluck('listing_id')->toArray();
         $this->contentListing = Listings::select(
@@ -28,13 +38,10 @@ class SearchFlexible extends Component
         ->get();
     }
 
-    public function render()
+    public function addListingSend($payload)
     {
-        return view('livewire.search.search-flexible');
+        $this->emit('addListing', $payload);
     }
 
-    public function changeeee()
-    {
-        dd('asdasd');
-    }
+    public function reLoadRender(){ }
 }
