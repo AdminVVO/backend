@@ -10,23 +10,23 @@
             </div>
         </div>
 
-        <div class="inputBox">
+        <div class="inputBox" wire:ignore>
             <label for="check_in">
                 <div class="place_select">
                     <span>Check in</span>
                     <i class="far fa-calendar-alt">
-                        <input type="text" class="_date-check" id="check_in" placeholder="Add dates" readonly wire:model.defer="inputDateIn">
+                        <input id="easypick" placeholder="Add dates">
                     </i>
                 </div>
             </label>
         </div>
 
-        <div class="inputBox">
+        <div class="inputBox" wire:ignore>
             <label for="check_in" class="check_out">
-                <div class="place_select">
+                <div class="place_select endEasypick">
                     <span>Check Out</span>
                     <i class="far fa-calendar-alt">
-                        <input type="text" class="_date-check-out" placeholder="Add dates" readonly wire:model.defer="inputDateOut">
+                        <input id="endEasypick" placeholder="Add dates">
                     </i>
                 </div>
             </label>

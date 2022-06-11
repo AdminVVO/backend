@@ -9,7 +9,7 @@
 
 	        <div class="_mv-places">
 	            <div class="book-form book-f_home _remove">
-                	@livewire('home.search-places')
+                	@livewire('home.search-places', ['request' => isset( $request ) ? $request : '' ])
 	            </div>
 	        </div>
 

@@ -18,14 +18,24 @@ class SearchPlaces extends Component
     public $inputPets = 0; 
     public $inputDateIn; 
     public $inputDateOut; 
+    public $request; 
 
     public $disableButton = [
         'Increase' => [],
         'Decrease' => [],
     ];
 
+    protected $listeners = [
+        'selectDate' => 'selectDate'
+    ];
+
     public function mount()
     {   
+        if ( $this->request != null ) {
+            $this->inputDateIn = $this->request['inputDateIn'];
+            $this->inputDateOut = $this->request['inputDateOut'];
+        }
+
         $this->disableButton['Increase']['adult'] = false;
         $this->disableButton['Increase']['kids'] = false;
         $this->disableButton['Increase']['infant'] = false;
@@ -36,13 +46,17 @@ class SearchPlaces extends Component
         $this->disableButton['Decrease']['infant'] = true;
         $this->disableButton['Decrease']['pets'] = true;
 
-        $this->inputDateIn = Carbon::createFromDate('2022-05-21')->format('Y-m-d');
-        $this->inputDateOut = Carbon::createFromDate('2022-05-25')->format('Y-m-d');
     }
 
     public function render()
     {
         return view('livewire.home.search-places');
+    }
+
+    public function selectDate($paylaod)
+    {
+        $this->inputDateIn = Carbon::createFromDate( $paylaod[0] )->format('d-m-Y');
+        $this->inputDateOut = Carbon::createFromDate( $paylaod[1] )->format('d-m-Y');
     }
 
     public function SubmitPlaces()
@@ -106,8 +120,6 @@ class SearchPlaces extends Component
                     if ( $this->inputPets >= 5 ) 
                         $this->disableButton['Increase']['pets'] = true;
             }
-
-        $this->alert('success', 'Update has been successful!');
     }
 
     public function buttonDecrease($paylaod)

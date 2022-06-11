@@ -19,6 +19,12 @@
 <script src="{{ URL::asset('assets/js/date-piker.js') }}"></script>
 <script src="{{ URL::asset('assets/js/date-range-piker.js') }}"></script>
 
+<!-- libreria js de un calendario Easepick -->
+<script src="https://cdn.jsdelivr.net/npm/@easepick/bundle@1.2.0/dist/index.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@easepick/core@1.2.0/dist/index.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@easepick/base-plugin@1.2.0/dist/index.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@easepick/range-plugin@1.2.0/dist/index.umd.min.js"></script>
+
 <script src="{{ URL::asset('js/application.js') }}"></script>
 <script src="{{ URL::asset('assets/js/script.js') }}"></script>
 

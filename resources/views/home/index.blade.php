@@ -111,6 +111,42 @@
     <script src="{{ URL::asset('assets/js/modals-min.js') }}"></script>
 
     <script>
+    	const picker = new easepick.create({
+    		element: '#easypick',
+    		css: [
+        		'https://cdn.jsdelivr.net/npm/@easepick/core@1.2.0/dist/index.css',
+        		'https://cdn.jsdelivr.net/npm/@easepick/range-plugin@1.2.0/dist/index.css',
+    		],
+    		plugins: ['RangePlugin'],
+    		format: 'DD-MM-YY',
+    		calendars: 2,
+    		grid: 2,
+    		autoApply: false,
+    			tooltip: true,
+    			locale: {
+    				one: 'day',
+    				other: 'days',
+    			},
+    		RangePlugin: {
+    			elementEnd: '#endEasypick',
+    		},
+    		setup(picker) {
+    			picker.on('select', (e) => {
+				var content = [
+					startDate = picker.getStartDate(),
+					endDate = picker.getEndDate(),
+				];
+				Livewire.emitTo('home.search-places', 'selectDate', content )
+			  });
+    		},
+    	});
+
+    	$('.endEasypick').click(function(event) {
+    		picker.show();
+    	});
+    </script>
+
+    <script>
 		window.addEventListener('closedModalFavority', event => {
 	        $(".container_user-host, .container_admin-host, .container_preview_guests_pay").hide();
     		$(".page-category").css({'overflow': 'auto'});
