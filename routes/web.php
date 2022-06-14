@@ -49,6 +49,10 @@ Route::middleware(['AccountDisable'])->group( function(){
 
 
 
+    Route::get('/personal/validation', function () {
+        return view('person.validation');
+    })->name('/personal/validation');
+
 
     ## Routes Home
     Route::get('/', [HomeController::class, 'viewHome'])->name('/');
