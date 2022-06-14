@@ -55,6 +55,12 @@ return [
             'url' => env('APP_URL').'/storage',
         ],
 
+        'uploadPersonalValidation' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public/PersonalValidation'),
+            'url' => env('APP_URL').'/storage',
+        ],
+
         'public' => [
             'driver' => 'local',
             'root' => storage_path('app/public'),
