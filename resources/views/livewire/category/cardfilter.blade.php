@@ -1,19 +1,17 @@
 <div>
     <div class="tabs entero">
         <div class="medio">
-            <div class="content-scroll-local">
-                <div class="tabs_items_group select">
-                    @foreach ($category as $key => $element)
-                        <button type="button" class="li__links-txt">
-                            <span class="tabs_items {{ $key === $filter_categ ? 'active_tabs' : '' }}"
-                                wire:click="changeCateg('{{ $key }}')">{{ $element }}</span>
-                        </button>
-                    @endforeach
-                </div>
-                <div class="btn-right-scroll">
-                    <span class="bg-btn-right">
-                        <i class="fas fa-chevron-right"></i>
-                    </span>
+            <div class="navcont__flech-fx" wire:ignore>
+                <div class="cont_nav">
+                    <div class="nav__links-txt scroll_n owl-carousel carousel_btn_nav js_navlinkstabs">
+                        @foreach ($category as $key => $element)
+                            <button type="button" class="li__links-txt">
+                                <span class="tabs_items {{ $key === $filter_categ ? 'active_tabs' : '' }}" wire:click="changeCateg('{{$key}}')">{{ $element }}</span>
+                            </button>
+                        @endforeach
+                    </div>
+
+                    <div class="vvo_owl_nav vvo_nav_flech"></div>
                 </div>
             </div>
             <div class="tabs_select">
@@ -54,19 +52,21 @@
                             <p>24 dec - 31 dec</p>
                         </div>
                     </div>
-                    <button>
-                        <div class="card_love">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="27.003" height="23.878"
-                                viewBox="0 0 27.003 23.878">
-                                <g transform="translate(1.002 -1.245)" fill="rgba(222,222,222,0.38)" stroke="#dedede"
-                                    stroke-width="2">
-                                    <path
-                                        d="M22.573,3.743a6.677,6.677,0,0,0-9.111.664L12.5,5.4l-.962-.991a6.677,6.677,0,0,0-9.111-.664,7.011,7.011,0,0,0-.483,10.151l9.448,9.756a1.531,1.531,0,0,0,2.212,0l9.448-9.756a7.007,7.007,0,0,0-.479-10.151Z" />
-                                    <path
-                                        d="M22.573,3.743a6.677,6.677,0,0,0-9.111.664L12.5,5.4l-.962-.991a6.677,6.677,0,0,0-9.111-.664,7.011,7.011,0,0,0-.483,10.151l9.448,9.756a1.531,1.531,0,0,0,2.212,0l9.448-9.756a7.007,7.007,0,0,0-.479-10.151Z" />
-                                </g>
-                            </svg>
-                        </div>
+                    @if ( Auth::check() )
+                        @if ( in_array($item['id_listings'], $wishlists))
+                            <button type="button" class="card_love icon_solid">
+                        @else
+                            <button type="button" class="card_love showFavorite" wire:click="$emitTo('home.wishlists', 'addListing', '{{ $item['id_listings']  }}')">
+                        @endif
+                    @else
+                        <button type="button" class="card_love butnSignModl">
+                    @endif
+                        <svg xmlns="http://www.w3.org/2000/svg" width="27.003" height="23.878" viewBox="0 0 27.003 23.878">
+                            <g transform="translate(1.002 -1.245)" fill="rgba(222,222,222,0.38)" stroke="#dedede" stroke-width="2">
+                                <path d="M22.573,3.743a6.677,6.677,0,0,0-9.111.664L12.5,5.4l-.962-.991a6.677,6.677,0,0,0-9.111-.664,7.011,7.011,0,0,0-.483,10.151l9.448,9.756a1.531,1.531,0,0,0,2.212,0l9.448-9.756a7.007,7.007,0,0,0-.479-10.151Z" />
+                                <path d="M22.573,3.743a6.677,6.677,0,0,0-9.111.664L12.5,5.4l-.962-.991a6.677,6.677,0,0,0-9.111-.664,7.011,7.011,0,0,0-.483,10.151l9.448,9.756a1.531,1.531,0,0,0,2.212,0l9.448-9.756a7.007,7.007,0,0,0-.479-10.151Z" />
+                            </g>
+                        </svg>
                     </button>
                     <div class="card_img">
 
@@ -87,7 +87,7 @@
                                 <p>4.89 <span>(15)</span></p>
                             </div>
                         </div>
-                        <h3 class="h3-cards">{{ $item->distance }} miles away</h3>
+                        <h3 class="h3-cards">{{ ucwords( \App\Models\RoomsProperty::TypeName( $item['like_place'] )  . ' - ' . \App\Models\RoomsProperty::PropertyName( $item['property_type'] ) ) }}</h3>
                     </div>
                 </a>
             @empty

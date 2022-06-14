@@ -18,12 +18,13 @@ class Cardhotel extends Component
 
     public function mount()
     {
+        $this->wishlists = Wishlists::where('user_id', Auth::id())->distinct('listing_id')->pluck('listing_id')->toArray();
         $this->preLoad();
     }
 
     public function render()
     {
-        return view('livewire.home.cards-all');
+        return view('livewire.category.cardhotel', ['sites' => $this->preLoad()]);
     }
 
     public function preLoad()
@@ -35,11 +36,12 @@ class Cardhotel extends Component
             'listings.photos',
             'listing_property_roomds.like_place',
             'listing_property_roomds.property_type',
-            'listing_pricings.base_price',
+            'listing_pricings.base_price as price',
         )
         ->leftJoin('listing_property_roomds', 'listings.id_listings', 'listing_property_roomds.listing_id')
         ->leftJoin('listing_pricings', 'listings.id_listings', 'listing_pricings.listing_id')
         ->get();
+        return $this->contentAllListing;
     }
 
     public function reLoadRender()

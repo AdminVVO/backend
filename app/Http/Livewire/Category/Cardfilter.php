@@ -8,6 +8,7 @@ use App\Models\Wishlists;
 use Livewire\Component;
 use App\Models\CardCategory;
 use App\Models\Category;
+use Auth;
 
 class Cardfilter extends Component
 {
@@ -32,6 +33,8 @@ class Cardfilter extends Component
 
     public function preLoadContent()
     {
+        //TODO: AGREGAR DATE.
+        $this->wishlists = Wishlists::where('user_id', Auth::id())->distinct('listing_id')->pluck('listing_id')->toArray();
         $this->contentListing = Listings::select(
             'listings.id_listings',
             'listings.title as title',
