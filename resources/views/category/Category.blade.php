@@ -6,6 +6,7 @@
     <link href="{{ URL::asset('assets/css/owl.carousel.min.css') }}" rel="stylesheet"/>
     <link href="{{ URL::asset('assets/css/header-bck.css') }}" rel="stylesheet" />
     <link href="{{ URL::asset('assets/css/category.css') }}" rel="stylesheet" />
+    <link href="{{ URL::asset('assets/css/modals-user.css') }}" rel="stylesheet"/>
 
 @endsection
 @section('content')
@@ -66,12 +67,19 @@
             @livewire('category.cardpool')
         </div>
     </div>
+
+    @section('modals')
+
+        {{-- Modal Favority --}}
+        @include('home.modals.favorite')
+
+    @endsection
 @endsection
 
 
 @section('script')
 
-	{{-- <script src="{{ URL::asset('assets/js/places.js') }}"></script> --}}
+{{-- <script src="{{ URL::asset('assets/js/places.js') }}"></script> --}}
 	<script src="{{ URL::asset('assets/js/owl.carousel.min.js') }}"></script>
 	<script src="{{ URL::asset('assets/js/slider_home.js') }}"></script>
     <script src="{{ URL::asset('assets/js/modals-min.js') }}"></script>
