@@ -37,13 +37,13 @@ class Init extends Component
     public function saveFile()
     {
         $payload = $this->next();
-        
+
         if ($this->personmet === 'airbnb') {
             $payload['to'] = 'finishUploadFile';
             $this->emitUp('eventSteps', $payload);
         }
 
-        if ($this->personmet === 'upload') {
+        if ($this->personmet === 'upload' || $this->personmet === 'webcan') {
 
             $extensionPhoto = pathinfo($this->photo->getClientOriginalName(), PATHINFO_EXTENSION);
             $namePhoto = Str::random(10) . '-' . Auth::id() . '.' . $extensionPhoto;

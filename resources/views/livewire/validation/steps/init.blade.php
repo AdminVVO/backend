@@ -3,8 +3,8 @@
 
     <div class="_gap">
         <div class="radio-item_rscrm">
-            <input type="radio" fileClickWeb id="youid" name="personmet" wire:model.defer="personmet" value="upload">
-            <label for="youid">
+            <input type="radio" fileClickWeb id="web" name="personmet" wire:model.defer="personmet" value="upload">
+            <label for="web">
                 <div class="content_flex-actv">
                     <div class="flex-msg">
                         <div class="_block">
@@ -18,7 +18,7 @@
         </div>
 
         <div class="radio-item_rscrm">
-            <input type="radio"  id="webcam" name="personmet" wire:model.defer="personmet" value="webcan">
+            <input type="radio" fileClickCam id="webcam" name="personmet" wire:model.defer="personmet" value="webcan">
             <label for="webcam">
                 <div class="content_flex-actv">
                     <div class="flex-msg">
@@ -30,7 +30,7 @@
                 <span class="before_check"></span>
             </label>
         </div>
-        
+
         <div class="radio-item_rscrm">
             <input type="radio" id="mobileapp" name="personmet" wire:model.defer="personmet" value="airbnb">
             <label for="mobileapp">
@@ -48,10 +48,13 @@
     </div>
 
     <form wire:submit.prevent="saveFile">
-        <input type="file" accept="image/*" capture="camera" wire:model="photo" fileShow style="display:none;" class="@error('photo') error_input @enderror">
+        <input type="file" accept="image/*" wire:model="photo" fileShow style="display:none;"
+            class="@error('photo') error_input @enderror">
+        <input type="file" accept="image/*" capture="camera" wire:model="photo" cameraShow style="display:none;"
+            class="@error('photo') error_input @enderror">
         @error('photo')
-            <div  class="_txterror">
-                <i class="fas fa-exclamation-circle icon1"></i> 
+            <div class="_txterror">
+                <i class="fas fa-exclamation-circle icon1"></i>
                 {{ $message }}
             </div>
         @enderror
@@ -84,19 +87,20 @@
                 return navigator.userAgent.match(/IEMobile/i);
             },
             any: function() {
-                return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
+                return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() ||
+                    isMobile.Windows());
             }
         };
 
-        $('[fileClickWeb]').click(function(){
-            $('[fileShow]').click();
-            console.log($('[fileShow]'))
-        });
-
-        $('[fileClickCam]').click(function(){
-            if( isMobile.any() )
+        $('[fileClickWeb]').click(function() {
+            if ($('#web').val()) {
                 $('[fileShow]').click();
+            }
         });
 
+        $('[fileClickCam]').click(function() {
+            if (isMobile.any())
+                $('[cameraShow]').click();
+        });
     </script>
 @endpush
