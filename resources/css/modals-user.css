@@ -1855,6 +1855,42 @@ body .container_dates-edit .popup-dates-edit .lightpick__apply-action {
     border-top: 1px solid #E3EDF3;
   }
 }
+body .container_calendar_vvo {
+  display: none;
+}
+body .container_calendar_vvo .fxfbwhmhbrzi {
+  max-width: 796px;
+}
+body .container_calendar_vvo .lightpick {
+  width: 100%;
+}
+body .container_calendar_vvo .popup-dates-edit .lightpick__apply-action {
+  display: none;
+}
+@media (max-width: 1400px) {
+  body .container_calendar_vvo .fxfbwhmhbrzi {
+    max-width: 700px;
+  }
+  body .container_calendar_vvo .h2-guests {
+    font-size: 22px;
+    line-height: 26px;
+  }
+  body .container_calendar_vvo .popup-dates-edit .cont-foot .span-guests {
+    font-size: 14px;
+    line-height: 18px;
+  }
+}
+@media (max-width: 743px) {
+  body .container_calendar_vvo .popup-dates-edit .lightpick__footer {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 16px 24px;
+    background: #FFFFFF;
+    border-top: 1px solid #E3EDF3;
+  }
+}
 body .container_guests_edit {
   display: none;
 }

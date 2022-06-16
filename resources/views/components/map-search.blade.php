@@ -1,35 +1,16 @@
-@extends('layouts.App')
+<div 
+class="_absolute" 
+wire:ignore 
+x-data
+x-init="
+    {{-- loadMapbox({{ $attributes->get('latitude') }}, {{ $attributes->get('longitude') }}); --}}
+    loadMapbox();
 
-@section('title') NAMEPAGE @endsection
+    function loadMapbox (latitude, longitude){
 
-@section('css')
-
-<link href="https://api.mapbox.com/mapbox-gl-js/v2.8.2/mapbox-gl.css" rel="stylesheet">
-
-<style>
-    body { margin: 0; padding: 0; }
-    #map { position: absolute; top: 0; bottom: 0; width: 100%; }
-    .mapboxgl-popup {
-    max-width: 400px;
-    font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
-    }
-</style>
-
-@endsection
-
-@section('content')
-
-    <div id="map"></div>
-
-@endsection
-
-
-@section('script')
-    <script src="https://api.mapbox.com/mapbox-gl-js/v2.8.2/mapbox-gl.js"></script>
-    <script>
         mapboxgl.accessToken = 'pk.eyJ1IjoibGVuaWVycml2YXMiLCJhIjoiY2t6b3EzYXJtNjI2ODJvbXpuMHF2YTZjciJ9.5-kwcoo6NpNwEXSkeuhNtg';
         const map = new mapboxgl.Map({
-            container: 'map',
+            container: 'mapboxSearch',
             style: 'mapbox://styles/mapbox/streets-v11',
             center: [-77.04, 38.907],
             zoom: 11.15
@@ -61,8 +42,8 @@
                             {
                                 'type': 'Feature',
                                 'properties': {
-                                    'description': '<div style="width: 100%;"><img src="{{ URL::asset('assets/img/card/c1.jpg') }}" alt=""><h3>STUDIO RESORT FOR 4 PEOPLE!</h3><p>Description: REMODELATED Two-Bedroom Apartment with two-bathrooms , Close to Universal Studios, International Dr., Disney, Fun Spot, Sea World, Shops, with parking, Gym and Hot tubs. Bedroom 1 has 2 twin size bed with private bathroom and bathtub Bedoorm 2 has 1 queen size bed with private bathroom and shower 2 Outdoor pools and 1 indoor pool Excelent location on International dr , with all restaurants shops and atractions Close to Universal, Sea World and Disneyworld</p><p>Price: 58$ / Night</p></div>',
-                                    'name': '58$ / Night',
+                                    'description': `<div><img src='{{ URL::asset('assets/img/card/c1.jpg') }}'><h3>STUDIO RESORT FOR 4 PEOPLE!</h3><p>Description: REMODELATED Two-Bedroom Apartment with two-bathrooms , Close to Universal Studios, International Dr., Disney, Fun Spot, Sea World, Shops, with parking, Gym and Hot tubs. Bedroom 1 has 2 twin size bed with private bathroom and bathtub Bedoorm 2 has 1 queen size bed with private bathroom and shower 2 Outdoor pools and 1 indoor pool Excelent location on International dr , with all restaurants shops and atractions Close to Universal, Sea World and Disneyworld</p><p>Price: 58$ / Night</p></div>`,
+                                    'price': '58$ / Night',
                                     'image-name': 'popup',
                                 },
                                 'geometry': {
@@ -73,8 +54,8 @@
                             {
                                 'type': 'Feature',
                                 'properties': {
-                                    'description': '<strong>Mad Men Season Five Finale Watch Party</strong><p>Head to Lounge 201 (201 Massachusetts Avenue NE) Sunday for a <a href="http://madmens5finale.eventbrite.com/" target="_blank" title="Opens in a new window">Mad Men Season Five Finale Watch Party</a>, complete with 60s costume contest, Mad Men trivia, and retro food and drink. 8:00-11:00 p.m. $10 general admission, $20 admission and two hour open bar.</p>',
-                                    'name': '58$ / Night',
+                                    'description': `<strong>Mad Men Season Five Finale Watch Party</strong><p>Head to Lounge 201 (201 Massachusetts Avenue NE) Sunday for a <a href='http://madmens5finale.eventbrite.com/' target='_blank' title='Opens in a new window'>Mad Men Season Five Finale Watch Party</a>, complete with 60s costume contest, Mad Men trivia, and retro food and drink. 8:00-11:00 p.m. $10 general admission, $20 admission and two hour open bar.</p>`,
+                                    'price': '58$ / Night',
                                     'image-name': 'popup',
                                 },
                                 'geometry': {
@@ -92,7 +73,7 @@
                     'type': 'symbol',
                     'source': 'places',
                     'layout': {
-                        'text-field': ['get', 'name'],
+                        'text-field': ['get', 'price'],
                         'icon-text-fit': 'both',
                         'icon-image': ['get', 'image-name'],
                         'icon-allow-overlap': true,
@@ -106,7 +87,7 @@
                     });
                     const coordinates = e.features[0].geometry.coordinates.slice();
                     const description = e.features[0].properties.description;
-
+                    
                     while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
                         coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
                     }
@@ -143,6 +124,29 @@
                 };
             }
         }
-</script>
 
-@endsection
+        map.doubleClickZoom.disable(); // Desactiva zoom doble click en el mapa
+        {{-- map.dragPan.disable(); // Desactiva navegar por el mapa --}}
+        map.dragRotate.disable(); // Desactiva rotar el mapa
+        map.scrollZoom.disable(); // Desactiva scroll zoom en el mapa
+        map.boxZoom.disable(); // Desactiva zoom box select
+        map.keyboard.disable(); 
+    }
+"
+>
+    <div class="contact-map" id='mapboxSearch' style="margin-top: 20px;width:1100px; height:530px;"></div>
+</div>
+
+@push('style')
+    @once
+        <link href='https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.css' rel='stylesheet' />
+        <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.2/mapbox-gl-geocoder.css" type="text/css">
+    @endonce
+@endpush
+
+@push('alpine_scripts')
+    @once
+        <script src='https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.js'></script>
+        <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.2/mapbox-gl-geocoder.min.js"></script>
+    @endonce
+@endpush

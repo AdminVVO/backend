@@ -1,46 +1,71 @@
 <div>
-    <div class="tabs entero">
+    <div class="tabs entero" wire:ignore>
         <div class="medio">
-            <div class="navcont__flech-fx" wire:ignore>
-                <div class="cont_nav">
-                    <div class="nav__links-txt scroll_n owl-carousel carousel_btn_nav js_navlinkstabs">
-                        @foreach ($category as $key => $element)
-                            <button type="button" class="li__links-txt">
-                                <span class="tabs_items {{ $key === $filter_categ ? 'active_tabs' : '' }}" wire:click="changeCateg('{{$key}}')">{{ $element }}</span>
+            <div class="con_flex fx fx-ai-c fx-jc-sb gp22 wh-p100">
+                <div class="navcont__flech-fx">
+                    <div class="cont_nav">
+                        <div class="nav__links-txt tab-container">
+                            @foreach ($category as $key => $element)
+                                <button type="button" class="li__links-txt">
+                                    <span class="tabs_items {{ $key === $filter_categ ? 'active_tabs' : '' }}" wire:click="changeCateg('{{$key}}')">{{ $element }}</span>
+                                </button>
+                            @endforeach
+                        </div>
+                        <div class="nav__links-txt tab-container">
+                        </div>
+
+                        <div class="vvo_nav_flech prev">
+                            <button type="button" class="prev-slide">
+                                <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" style="display: block; fill: none; height: 12px; width: 12px; stroke: currentcolor; stroke-width: 5.33333; overflow: visible;">
+                                    <g fill="none">
+                                        <path d="m20 28-11.29289322-11.2928932c-.39052429-.3905243-.39052429-1.0236893 0-1.4142136l11.29289322-11.2928932"></path>
+                                    </g>
+                                </svg>
                             </button>
-                        @endforeach
+                        </div>
+                        
+                        <div class="vvo_nav_flech next">
+                            <button type="button" class="next-slide">
+                                <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" style="display: block; fill: none; height: 12px; width: 12px; stroke: currentcolor; stroke-width: 5.33333; overflow: visible;">
+                                    <g fill="none">
+                                        <path d="m12 4 11.2928932 11.2928932c.3905243.3905243.3905243 1.0236893 0 1.4142136l-11.2928932 11.2928932"></path>
+                                    </g>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="tabs_select">
+                    <div class="vvo-select blue btntabs">
+                        <select name="" id="">
+                            <option value="disabled">Anytime</option>
+                            <option value="">Option 1</option>
+                            <option value="">Option 2</option>
+                            <option value="">Option 3</option>
+                        </select>
+
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="vvo-select blue btntabs">
+                        <select name="" id="">
+                            <option value="disabled">Guests</option>
+                            <option value="">Option 1</option>
+                            <option value="">Option 2</option>
+                            <option value="">Option 3</option>
+                        </select>
+
+                        <i class="fas fa-chevron-down"></i>
                     </div>
 
-                    <div class="vvo_owl_nav vvo_nav_flech"></div>
+                    <button type="button" wire:click="resetFilter" class="btn-celest nrml btntabs">Filters</button>
                 </div>
             </div>
-            <div class="tabs_select">
-                <div class="vvo-select blue btnselect">
-                    <select name="" id="">
-                        <option value="disabled">Anytime</option>
-                        <option value="">Option 1</option>
-                        <option value="">Option 2</option>
-                        <option value="">Option 3</option>
-                    </select>
-                </div>
-
-                <div class="vvo-select blue btnselect">
-                    <select name="" id="">
-                        <option value="disabled">Guests</option>
-                        <option value="">Option 1</option>
-                        <option value="">Option 2</option>
-                        <option value="">Option 3</option>
-                    </select>
-                </div>
-
-                <button type="button" class="btn-celest nrml selectbtn" wire:click="resetFilter">Reset Filters</button>
-            </div>   
         </div>
     </div>
     <div class="tabs_card entero">
         <div class="medio">
             @forelse ($contentListing as $element)
-                <a href="{{ route('interna', $element['id_listings'] ) }}" class="card_items">
+                <a href="{{ route('interna', $element['id_listings'] ) }}" class="card_items active">
                     <div class="card_top">
                         <div class="card_top_price">
                             <i class="fas fa-dollar-sign"></i>
@@ -107,6 +132,7 @@
         Livewire.hook('message.processed', (message, component) => {
             $(".content-dots span.dot:first-child").addClass("dot_active");
             $(".card_img > img:first-child").addClass("card_img_active");  
+
         })
     </script>
 @endpush

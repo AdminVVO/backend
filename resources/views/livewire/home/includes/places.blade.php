@@ -15,7 +15,7 @@
                 <div class="place_select">
                     <span>Check in</span>
                     <i class="far fa-calendar-alt">
-                        <input id="easypick" placeholder="Add dates">
+                        <input id="easypickHome" placeholder="Add dates">
                     </i>
                 </div>
             </label>
@@ -26,7 +26,7 @@
                 <div class="place_select endEasypick">
                     <span>Check Out</span>
                     <i class="far fa-calendar-alt">
-                        <input id="endEasypick" placeholder="Add dates">
+                        <input id="endEasypickHome" placeholder="Add dates">
                     </i>
                 </div>
             </label>

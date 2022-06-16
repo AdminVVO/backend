@@ -19,7 +19,7 @@
 
 @section('content')
 
-    <section class="home entero" id="hero">
+	<section class="home entero" id="hero">
 	    <div class="content_icons">
 	        <div class="content_icons-block">
 	            <a href="#">
@@ -46,7 +46,7 @@
 	                </div>
 	            </div>
 
-                @livewire('home.cards-title')
+	            @livewire('home.cards-title')
 
 	        </div>
 	    </div>
@@ -111,14 +111,14 @@
     <script src="{{ URL::asset('assets/js/modals-min.js') }}"></script>
 
     <script>
-    	const picker = new easepick.create({
-    		element: '#easypick',
+    	const pickerHome = new easepick.create({
+    		element: '#easypickHome',
     		css: [
         		'https://cdn.jsdelivr.net/npm/@easepick/core@1.2.0/dist/index.css',
         		'https://cdn.jsdelivr.net/npm/@easepick/range-plugin@1.2.0/dist/index.css',
     		],
     		plugins: ['RangePlugin'],
-    		format: 'DD-MM-YY',
+    		format: 'DD MMM',
     		calendars: 2,
     		grid: 2,
     		autoApply: false,
@@ -128,13 +128,13 @@
     				other: 'days',
     			},
     		RangePlugin: {
-    			elementEnd: '#endEasypick',
+    			elementEnd: '#endEasypickHome',
     		},
-    		setup(picker) {
-    			picker.on('select', (e) => {
+    		setup(pickerHome) {
+    			pickerHome.on('select', (e) => {
 				var content = [
-					startDate = picker.getStartDate(),
-					endDate = picker.getEndDate(),
+					startDate = pickerHome.getStartDate(),
+					endDate = pickerHome.getEndDate(),
 				];
 				Livewire.emitTo('home.search-places', 'selectDate', content )
 			  });
@@ -142,7 +142,7 @@
     	});
 
     	$('.endEasypick').click(function(event) {
-    		picker.show();
+    		pickerHome.show();
     	});
     </script>
 

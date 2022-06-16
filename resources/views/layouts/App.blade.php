@@ -25,7 +25,6 @@
 @endif
 
     @yield('header')
-
     @if ( !Auth::check() )
         @include('loggin.LogInLogOut')
     @endif

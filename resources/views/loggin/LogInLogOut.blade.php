@@ -9,7 +9,7 @@
                     <img src="{{ URL::asset('assets/img/welcome.png') }}">
                 </div>
                 {{-- Loggin or Register --}}
-                @livewire('loggin.steps')
+                @livewire('loggin.steps', ['routeRedirect' => Route::current()->getName() ])
 
             </div>
         </div>
@@ -20,7 +20,7 @@
 @push('scripts')
     <script type="text/javascript">
         $( ".butnSignModl, .butnLoginModl" ).click(function() {
-            window.livewire.emit('eventLoggin') 
+            window.livewire.emitTo('loggin.steps','eventLoggin') 
         });    
         
         function clickEvent(first, last) {

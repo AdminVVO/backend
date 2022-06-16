@@ -19,12 +19,34 @@
         font-weight: 400;
         padding: 0 45px;
     }
+
+    @include responsive(1400px) {
+        width: 100%;
+        max-width: 917px;
+
+        h3 {
+            font-size: 22px;
+            margin-bottom: 14px;
+            padding: 0 32px;
+        }
+    }
 }
 
 .book-form {
     background-color: $color-text-white;
     box-shadow: 0 0 30px $bg-shadow-places;
     border-radius: 45px;
+
+    .befo__checkout {
+        position: relative;
+
+        &::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-color: transparent;
+        }
+    }
 
     form {
         display: flex;
@@ -96,15 +118,13 @@
             .place_select {
                 width: 141px;
                 display: flex;
+                gap: 5px;
                 flex-direction: column;
 
                 &-flex {
                     display: flex;
-                    margin-top: 5px;
-
-                    img {
-                        max-width: fit-content;
-                    }
+                    align-items: baseline;
+                    // margin-top: 5px;
 
                     span {
                         color: black;
@@ -119,7 +139,7 @@
                     align-items: center;
                     gap: 6px;
                     color: $color-secundary;
-                    margin-top: 5px;
+                    // margin-top: 5px;
                     font-size: 16px;
 
                     span {
@@ -132,7 +152,7 @@
                         background: none;
                         border: none;
                         outline: none;
-                        padding: 0 40px 0 2px;
+                        padding: 0 0 0 2px;
                         font-size: 16px;
 
                         &::-webkit-inner-spin-button,
@@ -172,10 +192,56 @@
             }
         }
     }
+
+    @include responsive(1400px) {
+        form {
+            padding: 8px 8px 8px 32px;
+            gap: 25px;
+
+            ._flex-js {
+                gap: 25px;
+            }
+
+            .inputBox {
+                span {
+                    font-size: 14px;
+                }
+
+                .place_select {
+                    width: 133px;
+
+                    i {
+                        i {
+                            font-size: 14px;
+                        }
+
+                        span {
+                            font-size: 16px;
+                        }
+                    }
+                }
+
+                .place_select-flex {
+                    img {
+                        width: 18px;
+                        min-width: 18px;
+                    }
+                }
+            }
+
+            .btn {
+                width: auto;
+                flex: none;
+                padding: 14px 24px;
+                font-size: 16px;
+                line-height: 20px;
+            }
+        }
+    }
 }
 
 
-@media screen and (max-width: 1246px) { 
+@media screen and (max-width: 1020px) { 
     .block_places .book-form{
         border-radius: 10px;  
     }
@@ -212,7 +278,17 @@
         width: 100%;
         max-width: initial; 
     }
-} 
+}
+
+@include responsive(743px) {
+    .block_places .book-form {
+        border-radius: 20px 20px 32px 32px;
+
+        form {
+            padding: 21px;
+        }
+    }
+}
 
 
 @media screen and (max-width: 500px) {

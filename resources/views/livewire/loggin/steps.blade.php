@@ -2,32 +2,32 @@
 
     {{-- Steps Loggin --}}
     @if ( $step == 'loggin' )
-        @livewire('loggin.steps.loggin')
+        @include('livewire.loggin.includes.loggin')
     @endif
 
     {{-- Steps Code Verification --}}
     @if ( $step == 'verification' )
-        @livewire('loggin.steps.verification', ['content' => $content])
+        @include('livewire.loggin.includes.verification')
     @endif
 
         {{-- Steps LogInOut --}}
     @if ( $step == 'loggInOut' )
-        @livewire('loggin.steps.logg-in-out', ['content' => $content])
+        @include('livewire.loggin.includes.logg-in-out')
     @endif
 
     {{-- Steps More Options --}}
     @if ( $step == 'moreOptions' )
-        @livewire('loggin.steps.more-options', ['content' => $content])
+        @include('livewire.loggin.includes.more-options')
     @endif
 
     {{-- Steps Need Helps --}}
     @if ( $step == 'needHelps' )
-        @livewire('loggin.steps.need-helps')
+        @include('livewire.loggin.includes.need-helps')
     @endif
 
     {{-- Steps Message Send --}}
     @if ( $step == 'messageSend' )
-        @livewire('loggin.steps.message-send')
+        @include('livewire.loggin.includes.message-send')
     @endif
 
 </div>
@@ -35,51 +35,18 @@
 @push('scripts')
     <script>
         document.addEventListener("DOMContentLoaded", () => {
-            Livewire.hook('component.initialized', (component) => {
-            $('.date-v-modals').datepicker({
-                dateFormat: "yy/mm/dd",
-                autoclose: true,
-                todayHighlight: true,
-                selectOtherMonths: true,
-                changeYear: true,
-                yearRange: '-100:+0',
-                autoclose: true,
-                maxDate: new Date, 
-                orientation: "button"
-            });
+            Livewire.hook('message.processed', (message, component) => {
                 $(".submitLogIn").click(function(event) {
-                    var content = {
-                        'date': $('#initDate').val(),
-                        'phone': $('#phoneLogin').val(),
-                    }
-                    Livewire.emit('submitLogIn', content)
-                });
-            })
-
-            Livewire.hook('element.updated', (el, component) => {
-                $('.date-v-modals').datepicker({
-                    dateFormat: "yy/mm/dd",
-                    autoclose: true,
-                    todayHighlight: true,
-                    selectOtherMonths: true,
-                    changeYear: true,
-                    yearRange: '-100:+0',
-                    autoclose: true,
-                    maxDate: new Date, 
-                    orientation: "button"
-                });
-                $(".submitLogIn").click(function(event) {
-                    var content = {
-                        'date': $('#initDate').val(),
-                        'phone': $('#phoneLogin').val(),
-                    }
-                    Livewire.emit('submitLogIn', content)
+                    Livewire.emit('submitInputPhoneLogIn', $('#phoneLogin').val())
                 });
             })
         });
 
-        $("[sendNumber]").submit(function(event) {
+        $("[sendPhoneNumber]").submit(function(event) {
             Livewire.emit('submitInputPhone', $("#phone").val())
         });
+    </script>
+    <script wire:ignore>
+        document.dispatchEvent(new Event('telDOMChanged')); 
     </script>
 @endpush

@@ -5,7 +5,6 @@
 <!-- libreria js de mascara - patrones de los inputs -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.js"></script>
 
-<script src="{{ URL::asset('assets/js/select.js') }}"></script>
 <script src="{{ URL::asset('assets/js/click-min.js') }}"></script>
 <script src="{{ URL::asset('assets/js/vvo-focus-blur.js') }}"></script>
 <script src="{{ URL::asset('assets/js/vvo-keyup.js') }}"></script>

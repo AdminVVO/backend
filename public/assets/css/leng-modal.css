@@ -1,3 +1,9 @@
+.container_leng_region .nav__links-txt {
+  width: auto !important;
+}
+.container_leng_region .vvo_nav_flech {
+  display: none !important;
+}
 .container_leng_region .fxfbwhmhbrzi {
   max-width: 1300px;
   max-height: 936px;

@@ -6,7 +6,7 @@
             <h5>What were you trying to do?</h5>
 
             <form wire:submit.prevent="submitHelp">
-                <textarea class="@error('helpsInput') error_input @enderror" wire:model="helpsInput"></textarea>
+                <textarea class="@error('helpsInput') error_input @enderror" wire:model.defer="input.help"></textarea>
                 @error('helpsInput')
                     <div  class="_txterror">
                         <i class="fas fa-exclamation-circle icon1"></i> 

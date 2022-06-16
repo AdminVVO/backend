@@ -2186,6 +2186,58 @@ body {
         }
     }
 
+    .container_calendar_vvo {
+        display: none;
+
+        .fxfbwhmhbrzi {
+            max-width: 796px;
+        }
+
+        .lightpick {
+            width: 100%;
+        }
+
+        .popup-dates-edit {
+            .lightpick__apply-action {
+                display: none;
+            }
+        }
+
+        @include responsive(1400px) {
+            .fxfbwhmhbrzi {
+                max-width: 700px;
+            }
+
+            .h2-guests {
+                font-size: 22px;
+                line-height: 26px;
+            }
+
+            .popup-dates-edit {
+                .cont-foot {
+                    .span-guests {
+                        font-size: 14px;
+                        line-height: 18px;
+                    }
+                }
+            }
+        }
+
+        @include responsive(743px) {
+            .popup-dates-edit {
+                .lightpick__footer {
+                    position: fixed;
+                    right: 0;
+                    bottom: 0;
+                    left: 0;
+                    padding: 16px 24px;
+                    background: $color-white;
+                    border-top: 1px solid #E3EDF3;
+                }
+            }
+        }
+    }
+
     .container_guests_edit {
         display: none;
 

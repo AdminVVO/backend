@@ -246,6 +246,10 @@ body {
     }
 }
 
+// .container-t-registro {
+//     display: block !important;
+// }
+
 .container-welcome, 
 .container-number, 
 .container-options1, 
@@ -303,8 +307,8 @@ body {
 
             @include responsive(1400px) {
                 max-width: 1032px;
-                max-height: -webkit-fill-available;
-                height: auto;
+                max-height: -webkit-fill-available !important;
+                height: auto !important;
             }
 
             @include responsive(743px) {

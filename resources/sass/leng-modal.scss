@@ -1,6 +1,14 @@
 @import "_variables";
 
 .container_leng_region {
+    .nav__links-txt {
+        width: auto !important;
+    }
+
+    .vvo_nav_flech {
+        display: none !important;
+    }
+
     .fxfbwhmhbrzi {
         max-width: 1300px;
         max-height: 936px;

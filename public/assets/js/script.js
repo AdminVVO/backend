@@ -1,15 +1,3 @@
-// HEADER FIXED
-// $(document).scroll(function() {
-//     const docScrollTop = document.documentElement.scrollTop;
-    
-//     if (window.innerWidth > 768) {
-//         if(docScrollTop > 100) {
-//             document.querySelector("header").classList.add("fixed");
-//         } else {
-//             document.querySelector("header").classList.remove("fixed");
-//         }
-//     }
-// });
 const $menu = $('.book-f_home');
 
 $(document).mouseup(e => {
@@ -44,6 +32,10 @@ $(document).mouseup(e => {
 if (!$menuBars.is(e.target) && $menuBars.has(e.target).length === 0) {
         $menuBars.removeClass('is-active');
     }
+});
+
+$("._header-menu .menu__text-link").on("click", function() {
+    $menuBars.removeClass("is-active");
 });
 
 $('._menu-bars').on('click', () => {

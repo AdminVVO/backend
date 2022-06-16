@@ -39,15 +39,27 @@ $(document).ready(function() {
 $(document).ready(function() {
     // ACTIVE NAVBAR
     $(document).ready(function() {
-        $(".js_navlinkstabs .li__links-txt .tabs_items").click(function(){
-            $(this).parents().find(".js_navlinkstabs .tabs_items").removeClass("active_tabs");
-            $(this).addClass("active_tabs");
+        var navTabsLinks = $(this).find(".nav__links-txt");
+        $.each(navTabsLinks, function(value) {
+            let btns = $(this).parents().find(".nav__links-txt").eq(value).find(".li__links-txt .tabs_items");
+            
+            if (btns) {
+                btns.on("click", function() {
+                    $(this).parents().find(".nav__links-txt").eq(value).find(".tabs_items").removeClass("active_tabs");
+                    $(this).addClass("active_tabs");
+                });
+            }
         });
 
-        $(".js_navlinkstabsleng .li__links-txt .tabs_items").click(function(){
-            $(this).parents().find(".js_navlinkstabsleng .tabs_items").removeClass("active_tabs");
-            $(this).addClass("active_tabs");
-        });
+        // $(".js_navlinkstabs .li__links-txt .tabs_items").click(function(){
+        //     $(this).parents().find(".js_navlinkstabs .tabs_items").removeClass("active_tabs");
+        //     $(this).addClass("active_tabs");
+        // });
+
+        // $(".js_navlinkstabsleng .li__links-txt .tabs_items").click(function(){
+        //     $(this).parents().find(".js_navlinkstabsleng .tabs_items").removeClass("active_tabs");
+        //     $(this).addClass("active_tabs");
+        // });
     });
 
     $('.nav-leng ul li .btn-a').click(function(){

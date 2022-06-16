@@ -347,8 +347,8 @@ input {
 .container-t-registro .pd_login-modal .modal_content-welcome,
 .container-msg-sent .pd_login-modal .modal_content-welcome {
     max-width: 1032px;
-    max-height: -webkit-fill-available;
-    height: auto;
+    max-height: -webkit-fill-available !important;
+    height: auto !important;
   }
 }
 @media (max-width: 743px) {

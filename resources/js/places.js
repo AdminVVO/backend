@@ -14,17 +14,31 @@ $('.menuGuestHeader').on('click', () => {
 });
 
 // HEADER FIX
-window.onscroll = function() {
-    const docScrollTop = document.documentElement.scrollTop;
-    
-    if (window.innerWidth > 768) {
-        if(docScrollTop > 100) {
-            document.querySelector("header").classList.add("fixed");
+$(window).bind("resize", function() {
+    resizeHeaderFixed();
+});
+
+$(window).scroll(function() {
+    resizeHeaderFixed();
+});
+
+resizeHeaderFixed();
+
+function resizeHeaderFixed() {
+    if ($(this).width() < 1400) {
+        if ($(this).scrollTop() > 40){
+            $(".header").addClass("fixed");
         } else {
-            document.querySelector("header").classList.remove("fixed");
+            $(".header").removeClass("fixed");
+        }
+    } else {
+        if ($(this).scrollTop() > 50){
+            $(".header").addClass("fixed");
+        } else {
+            $(".header").removeClass("fixed");
         }
     }
-};
+}
 
 
 

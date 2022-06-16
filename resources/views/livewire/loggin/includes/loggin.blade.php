@@ -8,8 +8,8 @@
 
                 <form wire:submit.prevent="submitInputEmail" style="display: {{ $logIn ? 'block' : 'none' }} ;">
                     <h4>Email</h4>
-                    <input type="text" class="_input-mod @error('sendInputEmail') error_input @enderror" placeholder="examples@gmail.com" wire:model.defer="sendInputEmail">
-                    @error('sendInputEmail')
+                    <input type="text" class="_input-mod @error('errorInputEmail') error_input @enderror" placeholder="examples@gmail.com" wire:model.defer="input.email">
+                    @error('errorInputEmail')
                         <div  class="_txterror">
                             <i class="fas fa-exclamation-circle icon1"></i> 
                             {{ $message }}
@@ -25,17 +25,17 @@
                     </div>
                 </form>
 
-                <form wire:submit.prevent sendNumber style="display: {{ !$logIn ? 'block' : 'none' }} ;">
+                <form wire:submit.prevent sendPhoneNumber style="display: {{ !$logIn ? 'block' : 'none' }} ;">
                     <h4>Phone Number</h4>
                     <x-tel-input
-                        wire:model="phone"
+                        wire:model="input.phone"
                         id="phone"
                         name="phone"
                         class="form-input _input-mod"
                     /> 
                     <input wire:model="phone_country" type="hidden" id="phone_country" name="phone_country">
                     @error('sendInputPhone')
-                        <div style="display: block;"  class="_txterror">
+                        <div style="display: block;" class="_txterror">
                             <i class="fas fa-exclamation-circle icon1"></i> 
                             {{ $message }}
                         </div>

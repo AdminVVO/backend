@@ -10,7 +10,7 @@
 
                         @if ( $content['type'] === 'email' )
                             <div class="radio-item">
-                                <input type="radio" id="email" wire:model="resendInput" value="email">
+                                <input type="radio" id="email" wire:model="input.resend" value="email">
                                 <label for="email" class="hr">
                                     <div class="content_flex-actv">
                                         <div class="flex_icon">
@@ -25,7 +25,7 @@
                             </div>
                         @else
                             <div class="radio-item">
-                                <input type="radio" id="msg" wire:model="resendInput" value="message">
+                                <input type="radio" id="msg" wire:model="input.resend" value="message">
                                 <label for="msg" class="hr">
                                     <div class="content_flex-actv">
                                         <div class="flex_icon">
@@ -39,7 +39,7 @@
                                 </label>
                             </div>
                             <div class="radio-item">
-                                <input type="radio" id="call" wire:model="resendInput" value="call">
+                                <input type="radio" id="call" wire:model="input.resend" value="call">
                                 <label for="call">
                                     <div class="content_flex-actv">
                                         <div class="flex_icon">

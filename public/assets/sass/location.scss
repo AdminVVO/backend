@@ -184,21 +184,26 @@
                 width: 100%;
             }
 
-            @include responsive(730px) {
+            @include responsive(743px) {
                 padding-right: 14px;
             }
 
             .contact-map {
                 width: 100%;
                 height: 95%;
-                @include responsive(1300px) {
-                    height: 631px;
-                }
             
                 iframe {
                     width: 100%;
                     height: 100%;
                     border-radius: 10px 0 0 10px;
+                }
+
+                @include responsive(1300px) {
+                    height: 537px;
+
+                    iframe {
+                        border-radius: 0;
+                    }
                 }
             }
     
@@ -223,25 +228,25 @@
                         width: 100%;
                     }
 
-                    @include responsive(730px) {
+                    @include responsive(743px) {
                         height: 100%;
                     }
     
                     .content_galerias {
-                        @include responsive(730px) {
+                        @include responsive(743px) {
                             width: 100%;
                             flex-direction: column;
                         }
             
                         .slideshow-container {
-                            @include responsive(730px) {
+                            @include responsive(743px) {
                                 max-width: 100%;
-                                height: 402px;
+                                height: 302px;
                             }
                         }
             
                         .flex_info {
-                            @include responsive(730px) {
+                            @include responsive(743px) {
                                 width: 100%;
                                 padding-top: 16px;
                                 padding-right: 0;
@@ -250,63 +255,6 @@
                             }
                         }
                     }
-                }
-            }
-    
-            .pagination {
-                text-align: center;
-                display: flex;
-                justify-content: center;
-                align-content: center;
-                margin: 15px 0;
-                user-select: none;
-    
-                li {
-                    display: inline-block;
-                    margin: 5px;
-    
-                    a {
-                        color: #7D7D7D;
-                        text-decoration: none;
-                        font-size: 18px;
-                        line-height: 40px;
-                    }
-                }
-    
-                .previous-page, .next-page {
-                    color: #00B5DD;
-                    width: 40px;
-                    font-size: 25px;
-                    line-height: 40px;
-                    border-radius: 50%;
-                    cursor: pointer;
-                    transition: 0.3s ease;
-                }
-    
-                .previous-page:hover {
-                    transform: translateX(-5px);
-                }
-    
-                .next-page:hover {
-                    transform: translateX(5px);
-                }
-    
-                .current-page, .dots {
-                    width: 40px;
-                    border-radius: 50%;
-                    cursor: pointer;
-                }
-    
-                .current-page.active {
-                    background-color: #FF5A5F;
-    
-                    a {
-                        color: #fff;
-                    }
-                }
-    
-                .disable {
-                    color: #ccc;
                 }
             }
     
@@ -362,6 +310,20 @@
                     }
                 }
             }
+        }
+    }
+
+    @include responsive(320px) {
+        .contbtnselect {
+            width: 100%;
+        }
+
+        .vvo-select {
+            width: 100%;
+        }
+
+        .btn-celest {
+            width: 100%;
         }
     }
 }

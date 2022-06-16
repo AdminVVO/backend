@@ -1,6 +1,11 @@
 .dates-location {
   padding: 100px 60px 0;
 }
+@media (max-width: 1400px) {
+  .dates-location {
+    padding: 52px 24px 0;
+  }
+}
 
 @media (max-width: 1023px) {
   .content_dates-local {
@@ -12,6 +17,12 @@
   font-size: 60px;
   font-weight: 900;
   line-height: 60px;
+}
+@media (max-width: 1400px) {
+  .content_dates-local h3 {
+    font-size: 32px;
+    line-height: normal;
+  }
 }
 .content_dates-local .card_items .card_info h3 {
   font-size: 14px;
@@ -47,15 +58,4 @@
   margin-top: 38px;
   display: flex;
   justify-content: center;
-}
-.content_dates-local .block_a button {
-  outline: none;
-  border-style: none;
-  cursor: pointer;
-  padding: 16px 50px;
-  border-radius: 10px;
-  background-color: #00B5DD;
-  color: #fff;
-  font-weight: normal;
-  font-size: 18px;
 }

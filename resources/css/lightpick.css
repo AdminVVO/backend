@@ -9,6 +9,9 @@
   position: relative;
   display: inline-block;
 }
+.lightpick__inner {
+  position: relative;
+}
 .lightpick, .lightpick *, .lightpick::after, .lightpick::before {
   box-sizing: border-box;
 }
@@ -51,6 +54,11 @@
 .lightpick__month-title-bar {
   position: absolute;
   top: 17px;
+  padding: 0;
+  min-height: initial;
+  margin: 0;
+  z-index: initial;
+  background-color: initial;
 }
 
 .lightpick__month-title {

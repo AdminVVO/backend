@@ -2,18 +2,27 @@
 
 .dates-location {
     padding: 100px 60px 0;
+
+    @include responsive(1400px) {
+        padding: 52px 24px 0;
+    }
 }
 
 .content_dates-local {
     @include responsive(1023px) {
         text-align: center;
-    }  
+    }
 
     h3 {
         color: #333333;
         font-size: 60px;
         font-weight: 900;
         line-height: 60px;
+
+        @include responsive(1400px) {
+            font-size: 32px;
+            line-height: normal;
+        }
     } 
 
     .card_items {
@@ -88,17 +97,5 @@
         margin-top: 38px;
         display: flex;
         justify-content: center;
-
-        button {
-            outline: none;
-            border-style: none;
-            cursor: pointer;
-            padding: 16px 50px;
-            border-radius: 10px;
-            background-color: #00B5DD;
-            color: #fff;
-            font-weight: normal;
-            font-size: 18px;
-        }
     }
 }
