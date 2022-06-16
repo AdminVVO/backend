@@ -3,10 +3,8 @@ class="_absolute"
 wire:ignore 
 x-data
 x-init="
-    {{-- loadMapbox({{ $attributes->get('latitude') }}, {{ $attributes->get('longitude') }}); --}}
     loadMapbox();
-
-    function loadMapbox (latitude, longitude){
+    function loadMapbox (){
 
         mapboxgl.accessToken = 'pk.eyJ1IjoibGVuaWVycml2YXMiLCJhIjoiY2t6b3EzYXJtNjI2ODJvbXpuMHF2YTZjciJ9.5-kwcoo6NpNwEXSkeuhNtg';
         const map = new mapboxgl.Map({
@@ -126,7 +124,6 @@ x-init="
         }
 
         map.doubleClickZoom.disable(); // Desactiva zoom doble click en el mapa
-        {{-- map.dragPan.disable(); // Desactiva navegar por el mapa --}}
         map.dragRotate.disable(); // Desactiva rotar el mapa
         map.scrollZoom.disable(); // Desactiva scroll zoom en el mapa
         map.boxZoom.disable(); // Desactiva zoom box select

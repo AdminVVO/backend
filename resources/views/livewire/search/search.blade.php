@@ -118,11 +118,11 @@
         <div class="content_location-width">
             <div class="desc-location">
             </div>
-
                 <div class="contact-map">        
                     <x-map-search
-                        {{-- latitude="{{ $content['latitude'] }}" --}}
-                        {{-- longitude="{{ $content['longitude'] }}" --}}
+                        {{-- x-data="@json($contentCoordinate)" --}}
+                        {{-- coordinate= @json( $contentCoordinate ) --}}
+                        {{-- "{{ $contentCoordinate }}" --}}
                     />
                 </div>
         </div>

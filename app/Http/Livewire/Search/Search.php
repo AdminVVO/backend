@@ -14,6 +14,7 @@ class Search extends Component
 {
     public $request;
     public $contentListing;
+    public $contentCoordinate;
     public $wishlists;
     public $places;
     public $category;
@@ -43,6 +44,18 @@ class Search extends Component
     public function render()
     {
         $this->preLoadContent();
+
+        $this->contentCoordinate = [
+            [
+                'title' => 'STUDIO RESORT FOR 4 PEOPLE!',
+                'description' => 'REMODELATED Two-Bedroom Apartment with two-bathrooms , Close to Universal Studios, International Dr., Disney, Fun Spot, Sea World, Shops, with parking, Gym and Hot tubs. Bedroom 1 has 2 twin size bed with private bathroom and bathtub Bedoorm 2 has 1 queen size bed with private bathroom and shower 2 Outdoor pools and 1 indoor pool Excelent location on International dr , with all restaurants shops and atractions Close to Universal, Sea World and Disneyworld',
+                'price' => 58,
+                'latilongi' => [-77.038659, 38.931567],
+            ]
+        ];
+
+
+        // dd( $this->contentCoordinate );
         
         return view('livewire.search.search');
     }
