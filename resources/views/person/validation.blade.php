@@ -18,9 +18,7 @@
 @section('content')
     <section class="entero">
         <div class="medio">
-
-            @livewire('validation.steps', ['user_id' => $user_id])
-
+            @livewire('validation.steps', ['user_id' => $user_id, 'type' => $type])
         </div>
     </section>
 

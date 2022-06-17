@@ -32,22 +32,22 @@ class UploadFileBrowser extends Component
         $this->typeUpload = $content['typeUpload'];
         $this->country = $content['country'];
     }
-    
+
     public function render()
     {
         return view('livewire.validation.steps.upload-file-browser', ['user_id' => $this->user_id]);
     }
-    
+
     public function hydrate()
     {
-         $errors = $this->getErrorBag();
-         if ( $errors->has('uploadFileFront') )
+        $errors = $this->getErrorBag();
+        if ($errors->has('uploadFileFront'))
             $this->uploadFileFront = '';
 
-         if ( $errors->has('uploadFileBack') )
+        if ($errors->has('uploadFileBack'))
             $this->uploadFileBack = '';
 
-         if ( $errors->has('uploadFilePassport') )
+        if ($errors->has('uploadFilePassport'))
             $this->uploadFilePassport = '';
 
         $this->resetValidation();
@@ -64,48 +64,48 @@ class UploadFileBrowser extends Component
 
     public function submitFileUploads()
     {
-        if ( $this->typeDocument === "Driver's License" || $this->typeDocument === 'Identity Card' )
+        if ($this->typeDocument === "Driver's License" || $this->typeDocument === 'Identity Card')
             $validation = Validator::make([
-               'uploadFileFront' => $this->uploadFileFront,
-               'uploadFileBack' => $this->uploadFileBack,
-            ],[
+                'uploadFileFront' => $this->uploadFileFront,
+                'uploadFileBack' => $this->uploadFileBack,
+            ], [
                 'uploadFileFront' => 'required|mimes:jpeg,jpg,png|max:2048',
                 'uploadFileBack' => 'required|mimes:jpeg,jpg,png|max:2048'
             ]);
 
-        if ( $this->typeDocument === "Passport" )
+        if ($this->typeDocument === "Passport")
             $validation = Validator::make([
-               'uploadFilePassport' => $this->uploadFilePassport,
-            ],[
+                'uploadFilePassport' => $this->uploadFilePassport,
+            ], [
                 'uploadFilePassport' => 'required|mimes:jpeg,jpg,png|max:2048'
             ]);
 
-            if ($validation->fails())
-                return $this->alert('warning', 'The file does not meet the requirements. Type: PNG/JPG, SizeMax: 2mb.');
+        if ($validation->fails())
+            return $this->alert('warning', 'The file does not meet the requirements. Type: PNG/JPG, SizeMax: 2mb.');
 
-        if ( $this->typeDocument === "Driver's License" || $this->typeDocument === 'Identity Card' ){
-            
-            $extensionFront = pathinfo( $this->uploadFileFront->getClientOriginalName(), PATHINFO_EXTENSION);
-                $nameFront = Str::random(10) . '-' . Auth::id() . '.' . $extensionFront;
-                    $this->uploadFileFront->storeAs('personalValidation', $nameFront, 'uploadPersonalValidation');
-            
-            $extensionBack = pathinfo( $this->uploadFileBack->getClientOriginalName(), PATHINFO_EXTENSION);
-                $nameBack = Str::random(10) . '-' . Auth::id() . '.' . $extensionBack;
-                    $this->uploadFileBack->storeAs('personalValidation', $nameBack, 'uploadPersonalValidation');
-            
+        if ($this->typeDocument === "Driver's License" || $this->typeDocument === 'Identity Card') {
+
+            $extensionFront = pathinfo($this->uploadFileFront->getClientOriginalName(), PATHINFO_EXTENSION);
+            $nameFront = Str::random(10) . '-' . Auth::id() . '.' . $extensionFront;
+            $this->uploadFileFront->storeAs('personalValidation', $nameFront, 'uploadPersonalValidation');
+
+            $extensionBack = pathinfo($this->uploadFileBack->getClientOriginalName(), PATHINFO_EXTENSION);
+            $nameBack = Str::random(10) . '-' . Auth::id() . '.' . $extensionBack;
+            $this->uploadFileBack->storeAs('personalValidation', $nameBack, 'uploadPersonalValidation');
+
             $this->contentIn['uploadFileFront'] = $nameFront;
             $this->contentIn['uploadFileBack'] = $nameBack;
         }
 
-        if ( $this->typeDocument === "Passport" ){
-            
-            $extensionPassport = pathinfo( $this->uploadFilePassport->getClientOriginalName(), PATHINFO_EXTENSION);
-                $namePassport = Str::random(10) . '-' . Auth::id() . '.' . $extensionPassport;
-                    $this->uploadFilePassport->storeAs('personalValidation', $namePassport, 'uploadPersonalValidation');
-                    
+        if ($this->typeDocument === "Passport") {
+
+            $extensionPassport = pathinfo($this->uploadFilePassport->getClientOriginalName(), PATHINFO_EXTENSION);
+            $namePassport = Str::random(10) . '-' . Auth::id() . '.' . $extensionPassport;
+            $this->uploadFilePassport->storeAs('personalValidation', $namePassport, 'uploadPersonalValidation');
+
             $this->contentIn['uploadFilePassport'] = $this->uploadFilePassport;
         }
-        
+
         $payload = [
             'to' => 'finishUploadFile',
             'from' => 'uploadFile',
@@ -113,7 +113,11 @@ class UploadFileBrowser extends Component
         ];
 
         $this->dispatchBrowserEvent('sendValidation');
-        event(new sendPersonValidation($this->user_id));
+
+        if ($this->user_id) {
+            event(new sendPersonValidation($this->user_id));
+        }
+        
         $this->emitUp('eventSteps', $payload);
     }
 }

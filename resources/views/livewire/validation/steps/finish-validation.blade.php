@@ -35,7 +35,7 @@
 
             var channel = pusher.subscribe('channelValidation');
             channel.bind('sendEvent' + $('#userID').val(), function(data) {
-                window.location.href = "http://192.168.0.15:8000";
+                window.location.href = "http://127.0.0.1:8000/validation/process?type=finish";
             });
 
 

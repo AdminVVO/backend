@@ -15,6 +15,7 @@ class Steps extends Component
 
     public $step = 'init';
     public $user_id;
+    public $type;
 
     public $content = [
         'typeUpload' => '',
@@ -30,12 +31,15 @@ class Steps extends Component
 
     public function render()
     {
-        return view('livewire.validation.steps', ['user_id' => $this->user_id]);
+        return view('livewire.validation.steps', ['user_id' => $this->user_id, 'type' => $this->type]);
     }
 
     public function returnBack($payload)
     {
+
         $this->step = $payload;
+        $this->sendPhoto([]);
+        return;
     }
 
     public function eventSteps($payload)
@@ -78,7 +82,6 @@ class Steps extends Component
             $this->sendTypeFiles($payload['content']);
             $this->step = $payload['to'];
         }
-
     }
 
     public function sendPhone($payload)
@@ -107,24 +110,23 @@ class Steps extends Component
     {
         // $this->dispatchBrowserEvent('sendValidationFinish');
         // if (!$this->user_id) {
-            // $personValidation = PersonValidation::create([
-                // 'typeUpload'    => $this->content['typeUpload'],
-                // 'typeDocument'  => $this->content['typeDocument'],
-                // 'country'       => $this->content['country'],
-                // 'photo'         => $this->content['photo'],
-                // 'document'      => $payload,
-                // 'user_id'       => Auth::id()
-            // ]);
+        // $personValidation = PersonValidation::create([
+        // 'typeUpload'    => $this->content['typeUpload'],
+        // 'typeDocument'  => $this->content['typeDocument'],
+        // 'country'       => $this->content['country'],
+        // 'photo'         => $this->content['photo'],
+        // 'document'      => $payload,
+        // 'user_id'       => Auth::id()
+        // ]);
         // } else {
-
-            // $personValidation = PersonValidation::create([
-                // 'typeUpload'    => $this->content['typeUpload'],
-                // 'typeDocument'  => $this->content['typeDocument'],
-                // 'country'       => $this->content['country'],
-                // 'photo'         => $this->content['photo'],
-                // 'document'      => $payload,
-                // 'user_id'       => $this->user_id
-            // ]);
+        // $personValidation = PersonValidation::create([
+        // 'typeUpload'    => $this->content['typeUpload'],
+        // 'typeDocument'  => $this->content['typeDocument'],
+        // 'country'       => $this->content['country'],
+        // 'photo'         => $this->content['photo'],
+        // 'document'      => $payload,
+        // 'user_id'       => $this->user_id
+        // ]);
         // }
         // $this->content['codeReference'] = $personValidation['id_person_validation'];
     }

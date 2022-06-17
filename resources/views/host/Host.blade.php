@@ -35,7 +35,7 @@
         <div class="h2-guests_white25">Questions about hosting?</div>
         <h3 class="h2-guests_white60">Get free one-on-one help</h3>
         <h3 class="h2-guests_white60">From vvoutlet best Hosts</h3>
-        <a href="#" class="btn-red">Contact Us</a>
+        <a href="/validation/process" class="btn-red">Contact Us</a>
     </div>
 </div>
 
