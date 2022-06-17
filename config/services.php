@@ -46,7 +46,8 @@ return [
        'TWILIO_SID'             => env('TWILIO_SID'),
        'TWILIO_AUTH_TOKEN'      => env('TWILIO_AUTH_TOKEN'),
        'TWILIO_PHONE_NUMBER'    => env('TWILIO_PHONE_NUMBER'),
-       'TWILIO_WHATSAPP_NUMBER' => env('TWILIO_WHATSAPP_NUMBER')
+       'TWILIO_WHATSAPP_NUMBER' => env('TWILIO_WHATSAPP_NUMBER'),
+       'TWILIO_SERVICE_MESSAGE' => env('TWILIO_SERVICE_MESSAGE')
     ],
 
     'help_email' => env('EMAIL_VOUTLET'),

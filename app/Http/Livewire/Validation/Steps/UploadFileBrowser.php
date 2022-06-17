@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Validation\Steps;
 
+use App\Events\sendPersonValidation;
 use Livewire\Component;
 use Illuminate\Support\Facades\Validator;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
@@ -15,7 +16,8 @@ class UploadFileBrowser extends Component
 {
     use LivewireAlert;
     use WithFileUploads;
-    
+
+    public $user_id = '';
     public $typeDocument = '';
     public $typeUpload = '';
     public $country = '';
@@ -33,7 +35,7 @@ class UploadFileBrowser extends Component
     
     public function render()
     {
-        return view('livewire.validation.steps.upload-file-browser');
+        return view('livewire.validation.steps.upload-file-browser', ['user_id' => $this->user_id]);
     }
     
     public function hydrate()
@@ -110,6 +112,8 @@ class UploadFileBrowser extends Component
             'content' => $this->contentIn,
         ];
 
+        $this->dispatchBrowserEvent('sendValidation');
+        event(new sendPersonValidation($this->user_id));
         $this->emitUp('eventSteps', $payload);
     }
 }

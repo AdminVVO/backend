@@ -8,6 +8,7 @@ use App\Http\Controllers\InternaController;
 use App\Http\Controllers\ListingsController;
 use App\Http\Controllers\LoginOrRegisterForSocialsController;
 use App\Http\Controllers\MessageChats;
+use App\Http\Controllers\Personal;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\SearchController;
@@ -49,10 +50,11 @@ Route::middleware(['AccountDisable'])->group( function(){
 
 
 
-    Route::get('/personal/validation', function () {
-        return view('person.validation');
-    })->name('/personal/validation');
+    // Route::get('/personal/validation/{id?}', function () {
+    //     return view('person.validation');
+    // })->name('/personal/validation');
 
+    Route::get('validation/process/{id?}', [Personal::class, 'ValidationId'])->name('validation/process');
 
     ## Routes Home
     Route::get('/', [HomeController::class, 'viewHome'])->name('/');

@@ -10,6 +10,7 @@
                         <div class="_block">
                             <div class="_txteh">Upload an existing photo</div>
                         </div>
+
                         <p class="_txtec16">Recommended</p>
                     </div>
                 </div>
@@ -31,20 +32,22 @@
             </label>
         </div>
 
-        <div class="radio-item_rscrm">
-            <input type="radio" id="mobileapp" name="personmet" wire:model.defer="personmet" value="airbnb">
-            <label for="mobileapp">
-                <div class="content_flex-actv">
-                    <div class="flex-msg">
-                        <div class="_block">
-                            <div class="_txteh">Take photo with the Airbnb mobile app</div>
+        @if (!isset($user_id))
+            <div class="radio-item_rscrm">
+                <input type="radio" id="mobileapp" name="personmet" wire:model.defer="personmet" value="airbnb">
+                <label for="mobileapp">
+                    <div class="content_flex-actv">
+                        <div class="flex-msg">
+                            <div class="_block">
+                                <div class="_txteh">Take photo with the Airbnb mobile app</div>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <span class="before_check"></span>
-            </label>
-        </div>
+                    <span class="before_check"></span>
+                </label>
+            </div>
+        @endif
     </div>
 
     <form wire:submit.prevent="saveFile">

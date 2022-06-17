@@ -17,7 +17,7 @@ class Twilio extends Controller
         $twilio->messages->create('whatsapp:' . $recipients, [
             'from' => 'whatsapp:' . $phone,
             'body' => 'Your verification code is: ' . $message
-        ] );
+        ]);
         // $twilio->messages->create( $recipients, [
         //     'from' => $phone,
         //     'body' => 'Your verification code is: ' . $message
@@ -34,6 +34,21 @@ class Twilio extends Controller
             $recipients,
             $phone,
             ["url" => "https://demo.twilio.com/welcome/voice/{$message}"]
+        );
+    }
+
+    public static function sendMessageValidation($phone, $user_id)
+    {
+        $account_sid = config('services.twilio.TWILIO_SID');
+        $auth_token = config('services.twilio.TWILIO_AUTH_TOKEN');
+        $service_message = config('services.twilio.TWILIO_SERVICE_MESSAGE');
+        $twilio = new Client($account_sid, $auth_token);
+        $twilio->messages->create(
+            $phone,
+            [
+                'messagingServiceSid' => $service_message,
+                'body' => 'Click on the link for validation: http://192.168.0.15:8000/validation/process/' . $user_id
+            ]
         );
     }
 }
