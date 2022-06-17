@@ -48,7 +48,7 @@ class Cardfilter extends Component
         ->where(function ($query) {
             if ( $this->filter_categ != null )
                 return $query->where('listing_property_roomds.like_place', $this->filter_categ);
-        })
+        })->whereNotIn('status', ['in process'])
         ->get();
 
         return $this->contentListing;
