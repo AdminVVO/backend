@@ -1,38 +1,42 @@
 <div>
     {{-- Steps Init --}}
-    @if ( $step == 'init' )
-            @livewire('validation.steps.init', ['user_id' => $user_id])
+    @if ($type == 'finish')
+        @livewire('validation.steps.finish-upload', ['reference' => $content['codeReference']])
+    @endif
+
+    @if ($step == 'init' && $type!='finish')
+        @livewire('validation.steps.init', ['user_id' => $user_id])
     @endif
 
 
     {{-- Steps Type Document --}}
-    @if ( $step == 'typeDocument' )
+    @if ($step == 'typeDocument')
         @livewire('validation.steps.type-document')
     @endif
 
     {{-- Steps Type Upload --}}
-    @if ( $step == 'typeUpload' )
+    @if ($step == 'typeUpload')
         @livewire('validation.steps.type-upload')
     @endif
-    
+
     {{-- Steps Upload File --}}
-    @if ( $step == 'uploadFileBrowser' )
+    @if ($step == 'uploadFileBrowser')
         @livewire('validation.steps.upload-file-browser', ['content' => $content, 'user_id' => $user_id ?? null])
     @endif
 
     {{-- Steps Upload File --}}
-    @if ( $step == 'uploadFileDevice' )
+    @if ($step == 'uploadFileDevice')
         @livewire('validation.steps.upload-file-device')
     @endif
 
     {{-- Steps Finish Upload File --}}
-    @if ( $step == 'finishUploadFile' )
+    @if ($step == 'finishUploadFile')
         @livewire('validation.steps.finish-upload', ['reference' => $content['codeReference']])
     @endif
 
     {{-- Steps Finish Validation --}}
-    @if ( $step == 'finishValidation' )
+    @if ($step == 'finishValidation')
         @livewire('validation.steps.finish-validation', ['phone' => $content['phone'], 'user_id' => $content['user_id']])
     @endif
-    
+
 </div>
