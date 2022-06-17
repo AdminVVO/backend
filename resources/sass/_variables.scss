@@ -429,7 +429,6 @@ $cant: 300;
 
   &:active {
     transform: scale(0.96);
-    background-color: $bg-black-places;
   }
 
   @include responsive(1400px) {

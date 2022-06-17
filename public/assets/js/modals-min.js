@@ -36,6 +36,12 @@ $(document).ready(function() {
         animateTopModals();
         $(".container_leng_region").show();
     })
+
+    // Popup Picker
+    $(".btnmodalpicker").on("click", function() {
+        animateTopModals();
+        $(".container_vvo_picker").show();
+    });
 });
 
 // clicks modals - user
@@ -181,6 +187,7 @@ $(document).ready(function() {
     });
 
     $(".js__popup_bringind_animal").on("click", function() {
+        animateTopModals();
         $(".container_bringing_animal").show();
     });
 

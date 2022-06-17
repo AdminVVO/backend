@@ -7,11 +7,11 @@ body {
         }
     }
 
-    .lightpick--1-columns {
-        z-index: 9999;
-    }
+    // .lightpick--1-columns {
+    //     z-index: 9999;
+    // }
 
-    .lightpick--2-columns {
+    .vvo_range_picker {
         margin-top: 2rem;
         padding: 32px;
         left: 50% !important;
@@ -46,6 +46,15 @@ body {
 
             .lightpick__tooltip {
                 margin-left: -36px;
+            }
+        }
+
+        @include responsive(800px) {
+            padding: 24px;
+            border-radius: 10px;
+
+            .lightpick__months {
+                grid-gap: 18px;
             }
         }
 

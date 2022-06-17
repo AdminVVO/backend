@@ -32,6 +32,7 @@ class CardsTitle extends Component
             'listing_property_roomds.like_place',
             'listing_property_roomds.property_type',
         )
+        ->whereNotIn('listings.status', ['in process'] )
         ->leftJoin('listing_property_roomds', 'listings.id_listings', 'listing_property_roomds.listing_id')
         ->get();
     }

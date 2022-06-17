@@ -1,9 +1,14 @@
+@props(['projects'])
+
 <div 
 class="_absolute" 
 wire:ignore 
-x-data
+x-data='projects: {{ $projects }}'
 x-init="
-    loadMapbox();
+    {{-- xx = `{!! $projects !!}`; --}}
+    console.log( projects )
+
+{{--     loadMapbox();
     function loadMapbox (){
 
         mapboxgl.accessToken = 'pk.eyJ1IjoibGVuaWVycml2YXMiLCJhIjoiY2t6b3EzYXJtNjI2ODJvbXpuMHF2YTZjciJ9.5-kwcoo6NpNwEXSkeuhNtg';
@@ -128,7 +133,7 @@ x-init="
         map.scrollZoom.disable(); // Desactiva scroll zoom en el mapa
         map.boxZoom.disable(); // Desactiva zoom box select
         map.keyboard.disable(); 
-    }
+    } --}}
 "
 >
     <div class="contact-map" id='mapboxSearch' style="margin-top: 20px;width:1100px; height:530px;"></div>

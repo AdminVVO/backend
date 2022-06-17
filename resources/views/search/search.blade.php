@@ -11,6 +11,9 @@
     <link href="{{ URL::asset('assets/css/search-flexible.css') }}" rel="stylesheet"/>
     <link href="{{ URL::asset('assets/css/modals-user.css') }}" rel="stylesheet"/>
 
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.css' rel='stylesheet' />
+    <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.2/mapbox-gl-geocoder.css" type="text/css">
+
 @endsection
 
 @section('header')

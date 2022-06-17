@@ -47,13 +47,24 @@ class Search extends Component
 
         $this->contentCoordinate = [
             [
-                'title' => 'STUDIO RESORT FOR 4 PEOPLE!',
-                'description' => 'REMODELATED Two-Bedroom Apartment with two-bathrooms , Close to Universal Studios, International Dr., Disney, Fun Spot, Sea World, Shops, with parking, Gym and Hot tubs. Bedroom 1 has 2 twin size bed with private bathroom and bathtub Bedoorm 2 has 1 queen size bed with private bathroom and shower 2 Outdoor pools and 1 indoor pool Excelent location on International dr , with all restaurants shops and atractions Close to Universal, Sea World and Disneyworld',
-                'price' => 58,
-                'latilongi' => [-77.038659, 38.931567],
+                'type' => 'Feature',
+                'properties' => [
+                    'description' => '<div class="card_items card_items_map"><div class="card_top"><div class="card_top_price"><i class="fas fa-dollar-sign"></i><p>446 / night</p></div><div class="card_top_dates"><i class="fas fa-calendar"></i><p>24 dec - 31 dec</p></div></div><button type="button" class="card_love showFavorite"><svg xmlns="http://www.w3.org/2000/svg" width="27.003" height="23.878" viewBox="0 0 27.003 23.878"><g transform="translate(1.002 -1.245)" fill="rgba(222,222,222,0.38)" stroke="#dedede" stroke-width="2"><path d="M22.573,3.743a6.677,6.677,0,0,0-9.111.664L12.5,5.4l-.962-.991a6.677,6.677,0,0,0-9.111-.664,7.011,7.011,0,0,0-.483,10.151l9.448,9.756a1.531,1.531,0,0,0,2.212,0l9.448-9.756a7.007,7.007,0,0,0-.479-10.151Z"></path><path d="M22.573,3.743a6.677,6.677,0,0,0-9.111.664L12.5,5.4l-.962-.991a6.677,6.677,0,0,0-9.111-.664,7.011,7.011,0,0,0-.483,10.151l9.448,9.756a1.531,1.531,0,0,0,2.212,0l9.448-9.756a7.007,7.007,0,0,0-.479-10.151Z"></path></g></svg></button><div class="card_img"><img src="assets/img/card/c1.jpg" alt="" class="card_img_active"><img src="assets/img/card/c2.jpg" alt=""><img src="assets/img/card/c3.jpg" alt=""></div><div class="card_info"><div class="content-dots"><span class="dot dot_active"></span><span class="dot"></span><span class="dot"></span></div><div class="card_info_text"><h2 class="h2-cards text_tm1">Stars Gate Pradise at 12345678</h2><div class="fxaigpfwjcw"><h3 class="h3-cards text_tm1">4852 miles away</h3><div class="card_info_rating"><i class="fas fa-star"></i><p>4.89 <span>(15)</span></p></div></div></div></div></div>',
+                    'price' => '60$ / Night',
+                    'image-name' => 'popup',
+                ],
+                'geometry' => [
+                    'type' => 'Point',
+                    'coordinates' => [-77.038659, 38.931567]
+                ]
             ]
         ];
 
+
+
+
+
+        // $this->contentCoordinate = 'hola';
 
         // dd( $this->contentCoordinate );
         
@@ -92,6 +103,7 @@ class Search extends Component
             'listing_property_roomds.bathrooms',
             'listing_pricings.base_price',
         )
+        ->whereNotIn('listings.status', ['in process'] )
         ->leftJoin('listing_property_roomds', 'listings.id_listings', 'listing_property_roomds.listing_id')
         ->leftJoin('listing_pricings', 'listings.id_listings', 'listing_pricings.listing_id')
         ->where(function ($query) {

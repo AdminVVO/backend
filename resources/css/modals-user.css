@@ -191,8 +191,7 @@
 ._1lotlmr {
   min-width: 12px;
   height: 12px;
-  -webkit-appearance: none;
-          appearance: none;
+  appearance: none;
   display: inline-block;
   border-radius: 50%;
   color: #FFFFFF;
@@ -1946,4 +1945,29 @@ body .container_confirmation .poyxwh {
 }
 body .container_confirmation .popup_confirmation {
   text-align: center;
+}
+body .container_vvo_picker {
+  display: none;
+}
+body .container_vvo_picker .fxfbwhmhbrzi {
+  max-width: fit-content !important;
+}
+body .container_vvo_picker .poyxwh {
+  padding: 0 !important;
+}
+body .container_vvo_picker .popup_vvo_picker .vvo_picker {
+  position: initial;
+  margin-top: 0;
+}
+body .container_vvo_picker .popup_vvo_picker .vvo_picker .lightpick__months {
+  margin-top: 0 !important;
+}
+@media (max-width: 743px) {
+  body .container_vvo_picker .fxpaijcpmi {
+    padding: 40px;
+    align-items: center;
+  }
+  body .container_vvo_picker .fxfbwhmhbrzi {
+    border-radius: 10px;
+  }
 }

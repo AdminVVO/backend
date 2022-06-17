@@ -267,6 +267,27 @@ body {
 	right: 0;
 	bottom: 0;
 
+    ._input-mod {
+        margin-top: 12px !important;
+        margin-bottom: 10px !important;
+
+        &.pliptnumber {
+            padding-left: 2.8rem !important;
+        }
+    }
+
+    .iti {
+        margin: inherit;
+    }
+
+    .input_real {
+        margin: 12px 0 10px;
+    }
+
+    ._txterror {
+        margin: 3px 0 13px;
+    }
+
     ._txteh {
         margin: 0;
     }

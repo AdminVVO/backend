@@ -118,13 +118,10 @@
         <div class="content_location-width">
             <div class="desc-location">
             </div>
-                <div class="contact-map">        
-                    <x-map-search
-                        {{-- x-data="@json($contentCoordinate)" --}}
-                        {{-- coordinate= @json( $contentCoordinate ) --}}
-                        {{-- "{{ $contentCoordinate }}" --}}
-                    />
-                </div>
+                <div class="contact-map" id='mapboxSearch' ></div>    
+              {{--   <div class="contact-map">    
+                    <x-map-search/>
+                </div> --}}
         </div>
     </div>
 </div>
@@ -135,5 +132,125 @@
             $(".content-dots span.dot:first-child").addClass("dot_active");
             $(".card_img > img:first-child").addClass("card_img_active");  
         })
+    </script>
+
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.js'></script>
+    <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.2/mapbox-gl-geocoder.min.js"></script>
+
+    <script type="text/javascript">
+
+        var contentCoordinate = @json( $contentCoordinate );
+        console.log("contentCoordinate", contentCoordinate);
+
+
+        mapboxgl.accessToken = 'pk.eyJ1IjoibGVuaWVycml2YXMiLCJhIjoiY2t6b3EzYXJtNjI2ODJvbXpuMHF2YTZjciJ9.5-kwcoo6NpNwEXSkeuhNtg';
+        const map = new mapboxgl.Map({
+            container: 'mapboxSearch',
+            style: 'mapbox://styles/mapbox/streets-v11',
+            center: [-77.04, 38.907],
+            zoom: 11.15
+        });
+
+        const images = {
+            'popup': 'https://docs.mapbox.com/mapbox-gl-js/assets/popup.png',
+        };
+
+        loadImages(images, (loadedImages) => {
+            map.on('load', () => {
+                map.addImage('popup', loadedImages['popup'], {
+                    stretchX: [
+                        [25, 55],
+                        [85, 115]
+                    ],
+                    stretchY: [[25, 100]],
+                    content: [25, 25, 115, 100],
+                    pixelRatio: 2
+                });
+
+                map.addSource('places', {
+                    'type': 'geojson',
+                    'data': {
+                        'type': 'FeatureCollection',
+                        'features': contentCoordinate,
+                        // 'features': [
+                        //     {
+                        //         'type': 'Feature',
+                        //         'properties': {
+                        //             'description': `<div class='card_items card_items_map'><div class='card_top'><div class='card_top_price'><i class='fas fa-dollar-sign'></i><p>446 / night</p></div><div class='card_top_dates'><i class='fas fa-calendar'></i><p>24 dec - 31 dec</p></div></div><div class='card_img'><img src='assets/img/card/c1.jpg' alt=' class='card_img_active'><img src='assets/img/card/c2.jpg' alt='><img src='assets/img/card/c3.jpg' alt='></div><div class='card_info'><div class='content-dots'><span class='dot dot_active'></span><span class='dot'></span><span class='dot'></span></div><div class='card_info_text'><h2 class='h2-cards text_tm1'>Stars Gate Pradise at 12345678</h2><div class='fxaigpfwjcw'><h3 class='h3-cards text_tm1'>4852 miles away</h3><div class='card_info_rating'><i class='fas fa-star'></i><p>4.89 <span>(15)</span></p></div></div></div></div></div>`,
+                        //             'price': '58$ / Night',
+                        //             'image-name': 'popup',
+                        //         },
+                        //         'geometry': {
+                        //             'type': 'Point',
+                        //             'coordinates': [-77.038659, 38.931567]
+                        //         }
+                        //     },
+                        // ]
+                    }
+                });
+                
+                // MARCA LOS POSICIONES EN EL MAPA
+                map.addLayer({
+                    'id': 'places',
+                    'type': 'symbol',
+                    'source': 'places',
+                    'layout': {
+                        'text-field': ['get', 'price'],
+                        'icon-text-fit': 'both',
+                        'icon-image': ['get', 'image-name'],
+                        'icon-allow-overlap': true,
+                        'text-allow-overlap': true
+                    }
+                });
+             
+                map.on('click', 'places', (e) => {
+                    map.flyTo({
+                        center: e.features[0].geometry.coordinates
+                    });
+                    const coordinates = e.features[0].geometry.coordinates.slice();
+                    const description = e.features[0].properties.description;
+                    
+                    while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+                        coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+                    }
+                 
+                    new mapboxgl.Popup()
+                        .setLngLat(coordinates)
+                        .setHTML(description)
+                        .addTo(map);
+                });
+             
+                map.on('mouseenter', 'places', () => {
+                    map.getCanvas().style.cursor = 'pointer';
+                });
+                 
+                map.on('mouseleave', 'places', () => {
+                    map.getCanvas().style.cursor = '';
+                });
+            });
+        });
+
+        function loadImages(urls, callback) {
+            const results = {};
+            for (const name in urls) {
+                map.loadImage(urls[name], makeCallback(name));
+            }
+            
+            function makeCallback(name) {
+                return (err, image) => {
+                    results[name] = err ? null : image;
+                    
+                if (Object.keys(results).length === Object.keys(urls).length) {
+                    callback(results);
+                    }
+                };
+            }
+        }
+
+        map.doubleClickZoom.disable(); // Desactiva zoom doble click en el mapa
+        map.dragRotate.disable(); // Desactiva rotar el mapa
+        map.scrollZoom.disable(); // Desactiva scroll zoom en el mapa
+        map.boxZoom.disable(); // Desactiva zoom box select
+        map.keyboard.disable(); 
     </script>
 @endpush

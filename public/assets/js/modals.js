@@ -555,6 +555,25 @@ $(document).ready(function() {
     }).on('blur', '.f-input-cont', function() {
         $(this).parents().find(".input-type-msg").removeClass("focus-type");
     });
+
+
+    $(".content-dots span.dot:first-child").addClass("dot_active");
+    $(".card_img > img:first-child").addClass("card_img_active");  
+    
+     
+    $(document).on("click", ".content-dots span.dot", function() {
+    // $(".content-dots span.dot").on("click",function(){
+        var index_dot = $(this).index();
+        $(this).siblings("span.dot_active").removeClass("dot_active");   
+        $(this).addClass("dot_active");
+
+        $(this).parents(".card_info").siblings(".card_img").children("img.card_img_active").removeClass("card_img_active");  
+        $(this).parents(".card_info").siblings(".card_img").children("img").eq(index_dot).addClass("card_img_active");    
+    });
+    
+    $(document).on("click", ".content-dots > span, .card_love", function() {
+        return false;
+    });
 });
 
 

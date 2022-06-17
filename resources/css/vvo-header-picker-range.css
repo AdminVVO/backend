@@ -1,10 +1,7 @@
 body .mbsc-calendar-cell > div:empty {
   display: none;
 }
-body .lightpick--1-columns {
-  z-index: 9999;
-}
-body .lightpick--2-columns {
+body .vvo_range_picker {
   margin-top: 2rem;
   padding: 32px;
   left: 50% !important;
@@ -13,33 +10,42 @@ body .lightpick--2-columns {
   border-radius: 12px;
   box-shadow: 0 0 15px rgba(40, 54, 70, 0.1);
 }
-body .lightpick--2-columns.fixed {
+body .vvo_range_picker.fixed {
   top: 4.7rem !important;
   position: fixed;
 }
-body .lightpick--2-columns .lightpick__months {
+body .vvo_range_picker .lightpick__months {
   grid-gap: 32px;
 }
-body .lightpick--2-columns .lightpick__tooltip {
+body .vvo_range_picker .lightpick__tooltip {
   margin-top: -41px;
   margin-left: -34px;
 }
 @media (max-width: 1400px) {
-  body .lightpick--2-columns {
+  body .vvo_range_picker {
     margin-top: 1.4rem;
     padding: 35px;
     border: 1px solid #E3EDF3;
     border-radius: 18px;
   }
-  body .lightpick--2-columns .lightpick__months {
+  body .vvo_range_picker .lightpick__months {
     grid-gap: 55px;
   }
-  body .lightpick--2-columns .lightpick__tooltip {
+  body .vvo_range_picker .lightpick__tooltip {
     margin-left: -36px;
   }
 }
+@media (max-width: 800px) {
+  body .vvo_range_picker {
+    padding: 24px;
+    border-radius: 10px;
+  }
+  body .vvo_range_picker .lightpick__months {
+    grid-gap: 18px;
+  }
+}
 @media (max-width: 743px) {
-  body .lightpick--2-columns {
+  body .vvo_range_picker {
     position: fixed !important;
     inset: 0 !important;
     width: 100%;
@@ -52,17 +58,17 @@ body .lightpick--2-columns .lightpick__tooltip {
     margin-bottom: 81px;
     z-index: 99;
   }
-  body .lightpick--2-columns .lightpick__month-title {
+  body .vvo_range_picker .lightpick__month-title {
     top: 13px;
     transform: translate(-56%, 0);
   }
-  body .lightpick--2-columns .lightpick__days-of-the-week {
+  body .vvo_range_picker .lightpick__days-of-the-week {
     margin: 32px 0 22px;
   }
-  body .lightpick--2-columns .lightpick__tooltip {
+  body .vvo_range_picker .lightpick__tooltip {
     margin-left: -25px;
   }
-  body .lightpick--2-columns .lightpick__footer {
+  body .vvo_range_picker .lightpick__footer {
     position: fixed;
     margin: 0;
     right: 0;

@@ -33,6 +33,7 @@ class SearchFlexible extends Component
             'listing_property_roomds.property_type',
             'listing_pricings.base_price',
         )
+        ->whereNotIn('listings.status', ['in process'] )
         ->leftJoin('listing_property_roomds', 'listings.id_listings', 'listing_property_roomds.listing_id')
         ->leftJoin('listing_pricings', 'listings.id_listings', 'listing_pricings.listing_id')
         ->get();

@@ -207,7 +207,7 @@
 }
 .lightpick__day.is-previous-month, .lightpick__day.is-next-month {
   opacity: 0.38;
-  visibility: hidden;
+  /* visibility: hidden; */
   cursor: default;
 }
 .lightpick__day.lightpick__day.is-in-range:not(.is-disabled) {

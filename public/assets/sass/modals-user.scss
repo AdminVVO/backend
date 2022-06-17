@@ -2306,5 +2306,39 @@ body {
             text-align: center;
         }
     }
+
+    .container_vvo_picker {
+        display: none;
+
+        .fxfbwhmhbrzi {
+            max-width: fit-content !important;
+        }
+
+        .poyxwh {
+            padding: 0 !important;
+        }
+
+        .popup_vvo_picker {
+            .vvo_picker {
+                position: initial;
+                margin-top: 0;
+
+                .lightpick__months {
+                    margin-top: 0 !important;
+                }
+            }
+        }
+
+        @include responsive(743px) {
+            .fxpaijcpmi {
+                padding: 40px;
+                align-items: center;
+            }
+
+            .fxfbwhmhbrzi {
+                border-radius: 10px;
+            }
+        }
+    }
     // ----- end vista interna.php -----
 }

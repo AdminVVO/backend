@@ -253,6 +253,67 @@ input {
   right: 0;
   bottom: 0;
 }
+.container-welcome ._input-mod,
+.container-number ._input-mod,
+.container-options1 ._input-mod,
+.container-ineed ._input-mod,
+.container-welcome-email ._input-mod,
+.container-confirm-email ._input-mod,
+.container-options-email ._input-mod,
+.container-need-email ._input-mod,
+.container-t-registro ._input-mod,
+.container-msg-sent ._input-mod {
+  margin-top: 12px !important;
+  margin-bottom: 10px !important;
+}
+.container-welcome ._input-mod.pliptnumber,
+.container-number ._input-mod.pliptnumber,
+.container-options1 ._input-mod.pliptnumber,
+.container-ineed ._input-mod.pliptnumber,
+.container-welcome-email ._input-mod.pliptnumber,
+.container-confirm-email ._input-mod.pliptnumber,
+.container-options-email ._input-mod.pliptnumber,
+.container-need-email ._input-mod.pliptnumber,
+.container-t-registro ._input-mod.pliptnumber,
+.container-msg-sent ._input-mod.pliptnumber {
+  padding-left: 2.8rem !important;
+}
+.container-welcome .iti,
+.container-number .iti,
+.container-options1 .iti,
+.container-ineed .iti,
+.container-welcome-email .iti,
+.container-confirm-email .iti,
+.container-options-email .iti,
+.container-need-email .iti,
+.container-t-registro .iti,
+.container-msg-sent .iti {
+  margin: inherit;
+}
+.container-welcome .input_real,
+.container-number .input_real,
+.container-options1 .input_real,
+.container-ineed .input_real,
+.container-welcome-email .input_real,
+.container-confirm-email .input_real,
+.container-options-email .input_real,
+.container-need-email .input_real,
+.container-t-registro .input_real,
+.container-msg-sent .input_real {
+  margin: 12px 0 10px;
+}
+.container-welcome ._txterror,
+.container-number ._txterror,
+.container-options1 ._txterror,
+.container-ineed ._txterror,
+.container-welcome-email ._txterror,
+.container-confirm-email ._txterror,
+.container-options-email ._txterror,
+.container-need-email ._txterror,
+.container-t-registro ._txterror,
+.container-msg-sent ._txterror {
+  margin: 3px 0 13px;
+}
 .container-welcome ._txteh,
 .container-number ._txteh,
 .container-options1 ._txteh,
@@ -678,7 +739,6 @@ input {
 .container-msg-sent .pd_login-modal .modal_content-welcome .content_right .content_hidden-welcome .content_welcome .phone {
   padding-left: 50px;
   margin: 12px 0 25px;
-  -webkit-appearance: none;
   appearance: none;
   outline: none;
   width: 100%;

@@ -26,20 +26,16 @@
     padding: 0 32px;
   }
 }
+@media (max-width: 1020px) {
+  .block_places h3 {
+    padding: 0 30px;
+  }
+}
 
 .book-form {
   background-color: #FAFAFA;
   box-shadow: 0 0 30px rgba(0, 0, 0, 0.16);
   border-radius: 45px;
-}
-.book-form .befo__checkout {
-  position: relative;
-}
-.book-form .befo__checkout::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-color: transparent;
 }
 .book-form form {
   display: flex;

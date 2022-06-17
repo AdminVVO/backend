@@ -871,7 +871,7 @@
       }
 
       // cambiar tamaño responsive 785
-      if (window.innerWidth <= 1200 && opts.numberOfMonths > 1) {
+      if (window.innerWidth <= 743 && opts.numberOfMonths > 1) {
         opts.numberOfMonths = 1;
         opts.numberOfColumns = 1;
       }

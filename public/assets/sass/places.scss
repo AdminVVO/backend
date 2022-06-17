@@ -30,23 +30,18 @@
             padding: 0 32px;
         }
     }
+
+    @include responsive(1020px) {
+        h3 {
+            padding: 0 30px;
+        }
+    }
 }
 
 .book-form {
     background-color: $color-text-white;
     box-shadow: 0 0 30px $bg-shadow-places;
     border-radius: 45px;
-
-    .befo__checkout {
-        position: relative;
-
-        &::before {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background-color: transparent;
-        }
-    }
 
     form {
         display: flex;
