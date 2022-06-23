@@ -43,11 +43,12 @@ class Twilio extends Controller
         $auth_token = config('services.twilio.TWILIO_AUTH_TOKEN');
         $service_message = config('services.twilio.TWILIO_SERVICE_MESSAGE');
         $twilio = new Client($account_sid, $auth_token);
+        $app = env('APP_URL');
         $twilio->messages->create(
             $phone,
             [
                 'messagingServiceSid' => $service_message,
-                'body' => 'Click on the link for validation: http://192.168.0.15:8000/validation/process/' . $user_id
+                'body' => 'Click on the link for validation:'. $app . 'validation/process/' . $user_id
             ]
         );
     }
