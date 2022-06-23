@@ -103,7 +103,7 @@
   transition: none;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 743px) {
   .is-main-info-nav .header_admin ._mv-places {
     display: none;
   }
@@ -116,7 +116,7 @@
   padding-bottom: 0 !important;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 743px) {
   .messages-admin .section_messages_user .left_msg_user {
     padding-bottom: 4rem;
   }
@@ -142,7 +142,7 @@ body ._flex-sbet.not ._txtblu {
   font-weight: normal;
   line-height: normal;
 }
-@media (max-width: 900px) {
+@media (max-width: 743px) {
   body .header_admin {
     padding: 0;
     display: block;
@@ -873,12 +873,18 @@ body .header_admin ._mv-places {
     overflow: hidden;
   }
 }
-@media screen and (max-width: 900px) {
-  body .header {
-    display: none !important;
+@media (max-width: 900px) {
+  body .section_messages_user .header_msg_lateral_restime .btn-celest {
+    white-space: normal;
   }
   body .container-medio {
     width: 100%;
+    padding: 0 24px;
+  }
+}
+@media screen and (max-width: 743px) {
+  body .container-medio {
+    padding: 0;
   }
   body .content_icon-leng {
     display: none;
@@ -1022,7 +1028,7 @@ body .header_admin ._mv-places {
 .header_msg_lateral_restime .btn_circle_flecha {
   display: none;
 }
-@media (max-width: 900px) {
+@media (max-width: 743px) {
   .header_msg_lateral_restime .btn_circle_flecha {
     display: flex;
   }
@@ -1078,7 +1084,7 @@ body .is-msg-open-new .right_msg_user .bkg_white .ow-o {
     overflow: auto !important;
   }
 }
-@media (max-width: 900px) {
+@media (max-width: 743px) {
   body .is-main-info-open .medio_msg_user {
     flex: 0 1 0% !important;
     margin: 0;
@@ -1115,7 +1121,7 @@ body .is-main-info-open .right_msg_user .bkg_white .ow-o {
   flex: 0 0 400px;
   transition: all 0.5s ease;
 }
-@media (max-width: 900px) {
+@media (max-width: 743px) {
   .left_msg_user {
     flex: 1 1 0%;
   }
@@ -1125,7 +1131,7 @@ body .is-main-info-open .right_msg_user .bkg_white .ow-o {
   flex: 1 1 0%;
   transition: all 0.5s ease;
 }
-@media (max-width: 900px) {
+@media (max-width: 743px) {
   .medio_msg_user {
     flex: 0 1 0%;
   }
@@ -1135,7 +1141,7 @@ body .is-main-info-open .right_msg_user .bkg_white .ow-o {
   flex: 0 0 550px;
   transition: all 0.5s ease;
 }
-@media (max-width: 900px) {
+@media (max-width: 743px) {
   .right_msg_user .bkg_white {
     border: 0;
   }

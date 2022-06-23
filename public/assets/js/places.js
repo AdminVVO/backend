@@ -1,3 +1,21 @@
+const $menu = $('.book-f_home');
+
+$(document).mouseup(e => {
+    if (!$menu.is(e.target) && $menu.has(e.target).length === 0) {
+        $menu.removeClass('is-active');
+    }
+});
+
+$(".xhidemdusr").on("click", function() {
+    $menu.removeClass("is-active");
+    $("body").css({'overflow': 'auto'});
+});
+
+$('.menuGuest').on('click', () => {
+    $menu.toggleClass('is-active');
+});
+
+
 $(".book-f_header .menuGuest").addClass("menuGuestHeader");
 $(".book-f_header .menuGuest").removeClass("menuGuest");
 

@@ -40,4 +40,8 @@
             }
         }
     }
+
+    @include responsive(743px) {
+        margin-bottom: 40px;
+    }
 }

@@ -95,7 +95,7 @@ body .icon_favorite {
     margin-left: 8px;
   }
   body .content_international .content-gallery ._cgprel ._whg {
-    gap: 8px;
+    gap: 9px;
   }
   body .content_international .block_all-photos {
     bottom: 24px;
@@ -113,9 +113,6 @@ body .icon_favorite {
   }
   body .content_international .content-info-hosted .site-content .content-user_inf {
     padding-bottom: 24px;
-  }
-  body .content_international .content-info-hosted .site-content .content-user_inf .h2-guests {
-    margin-bottom: 8px;
   }
   body .content_international .content-info-hosted .site-content .content-user_inf .pf-u {
     max-width: 60px;

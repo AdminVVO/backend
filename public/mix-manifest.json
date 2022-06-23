@@ -103,6 +103,7 @@
     "/assets/js/vvo-focus-blur.js": "/assets/js/vvo-focus-blur.js",
     "/assets/js/vvo-keyup.js": "/assets/js/vvo-keyup.js",
     "/assets/js/vvo-mask.js": "/assets/js/vvo-mask.js",
+    "/assets/js/vvo-skeleton.js": "/assets/js/vvo-skeleton.js",
     "/assets/sass/_globals.scss": "/assets/sass/_globals.scss",
     "/assets/sass/_variables.scss": "/assets/sass/_variables.scss",
     "/assets/sass/account.scss": "/assets/sass/account.scss",

@@ -20,7 +20,11 @@
     <body class="page-category page__home vvo_ui" style="padding-top: 0px;">
 @endif
 
-@if ( !in_array( Route::currentRouteName(),['/']) )
+@if ( in_array( Route::currentRouteName(),['search']) )
+    <body class="page-category page__search vvo_ui">
+@endif
+
+@if ( !in_array( Route::currentRouteName(),['/','search']) )
     <body class="page-category">
 @endif
 

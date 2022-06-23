@@ -91,6 +91,7 @@ header .book-form ._bef-places {
 @media (max-width: 1400px) {
   header {
     min-height: 80px;
+    height: 80px;
   }
 }
 
@@ -99,13 +100,13 @@ header .book-form ._bef-places {
 }
 
 ._header-menu.is-active .menu_home-content {
-  top: 85px;
+  top: 67px;
   opacity: 1;
   visibility: visible;
 }
 @media (max-width: 1400px) {
   ._header-menu.is-active .menu_home-content {
-    top: 75px;
+    top: 50px;
   }
 }
 
@@ -181,7 +182,6 @@ header .book-form ._bef-places {
   align-items: center;
 }
 .menu_perfil {
-  cursor: pointer;
   margin-right: 20px;
 }
 .menu_perfil span {
@@ -274,6 +274,82 @@ header .book-form ._bef-places {
   align-items: center;
 }
 
+.page__search header {
+  position: absolute;
+  top: 0;
+  z-index: 30;
+}
+.page__search .content_location {
+  padding: 145px 0 30px;
+}
+.page__search .content_location .flex_local-dates {
+  height: 100%;
+  justify-content: space-between;
+}
+.page__search .content_location .flex_local-dates .content_location-width {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  height: 100%;
+}
+.page__search .content_location .flex_local-dates .content_location-width .contact-map {
+  height: 100%;
+}
+.page__search .content_location .flex_local-dates .content_view {
+  height: 100%;
+  overflow: auto;
+}
+.page__search .content_location .flex_local-dates .content_view .hidden_galerias {
+  height: 100% !important;
+  height: 100% !important;
+}
+.page__search .content_location .hidden_galerias {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+.page__search .content_location .hidden_galerias .content_galerias {
+  margin-bottom: 0;
+}
+.page__search .content_location .pagination {
+  margin: 2.5rem 0 15px;
+}
+.page__search .footer {
+  margin-top: 53px;
+}
+
+.page__wishlist_interno header {
+  position: absolute;
+  top: 0;
+  z-index: 30;
+}
+.page__wishlist_interno .content_location .flex_local-dates {
+  padding: 145px 0 30px;
+}
+.page__wishlist_interno .content_location .content_view {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.page__wishlist_interno .content_location .content_view .hidden_galerias {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  overflow: auto;
+}
+.page__wishlist_interno .footer {
+  margin-top: 53px;
+}
+
+@media (max-width: 1400px) {
+  .page__search .content_location {
+    padding: 104px 0 22px;
+  }
+
+  .page__wishlist_interno .content_location .flex_local-dates {
+    padding: 104px 0 22px;
+  }
+}
 @media (max-width: 1100px) {
   .logo-menu img {
     width: 185px;
@@ -293,21 +369,86 @@ header .book-form ._bef-places {
     width: 162px;
   }
 }
-@media (max-width: 68px) {
-  .menu > a {
-    display: none;
-  }
-}
 @media (max-width: 743px) {
-  .page__home header .menu_items.active i {
+  .page__home header .menu_items.icon_explore i {
     font-weight: 500;
     color: #FF5A5F;
   }
-  .page__home header .menu_items.active a,
-.page__home header .menu_items.active span,
-.page__home header .menu_items.active .sub {
+  .page__home header .menu_items.icon_explore a,
+.page__home header .menu_items.icon_explore span,
+.page__home header .menu_items.icon_explore .sub {
     color: #333;
     font-weight: 600;
+  }
+
+  .page__search .content_location {
+    padding: 0;
+  }
+
+  .page__wishlist_interno header .menu_items.icon_wishlists i {
+    font-weight: 500;
+    color: #FF5A5F;
+  }
+  .page__wishlist_interno header .menu_items.icon_wishlists a,
+.page__wishlist_interno header .menu_items.icon_wishlists span,
+.page__wishlist_interno header .menu_items.icon_wishlists .sub {
+    color: #333;
+    font-weight: 600;
+  }
+  .page__wishlist_interno .content_location .flex_local-dates {
+    padding: 0;
+    height: auto;
+  }
+  .page__wishlist_interno .content_location .content_location-width:nth-child(2) {
+    display: none;
+  }
+  .page__wishlist_interno footer {
+    display: none;
+  }
+
+  .page__wishlist header .menu_items.icon_wishlists i {
+    font-weight: 500;
+    color: #FF5A5F;
+  }
+  .page__wishlist header .menu_items.icon_wishlists a,
+.page__wishlist header .menu_items.icon_wishlists span,
+.page__wishlist header .menu_items.icon_wishlists .sub {
+    color: #333;
+    font-weight: 600;
+  }
+  .page__wishlist footer {
+    display: none;
+  }
+
+  .page__account_user header .menu_items.icon_profile i {
+    font-weight: 500;
+    color: #FF5A5F;
+  }
+  .page__account_user header .menu_items.icon_profile a,
+.page__account_user header .menu_items.icon_profile span,
+.page__account_user header .menu_items.icon_profile .sub {
+    color: #333;
+    font-weight: 600;
+  }
+  .page__account_user footer {
+    display: none;
+  }
+
+  .page__messages_user.is-message-open-nav header .menu {
+    bottom: -64px;
+  }
+  .page__messages_user header .menu_items.icon_inbox i {
+    font-weight: 500;
+    color: #FF5A5F;
+  }
+  .page__messages_user header .menu_items.icon_inbox a,
+.page__messages_user header .menu_items.icon_inbox span,
+.page__messages_user header .menu_items.icon_inbox .sub {
+    color: #333;
+    font-weight: 600;
+  }
+  .page__messages_user .left_msg_user {
+    margin-bottom: 3.9rem;
   }
 
   body header {
@@ -322,8 +463,17 @@ header .book-form ._bef-places {
   }
   body header .mnconfx > a,
 body header .mnconfx .menu_items {
-    max-width: 24%;
+    max-width: 20%;
     flex: 1 1 0;
+    cursor: pointer;
+    background-color: transparent;
+    text-align: center;
+    text-decoration: none;
+    min-width: 0px;
+    overflow-wrap: break-word;
+    -webkit-hyphens: auto;
+            hyphens: auto;
+    padding: 0 2px;
   }
   body header .medio {
     justify-content: center;
@@ -337,30 +487,35 @@ body header .mnconfx .menu_items {
   body header .menu {
     position: fixed;
     bottom: 0;
-    padding: 12px 0;
     background-color: #FFFFFF;
     left: 0;
     right: 0;
-    border-top: 1px solid #E3EDF3;
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
     z-index: 30;
+    transition: bottom 0.3s ease;
   }
   body header .menu a,
 body header .menu .menu span,
 body header .menu .menu_items .sub {
     color: #7D7D7D;
-    font-size: 10px !important;
+    font-size: 10.5px !important;
     line-height: 12px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow-wrap: break-word;
   }
-  body header .menu ._menu-bars {
+  body header .menu .vvo_hambur {
     display: none;
   }
   body header .menu .hmen {
-    max-width: 430px;
-    width: 90%;
+    max-width: 560px;
+    width: 100%;
   }
   body header .menu .menu_items {
     display: flex;
@@ -371,10 +526,16 @@ body header .menu .menu_items .sub {
     gap: 4px;
     text-align: center;
   }
+  body header .menu .menu_items.menu_perfil {
+    display: none;
+  }
   body header .menu .menu_items i {
-    font-size: 24px;
-    font-weight: 500;
+    font-size: 22px;
+    font-weight: 300;
     margin: 0;
+    color: #b0b0b0;
+  }
+  body header .menu .menu_items .i {
     color: #b0b0b0;
   }
   body header .menu .menu_home-content {

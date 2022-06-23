@@ -15,25 +15,25 @@
     h3 {
         color: $color-white;
         font-size: 26px;
-        margin-bottom: 16px;
+        margin: 0 45px 16px;
         font-weight: 400;
-        padding: 0 45px;
     }
 
     @include responsive(1400px) {
         width: 100%;
         max-width: 917px;
+        margin-top: -74px;
 
         h3 {
             font-size: 22px;
             margin-bottom: 14px;
-            padding: 0 32px;
+            margin: 0 32px 14px;
         }
     }
 
     @include responsive(1020px) {
         h3 {
-            padding: 0 30px;
+            margin: 0 30px 14px;
         }
     }
 }
@@ -119,12 +119,13 @@
                 &-flex {
                     display: flex;
                     align-items: baseline;
+                    margin-right: 40px;
                     // margin-top: 5px;
 
                     span {
                         color: black;
                         font-size: 16px;
-                        padding: 0 40px 0 5px;
+                        padding-left:5px;
                         font-weight: normal;
                     }
                 }
@@ -276,11 +277,17 @@
 }
 
 @include responsive(743px) {
-    .block_places .book-form {
-        border-radius: 20px 20px 32px 32px;
+    .block_places {
+        h3 {
+            margin: 0 21px 14px;
+        }
 
-        form {
-            padding: 21px;
+        .book-form {
+            border-radius: 20px 20px 32px 32px;
+    
+            form {
+                padding: 21px;
+            }
         }
     }
 }

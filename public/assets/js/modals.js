@@ -568,7 +568,10 @@ $(document).ready(function() {
         $(this).addClass("dot_active");
 
         $(this).parents(".card_info").siblings(".card_img").children("img.card_img_active").removeClass("card_img_active");  
-        $(this).parents(".card_info").siblings(".card_img").children("img").eq(index_dot).addClass("card_img_active");    
+        $(this).parents(".card_info").siblings(".card_img").children("img").eq(index_dot).addClass("card_img_active");
+
+        $(this).parents(".content-dots").siblings(".card_img").children("img.card_img_active").removeClass("card_img_active");  
+        $(this).parents(".content-dots").siblings(".card_img").children("img").eq(index_dot).addClass("card_img_active");  
     });
     
     $(document).on("click", ".content-dots > span, .card_love", function() {

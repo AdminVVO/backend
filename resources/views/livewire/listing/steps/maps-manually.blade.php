@@ -10,14 +10,16 @@
 
                         <form wire:submit.prevent="submitAddress">
                             <div class="_flfpc">
-                                <div class="txt-check-in">Street</div>
-                                <input type="text" class="_numcard @error('street') error_input @enderror" wire:model.lazy="street">
-                                @error('street')
-                                    <div  class="_txterror">
-                                        <i class="fas fa-exclamation-circle icon1"></i> 
-                                        {{ $message }}
-                                    </div>
-                                @enderror
+                                <div class="block_date">
+                                    <div class="txt-check-in">Street</div>
+                                    <input type="text" class="_numcard @error('street') error_input @enderror" wire:model.lazy="street">
+                                    @error('street')
+                                        <div class="_txterror">
+                                            <i class="fas fa-exclamation-circle icon1"></i> 
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
+                                </div>
                             </div>
 
                             <div class="_flfpc" style="gap: 20px;">

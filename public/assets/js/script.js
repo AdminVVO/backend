@@ -30,6 +30,10 @@ $('._menu-bars').on('click', () => {
     $menuBars.toggleClass('is-active');
 });
 
+$(".menu_items").on("click", function() {
+    $menuBars.removeClass("is-active");
+});
+
 
 // TABLA OPTIONS ...
 const $puntos = $('._menu-options');
@@ -125,6 +129,10 @@ $(".clickSelectBtn").on("click", function() {
     if (!toggleClass) {
         $(this).parent($btnSltContent).toggleClass("active");
     }
+});
+
+$(".xhidemdusr").on("click", function() {
+    $btnSltContent.removeClass("active");
 });
 
 // $(window).resize(function() {

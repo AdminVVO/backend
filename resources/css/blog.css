@@ -132,7 +132,7 @@ h3 {
   }
 
   .main-block {
-    margin: 70px 0;
+    margin-bottom: 56px;
   }
 
   .dates_text {
@@ -169,10 +169,6 @@ h3 {
   }
 }
 @media screen and (max-width: 900px) {
-  .main-block {
-    margin: 50px 0;
-  }
-
   .place-block {
     display: block;
   }
@@ -206,11 +202,6 @@ h3 {
 @media screen and (max-width: 800px) {
   .articles {
     gap: 30px;
-  }
-}
-@media screen and (max-width: 700px) {
-  .blog_container {
-    margin-top: 52px;
   }
 }
 @media screen and (max-width: 575px) {

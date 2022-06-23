@@ -29,10 +29,28 @@ $(document).on("click", ".mdatrnormlusr, .xhidemdusr", function() {
     $(this).parents(".contusrnmrlmdl").hide();
 });
 
+function resizeMdl743() {
+    if ($(this).width() <= 743) {
+        $(document).on("click", ".modal_content_nrl, .closeUserModalNrl", function() {
+            $(this).parents(".contnmrlmdl743").hide();
+            $(this).parents(".page-category").css({'overflow': 'hidden'});
+        });
+    } else {
+        $(document).on("click", ".modal_content_nrl, .closeUserModalNrl", function() {
+            $(this).parents(".contnmrlmdl743").hide();
+            $(this).parents(".page-category").css({'overflow': 'auto'});
+        });
+    }
+}
+resizeMdl743();
+$(window).bind("resize", function() {
+    resizeMdl743();
+});
+
 // modal global
 $(document).ready(function() {
     // Lenguajes
-    $("#btnLeng").on("click", function() {
+    $("#btnLeng, .btnLeng").on("click", function() {
         animateTopModals();
         $(".container_leng_region").show();
     })
@@ -52,11 +70,6 @@ $(document).ready(function() {
         $(".container-welcome").show();
     });
     
-    $(".js__btnFavoriteUi").on("click", function() {
-        animateTopModals();
-        $(".container-wishlists").show();
-    });
-
     // ---------------------- trips ----------------------
     $(".showDetailsPastPopup").on("click", function() {
         animateTopModals();
@@ -122,6 +135,11 @@ $(document).ready(function() {
         $(".container-wishlists-create").show();
     });
 
+    $(document).on("click", ".showFavoriteWishlist", function() {
+        animateTopModals();
+        $(".container-wishlists").show();
+    });
+
     $(".showFavoriteGallery").on("click", function() {
         animateTopModals();
         $(".container-gallerys-create").show();
@@ -165,17 +183,6 @@ $(document).ready(function() {
     $(".show_popup_all_amenitles").on("click", function() {
         $(".container_all_amenitles").show();
         animateTopModals();
-    });
-
-    // Play with : credit or debit card - google play
-    $("._glepay").on("click", function() {
-        $("._hiddencreditordebit").hide();
-        $("._showgplay").show();
-    });
-
-    $("._creditcard").on("click", function() {
-        $("._showgplay").hide();
-        $("._hiddencreditordebit").show();
     });
 
     $(".js__edit-lightpick").on("click", function() { // click edit - lightpick modal

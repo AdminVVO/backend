@@ -110,7 +110,7 @@
  .is-main-info-nav {
   .header_admin {
     ._mv-places {
-      @include responsive(900px) {
+      @include responsive(743px) {
         display: none;
       }
     }
@@ -132,7 +132,7 @@
 .messages-admin {
   .section_messages_user {
     .left_msg_user {
-      @include responsive(900px) {
+      @include responsive(743px) {
         padding-bottom: 4rem;
       }
     }
@@ -166,7 +166,7 @@ body {
   }
 
   .header_admin {
-    @include responsive(900px) {
+    @include responsive(743px) {
       padding: 0;
       display: block;
       border: none;
@@ -1168,15 +1168,32 @@ body {
   }
 }
 
-// max-width 900px
-@media screen and (max-width: 900px) {
+@include responsive(900px) {
   body {
-    .header {
-      display: none !important;
+    .section_messages_user {
+      .header_msg_lateral_restime {
+        .btn-celest {
+          white-space: normal;
+        }
+      }
     }
 
     .container-medio {
       width: 100%;
+      padding: 0 24px;
+    }
+  }
+}
+
+// max-width 743px
+@media screen and (max-width: 743px) {
+  body {
+    // .header {
+    //   display: none !important;
+    // }
+
+    .container-medio {
+      padding: 0;
     }
 
     .content_icon-leng {
@@ -1390,7 +1407,7 @@ body {
   .btn_circle_flecha {
     display: none;
 
-    @include responsive(900px) {
+    @include responsive(743px) {
       display: flex;
     }
 
@@ -1473,7 +1490,7 @@ body {
       }
     }
 
-    @include responsive(900px) {
+    @include responsive(743px) {
       .medio_msg_user {
         flex: 0 1 0% !important;
         margin: 0;
@@ -1522,7 +1539,7 @@ body {
   flex: 0 0 400px;
   transition: all .5s ease;
 
-  @include responsive(900px) {
+  @include responsive(743px) {
     flex: 1 1 0%;
   }
 }
@@ -1531,7 +1548,7 @@ body {
   flex: 1 1 0%;
   transition: all .5s ease;
 
-  @include responsive(900px) {
+  @include responsive(743px) {
     flex: 0 1 0%;
   }
 }
@@ -1541,7 +1558,7 @@ body {
   transition: all .5s ease;
 
   .bkg_white {
-    @include responsive(900px) {
+    @include responsive(743px) {
       border: 0;
     }
   }

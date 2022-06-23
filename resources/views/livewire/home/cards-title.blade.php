@@ -1,7 +1,7 @@
 <div class="fx cards_content">
     <div class="features-slides">
         @foreach ($contentListing as $element)
-            <a href="{{ route('interna', $element['id_listings'] ) }}">
+            <a href="{{ route('interna', $element['id_listings'] ) }}" id="skeleton_card">
                 @if ( Auth::check() )
                     @if ( in_array($element['id_listings'], $wishlists))
                         <button type="button" class="card_love icon_solid">
@@ -20,9 +20,9 @@
                 </button>
 
                 <div class="card_img">
-                    <img src="{{ URL::asset('storage/uploadListing/' . $element['photos'][0]) }}" alt="">
-                    <img src="{{ URL::asset('storage/uploadListing/' . $element['photos'][1]) }}" alt="">
-                    <img src="{{ URL::asset('storage/uploadListing/' . $element['photos'][2]) }}" alt="">
+                    <img loading="lazy" src="{{ URL::asset('storage/uploadListing/' . $element['photos'][0]) }}" alt="">
+                    <img loading="lazy" src="{{ URL::asset('storage/uploadListing/' . $element['photos'][1]) }}" alt="">
+                    <img loading="lazy" src="{{ URL::asset('storage/uploadListing/' . $element['photos'][2]) }}" alt="">
                 </div>
 
                 <div class="card_info">
@@ -33,9 +33,9 @@
                     </div>
 
                     <div class="card_info_text">
-                        <h2 class="h2-cards text_tm1">{{ $element['title'] }}</h2>
+                        <h2 class="h2-cards text_tm1 skeleton skeleton_txt">{{ $element['title'] }}</h2>
                     </div>
-                    <h3 class="h3-cards text_tm1">{{ ucwords( \App\Models\RoomsProperty::TypeName( $element['like_place'] )  . ' - ' . \App\Models\RoomsProperty::PropertyName( $element['property_type'] ) ) }}</h3>
+                    <h3 class="h3-cards text_tm1 skeleton skeleton_txt">{{ ucwords( \App\Models\RoomsProperty::TypeName( $element['like_place'] )  . ' - ' . \App\Models\RoomsProperty::PropertyName( $element['property_type'] ) ) }}</h3>
                 </div>
             </a>
         @endforeach
@@ -55,7 +55,6 @@
     <script>
         Livewire.hook('message.processed', (message, component) => {
             carousel3D();
-
             function carousel3D() {
                 var sliders = [];
                 var delay = 4000;
@@ -108,6 +107,16 @@
                     $(".features-slide_navs .next-btn").unbind("click");
                 });
                 slider_init();
+            }
+
+            skeleton();
+            function skeleton() {
+                let loadings = $(".skeleton");
+                $(loadings).addClass("transition");
+                
+                for (loading of loadings) {
+                    $(loading).removeClass("skeleton skeleton_card skeleton_txt");
+                }
             }
         })
     </script>

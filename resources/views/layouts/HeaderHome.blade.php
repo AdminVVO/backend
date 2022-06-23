@@ -50,7 +50,7 @@
 			                                    <div class="wf10a">Wishlists</div>
 			                                </button>
 		                            	</a>
-	                            		<hr class="br-line">
+		                            	<div class="br-line"></div>
 		                            	<a href="#">
 			                                <button type="submit" class="menu__text-link">
 			                                    <div class="wf10a">Manage</div>

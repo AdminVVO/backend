@@ -68,3 +68,8 @@ a {
     margin-bottom: 20px;
   }
 }
+@media (max-width: 743px) {
+  .section-account {
+    margin-bottom: 40px;
+  }
+}

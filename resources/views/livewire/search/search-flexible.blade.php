@@ -1,12 +1,13 @@
-<div class="flex cards_content owl-carousel vvo_carousel_search" wire:ignore.self>
+<div class="flex vvo_carousel_search scroll_n">
     @forelse ($contentListing as $element)
-        <a href="{{ route('interna', $element['id_listings'] ) }}" class="card_items">
+
+        <a href="{{ route('interna', $element['id_listings'] ) }}" class="card_items active skeleton skeleton_card">
             <div class="card_top">
-                <div class="card_top_price">
+                <div class="card_top_price skeleton skeleton_txt">
                     <i class="fas fa-dollar-sign"></i>
                     <p>{{ $element['base_price'] }} / night</p>
                 </div>
-                <div class="card_top_dates">
+                <div class="card_top_dates skeleton skeleton_txt">
                     <i class="fas fa-calendar"></i>
                     <p>24 dec - 31 dec</p>
                 </div>
@@ -30,9 +31,9 @@
             </button>
 
             <div class="card_img">
-                <img src="{{ URL::asset('storage/uploadListing/' . $element['photos'][0]) }}" alt="">
-                <img src="{{ URL::asset('storage/uploadListing/' . $element['photos'][1]) }}" alt="">
-                <img src="{{ URL::asset('storage/uploadListing/' . $element['photos'][2]) }}" alt="">
+                <img loading="lazy" src="{{ URL::asset('storage/uploadListing/' . $element['photos'][0]) }}" alt="">
+                <img loading="lazy" src="{{ URL::asset('storage/uploadListing/' . $element['photos'][1]) }}" alt="">
+                <img loading="lazy" src="{{ URL::asset('storage/uploadListing/' . $element['photos'][2]) }}" alt="">
             </div>
 
             <div class="card_info">
@@ -43,18 +44,20 @@
                 </div>
 
                 <div class="card_info_text">
-                    <h2 class="h2-cards">{{ $element['title'] }}</h2>
-                    <div class="card_info_rating">
+                    <h2 class="h2-cards skeleton skeleton_txt">{{ $element['title'] }}</h2>
+                    <div class="card_info_rating skeleton">
                         <i class="fas fa-star"></i>
                         <p>4.89 <span>(15)</span></p>
                     </div>
                 </div>
-                <h3 class="h3-cards">{{ ucwords( \App\Models\RoomsProperty::TypeName( $element['like_place'] )  . ' - ' . \App\Models\RoomsProperty::PropertyName( $element['property_type'] ) ) }}</h3>
+                <h3 class="h3-cards skeleton skeleton_txt">{{ ucwords( \App\Models\RoomsProperty::TypeName( $element['like_place'] )  . ' - ' . \App\Models\RoomsProperty::PropertyName( $element['property_type'] ) ) }}</h3>
             </div>
         </a>
     @empty
-        <div class="medio now__listabscard">
-            <p>No Have Listing</p>
+        <div class="medio">
+            <div class="now__listabscard">
+                <p>No Have Listing</p>
+            </div>
         </div>
     @endforelse
 </div>

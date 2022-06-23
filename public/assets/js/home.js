@@ -1,22 +1,4 @@
 $(document).ready(function(){
-    const $menu = $('.book-f_home');
-
-    $(document).mouseup(e => {
-        if (!$menu.is(e.target) && $menu.has(e.target).length === 0) {
-            $menu.removeClass('is-active');
-        }
-    });
-
-    $(".xhidemdusr").on("click", function() {
-        $menu.removeClass("is-active");
-        $(".page-category").css({'overflow': 'auto'});
-    });
-
-    $('.menuGuest').on('click', () => {
-        $menu.toggleClass('is-active');
-    });
-
-
     //Carousel jQuery
     carousel3D();
     function carousel3D() {
@@ -28,8 +10,8 @@ $(document).ready(function(){
         var current_playing;
         // restore user slider img and title or descriptions
         $(".features-slides").find("a").each(function () {
-            this.className += "card_items slider-hide";
-            sliders.push({ html: this })
+            $(this).addClass("card_items slider-hide");
+            sliders.push({ html: this });
         });
         // initialize the siliders
         function slider_init() {
@@ -46,12 +28,11 @@ $(document).ready(function(){
             // mute the one img before
             A[(i + A.length + 3) % A.length].html.className += " slider-hide";
             // display 5 img after the muted one
-            A[(i + A.length) % A.length].html.className = "card_items card_items_active";
-            A[(i + A.length - 1) % A.length].html.className = "card_items slider-left-1";
-            A[(i + A.length - 2) % A.length].html.className = "card_items slider-left-2";
-            A[(i + A.length + 1) % A.length].html.className = "card_items slider-right-1";
-            A[(i + A.length + 2) % A.length].html.className = "card_items slider-right-2";
-
+            A[(i + A.length) % A.length].html.className = "card_items card_items_active skeleton_card transition";
+            A[(i + A.length - 1) % A.length].html.className = "card_items slider-left-1 skeleton_card transition";
+            A[(i + A.length - 2) % A.length].html.className = "card_items slider-left-2 skeleton_card transition";
+            A[(i + A.length + 1) % A.length].html.className = "card_items slider-right-1 skeleton_card transition";
+            A[(i + A.length + 2) % A.length].html.className = "card_items slider-right-2 skeleton_card transition";
         }
         // slider
         function slider_loop(A, i) {

@@ -945,6 +945,7 @@ body .container-wishlists-share,
 body .container-wishlists-create,
 body .container-gallerys-create,
 body .container-wishlists,
+body .container-wishlists-view,
 body .container-gallery-wishlists {
   display: none;
 }
@@ -953,6 +954,7 @@ body .container-wishlists-share .fxfbwhmhbrzi,
 body .container-wishlists-create .fxfbwhmhbrzi,
 body .container-gallerys-create .fxfbwhmhbrzi,
 body .container-wishlists .fxfbwhmhbrzi,
+body .container-wishlists-view .fxfbwhmhbrzi,
 body .container-gallery-wishlists .fxfbwhmhbrzi {
   max-width: 660px;
 }
@@ -962,6 +964,7 @@ body .container-wishlists-share .fxfbwhmhbrzi,
 body .container-wishlists-create .fxfbwhmhbrzi,
 body .container-gallerys-create .fxfbwhmhbrzi,
 body .container-wishlists .fxfbwhmhbrzi,
+body .container-wishlists-view .fxfbwhmhbrzi,
 body .container-gallery-wishlists .fxfbwhmhbrzi {
     max-width: 568px;
   }
@@ -971,6 +974,7 @@ body .container-wishlists-share .poyxwh,
 body .container-wishlists-create .poyxwh,
 body .container-gallerys-create .poyxwh,
 body .container-wishlists .poyxwh,
+body .container-wishlists-view .poyxwh,
 body .container-gallery-wishlists .poyxwh {
   padding-bottom: 80px;
 }
@@ -979,6 +983,7 @@ body .container-wishlists-share .nv_btnfooter,
 body .container-wishlists-create .nv_btnfooter,
 body .container-gallerys-create .nv_btnfooter,
 body .container-wishlists .nv_btnfooter,
+body .container-wishlists-view .nv_btnfooter,
 body .container-gallery-wishlists .nv_btnfooter {
   padding: 13px 24px 80px;
 }
@@ -988,6 +993,7 @@ body .container-wishlists-share .nv_btnfooter,
 body .container-wishlists-create .nv_btnfooter,
 body .container-gallerys-create .nv_btnfooter,
 body .container-wishlists .nv_btnfooter,
+body .container-wishlists-view .nv_btnfooter,
 body .container-gallery-wishlists .nv_btnfooter {
     padding: 13px 24px 60px;
   }
@@ -998,6 +1004,7 @@ body .container-wishlists-share .nv_btnfooter,
 body .container-wishlists-create .nv_btnfooter,
 body .container-gallerys-create .nv_btnfooter,
 body .container-wishlists .nv_btnfooter,
+body .container-wishlists-view .nv_btnfooter,
 body .container-gallery-wishlists .nv_btnfooter {
     padding: 16px 24px;
     border-top: 1px solid #E3EDF3;
@@ -1007,6 +1014,7 @@ body .container-wishlists-share .nv_btnfooter .btn-celest,
 body .container-wishlists-create .nv_btnfooter .btn-celest,
 body .container-gallerys-create .nv_btnfooter .btn-celest,
 body .container-wishlists .nv_btnfooter .btn-celest,
+body .container-wishlists-view .nv_btnfooter .btn-celest,
 body .container-gallery-wishlists .nv_btnfooter .btn-celest {
     width: 100%;
   }
@@ -1016,6 +1024,7 @@ body .container-wishlists-share .popup_share ._block-share,
 body .container-wishlists-create .popup_share ._block-share,
 body .container-gallerys-create .popup_share ._block-share,
 body .container-wishlists .popup_share ._block-share,
+body .container-wishlists-view .popup_share ._block-share,
 body .container-gallery-wishlists .popup_share ._block-share {
   margin: 48px 0 30px;
   display: flex;
@@ -1028,6 +1037,7 @@ body .container-wishlists-share .popup_share ._block-share,
 body .container-wishlists-create .popup_share ._block-share,
 body .container-gallerys-create .popup_share ._block-share,
 body .container-wishlists .popup_share ._block-share,
+body .container-wishlists-view .popup_share ._block-share,
 body .container-gallery-wishlists .popup_share ._block-share {
     margin: 24px 0;
     gap: 16px;
@@ -1038,6 +1048,7 @@ body .container-wishlists-share .popup_share ._block-share .flex-img,
 body .container-wishlists-create .popup_share ._block-share .flex-img,
 body .container-gallerys-create .popup_share ._block-share .flex-img,
 body .container-wishlists .popup_share ._block-share .flex-img,
+body .container-wishlists-view .popup_share ._block-share .flex-img,
 body .container-gallery-wishlists .popup_share ._block-share .flex-img {
   width: 100px;
   height: 100px;
@@ -1050,6 +1061,7 @@ body .container-wishlists-share .popup_share ._block-share .flex-img,
 body .container-wishlists-create .popup_share ._block-share .flex-img,
 body .container-gallerys-create .popup_share ._block-share .flex-img,
 body .container-wishlists .popup_share ._block-share .flex-img,
+body .container-wishlists-view .popup_share ._block-share .flex-img,
 body .container-gallery-wishlists .popup_share ._block-share .flex-img {
     width: 64px;
     min-width: 64px;
@@ -1062,6 +1074,7 @@ body .container-wishlists-share .popup_share ._block-share .flex-img img,
 body .container-wishlists-create .popup_share ._block-share .flex-img img,
 body .container-gallerys-create .popup_share ._block-share .flex-img img,
 body .container-wishlists .popup_share ._block-share .flex-img img,
+body .container-wishlists-view .popup_share ._block-share .flex-img img,
 body .container-gallery-wishlists .popup_share ._block-share .flex-img img {
   width: 100%;
   height: 100%;
@@ -1072,6 +1085,7 @@ body .container-wishlists-share .popup-favorite .h2_publish,
 body .container-wishlists-create .popup-favorite .h2_publish,
 body .container-gallerys-create .popup-favorite .h2_publish,
 body .container-wishlists .popup-favorite .h2_publish,
+body .container-wishlists-view .popup-favorite .h2_publish,
 body .container-gallery-wishlists .popup-favorite .h2_publish {
   text-align: center;
   margin-bottom: 58px;
@@ -1081,6 +1095,7 @@ body .container-wishlists-share .popup-favorite ._f-g,
 body .container-wishlists-create .popup-favorite ._f-g,
 body .container-gallerys-create .popup-favorite ._f-g,
 body .container-wishlists .popup-favorite ._f-g,
+body .container-wishlists-view .popup-favorite ._f-g,
 body .container-gallery-wishlists .popup-favorite ._f-g {
   display: flex;
   flex-direction: column;
@@ -1093,6 +1108,7 @@ body .container-wishlists-share .popup-favorite .h2_publish,
 body .container-wishlists-create .popup-favorite .h2_publish,
 body .container-gallerys-create .popup-favorite .h2_publish,
 body .container-wishlists .popup-favorite .h2_publish,
+body .container-wishlists-view .popup-favorite .h2_publish,
 body .container-gallery-wishlists .popup-favorite .h2_publish {
     font-size: 24px;
     margin-bottom: 38px;
@@ -1102,6 +1118,7 @@ body .container-wishlists-share .popup-favorite ._f-g,
 body .container-wishlists-create .popup-favorite ._f-g,
 body .container-gallerys-create .popup-favorite ._f-g,
 body .container-wishlists .popup-favorite ._f-g,
+body .container-wishlists-view .popup-favorite ._f-g,
 body .container-gallery-wishlists .popup-favorite ._f-g {
     gap: 16px;
     margin-top: 0;
@@ -1112,6 +1129,7 @@ body .container-wishlists-share .popup-faborite-1 .h2_publish,
 body .container-wishlists-create .popup-faborite-1 .h2_publish,
 body .container-gallerys-create .popup-faborite-1 .h2_publish,
 body .container-wishlists .popup-faborite-1 .h2_publish,
+body .container-wishlists-view .popup-faborite-1 .h2_publish,
 body .container-gallery-wishlists .popup-faborite-1 .h2_publish {
   text-align: center;
   margin-bottom: 58px;
@@ -1122,6 +1140,7 @@ body .container-wishlists-share .popup-faborite-1 .h2_publish,
 body .container-wishlists-create .popup-faborite-1 .h2_publish,
 body .container-gallerys-create .popup-faborite-1 .h2_publish,
 body .container-wishlists .popup-faborite-1 .h2_publish,
+body .container-wishlists-view .popup-faborite-1 .h2_publish,
 body .container-gallery-wishlists .popup-faborite-1 .h2_publish {
     margin-bottom: 38px;
   }
@@ -1130,6 +1149,7 @@ body .container-wishlists-share .popup-faborite-1 ._input-mod,
 body .container-wishlists-create .popup-faborite-1 ._input-mod,
 body .container-gallerys-create .popup-faborite-1 ._input-mod,
 body .container-wishlists .popup-faborite-1 ._input-mod,
+body .container-wishlists-view .popup-faborite-1 ._input-mod,
 body .container-gallery-wishlists .popup-faborite-1 ._input-mod {
     margin: 0;
   }
@@ -1138,6 +1158,7 @@ body .container-wishlists-share .popup-faborite-1 .span-guests,
 body .container-wishlists-create .popup-faborite-1 .span-guests,
 body .container-gallerys-create .popup-faborite-1 .span-guests,
 body .container-wishlists .popup-faborite-1 .span-guests,
+body .container-wishlists-view .popup-faborite-1 .span-guests,
 body .container-gallery-wishlists .popup-faborite-1 .span-guests {
     padding-top: 8px;
     font-size: 12px;

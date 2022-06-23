@@ -2,6 +2,10 @@
 
 .content_location {
 
+    @include responsive(743px) {
+        padding-bottom: 40px;
+    }
+
     .content-scroll-local {
         display: flex;
         max-width: 100%;
@@ -15,7 +19,7 @@
         justify-content: space-between;
 
         @include responsive(1400px) {
-            padding: 0 14px;
+            padding: 0 24px;
         }
 
         @include responsive(890px) {
@@ -165,32 +169,34 @@
 
     .flex_local-dates {
         display: flex;
-        @include responsive(1300px) {
+
+        @include responsive(1000px) {
             flex-direction: column;
         }
 
         .content_location-width {
             padding-left: 60px;
+            min-width: 600px;
 
             @include responsive(1650px) {
                 width: 840px;
             }
 
             @include responsive(1400px) {
-                padding-left: 14px;
+                padding-left: 24px;
             }
 
-            @include responsive(1300px) {
+            @include responsive(1000px) {
                 width: 100%;
-            }
-
-            @include responsive(743px) {
-                padding-right: 14px;
+                padding-right: 24px;
+                min-width: auto;
             }
 
             .contact-map {
                 width: 100%;
-                height: 95%;
+                height: 100%;
+                background-color: #7D7D7D;
+                border-radius: 10px 0 0 10px;
             
                 iframe {
                     width: 100%;
@@ -198,7 +204,7 @@
                     border-radius: 10px 0 0 10px;
                 }
 
-                @include responsive(1300px) {
+                @include responsive(1000px) {
                     height: 537px;
 
                     iframe {
@@ -218,11 +224,6 @@
                 .hidden_galerias {
                     width: 637px;
                     height: 1071px;
-                    overflow: overlay;
-
-                    &::-webkit-scrollbar {
-                        display: none; 
-                    }
 
                     @include responsive(1650px) {
                         width: 100%;
@@ -282,11 +283,9 @@
                 width: 100%;
                 margin-left: 30px;
                 padding-left: 0;
-                @include responsive(1650px) {
-                    width: 50%;
-                }
+                flex: 1 1 0;
 
-                @include responsive(1300px) {
+                @include responsive(1000px) {
                     margin-top: 20px;
                     margin-left: 0;
                     padding-right: 0;
@@ -300,7 +299,7 @@
                         padding-right: 60px;
                     }
 
-                    @include responsive(1300px) {
+                    @include responsive(1000px) {
                         padding-left: 60px;
                     }
 

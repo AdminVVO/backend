@@ -8,13 +8,18 @@
 }
  
 .home {
+    position: relative;
     width: 100%;
     height: 850px;  
     background-image: url("../img/pano-home.png"); 
     background-size: cover;
     background-repeat: no-repeat;
     overflow: hidden;
-    position: relative;
+    
+    .h2-pano {
+        width: fit-content;
+        margin-bottom: 12px;
+    }
 
     .owl-dots {
         display: none;
@@ -334,6 +339,10 @@
             img {
                 width: 28px;
             }
+        }
+
+        @include responsive(743px) {
+            display: none;
         }
     }
 }

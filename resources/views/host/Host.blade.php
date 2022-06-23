@@ -26,7 +26,7 @@
         </div>
     </div>
 
-    <img src="{{ URL::asset('assets/img/avatar/host-vvoutlet.png') }}" alt="" class="_pabslogo">
+    <img src="{{ URL::asset('assets/img/avatar/host-vvoutlet.png') }}" alt="" class="_pabslg">
     <img src="{{ URL::asset('assets/img/avatar/girl-nivel.png') }}" alt="" class="_pabsgirl">
 </div>
 

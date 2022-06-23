@@ -22,6 +22,7 @@ class Search extends Component
     public $category;
     public $countListing;
     public $daysDiff = 0;
+    public $preloadReturnMap = false;
 
     public $inputPrice;
     public $inputPlace;
@@ -43,11 +44,12 @@ class Search extends Component
 
         $this->places = RoomsProperty::pluck('name_type', 'type');
     }
+
     public function render()
     {
         $this->preLoadContent();
-            if ( $this->contentListing )
-                $this->preLoadCoordinate = [ $this->contentListing[0]['latitude'], $this->contentListing[0]['longitude']];
+
+        $this->reset(['contentCoordinate', 'preLoadCoordinate']);
 
         foreach ( $this->contentListing as $key => $value) {
             $title = $value['title'];
@@ -61,11 +63,12 @@ class Search extends Component
                 $photo3 = "<img src='$photoInit3' alt='' class='card_img_active'>";
             $latitude = $value['latitude'];
             $longitude = $value['longitude'];
-
+            $url = env('APP_URL') . 'interna/' . $value['id_listings'];
+            
             $this->contentCoordinate[] = [
                     'type' => 'Feature',
                     'properties' => [
-                        'description' => "<div class='card_items card_items_map'><div class='card_top'><div class='card_top_price'><i class='fas fa-dollar-sign'></i><p>$price / night</p></div><div class='card_top_dates'><i class='fas fa-calendar'></i><p>24 dec - 31 dec</p></div></div><button type='button' class='card_love showFavorite'><svg xmlns='http://www.w3.org/2000/svg' width='27.003' height='23.878' viewBox='0 0 27.003 23.878'><g transform='translate(1.002 -1.245)' fill='rgba(222,222,222,0.38)' stroke='#dedede' stroke-width='2'><path d='M22.573,3.743a6.677,6.677,0,0,0-9.111.664L12.5,5.4l-.962-.991a6.677,6.677,0,0,0-9.111-.664,7.011,7.011,0,0,0-.483,10.151l9.448,9.756a1.531,1.531,0,0,0,2.212,0l9.448-9.756a7.007,7.007,0,0,0-.479-10.151Z'></path><path d='M22.573,3.743a6.677,6.677,0,0,0-9.111.664L12.5,5.4l-.962-.991a6.677,6.677,0,0,0-9.111-.664,7.011,7.011,0,0,0-.483,10.151l9.448,9.756a1.531,1.531,0,0,0,2.212,0l9.448-9.756a7.007,7.007,0,0,0-.479-10.151Z'></path></g></svg></button><div class='card_img'>$photo1 $photo2 $photo3</div><div class='card_info'><div class='content-dots'><span class='dot dot_active'></span><span class='dot'></span><span class='dot'></span></div><div class='card_info_text'><h2 class='h2-cards text_tm1'>$title</h2><div class='fxaigpfwjcw'><h3 class='h3-cards text_tm1'>$room</h3><div class='card_info_rating'><i class='fas fa-star'></i><p>4.89 <span>(15)</span></p></div></div></div></div></div>",
+                        'description' => "<a href='$url'><div class='card_items card_items_map'><div class='card_top'><div class='card_top_price'><i class='fas fa-dollar-sign'></i><p>$price / night</p></div><div class='card_top_dates'><i class='fas fa-calendar'></i><p>24 dec - 31 dec</p></div></div><button type='button' class='card_love showFavorite'><svg xmlns='http://www.w3.org/2000/svg' width='27.003' height='23.878' viewBox='0 0 27.003 23.878'><g transform='translate(1.002 -1.245)' fill='rgba(222,222,222,0.38)' stroke='#dedede' stroke-width='2'><path d='M22.573,3.743a6.677,6.677,0,0,0-9.111.664L12.5,5.4l-.962-.991a6.677,6.677,0,0,0-9.111-.664,7.011,7.011,0,0,0-.483,10.151l9.448,9.756a1.531,1.531,0,0,0,2.212,0l9.448-9.756a7.007,7.007,0,0,0-.479-10.151Z'></path><path d='M22.573,3.743a6.677,6.677,0,0,0-9.111.664L12.5,5.4l-.962-.991a6.677,6.677,0,0,0-9.111-.664,7.011,7.011,0,0,0-.483,10.151l9.448,9.756a1.531,1.531,0,0,0,2.212,0l9.448-9.756a7.007,7.007,0,0,0-.479-10.151Z'></path></g></svg></button><div class='card_img'>$photo1 $photo2 $photo3</div><div class='card_info'><div class='content-dots'><span class='dot dot_active'></span><span class='dot'></span><span class='dot'></span></div><div class='card_info_text'><h2 class='h2-cards text_tm1'>$title</h2><div class='fxaigpfwjcw'><h3 class='h3-cards text_tm1'>$room</h3><div class='card_info_rating'><i class='fas fa-star'></i><p>4.89 <span>(15)</span></p></div></div></div></div></div></a>",
                         'price' => "$price$ / Night",
                         'image-name' => 'popup',
                     ],
@@ -75,6 +78,20 @@ class Search extends Component
                     ]
                 ];
         }
+
+        if ( count( $this->contentListing ) != 0 ){
+            $this->preLoadCoordinate = [ $this->contentListing[0]['latitude'], $this->contentListing[0]['longitude']];
+            if ( $this->preloadReturnMap )
+                $this->dispatchBrowserEvent('loadDataMapBox', ['preLoadCoordinate' => $this->preLoadCoordinate, 'contentCoordinate' => $this->contentCoordinate ]);
+        }
+
+        if ( count( $this->contentListing ) == 0 ){
+            if ( $this->preloadReturnMap )
+                $this->dispatchBrowserEvent('loadDataMapBox', ['preLoadCoordinate' => null, 'contentCoordinate' => [] ]);
+        }
+
+
+
         
         return view('livewire.search.search');
     }
@@ -82,11 +99,13 @@ class Search extends Component
     public function updatedinputPrice($value)
     {
         $this->filterPrice = $value;
+        $this->preloadReturnMap = true;
     }
  
     public function updatedinputPlace($value)
     {
         $this->filterPlace = $value;
+        $this->preloadReturnMap = true;
     }
 
     public function preLoadContent()
@@ -150,6 +169,7 @@ class Search extends Component
     public function changeCateg($payload)
     {
         $this->filter_categ = $payload;
+        $this->preloadReturnMap = true;
     }
 
     public function resetFilter()

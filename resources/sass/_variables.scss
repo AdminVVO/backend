@@ -69,6 +69,19 @@ $cant: 300;
 }
 
 
+@mixin header_icon_ui {
+  i {
+    font-weight: 500;
+    color: #FF5A5F;
+  }
+
+  a,
+  span,
+  .sub {
+      color: #333;
+      font-weight: 600;
+  }
+}
 
 @mixin h1 {
   font-size: 160px;
@@ -352,6 +365,35 @@ $cant: 300;
   padding: 16px 50px;
   border-radius: 10px;
   background-color: #283646;
+  color: $color-white;
+  font-weight: normal;
+  white-space: nowrap;
+  font-size: 18px;
+  transition: background-color 0.3s ease;
+
+  &:active {
+    transform: scale(0.96);
+  }
+
+  &.mx210 {
+    width: 100% !important;
+    max-width: 210px !important;
+  }
+
+  @include responsive(1400px) {
+    padding: 14px 24px;
+    font-size: 16px;
+    line-height: 20px;
+    border-radius: 8px;
+  }
+}
+
+@mixin btn-yellow {
+  width: fit-content;
+  display: inline-block;
+  padding: 16px 50px;
+  border-radius: 10px;
+  background-color: #ffc439;
   color: $color-white;
   font-weight: normal;
   white-space: nowrap;
@@ -1025,46 +1067,7 @@ $cant: 300;
     border-radius: 15px;
     overflow: hidden;
     z-index: 1;
-    background-color: black;
     transition: all .3s ease;
-    button{
-      display: contents;   
-    }
-    button:hover g {
-      fill: $color-white;
-      stroke: $icon-love-br-red; 
-    }
-
-    .card_love {
-      position: absolute;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      width: 57px;
-      height: 57px;
-      border-radius: 50%;
-      top: -12.6px;
-      right: -16.5px;
-      z-index: 1;
-      transition: all .3s ease;
-
-      svg {
-        margin-top: 12.5px;
-        margin-right: 12.6px;
-
-        g {
-          transition: all .3s ease;
-        }
-      }
-
-      &:hover {
-        background-color: $color-love-red;
-      }
-    }
-
-    .card_img {
-      background-color: $color-white;
-    }
 
     .content-dots {
       position: absolute;
@@ -1073,28 +1076,9 @@ $cant: 300;
       bottom: 10px;
       text-align: center;
       z-index: 2;
-
-      .dot {
-        display: inline-block;
-        cursor: pointer;
-        width: 8px;
-        height: 8px;
-        background-color: white;
-        border-radius: 50%;
-        margin-right: 3px;
-        transition: all .3s ease;
-
-        &_active {
-          background-color: $color-primary;
-        }
-
-        &:hover {
-          background-color: $color-primary;
-        }
-      }
     }
 
-    &:after {
+    &::after {
       content: "";
       position: absolute;
       width: 100%;
@@ -1104,7 +1088,7 @@ $cant: 300;
       z-index: 1;
     }
 
-    &:before {
+    &::before {
       content: "";
       position: absolute;
       width: 100%;
@@ -1141,6 +1125,44 @@ $cant: 300;
       margin-top: 44px;
     }
   }
+
+  @include responsive(1400px) {
+    .slideshow-container {
+      border-radius: 12px;
+
+      &::after {
+        background: linear-gradient(to bottom, transparent, rgb(0 0 0 / 80%));
+      }
+
+      &::before {
+        background: linear-gradient(to top, transparent, rgb(0 0 0 / 80%));
+      }
+    }
+
+    .flex_info {
+      padding-top: 10px;
+      padding-bottom: 0;
+
+      .desc_lc {
+        font-size: 13px;
+        line-height: normal;
+      }
+
+      h2 {
+        font-size: 18px;
+        margin: 2px 0 18px;
+      }
+
+      h4 {
+        font-size: 13px;
+        line-height: normal;
+      }
+
+      .total_local {
+        margin-top: 28px;
+      }
+    }
+  }
 }
 
 @mixin desc_lc {
@@ -1162,6 +1184,10 @@ $cant: 300;
   color: #333333;
   padding: 9px 12px;
   margin: 6px 2px 0;
+
+  @include responsive(1400px) {
+    margin: 6px 0 0;
+  }
 }
 
 @mixin total_local {
@@ -1204,6 +1230,268 @@ $cant: 300;
   @media screen and (max-width: 575px) {
     width: 100%;
     margin-bottom: 20px;
+  }
+}
+
+
+
+// -----------------------------------------
+@mixin animateSkeleton {
+  @include keyframes-animation(skeleton) {
+    100% {
+      background-position: -200% 0%;
+    }
+  }
+
+  @include animate(skeleton, 1.6s, linear, infinite);
+}
+
+@mixin animateSkeletonBefore {
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-color: #e2e1e1 !important;
+    color: transparent !important;
+    background-image: linear-gradient(to right, transparent, #5565, transparent) !important;
+    background-size: 200% 100%;
+    cursor: default;
+    pointer-events: none;
+    opacity: 1;
+    visibility: visible;
+    z-index: 2;
+
+    @include animateSkeleton;
+  }
+}
+
+@mixin skeletonImgProfile {
+  position: relative;
+  overflow: hidden;
+  border-radius: 50% !important;
+  height: fit-content;
+  @include animateSkeletonBefore;
+}
+
+@mixin skeleton {
+  background-color: #e2e1e1 !important;
+  color: transparent !important;
+  background-image: linear-gradient(to right, transparent, #5565, transparent) !important;
+  background-size: 200% 100% !important;
+  border-radius: 5px;
+  cursor: default !important;
+  pointer-events: none !important;
+
+  &.home,
+  &.wo_home {
+    background-repeat: initial !important;
+    background-color: #7D7D7D !important;
+    background-image: none !important;
+    border-radius: initial !important;
+  }
+
+  // null
+  &.content_galerias,
+  &.content-des_internationl,
+  &.content-gallery,
+  &.pf-u,
+  &.dfjcacf0mw2,
+  &.ics__grd-img,
+  &._pf-msg,
+  &.content-aside_prec {
+    background-repeat: initial !important;
+    background-color: transparent !important;
+    background-image: none !important;
+    border-radius: initial !important;
+    box-shadow: none !important;
+    border: transparent !important;
+  }
+
+  &.content-gallery {
+    ._cgprelleft {
+      .block_all-photos {
+        display: none;
+      }
+    }
+  }
+
+  &.content-star {
+    img {
+      display: none;
+    }
+  }
+
+  //-------------- img before --------------
+  &._block-gallery-mg {
+    position: relative;
+    @include animateSkeletonBefore;
+  }
+
+  &._pbkgallery {
+    position: relative;
+    @include animateSkeletonBefore;
+  }
+
+  &.pf-u {
+    position: relative;
+    border-radius: 50% !important;
+    overflow: hidden;
+    @include animateSkeletonBefore;
+  }
+
+  &.dfjcacf0mw2 {
+    @include skeletonImgProfile;
+  }
+
+  &.ics__grd-img {
+    @include skeletonImgProfile;
+  }
+
+  &._pf-msg {
+    @include skeletonImgProfile;
+  }
+  // ----------------------------------
+
+  &.inputBox {
+    background-color: transparent !important;
+    background-image: none !important;
+  }
+
+  &.msgcont {
+    &::before {
+      display: none;
+    }
+
+    .txtunder__ics {
+      display: none;
+    }
+  }
+
+  &.s-pri_icons {
+    ._pri-svg {
+      opacity: 0;
+    }
+  }
+
+  &.li__links-txt {
+    background-color: transparent !important;
+    background-image: none !important;
+
+    .tabs_items {
+      &::before {
+        display: none;
+      }
+    }
+  }
+
+  &.vvo-select {
+    select {
+      background-color: transparent !important;
+    }
+
+    &.blue {
+      i {
+        color: transparent !important;
+      }
+    }
+  }
+
+  // textos
+  &::placeholder,
+  span,
+  i,
+  p,
+  .text-location_check,
+  .num-total-r,
+  ._txtec,
+  ._txteh,
+  ._txtprivat,
+  ._txtecred,
+  ._txtect {
+    color: transparent !important;
+  }
+
+  .len26si {
+    &::after {
+      display: none;
+    }
+  }
+
+  ._nivel,
+  .txt-check-in,
+  ._suis,
+  svg,
+  input,
+  select {
+    opacity: 0;
+  }
+
+  input {
+    &::placeholder {
+      color: transparent !important;
+    }
+  }
+
+  &.skeleton_txt {
+    width: fit-content !important;
+  }
+
+  &.skeleton_icon_share {
+    border-radius: 50% !important;
+    min-width: 30px;
+    width: 30px;
+    height: 30px;
+  }
+
+  &.skeleton_card,
+  #skeleton_card {
+    &.card_items_active {
+      border: 5px solid transparent !important;
+    }
+
+    &::after {
+      background: linear-gradient(to bottom, transparent, rgb(0 0 0 / 36%));
+    }
+
+    .card_love {
+      opacity: 0;
+    }
+
+    .card_top,
+    .star {
+      background: rgb(0 0 0 / 20%) !important;
+    }
+
+    .card_img {
+      position: relative;
+
+      @include animateSkeletonBefore;
+    }
+
+    .content-dots {
+      opacity: 0;
+    }
+
+    .card_text {
+      background: linear-gradient(to top, transparent, rgba(0 0 0 / 38%));
+    }
+  }
+
+  @include animateSkeleton;
+
+  @include responsive(1400px) {
+    &.skeleton_icon_share {
+      min-width: 24px;
+      width: 24px;
+      height: 24px;
+    }
+
+    &.skeleton_card,
+    #skeleton_card {
+      &.card_items_active {
+        border: 3px solid transparent !important;
+      }
+    }
   }
 }
 

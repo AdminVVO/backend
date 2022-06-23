@@ -28,4 +28,23 @@ $(document).ready(function() {
         $(this).parents().find(".substituteW9").hide();
         $(this).parents().find(".substituteW8").hide();
     });
+
+    // interna - confirm and pay, click paypal
+    $("._glepay").on("click", function() {
+        $("._showgplay").show();
+        $("._hiddencreditordebit").hide();
+        $("._showpaypal").hide();
+    });
+
+    $("._creditcard").on("click", function() {
+        $("._hiddencreditordebit").show();
+        $("._showgplay").hide();
+        $("._showpaypal").hide();
+    });
+
+    $("._paypal").on("click", function() {
+        $("._showpaypal").show();
+        $("._hiddencreditordebit").hide();
+        $("._showgplay").hide();
+    });
 });

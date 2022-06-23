@@ -1,7 +1,7 @@
 <div class="section_photo-id">
     <h2 class="h2_publish">How would you like to add a photo of your ID?</h2>
 
-    <div class="_gap">
+    <div class="_gap mr-t18 y mr-b32">
         <div class="radio-item_rscrm">
             <input type="radio" fileClickWeb id="web" name="personmet" wire:model.defer="personmet" value="upload">
             <label for="web">

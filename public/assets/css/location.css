@@ -1,3 +1,8 @@
+@media (max-width: 743px) {
+  .content_location {
+    padding-bottom: 40px;
+  }
+}
 .content_location .content-scroll-local {
   display: flex;
   max-width: 100%;
@@ -11,7 +16,7 @@
 }
 @media (max-width: 1400px) {
   .content_location .content_links {
-    padding: 0 14px;
+    padding: 0 24px;
   }
 }
 @media (max-width: 890px) {
@@ -57,13 +62,14 @@
 .content_location .flex_local-dates {
   display: flex;
 }
-@media (max-width: 1300px) {
+@media (max-width: 1000px) {
   .content_location .flex_local-dates {
     flex-direction: column;
   }
 }
 .content_location .flex_local-dates .content_location-width {
   padding-left: 60px;
+  min-width: 600px;
 }
 @media (max-width: 1650px) {
   .content_location .flex_local-dates .content_location-width {
@@ -72,29 +78,28 @@
 }
 @media (max-width: 1400px) {
   .content_location .flex_local-dates .content_location-width {
-    padding-left: 14px;
+    padding-left: 24px;
   }
 }
-@media (max-width: 1300px) {
+@media (max-width: 1000px) {
   .content_location .flex_local-dates .content_location-width {
     width: 100%;
-  }
-}
-@media (max-width: 743px) {
-  .content_location .flex_local-dates .content_location-width {
-    padding-right: 14px;
+    padding-right: 24px;
+    min-width: auto;
   }
 }
 .content_location .flex_local-dates .content_location-width .contact-map {
   width: 100%;
-  height: 95%;
+  height: 100%;
+  background-color: #7D7D7D;
+  border-radius: 10px 0 0 10px;
 }
 .content_location .flex_local-dates .content_location-width .contact-map iframe {
   width: 100%;
   height: 100%;
   border-radius: 10px 0 0 10px;
 }
-@media (max-width: 1300px) {
+@media (max-width: 1000px) {
   .content_location .flex_local-dates .content_location-width .contact-map {
     height: 537px;
   }
@@ -110,10 +115,6 @@
 .content_location .flex_local-dates .content_location-width .content_view .hidden_galerias {
   width: 637px;
   height: 1071px;
-  overflow: overlay;
-}
-.content_location .flex_local-dates .content_location-width .content_view .hidden_galerias::-webkit-scrollbar {
-  display: none;
 }
 @media (max-width: 1650px) {
   .content_location .flex_local-dates .content_location-width .content_view .hidden_galerias {
@@ -167,13 +168,9 @@
   width: 100%;
   margin-left: 30px;
   padding-left: 0;
+  flex: 1 1 0;
 }
-@media (max-width: 1650px) {
-  .content_location .flex_local-dates .content_location-width:nth-child(2) {
-    width: 50%;
-  }
-}
-@media (max-width: 1300px) {
+@media (max-width: 1000px) {
   .content_location .flex_local-dates .content_location-width:nth-child(2) {
     margin-top: 20px;
     margin-left: 0;
@@ -190,7 +187,7 @@
     padding-right: 60px;
   }
 }
-@media (max-width: 1300px) {
+@media (max-width: 1000px) {
   .content_location .flex_local-dates .content_location-width:nth-child(2) h5 {
     padding-left: 60px;
   }

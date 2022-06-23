@@ -3,17 +3,15 @@
         <div class="popup_leng_modal">
             <div class="navcont__flech-fx">
                 <div class="cont_nav">
-                    <div class="nav__links-txt scroll_n owl-carousel leng_btn_nav js_navlinkstabsleng" wire:ignore>
-                        <button type="button" class="li__links-txt " wire:click="changeClass('language')">
-                            <span class="tabs_items {{ $classActive == 'language' ? 'active_tabs' : '' }}">Language and region</span>
+                    <div class="nav__links-txt tab-container">
+                        <button type="button" class="li__links-txt leng-click" wire:click="changeClass('language')">
+                            <span class="tabs_items {{ $classActive == 'language' ? 'active_tabs' : '' }}">Languaje and region</span>
                         </button>
 
-                        <button type="button" class="li__links-txt " wire:click="changeClass('currency')">
+                        <button type="button" class="li__links-txt currency-click" wire:click="changeClass('currency')">
                             <span class="tabs_items {{ $classActive == 'currency' ? 'active_tabs' : '' }}">Currency</span>
                         </button>
                     </div>
-
-                    <div class="vvo_owl_navleng vvo_nav_flech"></div>
                 </div>
             </div>
             

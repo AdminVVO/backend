@@ -8,15 +8,15 @@
 
                 <form wire:submit.prevent="submitInputEmail" style="display: {{ $logIn ? 'block' : 'none' }} ;">
                     <h4>Email</h4>
-                    <input type="text" class="_input-mod @error('errorInputEmail') error_input @enderror" placeholder="examples@gmail.com" wire:model.defer="input.email">
+                    <input type="text" class="form-input _input-mod @error('errorInputEmail') error_input @enderror" placeholder="examples@gmail.com" wire:model.defer="input.email">
                     @error('errorInputEmail')
-                        <div  class="_txterror">
+                        <div class="_txterror">
                             <i class="fas fa-exclamation-circle icon1"></i> 
                             {{ $message }}
                         </div>
                     @enderror    
 
-                    <p>We will send you an email to confirm your email. <br>Standard message and data rates apply. <a href="#">Privacy Policy</a>.</p>
+                    <p class="mr-t12">We will send you an email to confirm your email. <br>Standard message and data rates apply. <a href="#">Privacy Policy</a>.</p>
                     <div class="block_a">
                         <button type="submit" class="btn-number btns-modals">
                             Continue
@@ -26,12 +26,12 @@
                 </form>
 
                 <form wire:submit.prevent sendPhoneNumber style="display: {{ !$logIn ? 'block' : 'none' }} ;">
-                    <h4>Phone Number</h4>
+                    <h4 class="mr-b12">Phone Number</h4>
                     <x-tel-input
                         wire:model="input.phone"
                         id="phone"
                         name="phone"
-                        class="form-input _input-mod"
+                        class="form-input _input-mod pliptnumber"
                     /> 
                     <input wire:model="phone_country" type="hidden" id="phone_country" name="phone_country">
                     @error('sendInputPhone')
@@ -41,7 +41,7 @@
                         </div>
                     @enderror   
 
-                    <p>We'll call or text you to confirm your number. <br>Standard message and data rates apply. <a href="#">Privacy Policy</a>.</p>
+                    <p class="mr-t12">We'll call or text you to confirm your number. <br>Standard message and data rates apply. <a href="#">Privacy Policy</a>.</p>
                     <div class="block_a">
                         <button type="submit" class="btn-number btns-modals">
                             Continue
