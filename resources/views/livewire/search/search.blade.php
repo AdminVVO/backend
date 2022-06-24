@@ -171,8 +171,6 @@
             loadMapboxSearch( event.detail.preLoadCoordinate, event.detail.contentCoordinate );
         })
 
-
-
         mapboxgl.accessToken = 'pk.eyJ1IjoibGVuaWVycml2YXMiLCJhIjoiY2t6b3EzYXJtNjI2ODJvbXpuMHF2YTZjciJ9.5-kwcoo6NpNwEXSkeuhNtg';
         const map = new mapboxgl.Map({
             container: 'mapboxSearch',

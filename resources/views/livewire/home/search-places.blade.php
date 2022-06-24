@@ -32,7 +32,7 @@
             </label>
         </div>
 
-        <div class="inputBox skeleton" >
+        <div class="inputBox skeleton">
             <div class="book-f_home">
                 <div class="place_select menuGuest">
                     <span class="skeleton skeleton_txt">Guest</span>

@@ -1,6 +1,7 @@
-<link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/jquery-ui-git.css"> <!-- libreria css de un calendario date-piker -->
-<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css">
-
+<link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.1.1/css/all.css">
+<link href="{{ URL::asset('assets/css/jquery-ui-git.css') }}" rel="stylesheet" type="text/css"/>
+<link href="{{ URL::asset('assets/css/daterangepicker.css') }}" rel="stylesheet" type="text/css"/>
+{{-- <link href="{{ URL::asset('assets/css/releases-all.css') }}" rel="stylesheet"/> --}}
 <link href="{{ URL::asset('css/application.css') }}" rel="stylesheet"/>
 <link href="{{ URL::asset('assets/css/all.css') }}" rel="stylesheet"/>
 <link href="{{ URL::asset('assets/css/estilos.css') }}" rel="stylesheet"/>

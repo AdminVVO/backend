@@ -1,5 +1,5 @@
 <div>
-    <div class="tabs entero" wire:ignore>
+    <div class="tabs entero">
         <div class="medio">
             <div class="con_flex fx fx-ai-c fx-jc-sb gp22 wh-p100">
                 <div class="navcont__flech-fx">

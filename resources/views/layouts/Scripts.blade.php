@@ -1,7 +1,6 @@
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.js"></script> <!-- libreria js de mascara - patrones de los inputs -->
-<script src="https://code.jquery.com/ui/jquery-ui-git.js"></script> <!-- libreria js de un calendario date-piker -->
-<link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.1.1/css/all.css">
+<script src="{{ URL::asset('assets/js/jquery-3.6.0.min.js') }}"></script> 
+<script src="{{ URL::asset('assets/js/jquery.mask.js') }}"></script>  <!-- libreria js de mascara - patrones de los inputs -->
+<script src="{{ URL::asset('assets/js/jquery-ui-git.js') }}"></script> <!-- libreria js de un calendario date-piker -->
 <script src="{{ URL::asset('assets/js/moment-min.js') }}"></script> <!-- libreria js calendario lightpick -->
 <script src="{{ URL::asset('assets/js/lightpick.js') }}"></script> <!-- libreria js calendario lightpick -->
 <script src="{{ URL::asset('assets/js/owl.carousel.min.js') }}"></script>  <!--Activador slider pano -->
