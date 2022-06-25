@@ -15,7 +15,7 @@
 
             @if ( Auth::check() )
                 @if ( in_array($element['id_listings'], $wishlists))
-                    <button type="button" class="card_love icon_solid">
+                    <button type="button" class="card_love icon_solid" wire:click="$emitTo('home.wishlists', 'removeListing', '{{ $element['id_listings']  }}')">
                 @else
                     <button type="button" class="card_love showFavorite" wire:click="$emitTo('home.wishlists', 'addListing', '{{ $element['id_listings']  }}')">
                 @endif

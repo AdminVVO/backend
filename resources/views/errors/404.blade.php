@@ -56,7 +56,7 @@
                             <circle id="Elipse_77" data-name="Elipse 77" cx="4" cy="4" r="4" fill="#ff5a5f"/>
                         </svg>
 
-                        <a href="{{ route('host') }}" class="_txtec">Being a host on vvoutlet</a>
+                        <a href="{{ route('signup-host') }}" class="_txtec">Being a host on vvoutlet</a>
                         <svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" viewBox="0 0 8 8">
                             <circle id="Elipse_77" data-name="Elipse 77" cx="4" cy="4" r="4" fill="#ff5a5f"/>
                         </svg>

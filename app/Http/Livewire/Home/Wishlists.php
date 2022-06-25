@@ -21,6 +21,7 @@ class Wishlists extends Component
 
     protected $listeners = [
         'addListing' => 'addListing',
+        'removeListing' => 'removeListing',
     ];
 
     public function render()
@@ -46,6 +47,17 @@ class Wishlists extends Component
         $this->photo = $queryListing[0];
     }
 
+    public function removeListing($payload)
+    {
+        $queryListing = modelWishlists::where([
+            'listing_id' => $payload,
+            'user_id' => Auth::id(),
+        ])->delete();
+
+        $this->alert('success', 'Update has been successful!');
+        $this->emit('reLoadRender');
+    }
+
     public function addFavority($payload)
     {
         modelWishlists::create([
@@ -58,6 +70,15 @@ class Wishlists extends Component
         $this->reset(['inputWishlists','steps','photo','listingId']);
         $this->dispatchBrowserEvent('closedModalFavority');
         $this->alert('success', 'Update has been successful!');
+        $this->emit('reLoadRender');
+    }
+
+    public function removeFavority($payload)
+    {
+        $deleted = modelWishlists::where('name', $payload)->pluck('id_wishlists')->toArray();
+        modelWishlists::whereIn('id_wishlists', $deleted)->delete();
+
+        $this->alert('success', 'Deleted has been successful!');
         $this->emit('reLoadRender');
     }
 

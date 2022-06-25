@@ -13,7 +13,7 @@
                     <button type="button" class="cwhfcbbpfx closeUserModal">X</button>
                 </div>
 
-                @livewire('language.language')
+                @livewire('language.language', ['routeRedirect' => Route::current()->getName() ])
 
             </div>
         </div>

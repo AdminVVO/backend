@@ -55,21 +55,126 @@ a {
   padding: 23px 40px;
   margin-top: 50px;
 }
-@media (max-width: 750px) {
-  .section-account .msgaround {
-    padding: 23px 31px;
-    flex-direction: column;
-    text-align: center;
+
+.page__account_user .container_account_info {
+  display: block;
+}
+@media (max-width: 1400px) {
+  .page__account_user .header {
+    margin-bottom: 0;
+  }
+  .page__account_user .section-account .msgaround {
+    padding: 18px 24px;
+    margin: 52px 8px 0;
+  }
+  .page__account_user .section-account .msgaround ._wcusermsg ._txteh {
+    font-size: 16px;
+    line-height: 20px;
+  }
+  .page__account_user .content_account {
+    margin-top: 64px;
+  }
+  .page__account_user .content_account .medio {
+    max-width: 1080px;
+    width: auto;
+    padding: 0 24px;
+  }
+  .page__account_user .content_account .h2 {
+    font-size: 32px;
+    line-height: 36px;
+    margin: 0 16px 8px;
+  }
+  .page__account_user .content_account .span-guests {
+    margin: 0 16px;
+  }
+  .page__account_user .content_account .span-guests,
+.page__account_user .content_account ._txteh,
+.page__account_user .content_account ._txtblu {
+    font-size: 18px;
+    line-height: 24px;
+  }
+  .page__account_user .content_account ._txtblu {
+    margin: 0;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+  .page__account_user .content_account ._p {
+    margin: 0 4px;
+  }
+  .page__account_user .content_account ._flex-account {
+    margin-top: 56px;
+    padding: 8px;
+    gap: 15px;
+  }
+  .page__account_user .content_account ._flex-account ._cont-account {
+    cursor: pointer;
+  }
+  .page__account_user .footer {
+    margin-top: 49px;
   }
 }
-@media (max-width: 750px) {
-  .section-account .msgaround ._wcusermsg {
-    padding-right: 0;
-    margin-bottom: 20px;
+@media (max-width: 1128px) {
+  .page__account_user .content_account .medio {
+    max-width: 696px;
+  }
+  .page__account_user .content_account ._flex-account {
+    justify-content: space-between;
   }
 }
 @media (max-width: 743px) {
-  .section-account {
-    margin-bottom: 40px;
+  .page__account_user.resizeBtnModal743 .container_account_info {
+    display: block !important;
+  }
+  .page__account_user .content_account {
+    margin-top: 8px;
+    display: block;
+  }
+  .page__account_user .content_account .medio {
+    max-width: 100%;
+  }
+  .page__account_user .content_account .h2,
+.page__account_user .content_account .span-guests {
+    margin: 0;
+  }
+  .page__account_user .content_account .pf-u {
+    max-width: 52px;
+    height: 52px;
+    margin: 0 0 16px;
+  }
+  .page__account_user .content_account ._flex-account {
+    margin-top: 40px;
+    padding: 0;
+    gap: 0;
+    flex-direction: column;
+  }
+  .page__account_user .content_account .container_account_info {
+    display: none;
+  }
+  .page__account_user .content_account .content_account_info {
+    display: initial;
+    position: fixed;
+    inset: 0;
+    margin: 0;
+    background-color: #FFFFFF;
+    z-index: 30;
+    padding: 0 24px 40px;
+    overflow: auto;
+  }
+  .page__account_user .content_account .content_account_info ._cont-account {
+    display: block;
+    padding: 24px 0;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+    min-height: auto;
+  }
+  .page__account_user .content_account .content_account_info ._cont-account:not(:last-child) {
+    border-bottom: 1px solid #E3EDF3;
+  }
+  .page__account_user .content_account .content_account_info ._cont-account i {
+    display: none;
+  }
+  .page__account_user .content_account .content_account_info ._cont-account_personalinfo {
+    display: none;
   }
 }

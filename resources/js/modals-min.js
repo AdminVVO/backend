@@ -35,10 +35,24 @@ function resizeMdl743() {
             $(this).parents(".contnmrlmdl743").hide();
             $(this).parents(".page-category").css({'overflow': 'hidden'});
         });
+
+        // srcoll
+        $(document).on("click", ".closeUserModal", function() {
+            $(this).parents(".container_user-host").css({'display': ''});
+            $(this).parents(".page-category").css({'overflow': ''});
+        });
     } else {
+        $(".page-category").removeClass("resizeBtnModal743");
+
         $(document).on("click", ".modal_content_nrl, .closeUserModalNrl", function() {
             $(this).parents(".contnmrlmdl743").hide();
             $(this).parents(".page-category").css({'overflow': 'auto'});
+        });
+
+        // srcoll
+        $(document).on("click", ".closeUserModal", function() {
+            $(this).parents(".container_user-host").css({'display': ''});
+            $(this).parents(".page-category").css({'overflow': ''});
         });
     }
 }
@@ -202,6 +216,12 @@ $(document).ready(function() {
     // ICONO - REMOVE WISHLISTS
     $(".js__remove_wishlist").on("click", function() {
         $(".container_confirmation").show();
+    });
+
+
+    // account - 
+    $(".click__account_modal").on("click", function() {
+        $(".page-category").toggleClass("resizeBtnModal743");
     });
 });
 

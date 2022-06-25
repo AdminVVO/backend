@@ -22,11 +22,11 @@
 	<section class="home entero skeleton" id="hero">
 	    <div class="content_icons">
 	        <div class="content_icons-block">
-	            <a href="#" class="skeleton skeleton_icon_share">
+	            <a href="https://www.facebook.com/vvoutlet.travelnow" class="skeleton skeleton_icon_share">
 	                <i class="fab fa-facebook-f"></i>
 	            </a>
 
-	            <a href="#" class="skeleton skeleton_icon_share">
+	            <a href="https://www.instagram.com/vvoutlet.travelnow" class="skeleton skeleton_icon_share">
 	                <i class="fab fa-instagram"></i>
 	            </a>
 

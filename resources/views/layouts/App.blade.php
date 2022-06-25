@@ -24,7 +24,15 @@
     <body class="page-category page__search vvo_ui">
 @endif
 
-@if ( !in_array( Route::currentRouteName(),['/','search']) )
+@if ( in_array( Route::currentRouteName(),['search-flexible']) )
+    <body class="page-category vvo_ui">
+@endif
+
+@if ( in_array( Route::currentRouteName(),['account']) )
+    <body class="page-category page__account_user vvo_ui">
+@endif
+
+@if ( !in_array( Route::currentRouteName(),['/','search','search-flexible','account']) )
     <body class="page-category">
 @endif
 
@@ -33,9 +41,9 @@
         @include('loggin.LogInLogOut')
     @endif
 
+    @yield('content')
+    @yield('modals')
     @include('language.Language')
-        @yield('content')
-        @yield('modals')
     @include('layouts.Footer')
 
     @stack('alpine_scripts')

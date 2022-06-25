@@ -349,6 +349,58 @@ header .book-form ._bef-places {
   .page__wishlist_interno .content_location .flex_local-dates {
     padding: 104px 0 22px;
   }
+
+  .page__account_user header {
+    margin-bottom: 0;
+  }
+  .page__account_user .section__perfil_interno.entero {
+    display: block;
+  }
+  .page__account_user .section__perfil_interno .medio {
+    margin: auto;
+    padding: 0 16px;
+    margin: 48px auto 32px;
+    max-width: 1064px;
+    width: 100%;
+  }
+  .page__account_user .section__perfil_interno .content-aside_about {
+    width: 33.33%;
+    max-width: 308px;
+    top: auto !important;
+    border-radius: 12px;
+    border: 1px solid #E3EDF3;
+  }
+  .page__account_user .section__perfil_interno .content-aside_about .view_port {
+    border-radius: 12px 12px 0 0;
+    height: 137px;
+  }
+  .page__account_user .section__perfil_interno .content-aside_about .joind-span {
+    font-size: 14px;
+    line-height: 18px;
+    bottom: 7px;
+    right: 7px;
+  }
+  .page__account_user .section__perfil_interno .content-aside_about .h2-guests {
+    font-size: 22px;
+    line-height: 26px;
+  }
+  .page__account_user .section__perfil_interno .content-aside_about .block_perf {
+    padding: 0 24px 32px;
+    margin-bottom: 24px;
+  }
+  .page__account_user .section__perfil_interno .content-aside_about .block_perf .content-user-perf {
+    margin-top: 24px;
+  }
+  .page__account_user .section__perfil_interno .content-aside_about .block_perf ._fw .s-usr_icons ._suis {
+    min-width: 16px;
+  }
+  .page__account_user .section__perfil_interno .content-aside_about .block_perf ._fw .s-usr_icons ._suisinfo {
+    margin-left: 8px;
+  }
+  .page__account_user .section__perfil_interno .interna-publish {
+    width: 66.66% !important;
+    max-width: 648px;
+  }
 }
 @media (max-width: 1100px) {
   .logo-menu img {

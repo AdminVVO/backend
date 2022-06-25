@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\ChatMessage;
 
+use App\Http\Controllers\SendMailController;
 use App\Models\MessageChats;
 use App\Models\ReportMessage as ModelReportMessage;
 use Auth;
@@ -64,12 +65,24 @@ class ReportMessage extends Component
                 'report' => true
             ]);
 
+            $chats_id = MessageChats::where('id_message_chats', $this->messageId)->pluck('chats_id')->first();
+
+            $contentMessage = [
+                'questions' => $this->optionsCheck,
+                'comment' => $this->optionsCheck !== 'Other' ? null : $this->optionsText,
+                'message_id' => $this->messageId,
+                'user_id' => Auth::id(),
+                'chats_id' => $chats_id
+            ];
+
+            SendMailController::sendMessageReportMessageChat( $contentMessage );
+
             $reportMessage = ModelReportMessage::create([
                 'questions'  => $this->optionsCheck,
                 'comment'    => $this->optionsCheck !== 'Other' ? null : $this->optionsText ,
                 'message_id' => $this->messageId,
                 'user_id'    => Auth::id(),
-                'chats_id'   => MessageChats::where('id_message_chats', $this->messageId)->pluck('chats_id')->first()
+                'chats_id'   => $chats_id
             ]);
 
             $this->emitTo('chat-message.center', 'reloadRoom', $reportMessage['chats_id'] );

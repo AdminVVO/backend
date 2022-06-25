@@ -673,7 +673,8 @@ $cant: 300;
   @include responsive(1400px) {
     .s-usr_icons {
       ._suis {
-        min-width: 21px;
+        min-width: 16px;
+        width: 16px;
 
         i {
           font-size: 18px;

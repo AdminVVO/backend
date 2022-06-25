@@ -11,4 +11,10 @@ class SearchController extends Controller
         $request = $request->all();
         return view('search.search', compact('request'));
     }
+    
+    public function viewSearchFlexible(Request $request)
+    {
+        $request = $request->all();
+        return view('search.search-flexible', compact('request'));
+    }
 }

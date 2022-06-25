@@ -5,7 +5,7 @@
                 <div class="pn-r fx fx-fd-c wh-p100 ht-p100">
                     <div class="content_links">
                         <div class="con_flex fx fx-ai-c fx-jc-sb fx-fd-rr gp22 wh-p100">
-                            <button type="button" class="btn-celest nrml btntabs skeleton" wire:click="resetFilter">Reset Filters</button>
+                            <button type="button" class="btn-celest nrml btntabs skeleton" wire:click="resetFilter">Clear Filters</button>
 
                             <div class="navcont__flech-fx">
                                 <div class="cont_nav js__cont_nav">
@@ -53,7 +53,7 @@
                                 <h5 class="_txtec skeleton skeleton_txt">{{ $countListing }}+ stays in Orlando</h5>
                             </div>
                             <div class="content_view">
-                                <div class="hidden_galerias"> <!-- // display: none; -->
+                                <div class="hidden_galerias">
                                     @forelse ($contentListing as $element)
                                         <a href="{{ route('interna', $element['id_listings'] ) }}" class="content_galerias skeleton">
                                             <div class="slideshow-container skeleton skeleton_card">
@@ -64,7 +64,7 @@
                                                 </div>
                                                 @if ( Auth::check() )
                                                     @if ( in_array($element['id_listings'], $wishlists))
-                                                        <button type="button" class="card_love icon_solid">
+                                                        <button type="button" class="card_love icon_solid" wire:click="$emitTo('home.wishlists', 'removeListing', '{{ $element['id_listings']  }}')">
                                                     @else
                                                         <button type="button" class="card_love showFavorite" wire:click="$emitTo('home.wishlists', 'addListing', '{{ $element['id_listings']  }}')">
                                                     @endif
@@ -118,8 +118,7 @@
                                 </div>
                             </div>
 
-                            <div class="pagination">
-                            </div>
+                            {{ $contentListing->links() }}
 
                             <div class="cantidad_location-center">
                                 <small class="skeleton skeleton_txt">1 - 20 of 300+ places to stay</small>
@@ -165,7 +164,6 @@
     <script type="text/javascript">
         var contentCoordinate = @json( $contentCoordinate );
         var preLoadCoordinate = @json( $preLoadCoordinate );
-            // loadMapboxSearch( preLoadCoordinate, contentCoordinate );
 
         window.addEventListener('loadDataMapBox', event => {
             loadMapboxSearch( event.detail.preLoadCoordinate, event.detail.contentCoordinate );

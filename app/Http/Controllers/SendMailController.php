@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\MessageChats;
 use App\Models\ReservationForm;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Mail;
 
@@ -29,5 +31,18 @@ class SendMailController extends Controller
             ->first();
             
         \Mail::to( $resortEmail['resort'] )->send(new \App\Mail\SendMessageResortMail( $reservation ));
+    }
+
+    public static function sendMessageReportMessageChat($contentMessage)
+    {   
+        $contentMessage = [
+            'type' => $contentMessage['questions'],
+            'comment' => $contentMessage['comment'],
+            'user_report' => User::Name( $contentMessage['user_id'] ),
+            'chat_report' => $contentMessage['chats_id'],
+            'message' => MessageChats::where('id_message_chats', $contentMessage['message_id'])->pluck('message')->first(),
+        ];
+
+        \Mail::to( config('services.help_email') )->send(new \App\Mail\SendMessageReportChatMail( $contentMessage ));
     }
 }

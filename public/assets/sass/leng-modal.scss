@@ -47,4 +47,10 @@
             margin-top: 24px;
         }
     }
+
+    @include responsive(743px) {
+        .h2-guests {
+            font-size: 18px !important;
+        }
+    }
 }

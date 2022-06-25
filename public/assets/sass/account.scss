@@ -26,22 +26,166 @@
     .msgaround {
         padding: 23px 40px;
         margin-top: 50px;
+    }
+}
 
-        @include responsive(750px) {
-            padding: 23px 31px;
-            flex-direction: column;
-            text-align: center;
+
+.page__account_user {
+    .container_account_info {
+        display: block;
+    }
+
+    @include responsive(1400px) {
+        .header {
+            margin-bottom: 0;
         }
 
-        ._wcusermsg {
-            @include responsive(750px) {
-                padding-right: 0;
-                margin-bottom: 20px;
+        .section-account {
+            .msgaround {
+                padding: 18px 24px;
+                margin: 52px 8px 0;
+
+                ._wcusermsg {
+                    ._txteh {
+                        font-size: 16px;
+                        line-height: 20px;
+                    }
+                }
+            }
+        }
+
+        .content_account {
+            margin-top: 64px;
+
+            .medio {
+                max-width: 1080px;
+                width: auto;
+                padding: 0 24px;
+            }
+
+            .h2 {
+                font-size: 32px;
+                line-height: 36px;
+                margin: 0 16px 8px;
+            }
+
+            .span-guests {
+                margin: 0 16px;
+            }
+
+            .span-guests,
+            ._txteh,
+            ._txtblu {
+                font-size: 18px;
+                line-height: 24px;
+            }
+
+            ._txtblu {
+                margin: 0;
+                text-decoration: underline;
+                cursor: pointer;
+            }
+
+            ._p {
+                margin: 0 4px;
+            }
+
+            ._flex-account {
+                margin-top: 56px;
+                padding: 8px;
+                gap: 15px;
+
+                ._cont-account {
+                    cursor: pointer;
+                }
+            }
+        }
+
+        .footer {
+            margin-top: 49px;
+        }
+    }
+
+    @include responsive(1128px) {
+        .content_account {
+            .medio {
+                max-width: 696px;
+            }
+
+            ._flex-account {
+                justify-content: space-between;
             }
         }
     }
 
     @include responsive(743px) {
-        margin-bottom: 40px;
+        &.resizeBtnModal743 {
+            .container_account_info {
+                display: block !important;
+            }
+        }
+
+        .content_account {
+            margin-top: 8px;
+            display: block;
+
+            .medio {
+                max-width: 100%;
+            }
+
+            .h2,
+            .span-guests {
+                margin: 0;
+            }
+
+            .pf-u {
+                max-width: 52px;
+                height: 52px;
+                margin: 0 0 16px;
+            }
+
+            ._flex-account {
+                margin-top: 40px;
+                padding: 0;
+                gap: 0;
+                flex-direction: column;
+            }
+
+            .container_account_info {
+                display: none;
+            }
+
+            .content_account_info {
+                display: initial;
+                position: fixed;
+                inset: 0;
+                margin: 0;
+                background-color: $color-white;
+                z-index: 30;
+                padding: 0 24px 40px;
+                overflow: auto;
+
+                ._cont-account {
+                    display: block;
+                    padding: 24px 0;
+                    border: 0;
+                    border-radius: 0;
+                    box-shadow: none;
+                    min-height: auto;
+
+                    &:not(:last-child) {
+                        border-bottom: 1px solid #E3EDF3;
+                    }
+
+                    i {
+                        display: none;
+                    }
+
+                    &_personalinfo {
+                        display: none;
+                    }
+                }
+            }
+        }
     }
 }

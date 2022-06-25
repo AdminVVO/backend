@@ -30,7 +30,7 @@
                         </button>
 
                         <div class="patr fx">
-                            <button class="icon_remove__wishlist js__remove_wishlist">
+                            <button class="icon_remove__wishlist js__remove_wishlist" wire:click="removeFavority('{{ $element['name'] }}')">
                                 <i class="fal fa-trash-can _i-gris25"></i>
                             </button>
                         </div>

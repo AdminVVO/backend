@@ -21,7 +21,7 @@ class CardsTitle extends Component
         $this->preLoad();
         return view('livewire.home.cards-title');
     }
-
+    
     public function preLoad()
     {
         $this->wishlists = Wishlists::where('user_id', Auth::id())->distinct('listing_id')->pluck('listing_id')->toArray();

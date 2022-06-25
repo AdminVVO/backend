@@ -31,4 +31,9 @@ class LanguagesRegions extends Model
         'deleted_at',
         'id_languages_regions',
     ];
+
+    public function scopeLanguage($query, $code)
+    {
+        return $this->where('code', $code )->pluck('languages')->first();
+    }
 }

@@ -14,6 +14,7 @@ class Language extends Component
     use LivewireAlert;
 
     public $classActive = 'language';
+    public $routeRedirect;
     public $authlanguage;
     public $authcurrencs;
     public $language;
@@ -53,13 +54,13 @@ class Language extends Component
     {
         User::where('id_user', Auth::id() )->update(['language_default' => $payload ]);
         $this->authlanguage = $payload;
-        $this->alert('success', 'Update has been successful!');    
+        $this->flash('success', 'Update has been successful!', [], route( $this->routeRedirect ));
     }
 
     public function changeCurrency($payload)
     {
         User::where('id_user', Auth::id() )->update(['currency_default' => $payload ]);
         $this->authcurrencs = $payload;
-        $this->alert('success', 'Update has been successful!');    
+        $this->flash('success', 'Update has been successful!', [], route( $this->routeRedirect ));
     }
 }

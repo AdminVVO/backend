@@ -1,7 +1,6 @@
 <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.1.1/css/all.css">
 <link href="{{ URL::asset('assets/css/jquery-ui-git.css') }}" rel="stylesheet" type="text/css"/>
 <link href="{{ URL::asset('assets/css/daterangepicker.css') }}" rel="stylesheet" type="text/css"/>
-{{-- <link href="{{ URL::asset('assets/css/releases-all.css') }}" rel="stylesheet"/> --}}
 <link href="{{ URL::asset('css/application.css') }}" rel="stylesheet"/>
 <link href="{{ URL::asset('assets/css/all.css') }}" rel="stylesheet"/>
 <link href="{{ URL::asset('assets/css/estilos.css') }}" rel="stylesheet"/>
@@ -12,18 +11,6 @@
 <link href="{{ URL::asset('assets/css/places.css') }}" rel="stylesheet"/>
 <link href="{{ URL::asset('assets/css/lightpick.css') }}" rel="stylesheet"/>
 <link href="{{ URL::asset('assets/css/modals-user.css') }}" rel="stylesheet"/>
-
-    {{-- SEARCH --}}
-    {{-- <link href="{{ URL::asset('assets/css/header-bck.css') }}" rel="stylesheet"/> --}}
-    {{-- <link href="{{ URL::asset('assets/css/owl.carousel.min.css') }}" rel="stylesheet"/> --}}
-    {{-- <link href="{{ URL::asset('assets/css/owl.theme.default.min.css') }}" rel="stylesheet"/> --}}
-    {{-- <link href="{{ URL::asset('assets/css/location.css') }}" rel="stylesheet"/> --}}
-    {{-- <link href="{{ URL::asset('assets/css/dates-locatio.css') }}" rel="stylesheet"/> --}}
-
-
-    {{-- PERFIL ALFITRION --}}
-    {{-- <link href="{{ URL::asset('assets/css/header-bck.css') }}" rel="stylesheet"/> --}}
-    {{-- <link href="{{ URL::asset('assets/css/perfil-anfitrion.css') }}" rel="stylesheet"/> --}}
 
  @yield('css')
  @stack('style')

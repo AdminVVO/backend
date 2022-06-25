@@ -38,3 +38,8 @@
     margin-top: 24px;
   }
 }
+@media (max-width: 743px) {
+  .container_leng_region .h2-guests {
+    font-size: 18px !important;
+  }
+}

@@ -37,10 +37,6 @@ Route::middleware(['AccountDisable'])->group( function(){
         return view('category.Category');
     })->name('/category');
 
-    Route::get('/searchflexible', function () {
-        return view('searchflexible.searchflexible');
-    })->name('/search');
-
     Route::get('/interna/{id}',[internaController::class,'getcontent'])->name('interna.getcontent');
 
     Route::get('/blog', function () {
@@ -56,6 +52,7 @@ Route::middleware(['AccountDisable'])->group( function(){
 
     ## Routes Search
     Route::get('search', [SearchController::class, 'viewSearch'])->name('search');
+    Route::get('search-flexible', [SearchController::class, 'viewSearchFlexible'])->name('search-flexible');
 
     ## Routes Host
     Route::get('signup-host', [HostController::class, 'viewSignHost'])->name('signup-host');

@@ -4,7 +4,7 @@
             <a href="{{ route('interna', $element['id_listings'] ) }}" id="skeleton_card">
                 @if ( Auth::check() )
                     @if ( in_array($element['id_listings'], $wishlists))
-                        <button type="button" class="card_love icon_solid">
+                        <button type="button" class="card_love icon_solid" wire:click="$emitTo('home.wishlists', 'removeListing', '{{ $element['id_listings']  }}')">
                     @else
                         <button type="button" class="card_love showFavorite" wire:click="$emitTo('home.wishlists', 'addListing', '{{ $element['id_listings']  }}')">
                     @endif
@@ -62,50 +62,58 @@
                 var remaining;
                 var start;
                 var current_playing;
+                // restore user slider img and title or descriptions
                 $(".features-slides").find("a").each(function () {
-                    this.className += "card_items slider-hide";
-                    sliders.push({ html: this })
+                    $(this).addClass("card_items slider-hide");
+                    sliders.push({ html: this });
                 });
+                // initialize the siliders
                 function slider_init() {
                     $(".features-slides").css('display', 'flex');
                     slider_display(sliders, 0);
                     slider_loop(sliders, -1, delay);
                 }
+                // display 5 img at a time
                 function slider_display(A, i) {
                     if (i < 0) {
                         i = A.length - 1;
                     }
                     current_playing = i;
+                    // mute the one img before
                     A[(i + A.length + 3) % A.length].html.className += " slider-hide";
-                    A[(i + A.length) % A.length].html.className = "card_items card_items_active";
-                    A[(i + A.length - 1) % A.length].html.className = "card_items slider-left-1";
-                    A[(i + A.length - 2) % A.length].html.className = "card_items slider-left-2";
-                    A[(i + A.length + 1) % A.length].html.className = "card_items slider-right-1";
-                    A[(i + A.length + 2) % A.length].html.className = "card_items slider-right-2";
-
+                    // display 5 img after the muted one
+                    A[(i + A.length) % A.length].html.className = "card_items card_items_active skeleton_card transition";
+                    A[(i + A.length - 1) % A.length].html.className = "card_items slider-left-1 skeleton_card transition";
+                    A[(i + A.length - 2) % A.length].html.className = "card_items slider-left-2 skeleton_card transition";
+                    A[(i + A.length + 1) % A.length].html.className = "card_items slider-right-1 skeleton_card transition";
+                    A[(i + A.length + 2) % A.length].html.className = "card_items slider-right-2 skeleton_card transition";
                 }
-                function slider_loop(A, i, remaining) {
+                // slider
+                function slider_loop(A, i) {
                     start = new Date();
                     if (i < 0) {
                         i = A.length - 1;
                     }
                 }
-                $(".cards_content").hover(function () {
-                    window.clearTimeout(timerId);
-                    remaining = delay - (new Date() - start);
-                    $(".features-slide_navs .prev-btn").on("click",function () {
+
+                // $(".cards_content").hover(function () {
+                    // window.clearTimeout(timerId);
+                    $(document).on("click", ".features-slide_navs .next-btn", function() {
                         current_playing++;
                         slider_display(sliders, current_playing);
                     });
-                    $(".features-slide_navs .next-btn").on("click",function () {
+                    $(document).on("click", ".features-slide_navs .prev-btn", function() {
                         current_playing--;
                         slider_display(sliders, current_playing);
                     });
-                }, function () {
-                    slider_loop(sliders, current_playing, remaining);
-                    $(".features-slide_navs .prev-btn").unbind("click");
-                    $(".features-slide_navs .next-btn").unbind("click");
-                });
+                // }, function () {
+                //     slider_loop(sliders, current_playing);
+                //     $(".features-slide_navs .prev-btn").unbind("click");
+                //     $(".features-slide_navs .next-btn").unbind("click");
+                // });
+
+
+                // launch slider
                 slider_init();
             }
 

@@ -1,50 +1,52 @@
 <div>
-    <div class="tabs entero">
+    <section class="entero">
         <div class="medio">
-            <div class="con_flex fx fx-ai-c fx-jc-sb gp22 wh-p100">
-                <div class="navcont__flech-fx">
-                    <div class="cont_nav js__cont_nav" wire:ignore>
-                        <div class="nav__links-txt tab-container">
-                            @foreach ($category as $key => $element)
-                                <button type="button" class="li__links-txt skeleton">
-                                    <span class="tabs_items {{ $key === $filter_categ ? 'active_tabs' : '' }}" wire:click="changeCateg('{{$key}}')">
-                                        <span class="skeleton skeleton_txt">{{ $element }}</span>
-                                    </span>
-                                </button>
-                            @endforeach
+            <div class="tabs content_search-flexible">
+                <div class="con_flex fx fx-ai-c fx-jc-sb fx-fd-rr gp22 wh-p100">
+                    <div class="navcont__flech-fx">
+                        <div class="cont_nav js__cont_nav" wire:ignore>
+                            <div class="nav__links-txt tab-container">
+                                @foreach ($category as $key => $element)
+                                    <button type="button" class="li__links-txt skeleton">
+                                        <span class="tabs_items {{ $key === $filter_categ ? 'active_tabs' : '' }}" wire:click="changeCateg('{{$key}}')">
+                                            <span class="skeleton skeleton_txt">{{ $element }}</span>
+                                        </span>
+                                    </button>
+                                @endforeach
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="tabs_select">
-                    <div class="vvo-select blue btntabs skeleton">
-                        <select name="" id="" class="skeleton">
-                            <option value="disabled">Anytime</option>
-                            <option value="">Option 1</option>
-                            <option value="">Option 2</option>
-                            <option value="">Option 3</option>
-                        </select>
+                    <div class="tabs_select">
+                        <div class="vvo-select blue btntabs skeleton">
+                            <select name="" id="" class="skeleton">
+                                <option value="disabled">Anytime</option>
+                                <option value="">Option 1</option>
+                                <option value="">Option 2</option>
+                                <option value="">Option 3</option>
+                            </select>
 
-                        <i class="fas fa-chevron-down"></i>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+
+                        <div class="vvo-select blue btntabs skeleton">
+                            <select name="" id="" class="skeleton">
+                                <option value="disabled">Guests</option>
+                                <option value="">Option 1</option>
+                                <option value="">Option 2</option>
+                                <option value="">Option 3</option>
+                            </select>
+
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+
+                        <button type="button" wire:click="resetFilter" class="btn-celest nrml btntabs skeleton">Clear Filters</button>
                     </div>
-
-                    <div class="vvo-select blue btntabs skeleton">
-                        <select name="" id="" class="skeleton">
-                            <option value="disabled">Guests</option>
-                            <option value="">Option 1</option>
-                            <option value="">Option 2</option>
-                            <option value="">Option 3</option>
-                        </select>
-
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-
-                    <button type="button" wire:click="resetFilter" class="btn-celest nrml btntabs skeleton">Clear Filters</button>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
     <div class="tabs_card entero">
-        <div class="medio">
+        <div class="medio"> 
             @forelse ($contentListing as $element)
                 <a href="{{ route('interna', $element['id_listings'] ) }}" class="card_items active skeleton skeleton_card">
                     <div class="card_top">
@@ -105,7 +107,7 @@
                     </div>
                 </div>
             @endforelse
-        </div>
+        </div>  
     </div>
 </div>
 
@@ -114,6 +116,16 @@
         Livewire.hook('message.processed', (message, component) => {
             $(".content-dots span.dot:first-child").addClass("dot_active");
             $(".card_img > img:first-child").addClass("card_img_active");  
+
+            skeleton();
+            function skeleton() {
+                let loadings = $(".skeleton");
+                $(loadings).addClass("transition");
+                
+                for (loading of loadings) {
+                    $(loading).removeClass("skeleton skeleton_card skeleton_txt");
+                }
+            }
         })
     </script>
 @endpush

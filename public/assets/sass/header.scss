@@ -443,6 +443,77 @@ header {
             }
         }
     }
+
+    .page__account_user {
+        header {
+            margin-bottom: 0;
+        }
+
+        .section__perfil_interno {
+            &.entero {
+                display: block;
+            }
+
+            .medio {
+                margin: auto;
+                padding: 0 16px;
+                margin: 48px auto 32px;
+                max-width: 1064px;
+                width: 100%;
+            }
+
+            .content-aside_about {
+                width: 33.33%;
+                max-width: 308px;
+                top: auto !important;
+                border-radius: 12px;
+                border: 1px solid #E3EDF3;
+
+                .view_port {
+                    border-radius: 12px 12px 0 0;
+                    height: 137px;
+                }
+
+                .joind-span {
+                    font-size: 14px;
+                    line-height: 18px;
+                    bottom: 7px;
+                    right: 7px;
+                }
+
+                .h2-guests {
+                    font-size: 22px;
+                    line-height: 26px;
+                }
+
+                .block_perf {
+                    padding: 0 24px 32px;
+                    margin-bottom: 24px;
+
+                    .content-user-perf {
+                        margin-top: 24px;
+                    }
+
+                    ._fw {
+                        .s-usr_icons {
+                            ._suis {
+                                min-width: 16px;
+                            }
+
+                            ._suisinfo {
+                                margin-left: 8px;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .interna-publish {
+                width: 66.66% !important;
+                max-width: 648px;
+            }
+        }
+    }
 }
 
 @include responsive(1100px) {
