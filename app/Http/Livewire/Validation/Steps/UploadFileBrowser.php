@@ -3,12 +3,11 @@
 namespace App\Http\Livewire\Validation\Steps;
 
 use App\Events\sendPersonValidation;
+use App\Models\UserTemp;
 use Livewire\Component;
 use Illuminate\Support\Facades\Validator;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\WithFileUploads;
-use Illuminate\Support\Facades\Session;
-use File;
 use Str;
 use Auth;
 
@@ -111,11 +110,10 @@ class UploadFileBrowser extends Component
             'from' => 'uploadFile',
             'content' => $this->contentIn,
         ];
-
         $this->dispatchBrowserEvent('sendValidation');
-
+        event(new sendPersonValidation($this->user_id));
         if ($this->user_id) {
-            event(new sendPersonValidation($this->user_id));
+            UserTemp::where('id', $this->user_id)->delete();
         }
         
         $this->emitUp('eventSteps', $payload);

@@ -1,7 +1,4 @@
 <div class="block_cbloqueada">
-    <div class="block-img">
-        <img src="{{ URL::asset('assets/img/avatar/cb.jpg') }}">
-    </div>
 
     <div class="mr-t">
         @if ($typeDocument === "Driver's License")

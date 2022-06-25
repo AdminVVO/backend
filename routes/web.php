@@ -14,7 +14,6 @@ use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\TripsController;
 use App\Http\Controllers\Wishlists;
-use App\Http\Livewire\Wishlists\Wish as Wish;
 use Illuminate\Support\Facades\Route;
 /*
 |--------------------------------------------------------------------------
@@ -131,12 +130,6 @@ Route::middleware(['AccountDisable'])->group( function(){
                 Route::get('', [Wishlists::class, 'viewWishlists'])->name('wishlist');
                 Route::get('{name}', [Wishlists::class, 'viewWish'])->name('wish');
         });
-
-        ## Routes Wish
-        // Route::prefix('wish')->group( function(){
-            ## Trips Index
-                // Route::get('wish/{name}', [Wishlists::class, 'viewWishlists'])->name('wish');
-        // });
 
         ## Routes Messages
         Route::prefix('message')->group( function(){

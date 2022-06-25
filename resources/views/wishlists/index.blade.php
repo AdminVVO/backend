@@ -23,7 +23,7 @@
 
                 <div class="grid__3cl">
                     @forelse($content as $key => $element)
-                        <a href="#">
+                        <a href="wishlist/{{$key}}">
                             <div class="brbsbcp">
                                 <div class="dggtc11g">
                                     @foreach ($element['avatar'] as $avatar)

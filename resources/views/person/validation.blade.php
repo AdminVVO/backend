@@ -9,10 +9,9 @@
     <link href="{{ URL::asset('assets/css/account.css') }}" rel="stylesheet" />
 @endsection
 
+@if ((isset($user_id) && Auth::id() == $user_id) || Auth::id())
 @section('header')
-    @if (!$user_id)
         @include('layouts.HeaderAuth')
-    @endif
 @endsection
 
 @section('content')
@@ -22,31 +21,9 @@
         </div>
     </section>
 
-    @if (isset($user_id))
         <button hidden value="{{ $user_id }}" id="user_id"></button>
-    @endif
+  
     <button hidden value="{{ Auth::id() }}" id="userAuth"></button>
 @endsection
 
-
-@section('script')
-    <script>
-        // window.addEventListener('sendValidation', event => {
-        //     const typing = Echo.private(`validationUser` + $('#user_id').val());
-        //     setTimeout(() => {
-        //         typing.whisper('click', {
-        //             typing: true,
-        //             userID: user_id
-        //         });
-        //     }, 500);
-        // })
-
-        /********************/
-
-        // window.addEventListener('sendValidationFinish', event => {
-        //     Echo.private(`validationUser`+$('#userAuth').val()).listenForWhisper('click', (e) => {
-        //         alert("hola salida")
-        //     });
-        // })
-    </script>
-@endsection
+@endif

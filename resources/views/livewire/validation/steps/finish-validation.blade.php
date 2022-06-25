@@ -35,21 +35,9 @@
 
             var channel = pusher.subscribe('channelValidation');
             channel.bind('sendEvent' + $('#userID').val(), function(data) {
-                window.location.href = "http://127.0.0.1:8000/validation/process?type=finish";
+                var app = "{{ env("APP_URL") }}"
+                window.location.href = app+"/validation/process?type=finish";
             });
-
-
-            /*******************************************************/
-            // alert($());
-            // window.addEventListener('sendValidation', event => {
-            //     const typing = Echo.private(`validationUser` + $('#user_id').val());
-            //     setTimeout(() => {
-            //         typing.whisper('click', {
-            //             typing: true,
-            //             userID: user_id
-            //         });
-            //     }, 500);
-            // })
         </script>
     </section>
 </div>

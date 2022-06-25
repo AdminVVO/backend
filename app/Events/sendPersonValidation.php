@@ -2,27 +2,26 @@
 
 namespace App\Events;
 
+use App\Models\UserTemp;
 use Illuminate\Broadcasting\Channel;
 use Illuminate\Broadcasting\InteractsWithSockets;
-use Illuminate\Broadcasting\PresenceChannel;
-use Illuminate\Broadcasting\PrivateChannel;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
-use Illuminate\Support\Facades\Auth;
 
-class sendPersonValidation implements ShouldBroadcast
+class sendPersonValidation implements
+    ShouldBroadcast
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
-    public int $user;
+    public string $user;
 
     /**
      * Create a new event instance.
      *
      * @return void
      */
-    public function __construct(int $user)
+    public function __construct(string $user)
     {
         $this->user = $user;
     }
@@ -39,6 +38,7 @@ class sendPersonValidation implements ShouldBroadcast
 
     public function broadcastAs()
     {
-        return 'sendEvent'.$this->user;
+        $id = UserTemp::where('id', $this->user)->first('user_id');
+        return 'sendEvent' . (int) $id->user_id;
     }
 }

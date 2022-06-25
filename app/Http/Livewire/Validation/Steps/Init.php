@@ -3,13 +3,11 @@
 namespace App\Http\Livewire\Validation\Steps;
 
 use App\Http\Controllers\Twilio;
+use App\Models\UserTemp;
 use Livewire\Component;
 use Livewire\WithFileUploads;
-use Jantinnerezo\LivewireAlert\LivewireAlert;
-use File;
 use Str;
 use Auth;
-use Illuminate\Support\Facades\Auth as FacadesAuth;
 
 class Init extends Component
 {
@@ -41,15 +39,18 @@ class Init extends Component
     {
         $payload = $this->next();
 
-        if ($this->personmet === 'airbnb') {
-            Twilio::sendMessageValidation(Auth::user()->phone, Auth::user()->id_user);
+        if ($this->personmet === 'app') {
+            $id = Str::uuid()->toString();
+            UserTemp::create(['user_id' => Auth::user()->id_user, 'id' => $id]);
+
+            Twilio::sendMessageValidation(Auth::user()->phone, $id);
             $payload['to'] = 'finishValidation';
             $payload['content'] = ['phone' => Auth::user()->phone, 'user_id' => Auth::user()->id_user];
             $payload['type'] = 1;
             $this->emitUp('eventSteps', $payload);
         }
 
-        if ($this->personmet === 'upload' || $this->personmet === 'webcan') {
+        if ($this->personmet === 'upload' || $this->personmet === 'webcam') {
 
             $extensionPhoto = pathinfo($this->photo->getClientOriginalName(), PATHINFO_EXTENSION);
 

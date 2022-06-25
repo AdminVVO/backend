@@ -7,7 +7,6 @@ use Livewire\Component;
 use App\Models\PersonValidation;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Auth;
-use Illuminate\Validation\Rules\Exists;
 
 class Steps extends Component
 {
@@ -108,26 +107,17 @@ class Steps extends Component
 
     public function sendTypeFiles($payload)
     {
-        // $this->dispatchBrowserEvent('sendValidationFinish');
-        // if (!$this->user_id) {
-        // $personValidation = PersonValidation::create([
-        // 'typeUpload'    => $this->content['typeUpload'],
-        // 'typeDocument'  => $this->content['typeDocument'],
-        // 'country'       => $this->content['country'],
-        // 'photo'         => $this->content['photo'],
-        // 'document'      => $payload,
-        // 'user_id'       => Auth::id()
-        // ]);
-        // } else {
-        // $personValidation = PersonValidation::create([
-        // 'typeUpload'    => $this->content['typeUpload'],
-        // 'typeDocument'  => $this->content['typeDocument'],
-        // 'country'       => $this->content['country'],
-        // 'photo'         => $this->content['photo'],
-        // 'document'      => $payload,
-        // 'user_id'       => $this->user_id
-        // ]);
-        // }
-        // $this->content['codeReference'] = $personValidation['id_person_validation'];
+        if (Auth::check()) {
+            $personValidation = PersonValidation::create([
+                'typeUpload'    => $this->content['typeUpload'],
+                'typeDocument'  => $this->content['typeDocument'],
+                'country'       => $this->content['country'],
+                'photo'         => $this->content['photo'],
+                'document'      => $payload,
+                'user_id'       => Auth::id()
+            ]);
+        }
+
+        $this->content['codeReference'] = $personValidation['id_person_validation'];
     }
 }

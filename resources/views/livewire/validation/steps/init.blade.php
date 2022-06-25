@@ -19,7 +19,7 @@
         </div>
 
         <div class="radio-item_rscrm">
-            <input type="radio" fileClickCam id="webcam" name="personmet" wire:model.defer="personmet" value="webcan">
+            <input type="radio" fileClickCam id="webcam" name="personmet" wire:model.defer="personmet" value="webcam">
             <label for="webcam">
                 <div class="content_flex-actv">
                     <div class="flex-msg">
@@ -34,12 +34,12 @@
 
         @if (!isset($user_id))
             <div class="radio-item_rscrm">
-                <input type="radio" id="mobileapp" name="personmet" wire:model.defer="personmet" value="airbnb">
+                <input type="radio" id="mobileapp" name="personmet" wire:model.defer="personmet" value="app">
                 <label for="mobileapp">
                     <div class="content_flex-actv">
                         <div class="flex-msg">
                             <div class="_block">
-                                <div class="_txteh">Take photo with the Airbnb mobile app</div>
+                                <div class="_txteh">Take photo with the mobile</div>
                             </div>
                         </div>
                     </div>
