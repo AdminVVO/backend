@@ -27,7 +27,7 @@ class Wishlists extends Controller
             $categorias[ $value['name'] ]['created_at'] = $value['created_at'];
         }
 
-        return view('wishlists.index', ['content' => $categorias]);
+        return view('wishlists.index', ['content' => $categorias ?? []]);
     }
 
     public function viewWish($name)
@@ -42,13 +42,17 @@ class Wishlists extends Controller
             'name' => $name
         ])
         ->get()->toArray();
+            
+        // if (!count($content)) {
+        //     return view('wishlists.wish', ['content' => null, 'name' => $name]);
+        // }
 
         foreach ($content as $key => $value) {
             $categorias[ $value['name'] ]['avatar'][] = $value['avatar'];
             $categorias[ $value['name'] ]['listing'] = $value['listing_id'];
             $categorias[ $value['name'] ]['created_at'] = $value['created_at'];
         }
-        
-        return view('wishlists.wish', ['content' => $categorias, 'name' => $name]);
+
+        return view('wishlists.wish', ['content' => $categorias ?? [], 'name' => $name]);
     }
 }

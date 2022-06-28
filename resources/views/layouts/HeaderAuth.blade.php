@@ -112,7 +112,7 @@
                                 <li><a href="javascript:void(0)" onclick="$('#MessageID-2').submit()">MessageID-2</a></li>
                             @endif
                             <li><a href="#">Trips</a></li>
-                            <li><a href="#">Wishlists</a></li>
+                            <li><a href="/wishlist">Wishlists</a></li>
                         </ul>
                         <hr class="br-line">
                         <ul>

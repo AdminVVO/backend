@@ -23,6 +23,10 @@ class Wish extends Component
     public $daysDiff = 0;
     public $preloadReturnMap = false;
 
+    public $inputAdult = 0; 
+    public $inputKids = 0; 
+    public $inputInfant = 0; 
+    public $inputPets = 0; 
     public $inputPrice;
     public $inputPlace;
 
@@ -38,6 +42,7 @@ class Wish extends Component
     public function mount()
     {
         $this->places = RoomsProperty::pluck('name_type', 'type');
+
     }
 
     public function render()
@@ -45,8 +50,8 @@ class Wish extends Component
         $this->preLoadContent();
 
         $this->reset(['contentCoordinate', 'preLoadCoordinate']);
-        
-        if ($this->contentListing)
+
+        if (count($this->contentListing) != 0) {
             $this->preLoadCoordinate = [$this->contentListing[0]['latitude'], $this->contentListing[0]['longitude']];
 
             foreach ($this->contentListing as $key => $value) {
@@ -61,7 +66,7 @@ class Wish extends Component
                 $photo3 = "<img src='$photoInit3' alt='' class='card_img_active'>";
                 $latitude = $value['latitude'];
                 $longitude = $value['longitude'];
-    
+
                 $this->contentCoordinate[] = [
                     'type' => 'Feature',
                     'properties' => [
@@ -76,15 +81,13 @@ class Wish extends Component
                 ];
             }
 
-        if ( count( $this->contentListing ) != 0 ){
-            $this->preLoadCoordinate = [ $this->contentListing[0]['latitude'], $this->contentListing[0]['longitude']];
-            if ( $this->preloadReturnMap )
-                $this->dispatchBrowserEvent('loadDataMapBoxOne', ['preLoadCoordinate' => $this->preLoadCoordinate, 'contentCoordinate' => $this->contentCoordinate ]);
+            if ($this->preloadReturnMap) {
+                $this->dispatchBrowserEvent('loadDataMapBoxOne', ['preLoadCoordinate' => $this->preLoadCoordinate, 'contentCoordinate' => $this->contentCoordinate]);
+            }
         }
 
-        if ( count( $this->contentListing ) == 0 ){
-            if ( $this->preloadReturnMap )
-                $this->dispatchBrowserEvent('loadDataMapBoxOne', ['preLoadCoordinate' => null, 'contentCoordinate' => [] ]);
+        if (count($this->contentListing) == 0) {
+                return view('livewire.wishlists.wish');
         }
 
 
@@ -160,6 +163,46 @@ class Wish extends Component
 
         $this->countListing = count($this->contentListing);
     }
+
+    public function buttonIncrease($payload)
+    {
+        if($payload == 'adult') {
+            ++$this->inputAdult;
+        }
+        
+        if($payload == 'children') {
+            ++$this->inputKids;
+        }
+
+        if($payload == 'infant') {
+            ++$this->inputInfant;
+        }
+
+        if($payload == 'pet') {
+            ++$this->inputPets;
+        }
+    }
+
+
+    public function buttonDecrease($payload)
+    {
+        if($payload == 'adult' && $this->inputAdult>0) {
+            --$this->inputAdult;
+        }
+        
+        if($payload == 'children' && $this->inputKids>0) {
+            --$this->inputKids;
+        }
+
+        if($payload == 'infant' && $this->inputInfant>0) {
+            --$this->inputInfant;
+        }
+
+        if($payload == 'pèt' && $this->inputPets>0) {
+            --$this->inputPets;
+        }
+    }
+
 
     public function reLoadRender()
     {

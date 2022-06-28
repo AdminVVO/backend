@@ -28,7 +28,7 @@
                             <ul>
                                 <li><a href="{{ route('messageUserIndex') }}">Message</a></li>
                                 <li><a href="#">Trips</a></li>
-                                <li><a href="#">Wishlists</a></li>
+                                <li><a href="/wishlist">Wishlists</a></li>
                             </ul>
                             <hr class="br-line">
                             <ul>

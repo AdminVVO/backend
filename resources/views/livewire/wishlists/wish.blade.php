@@ -7,7 +7,8 @@
                     <div class="flex_local-dates ow-h">
                         <div class="content_location-width">
                             <div class="fx fx-ai-c fx-fw-w fx-jc-sb mr-b24 gp12">
-                                <a href="/wishlist" aria-label="Prev" class="circle__btn-cerrar btn-x_galls skeleton" wire:ignore>
+                                <a href="/wishlist" aria-label="Prev" class="circle__btn-cerrar btn-x_galls skeleton"
+                                    wire:ignore>
                                     <span class="pr">
                                         <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"
                                             role="presentation" focusable="false">
@@ -25,7 +26,7 @@
                                             placeholder="Dec 16, 2022" readonly wire:ignore>
                                     </div>
 
-                                    <div class="btnSltContent">
+                                    <div class="btnSltContent" wire:ignore.self>
                                         <button class="btn-celest-select blue clickSelectBtn skeleton" wire:ignore>
                                             <div class="fx fx-ai-c gp14">
                                                 4 Guests
@@ -37,10 +38,182 @@
                                                 </svg>
                                             </div>
                                         </button>
+                                        <div class="_bef-places popup_add_guest_places">
+                                            <div class="fxfbwhmhbrzi">
+                                                <div class="pafxtlz showfx743">
+                                                    <button type="button" class="circle__btn-cerrar xhidemdusr">
+                                                        <span class="pr">
+                                                            <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+                                                                <g fill="none">
+                                                                    <path
+                                                                        d="m20 28-11.29289322-11.2928932c-.39052429-.3905243-.39052429-1.0236893 0-1.4142136l11.29289322-11.2928932">
+                                                                    </path>
+                                                                </g>
+                                                            </svg>
+                                                        </span>
+                                                    </button>
+                                                </div>
+                                                <div class="fpstaltz showfx743"></div>
+
+                                                <div class="whfxoyx">
+                                                    <div class="poyxwh">
+                                                        <div class="cpd2btns hr">
+                                                            <div class="fx fx-ai-b fx-jc-sb gp25">
+                                                                <div class="fx fx-fd-c gp7">
+                                                                    <div class="_txteh">Adults</div>
+                                                                </div>
+
+                                                                <div class="_2btnsgris">
+                                                                    <button class="_btn" type="button"
+                                                                        aria-label="disminuir valor" {{ $inputAdult ? '' : 'disabled'}} wire:click="buttonDecrease('adult')">
+                                                                        <span>
+                                                                            <svg viewBox="0 0 32 32"
+                                                                                xmlns="http://www.w3.org/2000/svg"
+                                                                                role="presentation" focusable="false">
+                                                                                <path d="m2 16h28"></path>
+                                                                            </svg>
+                                                                        </span>
+                                                                    </button>
+
+                                                                    <span class="_txtec333">{{ $inputAdult }}</span>
+
+                                                                    <button class="_btn" type="button"
+                                                                        aria-label="aumentar valor" wire:click="buttonIncrease('adult')">
+                                                                        <span>
+                                                                            <svg viewBox="0 0 32 32"
+                                                                                xmlns="http://www.w3.org/2000/svg"
+                                                                                role="presentation" focusable="false">
+                                                                                <path d="m2 16h28m-14-14v28"></path>
+                                                                            </svg>
+                                                                        </span>
+                                                                    </button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="cpd2btns hr">
+                                                            <div class="fx fx-ai-b fx-jc-sb gp25">
+                                                                <div class="fx fx-fd-c gp7">
+                                                                    <div class="_txteh">Childen</div>
+                                                                    <p class="_txtec">Ages 2-12</p>
+                                                                </div>
+
+                                                                <div class="_2btnsgris">
+                                                                    <button class="_btn" type="button"
+                                                                        aria-label="disminuir valor" {{ $inputKids ? '' : 'disabled' }} wire:click="buttonDecrease('children')">
+                                                                        <span>
+                                                                            <svg viewBox="0 0 32 32"
+                                                                                xmlns="http://www.w3.org/2000/svg"
+                                                                                role="presentation" focusable="false">
+                                                                                <path d="m2 16h28"></path>
+                                                                            </svg>
+                                                                        </span>
+                                                                    </button>
+
+                                                                    <span class="_txtec333">{{ $inputKids }}</span>
+
+                                                                    <button class="_btn" type="button"
+                                                                        aria-label="aumentar valor" wire:click="buttonIncrease('children')">
+                                                                        <span>
+                                                                            <svg viewBox="0 0 32 32"
+                                                                                xmlns="http://www.w3.org/2000/svg"
+                                                                                role="presentation" focusable="false">
+                                                                                <path d="m2 16h28m-14-14v28"></path>
+                                                                            </svg>
+                                                                        </span>
+                                                                    </button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="cpd2btns hr">
+                                                            <div class="fx fx-ai-b fx-jc-sb gp25">
+                                                                <div class="fx fx-fd-c gp7">
+                                                                    <div class="_txteh">Infants</div>
+                                                                    <p class="_txtec">Under 2</p>
+                                                                </div>
+
+                                                                <div class="_2btnsgris">
+                                                                    <button class="_btn" type="button"
+                                                                        aria-label="disminuir valor" {{ $inputInfant ? '' : 'disabled'}} wire:click="buttonDecrease('infant')">
+                                                                        <span>
+                                                                            <svg viewBox="0 0 32 32"
+                                                                                xmlns="http://www.w3.org/2000/svg"
+                                                                                role="presentation" focusable="false">
+                                                                                <path d="m2 16h28"></path>
+                                                                            </svg>
+                                                                        </span>
+                                                                    </button>
+
+                                                                    <span class="_txtec333">{{ $inputInfant }}</span>
+
+                                                                    <button class="_btn" type="button"
+                                                                        aria-label="aumentar valor" wire:click="buttonIncrease('infant')">
+                                                                        <span>
+                                                                            <svg viewBox="0 0 32 32"
+                                                                                xmlns="http://www.w3.org/2000/svg"
+                                                                                role="presentation" focusable="false">
+                                                                                <path d="m2 16h28m-14-14v28"></path>
+                                                                            </svg>
+                                                                        </span>
+                                                                    </button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="cpd2btns">
+                                                            <div class="fx fx-ai-b fx-jc-sb gp25">
+                                                                <div class="fx fx-fd-c gp7">
+                                                                    <div class="_txteh">Pets</div>
+                                                                    <button type="button"
+                                                                        class="txtunder__ics txt16 js__popup_bringind_animal">
+                                                                        <span class="_txtec">Bringing an assistance
+                                                                            animal?</span>
+                                                                    </button>
+                                                                </div>
+
+                                                                <div class="_2btnsgris">
+                                                                    <button class="_btn" type="button"
+                                                                        aria-label="disminuir valor" {{ $inputPets ? '' : 'disabled'}} wire:click="buttonDecrease('pèt')">
+                                                                        <span>
+                                                                            <svg viewBox="0 0 32 32"
+                                                                                xmlns="http://www.w3.org/2000/svg"
+                                                                                role="presentation" focusable="false">
+                                                                                <path d="m2 16h28"></path>
+                                                                            </svg>
+                                                                        </span>
+                                                                    </button>
+
+                                                                    <span class="_txtec333">{{ $inputPets }}</span>
+
+                                                                    <button class="_btn" type="button"
+                                                                        aria-label="aumentar valor" wire:click="buttonIncrease('pet')">
+                                                                        <span>
+                                                                            <svg viewBox="0 0 32 32"
+                                                                                xmlns="http://www.w3.org/2000/svg"
+                                                                                role="presentation" focusable="false">
+                                                                                <path d="m2 16h28m-14-14v28"></path>
+                                                                            </svg>
+                                                                        </span>
+                                                                    </button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="footer__btnmdl hrtop pd32">
+                                                    <button type="button"
+                                                        class="txtunder__ics xhidemdusr">Clear</button>
+                                                    <button type="button" class="btn-celest">Save</button>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
 
                                     <div class="content-publish_icon">
-                                        <button type="button" class="_dmptwffb share_icon btnShareIconInterna skeleton"
+                                        <button type="button"
+                                            class="_dmptwffb share_icon btnShareIconInterna skeleton"
                                             style="margin-right: 0; margin-left: 5px;" wire:ignore>
                                             <svg xmlns="http://www.w3.org/2000/svg" width="29.012" height="24.549"
                                                 viewBox="0 0 29.012 24.549" class="i">
@@ -57,7 +230,7 @@
                                 </div>
                             </div>
                             <div class="desc-location">
-                                <h2 class="h2-guests skeleton skeleton_txt" wire:ignore>Pool</h2>
+                                <h2 class="h2-guests skeleton skeleton_txt" wire:ignore>{{ $name }}</h2>
                             </div>
                             <div class="content_view">
                                 <div class="hidden_galerias">
@@ -82,10 +255,11 @@
                                                 @else
                                                     <button type="button" class="card_love butnSignModl">
                                                 @endif
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="27.003" height="23.878"
-                                                    viewBox="0 0 27.003 23.878">
-                                                    <g transform="translate(1.002 -1.245)" fill="rgba(222,222,222,0.38)"
-                                                        stroke="#dedede" stroke-width="2">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="27.003"
+                                                    height="23.878" viewBox="0 0 27.003 23.878">
+                                                    <g transform="translate(1.002 -1.245)"
+                                                        fill="rgba(222,222,222,0.38)" stroke="#dedede"
+                                                        stroke-width="2">
                                                         <path
                                                             d="M22.573,3.743a6.677,6.677,0,0,0-9.111.664L12.5,5.4l-.962-.991a6.677,6.677,0,0,0-9.111-.664,7.011,7.011,0,0,0-.483,10.151l9.448,9.756a1.531,1.531,0,0,0,2.212,0l9.448-9.756a7.007,7.007,0,0,0-.479-10.151Z" />
                                                         <path
@@ -116,7 +290,8 @@
                                                 <h4 class="text_tm1 skeleton skeleton_txt" wire:ignore>
                                                     {{ ucwords(\App\Models\RoomsProperty::TypeListing($element['listing_type']) . ' ' . \App\Models\RoomsProperty::PropertyName($element['property_type'])) }}
                                                 </h4>
-                                                <h2 class="text_tm1 skeleton skeleton_txt" wire:ignore>{{ $element['title'] }}
+                                                <h2 class="text_tm1 skeleton skeleton_txt" wire:ignore>
+                                                    {{ $element['title'] }}
                                                 </h2>
                                                 <p class="text_tm2 desc_lc skeleton skeleton_txt" wire:ignore>
                                                     {{ $element['number_guests'] }} guests -
@@ -124,12 +299,13 @@
                                                     beds - {{ $element['bathrooms'] }} baths</p>
                                                 @foreach ($element['amenities'] as $amenities)
                                                     @if ($loop->iteration <= 4)
-                                                        <button
-                                                            class="btn_lc skeleton" wire:ignore>{{ \App\Models\AmenitiesSafety::Name($amenities) }}</button>
+                                                        <button class="btn_lc skeleton"
+                                                            wire:ignore>{{ \App\Models\AmenitiesSafety::Name($amenities) }}</button>
                                                     @endif
                                                 @endforeach
                                                 <p class="total_local skeleton skeleton_txt" wire:ignore>
-                                                    <i class="fas fa-dollar-sign"></i> {{ $element['base_price'] }} /
+                                                    <i class="fas fa-dollar-sign"></i> {{ $element['base_price'] }}
+                                                    /
                                                     night
                                                     @if ($daysDiff != 0)
                                                         <i class="far fa-long-arrow-right"></i> <span
@@ -155,7 +331,8 @@
 
                             <div class="cantidad_location-center">
                                 <small class="skeleton skeleton_txt" wire:ignore>1 - 20 of 300+ places to stay</small>
-                                <p class="skeleton skeleton_txt" wire:ignore>Additional fees apply Taxes may be added.</p>
+                                <p class="skeleton skeleton_txt" wire:ignore>Additional fees apply Taxes may be added.
+                                </p>
                             </div>
                         </div>
 
