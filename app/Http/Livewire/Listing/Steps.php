@@ -625,6 +625,7 @@ class Steps extends Component
          ->leftJoin('listing_property_roomds', 'listings.id_listings', 'listing_property_roomds.listing_id')
          ->leftJoin('listing_locations', 'listings.id_listings', 'listing_locations.listing_id')
          ->leftJoin('listing_pricings', 'listings.id_listings', 'listing_pricings.listing_id')
+         ->whereNotIn('status', ['in process'])
          ->first();
 
         $this->listinEdit = $Listings['id_listings'];

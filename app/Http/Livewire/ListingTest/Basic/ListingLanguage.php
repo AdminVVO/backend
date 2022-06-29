@@ -53,7 +53,7 @@ class ListingLanguage extends Component
         Listings::where([
             'user_id'     => Auth::id(),
             'id_listings' => $this->listingId,
-        ])->update([
+        ])->whereNotIn('status', ['in process'])->update([
             'language_default' => $this->inputLanguage,
         ]);
 

@@ -26,6 +26,7 @@ class FinishCreate extends Component
             'listings.user_id' => Auth::id()
         ])
         ->leftJoin('listing_property_roomds', 'listings.id_listings', 'listing_property_roomds.listing_id')
+        ->whereNotIn('status', ['in process'])
         ->get();
     }
 

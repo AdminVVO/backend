@@ -74,7 +74,7 @@ class ListingDescription extends Component
         Listings::where([
             'user_id'     => Auth::id(),
             'id_listings' => $this->listingId,
-        ])->update([
+        ])->whereNotIn('status', ['in process'])->update([
             'descriptions'  => $this->inputDescriptions,
             'space'         => $this->inputSpace != null ? $this->inputSpace : null,
             'guest_access'  => $this->inputGuest != null ? $this->inputGuest : null,

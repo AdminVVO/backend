@@ -40,6 +40,7 @@ class Cardpool extends Component
         )
         ->leftJoin('listing_property_roomds', 'listings.id_listings', 'listing_property_roomds.listing_id')
         ->leftJoin('listing_pricings', 'listings.id_listings', 'listing_pricings.listing_id')
+        ->whereNotIn('status', ['in process'])
         ->get();
         return $this->contentAllListing;
     }

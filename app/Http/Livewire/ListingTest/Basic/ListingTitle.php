@@ -59,7 +59,7 @@ class ListingTitle extends Component
         Listings::where([
             'user_id'     => Auth::id(),
             'id_listings' => $this->listingId,
-        ])->update([
+        ])->whereNotIn('status', ['in process'])->update([
             'title'          => $this->inputTitle,
             'internal_title' => $this->inputInternal,
         ]);

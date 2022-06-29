@@ -557,6 +557,7 @@ class ContentLeft extends Component
             'listings.id_listings' => $payload,
             'listings.user_id'     => Auth::id()
         ])
+        ->whereNotIn('status', ['in process'])
         ->leftJoin('listing_booking_details', 'listings.id_listings', 'listing_booking_details.listing_id')
         ->first();
 

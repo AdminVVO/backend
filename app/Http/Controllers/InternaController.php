@@ -52,6 +52,7 @@ class InternaController extends Controller
         ->leftJoin('listing_policies', 'listings.id_listings', 'listing_policies.listing_id')
         ->leftJoin('listing_booking_details', 'listings.id_listings', 'listing_booking_details.listing_id')
         ->leftJoin('listing_house_rulers', 'listings.id_listings', 'listing_house_rulers.listing_id')
+        ->whereNotIn('status', ['in process'])
         ->first();
 
         return view('interna.index', ['content' => $content]);

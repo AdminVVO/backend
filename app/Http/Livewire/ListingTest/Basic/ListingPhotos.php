@@ -75,7 +75,7 @@ class ListingPhotos extends Component
         Listings::where([
             'user_id'     => Auth::id(),
             'id_listings' => $this->listingId,
-        ])->update([
+        ])->whereNotIn('status', ['in process'])->update([
             'photos' => $this->inputPhotos,
         ]);
 
@@ -103,7 +103,7 @@ class ListingPhotos extends Component
         Listings::where([
             'user_id'     => Auth::id(),
             'id_listings' => $this->listingId,
-        ])->update([
+        ])->whereNotIn('status', ['in process'])->update([
             'photos' => $this->inputPhotos,
         ]);
 

@@ -33,7 +33,10 @@ class Center extends Component
 
             $this->mountListing = true;
 
-            $queryName = Listings::with('userChat')->select('id_listings', 'user_id', 'title')->where('id_listings', $listing)->first();
+            $queryName = Listings::with('userChat')
+                                    ->select('id_listings', 'user_id', 'title')
+                                    ->where('id_listings', $listing)
+                                    ->whereNotIn('status', ['in process'])->first();
 
             if ( Chats::where([
                     'transmitter_id' => Auth::id(),

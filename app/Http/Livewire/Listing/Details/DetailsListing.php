@@ -88,6 +88,7 @@ class DetailsListing extends Component
         ])
         ->leftJoin('listing_property_roomds', 'listings.id_listings', 'listing_property_roomds.listing_id')
         ->leftJoin('listing_locations', 'listings.id_listings', 'listing_locations.listing_id')
+        ->whereNotIn('status', ['in process'])
         ->first();
 
         $this->content['photos'] = $query['photos'];

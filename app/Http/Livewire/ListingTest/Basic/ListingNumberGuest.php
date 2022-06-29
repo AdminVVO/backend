@@ -41,7 +41,7 @@ class ListingNumberGuest extends Component
         Listings::where([
             'user_id'     => Auth::id(),
             'id_listings' => $this->listingId,
-        ])->update([
+        ])->whereNotIn('status', ['in process'])->update([
             'number_guests'  => $this->numberguest + 1,
         ]);
 
@@ -61,7 +61,7 @@ class ListingNumberGuest extends Component
         Listings::where([
             'user_id'     => Auth::id(),
             'id_listings' => $this->listingId,
-        ])->update([
+        ])->whereNotIn('status', ['in process'])->update([
             'number_guests'  => $this->numberguest - 1,
         ]);
 

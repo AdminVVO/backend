@@ -20,10 +20,20 @@
                                         </svg>
                                     </span>
                                 </a>
-                                <div class="fx fx-ai-c fx-fw-w gp10 optionsmax">
+                                <div class="fx fx-ai-c fx-fw-w gp10">
                                     <div class="btnSltContent">
-                                        <input type="text" class="input_real blue scale clickSelectBtn skeleton"
-                                            placeholder="Dec 16, 2022" readonly wire:ignore>
+                                        <label for="selectAddDates" class="btn-celest-select clickSelectBtn">
+                                            <div class="fx fx-ai-c gp10">
+                                                <input type="text" class="_ipttext date-v-modals" id="selectAddDates"
+                                                    placeholder="Add dates" readonly>
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="14.652" height="8.378"
+                                                    viewBox="0 0 14.652 8.378">
+                                                    <path
+                                                        d="M13.516,17.1l5.54-5.545a1.043,1.043,0,0,1,1.479,0,1.056,1.056,0,0,1,0,1.483l-6.278,6.282a1.045,1.045,0,0,1-1.444.031L6.493,13.042a1.047,1.047,0,0,1,1.479-1.483Z"
+                                                        transform="translate(-6.188 -11.246)" fill="#fff" />
+                                                </svg>
+                                            </div>
+                                        </label>
                                     </div>
 
                                     <div class="btnSltContent" wire:ignore.self>
@@ -65,7 +75,9 @@
 
                                                                 <div class="_2btnsgris">
                                                                     <button class="_btn" type="button"
-                                                                        aria-label="disminuir valor" {{ $inputAdult ? '' : 'disabled'}} wire:click="buttonDecrease('adult')">
+                                                                        aria-label="disminuir valor"
+                                                                        {{ $inputAdult ? '' : 'disabled' }}
+                                                                        wire:click="buttonDecrease('adult')">
                                                                         <span>
                                                                             <svg viewBox="0 0 32 32"
                                                                                 xmlns="http://www.w3.org/2000/svg"
@@ -78,7 +90,8 @@
                                                                     <span class="_txtec333">{{ $inputAdult }}</span>
 
                                                                     <button class="_btn" type="button"
-                                                                        aria-label="aumentar valor" wire:click="buttonIncrease('adult')">
+                                                                        aria-label="aumentar valor"
+                                                                        wire:click="buttonIncrease('adult')">
                                                                         <span>
                                                                             <svg viewBox="0 0 32 32"
                                                                                 xmlns="http://www.w3.org/2000/svg"
@@ -100,7 +113,9 @@
 
                                                                 <div class="_2btnsgris">
                                                                     <button class="_btn" type="button"
-                                                                        aria-label="disminuir valor" {{ $inputKids ? '' : 'disabled' }} wire:click="buttonDecrease('children')">
+                                                                        aria-label="disminuir valor"
+                                                                        {{ $inputKids ? '' : 'disabled' }}
+                                                                        wire:click="buttonDecrease('children')">
                                                                         <span>
                                                                             <svg viewBox="0 0 32 32"
                                                                                 xmlns="http://www.w3.org/2000/svg"
@@ -113,12 +128,14 @@
                                                                     <span class="_txtec333">{{ $inputKids }}</span>
 
                                                                     <button class="_btn" type="button"
-                                                                        aria-label="aumentar valor" wire:click="buttonIncrease('children')">
+                                                                        aria-label="aumentar valor"
+                                                                        wire:click="buttonIncrease('children')">
                                                                         <span>
                                                                             <svg viewBox="0 0 32 32"
                                                                                 xmlns="http://www.w3.org/2000/svg"
                                                                                 role="presentation" focusable="false">
-                                                                                <path d="m2 16h28m-14-14v28"></path>
+                                                                                <path d="m2 16h28m-14-14v28">
+                                                                                </path>
                                                                             </svg>
                                                                         </span>
                                                                     </button>
@@ -135,7 +152,9 @@
 
                                                                 <div class="_2btnsgris">
                                                                     <button class="_btn" type="button"
-                                                                        aria-label="disminuir valor" {{ $inputInfant ? '' : 'disabled'}} wire:click="buttonDecrease('infant')">
+                                                                        aria-label="disminuir valor"
+                                                                        {{ $inputInfant ? '' : 'disabled' }}
+                                                                        wire:click="buttonDecrease('infant')">
                                                                         <span>
                                                                             <svg viewBox="0 0 32 32"
                                                                                 xmlns="http://www.w3.org/2000/svg"
@@ -148,12 +167,14 @@
                                                                     <span class="_txtec333">{{ $inputInfant }}</span>
 
                                                                     <button class="_btn" type="button"
-                                                                        aria-label="aumentar valor" wire:click="buttonIncrease('infant')">
+                                                                        aria-label="aumentar valor"
+                                                                        wire:click="buttonIncrease('infant')">
                                                                         <span>
                                                                             <svg viewBox="0 0 32 32"
                                                                                 xmlns="http://www.w3.org/2000/svg"
                                                                                 role="presentation" focusable="false">
-                                                                                <path d="m2 16h28m-14-14v28"></path>
+                                                                                <path d="m2 16h28m-14-14v28">
+                                                                                </path>
                                                                             </svg>
                                                                         </span>
                                                                     </button>
@@ -174,7 +195,9 @@
 
                                                                 <div class="_2btnsgris">
                                                                     <button class="_btn" type="button"
-                                                                        aria-label="disminuir valor" {{ $inputPets ? '' : 'disabled'}} wire:click="buttonDecrease('pèt')">
+                                                                        aria-label="disminuir valor"
+                                                                        {{ $inputPets ? '' : 'disabled' }}
+                                                                        wire:click="buttonDecrease('pèt')">
                                                                         <span>
                                                                             <svg viewBox="0 0 32 32"
                                                                                 xmlns="http://www.w3.org/2000/svg"
@@ -187,12 +210,14 @@
                                                                     <span class="_txtec333">{{ $inputPets }}</span>
 
                                                                     <button class="_btn" type="button"
-                                                                        aria-label="aumentar valor" wire:click="buttonIncrease('pet')">
+                                                                        aria-label="aumentar valor"
+                                                                        wire:click="buttonIncrease('pet')">
                                                                         <span>
                                                                             <svg viewBox="0 0 32 32"
                                                                                 xmlns="http://www.w3.org/2000/svg"
                                                                                 role="presentation" focusable="false">
-                                                                                <path d="m2 16h28m-14-14v28"></path>
+                                                                                <path d="m2 16h28m-14-14v28">
+                                                                                </path>
                                                                             </svg>
                                                                         </span>
                                                                     </button>
@@ -295,7 +320,8 @@
                                                 </h2>
                                                 <p class="text_tm2 desc_lc skeleton skeleton_txt" wire:ignore>
                                                     {{ $element['number_guests'] }} guests -
-                                                    {{ $element['bedrooms'] }} bedrooms - {{ $element['bed'] }}
+                                                    {{ $element['bedrooms'] }} bedrooms -
+                                                    {{ $element['bed'] }}
                                                     beds - {{ $element['bathrooms'] }} baths</p>
                                                 @foreach ($element['amenities'] as $amenities)
                                                     @if ($loop->iteration <= 4)
@@ -304,7 +330,8 @@
                                                     @endif
                                                 @endforeach
                                                 <p class="total_local skeleton skeleton_txt" wire:ignore>
-                                                    <i class="fas fa-dollar-sign"></i> {{ $element['base_price'] }}
+                                                    <i class="fas fa-dollar-sign"></i>
+                                                    {{ $element['base_price'] }}
                                                     /
                                                     night
                                                     @if ($daysDiff != 0)
@@ -330,8 +357,10 @@
                             </div>
 
                             <div class="cantidad_location-center">
-                                <small class="skeleton skeleton_txt" wire:ignore>1 - 20 of 300+ places to stay</small>
-                                <p class="skeleton skeleton_txt" wire:ignore>Additional fees apply Taxes may be added.
+                                <small class="skeleton skeleton_txt" wire:ignore>1 - 20 of 300+ places to
+                                    stay</small>
+                                <p class="skeleton skeleton_txt" wire:ignore>Additional fees apply Taxes may be
+                                    added.
                                 </p>
                             </div>
                         </div>

@@ -52,7 +52,7 @@ class ListingLink extends Component
         Listings::where([
             'user_id'     => Auth::id(),
             'id_listings' => $this->listingId,
-        ])->update([
+        ])->whereNotIn('status', ['in process'])->update([
             'custom_link' => $this->inputLink,
         ]);
 

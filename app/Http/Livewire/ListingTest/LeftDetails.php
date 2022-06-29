@@ -37,7 +37,7 @@ class LeftDetails extends Component
             'status',
             'photos',
             'created_at',
-        )->where([
+        )->whereNotIn('status', ['in process'])->where([
             'user_id' => Auth::id(),
         ])
         ->where(function ($query) {

@@ -42,7 +42,7 @@ class Wishlists extends Component
 
         $queryListing = Listings::where([
             'id_listings' => $this->listingId,
-        ])->pluck('photos')->first();
+        ])->whereNotIn('status', ['in process'])->pluck('photos')->first();
 
         $this->photo = $queryListing[0];
     }

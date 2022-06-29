@@ -69,7 +69,7 @@ class ListingStatus extends Component
             Listings::where([
                 'user_id'     => Auth::id(),
                 'id_listings' => $this->listingId,
-            ])->update([
+            ])->whereNotIn('status', ['in process'])->update([
                 'status'   => $this->inputStatus,
                 'snooze'   => $contentTime,
             ]);
@@ -122,7 +122,7 @@ class ListingStatus extends Component
             Listings::where([
                 'user_id'     => Auth::id(),
                 'id_listings' => $this->listingId,
-            ])->update([
+            ])->whereNotIn('status', ['in process'])->update([
                 'status'   => $this->inputStatus,
                 'resort'   => $this->inputResort,
                 'template' => $this->template,
@@ -149,7 +149,7 @@ class ListingStatus extends Component
             Listings::where([
                 'user_id'     => Auth::id(),
                 'id_listings' => $this->listingId,
-            ])->update([
+            ])->whereNotIn('status', ['in process'])->update([
                 'status'   => $this->inputStatus,
             ]);
 

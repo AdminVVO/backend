@@ -28,7 +28,7 @@ class Amenities extends Component
         $this->inputInit = Listings::where([
             'id_listings' => $this->listingId,
             'user_id'     => Auth::id()
-        ])->pluck('amenities')->first();
+        ])->whereNotIn('status', ['in process'])->pluck('amenities')->first();
 
         $this->inputOptions = $this->inputInit;
     }
@@ -65,7 +65,8 @@ class Amenities extends Component
         Listings::where([
             'user_id'     => Auth::id(),
             'id_listings' => $this->listingId,
-        ])->update([
+        ])->whereNotIn('status', ['in process'])
+        ->update([
             'amenities' => $this->inputOptions,
         ]);
 
