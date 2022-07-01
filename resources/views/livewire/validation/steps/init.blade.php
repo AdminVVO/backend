@@ -83,11 +83,16 @@
         /** llamar al event() **/
 
         window.addEventListener('contentChanged', event => {
-
             $('[fileClickWeb]').click(function() {
                 if ($('#web').val()) {
                     $('[fileShow]').click();
                 }
+            });
+
+
+            $('[fileClickCam]').click(function() {
+                if (isMobile.any())
+                    $('[cameraShow]').click();
             });
         });
 
