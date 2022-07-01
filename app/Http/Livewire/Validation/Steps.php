@@ -31,13 +31,13 @@ class Steps extends Component
     public function render()
     {
         return view('livewire.validation.steps', ['user_id' => $this->user_id, 'type' => $this->type]);
+
     }
 
     public function returnBack($payload)
     {
-
+        $this->dispatchBrowserEvent('contentChanged');
         $this->step = $payload;
-        $this->sendPhoto([]);
         return;
     }
 

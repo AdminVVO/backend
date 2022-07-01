@@ -32,6 +32,11 @@ class UploadFileBrowser extends Component
         $this->country = $content['country'];
     }
 
+    public function returnBack($payload)
+    {
+        $this->emitUp('returnBack', $payload);
+    }
+
     public function render()
     {
         return view('livewire.validation.steps.upload-file-browser', ['user_id' => $this->user_id]);
@@ -111,8 +116,9 @@ class UploadFileBrowser extends Component
             'content' => $this->contentIn,
         ];
         $this->dispatchBrowserEvent('sendValidation');
-        event(new sendPersonValidation($this->user_id));
+     
         if ($this->user_id) {
+            event(new sendPersonValidation($this->user_id));
             UserTemp::where('id', $this->user_id)->delete();
         }
         

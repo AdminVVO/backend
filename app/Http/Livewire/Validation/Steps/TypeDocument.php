@@ -19,6 +19,11 @@ class TypeDocument extends Component
         return view('livewire.validation.steps.type-document');
     }
 
+    public function returnBack($payload)
+    {
+        $this->emitUp('returnBack', $payload);
+    }
+
     public function submitTypeDocument()
     {
         $validation = Validator::make([
