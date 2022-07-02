@@ -28,7 +28,8 @@ class HomeController extends Controller
 
     public function logout(Request $request)
     {
+        request()->session()->invalidate();
         Auth::logout();
-        return redirect()->back();  
+        return redirect()->to('/');  
     }
 }
