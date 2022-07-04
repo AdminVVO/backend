@@ -16,603 +16,695 @@ class AmenitiesSafetySeeder extends Seeder
     {
         $roomsPropert = [
             [
-                'code' => 'essentials',
-                'name' => 'Essentials',
-                'type' => 'amenities'
+                'code'     => 'bathtub',
+                'name'     => 'Bathtub',
+                'type'     => 'amenities',
+                'typeList' => 'bathroom'
             ],
             [
-                'code' => 'air_conditioning',
-                'name' => 'Air conditioning',
-                'type' => 'amenities'
+                'code'     => 'bidet',
+                'name'     => 'Bidet',
+                'type'     => 'amenities',
+                'typeList' => 'bathroom'
             ],
             [
-                'code' => 'patio',
-                'name' => 'Patio',
-                'type' => 'amenities'
+                'code'     => 'body_soap',
+                'name'     => 'Body soap',
+                'type'     => 'amenities',
+                'typeList' => 'bathroom'
             ],
             [
-                'code' => 'bbq_grill',
-                'name' => 'BBQ grill',
-                'type' => 'amenities'
+                'code'     => 'cleaning_products',
+                'name'     => 'Cleaning products',
+                'type'     => 'amenities',
+                'typeList' => 'bathroom'
             ],
             [
-                'code' => 'outdoor_shower',
-                'name' => 'Outdoor shower',
-                'type' => 'amenities'
+                'code'     => 'conditioner',
+                'name'     => 'Conditioner',
+                'type'     => 'amenities',
+                'typeList' => 'bathroom'
             ],
             [
-                'code' => 'fire_pit',
-                'name' => 'Fire pit',
-                'type' => 'amenities'
+                'code'     => 'hair_dryer',
+                'name'     => 'Hair dryer',
+                'type'     => 'amenities',
+                'typeList' => 'bathroom'
             ],
             [
-                'code' => 'dryer',
-                'name' => 'Dryer',
-                'type' => 'amenities'
+                'code'     => 'hot_water',
+                'name'     => 'Hot water',
+                'type'     => 'amenities',
+                'typeList' => 'bathroom'
             ],
             [
-                'code' => 'indoor_fireplace',
-                'name' => 'Indoor fireplace',
-                'type' => 'amenities'
+                'code'     => 'outdoor_shower',
+                'name'     => 'Outdoor shower',
+                'type'     => 'amenities',
+                'typeList' => 'bathroom'
             ],
             [
-                'code' => 'hair_dryer',
-                'name' => 'Hair dryer',
-                'type' => 'amenities'
+                'code'     => 'shampoo',
+                'name'     => 'Shampoo',
+                'type'     => 'amenities',
+                'typeList' => 'bathroom'
             ],
             [
-                'code' => 'exercise_equipment',
-                'name' => 'Exercise equipment',
-                'type' => 'amenities'
+                'code'     => 'shower_gel',
+                'name'     => 'Shower gel',
+                'type'     => 'amenities',
+                'typeList' => 'bathroom'
             ],
             [
-                'code' => 'heating',
-                'name' => 'Heating',
-                'type' => 'amenities'
+                'code'     => 'essentials',
+                'name'     => 'Essentials',
+                'type'     => 'amenities',
+                'typeList' => 'bedroom_laundry'
             ],
             [
-                'code' => 'kitchen',
-                'name' => 'Kitchen',
-                'type' => 'amenities'
+                'code'     => 'bed_linens',
+                'name'     => 'Bed linens',
+                'type'     => 'amenities',
+                'typeList' => 'bedroom_laundry'
             ],
             [
-                'code' => 'hot_tub',
-                'name' => 'Hot tub',
-                'type' => 'amenities'
+                'code'     => 'clothing_storage',
+                'name'     => 'Clothing storage',
+                'type'     => 'amenities',
+                'typeList' => 'bedroom_laundry'
             ],
             [
-                'code' => 'pool',
-                'name' => 'Pool',
-                'type' => 'amenities'
+                'code'     => 'dryer',
+                'name'     => 'Dryer',
+                'type'     => 'amenities',
+                'typeList' => 'bedroom_laundry'
             ],
             [
-                'code' => 'TV',
-                'name' => 'TV',
-                'type' => 'amenities'
+                'code'     => 'drying_clothing',
+                'name'     => 'Drying rack for clothing',
+                'type'     => 'amenities',
+                'typeList' => 'bedroom_laundry'
             ],
             [
-                'code' => 'washer',
-                'name' => 'Washer',
-                'type' => 'amenities'
+                'code'     => 'extra_blankets',
+                'name'     => 'Extra pillows and blankets',
+                'type'     => 'amenities',
+                'typeList' => 'bedroom_laundry'
             ],
             [
-                'code' => 'wifi',
-                'name' => 'Wifi',
-                'type' => 'amenities'
+                'code'     => 'hangers',
+                'name'     => 'Hangers',
+                'type'     => 'amenities',
+                'typeList' => 'bedroom_laundry'
             ],
             [
-                'code' => 'hot_water',
-                'name' => 'Hot water',
-                'type' => 'amenities'
+                'code'     => 'iron',
+                'name'     => 'Iron',
+                'type'     => 'amenities',
+                'typeList' => 'bedroom_laundry'
             ],
             [
-                'code' => 'gym',
-                'name' => 'Gym',
-                'type' => 'amenities'
+                'code'     => 'mosquito_net',
+                'name'     => 'Mosquito net',
+                'type'     => 'amenities',
+                'typeList' => 'bedroom_laundry'
             ],
             [
-                'code' => 'shampoo',
-                'name' => 'Shampoo',
-                'type' => 'amenities'
+                'code'     => 'room_shades',
+                'name'     => 'Room-darkening shades',
+                'type'     => 'amenities',
+                'typeList' => 'bedroom_laundry'
             ],
             [
-                'code' => 'hangers',
-                'name' => 'Hangers',
-                'type' => 'amenities'
+                'code'     => 'safe',
+                'name'     => 'Safe',
+                'type'     => 'amenities',
+                'typeList' => 'bedroom_laundry'
             ],
             [
-                'code' => 'iron',
-                'name' => 'Iron',
-                'type' => 'amenities'
+                'code'     => 'washer',
+                'name'     => 'Washer',
+                'type'     => 'amenities',
+                'typeList' => 'bedroom_laundry'
             ],
             [
-                'code' => 'elevator',
-                'name' => 'Elevator',
-                'type' => 'amenities'
+                'code'     => 'books_material',
+                'name'     => 'Books and reading material',
+                'type'     => 'amenities',
+                'typeList' => 'entertainment'
             ],
             [
-                'code' => 'free_parking',
-                'name' => 'Free parking on premises',
-                'type' => 'amenities'
+                'code'     => 'ethernet_connection',
+                'name'     => 'Ethernet connection',
+                'type'     => 'amenities',
+                'typeList' => 'entertainment'
             ],
             [
-                'code' => 'paid_parking',
-                'name' => 'Paid parking on premises',
-                'type' => 'amenities'
+                'code'     => 'exercise_equipment',
+                'name'     => 'Exercise equipment',
+                'type'     => 'amenities',
+                'typeList' => 'entertainment'
             ],
             [
-                'code' => 'outdoor_dining',
-                'name' => 'Outdoor Dining Area',
-                'type' => 'amenities'
+                'code'     => 'game_console',
+                'name'     => 'Game console',
+                'type'     => 'amenities',
+                'typeList' => 'entertainment'
             ],
             [
-                'code' => 'dedicated_worspace',
-                'name' => 'Dedicated workspace',
-                'type' => 'amenities'
+                'code'     => 'piano',
+                'name'     => 'Piano',
+                'type'     => 'amenities',
+                'typeList' => 'entertainment'
             ],
             [
-                'code' => 'cleaning_products',
-                'name' => 'Cleaning products',
-                'type' => 'amenities'
+                'code'     => 'pingpong_table',
+                'name'     => 'Ping pong table',
+                'type'     => 'amenities',
+                'typeList' => 'entertainment'
             ],
             [
-                'code' => 'cooking_basics',
-                'name' => 'Cooking basics',
-                'type' => 'amenities'
+                'code'     => 'pool',
+                'name'     => 'Pool',
+                'type'     => 'amenities',
+                'typeList' => 'entertainment'
             ],
             [
-                'code' => 'dishes_silverware',
-                'name' => 'Dishes and silverware',
-                'type' => 'amenities'
+                'code'     => 'record_player',
+                'name'     => 'Record player',
+                'type'     => 'amenities',
+                'typeList' => 'entertainment'
             ],
             [
-                'code' => 'bathtub',
-                'name' => 'Bathtub',
-                'type' => 'amenities'
+                'code'     => 'sound_system',
+                'name'     => 'Sound system',
+                'type'     => 'amenities',
+                'typeList' => 'entertainment'
             ],
             [
-                'code' => 'bidet',
-                'name' => 'Bidet',
-                'type' => 'amenities'
+                'code'     => 'tv',
+                'name'     => 'TV',
+                'type'     => 'amenities',
+                'typeList' => 'entertainment'
             ],
             [
-                'code' => 'body_soap',
-                'name' => 'Body soap',
-                'type' => 'amenities'
+                'code'     => 'baby_bath',
+                'name'     => 'Baby bath',
+                'type'     => 'amenities',
+                'typeList' => 'Family'
             ],
             [
-                'code' => 'conditioner',
-                'name' => 'Conditioner',
-                'type' => 'amenities'
+                'code'     => 'baby_monitor',
+                'name'     => 'Baby monitor',
+                'type'     => 'amenities',
+                'typeList' => 'Family'
             ],
             [
-                'code' => 'shower_gel',
-                'name' => 'Shower gel',
-                'type' => 'amenities'
+                'code'     => 'baby_gates',
+                'name'     => 'Baby safety gates',
+                'type'     => 'amenities',
+                'typeList' => 'Family'
             ],
             [
-                'code' => 'bed_linens',
-                'name' => 'Bed linens',
-                'type' => 'amenities'
+                'code'     => 'babysitter_recommendations',
+                'name'     => 'Babysitter recommendations',
+                'type'     => 'amenities',
+                'typeList' => 'Family'
             ],
             [
-                'code' => 'clothing_storage',
-                'name' => 'Clothing storage',
-                'type' => 'amenities'
+                'code'     => 'board_games',
+                'name'     => 'Board games',
+                'type'     => 'amenities',
+                'typeList' => 'Family'
             ],
             [
-                'code' => 'drying_clothing',
-                'name' => 'Drying rack for clothing',
-                'type' => 'amenities'
+                'code'     => 'changing_table',
+                'name'     => 'Changing table',
+                'type'     => 'amenities',
+                'typeList' => 'Family'
             ],
             [
-                'code' => 'extra_blankets',
-                'name' => 'Extra pillows and blankets',
-                'type' => 'amenities'
+                'code'     => "childrens_toys",
+                'name'     => "Children's books and toys",
+                'type'     => 'amenities',
+                'typeList' => 'Family'
             ],
             [
-                'code' => 'mosquito_net',
-                'name' => 'Mosquito net',
-                'type' => 'amenities'
+                'code'     => 'childrens_dinnerware',
+                'name'     => "Children's dinnerware",
+                'type'     => 'amenities',
+                'typeList' => 'Family'
             ],
             [
-                'code' => 'room_shades',
-                'name' => 'Room-darkening shades',
-                'type' => 'amenities'
+                'code'     => 'crib',
+                'name'     => 'Crib',
+                'type'     => 'amenities',
+                'typeList' => 'Family'
             ],
             [
-                'code' => 'safe',
-                'name' => 'Safe',
-                'type' => 'amenities'
+                'code'     => 'fireplace_guards',
+                'name'     => 'Fireplace guards',
+                'type'     => 'amenities',
+                'typeList' => 'Family'
             ],
             [
-                'code' => 'books_material',
-                'name' => 'Books and reading material',
-                'type' => 'amenities'
+                'code'     => 'high_chair',
+                'name'     => 'High chair',
+                'type'     => 'amenities',
+                'typeList' => 'Family'
             ],
             [
-                'code' => 'ethernet_connection',
-                'name' => 'Ethernet connection',
-                'type' => 'amenities'
+                'code'     => 'outlet_covers',
+                'name'     => 'Outlet covers',
+                'type'     => 'amenities',
+                'typeList' => 'Family'
             ],
             [
-                'code' => 'exercise_equipment',
-                'name' => 'Exercise equipment',
-                'type' => 'amenities'
+                'code'     => 'packn_crib',
+                'name'     => "Pack'n play/Traver crib",
+                'type'     => 'amenities',
+                'typeList' => 'Family'
             ],
             [
-                'code' => 'game_console',
-                'name' => 'Game console',
-                'type' => 'amenities'
+                'code'     => 'table_guards',
+                'name'     => "Table corner guards",
+                'type'     => 'amenities',
+                'typeList' => 'Family'
             ],
             [
-                'code' => 'piano',
-                'name' => 'Piano',
-                'type' => 'amenities'
+                'code'     => 'window_guards',
+                'name'     => "Window guards",
+                'type'     => 'amenities',
+                'typeList' => 'Family'
             ],
             [
-                'code' => 'pingpong_table',
-                'name' => 'Ping pong table',
-                'type' => 'amenities'
+                'code'     => 'air_conditioning',
+                'name'     => "Air conditioning",
+                'type'     => 'amenities',
+                'typeList' => 'heating_cooling'
             ],
             [
-                'code' => 'record_player',
-                'name' => 'Record player',
-                'type' => 'amenities'
+                'code'     => 'ceiling_fan',
+                'name'     => "Ceiling fan",
+                'type'     => 'amenities',
+                'typeList' => 'heating_cooling'
             ],
             [
-                'code' => 'sound_system',
-                'name' => 'Sound system',
-                'type' => 'amenities'
+                'code'     => 'heating',
+                'name'     => "Heating",
+                'type'     => 'amenities',
+                'typeList' => 'heating_cooling'
             ],
             [
-                'code' => 'baby_bath',
-                'name' => 'Baby bath',
-                'type' => 'amenities'
+                'code'     => 'indoor_fireplace',
+                'name'     => "Indoor fireplace",
+                'type'     => 'amenities',
+                'typeList' => 'heating_cooling'
             ],
             [
-                'code' => 'baby_monitor',
-                'name' => 'Baby monitor',
-                'type' => 'amenities'
+                'code'     => 'portable_fans',
+                'name'     => "Portable fans",
+                'type'     => 'amenities',
+                'typeList' => 'heating_cooling'
             ],
             [
-                'code' => 'baby_gates',
-                'name' => 'Baby safety gates',
-                'type' => 'amenities'
+                'code'     => 'monoxide_alarm',
+                'name'     => "Carbon monoxide alarm",
+                'type'     => 'safety',
+                'typeList' => 'home_safety'
             ],
             [
-                'code' => 'babysitter_recommendations',
-                'name' => 'Babysitter recommendations',
-                'type' => 'amenities'
+                'code'     => 'fire_extinguisher',
+                'name'     => "Fire extinguisher",
+                'type'     => 'safety',
+                'typeList' => 'home_safety'
             ],
             [
-                'code' => 'board_games',
-                'name' => 'Board games',
-                'type' => 'amenities'
+                'code'     => 'first_kit',
+                'name'     => "First aid kit",
+                'type'     => 'safety',
+                'typeList' => 'home_safety'
             ],
             [
-                'code' => 'changing_table',
-                'name' => 'Changing table',
-                'type' => 'amenities'
+                'code'     => 'smoke_alarm',
+                'name'     => "Smoke alarm",
+                'type'     => 'safety',
+                'typeList' => 'home_safety'
             ],
             [
-                'code' => 'childrens_toys',
-                'name' => "Children's books and toys",
-                'type' => 'amenities'
+                'code'     => 'dedicated_worspace',
+                'name'     => "Dedicated workspace",
+                'type'     => 'amenities',
+                'typeList' => 'internetoffice'
             ],
             [
-                'code' => 'childrens_dinnerware',
-                'name' => "Children's dinnerware",
-                'type' => 'amenities'
+                'code'     => 'pocket_wifi',
+                'name'     => "Pocket wifi",
+                'type'     => 'amenities',
+                'typeList' => 'internetoffice'
             ],
             [
-                'code' => 'crib',
-                'name' => 'Crib',
-                'type' => 'amenities'
+                'code'     => 'wifi',
+                'name'     => "Wifi",
+                'type'     => 'amenities',
+                'typeList' => 'internetoffice'
             ],
             [
-                'code' => 'fireplace_guards',
-                'name' => 'Fireplace guards',
-                'type' => 'amenities'
+                'code'     => 'baking_sheet',
+                'name'     => "Baking sheet",
+                'type'     => 'amenities',
+                'typeList' => 'internetoffice'
             ],
             [
-                'code' => 'high_chair',
-                'name' => 'High chair',
-                'type' => 'amenities'
+                'code'     => 'barbecue_utensils',
+                'name'     => "Barbecue utensils",
+                'type'     => 'amenities',
+                'typeList' => 'internetoffice'
             ],
             [
-                'code' => 'outlet_covers',
-                'name' => 'Outlet covers',
-                'type' => 'amenities'
+                'code'     => 'breadmaker',
+                'name'     => "Bread maker",
+                'type'     => 'amenities',
+                'typeList' => 'internetoffice'
             ],
             [
-                'code' => 'packn_crib',
-                'name' => "Pack'n play/Traver crib",
-                'type' => 'amenities'
+                'code'     => 'blender',
+                'name'     => "Blender",
+                'type'     => 'amenities',
+                'typeList' => 'internetoffice'
             ],
             [
-                'code' => 'table_guards',
-                'name' => 'Table corner guards',
-                'type' => 'amenities'
+                'code'     => 'coffee',
+                'name'     => "Coffee",
+                'type'     => 'amenities',
+                'typeList' => 'internetoffice'
             ],
             [
-                'code' => 'window_guards',
-                'name' => 'Window guards',
-                'type' => 'amenities'
+                'code'     => 'coffeemaker',
+                'name'     => "Coffee maker",
+                'type'     => 'amenities',
+                'typeList' => 'internetoffice'
             ],
             [
-                'code' => 'ceiling_fan',
-                'name' => 'Ceiling fan',
-                'type' => 'amenities'
+                'code'     => 'cooking_basics',
+                'name'     => "Cooking basics",
+                'type'     => 'amenities',
+                'typeList' => 'internetoffice'
             ],
             [
-                'code' => 'indoor_fireplace',
-                'name' => 'Indoor fireplace',
-                'type' => 'amenities'
+                'code'     => 'diningtable',
+                'name'     => "Dining table",
+                'type'     => 'amenities',
+                'typeList' => 'internetoffice'
             ],
             [
-                'code' => 'portable_fans',
-                'name' => 'Portable fans',
-                'type' => 'amenities'
+                'code'     => 'dishes_silverware',
+                'name'     => "Disher and silverware",
+                'type'     => 'amenities',
+                'typeList' => 'internetoffice'
             ],
             [
-                'code' => 'pocket_wifi',
-                'name' => 'Pocket wifi',
-                'type' => 'amenities'
+                'code'     => 'dishwasher',
+                'name'     => "Dishwasher",
+                'type'     => 'amenities',
+                'typeList' => 'internetoffice'
             ],
             [
-                'code' => 'baking_sheet',
-                'name' => 'Baking sheet',
-                'type' => 'amenities'
+                'code'     => 'freezer',
+                'name'     => "Freezer",
+                'type'     => 'amenities',
+                'typeList' => 'internetoffice'
             ],
             [
-                'code' => 'barbecue_utensils',
-                'name' => 'Barbecue utensils',
-                'type' => 'amenities'
+                'code'     => 'hotwaterkettle',
+                'name'     => "Hot water kettle",
+                'type'     => 'amenities',
+                'typeList' => 'internetoffice'
             ],
             [
-                'code' => 'breadmaker',
-                'name' => 'Bread maker',
-                'type' => 'amenities'
+                'code'     => 'kitchen',
+                'name'     => "Kitchen",
+                'type'     => 'amenities',
+                'typeList' => 'internetoffice'
             ],
             [
-                'code' => 'blender',
-                'name' => 'Blender',
-                'type' => 'amenities'
+                'code'     => 'microwave',
+                'name'     => "Microwave",
+                'type'     => 'amenities',
+                'typeList' => 'internetoffice'
             ],
             [
-                'code' => 'coffee',
-                'name' => 'Coffee',
-                'type' => 'amenities'
+                'code'     => 'minifridge',
+                'name'     => "Mini fridge",
+                'type'     => 'amenities',
+                'typeList' => 'internetoffice'
             ],
             [
-                'code' => 'coffeemaker',
-                'name' => 'Coffee maker',
-                'type' => 'amenities'
+                'code'     => 'oven',
+                'name'     => "Oven",
+                'type'     => 'amenities',
+                'typeList' => 'internetoffice'
             ],
             [
-                'code' => 'diningtable',
-                'name' => 'Dining table',
-                'type' => 'amenities'
+                'code'     => 'refrigerator',
+                'name'     => "Refrigerator",
+                'type'     => 'amenities',
+                'typeList' => 'internetoffice'
             ],
             [
-                'code' => 'dishersilverware',
-                'name' => 'Disher and silverware',
-                'type' => 'amenities'
+                'code'     => 'ricemaker',
+                'name'     => "Rice maker",
+                'type'     => 'amenities',
+                'typeList' => 'internetoffice'
             ],
             [
-                'code' => 'dishwasher',
-                'name' => 'Dishwasher',
-                'type' => 'amenities'
+                'code'     => 'stove',
+                'name'     => "Stove",
+                'type'     => 'amenities',
+                'typeList' => 'internetoffice'
             ],
             [
-                'code' => 'freezer',
-                'name' => 'Freezer',
-                'type' => 'amenities'
+                'code'     => 'toaster',
+                'name'     => "Toaster",
+                'type'     => 'amenities',
+                'typeList' => 'internetoffice'
             ],
             [
-                'code' => 'hotwaterkettle',
-                'name' => 'Hot water kettle',
-                'type' => 'amenities'
+                'code'     => 'trashcompactor',
+                'name'     => "Trash compactor",
+                'type'     => 'amenities',
+                'typeList' => 'internetoffice'
             ],
             [
-                'code' => 'microwave',
-                'name' => 'Microwave',
-                'type' => 'amenities'
+                'code'     => 'wineglasses',
+                'name'     => "Wine glasses",
+                'type'     => 'amenities',
+                'typeList' => 'internetoffice'
             ],
             [
-                'code' => 'minifridge',
-                'name' => 'Mini fridge',
-                'type' => 'amenities'
+                'code'     => 'beachaccess',
+                'name'     => "Beach access",
+                'type'     => 'amenities',
+                'typeList' => 'location_feactures'
             ],
             [
-                'code' => 'oven',
-                'name' => 'Oven',
-                'type' => 'amenities'
+                'code'     => 'lakeaccess',
+                'name'     => "Lake access",
+                'type'     => 'amenities',
+                'typeList' => 'location_feactures'
             ],
             [
-                'code' => 'refrigerator',
-                'name' => 'Refrigerator',
-                'type' => 'amenities'
+                'code'     => 'laundromatnearby',
+                'name'     => "Laundromat nearby",
+                'type'     => 'amenities',
+                'typeList' => 'location_feactures'
             ],
             [
-                'code' => 'ricemaker',
-                'name' => 'Rice maker',
-                'type' => 'amenities'
+                'code'     => 'privateentrance',
+                'name'     => "Private entrance",
+                'type'     => 'amenities',
+                'typeList' => 'location_feactures'
             ],
             [
-                'code' => 'stove',
-                'name' => 'Stove',
-                'type' => 'amenities'
+                'code'     => 'resortaccess',
+                'name'     => "Resort access",
+                'type'     => 'amenities',
+                'typeList' => 'location_feactures'
             ],
             [
-                'code' => 'toaster',
-                'name' => 'Toaster',
-                'type' => 'amenities'
+                'code'     => 'ski-in/ski-out',
+                'name'     => "Ski-in/Ski-out",
+                'type'     => 'amenities',
+                'typeList' => 'location_feactures'
             ],
             [
-                'code' => 'trashcompactor',
-                'name' => 'Trash compactor',
-                'type' => 'amenities'
+                'code'     => 'waterfront',
+                'name'     => "Waterfront",
+                'type'     => 'amenities',
+                'typeList' => 'location_feactures'
             ],
             [
-                'code' => 'wineglasses',
-                'name' => 'Wine glasses',
-                'type' => 'amenities'
+                'code'     => 'backyard',
+                'name'     => "Backyard",
+                'type'     => 'amenities',
+                'typeList' => 'Outdoor'
             ],
             [
-                'code' => 'beachaccess',
-                'name' => 'Beach access',
-                'type' => 'amenities'
+                'code'     => 'bbq_grill',
+                'name'     => "BBQ grill",
+                'type'     => 'amenities',
+                'typeList' => 'Outdoor'
             ],
             [
-                'code' => 'lakeaccess',
-                'name' => 'Lake access',
-                'type' => 'amenities'
+                'code'     => 'beachessentials',
+                'name'     => "Beach essentials",
+                'type'     => 'amenities',
+                'typeList' => 'Outdoor'
             ],
             [
-                'code' => 'laundromatnearby',
-                'name' => 'Laundromat nearby',
-                'type' => 'amenities'
+                'code'     => 'bikes',
+                'name'     => "Bikes",
+                'type'     => 'amenities',
+                'typeList' => 'Outdoor'
             ],
             [
-                'code' => 'privateentrance',
-                'name' => 'Private entrance',
-                'type' => 'amenities'
+                'code'     => 'boatslip',
+                'name'     => "Boat slip",
+                'type'     => 'amenities',
+                'typeList' => 'Outdoor'
             ],
             [
-                'code' => 'resortaccess',
-                'name' => 'Resort access',
-                'type' => 'amenities'
+                'code'     => 'fire_pit',
+                'name'     => "Fire pit",
+                'type'     => 'amenities',
+                'typeList' => 'Outdoor'
             ],
             [
-                'code' => 'ski',
-                'name' => 'Ski-in/Ski-out',
-                'type' => 'amenities'
+                'code'     => 'hammock',
+                'name'     => "Hammock",
+                'type'     => 'amenities',
+                'typeList' => 'Outdoor'
             ],
             [
-                'code' => 'waterfront',
-                'name' => 'Waterfront',
-                'type' => 'amenities'
+                'code'     => 'kayak',
+                'name'     => "Kayak",
+                'type'     => 'amenities',
+                'typeList' => 'Outdoor'
             ],
             [
-                'code' => 'backyard',
-                'name' => 'Backyard',
-                'type' => 'amenities'
+                'code'     => 'outdoor_dining',
+                'name'     => "Outdoor dining area",
+                'type'     => 'amenities',
+                'typeList' => 'Outdoor'
             ],
             [
-                'code' => 'beachessentials',
-                'name' => 'Beach essentials',
-                'type' => 'amenities'
+                'code'     => 'outdoorfurniture',
+                'name'     => "Outdoor furniture",
+                'type'     => 'amenities',
+                'typeList' => 'Outdoor'
             ],
             [
-                'code' => 'bikes',
-                'name' => 'Bikes',
-                'type' => 'amenities'
+                'code'     => 'outdoorkitchen',
+                'name'     => "Outdoor kitchen",
+                'type'     => 'amenities',
+                'typeList' => 'Outdoor'
             ],
             [
-                'code' => 'boatslip',
-                'name' => 'Boat slip',
-                'type' => 'amenities'
+                'code'     => 'patio',
+                'name'     => "Patio or balcony",
+                'type'     => 'amenities',
+                'typeList' => 'Outdoor'
             ],
             [
-                'code' => 'hammock',
-                'name' => 'Hammock',
-                'type' => 'amenities'
+                'code'     => 'elevator',
+                'name'     => "Elevator",
+                'type'     => 'amenities',
+                'typeList' => 'parking_facilities'
             ],
             [
-                'code' => 'kayak',
-                'name' => 'Kayak',
-                'type' => 'amenities'
+                'code'     => 'evcharger',
+                'name'     => "EV charger",
+                'type'     => 'amenities',
+                'typeList' => 'parking_facilities'
             ],
             [
-                'code' => 'outdoorfurniture',
-                'name' => 'Outdoor furniture',
-                'type' => 'amenities'
+                'code'     => 'free_parking',
+                'name'     => "Free parking on premises",
+                'type'     => 'amenities',
+                'typeList' => 'parking_facilities'
             ],
             [
-                'code' => 'outdoorkitchen',
-                'name' => 'Outdoor kitchen',
-                'type' => 'amenities'
+                'code'     => 'freestreetparking',
+                'name'     => "Free street parking",
+                'type'     => 'amenities',
+                'typeList' => 'parking_facilities'
             ],
             [
-                'code' => 'elevator',
-                'name' => 'Elevator',
-                'type' => 'amenities'
+                'code'     => 'gym',
+                'name'     => "Gym",
+                'type'     => 'amenities',
+                'typeList' => 'parking_facilities'
             ],
             [
-                'code' => 'evcharger',
-                'name' => 'EV charger',
-                'type' => 'amenities'
+                'code'     => 'hot_tub',
+                'name'     => "Hot tub",
+                'type'     => 'amenities',
+                'typeList' => 'parking_facilities'
             ],
             [
-                'code' => 'freestreetparking',
-                'name' => 'Free street parking',
-                'type' => 'amenities'
+                'code'     => 'paidoffpermises',
+                'name'     => "Paid parking off permises",
+                'type'     => 'amenities',
+                'typeList' => 'parking_facilities'
             ],
             [
-                'code' => 'paidoffpermises',
-                'name' => 'Paid parking off permises',
-                'type' => 'amenities'
+                'code'     => 'paid_parking',
+                'name'     => "Paid parking on premises",
+                'type'     => 'amenities',
+                'typeList' => 'parking_facilities'
             ],
             [
-                'code' => 'sauna',
-                'name' => 'Sauna',
-                'type' => 'amenities'
+                'code'     => 'pool',
+                'name'     => "Pool",
+                'type'     => 'amenities',
+                'typeList' => 'parking_facilities'
             ],
             [
-                'code' => 'singlelevelhome',
-                'name' => 'Single level home',
-                'type' => 'amenities'
+                'code'     => 'sauna',
+                'name'     => "Sauna",
+                'type'     => 'amenities',
+                'typeList' => 'parking_facilities'
             ],
             [
-                'code' => 'breakfast',
-                'name' => 'Breakfast',
-                'type' => 'amenities'
+                'code'     => 'singlelevelhome',
+                'name'     => "Single level home",
+                'type'     => 'amenities',
+                'typeList' => 'parking_facilities'
             ],
             [
-                'code' => 'cleaningbeforecheckout',
-                'name' => 'Cleaning before checkout',
-                'type' => 'amenities'
+                'code'     => 'breakfast',
+                'name'     => "Breakfast",
+                'type'     => 'amenities',
+                'typeList' => 'Services'
             ],
             [
-                'code' => 'longstaysallowed',
-                'name' => 'Long term stays allowed',
-                'type' => 'amenities'
+                'code'     => 'cleaningbeforecheckout',
+                'name'     => "Cleaning before checkout",
+                'type'     => 'amenities',
+                'typeList' => 'Services'
             ],
             [
-                'code' => 'luggagedropoffallowed',
-                'name' => 'Luggage dropoff allowed',
-                'type' => 'amenities'
+                'code'     => 'longstaysallowed',
+                'name'     => "Long term stays allowed",
+                'type'     => 'amenities',
+                'typeList' => 'Services'
             ],
-
-
-
-
-
-
-
             [
-                'code' => 'smoke_alarm',
-                'name' => 'Smoke alarm',
-                'type' => 'safety'
+                'code'     => 'luggagedropoffallowed',
+                'name'     => "Luggage dropoff allowed",
+                'type'     => 'amenities',
+                'typeList' => 'Services'
             ],
-            [
-                'code' => 'first_kit',
-                'name' => 'First aid kit',
-                'type' => 'safety'
-            ],
-            [
-                'code' => 'monoxide_alarm',
-                'name' => 'Caroom monoxide alarm',
-                'type' => 'safety'
-            ],
-            [
-                'code' => 'fire_extinguisher',
-                'name' => 'Fire extinguisher',
-                'type' => 'safety'
-            ],
-           
         ];
 
         foreach( $roomsPropert AS $array )

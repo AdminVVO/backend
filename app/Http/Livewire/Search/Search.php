@@ -136,7 +136,7 @@ class Search extends Component
                     return $query->where('listing_pricings.base_price', '>=', '80');
             }
         })
-        ->simplePaginate(2);
+        ->simplePaginate(5);
 
         $this->countListing = count( $this->contentListing );
 

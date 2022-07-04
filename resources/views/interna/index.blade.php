@@ -193,6 +193,9 @@
         {{-- Modal Enchanced Clean --}}
         @include('interna.modals.amenitles')
 
+        {{-- Modal Contact Host --}}
+        @include('interna.modals.contact-host')
+
 
     @endsection
 

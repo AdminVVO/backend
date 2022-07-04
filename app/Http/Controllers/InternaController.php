@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\AmenitiesSafety;
 use App\Models\Listing\Listings;
+use App\Models\Profile;
 use Illuminate\Http\Request;
 
 class InternaController extends Controller
@@ -22,6 +24,7 @@ class InternaController extends Controller
             'listings.space',
             'listings.guest_access',
             'listings.other_details',
+            'listings.amenities',
             
             'listing_locations.country',
             'listing_locations.city',
@@ -55,7 +58,28 @@ class InternaController extends Controller
         ->whereNotIn('status', ['in process'])
         ->first();
 
-        return view('interna.index', ['content' => $content]);
+        $amenities = AmenitiesSafety::whereIn('code', $content['amenities'])->select('name', 'code', 'typeList');
+            $filter = clone $amenities;
+                $amenitiesModal = $filter->distinct('typeList','code')->get()->toArray();
+                $amenitiesInit = $filter->distinct('code')->get()->toArray();
+
+        foreach ($amenitiesModal as $key => $value) {
+            $amenitiesModalFinal[$value['typeList']][$key]['code'] = $value['code'];
+            $amenitiesModalFinal[$value['typeList']][$key]['name'] = $value['name'];
+        }
+
+        $profile = Profile::select(
+            'language',
+            'about',
+        )
+        ->where('user_id', $content['user_id'])->first();
+
+        return view('interna.index', [
+            'content' => $content,
+            'amenitiesModal' => $amenitiesModalFinal,
+            'amenitiesInit' => $amenitiesInit,
+            'profile' => $profile,
+        ]);
     }
 }
 

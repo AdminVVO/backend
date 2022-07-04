@@ -2,14 +2,18 @@
     <div class="block-des-if">
         <div class="content-user_inf">
             <span class="_pf-msg fx skeleton">
-                <a href="perfil-interno.php" target="_blank" style="border-radius: 50%;">
-                    <img src="{{ URL::asset('assets/img/profile.png') }}" alt="">
+                <a href="{{ route('profile', $content['user_id']) }}" target="_blank" style="border-radius: 50%;">
+                    @if ( file_exists( storage_path('app/public/uploadAvatar/' . \App\Models\User::AvatarInterna( $content['user_id'] )  ) ) )
+                        <img src="{{ URL::asset('storage/uploadAvatar/') .'/'. \App\Models\User::AvatarInterna( $content['user_id'] )  }}" alt="">
+                    @else
+                        <img src="{{ URL::asset('assets/img/avatar') }}/{{ \App\Models\User::AvatarInterna( $content['user_id'] ) }}" alt="">
+                    @endif
                 </a>
             </span>
             <div>
-                <div class="h2-guests skeleton skeleton_txt">Hosted by Anny</div>
+                <div class="h2-guests skeleton skeleton_txt">Hosted by {{ \App\Models\User::Name( $content['user_id'] ) }}</div>
                 <ol class="skeleton skeleton_txt">
-                    <li class="_txtec">Joined in August 2013</li>
+                    <li class="_txtec">Joined in {{ Carbon\Carbon::parse( \App\Models\User::CreatedAt( $content['user_id'] ), 'UTC')->locale('en')->isoFormat('MMMM, YYYY') }}</li>
                 </ol>
             </div>
         </div>
@@ -33,14 +37,18 @@
             </li>
         </ul>
         
-        <div class="_txtec skeleton skeleton_txt" style="margin-top: 24px;">I work in the Hospitality Industry for more than 20 years including the Ritz Carlton, Loews, Westin and Fontainebleau Hotel. After so many years with this experience, I decided to start my own business and i created my company for short term rentals and my main goal is for you to have the Best Vacation in Florida with a competitive price and excelent service. I speak English, Spanish, Italian and Portuguese. Hope you enjoy your stay in Florida If you have any questions, please let me know, it is a Pleasure to serve your needs!</div>
+        <div class="_txtec skeleton skeleton_txt" style="margin-top: 24px;">{{ $profile['about'] }}</div>
     </div>
 
     <div class="block-cth">
         <ul class="fx fx-fd-c gp16">
             <li class="f-cth skeleton skeleton_txt">
                 <div class="_txteh">Languages:</div>
-                <div class="_txtec">English, Italiano, Portugués, Español</div>
+                <div class="_txtec">
+                    @foreach ($profile['language'] as $element)
+                        {{ \App\Models\LanguagesRegions::Language( $element ) }}
+                    @endforeach
+            </div>
             </li>
 
             <li class="f-cth skeleton skeleton_txt">

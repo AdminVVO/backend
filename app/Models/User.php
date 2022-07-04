@@ -94,4 +94,9 @@ class User extends Authenticatable
     {
         return $this->where('id_user', $code)->pluck('rol_id')->first();
     }
+
+    public function scopeCreatedAt($query, $code)
+    {
+        return $this->where('id_user', $code)->pluck('created_at')->first();
+    }
 }

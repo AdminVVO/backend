@@ -15,8 +15,13 @@ class CreateUserTempTable extends Migration
     {
         Schema::create('user_temp', function (Blueprint $table) {
             $table->string('id');
-            $table->foreignId('user_id')->references('id_user')->on('users');
             $table->timestamps();
+
+            $table->uuid('user_id');
+            $table->foreign('user_id')
+                ->references('id_user')
+                ->on('users')
+                ->onDelete('cascade');
         });
     }
 

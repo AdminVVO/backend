@@ -15,6 +15,7 @@ class AmenitiesSafety extends Model
         'code',
         'name',
         'type',
+        'typeList',
     ];
 
     public function scopeName($query, $code)

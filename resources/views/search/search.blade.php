@@ -8,6 +8,7 @@
     <link href="{{ URL::asset('assets/css/owl.theme.default.min.css') }}" rel="stylesheet"/>
     <link href="{{ URL::asset('assets/css/location.css') }}" rel="stylesheet"/>
     <link href="{{ URL::asset('assets/css/dates-location.css') }}" rel="stylesheet"/>
+    <link href="https://api.mapbox.com/mapbox-gl-js/v2.8.2/mapbox-gl.css" rel="stylesheet">
 
     <style type="text/css">
         .mapboxgl-ctrl-logo {
@@ -29,7 +30,6 @@
     <section class="location"> 
         @livewire('search.search', ['request' => $request ])
     </section>
-
 
     <section class="dates-location">
         <div class="content_dates-local">
@@ -81,8 +81,6 @@
 
     <script src="{{ URL::asset('assets/js/card-location.js') }}"></script>
     <script src="{{ URL::asset('assets/js/owl.carousel.min.js') }}"></script>
-    {{-- <script src="{{ URL::asset('assets/js/slider_home.js') }}"></script> --}}
-    <script src="{{ URL::asset('assets/js/modals-min.js') }}"></script>
 
     <script>
         window.addEventListener('closedModalFavority', event => {
