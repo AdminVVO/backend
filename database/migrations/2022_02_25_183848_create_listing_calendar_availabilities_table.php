@@ -24,7 +24,7 @@ class CreateListingCalendarAvailabilitiesTable extends Migration
             $table->json('restricted_checkin_days')->default('[]');
             $table->json('restricted_checkout_days')->default('[]');
 
-            $table->unsignedInteger('user_id');
+            $table->uuid('user_id');
             $table->foreign('user_id')
                 ->references('id_user')
                 ->on('users')

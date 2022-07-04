@@ -350,56 +350,41 @@ header .book-form ._bef-places {
     padding: 104px 0 22px;
   }
 
-  .page__account_user header {
+  .page__account_user .header {
     margin-bottom: 0;
   }
-  .page__account_user .section__perfil_interno.entero {
-    display: block;
+
+  .page__personal_info .header {
+    margin-bottom: 40px;
   }
-  .page__account_user .section__perfil_interno .medio {
-    margin: auto;
-    padding: 0 16px;
-    margin: 48px auto 32px;
-    max-width: 1064px;
+  .page__personal_info .medio-two {
+    max-width: 1080px;
     width: 100%;
   }
-  .page__account_user .section__perfil_interno .content-aside_about {
-    width: 33.33%;
-    max-width: 308px;
-    top: auto !important;
-    border-radius: 12px;
-    border: 1px solid #E3EDF3;
+  .page__personal_info .footer {
+    margin-top: 48px;
   }
-  .page__account_user .section__perfil_interno .content-aside_about .view_port {
-    border-radius: 12px 12px 0 0;
-    height: 137px;
+
+  .page_login_security .header {
+    margin-bottom: 40px;
   }
-  .page__account_user .section__perfil_interno .content-aside_about .joind-span {
-    font-size: 14px;
-    line-height: 18px;
-    bottom: 7px;
-    right: 7px;
+  .page_login_security .medio-two {
+    max-width: 1080px;
+    width: 100%;
   }
-  .page__account_user .section__perfil_interno .content-aside_about .h2-guests {
-    font-size: 22px;
-    line-height: 26px;
-  }
-  .page__account_user .section__perfil_interno .content-aside_about .block_perf {
-    padding: 0 24px 32px;
-    margin-bottom: 24px;
-  }
-  .page__account_user .section__perfil_interno .content-aside_about .block_perf .content-user-perf {
+  .page_login_security .footer {
     margin-top: 24px;
   }
-  .page__account_user .section__perfil_interno .content-aside_about .block_perf ._fw .s-usr_icons ._suis {
-    min-width: 16px;
+
+  .page_payments .header {
+    margin-bottom: 40px;
   }
-  .page__account_user .section__perfil_interno .content-aside_about .block_perf ._fw .s-usr_icons ._suisinfo {
-    margin-left: 8px;
+  .page_payments .medio-two {
+    max-width: 1080px;
+    width: 100%;
   }
-  .page__account_user .section__perfil_interno .interna-publish {
-    width: 66.66% !important;
-    max-width: 648px;
+  .page_payments .footer {
+    margin-top: 48px;
   }
 }
 @media (max-width: 1100px) {
@@ -472,17 +457,26 @@ header .book-form ._bef-places {
     display: none;
   }
 
-  .page__account_user header .menu_items.icon_profile i {
+  .page__account_user header .menu_items.icon_profile i,
+.page__perfil_interno header .menu_items.icon_profile i {
     font-weight: 500;
     color: #FF5A5F;
   }
   .page__account_user header .menu_items.icon_profile a,
 .page__account_user header .menu_items.icon_profile span,
-.page__account_user header .menu_items.icon_profile .sub {
+.page__account_user header .menu_items.icon_profile .sub,
+.page__perfil_interno header .menu_items.icon_profile a,
+.page__perfil_interno header .menu_items.icon_profile span,
+.page__perfil_interno header .menu_items.icon_profile .sub {
     color: #333;
     font-weight: 600;
   }
-  .page__account_user footer {
+  .page__account_user footer,
+.page__perfil_interno footer {
+    display: none;
+  }
+
+  .page__perfil_anfitrion footer {
     display: none;
   }
 
@@ -501,6 +495,66 @@ header .book-form ._bef-places {
   }
   .page__messages_user .left_msg_user {
     margin-bottom: 3.9rem;
+  }
+
+  .page__host {
+    margin-bottom: 40px;
+  }
+  .page__host footer {
+    display: none;
+  }
+
+  .page__trips_upcoming .section_trips_upcoming {
+    margin-bottom: 40px;
+  }
+  .page__trips_upcoming footer {
+    display: none;
+  }
+
+  .page__personal_info {
+    padding-bottom: 24px;
+  }
+  .page__personal_info .header {
+    display: none !important;
+  }
+  .page__personal_info footer {
+    display: none;
+  }
+
+  .page_payments .header {
+    display: none !important;
+  }
+  .page_payments footer {
+    display: none;
+  }
+
+  .page_govemment_id .header {
+    display: none !important;
+  }
+  .page_govemment_id .medio-two {
+    max-width: 1080px;
+    width: 100%;
+    padding: 0 24px;
+  }
+  .page_govemment_id footer {
+    display: none;
+  }
+
+  .page_login_security {
+    padding-bottom: 16px;
+  }
+  .page_login_security .header {
+    display: none !important;
+  }
+  .page_login_security footer {
+    display: none;
+  }
+
+  .page_interna_edit {
+    margin-bottom: 40px;
+  }
+  .page_interna_edit footer {
+    display: none;
   }
 
   body header {

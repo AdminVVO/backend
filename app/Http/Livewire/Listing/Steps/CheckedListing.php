@@ -21,7 +21,7 @@ class CheckedListing extends Component
     {
         $name = explode(' ', Auth::user()->name );
         $last_name = explode(' ', Auth::user()->last_name );
-        $folderAuth = Auth::user()->name . '-' . Auth::id();
+        $folderAuth = Auth::id();
 
         $this->content['name']      = $name[0];
         $this->content['last_name'] = $last_name[0];

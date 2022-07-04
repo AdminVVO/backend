@@ -25,7 +25,7 @@ class CreateListingHouseRulersTable extends Migration
             $table->string('local_laws')->nullable();
             $table->string('primary_listing')->default('guests');
 
-            $table->unsignedInteger('user_id');
+            $table->uuid('user_id');
             $table->foreign('user_id')
                 ->references('id_user')
                 ->on('users')

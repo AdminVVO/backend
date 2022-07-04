@@ -13,76 +13,58 @@ class Timezone extends Component
 {
     use LivewireAlert;
 
-    public $timezone = null;
-    public $timezoneFormt = [];
-    public $classActive = false;
-    public $qtimezone = [];
+    public $timeZone;
+    public $timeZoneShow;
+    public $inputTimeZone;
 
     public function mount()
     {
-        $this->timezone = Auth::user()->timezone_default;
+
     }
 
     public function render()
     {
-        $this->qtimezone = TimezoneModel::select('offset', 'name', 'diff_from_gtm')->get();
+        $this->timeZone = TimezoneModel::select('offset', 'name', 'diff_from_gtm')->get()->toArray();
 
-        foreach ($this->qtimezone as $key => $value) {
-            if ( in_array($value['offset'], [ $this->timezone ]) ) {
-                $this->timezoneFormt['offset'] = $value['offset'];
-                $this->timezoneFormt['name'] = $value['name'];
-                $this->timezoneFormt['diff_from_gtm'] = $value['diff_from_gtm'];
+        $this->inputTimeZone = Auth::user()->timezone_default;
+        foreach ($this->timeZone as $key => $value) {
+            if ( in_array($value['diff_from_gtm'], [ $this->inputTimeZone ]) ) {
+                $this->timeZoneShow['offset'] = $value['offset'];
+                $this->timeZoneShow['name'] = $value['name'];
+                $this->timeZoneShow['diff_from_gtm'] = $value['diff_from_gtm'];
             }
         }
-
         return view('livewire.account.preference.timezone');
     }
 
-    public function statusUpdate()
+    public function reloadInputsInvers()
     {
-        $this->resetInput();
-        $this->timezone = Auth::user()->timezone_default;
-    }
-
-    public function changeTimezone($payload)
-    {
-        $this->timezone = $payload;
+        $timezoneq = TimezoneModel::where('diff_from_gtm', $this->inputTimeZone )->select('offset', 'name', 'diff_from_gtm')->first();
+            $this->timeZoneShow['offset'] = $timezoneq['offset'];
+            $this->timeZoneShow['name'] = $timezoneq['name'];
+            $this->timeZoneShow['diff_from_gtm'] = $timezoneq['diff_from_gtm'];
     }
 
     public function submitTimezone()
-    {   
+    {      
         $validation = Validator::make([
-           'timezone' => $this->timezone,
+           'timezone' => $this->inputTimeZone,
         ],[
-            'timezone' => 'required|exists:timezones,offset',
+            'timezone' => 'required|exists:timezones,diff_from_gtm',
         ]);
 
-            if ($validation->fails())
+            if ($validation->fails()) {
                 $validation->validate();
+            }
 
-        try {
+        User::where([
+            'id_user' => Auth::id(),
+        ])->update([
+            'timezone_default' => $this->inputTimeZone,
+        ]);
 
-            User::where([
-                'id_user' => Auth::id(),
-            ])->update([
-                'timezone_default' => $this->timezone,
-            ]);
-
-            $this->resetInput();
-            $this->alert('success', 'Update has been successful!');
-            
-        } catch (Exception $e) {
-
-            $this->resetInput();
-            $this->alert('error', 'Update has failed!');
-
-        }
-    }
-
-    private function resetInput()
-    {
-        $this->classActive = !$this->classActive; 
-        $this->timezone = null;
-        $this->resetValidation();
+        // $this->reloadInputsInvers();
+        $this->dispatchBrowserEvent('closedEditContainer');
+        $this->alert('success', 'Update has been successful!');
     }
 }

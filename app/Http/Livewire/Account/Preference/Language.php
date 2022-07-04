@@ -13,44 +13,36 @@ class Language extends Component
 {
     use LivewireAlert;
 
-    public $language = null;
-    public $languageFormt = null;
-    public $classActive = false;
-    public $qlanguage = [];
+    public $language;
+    public $languageShow;
+    public $inputLanguage;
 
     public function mount()
     {
-        $this->language = Auth::user()->language_default;
+        $this->inputLanguage = Auth::user()->language_default;
+        $this->language = LanguagesRegions::distinct('code')->pluck('languages', 'code');
+
+        foreach ($this->language as $key => $value) {
+            if ( in_array($key, [ $this->inputLanguage ]) ) {
+                $this->languageShow = $value;
+            }
+        }
     }
 
     public function render()
     {
-        $this->qlanguage = LanguagesRegions::select('code', 'languages')->distinct('code')->get();
-
-        foreach ($this->qlanguage as $key => $value) {
-            if ( in_array($value['code'], [ $this->language ]) ) {
-                $this->languageFormt = $value['languages'];
-            }
-        }
-
-        return view('livewire.account.preference.language', compact($this->qlanguage));
+        return view('livewire.account.preference.language');
     }
 
-    public function statusUpdate()
+    public function reloadInputsInvers()
     {
-        $this->resetInput();
-        $this->language = Auth::user()->language_default;
-    }
-
-    public function changeLanguage($payload)
-    {
-        $this->language = $payload;
+        $this->languageShow = LanguagesRegions::where('code', $this->inputLanguage )->pluck('languages')->first();
     }
 
     public function submitLanguage()
-    {   
+    {      
         $validation = Validator::make([
-           'language'      => $this->language,
+           'language'      => $this->inputLanguage,
         ],[
             'language'      => 'required|exists:languages_regions,code',
         ]);
@@ -62,18 +54,11 @@ class Language extends Component
         User::where([
             'id_user' => Auth::id(),
         ])->update([
-            'language_default' => $this->language,
+            'language_default' => $this->inputLanguage,
         ]);
 
-        $this->resetInput();
-
+        $this->reloadInputsInvers();
+        $this->dispatchBrowserEvent('closedEditContainer');
         $this->alert('success', 'Update has been successful!');
-    }
-
-    private function resetInput()
-    {
-        $this->classActive = !$this->classActive; 
-        $this->language = null;
-        $this->resetValidation();
     }
 }

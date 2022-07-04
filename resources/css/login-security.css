@@ -1,57 +1,14 @@
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
-body {
-  margin: 0;
-  padding: 0;
-}
-
-a {
-  text-decoration: none;
-}
-
-.container {
-  max-width: 1600px;
-  margin: auto;
-}
-
-.row {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.flex {
-  display: flex;
-}
-.flex-jc-sb {
-  justify-content: space-between;
-}
-.flex-jc-c {
-  justify-content: center;
-}
-.flex-ai-c {
-  align-items: center;
-}
-
 .section_login-security {
   display: flex;
   justify-content: space-between;
   gap: 86px;
   padding: 0 49px;
 }
-@media (max-width: 950px) {
-  .section_login-security {
-    flex-direction: column;
-    gap: 56px;
-  }
+.section_login-security ._cont-account {
+  width: 100%;
 }
-@media (max-width: 760px) {
-  .section_login-security {
-    padding: 0 25px;
-  }
+.section_login-security ._cont-account i {
+  color: #2DDAB4;
 }
 .section_login-security ._btnsm {
   margin-top: 0;
@@ -90,34 +47,110 @@ a {
   gap: 53px;
   width: 50.65%;
 }
-@media (max-width: 950px) {
+@media (max-width: 1400px) {
+  .section_login-security {
+    display: block;
+    padding: 0 24px;
+  }
+  .section_login-security ._btnsm {
+    color: #333;
+    font-size: 14px;
+  }
+  .section_login-security ._btnsm.edit-phone {
+    color: #00B5DD;
+  }
+  .section_login-security ._btnsm.edit-phone span {
+    color: inherit;
+  }
+  .section_login-security ._btnsm.edit-phone:hover {
+    color: #0096B7;
+  }
+  .section_login-security ._btnsm img {
+    width: 6px;
+    min-width: 6px;
+    max-width: 6px;
+  }
+  .section_login-security ._btnsm:hover {
+    color: #000;
+    text-decoration: underline;
+  }
+  .section_login-security ._btnsm:active {
+    opacity: 0.8;
+  }
+  .section_login-security ._gap {
+    gap: 0;
+  }
+  .section_login-security .h2-guests {
+    font-size: 22px;
+    line-height: 26px;
+  }
+  .section_login-security-main {
+    width: 58.33%;
+    float: left;
+  }
+  .section_login-security-main .msgaround {
+    padding: 18px 24px;
+  }
+  .section_login-security-main ._flex-right16 {
+    gap: 16px;
+  }
+  .section_login-security-main ._flex-right16 ._txtec16:hover {
+    text-decoration: underline;
+  }
+  .section_login-security-main ._flex-right16 i {
+    font-size: 10px;
+  }
+  .section_login-security-main ._flex-right16 ._txtecbold16 {
+    font-size: 14px;
+    line-height: normal;
+  }
+  .section_login-security-main .h2-guests_bold35 {
+    margin: 12px 0 40px;
+  }
   .section_login-security-aside {
-    flex-direction: row;
-    width: 100%;
+    width: 33.33%;
+    float: left;
+    margin-left: 8.3%;
+    gap: 22px;
   }
-}
-.section_login-security-aside ._cont-account {
-  width: 100%;
-}
-@media (max-width: 1130px) {
-  .section_login-security-aside ._cont-account {
-    padding: 31px 30px;
-  }
-}
-@media (max-width: 1000px) {
-  .section_login-security-aside ._cont-account {
-    padding: 25px 22px;
-  }
-}
-@media (max-width: 950px) {
-  .section_login-security-aside ._cont-account {
-    padding: 51px 40px;
-    width: 360px;
-  }
-}
-@media (max-width: 510px) {
   .section_login-security-aside ._cont-account {
     width: 100%;
-    padding: 18px 25px;
+    box-shadow: none;
+    padding: 24px;
+  }
+  .section_login-security-aside ._cont-account i {
+    font-size: 48px;
+    margin-bottom: 16px;
+  }
+  .section_login-security-aside ._cont-account ._txteh {
+    margin: 0 !important;
+    line-height: normal !important;
+    font-size: 20px !important;
+  }
+  .section_login-security-aside ._cont-account .span-guests {
+    margin-top: 16px !important;
+    font-size: 16px !important;
+    line-height: 1.43 !important;
+  }
+}
+@media (max-width: 743px) {
+  .section_login-security {
+    flex-direction: column;
+  }
+  .section_login-security-main {
+    width: 100%;
+    margin-top: 36px;
+  }
+  .section_login-security-main ._flex-right16 {
+    display: none;
+  }
+  .section_login-security-main .h2-guests_bold35 {
+    margin: 0 0 16px;
+    font-size: 22px;
+    line-height: 26px;
+    letter-spacing: -0.6px;
+  }
+  .section_login-security-aside {
+    display: none;
   }
 }

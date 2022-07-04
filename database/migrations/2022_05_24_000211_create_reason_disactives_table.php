@@ -17,7 +17,7 @@ class CreateReasonDisactivesTable extends Migration
             $table->increments('id_reason_disactives');
             $table->string('reason');
 
-            $table->unsignedInteger('user_id');
+            $table->uuid('user_id');
             $table->foreign('user_id')
                 ->references('id_user')
                 ->on('users')

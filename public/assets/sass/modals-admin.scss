@@ -1224,18 +1224,6 @@ body {
                 }
             }
 
-            // textarea
-            ._txta-modls {
-                padding: 12px;
-                font-size: 16px;
-                line-height: 20px;
-                border: 1px solid #E3EDF3;
-
-                &:focus {
-                    border: 1px solid #7D7D7D;
-                }
-            }
-
             // modal position absolute en close X
             &._par0t0modls {
                 ._pt47psr {
@@ -1386,7 +1374,8 @@ body {
                     gap: 8px !important;
 
                     .icon {
-                        width: 17px;
+                        width: 16px;
+                        height: 18px;
                     }
                 }
             }
@@ -1647,8 +1636,8 @@ body {
                         ._block-jsb {
                             padding-top: 0;
 
-                            @include responsive(743px) {
-                                padding-top: 18px;
+                            @include responsive(1400px) {
+                                padding-top: 16px;
                             }
                         }
                     }

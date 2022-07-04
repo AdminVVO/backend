@@ -445,76 +445,62 @@ header {
     }
 
     .page__account_user {
-        header {
+        .header {
             margin-bottom: 0;
         }
+    }
 
-        .section__perfil_interno {
-            &.entero {
-                display: block;
-            }
+    .page__personal_info {
+        .header {
+            margin-bottom: 40px;
+        }
 
-            .medio {
-                margin: auto;
-                padding: 0 16px;
-                margin: 48px auto 32px;
-                max-width: 1064px;
-                width: 100%;
-            }
+        .medio-two {
+            max-width: 1080px;
+            width: 100%;
+        }
 
-            .content-aside_about {
-                width: 33.33%;
-                max-width: 308px;
-                top: auto !important;
-                border-radius: 12px;
-                border: 1px solid #E3EDF3;
+        .footer {
+            margin-top: 48px;
+        }
+    }
 
-                .view_port {
-                    border-radius: 12px 12px 0 0;
-                    height: 137px;
-                }
+    .page_login_security {
+        .header {
+            margin-bottom: 40px;
+        }
 
-                .joind-span {
-                    font-size: 14px;
-                    line-height: 18px;
-                    bottom: 7px;
-                    right: 7px;
-                }
+        .medio-two {
+            max-width: 1080px;
+            width: 100%;
+        }
 
-                .h2-guests {
-                    font-size: 22px;
-                    line-height: 26px;
-                }
+        .footer {
+            margin-top: 24px;
+        }
+    }
 
-                .block_perf {
-                    padding: 0 24px 32px;
-                    margin-bottom: 24px;
+    .page_payments {
+        .header {
+            margin-bottom: 40px;
+        }
 
-                    .content-user-perf {
-                        margin-top: 24px;
-                    }
+        .medio-two {
+            max-width: 1080px;
+            width: 100%;
+        }
 
-                    ._fw {
-                        .s-usr_icons {
-                            ._suis {
-                                min-width: 16px;
-                            }
-
-                            ._suisinfo {
-                                margin-left: 8px;
-                            }
-                        }
-                    }
-                }
-            }
-
-            .interna-publish {
-                width: 66.66% !important;
-                max-width: 648px;
-            }
+        .footer {
+            margin-top: 48px;
         }
     }
 }
+
+// @include responsive(1127px) {
+//     .page__perfil_interno {
+
+//     }
+// }
 
 @include responsive(1100px) {
     .logo-menu{
@@ -602,7 +588,8 @@ header {
         }
     }
 
-    .page__account_user {
+    .page__account_user,
+    .page__perfil_interno {
         header {
             .menu_items {
                 &.icon_profile {
@@ -611,6 +598,12 @@ header {
             }
         }
 
+        footer {
+            display: none;
+        }
+    }
+
+    .page__perfil_anfitrion {
         footer {
             display: none;
         }
@@ -635,6 +628,82 @@ header {
 
         .left_msg_user {
             margin-bottom: 3.9rem;
+        }
+    }
+
+    .page__host {
+        margin-bottom: 40px;
+
+        footer {
+            display: none;
+        }
+    }
+
+    .page__trips_upcoming {
+        .section_trips_upcoming {
+            margin-bottom: 40px;
+        }
+
+        footer {
+            display: none;
+        }
+    }
+
+    .page__personal_info {
+        padding-bottom: 24px;
+
+        .header {
+            display: none !important;
+        }
+
+        footer {
+            display: none;
+        }
+    }
+
+    .page_payments {
+        .header {
+            display: none !important;
+        }
+
+        footer {
+            display: none;
+        }
+    }
+
+    .page_govemment_id {
+        .header {
+            display: none !important;
+        }
+
+        .medio-two {
+            max-width: 1080px;
+            width: 100%;
+            padding: 0 24px;
+        }
+
+        footer {
+            display: none;
+        }
+    }
+
+    .page_login_security {
+        padding-bottom: 16px;
+
+        .header {
+            display: none !important;
+        }
+
+        footer {
+            display: none;
+        }
+    }
+
+    .page_interna_edit {
+        margin-bottom: 40px;
+
+        footer {
+            display: none;
         }
     }
 

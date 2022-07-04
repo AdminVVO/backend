@@ -1,10 +1,10 @@
 <div class="content-user-remodelated">
-    <div class="txt_s">
+    <div class="txt_s skeleton skeleton_txt">
         <p class="_txtec">{{ $content['descriptions'] }}</p>
     </div>
 
     @if ( $content['space'] != null || $content['guest_access'] != null || $content['other_details'] != null )
-        <button type="button" class="txtunder__ics mr-t16 abspc">
+        <button type="button" class="txtunder__ics mr-t16 abspc skeleton">
             <div class="fx fx-ai-b gp5">
                 <span class="">Show more</span>
                 <svg xmlns="http://www.w3.org/2000/svg" width="6.052" height="10.584" viewBox="0 0 6.052 10.584">

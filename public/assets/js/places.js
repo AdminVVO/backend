@@ -6,7 +6,11 @@ $(document).mouseup(e => {
     }
 });
 
-$(".xhidemdusr").on("click", function() {
+$(".book-f_home ._2btnsgris button").on("click", function() {
+    $menu.addClass("is-active");
+});
+
+$(".xhidemdusr, .mdatrnormlusr").on("click", function() {
     $menu.removeClass("is-active");
     $("body").css({'overflow': 'auto'});
 });

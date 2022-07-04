@@ -26,7 +26,7 @@ class CreateListingPropertyRoomdsTable extends Migration
             $table->json('additional_areas')->default('[]');
             $table->string('shared_areas')->nullable();
 
-            $table->unsignedInteger('user_id');
+            $table->uuid('user_id');
             $table->foreign('user_id')
                 ->references('id_user')
                 ->on('users')

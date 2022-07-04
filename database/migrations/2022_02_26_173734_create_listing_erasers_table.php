@@ -29,7 +29,7 @@ class CreateListingErasersTable extends Migration
             $table->string('img')->nullable();
             $table->string('status')->default('in process');
 
-            $table->unsignedInteger('user_id');
+            $table->uuid('user_id');
             $table->foreign('user_id')
                 ->references('id_user')
                 ->on('users')

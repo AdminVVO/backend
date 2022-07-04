@@ -29,7 +29,7 @@ class CreateListingLocationsTable extends Migration
             $table->string('longitude')->nullable();
             $table->json('scenic_views')->default('[]');
 
-            $table->unsignedInteger('user_id');
+            $table->uuid('user_id');
             $table->foreign('user_id')
                 ->references('id_user')
                 ->on('users')

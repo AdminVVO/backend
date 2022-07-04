@@ -45,7 +45,11 @@
 
 		                        <div class="menu_perfil menu_items">
 		                            <span>
-		                                <img src="{{ URL::asset('assets/img/avatar') }}/{{ \App\Models\User::Avatar() }}" loading="lazy" alt="">
+			                            @if ( file_exists( storage_path('app/public/uploadAvatar/' . Auth::user()->avatar  ) ) )
+			                                <img src="{{ URL::asset('storage/uploadAvatar/') .'/'. Auth::user()->avatar  }}" loading="lazy" alt="">
+			                            @else
+			                                <img src="{{ URL::asset('assets/img/avatar') }}/{{ Auth::user()->avatar }}" loading="lazy" alt="">
+			                            @endif
 		                                {{  \App\Models\User::FullName() }}
 		                            </span>
 		                        </div>

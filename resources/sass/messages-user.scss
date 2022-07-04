@@ -1037,24 +1037,6 @@ body {
             font-size: 14px;
           }
 
-          .checkbox_custom {
-            max-width: 70px;
-            height: 35px;
-            border: 1px solid #E3EDF3;
-
-            &:checked {
-              &::before {
-                left: 34px;
-              }
-            }
-
-            &::before {
-              max-width: 35px;
-              min-height: 35px;
-              top: -1px;
-            }
-          }
-
           .slideshow-container {
             height: 173px;
           }

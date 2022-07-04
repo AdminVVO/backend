@@ -3,11 +3,25 @@
         <img src="{{ URL::asset('assets/img/card/c1.jpg') }}" alt="">
         <span class="joind-span">Joined in {{ Carbon::parse( $contentUser['created_at'] )->year  }}</span>
     </div>
+    
     <div class="content-img">
-        <span class="_br-img-perf">
-            <img src="{{ URL::asset('assets/img/avatar') .'/'. $contentUser['avatar']  }}" alt="">
-        </span>
-        <h2 class="h2-guests">{{ \App\Models\User::Name( $contentUser['id_user'] ) }}</h2>
+        @if ( $idUser == Auth::id() )
+            <input type="file" class="front_face" id="fileProfile" style="display: none;" wire:model="inputAvatar">
+            <label for="fileProfile" class="cr-p">
+                <div class="imagePreview _br-img-perf">
+        @else
+            <label>
+                <div class="_br-img-perf">
+        @endif
+            @if ( file_exists( storage_path('app/public/uploadAvatar/' . $contentUser['avatar']  ) ) )
+                <img src="{{ URL::asset('storage/uploadAvatar/') .'/'. $contentUser['avatar']  }}" alt="">
+            @else
+                <img src="{{ URL::asset('assets/img/avatar') .'/'. $contentUser['avatar']  }}" alt="">
+            @endif
+            </div>
+        </label>
+
+        <h2 class="h2-guests">{{ $contentUser['name'] }}</h2>
     </div>
     
     <div class="block_perf">
@@ -22,7 +36,7 @@
                     </div>
                 </div>
 
-                @if ( $contentUser['govermen_id'] != null )
+                @if ( $contentUser['govermen'] )
                     <div class="s-usr_icons">
                         <div class="_suis">
                             <i class="fas fa-bookmark"></i>
@@ -44,7 +58,7 @@
             </div>
 
             <div class="_fw">
-                @if ( $contentUser['email'] != null )
+                @if ( $contentUser['email'] )
                     <div class="s-usr_icons">
                         <div class="_suis">
                             <i class="fas fa-check"></i>
@@ -55,7 +69,7 @@
                     </div>
                 @endif
 
-                @if ( $contentUser['phone'] != null )
+                @if ( $contentUser['phone'] )
                     <div class="s-usr_icons">
                         <div class="_suis">
                             <i class="fas fa-check"></i>
@@ -68,32 +82,27 @@
             </div>
         </div>
 
-        <div class="_line-hr" style="border-top-color: #E3EDF3; margin: 38px 0 32px"></div>
-
-            <div class="p_interna_none">
+        <div class="_line-hr mr-t32 mr-b32"></div>
+        @if ( $contentProfile || $idUser == Auth::id() )
+            <div class="p_interna_none" wire:ignore.self>
                 <div class="fx fx-jc-sb fx-fw-w">
                     <h2 class="h2-guests">About</h2>
 
                     @if ( $idUser == Auth::id() )
-                        <div class="_flex-sbet click_editprofile">
-                            <span class="_txtblu" style="font-weight: normal;">Edit profile</span>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="6.052" height="10.584" viewBox="0 0 6.052 10.584">
-                                <path d="M5.294,4.227,9.3.222a.753.753,0,0,1,1.068,0,.763.763,0,0,1,0,1.071L5.83,5.831a.755.755,0,0,1-1.043.022L.221,1.3A.757.757,0,0,1,1.289.225Z" transform="translate(0 10.584) rotate(-90)" fill="#00b5dd"></path>
-                            </svg>
-                        </div>
+                        <button type="button" class="txtunder__ics blue txt16 click_editprofile">Edit profile</button>
                     @endif
                 </div>
                 
-                @if ( $contentUser['id_profiles'] != null )
+                @if ( $contentProfile )
                     <div class="_about-perfil">
-                        <p class="_txtec mr12">{{ $contentUser['about'] }}</p>
+                        <p class="_txtec mr12">{{ $contentProfile['about'] }}</p>
                         <div class="content-user_icons">
                             <div class="s-usr_icons">
                                 <div class="_suis">
                                     <img src="{{ URL::asset('assets/img/icons/hotel.png') }}" alt="">
                                 </div>
                                 <div class="_suisinfo">
-                                    <div class="_txtec">Lives in {{ $contentUser['location'] }}</div>
+                                    <div class="_txtec">Lives in: {{ $contentProfile['location'] }}</div>
                                 </div>
                             </div>
 
@@ -102,7 +111,13 @@
                                     <img src="{{ URL::asset('assets/img/icons/message.svg') }}" alt="">
                                 </div>
                                 <div class="_suisinfo">
-                                    <div class="_txtec">He speaks {{ $contentUser['language'] }}</div>
+                                    <div class="_txtec">He speaks: 
+                                        @if ( $contentProfile['language'] != null )
+                                            @foreach ($contentProfile['language'] as $element)
+                                                {{$element}} 
+                                            @endforeach
+                                        @endif
+                                    </div>
                                 </div>
                             </div>
 
@@ -111,21 +126,22 @@
                                     <img src="{{ URL::asset('assets/img/icons/work.svg') }}" alt="">
                                 </div>
                                 <div class="_suisinfo">
-                                    <div class="_txtec">Works at: {{ $contentUser['work'] }}</div>
+                                    <div class="_txtec">Works at: {{ $contentProfile['work'] }}</div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 @endif
             </div>
+        @endif
 
         @if ( $idUser == Auth::id() )
-            <form wire:submit.prevent="SubmitProfile" class="_fr-block" style="display: none;">
+            <form wire:submit.prevent="SubmitProfile" class="_fr-block" style="display: none;" wire:ignore.self>
                 <div class="_flfpc">
                     <div class="txt-check-in">About</div>
-                    <textarea class="_txta-modls @error('inputAbout') error_input @enderror" wire:model.defer="inputAbout"></textarea>
+                    <textarea class="_txta-modls @error('inputAbout') error_input @enderror" style="resize: vertical;" rows="4" wire:model.defer="inputAbout"></textarea>
                     @error('inputAbout')
-                        <div style="display: block;" class="_txterror">
+                        <div class="_txterror">
                             <i class="fas fa-exclamation-circle icon1"></i> 
                             {{ $message }}
                         </div>
@@ -136,7 +152,7 @@
                     <div class="txt-check-in">Location</div>
                     <input type="text" class="_numcard @error('inputLocation') error_input @enderror" wire:model.defer="inputLocation">
                     @error('inputLocation')
-                        <div style="display: block;" class="_txterror">
+                        <div class="_txterror">
                             <i class="fas fa-exclamation-circle icon1"></i> 
                             {{ $message }}
                         </div>
@@ -145,44 +161,32 @@
 
                 <div>
                     <div class="txt-check-in">Languages | Speak</div>
-                    <div class="_flex-sbet add_more-leng" style="padding: 0; display: inline-flex; padding-left: 19px; border-bottom: 0;">
-                        <span class="_txtblu" style="font-weight: normal;">Add more</span>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="6.052" height="10.584" viewBox="0 0 6.052 10.584">
-                            <path d="M5.294,4.227,9.3.222a.753.753,0,0,1,1.068,0,.763.763,0,0,1,0,1.071L5.83,5.831a.755.755,0,0,1-1.043.022L.221,1.3A.757.757,0,0,1,1.289.225Z" transform="translate(0 10.584) rotate(-90)" fill="#00b5dd"></path>
-                        </svg>
+                    <div class="_txtec">
+                        @if ( count( $inputLanguage ) != 0 )
+                            @foreach ($inputLanguage as $element)
+                                {{$element}} 
+                            @endforeach
+                        @endif
                     </div>
-
-                    <div class="add_more_leng_show fx fx-fw-w" style="gap: 12px; display: none;">
-                        <div class="input_border fx" style="width: auto; gap: 22px;">
-                            <span class="_txtec">Español</span>
-                            <div class="add_more txtred_x">X</div>
-                        </div>
-
-                        <div class="input_border fx" style="width: auto; gap: 22px;">
-                            <span class="_txtec">English</span>
-                            <div class="add_more txtred_x">X</div>
-                        </div>
-                    </div>
+                    <button type="button" class="txtunder__ics blue txt16 js__addMoreLengSpeak">Add more</button>
                 </div>
 
                 <div class="_flfpc">
                     <div class="txt-check-in">Work</div>
                     <input type="text" class="_numcard @error('inputWork') error_input @enderror" wire:model.defer="inputWork">
                     @error('inputWork')
-                        <div style="display: block;" class="_txterror">
+                        <div class="_txterror">
                             <i class="fas fa-exclamation-circle icon1"></i> 
                             {{ $message }}
                         </div>
                     @enderror
                 </div>
 
-                <div class="fx fx-fw-w fx-jc-sb" style="gap: 12px;">
-                    <div class="_btnsmleft click_cancelprofile">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="6.052" height="10.584" viewBox="0 0 6.052 10.584">
-                            <path d="M5.294,1.824l4,4.005a.753.753,0,0,0,1.068,0,.763.763,0,0,0,0-1.071L5.83.22A.755.755,0,0,0,4.787.2L.221,4.755A.756.756,0,0,0,1.289,5.826Z" transform="translate(0 10.584) rotate(-90)" fill="#333"></path>
-                        </svg>
+                <div class="fx fx-fw-w fx-ai-c fx-jc-sb" style="gap: 12px;">
+                    <button type="button" class="_fpnigw0 click_cancelprofile" wire:click="reloadInputs()">
                         <span>Cancel</span>
-                    </div>
+                    </button>
+
                     <button type="submit" class="btn-celest">Save</button>
                 </div>
             </form>

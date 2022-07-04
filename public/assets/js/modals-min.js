@@ -85,6 +85,11 @@ $(document).ready(function() {
     });
     
     // ---------------------- trips ----------------------
+    $(".showDetailsUpcomingPopup").on("click", function() {
+        animateTopModals();
+        $("._par0t0modls").show();
+    });
+
     $(".showDetailsPastPopup").on("click", function() {
         animateTopModals();
         $(".container_tsptpp").show();
@@ -219,9 +224,16 @@ $(document).ready(function() {
     });
 
 
-    // account - 
+    // ----------- account --------------
     $(".click__account_modal").on("click", function() {
         $(".page-category").toggleClass("resizeBtnModal743");
+    });
+
+
+    // perfil-interno.php - click add more leng | speak
+    $(".js__addMoreLengSpeak").on("click", function() {
+        animateTopModals();
+        $(".container-languages-speak").show();
     });
 });
 

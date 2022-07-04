@@ -31,7 +31,7 @@ class CreateListingBookingDetailsTable extends Migration
             $table->string('arrival_instructions')->default('Smart lock');
             $table->string('wifi_details')->nullable();
 
-            $table->unsignedInteger('user_id');
+            $table->uuid('user_id');
             $table->foreign('user_id')
                 ->references('id_user')
                 ->on('users')

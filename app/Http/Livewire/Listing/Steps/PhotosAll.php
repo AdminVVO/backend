@@ -18,7 +18,7 @@ class PhotosAll extends Component
 
     public function mount()
     {
-        $folderAuth = Auth::user()->name . '-' . Auth::id();
+        $folderAuth = Auth::id();
         $listContents = Storage::disk('uploadTempFilepond')->listContents( $folderAuth );
 
         foreach ($listContents as $key => $value) {
@@ -44,7 +44,7 @@ class PhotosAll extends Component
     public function next()
     {
         foreach ($this->collecPhotos as $key => $value) {
-            $content[ $key ] = Auth::id() . '-' . $value['id'];
+            $content[ $key ] = Auth::id() . '/' . $value['id'];
         }
 
         $payload = [
@@ -59,7 +59,7 @@ class PhotosAll extends Component
  
     public function changeCover($payload)
     {
-        $folderAuth = Auth::user()->name . '-' . Auth::id();
+        $folderAuth = Auth::id();
 
         $position = array_search( $payload, $this->collect );
         $this->collect = $this->changeArray( $this->collect, $position, 0);
@@ -72,7 +72,7 @@ class PhotosAll extends Component
  
     public function changeDown($payload)
     {
-        $folderAuth = Auth::user()->name . '-' . Auth::id();
+        $folderAuth = Auth::id();
 
         $position = array_search( $payload, $this->collect );
         $this->collect = $this->changeArray( $this->collect, $position, $position + 1);
@@ -85,7 +85,7 @@ class PhotosAll extends Component
  
     public function changeUp($payload)
     {
-        $folderAuth = Auth::user()->name . '-' . Auth::id();
+        $folderAuth = Auth::id();
         
         $position = array_search( $payload, $this->collect );
         $this->collect = $this->changeArray( $this->collect, $position, $position - 1);

@@ -20,7 +20,7 @@ class CreateBlockedAccountsTable extends Migration
             $table->string('country');
             $table->json('files');
 
-            $table->unsignedInteger('user_id');
+            $table->uuid('user_id');
             $table->foreign('user_id')
                 ->references('id_user')
                 ->on('users')

@@ -29,6 +29,14 @@ $(document).ready(function() {
         $(this).parents().find(".substituteW8").hide();
     });
 
+
+    // interna - click perfil scroll
+    $(".js__scroll_profile_interna").on("click", function() {
+        $('html, body').animate({
+            scrollTop: $(".content-user-if-flex").offset().top-75
+        }, 600);
+    });
+
     // interna - confirm and pay, click paypal
     $("._glepay").on("click", function() {
         $("._showgplay").show();
@@ -46,5 +54,37 @@ $(document).ready(function() {
         $("._showpaypal").show();
         $("._hiddencreditordebit").hide();
         $("._showgplay").hide();
+    });
+
+
+    // perfil-intenro - reviews nav link
+    $(".js_from_hosts").on("click", function() {
+        $(".fromGuests").hide();
+        $(".fromhosts").show();
+    });
+
+    $(".js_from_guests").on("click", function() {
+        $(".fromGuests").show();
+        $(".fromhosts").hide();
+    });
+
+
+    // trips
+    $(".js__tripUpcoming").on("click", function() {
+        $(".showTripUpcoming").show();
+        $(".showTripPast").hide();
+        $(".showTripCanceled").hide();
+    });
+
+    $(".js__tripPast").on("click", function() {
+        $(".showTripPast").show();
+        $(".showTripUpcoming").hide();
+        $(".showTripCanceled").hide();
+    });
+
+    $(".js__tripCanceled").on("click", function() {
+        $(".showTripCanceled").show();
+        $(".showTripPast").hide();
+        $(".showTripUpcoming").hide();
     });
 });

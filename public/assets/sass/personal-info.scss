@@ -5,12 +5,14 @@
     justify-content: space-between;
     gap: 87px;
 
-    ._btnsm {
-        margin-top: 0;
+    ._cont-account {
+        i {
+            color: #2DDAB4;
+        }
     }
 
-    @include responsive(1050px) {
-        flex-direction: column;
+    ._btnsm {
+        margin-top: 0;
     }
 
     &-main {
@@ -18,18 +20,40 @@
 
         ._flex-right16 {
             padding-left: 49px;
-
-            @include responsive(768px) {
-                padding-left: 25px;
-            }
         }
 
         .h2-guests_bold35 {
             padding-left: 49px;
             margin: 16px 0 8px;
+        }
 
-            @include responsive(768px) {
-                padding-left: 25px;
+        @include responsive(1400px) {
+            width: 58.33%;
+            float: left;
+
+            ._flex-right16 {
+                padding-left: 24px;
+                gap: 16px;
+
+                ._txtec16 {
+                    &:hover {
+                        text-decoration: underline;
+                    }
+                }
+
+                i {
+                    font-size: 10px;
+                }
+
+                ._txtecbold16 {
+                    font-size: 14px;
+                    line-height: normal;
+                }
+            }
+
+            .h2-guests_bold35 {
+                margin: 12px 0 40px;
+                padding-left: 24px;
             }
         }
     }
@@ -40,37 +64,106 @@
         flex-direction: column;
         flex-wrap: wrap;
         gap: 53px;
+    }
 
-        @include responsive(1050px) {
-            padding-right: 25px;
-            padding-left: 25px;
-            flex-direction: row;
-            gap: 30px;
+    @include responsive(1400px) {
+        display: initial;
+
+        ._flfpc {
+            gap: 0;
         }
 
-        @include responsive(580px) {
-            flex-direction: column;
-        }
+        ._btnsm {
+            color: #333;
+            font-size: 14px;
 
-        ._cont-account {
-            @include responsive(510px) {
-                width: 100%;
-                padding: 18px 25px;
+            &.edit-phone {
+                color: #00B5DD;
+
+                span {
+                    color: inherit;
+                }
+
+                &:hover {
+                    color: #0096B7;
+                }
             }
+
+            img {
+                width: 6px;
+                min-width: 6px;
+                max-width: 6px;
+            }
+
+            &:hover {
+                color: #000;
+                text-decoration: underline;
+            }
+
+            &:active {
+                opacity: .8;
+            }
+        }
+
+        &-aside {
+            width: 33.33%;
+            float: left;
+            margin-left: 8.3%;
+            padding-right: 24px;
+            gap: 22px;
+
+            ._cont-account {
+                width: 100%;
+                box-shadow: none;
+                padding: 24px;
+
+                i {
+                    font-size: 48px;
+                    margin-bottom: 16px;
+                }
+
+                ._txteh {
+                    margin: 0 !important;
+                    line-height: normal !important;
+                    font-size: 20px !important;
+                }
+
+                .span-guests {
+                    margin-top: 16px !important;
+                    font-size: 16px !important;
+                    line-height: 1.43 !important;
+                }
+            }
+        }
+    }
+
+    @include responsive(743px) {
+        flex-direction: column;
+
+        &-main {
+            width: 100%;
+            margin-top: 36px;
+
+            ._flex-right16 {
+                display: none;
+            }
+
+            .h2-guests_bold35 {
+                margin: 0 0 16px;
+                font-size: 22px;
+                line-height: 26px;
+                letter-spacing: -.6px;
+            }
+        }
+
+        &-aside {
+            display: none;
         }
     }
 }
 
 .section_photo-id {
     margin: 0 49px;
-
-    @include responsive(760px) {
-        margin: 0 25px;
-    }
-
-    @include responsive(500px) {
-        margin: 0;
-    }
 
     .h2_publish {
         @include responsive(900px) {
@@ -82,27 +175,73 @@
         margin: 43px 0 32px;
         gap: 18px;
 
-        @include responsive(900px) {
-            margin: 24px 0 28px;
-        }
-
         .radio-item_rscrm {
             label {
                 align-items: center;
+            }
+        }
+    }
 
-                .before_check {
-                    @include responsive(900px) {
-                        max-width: 35px;
-                        min-height: 35px;
-                    }
+    @include responsive(1400px) {
+        margin: 0 25px;
 
-                    &::after {
-                        @include responsive(900px) {
-                            font-size: 18px;
-                            bottom: 4px;
-                            right: 4px;
-                        }
+        ._gap {
+            margin: 24px 0 28px;
+        }
+
+        form {
+            .gp30 {
+                grid-column-gap: 38px !important;
+            }
+        }
+    }
+
+    @include responsive(743px) {
+        margin: 0;
+        padding-bottom: 40px;
+
+        ._gap {
+            margin-bottom: 40px;
+        }
+
+        ._block-jsb {
+            position: fixed;
+            background: $color-white;
+            border-top: 1px solid #e3edf3;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            padding: 16px 24px;
+
+            ._btnsmleft {
+                padding: 10px;
+                border-radius: 8px;
+                margin: 0 -10px;
+                background-color: transparent;
+                align-items: baseline;
+                color: #333;
+
+                i {
+                    font-size: 16px;
+                }
+
+                span {
+                    text-decoration: underline;
+
+                    &::before {
+                        display: none;
                     }
+                }
+
+                &:hover {
+                    background-color: rgba(227, 237, 243, 0.5);
+                    color: #000;
+                }
+
+                &:active {
+                    transform: scale(.96);
+                    background-color: rgba(227, 237, 243, 0.5);
+                    color: #000;
                 }
             }
         }

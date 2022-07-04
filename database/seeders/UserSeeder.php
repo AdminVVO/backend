@@ -24,7 +24,7 @@ class UserSeeder extends Seeder
                 'password'         => 'lenier@gmail.com@2021-01-25',
                 'avatar'           => '1.png',
                 'sex'              => 'Male',
-                'language_default' => 'US',
+                'language_default' => 'EN',
                 'currency_default' => 'USD',
                 'phone'            => '+5841257322',
                 'rol_id'             => '1'
@@ -38,7 +38,7 @@ class UserSeeder extends Seeder
                 'password'         => 'daniela@gmail.com@2021-01-25',
                 'avatar'           => '3.png',
                 'sex'              => 'Female',
-                'language_default' => 'US',
+                'language_default' => 'EN',
                 'currency_default' => 'USD',
                 'phone'            => '+5841457322',
                 'rol_id'             => '2'
@@ -52,7 +52,7 @@ class UserSeeder extends Seeder
                 'password'         => 'Dev@gmail.com@2021-01-25',
                 'avatar'           => '2.png',
                 'sex'              => 'Female',
-                'language_default' => 'US',
+                'language_default' => 'EN',
                 'currency_default' => 'USD',
                 'phone'            => '+5841257323',
                 'rol_id'             => '2'

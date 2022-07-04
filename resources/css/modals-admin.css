@@ -995,15 +995,6 @@ body ._ntñsfts .reservation-details-cont ._block-commquest .mr25-0 {
     height: 42px;
     border: 1px solid #E3EDF3;
   }
-  body ._ntñsfts ._txta-modls {
-    padding: 12px;
-    font-size: 16px;
-    line-height: 20px;
-    border: 1px solid #E3EDF3;
-  }
-  body ._ntñsfts ._txta-modls:focus {
-    border: 1px solid #7D7D7D;
-  }
   body ._ntñsfts._par0t0modls ._pt47psr {
     padding-top: 36px;
   }
@@ -1114,7 +1105,8 @@ body ._ntñsfts ._lahrbold {
     gap: 8px !important;
   }
   body ._ntñsfts .btn-bd-white .flex .icon {
-    width: 17px;
+    width: 16px;
+    height: 18px;
   }
   body ._ntñsfts .btn-celest,
 body ._ntñsfts .btn-border {
@@ -1333,9 +1325,9 @@ body ._ntñsfts .reservation-details-cont ._block-commquest {
 .container_admin-host .pd_anhost-modal .modal_content-anhost .modal_block .content_hidden-anhost .reservation-details-cont ._block-jsb {
   padding-top: 0;
 }
-@media (max-width: 743px) {
+@media (max-width: 1400px) {
   .container_admin-host .pd_anhost-modal .modal_content-anhost .modal_block .content_hidden-anhost .reservation-details-cont ._block-jsb {
-    padding-top: 18px;
+    padding-top: 16px;
   }
 }
 .container_admin-host .pd_anhost-modal .modal_content-anhost .modal_block .content_hidden-anhost .site-content {

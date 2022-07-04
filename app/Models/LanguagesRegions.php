@@ -34,6 +34,6 @@ class LanguagesRegions extends Model
 
     public function scopeLanguage($query, $code)
     {
-        return $this->where('code', $code )->pluck('languages')->first();
+        return $this->where('code', $code)->pluck('languages')->first();
     }
 }

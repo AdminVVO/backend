@@ -2,16 +2,17 @@
 
 namespace App\Models;
 
+use App\Traits\Uuids;
+use Auth;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
-use Auth;
 
 class User extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable;
+    use HasApiTokens, HasFactory, Notifiable, Uuids;
     
     protected $primaryKey = 'id_user';
 
@@ -55,6 +56,7 @@ class User extends Authenticatable
         'date_birth'        => 'datetime:d-m-Y',
         'other_phone'       => 'array',
         'promotions'        => 'boolean',
+        'language'          => 'array',
     ];
 
     public function scopeFullName()
@@ -86,5 +88,10 @@ class User extends Authenticatable
     public function scopeAvatarInterna($query, $code)
     {
         return $this->where('id_user', $code)->pluck('avatar')->first();
+    }
+
+    public function scopeRole($query, $code)
+    {
+        return $this->where('id_user', $code)->pluck('rol_id')->first();
     }
 }

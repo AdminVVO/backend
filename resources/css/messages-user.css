@@ -783,19 +783,6 @@ body .header_admin ._mv-places {
   body .section_messages_user .right_msg_user_cont ._txtehlinear16 {
     font-size: 14px;
   }
-  body .section_messages_user .right_msg_user_cont .checkbox_custom {
-    max-width: 70px;
-    height: 35px;
-    border: 1px solid #E3EDF3;
-  }
-  body .section_messages_user .right_msg_user_cont .checkbox_custom:checked::before {
-    left: 34px;
-  }
-  body .section_messages_user .right_msg_user_cont .checkbox_custom::before {
-    max-width: 35px;
-    min-height: 35px;
-    top: -1px;
-  }
   body .section_messages_user .right_msg_user_cont .slideshow-container {
     height: 173px;
   }

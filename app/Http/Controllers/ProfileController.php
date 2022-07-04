@@ -11,16 +11,9 @@ class ProfileController extends Controller
 {
     public function viewProfile($id)
     {
-        // $content = User::select(
-        //     'wishlists.email',
-        //     'listings.photos',
-        // )->where([
-        //     'wishlists.user_id' => Auth::id()
-        // ])
-        // ->leftJoin('user', 'wishlists.listing_id', 'user.id_user')
-        // ->get();
-
-        // return view('wishlists.index', ['content' => $content]);
+        if ( User::where([ 'id_user' => $id ])->doesntExist() )
+            return abort(404);
+        
         return view('profile.index', ['idUser' => $id]);
     }
 }

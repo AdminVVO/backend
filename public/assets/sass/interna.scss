@@ -1,4 +1,3 @@
-@import "_globals";
 @import "_variables";
 
 // .sc-interna_body {
@@ -16,6 +15,15 @@
 
     .selected-modal {
         margin: 0;
+    }
+}
+
+// ---------- INTERNA EDIT ---------
+.page_interna_edit {
+    .content_international {
+        .content-info-hosted {
+            padding-top: 0;
+        }
     }
 }
 
@@ -86,9 +94,9 @@
                         margin-left: 8px;
                     }
 
-                    ._whg {
-                        gap: 9px;
-                    }
+                    // ._whg {
+                    //     gap: 9px;
+                    // }
                 }
             }
 
@@ -290,9 +298,37 @@
             }
         }
     }
+    
+    // ---------- INTERNA EDIT ---------
+    .page_interna_edit {
+        .ctadpcedit {
+            img {
+                height: 220px;
+                border-radius: 12px 12px 0 0;
+            }
+
+            .ctinf {
+                padding: 24px;
+
+                .gp30 {
+                    gap: 10px;
+                }
+            }
+        }
+
+        .content_international {
+            .content-info-hosted {
+                .site-content {
+                    .content-user_inf {
+                        padding-bottom: 40px;
+                    }
+                }
+            }
+        }
+    }
 }
 
-@include responsive(1010px) {
+@include responsive(10px) {
     body {
         .content_international {
             .content-info-hosted {
@@ -418,6 +454,21 @@
             }
         }
     }
+
+    // ---------- INTERNA EDIT ---------
+    .page_interna_edit {
+        .content_international {
+            .content-info-hosted {
+                .site-content {
+                    width: 100%;
+                }
+    
+                .content-aside_prec {
+                    display: none;
+                }
+            }
+        }
+    }
 }
 
 @media screen and (min-width: 743px) {
@@ -477,14 +528,15 @@
     }
 
     .content-gallery {
+        overflow: hidden;
         margin-bottom: 0;
 
         ._cgprel {
             padding-top: 37.27%;
             position: relative;
 
-            @include responsive(1010px) {
-                padding-top: 0 !important;
+            @include responsive(900px) {
+                padding-top: 75% !important;
             }
 
             ._cgprelleft {
@@ -494,21 +546,25 @@
                 top: 0px;
                 position: absolute;
 
-                @include responsive(1010px) {
-                    width: auto;
-                    position: inherit;
+                @include responsive(900px) {
+                    width: 100%;
+                    height: 75.48%;
+                }
+
+                @include responsive(600px) {
+                    height: 69%;
                 }
             }
 
             ._whg {
-                overflow: overlay;
                 display: flex;
                 flex-direction: column;
-                gap: 11px;
+                justify-content: space-between;
+                // gap: 11px;
                 height: 100%;
                 width: 100%;
 
-                @include responsive(1010px) {
+                @include responsive(10px) {
                     flex-direction: row;
                 }
 
@@ -521,7 +577,7 @@
                 position: relative;
                 width: 100%;
                 height: 100%;
-                overflow: overlay;
+                overflow: hidden;
                 border-radius: 10px;
 
                 &::-webkit-scrollbar {
@@ -530,7 +586,23 @@
             }
 
             ._w {
-                @include responsive(1010px) {
+                margin-top: -13px;
+                position: absolute;
+                transition: all .3s ease;
+
+                @include responsive(1400px) {
+                    margin-top: -9px;
+                }
+
+                @include responsive(900px) {
+                    margin-top: 0;
+                    flex-direction: initial;
+                    margin-left: -9px;
+                    height: 100% !important;
+                    max-width: fit-content;
+                }
+
+                @include responsive(10px) {
                     width: 168%;
                 }
 
@@ -576,21 +648,28 @@
                 top: 0;
                 position: absolute;
 
-                @include responsive(1010px) {
-                    margin-top: 6px;
+                @include responsive(900px) {
+                    width: 100%;
+                    height: auto;
                     margin-left: 0 !important;
+                    top: 75.48%;
                     left: 0;
-                    position: inherit;
+                    bottom: 0;
+                    margin-top: 8px;
+                }
+
+                @include responsive(600px) {
+                    top: 69%;
                 }
 
                 ._cbtnbottom {
-                    @include responsive(1010px) {
+                    @include responsive(10px) {
                         top: 0;
                         left: auto;
                     }
 
                     ._sbtn {
-                        @include responsive(1010px) {
+                        @include responsive(10px) {
                             width: 85px;
                             height: 100%;
                             border-radius: 0 10px 10px 0;
@@ -598,13 +677,13 @@
                         }
 
                         &:focus > ._c9ajsd {
-                            @include responsive(1010px) {
+                            @include responsive(10px) {
                                 left: 75%;
                             }
                         }
 
                         ._c9ajsd {
-                            @include responsive(1010px) {
+                            @include responsive(10px) {
                                 left: 68%;
                                 top: 45%;
                                 transform: rotate(0deg);
@@ -616,10 +695,23 @@
             }
 
             ._pbkgallery {
-                height: 23.6%;
+                // height: 23.6%;
+                height: 133.477px;
+                padding-top: 13px;
+
+                @include responsive(1400px){
+                    height: 124.427px;
+                    padding-top: 10px;
+                }
 
                 @include responsive(1010px) {
-                    width: 100%;
+                    padding-top: 8px;
+                }
+
+                @include responsive(900px) {
+                    padding-top: 0;
+                    padding-left: 8px;
+                    min-width: fit-content;
                     height: auto;
                 }
             }
@@ -662,7 +754,7 @@
                 width: 55%;
             }
 
-            @include responsive(1010px) {
+            @include responsive(10px) {
                 width: 100%;
                 padding-right: 0;
             }
@@ -733,7 +825,7 @@
                 //             max-width: 100%;
                 //         }
 
-                //         @include responsive(1010px) {
+                //         @include responsive(10px) {
                 //             flex: 0 0 49%;
                 //             max-width: 49%;
                 //         }
@@ -908,7 +1000,7 @@
                     text-align: center;
                 }
                 
-                @include responsive(1010px) {
+                @include responsive(10px) {
                     padding: 23px 43px;
                     flex-direction: row;
                     text-align: left;
@@ -930,7 +1022,7 @@
                         margin-bottom: 20px;
                     }
                 
-                    @include responsive(1010px) {
+                    @include responsive(10px) {
                         padding-right: 20px;
                         margin-bottom: 0;
                         width: 100%;

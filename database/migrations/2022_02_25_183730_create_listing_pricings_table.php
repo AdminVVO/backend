@@ -39,7 +39,7 @@ class CreateListingPricingsTable extends Migration
             $table->integer('extra_guest')->default(0);
             $table->integer('weekend_nightly_fee')->default(0);
 
-            $table->unsignedInteger('user_id');
+            $table->uuid('user_id');
             $table->foreign('user_id')
                 ->references('id_user')
                 ->on('users')

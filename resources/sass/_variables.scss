@@ -927,11 +927,6 @@ $cant: 300;
   line-height: 24px;
   font-weight: normal;
 
-  @include responsive(1400px) {
-    font-size: 16px;
-    gap: 3.5px;
-  }
-
   &:disabled {
     opacity: .4;
     cursor: not-allowed;
@@ -969,6 +964,12 @@ $cant: 300;
       margin-top: 2px;
       width: 5px;
     }
+  }
+
+  @include responsive(1400px) {
+    font-size: 16px;
+    line-height: 20px;
+    gap: 3.5px;
   }
 }
 
@@ -1037,10 +1038,6 @@ $cant: 300;
   font-weight: normal;
   margin-top: 2px;
 
-  @media screen and (max-width: 1400px) {
-    font-size: 16px;
-  }
-
   ._fcontent {
     display: inline-flex;
     align-items: baseline;
@@ -1052,6 +1049,11 @@ $cant: 300;
     ._svg-asm {
       margin-left: 5px;
     }
+  }
+
+  @media screen and (max-width: 1400px) {
+    font-size: 16px;
+    line-height: 20px;
   }
 }
 
@@ -1129,6 +1131,7 @@ $cant: 300;
 
   @include responsive(1400px) {
     .slideshow-container {
+      height: 204px;
       border-radius: 12px;
 
       &::after {
@@ -1141,7 +1144,7 @@ $cant: 300;
     }
 
     .flex_info {
-      padding-top: 10px;
+      padding-top: 0;
       padding-bottom: 0;
 
       .desc_lc {
@@ -1151,7 +1154,7 @@ $cant: 300;
 
       h2 {
         font-size: 18px;
-        margin: 2px 0 18px;
+        margin: 6px 0 18px;
       }
 
       h4 {
@@ -1160,7 +1163,7 @@ $cant: 300;
       }
 
       .total_local {
-        margin-top: 28px;
+        margin-top: 24px;
       }
     }
   }
@@ -1266,11 +1269,18 @@ $cant: 300;
   }
 }
 
-@mixin skeletonImgProfile {
+@mixin skeletonImgProfileIcon {
   position: relative;
   overflow: hidden;
   border-radius: 50% !important;
   height: fit-content;
+  @include animateSkeletonBefore;
+}
+
+@mixin skeletonImgProfile {
+  position: relative;
+  overflow: hidden;
+  border-radius: 50% !important;
   @include animateSkeletonBefore;
 }
 
@@ -1341,15 +1351,29 @@ $cant: 300;
   }
 
   &.dfjcacf0mw2 {
-    @include skeletonImgProfile;
+    @include skeletonImgProfileIcon;
   }
 
   &.ics__grd-img {
-    @include skeletonImgProfile;
+    @include skeletonImgProfileIcon;
   }
 
   &._pf-msg {
     @include skeletonImgProfile;
+  }
+
+  &.ctadpcedit {
+    position: relative;
+    @include animateSkeletonBefore;
+
+    &::before {
+      border-radius: 12px 12px 0 0;
+      height: 220px;
+    }
+
+    .bkgrand {
+      opacity: 0;
+    }
   }
   // ----------------------------------
 

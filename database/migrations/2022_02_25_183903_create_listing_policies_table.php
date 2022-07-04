@@ -22,7 +22,7 @@ class CreateListingPoliciesTable extends Migration
             $table->json('checkout_time')->default('[]');
             $table->string('security_deposit')->nullable();
 
-            $table->unsignedInteger('user_id');
+            $table->uuid('user_id');
             $table->foreign('user_id')
                 ->references('id_user')
                 ->on('users')

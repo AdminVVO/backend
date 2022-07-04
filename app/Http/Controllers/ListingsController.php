@@ -38,7 +38,7 @@ class ListingsController extends Controller
             $nameOriginal = $request->file('uploadPhoto')->getClientOriginalName();
             $extension = pathinfo( $nameOriginal, PATHINFO_EXTENSION);
             $filename = Str::random(10) . '.' . $extension;
-            $folderAuth = Auth::user()->name . '-' . Auth::id();
+            $folderAuth = Auth::id();
 
             $path = $request->file('uploadPhoto')->storeAs( $folderAuth, $filename , 'uploadTempFilepond');
             return response( $filename, 200)->header('Content-Type', 'text/plain');
@@ -49,7 +49,7 @@ class ListingsController extends Controller
     {
         if ( request()->getContent() != '' ) {
 
-            $folderAuth = Auth::user()->name . '-' . Auth::id();
+            $folderAuth = Auth::id();
             Storage::disk('uploadTempFilepond')->delete( $folderAuth . '/' . request()->getContent() ); 
 
             $folder = File::allFiles(storage_path('app/public/tempFilepond/' . $folderAuth)); 

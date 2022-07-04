@@ -39,6 +39,9 @@ a {
 .section-account .h2 {
   margin-bottom: 9.8px;
 }
+.section-account .txtunder__ics {
+  width: fit-content;
+}
 .section-account .span-guests ._p {
   margin: 0 9.8px;
 }

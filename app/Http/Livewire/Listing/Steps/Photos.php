@@ -26,7 +26,7 @@ class Photos extends Component
  
     public function next()
     {
-        $folderAuth = Auth::user()->name . '-' . Auth::id();
+        $folderAuth = Auth::id();
 
         if ( File::isDirectory( storage_path('app/public/tempFilepond/' . $folderAuth) ) ){
             $count = count( File::allFiles(storage_path('app/public/tempFilepond/' . $folderAuth)) );

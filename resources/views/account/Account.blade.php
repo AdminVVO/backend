@@ -22,7 +22,11 @@
             <div class="section-account">
                 <div class="showblock743 pd-b24">
                     <span class="pf-u fx">
-                        <img src="{{ URL::asset('assets/img/avatar') }}/{{ \App\Models\User::Avatar() }}" alt="">
+                        @if ( file_exists( storage_path('app/public/uploadAvatar/' . Auth::user()->avatar  ) ) )
+                            <img src="{{ URL::asset('storage/uploadAvatar/') .'/'. Auth::user()->avatar  }}" loading="lazy" alt="">
+                        @else
+                            <img src="{{ URL::asset('assets/img/avatar') }}/{{ Auth::user()->avatar }}" loading="lazy" alt="">
+                        @endif
                     </span>
 
                     <h2 class="h2">{{ \App\Models\User::FullName() }}</h2>
@@ -133,7 +137,7 @@
                         <form action="{{ route('logout') }}" class="mr-t24 mr-b24 pd-t16">
                             <button type="button" class="mr-b24" id="btnLeng">
                                 <div class="fx fx-ai-c gp8">
-                                    <i class="far fa-globe _i-black16"></i>
+                                    <i class="fa-regular fa-globe _i-black16"></i>
 
                                     <span class="_txtbold3314 _txtdec7d14">{{ \App\Models\LanguagesRegions::Language( Auth::user()->language_default ) }} ({{ Auth::user()->language_default }})</span>
                                 </div>
@@ -172,39 +176,38 @@
 
                         <h1 class="_txtbold3322 pd-t36 mr-t64 mr-b16 showblock743">Account</h1>
 
-                        <a href="{{ route('personal_info') }}">
-                            <div class="_cont-account _cont-account_personalinfo">
-                                <i class="far fa-address-card"></i>
-                                <div class="_txteh" style="margin-bottom: 4px;">Personal info</div>
-                                <p class="span-guests">Provide personal details and how we can reach you</p>
-                            </div>
+                        <a href="{{ route('personal_info') }}" class="_cont-account _cont-account_personalinfo">
+                            <i class="fa-regular fa-address-card"></i>
+                            <div class="_txteh" style="margin-bottom: 4px;">Personal info</div>
+                            <p class="span-guests">Provide personal details and how we can reach you</p>
                         </a>
 
-                        <a href="{{ route('login_segurity') }}">
-                            <div class="_cont-account">
-                                <i class="far fa-keyboard"></i>
-                                <div class="_txteh" style="margin-bottom: 4px;">Login & security</div>
-                                <p class="span-guests">Update your password and secure your account</p>
-                            </div>
+                        <a href="{{ route('login_segurity') }}" class="_cont-account">
+                            <i class="fa-regular fa-keyboard"></i>
+                            <div class="_txteh" style="margin-bottom: 4px;">Login & security</div>
+                            <p class="span-guests">Update your password and secure your account</p>
                         </a>
 
-                        <a href="{{ route('payment_payouts') }}">
-                            <div class="_cont-account">
-                                <i class="far fa-money-bill-alt"></i>
-                                <div class="_txteh" style="margin-bottom: 4px;">Payments & payouts</div>
-                                <p class="span-guests">Review payments, payouts, coupons, gift cards, and taxes</p>
-                            </div>
+                        <a href="{{ route('payment_payouts') }}" class="_cont-account">
+                            <i class="fa-regular fa-money-bill-alt"></i>
+                            <div class="_txteh" style="margin-bottom: 4px;">Payments & payouts</div>
+                            <p class="span-guests">Review payments, payouts, coupons, gift cards, and taxes</p>
                         </a>
 
-                        <a href="{{ route('global_preferen') }}">
-                            <div class="_cont-account">
-                                <i class="far fa-edit"></i>
-                                <div class="_txteh" style="margin-bottom: 4px;">Global preferences</div>
-                                <p class="span-guests">Set your default language, currency, and timezone</p>
-                            </div>
+                        <a href="{{ route('global_preferen') }}" class="_cont-account">
+                            <i class="fa-regular fa-edit"></i>
+                            <div class="_txteh" style="margin-bottom: 4px;">Global preferences</div>
+                            <p class="span-guests">Set your default language, currency, and timezone</p>
                         </a>
                     </div>
                 </div>
+
+{{--                 <div class="msgaround hideblock743">
+                    <div class="_wcusermsg">
+                        <span class="_txteh" style="display: block; margin-bottom: 0;">Need to deactivate your account?</span>
+                    </div>
+                    <button class="btn-celest">Take care of that now</button>
+                </div> --}}
             </div>
         </div>
     </section>

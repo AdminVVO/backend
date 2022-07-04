@@ -45,7 +45,7 @@ class CreateReservationFormsTable extends Migration
             $table->string('tour_date')->nullable();
             $table->string('template')->nullable();
 
-            $table->unsignedInteger('user_id');
+            $table->uuid('user_id');
             $table->foreign('user_id')
                 ->references('id_user')
                 ->on('users')

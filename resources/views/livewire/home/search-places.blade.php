@@ -33,7 +33,7 @@
         </div>
 
         <div class="inputBox skeleton">
-            <div class="book-f_home">
+            <div class="book-f_home" wire:ignore.self>
                 <div class="place_select menuGuest">
                     <span class="skeleton skeleton_txt">Guest</span>
 

@@ -469,7 +469,7 @@ body .container_tsugpp .pd_anhost-modal .modal_content-anhost .trips_upcoming_in
     min-width: 100%;
   }
 }
-@media (max-width: 600px) {
+@media (max-width: 743px) {
   body .container_tsugpp .pd_anhost-modal .modal_content-anhost .left_trips_popup_cont {
     flex: 1 1 0%;
     margin-top: 0;
@@ -523,7 +523,7 @@ body .container_tsptpp .pd_anhost-modal .modal_content-anhost .trips_upcoming_in
     max-width: 480px;
   }
   body .container_tsptpp .pd_anhost-modal .modal_content-anhost .trips_upcoming_inf {
-    padding: 16px 35px !important;
+    padding: 16px 24px !important;
   }
   body .container_tsptpp .pd_anhost-modal .modal_content-anhost .show_profile {
     margin-top: 3px;
@@ -533,7 +533,7 @@ body .container_tsptpp .pd_anhost-modal .modal_content-anhost .trips_upcoming_in
     gap: 10px;
   }
 }
-@media (max-width: 600px) {
+@media (max-width: 743px) {
   body .container_tsptpp .pd_anhost-modal .modal_content-anhost .trips_upcoming_inf {
     padding: 22px 24px !important;
   }
@@ -582,6 +582,9 @@ body .container_tscdpp .pd_anhost-modal .modal_content-anhost .trips_upcoming_in
   body .container_tscdpp .pd_anhost-modal .modal_content-anhost {
     max-width: 480px;
   }
+  body .container_tscdpp .pd_anhost-modal .modal_content-anhost .trips_upcoming_inf {
+    padding: 22px 24px !important;
+  }
   body .container_tscdpp .pd_anhost-modal .modal_content-anhost .bk-icon-des {
     gap: 10px;
   }
@@ -602,9 +605,9 @@ body .container_tscdpp .pd_anhost-modal .modal_content-anhost .trips_upcoming_in
     width: 38px;
   }
 }
-@media (max-width: 600px) {
+@media (max-width: 743px) {
   body .container_tscdpp .pd_anhost-modal .modal_content-anhost .trips_upcoming_inf {
-    padding: 22px 24px !important;
+    padding: 16px 24px !important;
   }
   body .container_tscdpp .pd_anhost-modal .modal_content-anhost .trips_upcoming_inf.pd-t0 {
     padding-top: 16px !important;
@@ -819,7 +822,7 @@ body .container_adpsbktrot2 .pd_anhost-modal .modal_content-anhost .mxw300 {
     gap: 5px;
   }
 }
-@media (max-width: 600px) {
+@media (max-width: 743px) {
   body .container_adpsbktrot2 .pd_anhost-modal .modal_content-anhost .mxw300 {
     max-width: 100%;
   }

@@ -1,11 +1,11 @@
 <div class="content-user-ics">
-    <div class="h2-guests">Things to know</div>
+    <div class="h2-guests skeleton skeleton_txt">Things to know</div>
 
     <div class="content-user-ics-rules mr-t24">
         <div class="_fw nrml">
-            <span class="_txtblu">House rules</span>
+            <span class="_txtblu skeleton skeleton_txt">House rules</span>
 
-            <div class="s-usr_icons">
+            <div class="s-usr_icons skeleton skeleton_txt">
                 <div class="_suis">
                     <img src="{{ URL::asset('assets/img/icons/reloj.svg') }}" alt="">
                 </div>
@@ -14,7 +14,7 @@
                 </div>
             </div>
 
-            <div class="s-usr_icons">
+            <div class="s-usr_icons skeleton skeleton_txt">
                 <div class="_suis">
                     <img src="{{ URL::asset('assets/img/icons/reloj.svg') }}" alt="">
                 </div>
@@ -23,7 +23,7 @@
                 </div>
             </div>
 
-            <div class="s-usr_icons">
+            <div class="s-usr_icons skeleton skeleton_txt">
                 <div class="_suis">
                     <img src="{{ URL::asset('assets/img/icons/self-black.svg') }}" alt="">
                 </div>
@@ -32,19 +32,16 @@
                 </div>
             </div>
 
-            @if ( $content['pets_allowed'] )
-                <div class="s-usr_icons">
-                    <div class="_suis">
-                        <img src="{{ URL::asset('assets/img/icons/pets.svg') }}" alt="">
-                    </div>
-                    <div class="_suisinfo">
-                        <div class="_txtec">Pets</div>
-                    </div>
+            <div class="s-usr_icons skeleton skeleton_txt">
+                <div class="_suis">
+                    <img src="{{ URL::asset('assets/img/icons/pets.svg') }}" alt="">
                 </div>
-            @endif
+                <div class="_suisinfo">
+                    <div class="_txtec">Pets</div>
+                </div>
+            </div>
 
-
-            <button type="button" class="txtunder__ics mr-t16 herls">
+            <button type="button" class="txtunder__ics mr-t16 herls skeleton">
                 <div class="fx fx-ai-b gp5">
                     <span class="">Show more</span>
                     <svg xmlns="http://www.w3.org/2000/svg" width="6.052" height="10.584" viewBox="0 0 6.052 10.584">
@@ -55,17 +52,17 @@
         </div>
 
         <div class="_fw nrml">
-            <span class="_txtblu" style="margin-bottom: 16px;">House & safety</span>
-            <div class="s-usr_icons">
+            <span class="_txtblu skeleton skeleton_txt" style="margin-bottom: 16px;">House & safety</span>
+            <div class="s-usr_icons skeleton skeleton_txt">
                 <div class="_suis">
                     <img src="{{ URL::asset('assets/img/icons/enhanced-black.svg') }}" alt="">
                 </div>
                 <div class="_suisinfo">
-                    <div class="_txtec">Committed to Vvoutlet enhanced cleaning process. Show more</div>
+                    <div class="_txtec">Committed to Airbnb's enhanced cleaning process. Show more</div>
                 </div>
             </div>
 
-            <div class="s-usr_icons">
+            <div class="s-usr_icons skeleton skeleton_txt">
                 <div class="_suis">
                     <img src="{{ URL::asset('assets/img/icons/covid.svg') }}" alt="">
                 </div>
@@ -74,7 +71,7 @@
                 </div>
             </div>
 
-            <div class="s-usr_icons">
+            <div class="s-usr_icons skeleton skeleton_txt">
                 <div class="_suis">
                     <img src="{{ URL::asset('assets/img/icons/alert.svg') }}" alt="">
                 </div>
@@ -83,7 +80,7 @@
                 </div>
             </div>
 
-            <div class="s-usr_icons">
+            <div class="s-usr_icons skeleton skeleton_txt">
                 <div class="_suis">
                     <img src="{{ URL::asset('assets/img/icons/alert.svg') }}" alt="">
                 </div>
@@ -92,7 +89,7 @@
                 </div>
             </div>
 
-            <div class="s-usr_icons">
+            <div class="s-usr_icons skeleton skeleton_txt">
                 <div class="_suis">
                     <img src="{{ URL::asset('assets/img/icons/alert.svg') }}" alt="">
                 </div>
@@ -101,7 +98,7 @@
                 </div>
             </div>
 
-            <button type="button" class="txtunder__ics mr-t16 hesfty">
+            <button type="button" class="txtunder__ics mr-t16 hesfty skeleton">
                 <div class="fx fx-ai-b gp5">
                     <span class="">Show more</span>
                     <svg xmlns="http://www.w3.org/2000/svg" width="6.052" height="10.584" viewBox="0 0 6.052 10.584">

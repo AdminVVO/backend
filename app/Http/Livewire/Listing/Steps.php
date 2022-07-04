@@ -151,7 +151,7 @@ class Steps extends Component
             $payload = $this->content['host'];
 
         if ( $payload === 'photos') {
-            $folderAuth = Auth::user()->name . '-' . Auth::id();
+            $folderAuth = Auth::id();
 
             if ( File::isDirectory( storage_path('app/public/tempFilepond/' . $folderAuth) ) )
                 File::deleteDirectory( storage_path('app/public/tempFilepond/' . $folderAuth) );
@@ -211,7 +211,7 @@ class Steps extends Component
             $this->saveData( $payload['content'], 'offers' );
             $this->imgShow = $this->ShowImg( $payload['img'] );
 
-            $folderAuth = Auth::user()->name . '-' . Auth::id();
+            $folderAuth = Auth::id();
 
             if ( File::isDirectory( storage_path('app/public/tempFilepond/' . $folderAuth) ) )
                 File::deleteDirectory( storage_path('app/public/tempFilepond/' . $folderAuth) );
@@ -281,7 +281,7 @@ class Steps extends Component
 
     public function sendChecklisting()
     {
-        $folderAuth = Auth::user()->name . '-' . Auth::id();
+        $folderAuth = Auth::id();
 
         if ( $this->listinEdit == '' ){
 
@@ -413,7 +413,7 @@ class Steps extends Component
 
         if ( File::isDirectory( storage_path('app/public/tempFilepond/' . $folderAuth) ) ){
             foreach ($this->content['photos'] as $key => $value) {
-                $explodeName = explode('-', $value);
+                $explodeName = explode('/', $value);
                     $fileIn = 'public/tempFilepond/' . $folderAuth . '/' . $explodeName[1];
                 $fileOut = 'public/uploadListing/' . $value;
 
@@ -435,7 +435,7 @@ class Steps extends Component
 
     public function saveToExit()
     {
-        $folderAuth = Auth::user()->name . '-' . Auth::id();
+        $folderAuth = Auth::id();
         
         if ( $this->content['host'] == '')
             return redirect()->route('listing');
@@ -656,7 +656,7 @@ class Steps extends Component
         $this->content['photos'] = $Listings['photos'];
         $this->content['oldPhotos'] = $Listings['photos'];
             if ( empty( $this->content['photos'] ) ) {
-                $folderAuth = Auth::user()->name . '-' . Auth::id();
+                $folderAuth = Auth::id();
 
                 if ( File::isDirectory( storage_path('app/public/tempFilepond/' . $folderAuth) ) )
                     File::deleteDirectory( storage_path('app/public/tempFilepond/' . $folderAuth) );

@@ -5,11 +5,9 @@
 @section('css')
 
     <link href="{{ URL::asset('assets/css/header-bck.css') }}" rel="stylesheet"/>
-    <link href="{{ URL::asset('assets/css/home.css') }}" rel="stylesheet"/>
     <link href="{{ URL::asset('assets/css/interna.css') }}" rel="stylesheet"/>
     <link href="{{ URL::asset('assets/css/owl.carousel.min.css') }}" rel="stylesheet"/>
     <link href="{{ URL::asset('assets/css/owl.theme.default.min.css') }}" rel="stylesheet"/>
-    <link href="{{ URL::asset('assets/css/modals-user.css') }}" rel="stylesheet"/>
 
 @endsection
 
@@ -24,7 +22,7 @@
     <section class="entero">
         <div class="medio">
             <div class="content_international">
-                <h1 class="h2_publish text_tm1" style="padding-right: 35px;">{{ $content['title'] }}</h1>
+                <h1 class="h2_publish text_tm1 skeleton skeleton_txt">{{ $content['title'] }}</h1>
 
                 {{-- Encabezado --}}
                     @include('interna.encabezado')
@@ -42,37 +40,37 @@
 
                         <div class="content-user_icons" style="justify-content: space-between; grid-row-gap: 16px;">
                             <div class="bk-icon-des_fbas gp16 mnw-p49_f49">
-                                <div class="dfjcacf0mw2">
+                                <div class="dfjcacf0mw2 skeleton">
                                     <img src="{{ URL::asset('assets/img/icons/hotel.png') }}" alt="">
                                 </div>
 
                                 <div>
-                                    <div class="_txteh">Entire home</div>
-                                    <div class="_txtec">You'll have the condominium to yourself.</div>
+                                    <div class="_txteh skeleton skeleton_txt">Entire home</div>
+                                    <div class="_txtec skeleton skeleton_txt">You'll have the condominium to yourself.</div>
                                 </div>
                             </div>
 
                             <div class="bk-icon-des_fbas gp16 mnw-p49_f49">
-                                <div class="dfjcacf0mw2">
+                                <div class="dfjcacf0mw2 skeleton">
                                     <img src="{{ URL::asset('assets/img/icons/self_check-in.svg') }}" alt="">
                                 </div>
 
                                 <div>
-                                    <div class="_txteh">Self check-in</div>
-                                    <div class="_txtec">Check yourself in with the keypad.</div>
+                                    <div class="_txteh skeleton skeleton_txt">Self check-in</div>
+                                    <div class="_txtec skeleton skeleton_txt">Check yourself in with the keypad.</div>
                                 </div>
                             </div>
 
                             <div class="bk-icon-des_fbas gp16 mnw-p49_f49">
-                                <div class="dfjcacf0mw2">
+                                <div class="dfjcacf0mw2 skeleton">
                                     <img src="{{ URL::asset('assets/img/icons/enhanced.svg') }}" alt="">
                                 </div>
 
                                 <div>
-                                    <div class="_txteh">Enhanced Clean</div>
-                                    <div class="_txtec">This Host committed to vvoutlet 5-step enhanced cleaning process.</div>
+                                    <div class="_txteh skeleton skeleton_txt">Enhanced Clean</div>
+                                    <div class="_txtec skeleton skeleton_txt">This Host committed to vvoutlet 5-step enhanced cleaning process.</div>
 
-                                    <button type="button" class="txtunder__ics mr-t6 enhancedcl">
+                                    <button type="button" class="txtunder__ics mr-t6 enhancedcl skeleton">
                                         <div class="fx fx-ai-b gp5">
                                             <span class="">Show more</span>
                                             <svg xmlns="http://www.w3.org/2000/svg" width="6.052" height="10.584" viewBox="0 0 6.052 10.584">
@@ -84,13 +82,13 @@
                             </div>
 
                             <div class="bk-icon-des_fbas gp16 mnw-p49_f49">
-                                <div class="dfjcacf0mw2">
+                                <div class="dfjcacf0mw2 skeleton">
                                     <img src="{{ URL::asset('assets/img/icons/great-location.svg') }}" alt="">
                                 </div>
 
                                 <div>
-                                    <div class="_txteh">Great location</div>
-                                    <div class="_txtec">95% of recent guests gave the location a 5-star rating.</div>
+                                    <div class="_txteh skeleton skeleton_txt">Great location</div>
+                                    <div class="_txtec skeleton skeleton_txt">95% of recent guests gave the location a 5-star rating.</div>
                                 </div>
                             </div>
                         </div>
@@ -102,6 +100,7 @@
 
                         {{-- Gallery Rooms --}}
                             @include('interna.gallery-room')
+
 
                         <div class="_line-hr"></div>
 
@@ -134,19 +133,18 @@
 
                         <div class="msgaround gp20 mr-t40">
                             <div class="_wcusermsg">
-                                <div class="_txteh">Cancellation policy</div>
-                                <div class="_txtec mr-t8" style="line-height: 24px;">Add your trip dates to get the cancellation details for this stay.</div>
+                                <div class="_txteh skeleton skeleton_txt">Cancellation policy</div>
+                                <div class="_txtec mr-t8 skeleton skeleton_txt" style="line-height: 24px;">Add your trip dates to get the cancellation details for this stay.</div>
                             </div>
 
                             <div>
-                                <button class="btn-celest">Add dates</button>
+                                <button class="btn-celest skeleton">Add dates</button>
                             </div>
                         </div>
                     </main>
 
                     {{-- Form Reservations --}}
-                        @include('interna.form-reserv')
-                        
+                        @livewire('interna.interna-form-reserve', ['listingId' => $content['id_listings'] ])
                 </div>
             </div>
 
@@ -154,13 +152,13 @@
                 <div class="entero">
                     <div class="medio">
                         <div class="_asideflex">
-                            <div class="block_prec-res">
+                            <div class="block_prec-res skeleton">
                                 <span class="opac">$/345</span>
                                 <span class="prec_black">$/446</span>
                                 <span class="txt_night">/night</span>
                             </div>
 
-                            <button type="button" class="btn-celest rscrm">Reserve</button>
+                            <button type="button" class="btn-celest rscrm skeleton">Reserve</button>
                         </div>
                     </div>
                 </div>
@@ -181,13 +179,19 @@
         @include('interna.modals.shared')
 
         {{-- Modal Favority --}}
-        @include('interna.modals.favority')
+        @include('home.modals.favorite')
 
         {{-- Modal Rulers Safety --}}
         @include('interna.modals.ruler-safety')
 
         {{-- Modal Rulers --}}
         @include('interna.modals.rulers')
+
+        {{-- Modal Enchanced Clean --}}
+        @include('interna.modals.enhanced-clean')
+
+        {{-- Modal Enchanced Clean --}}
+        @include('interna.modals.amenitles')
 
 
     @endsection
@@ -202,89 +206,77 @@
     <script>
         lightbox(document.getElementById('gallery-container'));
 
-        var picker = new Lightpick({
-            field: document.getElementById('showPicker-interna'),
-            inline: true,
-            selectForward: true,
-            singleDate: false,
-            hoveringTooltip: false,
-            numberOfMonths: 2,
-            minDate: moment().startOf('MMMM D, YYYY').add(0, 'day'),
-            onSelect: function(start, end){
-                var str = '';
-                str += start ? start.format('MMM DD, YYYY') + ' - ' : 'Add your travel dates for exact pricing';
-                str += end ? end.format('MMM DD, YYYY') : '';
-                document.getElementById('show__date-fechas').innerHTML = str;
-            },
-            footer: true,
-            locale: {
-                buttons: {
-                    prev: '',
-                    next: '',
-                    reset: 'Clear dates',
-                    apply: ''
-                }
-            }
-        });
-        
-        const modalImgsG = document.querySelector('._img-modal');
-        const gallerysList = document.querySelectorAll('._pbkgallery');
-        gallerysList.forEach((list) => {
-            const view = list.querySelector('._link-img');
-            const galleryImg = list.querySelector('._img-wh').getAttribute('src');
-
-            view.addEventListener('click', () => {
-                modalImgsG.setAttribute('src', galleryImg);
-            });
-        });
-        $(document).ready(function() {
-            $('._cgprelright ._pbkgallery').click(function(){
-               $('._pbkgallery').removeClass("active");
-               $(this).addClass("active");
-            });
-        });
-        $(".show_all-photos-interna").on("click", function() {
-            $(".container_gallerys").addClass("keyframes_animate").css({
-                'top': '0',
-                'opacity': '1',
-                'visibility': 'visible'
-            });
-
-            $(this).parents(".page-category").css({'overflow': 'hidden'});
-        });
-        $(".btn-x_galls").on("click", function() {
-            $(".container_gallerys").removeClass("keyframes_animate").css({
-                'top': '100vh',
-                'opacity': '0',
-                'visibility': 'hidden'
-            });
-
-            $(this).parents(".page-category").css({'overflow': 'auto'});
+        window.addEventListener('closedModalFavority', event => {
+            console.log("closedModalFavority");
+            $(".container_user-host, .container_admin-host, .container_preview_guests_pay").hide();
+            $(".page-category").css({'overflow': 'auto'});
         })
 
-        function animateTopModals() {
-            $('html, body').animate({
-                scrollTop: $("body").offset().top
-            }, 0);
+        const pickerHome = new easepick.create({
+            element: '#easypickHome',
+            css: [
+                'https://cdn.jsdelivr.net/npm/@easepick/core@1.2.0/dist/index.css',
+                'https://cdn.jsdelivr.net/npm/@easepick/range-plugin@1.2.0/dist/index.css',
+            ],
+            plugins: ['RangePlugin'],
+            format: 'DD MMM',
+            calendars: 2,
+            grid: 2,
+            autoApply: false,
+                tooltip: true,
+                locale: {
+                    one: 'day',
+                    other: 'days',
+                },
+            RangePlugin: {
+                elementEnd: '#endEasypickHome',
+            },
+            setup(pickerHome) {
+                pickerHome.on('select', (e) => {
+                var content = [
+                    startDate = pickerHome.getStartDate(),
+                    endDate = pickerHome.getEndDate(),
+                ];
+                Livewire.emitTo('home.search-places', 'selectDate', content )
+              });
+            },
+        });
+        $('.endEasypick').click(function(event) {
+            pickerHome.show();
+        });
 
-            $(".page-category").css({'overflow': 'hidden'});
-        }
-        $(".abspc").on("click", function() {
-            $(".container_about-space").show();
-            animateTopModals();
-        });
-        $(".hesfty").on("click", function() {
-            $(".container_house-safety").show();
-            animateTopModals();
-        });
-        $(".herls").on("click", function() {
-            $(".container_house-rules").show();
-            animateTopModals();
-        });
-        $(".showFavorite").on("click", function() {
-            animateTopModals();
-            $(".container-wishlists-create").show();
+        const pickerInterna = new easepick.create({
+            element: '#easypickInterna',
+            css: [
+                'https://cdn.jsdelivr.net/npm/@easepick/core@1.2.0/dist/index.css',
+                'https://cdn.jsdelivr.net/npm/@easepick/range-plugin@1.2.0/dist/index.css',
+                'https://cdn.jsdelivr.net/npm/@easepick/lock-plugin@1.2.0/dist/index.css',
+            ],
+            plugins: ['RangePlugin','LockPlugin'],
+            format: 'DD MMM',
+            calendars: 2,
+            grid: 2,
+            autoApply: true,
+            inline: true,
+            tooltip: true,
+            locale: {
+                one: 'day',
+                other: 'days',
+            },
+            LockPlugin: {
+              minDate: new Date(),
+            },
+            setup(pickerInterna) {
+                pickerInterna.on('select', (e) => {
+                var content = [
+                    startDate = pickerInterna.getStartDate(),
+                    endDate = pickerInterna.getEndDate(),
+                ];
+                // Livewire.emitTo('home.search-places', 'selectDate', content )
+              });
+            },
         });
 
-     </script>
+
+    </script>
 @endsection

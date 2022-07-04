@@ -18,4 +18,8 @@ class Profile extends Model
         'work',
         'user_id',
     ];
+
+    protected $casts = [
+        'language' => 'array',
+    ];
 }

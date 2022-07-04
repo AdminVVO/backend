@@ -514,7 +514,7 @@ body {
                     }
                 }
 
-                @include responsive(600px) {
+                @include responsive(743px) {
                     .left_trips_popup_cont {
                         flex: 1 1 0%;
                         margin-top: 0;
@@ -588,7 +588,7 @@ body {
                     max-width: 480px;
 
                     .trips_upcoming_inf {
-                        padding: 16px 35px !important;
+                        padding: 16px 24px !important;
                     }
 
                     .show_profile {
@@ -601,7 +601,7 @@ body {
                     }
                 }
 
-                @include responsive(600px) {
+                @include responsive(743px) {
                     .trips_upcoming_inf {
                         padding: 22px 24px !important;
 
@@ -670,6 +670,10 @@ body {
                 @include responsive(1400px) {
                     max-width: 480px;
 
+                    .trips_upcoming_inf {
+                        padding: 22px 24px !important;
+                    }
+
                     .bk-icon-des {
                        gap: 10px;
                     }
@@ -696,9 +700,9 @@ body {
                     }
                 }
 
-                @include responsive(600px) {
+                @include responsive(743px) {
                     .trips_upcoming_inf {
-                        padding: 22px 24px !important;
+                        padding: 16px 24px !important;
 
                         &.pd-t0 {
                             padding-top: 16px !important;
@@ -972,7 +976,7 @@ body {
                     }
                 }
 
-                @include responsive(600px) {
+                @include responsive(743px) {
                     .mxw300 {
                         max-width: 100%;
                     }

@@ -1,8 +1,8 @@
-<div class="content-gallery">
+<div class="content-gallery skeleton">
     <div class="_cgprel">
         <div class="_cgprelleft">
             <div class="_whg">
-                <button aria-label="Mostrar todas las fotos" class="_block-gallery-mg hovr_gllrybef show_all-photos-interna">
+                <button aria-label="Mostrar todas las fotos" class="_block-gallery-mg hovr_gllrybef show_all-photos-interna skeleton">
                     <div class="_link-img">
                         <div class="_bgcont">
                             <img class="_img-wh _img-modal" alt="" src="{{ URL::asset('storage/uploadListing/' . $content['photos'][0] ) }}">
@@ -27,7 +27,7 @@
             <div class="scroll_n">
                 <div class="_whg _w">
                     @foreach ($content['photos'] as $element)
-                        <div class="_pbkgallery @if ( $loop->first ) active @endif">
+                        <div class="_pbkgallery @if ( $loop->first ) active @endif skeleton">
                             <div class="_whg">
                                 <div class="_block-gallery-mg">
                                     <div class="_link-img">

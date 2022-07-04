@@ -4,6 +4,52 @@
 .content_questions {
     height: 928px;
 
+    ._block-questions-host {
+        width: 77.21%;
+        text-align: center;
+        margin: 0 auto 0;
+
+        .h2-guests_bold35 {
+            @include responsive(1440px) {
+                font-size: 25px;
+            }
+        }
+
+        .h2-guests_black60 {
+            margin: 11px 0 1px;
+
+            .span_fs60-red {
+                @include responsive(1440px) {
+                    font-size: 50px;
+                }
+
+                @include responsive(570px) {
+                    font-size: 8.8vw;
+                }
+            }
+
+            @include responsive(1440px) {
+                font-size: 50px;
+                margin: 0 0 8px;
+            }
+
+            @include responsive(570px) {
+                font-size: 8.8vw;
+            }
+        }
+
+        .h2-guests_35 {
+            @include responsive(1440px) {
+                line-height: normal;
+                font-size: 22px;
+            }
+        }
+
+        @include responsive(743px) {
+            width: 100%;
+        }
+    }
+
     @include responsive(1440px) {
         height: 880px;
     }
@@ -27,51 +73,6 @@
     @include responsive(470px) {
         height: 712px;
     }
-
-    ._block-questions-host {
-        width: 77.21%;
-        text-align: center;
-        margin: 0 auto 0;
-
-        @include responsive(930px) {
-            width: 100%;
-        }
-
-        .h2-guests_bold35 {
-            @include responsive(1440px) {
-                font-size: 25px;
-            }
-        }
-
-        .h2-guests_black60 {
-            margin: 11px 0 1px;
-            @include responsive(1440px) {
-                font-size: 50px;
-                margin: 0 0 8px;
-            }
-
-            @include responsive(570px) {
-                font-size: 8.8vw;
-            }
-
-            .span_fs60-red {
-                @include responsive(1440px) {
-                    font-size: 50px;
-                }
-
-                @include responsive(570px) {
-                    font-size: 8.8vw;
-                }
-            }
-        }
-
-        .h2-guests_35 {
-            @include responsive(1440px) {
-                line-height: normal;
-                font-size: 25px;
-            }
-        }
-    }
 }
 
 ._pabslg {
@@ -79,6 +80,7 @@
     max-width: 1599px;
     width: 100%;
     bottom: 122px;
+    padding: 0 24px;
     z-index: -1;
 }
 
@@ -91,7 +93,7 @@
     z-index: -1;
 
     @include responsive(930px) {
-        max-width: 540px;
+        max-width: 552px;
     }
 
     @include responsive(720px) {
@@ -108,6 +110,7 @@
 }
 
 .wo_home-questions {
+    position: relative;
     background-image: url("../img/card/questions2.jpg");
     min-height: 600px;
     background-size: cover;
@@ -118,8 +121,30 @@
     }
 
     .btn-red {
-        padding: 16px 50px;
         margin-top: 30px;
+    }
+
+    @include responsive(743px) {
+        min-height: 350px;
+
+        &::before {
+            content: "";
+            position: absolute;
+            background: rgba(51, 51, 51, 0.4);
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        ._mr-quest {
+            z-index: 2;
+            text-align: center;
+        }
+
+        .h2-guests_white60 {
+            font-size: 35px;
+            line-height: normal;
+        }
     }
 }
 
@@ -131,14 +156,26 @@
         justify-content: center;
         align-items: center;
 
-        @include responsive(900px) {
-            flex-direction: column;
-        }
-
         img {
             margin-right: 80px;
+        }
+    }
 
-            @include responsive(900px) {
+    @include responsive(1400px) {
+        margin: 80px 0;
+
+        .medio {
+            img  {
+                width: 275px;
+            }
+        }
+    }
+
+    @include responsive(743px) {
+        .medio {
+            flex-direction: column;
+
+            img  {
                 margin-right: 0;
                 margin-bottom: 20px;
             }
@@ -158,14 +195,10 @@
     flex-wrap: wrap;
     justify-content: space-between;
 
-    @include responsive(900px) {
-        flex-direction: column;
-    }
-
     &:nth-child(2) {
         flex-direction: row-reverse;
 
-        @include responsive(900px) {
+        @include responsive(743px) {
             flex-direction: column;
         }
     }
@@ -173,7 +206,7 @@
     &:nth-child(4) {
         flex-direction: row-reverse;
 
-        @include responsive(900px) {
+        @include responsive(743px) {
             flex-direction: column;
         }
     }
@@ -184,15 +217,19 @@
         overflow: hidden;
         border-radius: 10px;
 
-        @include responsive(900px) {
-            width: 100%;
-            margin-bottom: 28px;
-        }
-
         img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+        }
+
+        @include responsive(1400px) {
+            height: 265px;
+        }
+
+        @include responsive(743px) {
+            width: 100%;
+            margin-bottom: 28px;
         }
     }
 
@@ -201,19 +238,35 @@
         padding-bottom: 0;
         width: 28.3%;
 
-        @include responsive(900px) {
-            width: 100%;
-        }
-
         .s-usr_icons {
             flex: 0 0 100%;
             max-width: 100%;
             margin-bottom: 0;
+
+            ._txteh {
+                margin-bottom: 8px;
+            }
         }
+
+        @include responsive(1400px) {
+            width: 33.33%;
+        }
+
+        @include responsive(743px) {
+            width: 100%;
+        }
+    }
+
+    @include responsive(743px) {
+        flex-direction: column;
     }
 }
 
 .btn-red_center {
     margin: 40px 0 54px;
     text-align: center;
+
+    @include responsive(1400px) {
+        margin: 40px 0 0;
+    }
 }

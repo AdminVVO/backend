@@ -18,7 +18,6 @@ class DatabaseSeeder extends Seeder
         ## Main Seeders
         $this->call([TimezoneSeeder::class]);
         $this->call([CurrencsSeeder::class]);
-        $this->call([CategorySeeder::class]);
         $this->call([LanguagesRegionsSeeder::class]);
         $this->call([RoomsPropertySeeder::class]);
         $this->call([AmenitiesSafetySeeder::class]);
@@ -28,7 +27,6 @@ class DatabaseSeeder extends Seeder
 
         ## Secondary Seeders
         $this->call([UserSeeder::class]);
-        $this->call([CardCategorySeeder::class]);
         
         // $this->call([Chats::class]);
         // $this->call([MessageChats::class]);

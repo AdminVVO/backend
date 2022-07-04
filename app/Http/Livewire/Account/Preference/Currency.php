@@ -13,45 +13,39 @@ class Currency extends Component
 {
     use LivewireAlert;
 
-    public $currency = null;
-    public $currencyFormt = [];
-    public $classActive = false;
-    public $qcurrency = [];
+    public $currency;
+    public $currencyShow;
+    public $inputCurrency;
 
     public function mount()
     {
-        $this->currency = Auth::user()->currency_default;
+        $this->inputCurrency = Auth::user()->currency_default;
+        $this->currency = Currencs::distinct('code')->pluck('name', 'code');
+
+        foreach ($this->currency as $key => $value) {
+            if ( in_array($key, [ $this->inputCurrency ]) ) {
+                $this->currencyShow['name'] = $value;
+                $this->currencyShow['code'] = $key;
+            }
+        }
     }
 
     public function render()
     {
-        $this->qcurrency = Currencs::select('code', 'name')->distinct('code')->get();
-
-        foreach ($this->qcurrency as $key => $value) {
-            if ( in_array($value['code'], [ $this->currency ]) ) {
-                $this->currencyFormt['name'] = $value['name'];
-                $this->currencyFormt['code'] = $value['code'];
-            }
-        }
-
         return view('livewire.account.preference.currency');
     }
 
-    public function statusUpdate()
+    public function reloadInputsInvers()
     {
-        $this->resetInput();
-        $this->currency = Auth::user()->currency_default;
-    }
-
-    public function changeCurrency($payload)
-    {
-        $this->currency = $payload;
+        $currency = Currencs::where('code', $this->inputCurrency )->select('name','code')->first();
+            $this->currencyShow['name'] = $currency['name'];
+            $this->currencyShow['code'] = $currency['code'];
     }
 
     public function submitCurrency()
-    {   
+    {      
         $validation = Validator::make([
-           'currency'      => $this->currency,
+           'currency'      => $this->inputCurrency,
         ],[
             'currency'      => 'required|exists:currencs,code',
         ]);
@@ -63,18 +57,11 @@ class Currency extends Component
         User::where([
             'id_user' => Auth::id(),
         ])->update([
-            'currency_default' => $this->currency,
+            'currency_default' => $this->inputCurrency,
         ]);
 
-        $this->resetInput();
-
+        $this->reloadInputsInvers();
+        $this->dispatchBrowserEvent('closedEditContainer');
         $this->alert('success', 'Update has been successful!');
-    }
-
-    private function resetInput()
-    {
-        $this->classActive = !$this->classActive; 
-        $this->currency = null;
-        $this->resetValidation();
     }
 }

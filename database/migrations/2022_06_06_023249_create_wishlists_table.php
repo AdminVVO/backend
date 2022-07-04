@@ -18,7 +18,7 @@ class CreateWishlistsTable extends Migration
             $table->string('name');
             $table->string('avatar');
 
-            $table->unsignedInteger('user_id');
+            $table->uuid('user_id');
             $table->foreign('user_id')
                 ->references('id_user')
                 ->on('users')

@@ -85,7 +85,11 @@
             <div class="menu _header-menu">
                 <a href="#" class="menu_perfil">
                     <span>
-                        <img src="{{ URL::asset('assets/img/avatar') }}/{{ \App\Models\User::Avatar() }}" alt="">
+                        @if ( file_exists( storage_path('app/public/uploadAvatar/' . Auth::user()->avatar  ) ) )
+                            <img src="{{ URL::asset('storage/uploadAvatar/') .'/'. Auth::user()->avatar  }}" loading="lazy" alt="">
+                        @else
+                            <img src="{{ URL::asset('assets/img/avatar') }}/{{ Auth::user()->avatar }}" loading="lazy" alt="">
+                        @endif
                         {{  \App\Models\User::FullName() }}
                     </span>
                 </a>

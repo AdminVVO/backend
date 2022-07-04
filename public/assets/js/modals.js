@@ -288,18 +288,6 @@ $(document).ready(function() {
     });
 
 
-
-    // perfil-interno.php - click add more leng | speak
-    $(".add_more-leng").click(function() {
-        $(".add_more_leng_show").css({'display': 'flex'});
-        $(".add_more-leng").hide();
-    });
-
-    $(".add_more.txtred_x").click(function() {
-        $(this).parent(".input_border").hide();
-    });
-
-
     // TODOS LOS TEXTAREA SEA AUTOMATICO AL ESCRIBIR ALTO
     // $("textarea").keyup(function(e) {
     //     while($(this).outerHeight() < this.scrollHeight + parseFloat($(this).css("borderTopWidth")) + parseFloat($(this).css("borderBottomWidth"))) {
@@ -581,29 +569,29 @@ $(document).ready(function() {
 
 
 // imagenes +5 more
-$(document).ready(moreImgsPerfls);
-function moreImgsPerfls() {
-    var obj = $(this).find(".imgs_more").find("._pf-msg");
+// $(document).ready(moreImgsPerfls);
+// function moreImgsPerfls() {
+//     var obj = $(".container_tsptpp .imgs_more").find("._pf-msg");
 
-    $.each(obj, function(i) {
-        if ((i + 1) >= 5) {
-            let $lis = $(".imgs_more ._pf-msg");
-            activo = 0;
+//     $.each(obj, function(i) {
+//         if ((i + 1) >= 5) {
+//             let $lis = $(".container_tsptpp .imgs_more").find("._pf-msg");
+//             activo = 0;
             
-            if (activo = 3) {
-                $lis.eq(activo).addClass("show_more_imgs");
-                $(".show_more_imgs img").before($("._moreusrmsg").appendTo(".show_more_imgs"));
-            }
+//             if (activo = 3) {
+//                 $lis.eq(activo).addClass("show_more_imgs");
+//                 $(".show_more_imgs img").before($("._moreusrmsg").appendTo(".show_more_imgs"));
+//             }
 
-            $("._moreusrmsg ._nswusrs-js").html(i - 3);
+//             $("._moreusrmsg ._nswusrs-js").html(i - 3);
 
-            if((i - 3) >= 10) {
-                $("._moreusrmsg ._nswusrs-js").html(9);
-                $(this).closest("._pf-msg").remove();
-            }
-        }
-    });
-}
+//             if ((i - 3) >= 10) {
+//                 $("._moreusrmsg ._nswusrs-js").html(9);
+//                 $(this).closest("._pf-msg").remove();
+//             }
+//         }
+//     });
+// }
 
 // messages - modal del icono denunciar check other y se abrira el textarea
 function hideShowJacks(val) {

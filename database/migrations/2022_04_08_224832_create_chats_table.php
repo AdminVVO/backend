@@ -24,13 +24,13 @@ class CreateChatsTable extends Migration
             $table->boolean('order_receiver')->default(false);
             $table->boolean('order_transmitter')->default(false);
 
-            $table->unsignedInteger('transmitter_id');
+            $table->uuid('transmitter_id');
             $table->foreign('transmitter_id')
                 ->references('id_user')
                 ->on('users')
                 ->onDelete('cascade');
 
-            $table->unsignedInteger('receiver_id');
+            $table->uuid('receiver_id');
             $table->foreign('receiver_id')
                 ->references('id_user')
                 ->on('users')

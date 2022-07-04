@@ -164,7 +164,5 @@ class SearchPlaces extends Component
                     if ( $this->inputPets <= 1 ) 
                         $this->disableButton['Decrease']['pets'] = true;
             }
-
-        $this->alert('success', 'Update has been successful!');
     }
 }
