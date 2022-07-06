@@ -1,46 +1,64 @@
 @extends('layouts.App')
 
-@section('title') Account @endsection
+@section('title')
+    Account
+@endsection
 
 @section('css')
-
-    <link href="{{ URL::asset('assets/css/header-admin.css') }}" rel="stylesheet"/>
-    <link href="{{ URL::asset('assets/css/payments.css') }}" rel="stylesheet"/>
-
+    <link href="{{ URL::asset('assets/css/header-admin.css') }}" rel="stylesheet" />
+    <link href="{{ URL::asset('assets/css/payments.css') }}" rel="stylesheet" />
 @endsection
 
 @section('header')
-
     @include('layouts.HeaderAuth')
-
 @endsection
 
 @section('content')
-
     <section class="entero">
         <div class="medio-two">
             <div class="section-payments">
                 <main class="section-payments_main">
-                    <div class="_flex-right16">
-                        <a href="{{ route('account') }}" class="_txtec16">Account</a><i class="fas fa-chevron-right"></i><span class="_txtecbold16">Payments & payouts</span>
+                    <div class="_flex-right16 skeleton skeleton_txt">
+                        <a href="{{ route('account') }}" class="_txtec16">Account</a><i
+                            class="fas fa-chevron-right"></i><span class="_txtecbold16">Payments & payouts</span>
                     </div>
-                    <h2 class="h2-guests_bold35">Payments & payouts</h2>
+                    <h2 class="h2-guests_bold35 skeleton skeleton_txt">Payments & payouts</h2>
 
                     <div class="content-scroll-local">
-                        <div class="_block">
-                            <div class="tabs_items_group">
-                                <h3 class="tabs_items tabs_payments active_tabs">Payments</h3>
-                                <h3 class="tabs_items tabs_payouts">Payouts</h3>
-                                <h3 class="tabs_items tabs_taxes">Taxes</h3>
-                                <h3 class="tabs_items tabs_service-fee">Service fee</h3>
-                                <h3 class="tabs_items tabs_guest-contri">Guest Contributions</h3>
-                            </div>
-                        </div>
+                        <div class="navcont__flech-fx">
+                            <div class="cont_nav js__cont_nav">
+                                <div class="nav__links-txt tab-container">
+                                    <button class="tabs_items tabs_payments active_tabs"
+                                        class="li__links-txt tabs_payments skeleton">
+                                        <span class="tabs_items active_tabs">Payments
+                                        </span>
+                                    </button>
 
-                        <div class="btn-right-scroll">
-                            <span class="bg-btn-right">
-                                <i class="fas fa-chevron-right"></i>
-                            </span>
+                                    <button type="button" class="li__links-txt tabs_payouts skeleton">
+                                        <span class="tabs_items">
+                                            <span class="skeleton skeleton_txt">Payouts</span>
+                                        </span>
+                                    </button>
+
+                                    <button type="button" class="li__links-txt tabs_taxes skeleton">
+                                        <span class="tabs_items">
+                                            <span class="skeleton skeleton_txt">Taxes</span>
+                                        </span>
+                                    </button>
+
+                                    <button type="button" class="li__links-txt tabs_service-fee skeleton">
+                                        <span class="tabs_items">
+                                            <span class="skeleton skeleton_txt">Service fee</span>
+                                        </span>
+                                    </button>
+
+                                    <button type="button" class="li__links-txt tabs_guest-contri skeleton">
+                                        <span class="tabs_items">
+                                            <span class="skeleton skeleton_txt">Guest contributions</span>
+                                        </span>
+                                    </button>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
@@ -64,7 +82,7 @@
                         @livewire('account.payments.content.service-fee')
                     </div>
 
-                    {{-- Guest Contrib--}}
+                    {{-- Guest Contrib --}}
                     <div class="_cont-gc" style="display: none;">
                         @livewire('account.payments.content.guest-contrib')
                     </div>
@@ -85,13 +103,13 @@
                 <aside class="section-payments_aside _cont-ein" style="display: none;">
                     @livewire('account.payments.info.taxes')
                 </aside>
-                
+
                 {{-- Service fee --}}
                 <aside class="section-payments_aside _cont-sf" style="display: none;">
                     @livewire('account.payments.info.service-fee')
                 </aside>
 
-                {{-- Guest Contrib--}}
+                {{-- Guest Contrib --}}
                 <aside class="section-payments_aside _cont-gc" style="display: none;">
                     @livewire('account.payments.info.guest-contrib')
                 </aside>
@@ -99,12 +117,8 @@
             </div>
         </div>
     </section>
-
-
-
 @endsection
 
-
 @section('script')
-
+    <script src="{{ URL::asset('assets/js/modals-min.js') }}"></script>
 @endsection

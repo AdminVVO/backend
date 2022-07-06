@@ -92,9 +92,6 @@ a {
 .section-payments_main ._cont-payout ._block {
   margin: 16px 0 37px;
 }
-.section-payments_main ._cont-payout ._block ._txteh {
-  margin-top: 18px;
-}
 .section-payments_main ._cont-2 {
   margin-top: 48px;
 }
@@ -230,10 +227,14 @@ a {
   .page_payments .section-payments_main ._block {
     margin: 16px 0 24px;
   }
-  .page_payments .section-payments_main ._cont-sf ._gap-news {
+  .page_payments .section-payments_main ._cont-sf ._gap-news,
+.page_payments .section-payments_main ._cont-ein ._gap-news,
+.page_payments .section-payments_main ._cont-payout ._gap-news {
     margin: 16px 0 24px;
   }
-  .page_payments .section-payments_main ._cont-sf ._block {
+  .page_payments .section-payments_main ._cont-sf ._block,
+.page_payments .section-payments_main ._cont-ein ._block,
+.page_payments .section-payments_main ._cont-payout ._block {
     gap: 16px;
   }
   .page_payments .section-payments_main .content-scroll-local {
@@ -306,6 +307,10 @@ a {
     font-size: 22px;
     line-height: 26px;
     letter-spacing: -0.6px;
+  }
+  .page_payments .section-payments_main .h2-guests {
+    font-size: 18px;
+    line-height: normal;
   }
   .page_payments .section-payments_aside {
     display: none !important;

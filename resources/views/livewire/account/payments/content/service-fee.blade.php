@@ -38,4 +38,8 @@
             </label>
         </div>
     </div>
+    <div class="_block">
+        <button class="btn-celest">Save</button>
+        <button class="btn-red">Cancel</button>
+    </div>
 </div>

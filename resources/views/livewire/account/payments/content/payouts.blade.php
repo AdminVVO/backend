@@ -13,16 +13,15 @@
     </div>
 
     @if ( $showModal )
-        <div class="container_add-payments">
+        <div class="container_add-payments" style="display: block" wire:ignore.self>
             <div class="modal-addpymts"></div>
 
             <div class="pd_addpymts-modal">
                 <div class="_z4lmgp">
                     <div class="modal_content-addpymts">
-                        <div class="close" wire:click="closeModal()">
-                            <span>X</span>
+                        <div class="fx fx-jc-e">
+                            <button type="button" class="cwhfcbbpfx closeUserModal"  wire:click="closeModal()">X</button>
                         </div>
-
                         {{-- Modal Principal --}}
                         @if ( $modalOne )
                             <div class="modal_block">
