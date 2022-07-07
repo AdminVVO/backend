@@ -138,7 +138,7 @@
                                     </label>
 
                                     <label>
-                                        <input type="checkbox" wire:model.defer="favorites" value="TV">
+                                        <input type="checkbox" wire:model.defer="favorites" value="tv">
                                         <div class="_contmini-list">
                                             <div class="_img-fondo">
                                                 <img src="{{ URL::asset('assets/img/card/fav11.jpg') }}" alt="">

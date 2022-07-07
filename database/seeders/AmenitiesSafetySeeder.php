@@ -190,6 +190,12 @@ class AmenitiesSafetySeeder extends Seeder
                 'typeList' => 'entertainment'
             ],
             [
+                'code'     => 'pool_table',
+                'name'     => 'Pool table',
+                'type'     => 'amenities',
+                'typeList' => 'entertainment'
+            ],
+            [
                 'code'     => 'record_player',
                 'name'     => 'Record player',
                 'type'     => 'amenities',

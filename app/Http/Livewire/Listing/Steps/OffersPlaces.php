@@ -32,7 +32,7 @@ class OffersPlaces extends Component
            'safety' => $this->safety,
         ],[
             'amenities' => 'required|array|in:pool,hot_tub,patio,bbq_grill,fire_pit,pool_table,indoor_fireplace,outdoor_dining,exercise_equipment',
-            'favorites' => 'required|array|in:wifi,TV,kitchen,washer,free_parking,paid_parking,air_conditioning,dedicated_worspace,outdoor_shower',
+            'favorites' => 'required|array|in:wifi,tv,kitchen,washer,free_parking,paid_parking,air_conditioning,dedicated_worspace,outdoor_shower',
             'safety' => 'required|array|in:smoke_alarm,first_kit,monoxide_alarm,fire_extinguisher',
         ]);
 

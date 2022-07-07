@@ -30,7 +30,7 @@
                         </svg>
                         <p class="_txteh">We will never share your identification document with a host.</p>
                     </div>
-                    <button type="button" class="btn-celest mr-t39">Done</button>
+                    <a href="/" class="btn-celest mr-t39">Done</a>
                 </div>
             </div>
         </div>
