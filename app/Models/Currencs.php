@@ -28,4 +28,9 @@ class Currencs extends Model
         'deleted_at',
         'id_currencs',
     ];
+
+    public function scopeSymbol($query, $code)
+    {
+            return $this->where('code', $code)->pluck('symbol')->first();
+    }
 }

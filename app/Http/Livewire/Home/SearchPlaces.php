@@ -53,10 +53,14 @@ class SearchPlaces extends Component
         return view('livewire.home.search-places');
     }
 
-    public function selectDate($paylaod)
+    public function selectDate($payload)
     {
-        $this->inputDateIn = Carbon::createFromDate( $paylaod[0] )->format('d-m-Y');
-        $this->inputDateOut = Carbon::createFromDate( $paylaod[1] )->format('d-m-Y');
+        $this->inputDateIn = Carbon::createFromDate( $payload[0] )->format('d-m-Y');
+        $this->inputDateOut = Carbon::createFromDate( $payload[1] )->format('d-m-Y');
+        $this->dispatchBrowserEvent('reloadDateInputs', [
+            'inputDateIn' => $payload[0],
+            'inputDateOut' => $payload[1],
+        ]);
     }
 
     public function SubmitPlaces()

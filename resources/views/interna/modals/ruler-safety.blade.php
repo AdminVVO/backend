@@ -13,7 +13,7 @@
                         <div class="popup-house-safety">
                             <div class="bfxgp">
                                 <div>
-                                    <h2 class="h2_publish" style="margin-bottom: 32px;">House rules</h2>
+                                    <h2 class="h2_publish" style="margin-bottom: 32px;">Health & safety</h2>
 
                                     <div class="_fw nrml">
                                         <div class="s-usr_icons">
@@ -21,7 +21,7 @@
                                                 <img src="{{ URL::asset('assets/img/icons/enhanced-black.svg') }}" alt="">
                                             </div>
                                             <div class="_suisinfo">
-                                                <div class="_txtec">Committed to Airbnb's enhanced cleaning process. Show more</div>
+                                                <div class="_txtec">Committed to Vvoutlet enhanced cleaning process.</div>
                                             </div>
                                         </div>
 
@@ -30,7 +30,7 @@
                                                 <img src="{{ URL::asset('assets/img/icons/covid.svg') }}" alt="">
                                             </div>
                                             <div class="_suisinfo">
-                                                <div class="_txtec">vvoutlet social-distancing and other COVID-19-related guidelines apply</div>
+                                                <div class="_txtec">Vvoutlet social-distancing and other COVID-19-related guidelines apply</div>
                                             </div>
                                         </div>
 
@@ -39,44 +39,28 @@
                                                 <img src="{{ URL::asset('assets/img/icons/alert.svg') }}" alt="">
                                             </div>
                                             <div class="_suisinfo">
-                                                <div class="_txtec">No smoke alarm</div>
-                                            </div>
-                                        </div>
-
-                                        <div class="s-usr_icons">
-                                            <div class="_suis">
-                                                <img src="{{ URL::asset('assets/img/icons/alert.svg') }}" alt="">
-                                            </div>
-                                            <div class="_suisinfo">
-                                                <div class="_txtec">Nearby lake, river, other body of water</div>
-                                            </div>
-                                        </div>
-
-                                        <div class="s-usr_icons">
-                                            <div class="_suis">
-                                                <img src="{{ URL::asset('assets/img/icons/alert.svg') }}" alt="">
-                                            </div>
-                                            <div class="_suisinfo">
-                                                <div class="_txtec">Heights without rails or protection</div>
+                                                <div class="_txtec">{{ in_array('smoke_alarm', $content['amenities']) ? 'Allow' : 'No' }} smoke alarm</div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
 
-                                <div class="cont">
-                                    <h3 class="_txtblu fs25 mr">You must also acknowledge</h3>
+                                @if ( $content['security_deposit'] != null )
+                                    <div class="cont">
+                                        <h3 class="_txtblu fs25 mr">You must also acknowledge</h3>
 
-                                    <div class="_fw nrml">
-                                        <div class="s-usr_icons">
-                                            <div class="_suis">
-                                                <img src="{{ URL::asset('assets/img/icons/tarjet-security.svg') }}" alt="">
-                                            </div>
-                                            <div class="_suisinfo">
-                                                <div class="_txtec">Security Deposit - if you damage the home, you may be charged up to S/807</div>
+                                        <div class="_fw nrml">
+                                            <div class="s-usr_icons">
+                                                <div class="_suis">
+                                                    <img src="{{ URL::asset('assets/img/icons/tarjet-security.svg') }}" alt="">
+                                                </div>
+                                                <div class="_suisinfo">
+                                                    <div class="_txtec">Security Deposit - if you damage the home, you may be charged up to ${{ $content['security_deposit'] }}</div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                @endif
                             </div>
                         </div>
                     </div>

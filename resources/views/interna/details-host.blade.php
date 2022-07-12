@@ -45,9 +45,9 @@
             <li class="f-cth skeleton skeleton_txt">
                 <div class="_txteh">Languages:</div>
                 <div class="_txtec">
-                    @foreach ($profile['language'] as $element)
-                        {{ \App\Models\LanguagesRegions::Language( $element ) }}
-                    @endforeach
+                @foreach ($profile['language'] as $element)
+                    {{ \App\Models\LanguagesRegions::Language( $element ) }}
+                @endforeach
             </div>
             </li>
 

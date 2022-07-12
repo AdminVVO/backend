@@ -27,6 +27,7 @@ class Search extends Component
     public $category;
     public $countListing;
     public $daysDiff = 0;
+    public $contentDays = false;
     public $preloadReturnMap = false;
 
     public $inputPrice;
@@ -43,6 +44,7 @@ class Search extends Component
     public function mount()
     {
         if ( count( $this->request ) != 0 && isset( $this->request['inputDateIn'] ) ){
+            $this->contentDays = true;
             $daysDiffs = Carbon::createFromDate( $this->request['inputDateIn'] )->diff( $this->request['inputDateOut'] );
                 $this->daysDiff = $daysDiffs->days;
         }

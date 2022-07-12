@@ -19,6 +19,19 @@
 
 	<section class="entero">
         <div class="medio-two">
+			<div class="bcptmzi showblock743" style="margin-top: -1.5rem;">
+			    <div class="bwfxaihplprprzi">
+			        <a href="{{ route('account') }}" class="circle__btn-cerrar">
+			            <span class="pr">
+			                <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="presentation" focusable="false">
+			                    <g fill="none">
+			                        <path d="m20 28-11.29289322-11.2928932c-.39052429-.3905243-.39052429-1.0236893 0-1.4142136l11.29289322-11.2928932"></path>
+			                    </g>
+			                </svg>
+			            </span>
+			        </a>
+			    </div>
+			</div>
 			<div class="section-perfil_info">
 			    <main class="section-perfil_info-main">
 			        <div class="_flex-right16">

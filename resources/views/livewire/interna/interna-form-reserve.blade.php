@@ -1,8 +1,8 @@
 <aside class="content-aside_prec skeleton">
     <div class="content_prec fx fx-fw-w fx-ai-b fx-jc-sb gp8">
         <div class="block_prec-res skeleton">
-            <span class="opac">$345</span>
-            <span class="prec_black">$446</span>
+            {{-- <span class="opac">$345</span> --}}
+            <span class="prec_black">{{ \App\Models\Currencs::Symbol( $listing_currency ) . $base_price }}</span>
             <span class="txt_night">/night</span>
         </div>
 
@@ -19,15 +19,15 @@
     </div>
 
     <form action="">
-        <div class="_flfpc gp16" style="flex-direction: initial;">
+        <div class="_flfpc gp16" style="flex-direction: initial;" wire:ignore>
             <div class="bk-icon-des_fbas fx-fd-c mnw-p47_f47 skeleton">
                 <div class="txt-check-in">Check-In</div>
-                <input type="text" class="_numcard cr-p checkin__lightpicker" placeholder="Add a date" readonly>
+                <input type="text" class="_numcard cr-p" id="easypickReserv" placeholder="Add a date" readonly>
             </div>
 
             <div class="bk-icon-des_fbas fx-fd-c mnw-p47_f47 skeleton">
                 <div class="txt-check-in">Checkout</div>
-                <input type="text" class="_numcard cr-p checkout__lightpicker" placeholder="Add a date" readonly>
+                <input type="text" class="_numcard cr-p" id="endEasypickReserv" placeholder="Add a date" readonly>
             </div>
         </div>
 
@@ -42,16 +42,6 @@
 
                 <i class="fas fa-chevron-down"></i>
             </div>
-
-            <!-- <div class="selected-modal">
-                <select name="" id="">
-                    <option value="1">3 guests</option>
-                    <option value="2">3 guests (+2)</option>
-                    <option value="3">3 guests (+3)</option>
-                </select>
-
-                <i class="fas fa-chevron-down"></i>
-            </div> -->
         </div>
 
         <div class="block-a fx-jc-c" style="margin: 23px 0 16px;">
@@ -61,34 +51,80 @@
 
         <div class="_cns">
             <span class="f-cth skeleton">
-                <div class="_txtec">$554 x 9 nights</div>
-                <div class="_txtec">$4,990</div>
+                <div class="_txtec">{{ \App\Models\Currencs::Symbol( $listing_currency ) . $base_price }} x {{ $requestDays }} nights</div>
+                <div class="_txtec">{{ \App\Models\Currencs::Symbol( $listing_currency ) . ( $base_price * $requestDays ) }}</div>
             </span>
 
-            <span class="f-cthdes skeleton">
-                <div class="_txtecred">Weekly discount</div>
-                <div class="_txtecred">-$974</div>
-            </span>
+            @if ( $weekly_discount != null )
+                <span class="f-cthdes skeleton">
+                    <div class="_txtecred">Weekly discount</div>
+                    <div class="_txtecred">-{{ \App\Models\Currencs::Symbol( $listing_currency ) . $weekly_discount }}</div>
+                </span>
+            @endif
 
-            <span class="f-cth skeleton">
-                <div class="_txtec">Cleaning fee</div>
-                <div class="_txtec">$238</div>
-            </span>
+            @if ( $monthly_discount != null )
+                <span class="f-cthdes skeleton">
+                    <div class="_txtecred">Monthly discount</div>
+                    <div class="_txtecred">-{{ \App\Models\Currencs::Symbol( $listing_currency ) . $monthly_discount }}</div>
+                </span>
+            @endif
 
-            <span class="f-cth skeleton">
-                <div class="_txtec">Service fee</div>
-                <div class="_txtec">$601</div>
-            </span>
 
-            <span class="f-cth skeleton">
-                <div class="_txtec">Occupancy taxes and fees</div>
-                <div class="_txtec">$532</div>
-            </span>
+            @if ( $cleaning_fee != null )
+                <span class="f-cth skeleton">
+                    <div class="_txtec">Cleaning fee</div>
+                    <div class="_txtec">{{ \App\Models\Currencs::Symbol( $listing_currency ) . $cleaning_fee }}</div>
+                </span>
+            @endif
+
+            @if ( $pet_fee != null )
+                <span class="f-cth skeleton">
+                    <div class="_txtec">Pets fee</div>
+                    <div class="_txtec">{{ \App\Models\Currencs::Symbol( $listing_currency ) . $pet_fee }}</div>
+                </span>
+            @endif
+            
+            @if ( $linens_fee != null )
+                <span class="f-cth skeleton">
+                    <div class="_txtec">Linens fee</div>
+                    <div class="_txtec">{{ \App\Models\Currencs::Symbol( $listing_currency ) . $linens_fee }}</div>
+                </span>
+            @endif
+            
+            @if ( $resort_fee != null )
+                <span class="f-cth skeleton">
+                    <div class="_txtec">Resort fee</div>
+                    <div class="_txtec">{{ \App\Models\Currencs::Symbol( $listing_currency ) . $resort_fee }}</div>
+                </span>
+            @endif
+            
+            @if ( $management_fee != null )
+                <span class="f-cth skeleton">
+                    <div class="_txtec">Management fee</div>
+                    <div class="_txtec">{{ \App\Models\Currencs::Symbol( $listing_currency ) . $management_fee }}</div>
+                </span>
+            @endif
         </div>
 
         <span class="t-cth skeleton">
             <div class="_txtect">Total</div>
-            <div class="_txtect">$5,387</div>
+            <div class="_txtect">{{ \App\Models\Currencs::Symbol( $listing_currency ) . $totalPrice }}</div>
         </span>
     </form>
 </aside>
+
+@push('scripts')
+    <script>
+        Livewire.hook('message.processed', (message, component) => {
+            skeleton();
+            function skeleton() {
+                let loadings = $(".skeleton");
+                $(loadings).addClass("transition");
+                
+                for (loading of loadings) {
+                    $(loading).removeClass("skeleton skeleton_card skeleton_txt");
+                }
+            }
+        })
+    </script>
+@endpush

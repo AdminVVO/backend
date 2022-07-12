@@ -54,10 +54,8 @@
             </div>
         </a>
     @empty
-        <div class="medio">
-            <div class="now__listabscard">
-                <p>No Have Listing</p>
-            </div>
+        <div class="now__listabscard">
+            <p>No Have Listing</p>
         </div>
     @endforelse
 </div>

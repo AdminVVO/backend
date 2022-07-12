@@ -96,7 +96,7 @@
                 'https://cdn.jsdelivr.net/npm/@easepick/range-plugin@1.2.0/dist/index.css',
             ],
             plugins: ['RangePlugin'],
-            format: 'DD-MM-YY',
+            format: 'DD MMM YYYY',
             calendars: 2,
             grid: 2,
             autoApply: false,
@@ -124,8 +124,9 @@
         });
 
         @if ( isset( $request['inputDateIn'] ) && isset( $request['inputDateOut'] ) )
-            picker.setStartDate('{{ Carbon::parse( $request['inputDateIn'] )->Format('d-m-y'); }}');
-            picker.setEndDate('{{ Carbon::parse( $request['inputDateOut'] )->Format('d-m-y'); }}');
+            const DateTime = easepick.DateTime;
+            picker.setStartDate( new DateTime('{{ Carbon::parse( $request['inputDateIn'] )->Format('d-m-Y'); }}', 'DD.MM.YYYY') );
+            picker.setEndDate( new DateTime('{{ Carbon::parse( $request['inputDateOut'] )->Format('d-m-Y'); }}', 'DD.MM.YYYY') );
         @endif
 
     </script>

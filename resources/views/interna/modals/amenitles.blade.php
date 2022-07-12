@@ -49,7 +49,7 @@
                                                 <div class="fx fx-ai-c gp16">
                                                     <div>
                                                         <div class="mh20fxaic">
-                                                            <img src="{{ URL::asset('assets/img/icons/') . '/' . $element['code'] . '.svg' }}" alt="">
+                                                            {{-- <img src="{{ URL::asset('assets/img/icons/') . '/' . $element['code'] . '.svg' }}" alt=""> --}}
                                                         </div>
                                                     </div>
 
@@ -71,7 +71,7 @@
                                                 <div class="fx fx-ai-c gp16">
                                                     <div>
                                                         <div class="mh20fxaic">
-                                                            <img src="{{ URL::asset('assets/img/icons/') . '/' . $element['code'] . '.svg' }}" alt="">
+                                                            {{-- <img src="{{ URL::asset('assets/img/icons/') . '/' . $element['code'] . '.svg' }}" alt=""> --}}
                                                         </div>
                                                     </div>
 
@@ -93,7 +93,7 @@
                                                 <div class="fx fx-ai-c gp16">
                                                     <div>
                                                         <div class="mh20fxaic">
-                                                            <img src="{{ URL::asset('assets/img/icons/') . '/' . $element['code'] . '.svg' }}" alt="">
+                                                            {{-- <img src="{{ URL::asset('assets/img/icons/') . '/' . $element['code'] . '.svg' }}" alt=""> --}}
                                                         </div>
                                                     </div>
 
@@ -115,7 +115,7 @@
                                                 <div class="fx fx-ai-c gp16">
                                                     <div>
                                                         <div class="mh20fxaic">
-                                                            <img src="{{ URL::asset('assets/img/icons/') . '/' . $element['code'] . '.svg' }}" alt="">
+                                                            {{-- <img src="{{ URL::asset('assets/img/icons/') . '/' . $element['code'] . '.svg' }}" alt=""> --}}
                                                         </div>
                                                     </div>
 
@@ -137,7 +137,7 @@
                                                 <div class="fx fx-ai-c gp16">
                                                     <div>
                                                         <div class="mh20fxaic">
-                                                            <img src="{{ URL::asset('assets/img/icons/') . '/' . $element['code'] . '.svg' }}" alt="">
+                                                            {{-- <img src="{{ URL::asset('assets/img/icons/') . '/' . $element['code'] . '.svg' }}" alt=""> --}}
                                                         </div>
                                                     </div>
 
@@ -159,7 +159,7 @@
                                                 <div class="fx fx-ai-c gp16">
                                                     <div>
                                                         <div class="mh20fxaic">
-                                                            <img src="{{ URL::asset('assets/img/icons/') . '/' . $element['code'] . '.svg' }}" alt="">
+                                                            {{-- <img src="{{ URL::asset('assets/img/icons/') . '/' . $element['code'] . '.svg' }}" alt=""> --}}
                                                         </div>
                                                     </div>
 
@@ -181,7 +181,7 @@
                                                 <div class="fx fx-ai-c gp16">
                                                     <div>
                                                         <div class="mh20fxaic">
-                                                            <img src="{{ URL::asset('assets/img/icons/') . '/' . $element['code'] . '.svg' }}" alt="">
+                                                            {{-- <img src="{{ URL::asset('assets/img/icons/') . '/' . $element['code'] . '.svg' }}" alt=""> --}}
                                                         </div>
                                                     </div>
 
@@ -203,7 +203,7 @@
                                                 <div class="fx fx-ai-c gp16">
                                                     <div>
                                                         <div class="mh20fxaic">
-                                                            <img src="{{ URL::asset('assets/img/icons/') . '/' . $element['code'] . '.svg' }}" alt="">
+                                                            {{-- <img src="{{ URL::asset('assets/img/icons/') . '/' . $element['code'] . '.svg' }}" alt=""> --}}
                                                         </div>
                                                     </div>
 
@@ -225,7 +225,7 @@
                                                 <div class="fx fx-ai-c gp16">
                                                     <div>
                                                         <div class="mh20fxaic">
-                                                            <img src="{{ URL::asset('assets/img/icons/') . '/' . $element['code'] . '.svg' }}" alt="">
+                                                            {{-- <img src="{{ URL::asset('assets/img/icons/') . '/' . $element['code'] . '.svg' }}" alt=""> --}}
                                                         </div>
                                                     </div>
 
@@ -247,7 +247,7 @@
                                                 <div class="fx fx-ai-c gp16">
                                                     <div>
                                                         <div class="mh20fxaic">
-                                                            <img src="{{ URL::asset('assets/img/icons/') . '/' . $element['code'] . '.svg' }}" alt="">
+                                                            {{-- <img src="{{ URL::asset('assets/img/icons/') . '/' . $element['code'] . '.svg' }}" alt=""> --}}
                                                         </div>
                                                     </div>
 
@@ -269,7 +269,7 @@
                                                 <div class="fx fx-ai-c gp16">
                                                     <div>
                                                         <div class="mh20fxaic">
-                                                            <img src="{{ URL::asset('assets/img/icons/') . '/' . $element['code'] . '.svg' }}" alt="">
+                                                            {{-- <img src="{{ URL::asset('assets/img/icons/') . '/' . $element['code'] . '.svg' }}" alt=""> --}}
                                                         </div>
                                                     </div>
 

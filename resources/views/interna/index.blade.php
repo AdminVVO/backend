@@ -110,7 +110,14 @@
                         <div class="_line-hr"></div>
 
                         {{-- Travel --}}
-                            @include('interna.travel-pricing')
+                            {{-- @include('interna.travel-pricing') --}}
+
+                            <div class="content-user-cal">
+                                @livewire('interna.interna-date-calendar', [
+                                    'requestDays' => $requestDays,
+                                ])
+                                <input id="easypickInterna" readonly style="display: none;">
+                            </div>
 
                         <div class="_line-hr"></div>
 
@@ -144,7 +151,26 @@
                     </main>
 
                     {{-- Form Reservations --}}
-                        @livewire('interna.interna-form-reserve', ['listingId' => $content['id_listings'] ])
+                        @livewire('interna.interna-form-reserve', [
+                            'listingId' => $content['id_listings'],
+                            'base_price' => $content['base_price'],
+                            'listing_currency' => $content['listing_currency'],
+                            'weekly_discount' => $content['weekly_discount'],
+                            'monthly_discount' => $content['monthly_discount'],
+                            'cleaning_fee' => $content['cleaning_fee'],
+                            'pet_fee' => $content['pet_fee'],
+                            'linens_fee' => $content['linens_fee'],
+                            'resort_fee' => $content['resort_fee'],
+                            'resort_type' => $content['resort_type'],
+                            'management_fee' => $content['management_fee'],
+                            'management_type' => $content['management_type'],
+                            'community_fee' => $content['community_fee'],
+                            'community_type' => $content['community_type'],
+                            'extra_guest_fee' => $content['extra_guest_fee'],
+                            'extra_guest' => $content['extra_guest'],
+                            'weekend_nightly_fee' => $content['weekend_nightly_fee'],
+                            'requestDays' => $requestDays,
+                        ])
                 </div>
             </div>
 
@@ -196,6 +222,12 @@
         {{-- Modal Contact Host --}}
         @include('interna.modals.contact-host')
 
+        {{-- Modal Confirme Reserve --}}
+        @include('interna.modals.confirm-reserve')
+
+        {{-- Modal Popup Edit Date --}}
+        @include('interna.modals.popup-editdate')
+
 
     @endsection
 
@@ -210,7 +242,6 @@
         lightbox(document.getElementById('gallery-container'));
 
         window.addEventListener('closedModalFavority', event => {
-            console.log("closedModalFavority");
             $(".container_user-host, .container_admin-host, .container_preview_guests_pay").hide();
             $(".page-category").css({'overflow': 'auto'});
         })
@@ -220,9 +251,10 @@
             css: [
                 'https://cdn.jsdelivr.net/npm/@easepick/core@1.2.0/dist/index.css',
                 'https://cdn.jsdelivr.net/npm/@easepick/range-plugin@1.2.0/dist/index.css',
+                'https://cdn.jsdelivr.net/npm/@easepick/lock-plugin@1.2.0/dist/index.css',
             ],
-            plugins: ['RangePlugin'],
-            format: 'DD MMM',
+            plugins: ['RangePlugin','LockPlugin'],
+            format: 'DD MMM YYYY',
             calendars: 2,
             grid: 2,
             autoApply: false,
@@ -234,13 +266,19 @@
             RangePlugin: {
                 elementEnd: '#endEasypickHome',
             },
+            LockPlugin: {
+              minDate: new Date(),
+            },
             setup(pickerHome) {
                 pickerHome.on('select', (e) => {
                 var content = [
-                    startDate = pickerHome.getStartDate(),
-                    endDate = pickerHome.getEndDate(),
+                    startDate = pickerHome.getStartDate().format('DD MMM YYYY'),
+                    endDate = pickerHome.getEndDate().format('DD MMM YYYY'),
                 ];
                 Livewire.emitTo('home.search-places', 'selectDate', content )
+                Livewire.emitTo('interna.interna-form-reserve', 'selectDate', content )
+                Livewire.emitTo('interna.interna-date-calendar', 'selectDate', content )
+                Livewire.emitTo('interna.interna-confirm-pay', 'selectDate', content )
               });
             },
         });
@@ -256,7 +294,7 @@
                 'https://cdn.jsdelivr.net/npm/@easepick/lock-plugin@1.2.0/dist/index.css',
             ],
             plugins: ['RangePlugin','LockPlugin'],
-            format: 'DD MMM',
+            format: 'DD MMM YYYY',
             calendars: 2,
             grid: 2,
             autoApply: true,
@@ -272,14 +310,113 @@
             setup(pickerInterna) {
                 pickerInterna.on('select', (e) => {
                 var content = [
-                    startDate = pickerInterna.getStartDate(),
-                    endDate = pickerInterna.getEndDate(),
+                    startDate = pickerInterna.getStartDate().format('DD MMM YYYY'),
+                    endDate = pickerInterna.getEndDate().format('DD MMM YYYY'),
                 ];
-                // Livewire.emitTo('home.search-places', 'selectDate', content )
+                Livewire.emitTo('home.search-places', 'selectDate', content )
+                Livewire.emitTo('interna.interna-form-reserve', 'selectDate', content )
+                Livewire.emitTo('interna.interna-date-calendar', 'selectDate', content )
+                Livewire.emitTo('interna.interna-confirm-pay', 'selectDate', content )
               });
             },
         });
 
+        const pickerReserv = new easepick.create({
+            element: '#easypickReserv',
+            css: [
+                'https://cdn.jsdelivr.net/npm/@easepick/core@1.2.0/dist/index.css',
+                'https://cdn.jsdelivr.net/npm/@easepick/range-plugin@1.2.0/dist/index.css',
+                'https://cdn.jsdelivr.net/npm/@easepick/lock-plugin@1.2.0/dist/index.css',
+            ],
+            plugins: ['RangePlugin','LockPlugin'],
+            format: 'DD MMM YYYY',
+            calendars: 2,
+            grid: 2,
+            zIndex: 9999,
+            autoApply: false,
+                tooltip: true,
+                locale: {
+                    one: 'day',
+                    other: 'days',
+                },
+            RangePlugin: {
+                elementEnd: '#endEasypickReserv',
+            },
+            LockPlugin: {
+              minDate: new Date(),
+            },
+            setup(pickerReserv) {
+                pickerReserv.on('select', (e) => {
+                var content = [
+                    startDate = pickerReserv.getStartDate().format('DD MMM YYYY'),
+                    endDate = pickerReserv.getEndDate().format('DD MMM YYYY'),
+                ];
+                Livewire.emitTo('home.search-places', 'selectDate', content )
+                Livewire.emitTo('interna.interna-form-reserve', 'selectDate', content )
+                Livewire.emitTo('interna.interna-date-calendar', 'selectDate', content )
+                Livewire.emitTo('interna.interna-confirm-pay', 'selectDate', content )
+              });
+            },
+        });
+
+        const pickerPopupDate = new easepick.create({
+            element: '#easypickPopupDate',
+            css: [
+                'https://cdn.jsdelivr.net/npm/@easepick/core@1.2.0/dist/index.css',
+                'https://cdn.jsdelivr.net/npm/@easepick/range-plugin@1.2.0/dist/index.css',
+                'https://cdn.jsdelivr.net/npm/@easepick/lock-plugin@1.2.0/dist/index.css',
+            ],
+            plugins: ['RangePlugin','LockPlugin'],
+            format: 'DD MMM YYYY',
+            calendars: 2,
+            grid: 2,
+            autoApply: false,
+            inline: true,
+            tooltip: true,
+            locale: {
+                one: 'day',
+                other: 'days',
+            },
+            LockPlugin: {
+              minDate: new Date(),
+            },
+            setup(pickerPopupDate) {
+                pickerPopupDate.on('select', (e) => {
+                var content = [
+                    startDate = pickerPopupDate.getStartDate().format('DD MMM YYYY'),
+                    endDate = pickerPopupDate.getEndDate().format('DD MMM YYYY'),
+                ];
+                Livewire.emitTo('home.search-places', 'selectDate', content )
+                Livewire.emitTo('interna.interna-form-reserve', 'selectDate', content )
+                Livewire.emitTo('interna.interna-date-calendar', 'selectDate', content )
+                Livewire.emitTo('interna.interna-confirm-pay', 'selectDate', content )
+                $('.container_dates-edit').hide();
+              });
+            },
+        });
+
+        window.addEventListener('reloadDateInputs', event => {
+            pickerHome.setDateRange( event.detail.inputDateIn, event.detail.inputDateOut);
+            pickerInterna.setDateRange( event.detail.inputDateIn, event.detail.inputDateOut);
+            pickerReserv.setDateRange( event.detail.inputDateIn, event.detail.inputDateOut);
+
+            const DateTime = easepick.DateTime;
+            $("#checkIn-book_edit").val( event.detail.inputDateIn );
+            $("#checkOut-book_edit").val( event.detail.inputDateOut );
+        })
+
+
+        @if ( isset( $requestDate['inputDateIn'] ) && isset( $requestDate['inputDateOut'] ) )
+            const DateTime = easepick.DateTime;
+            pickerHome.setDateRange( new DateTime('{{ Carbon::parse( $requestDate['inputDateIn'] )->Format('d-m-Y'); }}', 'DD.MM.YYYY'), new DateTime('{{ Carbon::parse( $requestDate['inputDateOut'] )->Format('d-m-Y'); }}', 'DD.MM.YYYY'));
+            pickerInterna.setDateRange( new DateTime('{{ Carbon::parse( $requestDate['inputDateIn'] )->Format('d-m-Y'); }}', 'DD.MM.YYYY'), new DateTime('{{ Carbon::parse( $requestDate['inputDateOut'] )->Format('d-m-Y'); }}', 'DD.MM.YYYY'));
+            pickerReserv.setDateRange( new DateTime('{{ Carbon::parse( $requestDate['inputDateIn'] )->Format('d-m-Y'); }}', 'DD.MM.YYYY'), new DateTime('{{ Carbon::parse( $requestDate['inputDateOut'] )->Format('d-m-Y'); }}', 'DD.MM.YYYY'));
+            pickerPopupDate.setDateRange( new DateTime('{{ Carbon::parse( $requestDate['inputDateIn'] )->Format('d-m-Y'); }}', 'DD.MM.YYYY'), new DateTime('{{ Carbon::parse( $requestDate['inputDateOut'] )->Format('d-m-Y'); }}', 'DD.MM.YYYY'));
+
+
+            $("#checkIn-book_edit").val('{{ Carbon::parse( $requestDate['inputDateIn'] )->Format('d M Y'); }}');
+            $("#checkOut-book_edit").val('{{ Carbon::parse( $requestDate['inputDateOut'] )->Format('d M Y'); }}');
+        @endif
 
     </script>
 @endsection

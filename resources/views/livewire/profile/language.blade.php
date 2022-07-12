@@ -3,7 +3,7 @@
         <button type="button" class="cwhfcbbpfx closeUserModal">X</button>
     </div>
 
-    <form wire:submit.prevent="submitProfileSpeak">
+    <form wire:submit.prevent="submitProfileSpeak" class="fx fx-fd-c ht-p100">
         <div class="whfxoyx">
             <div class="poyxwh">
                 <div class="site-content" style="padding-bottom: 0;">

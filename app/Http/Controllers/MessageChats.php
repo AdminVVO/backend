@@ -10,11 +10,14 @@ class MessageChats extends Controller
 
     public function viewMessageUser()
     {     
+        if ( request()->get('interna') )
+            return view('chats.chat-message', ['listing' => request()->get('interna') ]);
+
         return view('chats.chat-message');
     }
 
     public function viewMessageUserPost(Request $request)
-    {     
+    {    
         $Listings = Listings::pluck('id_listings');
         
         if ( count( $Listings ) != 0 ) {

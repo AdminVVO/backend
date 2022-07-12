@@ -118,9 +118,10 @@
     		css: [
         		'https://cdn.jsdelivr.net/npm/@easepick/core@1.2.0/dist/index.css',
         		'https://cdn.jsdelivr.net/npm/@easepick/range-plugin@1.2.0/dist/index.css',
+                'https://cdn.jsdelivr.net/npm/@easepick/lock-plugin@1.2.0/dist/index.css',
     		],
-    		plugins: ['RangePlugin'],
-    		format: 'DD MMM',
+    		plugins: ['RangePlugin','LockPlugin'],
+    		format: 'DD MMM YYYY',
     		calendars: 2,
     		grid: 2,
     		autoApply: false,
@@ -132,6 +133,9 @@
     		RangePlugin: {
     			elementEnd: '#endEasypickHome',
     		},
+            LockPlugin: {
+              minDate: new Date(),
+            },
     		setup(pickerHome) {
     			pickerHome.on('select', (e) => {
 				var content = [

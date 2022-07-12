@@ -10,19 +10,19 @@
         <h2 class="h2-guests mr-b8 skeleton skeleton_txt">{{ ucwords( strtolower( \App\Models\RoomsProperty::TypeName( $content['like_place'] ) . ' ' . \App\Models\RoomsProperty::PropertyName( $content['property_type'] ) ) ) }} hosted by {{ \App\Models\User::Name( $content['user_id'] ) }}</h2>
         <ol class="skeleton skeleton_txt">
             <li class="len26si">
-                <span class="span-guests">{{ $content['number_guests'] }} guests</span>
+                <span class="span-guests">{{ $content['number_guests'] }} Guests</span>
             </li>
 
             <li class="len26si">
-                <span class="span-guests">{{ $content['bedrooms'] }} bedroom</span>
+                <span class="span-guests">{{ $content['bedrooms'] }} Bedroom</span>
             </li>
 
             <li class="len26si">
-                <span class="span-guests">{{ $content['bed'] }} beds</span>
+                <span class="span-guests">{{ $content['bed'] }} Beds</span>
             </li>
 
             <li class="len26si">
-                <span class="span-guests">{{ $content['bathrooms'] }} baths</span>
+                <span class="span-guests">{{ $content['bathrooms'] }} Baths</span>
             </li>
         </ol>
     </div>

@@ -32,14 +32,16 @@
                 </div>
             </div>
 
-            <div class="s-usr_icons skeleton skeleton_txt">
-                <div class="_suis">
-                    <img src="{{ URL::asset('assets/img/icons/pets.svg') }}" alt="">
+            @if ( $content['pets_allowed'] )
+                <div class="s-usr_icons skeleton skeleton_txt">
+                    <div class="_suis">
+                        <img src="{{ URL::asset('assets/img/icons/pets.svg') }}" alt="">
+                    </div>
+                    <div class="_suisinfo">
+                        <div class="_txtec">Pets</div>
+                    </div>
                 </div>
-                <div class="_suisinfo">
-                    <div class="_txtec">Pets</div>
-                </div>
-            </div>
+            @endif
 
             <button type="button" class="txtunder__ics mr-t16 herls skeleton">
                 <div class="fx fx-ai-b gp5">
@@ -52,13 +54,13 @@
         </div>
 
         <div class="_fw nrml">
-            <span class="_txtblu skeleton skeleton_txt" style="margin-bottom: 16px;">House & safety</span>
+            <span class="_txtblu skeleton skeleton_txt" style="margin-bottom: 16px;">Health & safety</span>
             <div class="s-usr_icons skeleton skeleton_txt">
                 <div class="_suis">
                     <img src="{{ URL::asset('assets/img/icons/enhanced-black.svg') }}" alt="">
                 </div>
                 <div class="_suisinfo">
-                    <div class="_txtec">Committed to Airbnb's enhanced cleaning process. Show more</div>
+                    <div class="_txtec">Committed to Vvoutlet enhanced cleaning process.</div>
                 </div>
             </div>
 
@@ -67,7 +69,7 @@
                     <img src="{{ URL::asset('assets/img/icons/covid.svg') }}" alt="">
                 </div>
                 <div class="_suisinfo">
-                    <div class="_txtec">vvoutlet social-distancing and other COVID-19-related guidelines apply</div>
+                    <div class="_txtec">Vvoutlet social-distancing and other COVID-19-related guidelines apply</div>
                 </div>
             </div>
 
@@ -76,25 +78,7 @@
                     <img src="{{ URL::asset('assets/img/icons/alert.svg') }}" alt="">
                 </div>
                 <div class="_suisinfo">
-                    <div class="_txtec">No smoke alarm</div>
-                </div>
-            </div>
-
-            <div class="s-usr_icons skeleton skeleton_txt">
-                <div class="_suis">
-                    <img src="{{ URL::asset('assets/img/icons/alert.svg') }}" alt="">
-                </div>
-                <div class="_suisinfo">
-                    <div class="_txtec">Nearby lake, river, other body of water</div>
-                </div>
-            </div>
-
-            <div class="s-usr_icons skeleton skeleton_txt">
-                <div class="_suis">
-                    <img src="{{ URL::asset('assets/img/icons/alert.svg') }}" alt="">
-                </div>
-                <div class="_suisinfo">
-                    <div class="_txtec">Heights without rails or protection</div>
+                    <div class="_txtec">{{ in_array('smoke_alarm', $content['amenities']) ? 'Allow' : 'No' }} smoke alarm</div>
                 </div>
             </div>
 

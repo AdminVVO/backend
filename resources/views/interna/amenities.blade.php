@@ -6,7 +6,7 @@
             @if ( $loop->iteration <= 9 )
                 <div class="fx fx-ai-c gp16">
                     <div class="ics__grd-img skeleton">
-                        <img src="{{ URL::asset('assets/img/icons/') . '/' . $element['code'] . '.svg' }}" alt="">
+                        {{-- <img src="{{ URL::asset('assets/img/icons/') . '/' . $element['code'] . '.svg' }}" alt=""> --}}
                     </div>
                     <div class="_suisinfo">
                         <div class="_txtec skeleton skeleton_txt">{{ $element['name'] }}</div>
