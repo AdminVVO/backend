@@ -111,7 +111,7 @@ class InternaController extends Controller
             'amenitiesInit' => $amenitiesInit,
             'profile' => $profile,
             'requestDate' => $request->all(),
-            'requestDays' => $daysDiffs->days != 0 ? $daysDiffs->days + 1 : 0,
+            'requestDays' => isset( $daysDiffs ) ? $daysDiffs->days + 1 : 0,
         ]);
     }
 }

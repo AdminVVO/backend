@@ -41,8 +41,10 @@ class InternaConfirmPay extends Component
 
     public function mount()
     {
-        $this->inputDateIn = Carbon::createFromDate( $this->requestDate['inputDateIn'] )->format('d M Y');
-        $this->inputDateOut = Carbon::createFromDate( $this->requestDate['inputDateOut'] )->format('d M Y');
+        if ( isset( $this->requestDate['inputDateIn'] ) ) {
+            $this->inputDateIn = Carbon::createFromDate( $this->requestDate['inputDateIn'] )->format('d M Y');
+            $this->inputDateOut = Carbon::createFromDate( $this->requestDate['inputDateOut'] )->format('d M Y');
+        }
 
         if ( $this->resort_type == 'porcent' )
             $this->resort_fee = $this->resort_fee != null ? number_format( $this->base_price *  $this->resort_fee/100) : null;
