@@ -2346,4 +2346,274 @@ body {
         }
     }
     // ----- end vista interna.php -----
+
+
+    // ------ start vista payments - 2 -------
+    .container_add-payments {
+        display: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+
+        .modal-addpymts {
+            position: absolute;
+            z-index: 999;
+            inset: 0px;
+            background: rgba(40, 54, 70, 0.95);
+        }
+
+        .pd_addpymts-modal {
+            display: flex;
+            padding: 40px;
+            align-items: center;
+            -webkit-box-align: center;
+            justify-content: center;
+            position: absolute;
+            max-height: 100vh;
+            inset: 0px;
+
+            .modal_content-addpymts {
+                display: flex;
+                flex-direction: column;
+                background: #FFFFFF;
+                width: 100%;
+                height: auto;
+                max-width: 796px;
+                max-height: -webkit-fill-available;
+                border-radius: 10px;
+                z-index: 999;
+
+                .close {
+                    display: flex;
+                    justify-content: end;
+
+                    span {
+                        cursor: pointer;
+                        color: white;
+                        font-size: 18px;
+                        padding: 13px 19.2px;
+                        background: #FF5A5F;
+                        border-radius: 0px 10px 0px 10px;
+
+                        &:hover {
+                            background-color: #DC383D;
+                        }
+                    }
+                }
+
+                .modal_block {
+                    display: flex;
+                    width: 100%;
+                    padding-left: 85px;
+                    overflow-x: auto;
+                    border-radius: 10px;
+
+                    .content_hidden-addpymts {
+                        margin-bottom: 30px;
+                        padding-right: 85px;
+                        padding-top: 12px;
+                        overflow: auto;
+                        width: 100%;
+
+                        .site-content {
+                            padding-bottom: 28px;
+
+                            ._frever {
+                                margin-bottom: 25px;
+                                display: flex;
+                                justify-content: space-between;
+                                flex-wrap: wrap;
+                                align-items: center;
+                                gap: 15px;
+
+                                ._imgtarj {
+                                    width: 160px;
+                                    height: 19px;
+                                    display: flex;
+                                    align-items: center;
+
+                                    img {
+                                        width: 100%;
+                                        height: 100%;
+                                        object-fit: cover;
+                                    }
+                                }
+                            }
+
+                            ._flfpc {
+                                margin: 21px 0 27px;
+
+                                @include responsive(1415px) {
+                                    flex-direction: row;
+                                    gap: inherit;
+                                }
+
+                                @include responsive(735px) {
+                                    flex-direction: column;
+                                    gap: 20px;
+                                }
+
+                                .block_date {
+                                    width: 48.54%;
+
+                                    @include responsive(735px) {
+                                        width: 100%;
+                                    }
+                                }
+                            }
+
+                            ._cbadd {
+                                margin-top: 27px;
+
+                                ._numcard {
+                                    padding: 16px;
+                                }
+                            }
+
+                            ._gap {
+                                margin: 25px 0 45px;
+                                gap: 25px;
+
+                                .radio-item_rscrm {
+                                    label {
+                                        padding: 33px 23px;
+
+                                        .flex-msg {
+                                            display: flex;
+                                            flex-direction: column;
+                                            gap: 3px;
+                                        }
+                                    }
+                                }
+                            }
+
+                            ._block {
+                                display: flex;
+                                align-items: center;
+                                gap: 22px;
+                                flex-wrap: wrap;
+                            }
+
+                            .mrg {
+                                margin: 34px 0 34px;
+
+                                ._border {
+                                    padding: 30px 0;
+
+                                    &:not(:last-child) {
+                                        border-bottom: 2px solid #E3EDF3;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        @include responsive(1400px) {
+            .pd_addpymts-modal {
+                .close {
+                    span {
+                        font-size: 16px;
+                        padding: 0;
+                        width: 36px;
+                        height: 36px;
+                    }
+                }
+
+                .modal_content-addpymts {
+                    .modal_block {
+                        padding-left: 24px;
+
+                        .content_hidden-addpymts {
+                            padding-top: 16px;
+                            padding-right: 24px;
+                            margin-bottom: 0;
+
+                            .site-content {
+                                ._frever {
+                                    margin-bottom: 22px;
+                                }
+
+                                .mrg {
+                                    ._border {
+                                        padding: 24px 0;
+
+                                        &:not(:last-child) {
+                                            border-bottom: 1px solid #E3EDF3;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        @include responsive(743px) {
+            .pd_addpymts-modal {
+                padding: 0px;
+                align-items: inherit;
+
+                .close {
+                    span {
+                        border-radius: 0 0 0 10px;
+                    }
+                }
+
+                .modal_content-addpymts {
+                    border-radius: 0;
+
+                    .modal_block {
+                        border-radius: 0;
+
+                        .content_hidden-addpymts {
+                            .site-content {
+                                padding-bottom: 40px;
+                                margin-bottom: 32px;
+
+                                ._hiddencreditordebit {
+                                    padding-bottom: 20px;
+                                }
+
+                                form {
+                                    ._block {
+                                        position: fixed;
+                                        bottom: 0;
+                                        right: 0;
+                                        left: 0;
+                                        padding: 16px 24px;
+                                        border-top: 1px solid #E3EDF3;
+                                        background-color: $color-white;
+                                        justify-content: center;
+                                        flex-wrap: initial;
+                                        gap: 10px;
+
+                                        .btn-celest,
+                                        .btn-red {
+                                            width: 50%;
+                                        }
+                                    }
+                                }
+
+                                ._block-jsb {
+                                    position: fixed;
+                                    bottom: 0;
+                                    right: 0;
+                                    left: 0;
+                                    padding: 16px 24px;
+                                    border-top: 1px solid #E3EDF3;
+                                    background-color: $color-white;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
 }

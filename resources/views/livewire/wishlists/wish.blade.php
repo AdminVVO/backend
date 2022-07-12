@@ -197,7 +197,7 @@
                                                                     <button class="_btn" type="button"
                                                                         aria-label="disminuir valor"
                                                                         {{ $inputPets ? '' : 'disabled' }}
-                                                                        wire:click="buttonDecrease('pèt')">
+                                                                        wire:click="buttonDecrease('pet')">
                                                                         <span>
                                                                             <svg viewBox="0 0 32 32"
                                                                                 xmlns="http://www.w3.org/2000/svg"
@@ -255,7 +255,7 @@
                                 </div>
                             </div>
                             <div class="desc-location">
-                                <h2 class="h2-guests skeleton skeleton_txt" wire:ignore>{{ $name }}</h2>
+                                <h2 class="h2-guests skeleton skeleton_txt" wire:ignore.self>{{ $name }}</h2>
                             </div>
                             <div class="content_view">
                                 <div class="hidden_galerias">
@@ -391,9 +391,7 @@
     <script type="text/javascript">
         var contentCoordinate = @json($contentCoordinate);
         var preLoadCoordinate = @json($preLoadCoordinate);
-
         window.addEventListener('loadDataMapBoxOne', event => {
-            console.log(event.detail)
             loadMapboxSearch(event.detail.preLoadCoordinate, event.detail.contentCoordinate);
         })
 

@@ -11,7 +11,7 @@ function skeleton() {
             //     $(this).css({'opacity': ''}).removeClass("skeleton");
             // });
             
-            $(loading).removeClass("skeleton skeleton_card skeleton_txt");
+            $(loading).removeClass("skeleton skeleton_card skeleton_txt transition");
             // loading.classList.remove("skeleton");
         }
     }

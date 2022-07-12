@@ -83,7 +83,6 @@ class Payments extends Component
                 $validation->validate();
 
         try {
-            
             $cards = PaymentsModel::where(['user_id' => Auth::id() ])->get();
 
             PaymentsModel::create([
@@ -102,7 +101,6 @@ class Payments extends Component
                 'country'        => $this->country,
                 'default'        => count( $cards ) === 0 ? true : false,
             ]);
-
             $this->resetVal();
             $this->alert('success', 'Update has been successful!');
             
@@ -199,13 +197,11 @@ class Payments extends Component
     public function showModal()
     {
         $this->resetVal();
-        $this->showModal = true;
     }
 
     public function closeModal()
     {
         $this->resetVal();
-        $this->showModal = false;
     }
     
     public function resetVal()

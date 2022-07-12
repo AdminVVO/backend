@@ -10,7 +10,7 @@
             <button class="btn-celest js_popup_taxes">Add payout method</button>
         </div>
     @else
-        <div class="_cont-2" style="display: none;">
+        <div class="_cont-2">
             <div class="h2-guests">Taxpayer information</div>
 
             <div class="_block">
@@ -58,12 +58,12 @@
         <button class="btn-celest js_popup_taxes">Add U.S Taxpayer</button>
     @endif
 
-    <div class="container_add-payments content_popup_taxes">
+    <div class="container_add-payments content_popup_taxes" wire:ignore.self>
         <div class="paz999i0b"></div>
 
             <div class="pd_addpymts-modal">
                 <div class="_z4lmgp">
-                    <div class="modal_content-addpymts">
+                    <div class="modal_content-addpymts" style="position: fixed">
                         <div class="fx fx-jc-e">
                             <button type="button" class="cwhfcbbpfx closeUserModal">X</button>
                         </div>

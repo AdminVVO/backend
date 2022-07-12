@@ -235,6 +235,59 @@ $(document).ready(function() {
         animateTopModals();
         $(".container-languages-speak").show();
     });
+
+
+    // ------------ payments.php ------------
+    $(".js_popup_payments").on("click", function() {
+        animateTopModals();
+        $(".content_popup_payments").show();
+    });
+
+    $(".js_popup_payouts").on("click", function() {
+        animateTopModals();
+        $(".content_popup_payouts").show();
+    });
+
+    $(".js_popup_payouts_paypal").on("click", function() {
+        animateTopModals();
+        $(".content_popup_payouts_paypal").show();
+        $(".content_popup_payouts").hide();
+    });
+
+    $(".js_back_payouts").on("click", function() {
+        animateTopModals();
+        $(".content_popup_payouts").show();
+        $(this).parents(".container_add-payments").hide();
+    });
+
+    $(".js_back_payouts_bank").on("click", function() {
+        animateTopModals();
+        $(".content_popup_payouts_bank").show();
+        $(this).parents(".container_add-payments").hide();
+    });
+
+    $(".js_next_bank1").on("click", function() {
+        animateTopModals();
+        $(".content_popup_payouts_bank1").show();
+        $(".content_popup_payouts_bank").hide();
+    });
+
+    $(".js_popup_payouts_bank").on("click", function() {
+        animateTopModals();
+        $(".content_popup_payouts_bank").show();
+        $(".content_popup_payouts").hide();
+    });
+
+    $(".js_popup_payouts_payoneer").on("click", function() {
+        animateTopModals();
+        $(".content_popup_payouts_payoneer").show();
+        $(".content_popup_payouts").hide();
+    });
+
+    $(".js_popup_taxes").on("click", function() {
+        animateTopModals();
+        $(".content_popup_taxes").show();
+    });
 });
 
 // clicks modals - host

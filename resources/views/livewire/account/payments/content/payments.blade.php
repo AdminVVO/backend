@@ -5,7 +5,7 @@
             system, then start
             planning your next trip.</div>
 
-        @if (count($query) != 0)
+        @if ($query)
             <div class="_gap-default _br-defautl">
                 @foreach ($query as $key => $element)
                     <div class="_flex skeleton" wire:ignore>
@@ -36,7 +36,7 @@
         <button class="btn-celest js_popup_payments mr-t18 skeleton" wire:ignore>Add payment method</button>
     </div>
 
-    <div class="container_add-payments content_popup_payments">
+    <div class="container_add-payments content_popup_payments" style="position: fixed">
         <div class="paz999i0b">
         </div>
 

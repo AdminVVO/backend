@@ -8,6 +8,9 @@ use App\Models\Wishlists;
 use Auth;
 use Carbon;
 use Livewire\Component;
+use Prophecy\Doubler\LazyDouble;
+
+use function PHPSTORM_META\map;
 
 class Wish extends Component
 {
@@ -23,10 +26,10 @@ class Wish extends Component
     public $daysDiff = 0;
     public $preloadReturnMap = false;
 
-    public $inputAdult = 0; 
-    public $inputKids = 0; 
-    public $inputInfant = 0; 
-    public $inputPets = 0; 
+    public $inputAdult = 0;
+    public $inputKids = 0;
+    public $inputInfant = 0;
+    public $inputPets = 0;
     public $inputPrice;
     public $inputPlace;
 
@@ -42,14 +45,12 @@ class Wish extends Component
     public function mount()
     {
         $this->places = RoomsProperty::pluck('name_type', 'type');
-
     }
 
     public function render()
     {
+        $this->reset(['contentCoordinate', 'preLoadCoordinate', 'contentListing']);
         $this->preLoadContent();
-
-        $this->reset(['contentCoordinate', 'preLoadCoordinate']);
 
         if (count($this->contentListing) != 0) {
             $this->preLoadCoordinate = [$this->contentListing[0]['latitude'], $this->contentListing[0]['longitude']];
@@ -66,7 +67,6 @@ class Wish extends Component
                 $photo3 = "<img src='$photoInit3' alt='' class='card_img_active'>";
                 $latitude = $value['latitude'];
                 $longitude = $value['longitude'];
-
                 $this->contentCoordinate[] = [
                     'type' => 'Feature',
                     'properties' => [
@@ -87,7 +87,7 @@ class Wish extends Component
         }
 
         if (count($this->contentListing) == 0) {
-                return view('livewire.wishlists.wish');
+            $this->reset(['contentCoordinate', 'preLoadCoordinate', 'contentListing']);
         }
 
 
@@ -97,10 +97,7 @@ class Wish extends Component
     public function removeListing($payload)
     {
         Wishlists::where(['user_id' => Auth::id(), 'name' => $this->name, 'listing_id' => $payload])->distinct('listing_id')->delete();
-
         $this->preloadReturnMap = true;
-
-        $this->render();
     }
 
     public function preLoadContent()
@@ -166,19 +163,19 @@ class Wish extends Component
 
     public function buttonIncrease($payload)
     {
-        if($payload == 'adult') {
+        if ($payload == 'adult') {
             ++$this->inputAdult;
         }
-        
-        if($payload == 'children') {
+
+        if ($payload == 'children') {
             ++$this->inputKids;
         }
 
-        if($payload == 'infant') {
+        if ($payload == 'infant') {
             ++$this->inputInfant;
         }
 
-        if($payload == 'pet') {
+        if ($payload == 'pet') {
             ++$this->inputPets;
         }
     }
@@ -186,19 +183,19 @@ class Wish extends Component
 
     public function buttonDecrease($payload)
     {
-        if($payload == 'adult' && $this->inputAdult>0) {
+        if ($payload == 'adult' && $this->inputAdult > 0) {
             --$this->inputAdult;
         }
-        
-        if($payload == 'children' && $this->inputKids>0) {
+
+        if ($payload == 'children' && $this->inputKids > 0) {
             --$this->inputKids;
         }
 
-        if($payload == 'infant' && $this->inputInfant>0) {
+        if ($payload == 'infant' && $this->inputInfant > 0) {
             --$this->inputInfant;
         }
 
-        if($payload == 'pèt' && $this->inputPets>0) {
+        if ($payload == 'pet' && $this->inputPets > 0) {
             --$this->inputPets;
         }
     }
