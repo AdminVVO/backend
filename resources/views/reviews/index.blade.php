@@ -33,8 +33,8 @@
                                     </path>
                                 </svg>
                                 <h2>
-                                    <span class="num-starg">4.89 ·</span>
-                                    <span class="num-tg">(57 reviews)</span>
+                                    <span class="num-starg">{{ $data['rating'] }}</span>
+                                    <span class="num-tg">({{ $data['count'] }})</span>
                                 </h2>
                             </div>
 
@@ -45,10 +45,11 @@
                                             <div class="_txtec skeleton skeleton_txt">Cleanliness</div>
                                             <div class="_bkl skeleton">
                                                 <div class="_nivel">
-                                                    
-                                                    <span class="_lvl" style="width: {{20*$data['rating_cleanliness']}}%;"></span>
+
+                                                    <span class="_lvl"
+                                                        style="width: {{ 20 * $data['rating_cleanliness'] }}%;"></span>
                                                 </div>
-                                                <span class="_txtecnum">{{ $data['rating_cleanliness'] }}</span>
+                                                <span class="_txtecnum">{{ number_format($data['rating_cleanliness'], 1) }}</span>
                                             </div>
                                         </div>
 
@@ -56,9 +57,10 @@
                                             <div class="_txtec skeleton skeleton_txt">Communication</div>
                                             <div class="_bkl skeleton">
                                                 <div class="_nivel">
-                                                    <span class="_lvl" style="width: {{20*$data['rating_communication']}}%;"></span>
+                                                    <span class="_lvl"
+                                                        style="width: {{ 20 * $data['rating_communication'] }}%;"></span>
                                                 </div>
-                                                <span class="_txtecnum">{{ $data['rating_communication'] }}</span>
+                                                <span class="_txtecnum">{{ number_format($data['rating_communication'], 1) }}</span>
                                             </div>
                                         </div>
 
@@ -66,9 +68,10 @@
                                             <div class="_txtec skeleton skeleton_txt">Check-in</div>
                                             <div class="_bkl skeleton">
                                                 <div class="_nivel">
-                                                    <span class="_lvl" style="width: {{20*$data['rating_check']}}%;"></span>
+                                                    <span class="_lvl"
+                                                        style="width: {{ 20 * $data['rating_check'] }}%;"></span>
                                                 </div>
-                                                <span class="_txtecnum">{{ $data['rating_check'] }}</span>
+                                                <span class="_txtecnum">{{ number_format($data['rating_check'], 1) }}</span>
                                             </div>
                                         </div>
 
@@ -76,9 +79,10 @@
                                             <div class="_txtec skeleton skeleton_txt">Accuracy</div>
                                             <div class="_bkl skeleton">
                                                 <div class="_nivel">
-                                                    <span class="_lvl" style="width: {{20*$data['rating_accuracy']}}%;"></span>
+                                                    <span class="_lvl"
+                                                        style="width: {{ 20 * $data['rating_accuracy'] }}%;"></span>
                                                 </div>
-                                                <span class="_txtecnum">{{ $data['rating_accuracy'] }}</span>
+                                                <span class="_txtecnum">{{ number_format($data['rating_accuracy'], 1) }}</span>
                                             </div>
                                         </div>
 
@@ -86,9 +90,10 @@
                                             <div class="_txtec skeleton skeleton_txt">Location</div>
                                             <div class="_bkl skeleton">
                                                 <div class="_nivel">
-                                                    <span class="_lvl" style="width: {{20*$data['rating_location']}}%;"></span>
+                                                    <span class="_lvl"
+                                                        style="width: {{ 20 * $data['rating_location'] }}%;"></span>
                                                 </div>
-                                                <span class="_txtecnum">{{ $data['rating_location'] }}</span>
+                                                <span class="_txtecnum">{{ number_format($data['rating_location'], 1) }}</span>
                                             </div>
                                         </div>
 
@@ -96,9 +101,10 @@
                                             <div class="_txtec skeleton skeleton_txt">Value</div>
                                             <div class="_bkl skeleton">
                                                 <div class="_nivel">
-                                                    <span class="_lvl" style="width: {{20*$data['rating_value']}}%;"></span>
+                                                    <span class="_lvl"
+                                                        style="width: {{ 20 * $data['rating_value'] }}%;"></span>
                                                 </div>
-                                                <span class="_txtecnum">{{ $data['rating_value'] }}</span>
+                                                <span class="_txtecnum">{{ number_format($data['rating_value'], 1) }}</span>
                                             </div>
                                         </div>
                                     </div>
@@ -133,6 +139,7 @@
                                             <div class="msgcont skeleton">
                                                 <span class="_txtec text_tm3">{{ $item['comment'] }}</span>
                                             </div>
+                                            <br>
                                         @endforeach
                                     </div>
                                 </div>
