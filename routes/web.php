@@ -11,6 +11,7 @@ use App\Http\Controllers\MessageChats;
 use App\Http\Controllers\Personal;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ReservationController;
+use App\Http\Controllers\ReviewsController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\TripsController;
 use App\Http\Controllers\Wishlists;
@@ -36,7 +37,9 @@ Route::middleware(['AccountDisable'])->group( function(){
         return view('category.Category');
     })->name('/category');
 
-    Route::get('/interna/{id}',[internaController::class,'getcontent'])->name('interna.getcontent');
+    Route::get('/reviews/{id}',[ReviewsController::class,'index'])->name('reviews');
+
+    Route::get('/interna/{id}',[internaController::class,'viewListingClientDetails'])->name('interna.getcontent');
 
     Route::get('/blog', function () {
         return view('blog.Blog');

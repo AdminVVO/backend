@@ -45,4 +45,13 @@ class SendMailController extends Controller
 
         \Mail::to( config('services.help_email') )->send(new \App\Mail\SendMessageReportChatMail( $contentMessage ));
     }
+
+    public static function sendMessageValidation($recipients, $message)
+    {   
+        $content = new \stdClass();
+        $content->recipients = $recipients;
+        $content->message = $message;
+
+        \Mail::to( config('services.help_email') )->send(new \App\Mail\SendMessageHelpMail( $content ));
+    }
 }

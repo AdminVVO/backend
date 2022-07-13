@@ -15,6 +15,11 @@ class Reviews extends Model
         'user_id',
         'listing_id',
         'comment',
-        'rating',
+        'rating_cleanliness',
+        'rating_communication',
+        'rating_check',
+        'rating_accuracy',
+        'rating_location',
+        'rating_value',
     ];
 }

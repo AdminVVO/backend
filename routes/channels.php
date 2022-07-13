@@ -20,3 +20,7 @@ Broadcast::channel('liveChatMessage', function ($user) {
 Broadcast::channel('chat.{chat_id}', function ($user) {
     return $user;
 });
+
+Broadcast::channel('validationUser.{user_id}', function ($user) {
+    return $user;
+});
