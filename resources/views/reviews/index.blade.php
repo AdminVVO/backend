@@ -33,8 +33,8 @@
                                     </path>
                                 </svg>
                                 <h2>
-                                    <span class="num-starg">{{ $data['rating'] }}</span>
-                                    <span class="num-tg">({{ $data['count'] }})</span>
+                                    <span class="num-starg">{{ $data['rating'] }} ·</span>
+                                    <span class="num-tg">({{ $data['count'] }} reviews)</span>
                                 </h2>
                             </div>
 
@@ -49,7 +49,8 @@
                                                     <span class="_lvl"
                                                         style="width: {{ 20 * $data['rating_cleanliness'] }}%;"></span>
                                                 </div>
-                                                <span class="_txtecnum">{{ number_format($data['rating_cleanliness'], 1) }}</span>
+                                                <span
+                                                    class="_txtecnum">{{ number_format($data['rating_cleanliness'], 1) }}</span>
                                             </div>
                                         </div>
 
@@ -60,7 +61,8 @@
                                                     <span class="_lvl"
                                                         style="width: {{ 20 * $data['rating_communication'] }}%;"></span>
                                                 </div>
-                                                <span class="_txtecnum">{{ number_format($data['rating_communication'], 1) }}</span>
+                                                <span
+                                                    class="_txtecnum">{{ number_format($data['rating_communication'], 1) }}</span>
                                             </div>
                                         </div>
 
@@ -71,7 +73,8 @@
                                                     <span class="_lvl"
                                                         style="width: {{ 20 * $data['rating_check'] }}%;"></span>
                                                 </div>
-                                                <span class="_txtecnum">{{ number_format($data['rating_check'], 1) }}</span>
+                                                <span
+                                                    class="_txtecnum">{{ number_format($data['rating_check'], 1) }}</span>
                                             </div>
                                         </div>
 
@@ -82,7 +85,8 @@
                                                     <span class="_lvl"
                                                         style="width: {{ 20 * $data['rating_accuracy'] }}%;"></span>
                                                 </div>
-                                                <span class="_txtecnum">{{ number_format($data['rating_accuracy'], 1) }}</span>
+                                                <span
+                                                    class="_txtecnum">{{ number_format($data['rating_accuracy'], 1) }}</span>
                                             </div>
                                         </div>
 
@@ -93,7 +97,8 @@
                                                     <span class="_lvl"
                                                         style="width: {{ 20 * $data['rating_location'] }}%;"></span>
                                                 </div>
-                                                <span class="_txtecnum">{{ number_format($data['rating_location'], 1) }}</span>
+                                                <span
+                                                    class="_txtecnum">{{ number_format($data['rating_location'], 1) }}</span>
                                             </div>
                                         </div>
 
@@ -104,136 +109,64 @@
                                                     <span class="_lvl"
                                                         style="width: {{ 20 * $data['rating_value'] }}%;"></span>
                                                 </div>
-                                                <span class="_txtecnum">{{ number_format($data['rating_value'], 1) }}</span>
+                                                <span
+                                                    class="_txtecnum">{{ number_format($data['rating_value'], 1) }}</span>
                                             </div>
                                         </div>
                                     </div>
 
-                                    <button type="button" class="btn-red alants mr-t24 skeleton">Show all 57
-                                        reviews</button>
+                                    @if ($data['count'] > 1)
+                                        <button type="button" class="btn-red alants mr-t24 skeleton">Show all
+                                            {{ $data['count'] }}</button>
+                                    @endif
                                 </div>
                                 <br><br>
                                 <div class="usrscont">
                                     <div class="cblock">
-                                        @foreach ($data['content'] as $item)
-                                            <div class="content-user_inf">
-                                                <span class="_pf-msg skeleton">
-                                                    @if (file_exists(storage_path('app/public/uploadAvatar/' . $item['avatar'])))
-                                                        <img src="{{ URL::asset('storage/uploadAvatar/') . '/' . $item['avatar'] }}"
-                                                            loading="lazy" alt="">
-                                                    @else
-                                                        <img src="{{ URL::asset('assets/img/avatar') }}/{{ $item['avatar'] }}"
-                                                            loading="lazy" alt="">
-                                                    @endif
-                                                </span>
-                                                <div>
-                                                    <div class="_txteh skeleton skeleton_txt">
-                                                        {{ $item['full_name'] }}
-                                                    </div>
-                                                    <ol class="skeleton skeleton_txt">
-                                                        <li class="_txtec">{{ $item['created_at'] }}</li>
-                                                    </ol>
+                                        @foreach ($data['content'] as $key => $item)
+                                            @if ($loop->iteration > 5)
+                                                @break
+                                            @endif
+                                        <div class="content-user_inf">
+                                            <span class="_pf-msg skeleton">
+                                                @if (file_exists(storage_path('app/public/uploadAvatar/' . $item['avatar'])))
+                                                    <img src="{{ URL::asset('storage/uploadAvatar/') . '/' . $item['avatar'] }}"
+                                                        loading="lazy" alt="">
+                                                @else
+                                                    <img src="{{ URL::asset('assets/img/avatar') }}/{{ $item['avatar'] }}"
+                                                        loading="lazy" alt="">
+                                                @endif
+                                            </span>
+                                            <div>
+                                                <div class="_txteh skeleton skeleton_txt">
+                                                    {{ $item['full_name'] }}
                                                 </div>
+                                                <ol class="skeleton skeleton_txt">
+                                                    <li class="_txtec">{{ $item['created_at'] }}</li>
+                                                </ol>
                                             </div>
+                                        </div>
 
-                                            <div class="msgcont skeleton">
-                                                <span class="_txtec text_tm3">{{ $item['comment'] }}</span>
-                                            </div>
-                                            <br>
-                                        @endforeach
-                                    </div>
+                                        <div class="msgcont skeleton">
+                                            <span class="_txtec text_tm3">{{ $item['comment'] }}</span>
+                                        </div>
+                                        <br>
+                                    @endforeach
                                 </div>
                             </div>
-
                         </div>
 
-
-                    </main>
-
-                </div>
+                    </div>
+                </main>
             </div>
-
         </div>
-
-        <button type="button" class="content_icon-leng" id="btnLeng">
-        </button>
-    </section>
-@endsection
-@section('script')
-    <!-- SCRIPT JAVASCRIPT -->
-
-    <script src="{{ URL::asset('assets/js/places.js') }}"></script>
-    <script src="{{ URL::asset('assets/js/slider_home.js') }}"></script>
-    <script>
-        lightbox(document.getElementById('gallery-container'));
-
-        var vvoRangePicker = new Lightpick({
-            field: document.getElementById('showPicker-interna'),
-            inline: true,
-            selectForward: true,
-            singleDate: false,
-            hoveringTooltip: true,
-            numberOfMonths: 2,
-            minDate: moment().startOf('MMMM D, YYYY').add(0, 'day'),
-            onSelect: function(start, end) {
-                var str = '',
-                    ipts = '',
-                    ipte = '';
-
-                ipts += start ? start.format('MMM DD, YYYY') : '';
-                ipte += end ? end.format('MMM DD, YYYY') : '';
-
-                str += start ? start.format('MMM DD, YYYY') + ' - ' : 'Add your travel dates for exact pricing';
-                str += end ? end.format('MMM DD, YYYY') : '';
-
-                document.getElementById('show__date-fechas').innerHTML = str;
-                $(".checkin__lightpicker").val(ipts);
-                $(".checkout__lightpicker").val(ipte);
-            },
-            footer: true,
-            locale: {
-                buttons: {
-                    prev: '',
-                    next: '',
-                    reset: 'Clear dates',
-                    apply: ''
-                }
-            }
-        });
-
-        vvoRangePicker.el.classList.add("vvo_range_picker");
-
-        // modal calendario
-        var vvoRangePickerPopup = new Lightpick({
-            field: document.getElementById('showPickerCheckinput'),
-            inline: true,
-            selectForward: true,
-            singleDate: false,
-            hoveringTooltip: true,
-            numberOfMonths: 2,
-            minDate: moment().startOf('MMMM D, YYYY').add(0, 'day'),
-            onSelect: function(start, end) {
-                var ipts = '',
-                    ipte = '';
-
-                ipts += start ? start.format('MMM DD, YYYY') : '';
-                ipte += end ? end.format('MMM DD, YYYY') : '';
-
-                $("#checkIn-book_edit").val(ipts);
-                $("#checkOut-book_edit").val(ipte);
-            },
-            footer: true,
-            locale: {
-                buttons: {
-                    prev: '',
-                    next: '',
-                    reset: 'Cancel',
-                    apply: ''
-                }
-            }
-        });
-        vvoRangePickerPopup.el.classList.add("vvo_range_picker");
-
-        $(".lightpick-apply-action").appendTo(".popup-dates-edit .lightpick__footer");
-    </script>
+    </div>
+    {{-- INICIA MODAL --}}
+    @if ($data['count'] > 1)
+        @livewire('review.modal', ['listing_id' => $data['listing_id']])
+    @endif
+    {{-- FIN MODAL --}}
+    <button type="button" class="content_icon-leng" id="btnLeng">
+    </button>
+</section>
 @endsection
