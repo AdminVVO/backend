@@ -4,16 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Models\Reviews;
 use App\Models\User;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Redirect;
 
 class ReviewsController extends Controller
 {
     public function index($id)
     {
-        $reviews = Reviews::where('listing_id', $id)->limit(10)->get();
+        $reviews = Reviews::where('listing_id', $id)->get();
 
-        if(!count($reviews)) {
+        if (!count($reviews)) {
             return Redirect()->back();
         }
 
@@ -31,6 +29,11 @@ class ReviewsController extends Controller
         $data['count'] = count($reviews);
 
         foreach ($reviews as $key => $review) {
+
+            if ($key > 4) {
+                break;
+            }
+
             $user = User::find($review['user_id']);
             $data['content'][$key]['comment'] = $review['comment'];
             $data['content'][$key]['full_name'] = $user->full_name;
