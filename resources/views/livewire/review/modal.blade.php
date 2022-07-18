@@ -1,6 +1,5 @@
 <div>
-
-    <div class="container_all_reviews patlbrzi container_user-host">
+    <div class="container_all_reviews patlbrzi container_user-host" wire:ignore.self>
         <div class="paz999i0b modal_content-user"></div>
 
         <div class="fxpaijcpmi">
@@ -15,11 +14,11 @@
                             <label for="ipt__search" class="search_content mrnone">
                                 <div class="input-wrapper">
                                     <i class="far fa-search"></i>
-                                    <input type="text" name="" id="ipt__search" placeholder="Search reviews">
+                                    <input type="text" name="" id="ipt__search" wire:model.lazy="search"
+                                        placeholder="Search reviews">
                                 </div>
                             </label>
                         </div>
-
                         <div class="content_hidden">
                             <div class="content-user-nvl">
                                 <div class="content-starg grndetxt fx-ai-b gp8">
@@ -108,42 +107,54 @@
                                         </div>
                                     </div>
                                 </div>
-
+                                @if(!$is_translate)
                                 <div class="block-a-trad">
-                                    <button class="btn-celest fx-ai-s" style="display: flex; gap: 10px;">
+                                    <button class="btn-celest fx-ai-s" style="display: flex; gap: 10px;" wire:click="$emitTo('review.modal', 'translate', '')">
                                         Translate</button>
                                 </div>
+                                 @else
+
+                                <div class="block-a-trad">
+                                    <button class="btn-celest fx-ai-s" style="display: flex; gap: 10px;" wire:click="$emitTo('review.modal', 'original', '')">
+                                        Original language</button>
+                                </div>
+                                 @endif
                             </div>
 
                             <div class="block-flex">
                                 <div class="usrscontmdl mdl">
                                     <div class="cblock">
-                                        @foreach ($data['content'] as $item)
-                                            <div class="content-user_inf">
-                                                <span class="_pf-msg skeleton">
-                                                    @if (file_exists(storage_path('app/public/uploadAvatar/' . $item['avatar'])))
-                                                        <img src="{{ URL::asset('storage/uploadAvatar/') . '/' . $item['avatar'] }}"
-                                                            loading="lazy" alt="">
-                                                    @else
-                                                        <img src="{{ URL::asset('assets/img/avatar') }}/{{ $item['avatar'] }}"
-                                                            loading="lazy" alt="">
-                                                    @endif
-                                                </span>
-                                                <div>
-                                                    <div class="_txteh skeleton skeleton_txt">
-                                                        {{ $item['full_name'] }}
-                                                    </div>
-                                                    <ol class="skeleton skeleton_txt">
-                                                        <li class="_txtec">{{ $item['created_at'] }}</li>
-                                                    </ol>
-                                                </div>
-                                            </div>
+                                        @if (isset($data['content']))
 
-                                            <div class="msgcont skeleton">
-                                                <span class="_txtec text_tm3">{{ $item['comment'] }}</span>
-                                            </div>
-                                            <br>
-                                        @endforeach
+                                            @foreach ($data['content'] as $item)
+                                                <div class="content-user_inf">
+                                                    <span class="_pf-msg ">
+                                                        @if (file_exists(storage_path('app/public/uploadAvatar/' . $item['avatar'])))
+                                                            <img src="{{ URL::asset('storage/uploadAvatar/') . '/' . $item['avatar'] }}"
+                                                                loading="lazy" alt="">
+                                                        @else
+                                                            <img src="{{ URL::asset('assets/img/avatar') }}/{{ $item['avatar'] }}"
+                                                                loading="lazy" alt="">
+                                                        @endif
+                                                    </span>
+                                                    <div>
+                                                        <div class="_txteh  ">
+                                                            {{ $item['full_name'] }}
+                                                        </div>
+                                                        <ol class=" ">
+                                                            <li class="_txtec">{{ $item['created_at'] }}</li>
+                                                        </ol>
+                                                    </div>
+                                                </div>
+
+                                                <div class="msgcont ">
+                                                    <span class="_txtec text_tm3">{{ $item['comment'] }}</span>
+                                                </div>
+                                                <br>
+                                            @endforeach
+                                        @else
+                                            <h1>No results for “{{ trim($search) }}”</h1>
+                                        @endif
                                     </div>
                                 </div>
                             </div>

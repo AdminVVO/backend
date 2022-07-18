@@ -5,15 +5,37 @@ namespace App\Http\Livewire\Review;
 use App\Models\Reviews;
 use App\Models\User;
 use Livewire\Component;
+use Stichoza\GoogleTranslate\GoogleTranslate;
 
 class Modal extends Component
 {
     public $listing_id;
+    public $search = '';
+    public $filter;
     public $data;
+    public $is_translate = false;
+
+    protected $listeners = [
+        'translate' => 'translate',
+        'original' => 'original'
+    ];
+
+    public function mount()
+    {
+        $this->preLoad();
+    }
+
     public function render()
     {
-        $reviews = Reviews::where('listing_id', $this->listing_id)->get();
+        $this->preLoad();
+        return view('livewire.review.modal');
+    }
 
+    public function preLoad()
+    {
+        $this->reset(['filter', 'data']);
+        $search = $this->search;
+        $reviews = Reviews::join('users', 'reviews.user_id', 'users.id_user')->where('listing_id', $this->listing_id)->get();
         $this->data['rating_cleanliness'] = round($reviews->avg('rating_cleanliness'), 1);
         $this->data['rating_communication'] = round($reviews->avg('rating_communication'), 1);
         $this->data['rating_check'] = round($reviews->avg('rating_check'), 1);
@@ -24,15 +46,46 @@ class Modal extends Component
             $this->data['rating_accuracy'] + $this->data['rating_location'] + $this->data['rating_value']) / 6, 1);
 
         $this->data['count'] = count($reviews);
-
-        foreach ($reviews as $key => $review) {
-            $user = User::find($review['user_id']);
-            $this->data['content'][$key]['comment'] = $review['comment'];
-            $this->data['content'][$key]['full_name'] = $user->full_name;
-            $this->data['content'][$key]['avatar'] = $user->avatar;
-            $this->data['content'][$key]['created_at'] = $review['created_at']->diffForHumans();
+        if ($search) {
+            $this->filter = $reviews->filter(function ($value, $key) use ($reviews, $search) {
+                $comment = explode(' ', strtolower($reviews[$key]->comment));
+                $comment = preg_replace('/[0-9\@\.\;\" "]+/', '', $comment);
+                return count(array_unique(explode(' ', trim($search)))) === count(array_intersect(array_unique($comment), array_unique(explode(' ', strtolower($search)))));
+            });
         }
 
-        return view('livewire.review.modal');
+        if ($this->filter) {
+            foreach ($this->filter as $key => $review) {
+                $this->data['content'][$key]['comment'] = $review->comment;
+                $this->data['content'][$key]['full_name'] = $review->full_name;
+                $this->data['content'][$key]['avatar'] = $review->avatar;
+                $this->data['content'][$key]['created_at'] = $review->created_at->diffForHumans();
+            }
+        } else {
+            foreach ($reviews as $key => $review) {
+                $this->data['content'][$key]['comment'] = $review->comment;
+                $this->data['content'][$key]['full_name'] = $review->full_name;
+                $this->data['content'][$key]['avatar'] = $review->avatar;
+                $this->data['content'][$key]['created_at'] = $review->created_at->diffForHumans();
+            }
+        }
+
+        if ($this->is_translate) {
+            //TODO: in setTarget() add the language that the user has selected in the system
+            $lang = new GoogleTranslate();
+            foreach ($this->data["content"] as $key => $data) {
+                $this->data["content"][$key]["comment"] = $lang->setTarget('es')->translate($data["comment"]);
+            }
+        }
+    }
+
+    public function translate()
+    {
+        $this->is_translate = true;
+    }
+
+    public function original()
+    {
+        $this->is_translate = false; 
     }
 }
