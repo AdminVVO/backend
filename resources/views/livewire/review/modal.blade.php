@@ -10,15 +10,17 @@
                     </div>
 
                     <div class="all_reviews_cont fx fx-fd-c">
-                        <div class="ipt_contsearch">
-                            <label for="ipt__search" class="search_content mrnone">
-                                <div class="input-wrapper">
-                                    <i class="far fa-search"></i>
-                                    <input type="text" name="" id="ipt__search" wire:model.lazy="search"
-                                        placeholder="Search reviews">
-                                </div>
-                            </label>
-                        </div>
+                        @if (!$is_translate)
+                            <div class="ipt_contsearch">
+                                <label for="ipt__search" class="search_content mrnone">
+                                    <div class="input-wrapper">
+                                        <i class="far fa-search"></i>
+                                        <input type="text" name="" id="ipt__search" wire:model.lazy="search"
+                                            placeholder="Search reviews">
+                                    </div>
+                                </label>
+                            </div>
+                        @endif
                         <div class="content_hidden">
                             <div class="content-user-nvl">
                                 <div class="content-starg grndetxt fx-ai-b gp8">
@@ -107,18 +109,19 @@
                                         </div>
                                     </div>
                                 </div>
-                                @if(!$is_translate)
-                                <div class="block-a-trad">
-                                    <button class="btn-celest fx-ai-s" style="display: flex; gap: 10px;" wire:click="$emitTo('review.modal', 'translate', '')">
-                                        Translate</button>
-                                </div>
-                                 @else
-
-                                <div class="block-a-trad">
-                                    <button class="btn-celest fx-ai-s" style="display: flex; gap: 10px;" wire:click="$emitTo('review.modal', 'original', '')">
-                                        Original language</button>
-                                </div>
-                                 @endif
+                                @if (!$is_translate)
+                                    <div class="block-a-trad">
+                                        <button class="btn-celest fx-ai-s" style="display: flex; gap: 10px;"
+                                            wire:click="$emitTo('review.modal', 'translate', '')">
+                                            Translate</button>
+                                    </div>
+                                @else
+                                    <div class="block-a-trad">
+                                        <button class="btn-celest fx-ai-s" style="display: flex; gap: 10px;"
+                                            wire:click="$emitTo('review.modal', 'original', '')">
+                                            Original language</button>
+                                    </div>
+                                @endif
                             </div>
 
                             <div class="block-flex">
