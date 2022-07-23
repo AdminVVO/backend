@@ -110,11 +110,13 @@
                                     </div>
                                 </div>
                                 @if (!$is_translate)
+                                    @if(auth())
                                     <div class="block-a-trad">
                                         <button class="btn-celest fx-ai-s" style="display: flex; gap: 10px;"
                                             wire:click="$emitTo('review.modal', 'translate', '')">
                                             Translate</button>
                                     </div>
+                                    @endif
                                 @else
                                     <div class="block-a-trad">
                                         <button class="btn-celest fx-ai-s" style="display: flex; gap: 10px;"
