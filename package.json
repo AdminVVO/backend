@@ -14,7 +14,7 @@
         "axios": "^0.21",
         "bootstrap": "^5.1.3",
         "laravel-echo": "^1.11.4",
-        "laravel-mix": "^6.0.6",
+        "laravel-mix": "^6.0.49",
         "lodash": "^4.17.19",
         "postcss": "^8.1.14",
         "pusher-js": "^7.0.6",
@@ -26,6 +26,8 @@
         "vue-template-compiler": "^2.6.12"
     },
     "dependencies": {
+        "@fullcalendar/core": "^5.11.0",
+        "@fullcalendar/resource-timeline": "^5.11.0",
         "alpinejs": "^3.9.1",
         "intl-tel-input": "^17.0.15",
         "moment": "^2.29.1",
