@@ -67,35 +67,42 @@
         margin-bottom: 60px;
     }
 
-    @include responsive(1300px) {
-        margin-bottom: 35px;
+    @include responsive(1400px) {
+        margin-bottom: 32px;
+        min-height: 70px;
+        height: 70px;
     }
 
     @include responsive(743px) {
-        display: contents !important;
-        padding: 16px 0;
+        margin-bottom: 24px;
     }
 
-    .medio {
-        @include responsive(743px) {
-            justify-content: center;
-        }
-    }
+    // @include responsive(1127px) {
+        // display: contents !important;
+        // padding: 16px 0;
+    // }
+
+    // .medio {
+    //     @include responsive(1127px) {
+    //         justify-content: center;
+    //     }
+    // }
 
     ._mv-places {
-        @include responsive(743px) {
-            position: fixed;
-            bottom: 0;
-            padding: 20px 0;
-            background: white;
-            left: 0;
-            right: 0;
-            border-top: 2px solid #E3EDF3;
+        @include responsive(1127px) {
+            display: none;
+    //         position: fixed;
+    //         bottom: 0;
+    //         padding: 20px 0;
+    //         background: white;
+    //         left: 0;
+    //         right: 0;
+    //         border-top: 2px solid #E3EDF3;
 
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 100%;
+    //         display: flex;
+    //         justify-content: center;
+    //         align-items: center;
+    //         width: 100%;
         }
     }
 
@@ -104,7 +111,7 @@
             display: block;
         }
 
-        @include responsive(743px) {
+        @include responsive(1127px) {
             padding: 0 5px;
             max-width: 430px;
             width: 90%;
@@ -116,7 +123,7 @@
                 justify-content: center;
             }
 
-            @include responsive(743px) {
+            @include responsive(1127px) {
                 gap: 0;
 
                 > a,
@@ -127,27 +134,27 @@
             }
 
             ._flex {
-                @include responsive(743px) {
+                @include responsive(1127px) {
                     flex-direction: column;
                     gap: 4px;
                 }
 
                 .icon_red {
-                    @include responsive(743px) {
+                    @include responsive(1127px) {
                         font-size: 20px;
                         margin-top: 0;
                     }
                 }
 
                 span {
-                    @include responsive(743px) {
+                    @include responsive(1127px) {
                         color: #283646;
                         font-size: 12px;
                     }
                 }
 
                 .fa-chevron-down {
-                    @include responsive(743px) {
+                    @include responsive(1127px) {
                         display: none;
                     }
                 }
@@ -156,19 +163,19 @@
     }
 
     .menu {
-        @include responsive(743px) {
+        @include responsive(1127px) {
             display: none;
         }
     }
 
     ._puntos3 {
         ._menu-m {
-            @include responsive(743px) {
+            @include responsive(1127px) {
                 top: -10rem;
             }
 
             ._menu-options-items {
-                @include responsive(743px) {
+                @include responsive(1127px) {
                     width: 230px;
                 }
             }
@@ -176,7 +183,7 @@
 
         &.is-active {
             ._menu-m {
-                @include responsive(743px) {
+                @include responsive(1127px) {
                     top: -10rem;
                     right: 0;
                 }
@@ -188,4 +195,35 @@
 .header_admin.fixed {
     position: sticky;
     animation: none;  
+}
+
+
+@include responsive(1127px) {
+    body {
+        .header_admin {
+            min-height: 70px;
+            height: 70px;
+
+            .medio {
+                width: 100%;
+                padding: 0 24px;
+            }
+        }
+    }
+}
+
+@include responsive(743px) {
+    body {
+        .header_admin {
+            display: flex !important;
+
+            .medio {
+                justify-content: space-between !important;
+            }
+
+            .logo-menu {
+                display: block !important;
+            }
+        }
+    }
 }

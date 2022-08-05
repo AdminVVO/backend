@@ -36,6 +36,9 @@
                     'weekend_nightly_fee' => $content['weekend_nightly_fee'],
                     'requestDate' => $requestDate,
                     'requestDays' => $requestDays,
+                    'first_guest' => $content['first_guest'],
+                    'number_guests' => $content['number_guests'],
+                    'max_people' => $content['max_people'],
                 ])
             </div>
         </div>

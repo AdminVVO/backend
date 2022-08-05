@@ -140,7 +140,7 @@ class RightDetails extends Component
         )->where([
             'id_listings' => $this->listingId,
             'user_id'     => Auth::id()
-        ])->whereNotIn('status', ['in process'])->first();
+        ])->first();
 
             $this->content['title']            = $queryListing['title'];
             $this->content['internal_title']   = $queryListing['internal_title'];

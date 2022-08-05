@@ -1,8 +1,12 @@
 <aside class="content-aside_prec skeleton">
     <div class="content_prec fx fx-fw-w fx-ai-b fx-jc-sb gp8">
         <div class="block_prec-res skeleton">
-            {{-- <span class="opac">$345</span> --}}
-            <span class="prec_black">{{ \App\Models\Currencs::Symbol( $listing_currency ) . $base_price }}</span>
+            @if ( $first_guest )
+                <span class="opac">{{ \App\Models\Currencs::Symbol( $listing_currency ) . $base_descont }}</span>
+                <span class="prec_black">{{ \App\Models\Currencs::Symbol( $listing_currency ) . $base_price }}</span>
+            @else
+                <span class="prec_black">{{ \App\Models\Currencs::Symbol( $listing_currency ) . $base_price }}</span>
+            @endif
             <span class="txt_night">/night</span>
         </div>
 
@@ -18,7 +22,7 @@
         </span>
     </div>
 
-    <form action="">
+    <form wire:submit.prevent="submitReserveForm">
         <div class="_flfpc gp16" style="flex-direction: initial;" wire:ignore>
             <div class="bk-icon-des_fbas fx-fd-c mnw-p47_f47 skeleton">
                 <div class="txt-check-in">Check-In</div>
@@ -33,26 +37,37 @@
 
         <div class="sltgts skeleton">
             <div class="txt-check-in">Guests</div>
-            <div class="vvo-select wh-p100">
-                <select name="" id="">
-                    <option value="1">3 guests</option>
-                    <option value="2">3 guests (+2)</option>
-                    <option value="3">3 guests (+3)</option>
+            <div class="vvo-select wh-p100 @error('inputGuest') error_input @enderror">
+                <select class="" wire:model.lazy="inputGuest">
+                    <option value="{{ $number_guests }}">{{ $number_guests }} guests</option>
+                    @for ($i = 1; $i <= $max_people; $i++)
+                        <option value="{{ $number_guests + $i }}">{{ $number_guests }} guests (+{{ $i }})</option>
+                    @endfor
                 </select>
 
                 <i class="fas fa-chevron-down"></i>
             </div>
+            @error('inputGuest')
+                <div  class="_txterror">
+                    <i class="fas fa-exclamation-circle icon1"></i> 
+                    {{ $message }}
+                </div>
+            @enderror
         </div>
 
         <div class="block-a fx-jc-c" style="margin: 23px 0 16px;">
-            <button type="button" class="btn-celest rscrm skeleton">Reserve</button>
+            @if ( Auth::check() )
+                <button type="submit" class="btn-celest skeleton">Reserve</button>
+            @else
+                <button type="button" class="btn-celest skeleton butnSignModl">Reserve</button>
+            @endif
         </div>
         <div class="_txtprivat skeleton skeleton_txt" style="text-align: center; margin: 0 auto;">You won't be charged yet</div>
 
         <div class="_cns">
             <span class="f-cth skeleton">
-                <div class="_txtec">{{ \App\Models\Currencs::Symbol( $listing_currency ) . $base_price }} x {{ $requestDays }} nights</div>
-                <div class="_txtec">{{ \App\Models\Currencs::Symbol( $listing_currency ) . ( $base_price * $requestDays ) }}</div>
+                <div class="_txtec">{{ \App\Models\Currencs::Symbol( $listing_currency ) . $base_price  .' x '. $requestDays }} nights</div>
+                <div class="_txtec">{{ \App\Models\Currencs::Symbol( $listing_currency ) . ( $base_price * ( $requestDays != 0 ? $requestDays : 1 ) ) }}</div>
             </span>
 
             @if ( $weekly_discount != null )
@@ -102,6 +117,13 @@
                 <span class="f-cth skeleton">
                     <div class="_txtec">Management fee</div>
                     <div class="_txtec">{{ \App\Models\Currencs::Symbol( $listing_currency ) . $management_fee }}</div>
+                </span>
+            @endif
+            
+            @if ( $extra_guestShow != 0 )
+                <span class="f-cth skeleton">
+                    <div class="_txtec">Extra Guest fee</div>
+                    <div class="_txtec">{{ \App\Models\Currencs::Symbol( $listing_currency ) . $extra_guestShow }}</div>
                 </span>
             @endif
         </div>

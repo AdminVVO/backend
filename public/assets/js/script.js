@@ -42,6 +42,7 @@ const $puntos_pastguest = $('._menu-options_pastguest');
 const $bef_places = $('.content_show_modal_left');
 const $ps_abs_modal_icon_msg = $('.content_icons_type_msg');
 const $btnSltContent = $(".btnSltContent");
+const $btnSltNrl = $(".btnSltNrl");
 
 // admin-reservations.php
 $(document).mouseup(e => {
@@ -83,6 +84,14 @@ $(document).mouseup(e => {
         $btnSltContent.removeClass("active");
     }
 });
+
+// listing.php - click select btn
+$(document).mouseup(e => {
+    if (!$btnSltNrl.is(e.target) && $btnSltNrl.has(e.target).length === 0) {
+        $btnSltNrl.removeClass("active");
+    }
+});
+
 
 // HEADER MENU CLICK
 $("._menu_options").on("click", function() {
@@ -133,6 +142,16 @@ $(".clickSelectBtn").on("click", function() {
 
 $(".xhidemdusr").on("click", function() {
     $btnSltContent.removeClass("active");
+});
+
+// listing.php - click select btn
+$(".js_submenuNrml, .js_closeSubmenuGuestInterna").on("click", function() {
+    let toggleClass = $(this).parent($btnSltNrl).hasClass("active") ? true : false;
+    $btnSltNrl.removeClass("active");
+
+    if (!toggleClass) {
+        $(this).parent($btnSltNrl).toggleClass("active");
+    }
 });
 
 // $(window).resize(function() {

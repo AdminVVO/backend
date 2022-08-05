@@ -444,6 +444,13 @@ header {
         }
     }
 
+    .page__perfil_interno,
+    .page__perfil_anfitrion {
+        .header {
+            margin-bottom: 0;
+        }
+    }
+
     .page__account_user {
         .header {
             margin-bottom: 0;
@@ -798,7 +805,7 @@ header {
 
                     i {
                         font-size: 22px;
-                        font-weight: 300;
+                        font-weight: 400;
                         margin: 0;
                         color: #b0b0b0;
                     }

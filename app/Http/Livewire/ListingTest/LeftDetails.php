@@ -37,14 +37,13 @@ class LeftDetails extends Component
             'status',
             'photos',
             'created_at',
-        )->whereNotIn('status', ['in process'])->where([
+        )->where([
             'user_id' => Auth::id(),
         ])
         ->where(function ($query) {
-            $query->where('title','like', '%' . $this->search . '%')
-                  ->orWhere('internal_title','like', '%' . $this->search . '%');
+            $query->where('title','ilike', '%' . $this->search . '%')
+                  ->orWhere('internal_title','ilike', '%' . $this->search . '%');
         })
-        ->whereNotIn('status', ['in process'] )
         ->orderBy('updated_at', $this->sortBy );
 
         $cloneQueryOne = clone $query;

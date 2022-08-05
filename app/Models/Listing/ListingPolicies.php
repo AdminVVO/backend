@@ -33,4 +33,10 @@ class ListingPolicies extends Model
         'checkin_window_end' => 'array',
         'checkout_time' => 'array',
     ];
+    
+    ## Relaciones 
+    public function Listings()
+    {
+        return $this->belongsTo(Listings::class, 'listing_id');
+    }
 }

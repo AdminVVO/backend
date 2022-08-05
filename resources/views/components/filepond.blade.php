@@ -1,32 +1,34 @@
 <div
-    wire:ignore
+    wire:ignore.self
     x-data
     x-init="() => {
-        const post = FilePond.create($refs.input);
-        post.setOptions({
-            allowMultiple: {{ $attributes->has('multiple') ? 'true' : 'false' }}, 
-            allowImagePreview: {{ $attributes->has('allowImagePreview') ? 'true' : 'false' }},
-            imagePreviewMaxHeight: {{ $attributes->has('imagePreviewMaxHeight') ? $attributes->get('imagePreviewMaxHeight') : '256' }},
-            allowFileTypeValidation: {{ $attributes->has('allowFileTypeValidation') ? 'true' : 'false' }},
-            acceptedFileTypes: {!! $attributes->get('acceptedFileTypes') ?? 'null' !!},
-            allowFileSizeValidation: {{ $attributes->has('allowFileSizeValidation') ? 'true' : 'false' }},
-            maxFileSize: {!! $attributes->has('maxFileSize') ? "'".$attributes->get('maxFileSize')."'" : 'null' !!},
-            maxFiles: {!! $attributes->has('maxFiles') ? "'".$attributes->get('maxFiles')."'" : 'null' !!},
-            server: {
-                process:(fieldName, file, metadata, load, error, progress, abort, transfer, options) => {
-                    @this.upload('{{ $attributes->whereStartsWith('wire:model')->first() }}', file, load, error, progress)
-                },
-                revert: (filename, load) => {
-                    @this.removeUpload('{{ $attributes->whereStartsWith('wire:model')->first() }}', filename, load)
-                },
-            }
-        });
-        this.addEventListener('pondReset', e => {
-            post.removeFiles();
-        });
+        document.addEventListener('DOMContentLoaded', function() {
+            const post = FilePond.create($refs.input);
+            post.setOptions({
+                allowMultiple: {{ $attributes->has('multiple') ? 'true' : 'false' }}, 
+                allowImagePreview: {{ $attributes->has('allowImagePreview') ? 'true' : 'false' }},
+                imagePreviewMaxHeight: {{ $attributes->has('imagePreviewMaxHeight') ? $attributes->get('imagePreviewMaxHeight') : '256' }},
+                allowFileTypeValidation: {{ $attributes->has('allowFileTypeValidation') ? 'true' : 'false' }},
+                acceptedFileTypes: {!! $attributes->get('acceptedFileTypes') ?? 'null' !!},
+                allowFileSizeValidation: {{ $attributes->has('allowFileSizeValidation') ? 'true' : 'false' }},
+                maxFileSize: {!! $attributes->has('maxFileSize') ? "'".$attributes->get('maxFileSize')."'" : 'null' !!},
+                maxFiles: {!! $attributes->has('maxFiles') ? "'".$attributes->get('maxFiles')."'" : 'null' !!},
+                server: {
+                    process:(fieldName, file, metadata, load, error, progress, abort, transfer, options) => {
+                        @this.upload('{{ $attributes->whereStartsWith('wire:model')->first() }}', file, load, error, progress)
+                    },
+                    revert: (filename, load) => {
+                        @this.removeUpload('{{ $attributes->whereStartsWith('wire:model')->first() }}', filename, load)
+                    },
+                }
+            });
+            this.addEventListener('pondReset', e => {
+                post.removeFiles();
+            });
+        });    
     }"
 >
-    <input type="file" x-ref="input" />
+    <input type="file" x-ref="input" multiple />
 </div>
 
 @push('style')
@@ -49,10 +51,12 @@
         <script src="https://unpkg.com/filepond/dist/filepond.js"></script>
     @endonce
     <script>
-        FilePond.registerPlugin(
-         	FilePondPluginImagePreview,
-         	FilePondPluginFileValidateType,
-         	FilePondPluginFileValidateSize
-        );
+        document.addEventListener('DOMContentLoaded', function() {
+            FilePond.registerPlugin(
+             	FilePondPluginImagePreview,
+             	FilePondPluginFileValidateType,
+             	FilePondPluginFileValidateSize
+            );
+        });    
     </script>
 @endpush

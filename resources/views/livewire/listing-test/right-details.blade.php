@@ -1,19 +1,25 @@
 <div class="content_resort_people">
     <h2 class="h2-guests titulo txt_upper">studio resort for 4 people!</h2>
-    <div class="pd_w fx fx-ai-c">
-        <div class="content-scroll-reserva scroll_n">
-            <div class="tabs_items_group scroll_n">
-                <h3 class="tabs_items {{ $stepBar == 'details' ? 'active_tabs' : '' }}" wire:click="changeBars('details')">Listing details</h3>
-                <h3 class="tabs_items {{ $stepBar == 'pricing' ? 'active_tabs' : '' }}" wire:click="changeBars('pricing')">Pricing and availability</h3>
-                <h3 class="tabs_items {{ $stepBar == 'policies' ? 'active_tabs' : '' }}" wire:click="changeBars('policies')">Policies and rules</h3>
-                <h3 class="tabs_items {{ $stepBar == 'guests' ? 'active_tabs' : '' }}" wire:click="changeBars('guests')">Info for guests</h3>
-            </div>
-        </div>
+    
+    <div class="navcont__flech-fx pd_w" wire:ignore>
+        <div class="cont_nav js__cont_nav">
+            <div class="nav__links-txt tab-container">
+                <button type="button" class="li__links-txt" wire:click="changeBars('details')">
+                    <span class="tabs_items active_tabs">Listing details</span>
+                </button>
 
-        <div class="btn-right-scroll">
-            <span class="bg-btn-right">
-                <i class="fas fa-chevron-right"></i>
-            </span>
+                <button type="button" class="li__links-txt" wire:click="changeBars('pricing')">
+                    <span class="tabs_items">Pricing and availability</span>
+                </button>
+
+                <button type="button" class="li__links-txt" wire:click="changeBars('policies')">
+                    <span class="tabs_items">Policies and rules</span>
+                </button>
+
+                <button type="button" class="li__links-txt" wire:click="changeBars('guests')">
+                    <span class="tabs_items">Info for guests</span>
+                </button>
+            </div>
         </div>
     </div>
 
@@ -43,12 +49,11 @@
             </div>
         </div>
     </div>
-    
 </div>
 
 @push('scripts')
 
-    <script>
+{{--     <script>
         Livewire.hook('message.processed', (message, component) => {
             $('.content_listing_details .block ._btnsm.edit').click(function(){
                 $(this).parents(".block").addClass("edit_listing_post");
@@ -90,5 +95,5 @@
                 $(".container_poliandrulesedit").show();
             });
         })
-    </script>
+    </script> --}}
 @endpush

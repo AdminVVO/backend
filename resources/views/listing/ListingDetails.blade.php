@@ -5,10 +5,8 @@
 @section('css')
 
     <link href="{{ URL::asset('assets/css/header-admin.css') }}" rel="stylesheet"/>
-    <link href="{{ URL::asset('assets/css/modals-admin.css') }}" rel="stylesheet"/>
-    <link href="{{ URL::asset('assets/css/modals-user.css') }}" rel="stylesheet"/>
 
-    <style type="text/css">
+{{--     <style type="text/css">
         .lightpick {
             min-width: fit-content;
         }
@@ -17,13 +15,16 @@
             display: flex !important;
             justify-content: space-between;
         }
-    </style>
+    </style> --}}
 
 @endsection
 
 @section('header')
 
-    @include('layouts.HeaderAuth')
+    <div class="h_admin mrb-0">
+        @include('layouts.HeaderAuth')
+    </div>
+
 
 @endsection
 
@@ -32,33 +33,44 @@
     <section class="entero c_linsting" style="margin-top: 50px;">
         <div class="medio">
             <div class="c_listing-post fx">
-
-                @livewire('listing-test.left-details', ['listing' => $listing])
-
-                @livewire('listing-test.right-details', ['listing' => $listing])
-
+                @livewire('listing.details.left-details', ['listing' => $listing])
+                @livewire('listing.details.right-details', ['listing' => $listing])
             </div>
         </div>
     </section>
 
     @section('modals')
-        {{-- Modal FeedBack --}}
-        @include('livewire.listing-test.modals.feedback')
 
-        {{-- Modal Listings Status Snoozed --}}
-        @include('livewire.listing-test.modals.snoozed')
+        {{-- Modal Photos All --}}
+        @include('livewire.listing.details.modals.photos-all')
 
-        {{-- Modal Listings Status Unlisted --}}
-        @include('livewire.listing-test.modals.unlisted')
+        {{-- Modal Photos Cover --}}
+        @include('livewire.listing.details.modals.photo-cover')
+
+        {{-- Modal Photos Edit --}}
+        @include('livewire.listing.details.modals.photos-edit')
 
         {{-- Modal Listings Amenities --}}
-        @include('livewire.listing-test.modals.amenities')
+        @include('livewire.listing.details.modals.amenities')
+
+
+
+        {{-- Modal Listings Status Unlisted --}}
+        {{-- @include('livewire.listing.details.modals.desactivate') --}}
+        
+        {{-- Modal FeedBack --}}
+        {{-- @include('livewire.listing.details.modals.feedback') --}}
+
+        {{-- Modal Listings Status Snoozed --}}
+        {{-- @include('livewire.listing.details.modals.snoozed') --}}
+
+
 
         {{-- Modal Listings Rooms and Spaces --}}
-        @include('livewire.listing-test.modals.roomspace')
+        {{-- @include('livewire.listing.details.modals.roomspace') --}}
 
         {{-- Modal Listings Instant Book Off --}}
-        @include('livewire.listing-test.modals.instantbook')
+        {{-- @include('livewire.listing.details.modals.instantbook') --}}
 
     @endsection
 
@@ -66,7 +78,127 @@
 
 @section('script')
 
-    <script src="{{ URL::asset('assets/js/modals-min.js') }}"></script>
+    <script type="text/javascript">
+        Livewire.hook('message.processed', (message, component) => {
+            $(".click_show_more").on('click', function() {
+                $(this).parent().find(".show_more_info").show();
+                $(this).parent().find(".click_show_more").hide();
+            });
+            $(".js__popupEditAddCaption").on("click", function() {
+                animateTopModals();
+                $(".container_ppetpo").show();
+            });
+            $(".input_cant_view").each(function() {
+                var longitud = $(this).val().length;
+                $(this).parent().find('.views_num').html(longitud);
+
+                $(this).keyup(function() {
+                    var nueva_longitud = $(this).val().length;
+                    $(this).parent().find('.views_num').html(nueva_longitud);
+                });
+            });
+            carouselListinPost();
+            amenitiesHidePost();
+
+        })
+        
+        window.addEventListener('closeCoverModal', event => {
+            $(".containerppcepo").hide();
+        })
+        
+        window.addEventListener('closeCommentModal', event => {
+            $(".container_ppetpo").hide();
+        })
+
+        function carouselListinPost() {
+            var element = $('.content_listing_details .cont_listing_group .pd-r13');
+            var slider = $('.content_listing_details .cont_listing_group');
+            var sliderWrapper = $('.content_listing_details .post_right_carrousel');
+            var totalWidth = sliderWrapper.innerWidth();
+            var elementWidth = element.outerWidth();
+            var sliderWidth = 0;
+            var newPositionSlideX = 0;
+
+            sliderWrapper.append('<div class="nav__listingPost"><button type="button" class="prev-slide prev"><svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" style="display: block; fill: none; height: 14px; width: 14px; stroke: currentcolor; stroke-width: 5.33333; overflow: visible;"><g fill="none"><path d="m20 28-11.29289322-11.2928932c-.39052429-.3905243-.39052429-1.0236893 0-1.4142136l11.29289322-11.2928932"></path></g></svg></button><button type="button" class="next-slide next"><svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" style="display: block; fill: none; height: 14px; width: 14px; stroke: currentcolor; stroke-width: 5.33333; overflow: visible;"><g fill="none"><path d="m12 4 11.2928932 11.2928932c.3905243.3905243.3905243 1.0236893 0 1.4142136l-11.2928932 11.2928932"></path></g></svg></button></div>');
+    
+            element.each(function(){
+                sliderWidth = sliderWidth + $(this).outerWidth() + 1;
+            });
+        
+            slider.css({
+                'width': sliderWidth
+            });
+
+            $('.nav__listingPost .next-slide').click(function() {
+                if (newPositionSlideX > (totalWidth - sliderWidth)) {
+                    newPositionSlideX = newPositionSlideX - elementWidth;
+                    
+                    slider.css({
+                        'left' : newPositionSlideX
+                    }, check());
+                };
+            });
+        
+            $('.nav__listingPost .prev-slide').click(function() {
+                if (newPositionSlideX >= -sliderWidth) {
+                    newPositionSlideX = newPositionSlideX + elementWidth;
+                    
+                    slider.css({
+                        'left' : newPositionSlideX
+                    }, check());
+                };
+            });
+    
+            function check() {
+                if (sliderWidth >= totalWidth && newPositionSlideX > (totalWidth - sliderWidth)) {
+                    $('.nav__listingPost .next').css({
+                        'right' : '0'
+                    }).find("button").attr("disabled", false);
+                } else {
+                    $('.nav__listingPost .next').css({
+                        'right' : -$(this).width()
+                    }).find("button").attr("disabled", true);
+                };
+            
+                if( newPositionSlideX < 0){
+                    $('.nav__listingPost .prev').css({
+                        'left' : '0'
+                    }).find("button").attr("disabled", false);
+                } else {
+                    $('.nav__listingPost .prev').css({
+                        'left' : -$(this).width()
+                    }).find("button").attr("disabled", true);
+                };
+            };
+    
+            $(window).resize(function() {
+                totalWidth = sliderWrapper.innerWidth();
+                check();
+            });
+
+            check();
+        }
+
+        function amenitiesHidePost() {
+            let obj = $(".js_amenitiesPostShowHide .wflex").find("p");
+
+            $.each(obj, function(i) {
+                if ((i + 1) >= 10) {
+                    if ((i) >= 10) {
+                        $(this).closest(".js_amenitiesPostShowHide .wflex p").css({'display': 'none'});
+                        $(this).parents().find(".js__showMoreAmenitiesPost").removeClass("dn");
+                    }
+                }
+            });
+        }
+
+        window.addEventListener('closeModals', event => {
+            $(".container_admin-host").hide();
+            $(".page-category").css({'overflow': 'auto'});
+        })
+    </script>
+
+{{--     <script src="{{ URL::asset('assets/js/modals-min.js') }}"></script>
 
     <script>
 
@@ -207,10 +339,7 @@
         $("#closeRoomSpace").click(function(e) {
             window.livewire.emit('cancelRoomSpace');
         });
-        window.addEventListener('closeSnoozeApline', event => {
-            $(".container_admin-host").hide();
-            $(".page-category").css({'overflow': 'auto'});
-        })
 
-     </script>
+
+     </script> --}}
 @endsection

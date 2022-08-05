@@ -65,7 +65,7 @@
 
                     <div class="_cpyf _gap">
                         <div class="radio-item_rscrm">
-                            <input type="radio" id="pay1" name="pay" value="pay1" checked>
+                            <input type="radio" id="pay1" name="pay" checked wire:model.lazy="inputPay" value="all">
                             <label for="pay1">
                                 <div class="content_flex-actv">
                                     <div class="flex-msg">
@@ -88,11 +88,11 @@
                         </div>
 
                         <div class="radio-item_rscrm">
-                            <input type="radio" id="pay2" name="pay" value="pay2">
+                            <input type="radio" id="pay2" name="pay" wire:model.lazy="inputPay" value="part">
                             <label for="pay2">
                                 <div class="content_flex-actv">
                                     <div class="flex-msg">
-                                        <div class="_txteh">Pay in full</div>
+                                        <div class="_txteh">Pay for part</div>
 
                                         <p class="_txtec mr-t4">Pay {{ \App\Models\Currencs::Symbol( $listing_currency ) . ( $totalPrice / 2 ) }} now, and the rest ({{ \App\Models\Currencs::Symbol( $listing_currency ) . ( $totalPrice / 2 ) }}) will be automatically charged to the same payment method on Dec 27, 2021. No extra fees.</p>
 
@@ -131,9 +131,9 @@
                         </div>
                     </div>
 
-                    <div class="navcont__flech-fx mr-t24 mr-b32">
+                    <div class="navcont__flech-fx mr-t24 mr-b32" wire:ignore>
                         <div class="cont_nav">
-                            <div class="nav__links-txt scroll_n owl-carousel js_navlinksreserve">
+                            <div class="nav__links-txt scroll_n ">
                                 <button type="button" class="li__links-txt _creditcard">
                                     <span class="tabs_items active_tabs">Credit or debit card</span>
                                 </button>
@@ -147,17 +147,17 @@
                                 </button>
                             </div>
 
-                            <div class="vvo_owl_nav navowlplaywith"></div>
+                            {{-- <div class="vvo_owl_nav navowlplaywith"></div> --}}
                         </div>
                     </div>
 
-                    <form action="">
+                    <form wire:submit.prevent="SubmitCreditCard" wire:ignore.self>
                         <div class="_hiddencreditordebit">
                             <div class="txt-check-in">Card Number</div>
 
                             <div>
                                 <label for="ipt__ics" class="ipt_icon js_ipt-icon">
-                                    <input type="text" class="ipt_ic mask__cardnumber" placeholder="0000 0000 0000 0000" id="ipt__ics">
+                                    <input type="text" class="ipt_ic mask__cardnumber" placeholder="0000 0000 0000 0000" id="ipt__ics" wire:model.defer="inputCard">
                                     <i class="fal fa-credit-card js_ics"></i>
                                 </label>
                             </div>
@@ -165,47 +165,47 @@
                             <div class="_flfpc gp16" style="flex-direction: initial;">
                                 <div class="bk-icon-des_fbas fx-fd-c mnw-p48_f48">
                                     <div class="txt-check-in">Expiration</div>
-                                    <input type="text" class="_numcard mask__mmyy" placeholder="MM / YY">
+                                    <input type="text" class="_numcard mask__mmyy" placeholder="MM / YY" wire:model.defer="inputExp">
                                 </div>
 
                                 <div class="bk-icon-des_fbas fx-fd-c mnw-p48_f48">
                                     <div class="txt-check-in">CVV</div>
-                                    <input type="text" class="_numcard number" placeholder="123" maxlength="4">
+                                    <input type="text" class="_numcard number" placeholder="123" maxlength="4" wire:model.defer="inputCvv">
                                 </div>
                             </div>
 
                             <div class="_txteh">Billing address</div>
                             <div class="_cbadd">
                                 <div class="txt-check-in">Street address</div>
-                                <input type="text" class="_numcard">
+                                <input type="text" class="_numcard" wire:model.defer="inputAddress">
                             </div>
 
                             <div class="_cbadd">
                                 <div class="txt-check-in">Apt or suite number</div>
-                                <input type="text" class="_numcard number">
+                                <input type="text" class="_numcard number" wire:model.defer="inputSuite">
                             </div>
 
                             <div class="_cbadd">
                                 <div class="txt-check-in">City</div>
-                                <input type="text" class="_numcard">
+                                <input type="text" class="_numcard" wire:model.defer="inputCity">
                             </div>
 
                             <div class="_flfpc gp16" style="flex-direction: initial; margin: 21px 0 21px;">
                                 <div class="bk-icon-des_fbas fx-fd-c mnw-p48_f48">
                                     <div class="txt-check-in">State</div>
-                                    <input type="text" class="_numcard">
+                                    <input type="text" class="_numcard" wire:model.defer="inputState">
                                 </div>
 
                                 <div class="bk-icon-des_fbas fx-fd-c mnw-p48_f48">
                                     <div class="txt-check-in">ZIP code</div>
-                                    <input type="text" class="_numcard number">
+                                    <input type="text" class="_numcard number" wire:model.defer="inputZip">
                                 </div>
                             </div>
 
                             <div class="cbadd">
                                 <div class="txt-check-in">Country/region</div>
                                 <div class="selected-modal" style="margin: 0;">
-                                    <select name="" id="">
+                                    <select wire:model.defer="inputCountry">
                                         <option value="1">United States</option>
                                         <option value="2">United States (+2)</option>
                                         <option value="3">United States (+3)</option>
@@ -248,122 +248,122 @@
                                 </p>
                             </div>
 
-                            <button type="button" class="btn-celest" style="margin: 34px 0 0;">Confirm and pay</button>
-                        </div>
-
-                        <div class="_showgplay">
-                            <div class="mr-b32">
-                                <button type="button" class="btn-black mx210">
-                                    <div class="fx fx-ai-c fx-jc-c gp6">
-                                        <img src="{{ URL::asset('assets/img/icons/google.svg') }}" alt="">
-                                        Pay
-                                    </div>
-                                </button>
-                            </div>
-
-                            <div class="_line-hr mr-t32 mr-b32"></div>
-
-                            <div class="fx fx-fd-c gp16">
-                                <h2 class="h2-guests">Information required for the trip</h2>
-
-                                <div class="fx fx-fd-c gp4">
-                                    <div class="_txteh">Send a message to the host</div>
-                                    <div class="_txtec16">Tell the host why you are traveling and when you will arrive.</div>
-                                </div>
-
-                                <label for="textarealbl" class="mr-t16">
-                                    <div class="content-user_inf fx fx-ai-c mr-b32">
-                                        <span class="pf-u fx" style="max-width: 46px; height: 46px;">
-                                            <img src="{{ URL::asset('assets/img/profile.png') }}" alt="">
-                                        </span>
-                                        <div class="wh-p100">
-                                            <h2 class="_txteh">Anny</h2>
-                                            <div class="_txtec16 mr-t2">Joined in August 2013</div>
-                                        </div>
-                                    </div>
-
-                                    <textarea placeholder="Write a note" class="_txta-modls" style="resize: vertical;" rows="5" id="textarealbl"></textarea>
-                                </label>
-                            </div>
-
-                            <div class="_line-hr mr-t32 mr-b32"></div>
-
-                            <div class="_cp">
-                                <div class="h2-guests">Cancellation policy</div>
-                                <p class="_txtec">
-                                    Non-refundable: Cancel before check-in and get back only the cleaning fee, if you paid one.
-
-                                    <button type="button" class="txtunder__ics">Learn more</button>
-                                </p>
-
-                                <p class="_txtec">
-                                    Our Extenuating Circumstances policy does not cover travel disruptions caused by COVID-19.
-
-                                    <button type="button" class="txtunder__ics">Learn more</button>
-                                </p>
-                            </div>
-
-                            <div class="_line-hr mr-t32 mr-b32"></div>
-
-                            <div>
-                                <p class="_txtec16">
-                                    By selecting the button below, I agree to the
-
-                                    <button type="button" class="txtunder__ics txt16">Host's House Rules</button>,
-
-                                    <button type="button" class="txtunder__ics txt16">vvoutlet COVID-19 Safety Requirements</button>
-
-                                    and the
-
-                                    <button type="button" class="txtunder__ics txt16">Guest Refund Policy</button>.
-                                </p>
-                            </div>
-                        </div>
-
-                        <div class="_showpaypal" style="display: none;">
-                            <div class="mr-b32">
-                                <button type="button" class="btn-yellow mx210">
-                                    <div class="fx fx-ai-c fx-jc-c gp3">
-                                        <img src="{{ URL::asset('assets/img/icons/paypal.svg') }}" alt="" style="min-width: 14px; width: 14px;">
-                                        <img src="{{ URL::asset('assets/img/icons/txt-paypal.svg') }}" alt="" style="min-width: 59px; width: 59px;">
-                                    </div>
-                                </button>
-                            </div>
-
-                            <div class="_line-hr mr-t32 mr-b32"></div>
-
-                            <div class="_cp">
-                                <div class="h2-guests">Cancellation policy</div>
-                                <p class="_txtec">
-                                    Non-refundable: Cancel before check-in and get back only the cleaning fee, if you paid one.
-
-                                    <button type="button" class="txtunder__ics">Learn more</button>
-                                </p>
-
-                                <p class="_txtec">
-                                    Our Extenuating Circumstances policy does not cover travel disruptions caused by COVID-19.
-
-                                    <button type="button" class="txtunder__ics">Learn more</button>
-                                </p>
-                            </div>
-
-                            <div class="_line-hr mr-t32 mr-b32"></div>
-
-                            <div>
-                                <p class="_txtec16">
-                                    By selecting the button below, I agree to the
-
-                                    <button type="button" class="txtunder__ics txt16">Host's House Rules</button>,
-
-                                    <button type="button" class="txtunder__ics txt16">vvoutlet COVID-19 Safety Requirements</button>
-
-                                    and the
-
-                                    <button type="button" class="txtunder__ics txt16">Guest Refund Policy</button>.
-                                </p>
-                            </div>
+                            <button type="submit" class="btn-celest" style="margin: 34px 0 0;">Confirm and pay</button>
                         </div>
                     </form>
+
+                    <div class="_showgplay" style="display: none;">
+                        <div class="mr-b32">
+                            <button type="button" class="btn-black mx210">
+                                <div class="fx fx-ai-c fx-jc-c gp6">
+                                    <img src="{{ URL::asset('assets/img/icons/google.svg') }}" alt="">
+                                    Pay
+                                </div>
+                            </button>
+                        </div>
+
+                        <div class="_line-hr mr-t32 mr-b32"></div>
+
+                        <div class="fx fx-fd-c gp16">
+                            <h2 class="h2-guests">Information required for the trip</h2>
+
+                            <div class="fx fx-fd-c gp4">
+                                <div class="_txteh">Send a message to the host</div>
+                                <div class="_txtec16">Tell the host why you are traveling and when you will arrive.</div>
+                            </div>
+
+                            <label for="textarealbl" class="mr-t16">
+                                <div class="content-user_inf fx fx-ai-c mr-b32">
+                                    <span class="pf-u fx" style="max-width: 46px; height: 46px;">
+                                        <img src="{{ URL::asset('assets/img/profile.png') }}" alt="">
+                                    </span>
+                                    <div class="wh-p100">
+                                        <h2 class="_txteh">Anny</h2>
+                                        <div class="_txtec16 mr-t2">Joined in August 2013</div>
+                                    </div>
+                                </div>
+
+                                <textarea placeholder="Write a note" class="_txta-modls" style="resize: vertical;" rows="5" id="textarealbl"></textarea>
+                            </label>
+                        </div>
+
+                        <div class="_line-hr mr-t32 mr-b32"></div>
+
+                        <div class="_cp">
+                            <div class="h2-guests">Cancellation policy</div>
+                            <p class="_txtec">
+                                Non-refundable: Cancel before check-in and get back only the cleaning fee, if you paid one.
+
+                                <button type="button" class="txtunder__ics">Learn more</button>
+                            </p>
+
+                            <p class="_txtec">
+                                Our Extenuating Circumstances policy does not cover travel disruptions caused by COVID-19.
+
+                                <button type="button" class="txtunder__ics">Learn more</button>
+                            </p>
+                        </div>
+
+                        <div class="_line-hr mr-t32 mr-b32"></div>
+
+                        <div>
+                            <p class="_txtec16">
+                                By selecting the button below, I agree to the
+
+                                <button type="button" class="txtunder__ics txt16">Host's House Rules</button>,
+
+                                <button type="button" class="txtunder__ics txt16">vvoutlet COVID-19 Safety Requirements</button>
+
+                                and the
+
+                                <button type="button" class="txtunder__ics txt16">Guest Refund Policy</button>.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="_showpaypal" style="display: none;">
+                        <div class="mr-b32">
+                            <button type="button" class="btn-yellow mx210">
+                                <div class="fx fx-ai-c fx-jc-c gp3">
+                                    <img src="{{ URL::asset('assets/img/icons/paypal.svg') }}" alt="" style="min-width: 14px; width: 14px;">
+                                    <img src="{{ URL::asset('assets/img/icons/txt-paypal.svg') }}" alt="" style="min-width: 59px; width: 59px;">
+                                </div>
+                            </button>
+                        </div>
+
+                        <div class="_line-hr mr-t32 mr-b32"></div>
+
+                        <div class="_cp">
+                            <div class="h2-guests">Cancellation policy</div>
+                            <p class="_txtec">
+                                Non-refundable: Cancel before check-in and get back only the cleaning fee, if you paid one.
+
+                                <button type="button" class="txtunder__ics">Learn more</button>
+                            </p>
+
+                            <p class="_txtec">
+                                Our Extenuating Circumstances policy does not cover travel disruptions caused by COVID-19.
+
+                                <button type="button" class="txtunder__ics">Learn more</button>
+                            </p>
+                        </div>
+
+                        <div class="_line-hr mr-t32 mr-b32"></div>
+
+                        <div>
+                            <p class="_txtec16">
+                                By selecting the button below, I agree to the
+
+                                <button type="button" class="txtunder__ics txt16">Host's House Rules</button>,
+
+                                <button type="button" class="txtunder__ics txt16">vvoutlet COVID-19 Safety Requirements</button>
+
+                                and the
+
+                                <button type="button" class="txtunder__ics txt16">Guest Refund Policy</button>.
+                            </p>
+                        </div>
+                    </div>
                 </div>
             </main>
 
@@ -465,6 +465,13 @@
                         <span class="f-cth">
                             <div class="_txtec">Management fee</div>
                             <div class="_txtec">{{ \App\Models\Currencs::Symbol( $listing_currency ) . $management_fee }}</div>
+                        </span>
+                    @endif
+
+                    @if ( $extra_guestShow != 0 )
+                        <span class="f-cth">
+                            <div class="_txtec">Extra Guest fee</div>
+                            <div class="_txtec">{{ \App\Models\Currencs::Symbol( $listing_currency ) . $extra_guestShow }}</div>
                         </span>
                     @endif
                 </div>

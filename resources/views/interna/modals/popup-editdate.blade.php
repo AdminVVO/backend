@@ -73,7 +73,6 @@
                             </div>
 
                             <input type="text" id="easypickPopupDate" style="display: none;">
-                            {{-- <button class="_1lerwp6l lightpick-apply-action xhidemdusr">Save</button> --}}
                         </div>
                     </div>
                 </div>

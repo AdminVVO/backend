@@ -46,51 +46,6 @@
     }
 }
 
-// FUENTES, @MEDIA WIDTH TAMAÑOS ETC
-@media screen and (max-width: 1800px) {
-    .checkbox_custom {
-        max-width: 55px;
-        height: 32px;
-        border: 1px solid $color-background;
-
-        &:checked {
-            &::before {
-                left: 22px;
-            }
-        }
-    
-        &::before {
-            top: -1px;
-            max-width: 32px;
-            min-height: 32px;
-            border: 1px solid $color-background;
-        }
-    }
-
-    .check_i {
-        &::after {
-            max-width: 32px;
-            min-height: 32px;
-            font-size: 12.5px;
-            top: -1px;
-        }
-
-        &:checked {
-            &::before {
-                left: 22px;
-                top: -1px;
-            }
-
-            &::after {
-                max-width: 32px;
-                min-height: 34px;
-                font-size: 12.5px;
-                left: 22px;
-            }
-        }
-    }
-}
-
 body {
     @media screen and (max-width: 1800px) {
         // Calendar individual - popup private note add >
@@ -194,13 +149,6 @@ body {
             font-weight: normal;
             line-height: 20px;
             border-radius: 8px;
-        }
-
-        .btn-celest-n {
-            font-size: 14px !important;
-            line-height: 18px !important;
-            border-radius: 8px !important;
-            padding: 8px 15px !important;
         }
 
         // header

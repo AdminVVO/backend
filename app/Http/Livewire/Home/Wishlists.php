@@ -62,7 +62,7 @@ class Wishlists extends Component
     {
         modelWishlists::create([
             'name'       => $payload,
-            'avatar'     => $this->photo,
+            'avatar'     => $this->photo['name'],
             'listing_id' => $this->listingId,
             'user_id'    => Auth::id(),
         ]);
@@ -97,7 +97,7 @@ class Wishlists extends Component
 
         modelWishlists::create([
             'name'       => $this->inputWishlists,
-            'avatar'     => $this->photo,
+            'avatar'     => $this->photo['name'],
             'listing_id' => $this->listingId,
             'user_id'    => Auth::id(),
         ]);

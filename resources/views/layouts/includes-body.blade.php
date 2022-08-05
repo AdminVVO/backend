@@ -33,3 +33,7 @@
 @if ( in_array( Route::currentRouteName(),['profile']) )
     <body class="page-category page__perfil_interno vvo_ui">
 @endif
+
+@if ( in_array( Route::currentRouteName(),['details-listing', 'host-listing', 'become-host']) )
+    <body class="page-category">
+@endif

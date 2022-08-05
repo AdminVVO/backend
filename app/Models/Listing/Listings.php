@@ -7,6 +7,7 @@ use App\Traits\Uuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Auth;
 
 class Listings extends Model
 {
@@ -15,7 +16,6 @@ class Listings extends Model
     protected $primaryKey = 'id_listings';
 
     protected $fillable = [
-        'step',
         'title',
         'internal_title',
         'descriptions',
@@ -29,10 +29,9 @@ class Listings extends Model
         'resort',
         'template',
         'amenities',
-        'safety',
         'photos',
-        'category',
-        'featurs',
+        'aspect',
+        'legal',
         'user_id',
         'snooze',
     ];
@@ -42,11 +41,10 @@ class Listings extends Model
     ];
 
     protected $casts = [
-        'category' => 'array',
-        'featurs' => 'array',
+        'aspect' => 'array',
+        'legal' => 'array',
         'photos' => 'array',
         'amenities' => 'array',
-        'safety' => 'array',
         'restricted_checkin_days' => 'array',
         'restricted_checkout_days' => 'array',
         'minimum_stay_custom' => 'array',
@@ -57,7 +55,14 @@ class Listings extends Model
         'checkin_window_end' => 'array',
         'checkout_time' => 'array',
         'snooze' => 'array',
+        'allow' => 'array',
     ];
+
+    public function scopeListingFile($query, $code)
+    {
+        $xplodeListingFile = explode('-', $this->where(['user_id' => Auth::id(), 'id_listings' => $code ])->pluck('id_listings')->first());
+        return $xplodeListingFile[4];
+    }
 
     public function userChat()
     {
@@ -67,5 +72,22 @@ class Listings extends Model
     public function chatListing()
     {
         return $this->hasMany(Chats::class, 'listing_id');
+    }
+
+
+    ## Relaciones 
+    public function ListingPropertyRoomd()
+    {
+        return $this->hasOne(ListingPropertyRoomd::class, 'listing_id');
+    }
+    
+    public function ListingLocation()
+    {
+        return $this->hasOne(ListingLocation::class, 'listing_id');
+    }
+
+    public function ListingPolicies()
+    {
+        return $this->hasOne(ListingPolicies::class, 'listing_id');
     }
 }

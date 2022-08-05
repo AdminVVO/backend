@@ -120,6 +120,7 @@
 
                     .content-user_inf {
                         padding-bottom: 24px;
+                        align-items: center;
 
                         .pf-u {
                             max-width: 60px;
@@ -588,7 +589,7 @@
             ._w {
                 margin-top: -13px;
                 position: absolute;
-                transition: all .3s ease;
+                transition: transform .5s ease;
 
                 @include responsive(1400px) {
                     margin-top: -9px;
@@ -696,7 +697,9 @@
 
             ._pbkgallery {
                 // height: 23.6%;
-                height: 133.477px;
+                // height: 133.477px;
+                height: 25.6%;
+                min-height: 25.6%;
                 padding-top: 13px;
 
                 @include responsive(1400px){
@@ -711,8 +714,12 @@
                 @include responsive(900px) {
                     padding-top: 0;
                     padding-left: 8px;
-                    min-width: fit-content;
+                    min-width: 34%;
                     height: auto;
+                }
+
+                @include responsive(500px) {
+                    min-width: 50%;
                 }
             }
         }
@@ -890,7 +897,7 @@
                 }
 
                 .contact-map {
-                    width: 100%;
+                    width: 100% !important;
                     height: 550px;
 
                     iframe {

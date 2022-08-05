@@ -154,6 +154,8 @@
                         @livewire('interna.interna-form-reserve', [
                             'listingId' => $content['id_listings'],
                             'base_price' => $content['base_price'],
+                            'first_guest' => $content['first_guest'],
+                            'number_guests' => $content['number_guests'],
                             'listing_currency' => $content['listing_currency'],
                             'weekly_discount' => $content['weekly_discount'],
                             'monthly_discount' => $content['monthly_discount'],
@@ -166,10 +168,12 @@
                             'management_type' => $content['management_type'],
                             'community_fee' => $content['community_fee'],
                             'community_type' => $content['community_type'],
+                            'max_people' => $content['max_people'],
                             'extra_guest_fee' => $content['extra_guest_fee'],
                             'extra_guest' => $content['extra_guest'],
                             'weekend_nightly_fee' => $content['weekend_nightly_fee'],
                             'requestDays' => $requestDays,
+                            'requestDate' => $requestDate,
                         ])
                 </div>
             </div>
@@ -228,6 +232,9 @@
         {{-- Modal Popup Edit Date --}}
         @include('interna.modals.popup-editdate')
 
+        {{-- Modal Popup Edit Guest --}}
+        @include('interna.modals.popup-guest')
+
 
     @endsection
 
@@ -244,6 +251,14 @@
         window.addEventListener('closedModalFavority', event => {
             $(".container_user-host, .container_admin-host, .container_preview_guests_pay").hide();
             $(".page-category").css({'overflow': 'auto'});
+        })
+
+        window.addEventListener('OpenModalPayment', event => {
+            $(".container_reserve-confirm").show();
+            $(".page-category").css({'overflow': 'hidden'});
+            $('html, body').animate({
+                scrollTop: $("body").offset().top
+            }, 0);
         })
 
         const pickerHome = new easepick.create({

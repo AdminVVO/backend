@@ -350,6 +350,11 @@ header .book-form ._bef-places {
     padding: 104px 0 22px;
   }
 
+  .page__perfil_interno .header,
+.page__perfil_anfitrion .header {
+    margin-bottom: 0;
+  }
+
   .page__account_user .header {
     margin-bottom: 0;
   }
@@ -637,7 +642,7 @@ body header .menu .menu_items .sub {
   }
   body header .menu .menu_items i {
     font-size: 22px;
-    font-weight: 300;
+    font-weight: 400;
     margin: 0;
     color: #b0b0b0;
   }

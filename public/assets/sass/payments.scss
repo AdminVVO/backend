@@ -60,10 +60,6 @@
         ._cont-payout {
             ._block {
                 margin: 16px 0 37px;
-
-                ._txteh {
-                    margin-top: 18px;
-                }
             }
         }
 
@@ -234,7 +230,9 @@
                     margin: 16px 0 24px;
                 }
 
-                ._cont-sf {
+                ._cont-sf,
+                ._cont-ein,
+                ._cont-payout {
                     ._gap-news {
                         margin: 16px 0 24px;
                     }
@@ -334,6 +332,11 @@
                     font-size: 22px;
                     line-height: 26px;
                     letter-spacing: -.6px;
+                }
+
+                .h2-guests {
+                    font-size: 18px;
+                    line-height: normal;
                 }
             }
             

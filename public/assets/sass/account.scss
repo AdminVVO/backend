@@ -17,6 +17,14 @@
 
         ._txtblu {
             display: inline-block;
+
+            &:active {
+                opacity: .8;
+            }
+
+            &:hover {
+                color: #0096B7;
+            }
         }
     }
 

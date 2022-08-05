@@ -20,14 +20,21 @@ $(".modal-welcome, .modal-addpymts,   .modal-rscrm").addClass("modal_content-use
 $(".modal_content-welcome > span, .container_add-payments .close,   .close-x_rscrm").addClass("closeUserModal");
 
 // CLICK HIDE X, FUERA DEL MODAL
-$(".modal_content-user, .modal-anhost, .modal_content-anhost .click_cancel_mdls, .modal_content-anhost .close span, .closeUserModal, .click_close").on("click", function() {
+$(document).on("click", ".modal_content-user, .modal-anhost, .click_cancel_mdls, .modal_content-anhost .close span, .closeUserModal, .click_close", function() {
     $(this).parents(".container_user-host, .container_admin-host, .container_preview_guests_pay").hide();
-    $(this).parents(".page-category").css({'overflow': 'auto'});
+    $(this).parents(".page-category").css({'overflow': ''});
 });
 
 $(document).on("click", ".mdatrnormlusr, .xhidemdusr", function() {
     $(this).parents(".contusrnmrlmdl").hide();
 });
+
+function resizeShowMdl1270px() {
+    if ($(this).width() >= 1270) {
+        $(".page_listing_admin").css({'overflow': ''});
+        $(".container_popup_filters_listings").hide();
+    }
+}
 
 function resizeMdl743() {
     if ($(this).width() <= 743) {
@@ -59,6 +66,7 @@ function resizeMdl743() {
 resizeMdl743();
 $(window).bind("resize", function() {
     resizeMdl743();
+    resizeShowMdl1270px();
 });
 
 // modal global
@@ -209,12 +217,25 @@ $(document).ready(function() {
     });
 
     $(".js__guests-modal").on("click", function() {
+        animateTopModals();
         $(".container_guests_edit").show();
     });
 
     $(".js__popup_bringind_animal").on("click", function() {
         animateTopModals();
         $(".container_bringing_animal").show();
+    });
+
+    $(".js__popup_bringind_animal1").on("click", function() {
+        animateTopModals();
+        $(".page-category").addClass("ppbgal1");
+        $(".ppbgal1").find(".container_bringing_animal").show();
+    });
+
+    $(document).on("click", ".ppbgal1 .mdatrnormlusr, .ppbgal1 .xhidemdusr", function() {
+        $(".page-category").removeClass("ppbgal1");
+        $(".ppbgal1").find(".container_bringing_animal").hide();
+        $(this).parents(".page-category").css({'overflow': ''});
     });
 
 
@@ -288,11 +309,45 @@ $(document).ready(function() {
         animateTopModals();
         $(".content_popup_taxes").show();
     });
+
+
+    // messages-user-reseña.pjp
+    $(".js__popupWriteReview").on("click", function() {
+        animateTopModals();
+        $(".container_write_review").show();
+    });
 });
 
 // clicks modals - host
 $(document).ready(function() {
+    // ---------------------- admin today --------------------
+    $(".js__popup_pprnme").on("click", function() {
+        animateTopModals();
+        $(".container_pprnme").show();
+    });
+
+    // listing.php
+    $(".js_popupSltNrlCont").on("click", function() {
+        animateTopModals()
+        $(".container_popup_filters_listings").show();
+    });
+
     // ---------------------- listing post ----------------------
+    $(".js__editPhotosListingPost").on("click", function() {
+        animateTopModals();
+        $(".container_pplgptetps").show();
+    });
+
+    $(".js__popupChangePhoto").on("click", function() {
+        animateTopModals();
+        $(".containerppcepo").show();
+    });
+
+    $(".js__popupEditAddCaption").on("click", function() {
+        animateTopModals();
+        $(".container_ppetpo").show();
+    });
+
     $(".clickEditAmenities").on("click", function() {
         animateTopModals();
         $(".container_lgssppas").show();
@@ -300,7 +355,22 @@ $(document).ready(function() {
 
     $(".clickEditRoomsSpaces").on("click", function() {
         animateTopModals();
-        $(".container_pprssss1").show();
+        $(".container_pprssss2").show();
+    });
+
+    $(".js_popupAddPhotos").on("click", function() {
+        animateTopModals();
+        $(".container_ppadps").show();
+    });
+
+    $(".js__popupGuestSafety").on("click", function() {
+        animateTopModals();
+        $(".container_ppgtsy").show();
+    });
+
+    $(".js__popupShownGuests").on("click", function() {
+        vvoAnimate();
+        $(".container_ppsngs").show();
     });
 
     // ---------------------- listing post policies ----------------------
@@ -369,8 +439,7 @@ $(document).ready(function() {
     $(".clickSavePopupStep2").on("click", function() {
         animateTopModals();
         $(".container_pprssss2").show();
-        $(".container_etrsadss").hide();
-        $(".container_adsgat").hide();
+        $(".container_etrsadss, .container_ppadps, .container_adsgat").hide();
     });
 
     $(".clickAddSleepArrang").on("click", function() {

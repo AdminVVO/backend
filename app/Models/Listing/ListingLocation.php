@@ -38,4 +38,10 @@ class ListingLocation extends Model
     protected $casts = [
         'scenic_views' => 'array',
     ];
+    
+    ## Relaciones 
+    public function Listings()
+    {
+        return $this->belongsTo(Listings::class, 'listing_id');
+    }
 }

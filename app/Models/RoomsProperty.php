@@ -16,9 +16,24 @@ class RoomsProperty extends Model
         'name',
         'type',
         'name_type',
+        'file',
+        'comment',
+        'file_comm',
     ];
 
     public function scopePropertyName($query, $code)
+    {
+        return $this->where([ 'code' => $code ])->pluck('name')->first();
+
+    }
+
+    public function scopeProperty($query, $code)
+    {
+        return $this->where([ 'type' => $code ])->pluck('name_type')->first();
+
+    }
+
+    public function scopeGroup($query, $code)
     {
         return $this->where([ 'code' => $code ])->pluck('name')->first();
 

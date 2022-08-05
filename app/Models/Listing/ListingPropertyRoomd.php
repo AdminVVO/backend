@@ -35,4 +35,11 @@ class ListingPropertyRoomd extends Model
     protected $casts = [
         'additional_areas' => 'array',
     ];
+
+
+    ## Relaciones 
+    public function Listings()
+    {
+        return $this->belongsTo(Listings::class, 'listing_id');
+    }
 }

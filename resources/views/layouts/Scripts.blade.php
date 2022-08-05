@@ -1,6 +1,7 @@
 <script src="{{ URL::asset('assets/js/jquery-3.6.0.min.js') }}"></script> 
 <script src="{{ URL::asset('assets/js/jquery.mask.js') }}"></script>  <!-- libreria js de mascara - patrones de los inputs -->
 <script src="{{ URL::asset('assets/js/jquery-ui-git.js') }}"></script> <!-- libreria js de un calendario date-piker -->
+<script src="https://kit.fontawesome.com/3ebe5f560f.js" crossorigin="anonymous"></script>
 <script src="{{ URL::asset('assets/js/moment-min.js') }}"></script> <!-- libreria js calendario lightpick -->
 <script src="{{ URL::asset('assets/js/lightpick.js') }}"></script> <!-- libreria js calendario lightpick -->
 <script src="{{ URL::asset('assets/js/owl.carousel.min.js') }}"></script>  <!--Activador slider pano -->
@@ -27,4 +28,3 @@
 
 @yield('script')
 @stack('scripts')
-

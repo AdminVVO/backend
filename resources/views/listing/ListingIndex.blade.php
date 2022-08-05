@@ -16,8 +16,7 @@
 
 @section('content')
     
-    {{-- All Listings --}}
-    @livewire('listing.listings')
+    @livewire('listing.init.index')
 
 @endsection
 

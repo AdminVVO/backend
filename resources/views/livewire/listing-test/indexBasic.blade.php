@@ -1,18 +1,32 @@
-<div class="anuncio_start_hosting block" style="display: none;">
-    <div class="_bgpadd-f">
-        <i class="far fa-bell"></i>
-        <div>
-            <div class="fx fx-jc-sb fx-ai-c" style="gap: 18px;">
-                <div class="_txteh" style="margin-bottom: 8px;">Start hosting longer stays</div>
-                <button class="btn-border_x click_x_anuncio">X</button>
+<div class="block" style="gap: 17px;">
+    <div class="fx fx-ai-c fx-jc-sb" style="gap: 25px;">
+        <h2 class="h2-guests">Photos</h2>
+
+        <div class="_btnsm js__editPhotosListingPost">
+            <span class="_fcontent">
+                Edit
+                <span class="_svg-asm">
+                    <img src="{{ URL::asset('assets/img/icons/down-right.svg') }}" alt="">
+                </span>
+            </span>
+        </div>
+    </div>
+    <div class="post_right_carrousel">
+        <div class="content_photos_resort">
+            <div class="cont_listing_group">
+                @foreach ( $content['photos'] as $element)
+                    <div class="pd-r13">
+                        <div class="block-img">
+                            <img src="{{ URL::asset('storage/uploadListing/') }}/{{ $element }}" alt="">
+                        </div>
+                    </div>
+                @endforeach
             </div>
-            <p class="_txtec">We've seen a recent increase in guests looking for weekly and monthly stays close to home. To earn more while supporting your local community, consider updating your settings to allow longer stays.</p>
-            <a href="#" class="btn-border" style="margin-top: 14px;">Review all</a>
         </div>
     </div>
 </div>
 
-<div class="block" style="gap: 17px;">
+{{-- <div class="block" style="gap: 17px;">
     <div class="fx fx-ai-c fx-jc-sb" style="gap: 25px;">
         <h2 class="h2-guests">Photos</h2>
         <div class="_btnsm edit">
@@ -24,7 +38,6 @@
             </span>
         </div>
     </div>
-
     <div class="post_right_carrousel">
         <div class="content_photos_resort scroll_n">
             <div class="tabs_items_group scroll_n">
@@ -51,13 +64,12 @@
         'listingId' => $listingId,
         'photos' => $content['photos'],
     ])
-
-</div>
+</div> --}}
 
 <div class="block">
     <h2 class="h2-guests">Listing basics</h2>
 
-    <div class="fx fx-ai-b fx-jc-sb" style="gap: 25px;">
+    <div class="fx fx-ai-b fx-jc-sb" style="gap: 25px;" wire:ignore.self>
         <div class="w100">
             <h3 class="_txteh">Listing title</h3>
             <div class="_width_text show_info">
@@ -70,11 +82,10 @@
             </div>
 
             @livewire('listing-test.basic.listing-title', [
-                    'listingId' => $listingId,
-                    'title' => $content['title'],
-                    'internal_title' => $content['internal_title'],
+                'listingId' => $listingId,
+                'title' => $content['title'],
+                'internal_title' => $content['internal_title'],
             ])
-
         </div>
 
         <div class="_btnsm edit">
@@ -89,7 +100,7 @@
 </div>
 
 <div class="block">
-    <div class="fx fx-ai-b fx-jc-sb" style="gap: 25px;">
+    <div class="fx fx-ai-b fx-jc-sb" style="gap: 25px;" wire:ignore.self>
         <div class="w100">
             <h3 class="_txteh">Listing description</h3>
             <div class="show_info">
@@ -128,7 +139,7 @@
                     </span>
                 </div>
                 @if ( $content['space'] != null || $content['guest_access'] != null || $content['other_details'] != null )
-                    <div class="_txtehlinear click_show_more">Show more</div>
+                    <div class="_txtehlinear click_show_more" style="margin-top: 10px !important;">Show more</div>
                 @endif
             </div>
 
@@ -172,12 +183,14 @@
 </div>
 
 <div class="block">
-    <div class="fx fx-ai-b fx-jc-sb" style="gap: 25px;">
+    <div class="fx fx-ai-b fx-jc-sb" style="gap: 25px;" wire:ignore.self>
         <div class="w100">
             <h3 class="_txteh">Custom link</h3>
             <div class="_width_text show_info">
                 @if ( $content['custom_link'] != null )
-                    <span class="_txtec">{{ env('APP_URL') }}{{ $content['custom_link'] }}</span>
+                    <a href="{{ route('custon-link', $content['custom_link'] ) }}">
+                        <span class="_txtec"><strong><u>{{ route('custon-link', $content['custom_link'] ) }}</u></strong></span>
+                    </a>
                 @else
                     <span class="_txtec">Not set</span>
                 @endif
@@ -202,7 +215,7 @@
 </div>
 
 <div class="block">
-    <div class="fx fx-ai-b fx-jc-sb" style="gap: 25px;">
+    <div class="fx fx-ai-b fx-jc-sb" style="gap: 25px;" wire:ignore.self>
         <div class="w100">
             <h3 class="_txteh">Languages</h3>
             <div class="_width_text show_info">
@@ -244,7 +257,7 @@
                         <p class="_txtec">Resort Email: {{ $content['resort'] }}</p>
                         <p class="_txtec">Resort Template: {{ $content['template'] }}</p>
                     @endif
-                    @if ( $content['status'] == 'Listed' )
+                    @if ( $content['status'] == 'listed' )
                         <div class="_iconposit">
                             <i class="fas fa-circle _i-verde10"></i>
                         </div>
@@ -252,7 +265,7 @@
                         Listed - Guests can find your listing in search results and request or book available dates.</p>
                     @endif
 
-                    @if ( $content['status'] == 'Snoozed' )
+                    @if ( $content['status'] == 'snoozed' )
                         <div class="_iconposit">
                             <i class="fas fa-moon _i-gris10"></i>
                         </div>
@@ -261,7 +274,7 @@
                         <p class="_txtec">Time Start: {{ $content['snooze']['timeStart'] }} - Time End: {{ $content['snooze']['timeEnd'] }}</p>
                     @endif
 
-                    @if ( $content['status'] == 'Unlisted' )
+                    @if ( $content['status'] == 'unlisted' || $content['status'] == 'in process' )
                         <div class="_iconposit">
                             <i class="fas fa-circle _i-red10"></i>
                         </div>
@@ -269,7 +282,7 @@
                         Unlisted - Guests can't book your listing or find it in search results.
                     @endif
 
-                    @if ( $content['status'] == 'Deactivate' )
+                    @if ( $content['status'] == 'deactivate' )
                         <div class="_iconposit">
                             <i class="fas fa-circle _i-griswhite10"></i>
                         </div>

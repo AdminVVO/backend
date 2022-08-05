@@ -143,11 +143,12 @@ $cant: 300;
 @mixin h3 {
   font-size: 18px;
   color: $color-h2_publish;
+  line-height: 24px;
   font-weight: normal;
 
   &.nrml {
     font-size: 18px !important;
-    line-height: normal !important;
+    line-height: 24px !important;
   }
 
   @include responsive(1400px) {
@@ -444,9 +445,14 @@ $cant: 300;
 
 @mixin _txtec14 {
   font-size: 14px;
-  line-height: 24px;
+  line-height: 18px;
   font-weight: normal;
   color: #7D7D7D;
+
+  @include responsive(1400px) {
+    font-size: 12px;
+    line-height: 16px;
+  }
 }
 
 @mixin _txtec12 {
@@ -543,6 +549,7 @@ $cant: 300;
 }
 
 @mixin btn-celest {
+  cursor: pointer;
   width: fit-content;
   display: inline-block;
   padding: 16px 50px;
@@ -553,6 +560,12 @@ $cant: 300;
   white-space: nowrap;
   font-size: 18px;
   transition: background-color .3s ease;
+
+  &.btn-celest-n {
+    font-size: 16px;
+    line-height: 20px;
+    padding: 12px 19px;
+  }
 
   &:hover {
     background-color: #0096B7;
@@ -573,12 +586,25 @@ $cant: 300;
     padding: 16px 24px;
   }
 
+  &:disabled {
+    cursor: not-allowed;
+    background-color: #DDD;
+    color: $color-white;
+  }
+
   @include responsive(1400px) {
     padding: 14px 24px !important;
     font-size: 16px;
     font-weight: normal;
     line-height: 20px;
     border-radius: 8px;
+
+    &.btn-celest-n {
+      font-size: 14px !important;
+      line-height: 18px;
+      border-radius: 8px;
+      padding: 8px 15px !important;
+    }
   }
 }
 
@@ -623,6 +649,12 @@ $cant: 300;
   &:active {
     transform: scale(0.96);
     background-color: #DC383D;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    background-color: #DDD;
+    color: $color-white;
   }
 
   @include responsive(1400px) {
@@ -772,8 +804,11 @@ $cant: 300;
   color: #333333;
   font-weight: bold;
   font-size: 16px;
-  @include responsive(900px) {
+  line-height: 20px;
+
+  @include responsive(1400px) {
     font-size: 14px;
+    line-height: 18px;
   }
 }
 
@@ -970,6 +1005,29 @@ $cant: 300;
     font-size: 16px;
     line-height: 20px;
     gap: 3.5px;
+    color: #333;
+    align-items: baseline;
+
+    i {
+      font-size: 12px;
+    }
+
+    span {
+      color: inherit;
+      text-decoration: underline;
+
+      &::before {
+        display: none;
+      }
+    }
+
+    &:hover {
+      color: #000;
+    }
+
+    &:active {
+      opacity: .8;
+    }
   }
 }
 
@@ -1294,11 +1352,31 @@ $cant: 300;
   pointer-events: none !important;
 
   &.home,
-  &.wo_home {
+  &.wo_home,
+  &.wo_home-questions {
     background-repeat: initial !important;
     background-color: #7D7D7D !important;
     background-image: none !important;
     border-radius: initial !important;
+  }
+
+  &.view_port,
+  &._block-f {
+    background-repeat: initial !important;
+    background-color: #7D7D7D !important;
+    background-image: none !important;
+
+    img {
+      opacity: 0;
+    }
+
+    &::before {
+      display: none;
+    }
+
+    &::after {
+      display: none;
+    }
   }
 
   // null
@@ -1309,13 +1387,23 @@ $cant: 300;
   &.dfjcacf0mw2,
   &.ics__grd-img,
   &._pf-msg,
-  &.content-aside_prec {
+  &.content-aside_prec,
+  &._flex,
+  &.content-aside_about,
+  &._cont-account,
+  &.grid__3cl {
     background-repeat: initial !important;
     background-color: transparent !important;
     background-image: none !important;
     border-radius: initial !important;
     box-shadow: none !important;
     border: transparent !important;
+  }
+
+  &._flex {
+    .content_flex-actv {
+      opacity: 0;
+    }
   }
 
   &.content-gallery {
@@ -1333,12 +1421,11 @@ $cant: 300;
   }
 
   //-------------- img before --------------
-  &._block-gallery-mg {
-    position: relative;
-    @include animateSkeletonBefore;
-  }
-
-  &._pbkgallery {
+  &._block-gallery-mg,
+  &._pbkgallery,
+  &._br-img-perf,
+  &.showimg,
+  &.dggtc11g {
     position: relative;
     @include animateSkeletonBefore;
   }
@@ -1350,10 +1437,8 @@ $cant: 300;
     @include animateSkeletonBefore;
   }
 
-  &.dfjcacf0mw2 {
-    @include skeletonImgProfileIcon;
-  }
-
+  &.dfjcacf0mw2,
+  &._suis,
   &.ics__grd-img {
     @include skeletonImgProfileIcon;
   }
@@ -1432,7 +1517,8 @@ $cant: 300;
   ._txteh,
   ._txtprivat,
   ._txtecred,
-  ._txtect {
+  ._txtect,
+  ._txtblu {
     color: transparent !important;
   }
 
@@ -1443,8 +1529,10 @@ $cant: 300;
   }
 
   ._nivel,
+  ._cont-edit,
   .txt-check-in,
   ._suis,
+  ._svg-asm,
   svg,
   input,
   select {
@@ -1458,6 +1546,7 @@ $cant: 300;
   }
 
   &.skeleton_txt {
+    opacity: 1 !important;
     width: fit-content !important;
   }
 
@@ -1469,17 +1558,14 @@ $cant: 300;
   }
 
   &.skeleton_card,
-  #skeleton_card {
+  #skeleton_card,
+  &.slideshow-container {
     &.card_items_active {
       border: 5px solid transparent !important;
     }
 
     &::after {
       background: linear-gradient(to bottom, transparent, rgb(0 0 0 / 36%));
-    }
-
-    .card_love {
-      opacity: 0;
     }
 
     .card_top,
@@ -1493,13 +1579,15 @@ $cant: 300;
       @include animateSkeletonBefore;
     }
 
-    .content-dots {
-      opacity: 0;
-    }
-
     .card_text {
       background: linear-gradient(to top, transparent, rgba(0 0 0 / 38%));
     }
+  }
+
+  .card_love,
+  ._txtec16,
+  .content-dots {
+    opacity: 0;
   }
 
   @include animateSkeleton;

@@ -43,7 +43,7 @@ class ListingLink extends Component
         $validation = Validator::make([
            'inputLink' => $this->inputLink,
         ],[
-            'inputLink' => 'required|max:50',
+            'inputLink' => 'max:50',
         ]);
 
             if ($validation->fails())

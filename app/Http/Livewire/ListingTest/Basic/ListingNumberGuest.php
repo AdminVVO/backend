@@ -21,7 +21,7 @@ class ListingNumberGuest extends Component
 
     public function mount()
     {   
-        if ( $this->numberguest >= 5 ) 
+        if ( $this->numberguest >= 16 ) 
             $this->disableButton['Increase'] = true;
             
         if ( $this->numberguest <= 1 ) 
@@ -35,7 +35,7 @@ class ListingNumberGuest extends Component
 
     public function buttonIncrease()
     {
-        if ( $this->numberguest >= 5 ) 
+        if ( $this->numberguest >= 16 ) 
             return;
 
         Listings::where([
@@ -49,7 +49,7 @@ class ListingNumberGuest extends Component
         $this->disableButton['Decrease'] = false;
         $this->alert('success', 'Update has been successful!');
 
-        if ( $this->numberguest >= 5 ) 
+        if ( $this->numberguest >= 16 ) 
             $this->disableButton['Increase'] = true;
     }
 

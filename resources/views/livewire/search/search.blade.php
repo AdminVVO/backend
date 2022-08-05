@@ -84,9 +84,9 @@
                                                 </button>
 
                                                 <div class="card_img">
-                                                    <img loading="lazy" src="{{ URL::asset('storage/uploadListing/' . $element['photos'][0]) }}" alt="">
-                                                    <img loading="lazy" src="{{ URL::asset('storage/uploadListing/' . $element['photos'][1]) }}" alt="">
-                                                    <img loading="lazy" src="{{ URL::asset('storage/uploadListing/' . $element['photos'][2]) }}" alt="">
+                                                    <img loading="lazy" src="{{ URL::asset('storage/photos-listing/') .'/'. \App\Models\Listing\Listings::ListingFile( $element['id_listings'] ) .'/'. $element['photos'][0]['name'] }}">
+                                                    <img loading="lazy" src="{{ URL::asset('storage/photos-listing/') .'/'. \App\Models\Listing\Listings::ListingFile( $element['id_listings'] ) .'/'. $element['photos'][1]['name'] }}">
+                                                    <img loading="lazy" src="{{ URL::asset('storage/photos-listing/') .'/'. \App\Models\Listing\Listings::ListingFile( $element['id_listings'] ) .'/'. $element['photos'][2]['name'] }}">
                                                 </div>
 
                                                 <div class="content-dots">

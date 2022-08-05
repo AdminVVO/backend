@@ -34,13 +34,37 @@ class InternaConfirmPay extends Component
     public $inputDateOut;
     public $requestDate;
     public $requestDays;
+    public $first_guest;
+    public $base_descont;
+    public $number_guests;
+    public $max_people;
+    public $extra_guestShow = 0;
+
+    public $inputPay;
+    public $inputCard;
+    public $inputExp;
+    public $inputCvv;
+    public $inputAddress;
+    public $inputSuite;
+    public $inputCity;
+    public $inputState;
+    public $inputZip;
+    public $inputCountry;
+
 
     protected $listeners = [
-        'selectDate' => 'selectDate'
+        'selectDate' => 'selectDate',
+        'ExtraShow' => 'ExtraShow'
     ];
 
     public function mount()
     {
+        if ( $this->first_guest ) {
+            $this->base_descont = $this->base_price;
+            $mult = $this->base_price * 0.20;
+            $this->base_price = $this->base_price - $mult;
+        }
+
         if ( isset( $this->requestDate['inputDateIn'] ) ) {
             $this->inputDateIn = Carbon::createFromDate( $this->requestDate['inputDateIn'] )->format('d M Y');
             $this->inputDateOut = Carbon::createFromDate( $this->requestDate['inputDateOut'] )->format('d M Y');
@@ -55,13 +79,21 @@ class InternaConfirmPay extends Component
         if ( $this->community_type == 'porcent' )
             $this->community_fee = $this->community_fee != null ? number_format( $this->base_price *  $this->community_fee/100) : null;
 
+        if ( $this->requestDays == 0 )
+            $this->requestDays = 1;
+
     }
 
     public function render()
     {
-        $this->totalPrice = ( $this->base_price * $this->requestDays - $this->weekly_discount - $this->monthly_discount ) + $this->cleaning_fee + $this->pet_fee + $this->linens_fee + $this->resort_fee + $this->management_fee + $this->community_fee;
+        $this->totalPrice = ( $this->base_price * $this->requestDays - $this->weekly_discount - $this->monthly_discount ) + $this->cleaning_fee + $this->pet_fee + $this->linens_fee + $this->resort_fee + $this->management_fee + $this->community_fee + $this->extra_guestShow;
 
         return view('livewire.interna.interna-confirm-pay');
+    }
+
+    public function ExtraShow($payload)
+    {
+        $this->extra_guestShow = $payload;
     }
     
     public function selectDate($payload)
@@ -74,5 +106,31 @@ class InternaConfirmPay extends Component
             'inputDateIn' => $payload[0],
             'inputDateOut' => $payload[1],
         ]);
+    }
+    
+    public function SubmitCreditCard()
+    {
+        $xxx = [
+            'inputPay' => $this->inputPay,
+            'inputCard' => $this->inputCard,
+            'inputExp' => $this->inputExp,
+            'inputCvv' => $this->inputCvv,
+            'inputAddress' => $this->inputAddress,
+            'inputSuite' => $this->inputSuite,
+            'inputCity' => $this->inputCity,
+            'inputState' => $this->inputState,
+            'inputZip' => $this->inputZip,
+            'inputCountry' => $this->inputCountry,
+            'inputDateIn' => $this->inputDateIn,
+            'inputDateOut' => $this->inputDateOut,
+            'total' => $this->inputPay == 'all' ? $this->totalPrice : $this->totalPrice / 2,
+        ];
+
+
+
+
+
+
+        dd($xxx);
     }
 }

@@ -2,7 +2,7 @@
     <div class="fx fx-fd-c" style="gap: 29px;">
         <div>
             <label class="block-lb fx-ai-fs fx-jc-fs">
-                <input type="radio" name="listing_status" value="Listed" wire:model.defer="inputStatus">
+                <input type="radio" name="listing_status" value="listed" wire:model.defer="inputStatus">
                 <div class="before_check">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16.693" height="12.448" viewBox="0 0 16.693 12.448">
                         <path d="M5.67,16.781.244,11.356a.835.835,0,0,1,0-1.18l1.18-1.18a.835.835,0,0,1,1.18,0L6.26,12.65l7.828-7.828a.835.835,0,0,1,1.18,0L16.449,6a.835.835,0,0,1,0,1.18l-9.6,9.6A.835.835,0,0,1,5.67,16.781Z" transform="translate(0 -4.577)" fill="#fff"></path>
@@ -24,7 +24,7 @@
 
         <div>
             <label class="block-lb fx-ai-fs fx-jc-fs">
-                <input type="radio" name="listing_status" value="Snoozed" onclick="hideShowListingStatus('snoozed');" wire:model.defer="inputStatus">
+                <input type="radio" name="listing_status" value="snoozed" onclick="hideShowListingStatus('unlisted');" wire:model.defer="inputStatus">
                 <div class="before_check">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16.693" height="12.448" viewBox="0 0 16.693 12.448">
                         <path d="M5.67,16.781.244,11.356a.835.835,0,0,1,0-1.18l1.18-1.18a.835.835,0,0,1,1.18,0L6.26,12.65l7.828-7.828a.835.835,0,0,1,1.18,0L16.449,6a.835.835,0,0,1,0,1.18l-9.6,9.6A.835.835,0,0,1,5.67,16.781Z" transform="translate(0 -4.577)" fill="#fff"></path>
@@ -46,7 +46,7 @@
 
         <div>
             <label class="block-lb fx-ai-fs fx-jc-fs">
-                <input type="radio" name="listing_status" value="Unlisted" onclick="hideShowListingStatus('unlisted');" wire:model.defer="inputStatus">
+                <input type="radio" name="listing_status" value="unlisted" wire:model.defer="inputStatus">
                 <div class="before_check">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16.693" height="12.448" viewBox="0 0 16.693 12.448">
                         <path d="M5.67,16.781.244,11.356a.835.835,0,0,1,0-1.18l1.18-1.18a.835.835,0,0,1,1.18,0L6.26,12.65l7.828-7.828a.835.835,0,0,1,1.18,0L16.449,6a.835.835,0,0,1,0,1.18l-9.6,9.6A.835.835,0,0,1,5.67,16.781Z" transform="translate(0 -4.577)" fill="#fff"></path>
@@ -68,7 +68,7 @@
 
         <div>
             <label class="block-lb fx-ai-fs fx-jc-fs">
-                <input type="radio" name="listing_status" value="Deactivate" wire:model.defer="inputStatus">
+                <input type="radio" name="listing_status" onclick="hideShowListingStatus('snoozed');" value="deactivate" wire:model.defer="inputStatus">
                 <div class="before_check">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16.693" height="12.448" viewBox="0 0 16.693 12.448">
                         <path d="M5.67,16.781.244,11.356a.835.835,0,0,1,0-1.18l1.18-1.18a.835.835,0,0,1,1.18,0L6.26,12.65l7.828-7.828a.835.835,0,0,1,1.18,0L16.449,6a.835.835,0,0,1,0,1.18l-9.6,9.6A.835.835,0,0,1,5.67,16.781Z" transform="translate(0 -4.577)" fill="#fff"></path>

@@ -35,6 +35,23 @@ return [
             'root' => storage_path('app'),
         ],
 
+        'photos-pre-listing' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public/photos-pre-listing'),
+            'url' => env('APP_URL').'/storage',
+            'visibility' => 'public',
+        ],
+
+        'photos-listing' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public/photos-listing'),
+            'url' => env('APP_URL').'/storage',
+            'visibility' => 'public',
+        ],
+
+
+
+
         'uploadTempFilepond' => [
             'driver' => 'local',
             'root' => storage_path('app/public/tempFilepond'),
@@ -48,6 +65,7 @@ return [
             'url' => env('APP_URL').'/storage',
             'visibility' => 'public',
         ],
+
 
         'uploadAvatar' => [
             'driver' => 'local',

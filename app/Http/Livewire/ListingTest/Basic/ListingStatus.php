@@ -31,7 +31,7 @@ class ListingStatus extends Component
 
     public function mount()
     {
-        $this->inputStatus = $this->status;
+        $this->inputStatus = $this->status === 'in process' ? 'unlisted' : $this->status;
         $this->inputResort = $this->resort;
         $this->inputTemplate = $this->template;
     }

@@ -18,7 +18,7 @@ class Amenities extends Component
 
     protected $listeners = [
         'cancelAmenities' => 'cancelAmenities',
-        'saveAmenities' => 'saveAmenities',
+        // 'saveAmenities' => 'saveAmenities',
     ];
 
     public function mount($listing)
@@ -28,7 +28,7 @@ class Amenities extends Component
         $this->inputInit = Listings::where([
             'id_listings' => $this->listingId,
             'user_id'     => Auth::id()
-        ])->whereNotIn('status', ['in process'])->pluck('amenities')->first();
+        ])->pluck('amenities')->first();
 
         $this->inputOptions = $this->inputInit;
     }
@@ -48,8 +48,10 @@ class Amenities extends Component
         $this->inputInit = $this->inputOptions;
     }
     
-    public function saveAmenities()
+    public function SubmitAmenities()
+    // public function saveAmenities()
     {
+        dd($this->inputOptions);
         if ( count( $this->inputOptions ) != 0 ) {
             $validation = Validator::make([
                'amenities' => $this->inputOptions,
@@ -65,8 +67,7 @@ class Amenities extends Component
         Listings::where([
             'user_id'     => Auth::id(),
             'id_listings' => $this->listingId,
-        ])->whereNotIn('status', ['in process'])
-        ->update([
+        ])->update([
             'amenities' => $this->inputOptions,
         ]);
 

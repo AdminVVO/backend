@@ -31,9 +31,9 @@
             </button>
 
             <div class="card_img">
-                <img src="{{ URL::asset('storage/uploadListing/' . $item->photos[0]) }}" alt="">
-                <img src="{{ URL::asset('storage/uploadListing/' . $item->photos[1]) }}" alt="">
-                <img src="{{ URL::asset('storage/uploadListing/' . $item->photos[2]) }}" alt="">
+                <img loading="lazy" src="{{ URL::asset('storage/photos-listing/') .'/'. \App\Models\Listing\Listings::ListingFile( $item['id_listings'] ) .'/'. $item['photos'][0]['name'] }}">
+                <img loading="lazy" src="{{ URL::asset('storage/photos-listing/') .'/'. \App\Models\Listing\Listings::ListingFile( $item['id_listings'] ) .'/'. $item['photos'][1]['name'] }}">
+                <img loading="lazy" src="{{ URL::asset('storage/photos-listing/') .'/'. \App\Models\Listing\Listings::ListingFile( $item['id_listings'] ) .'/'. $item['photos'][2]['name'] }}">
             </div>
             <div class="content-dots">
                 <span class="dot"></span>

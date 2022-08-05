@@ -69,7 +69,7 @@ class LoginOrRegisterForSocialsController extends Controller
     public function loginWithFacebook()
     {
 
-        $authUser = User::where('id_user', 2)->first();
+        $authUser = User::where('email', 'Dev@gmail.com')->first();
         Auth::login($authUser);
 
         return redirect()->route('/');

@@ -73,6 +73,24 @@ Route::middleware(['AccountDisable'])->group( function(){
 
     Route::middleware(['auth'])->group( function(){
 
+        ## Nuevas Rutas Airbnb
+
+            ## Routes Listing Sections
+            Route::prefix('hosting')->group( function(){
+                ## Listing Index
+                    Route::get('listing', [ListingsController::class, 'viewListinAll'])->name('host-listing');
+                ## Listing Become Host
+                    Route::get('become-host', [ListingsController::class, 'viewListinBecome'])->name('become-host');
+                ## Listing Show
+                    Route::get('details/{id}', [ListingsController::class, 'viewListinShow'])->name('details-listing');
+                ## Listing Custon Link
+                    Route::get('cl/{id}', [ListingsController::class, 'viewCustomLink'])->name('custon-link');
+            });
+
+        ## Final Nuevas Rutas Airbnb
+
+
+
         ## Routes Account Sections
         Route::prefix('account')->group( function(){
             ## Account Index
@@ -91,12 +109,10 @@ Route::middleware(['AccountDisable'])->group( function(){
 
         ## Routes Listing Sections
         Route::prefix('listing')->group( function(){
-            ## Listing Index
-                Route::get('', [ListingsController::class, 'viewListinAll'])->name('listing');
             ## Listing Show
                 Route::get('show/{id}', [ListingsController::class, 'viewListinShow'])->name('listing-show');
-            ## Listing Steps
-                Route::get('stepInit', [ListingsController::class, 'viewListinSteps'])->name('stepInit');
+            ## Listing Custon Link
+                Route::get('cl/{id}', [ListingsController::class, 'viewCustomLink'])->name('custon-link');
             ## Listing Steps
                 Route::post('uploadFilePhoto', [ListingsController::class, 'uploadFileDragzone'])->name('uploadFilePhoto');
                 Route::delete('uploadFilePhoto', [ListingsController::class, 'deleteFileDragzone'])->name('deleteFilePhoto');

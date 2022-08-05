@@ -57,6 +57,7 @@ class InternaController extends Controller
             'listing_house_rulers.additional_rules',  
 
             'listing_pricings.base_price',   
+            'listing_pricings.first_guest',   
             'listing_pricings.listing_currency',   
             'listing_pricings.weekly_discount',   
             'listing_pricings.monthly_discount',   
@@ -69,6 +70,8 @@ class InternaController extends Controller
             'listing_pricings.management_type',
             'listing_pricings.community_fee',
             'listing_pricings.community_type',
+            'listing_pricings.max_people',
+            'listing_pricings.allow',
             'listing_pricings.extra_guest_fee',
             'listing_pricings.extra_guest',
             'listing_pricings.weekend_nightly_fee',
@@ -98,7 +101,6 @@ class InternaController extends Controller
             $amenitiesModalFinal[$value['typeList']][$key]['name'] = $value['name'];
         }
 
-        // dd($amenitiesModalFinal);
         $profile = Profile::select(
             'language',
             'about',

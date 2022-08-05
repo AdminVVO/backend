@@ -15,7 +15,6 @@ class CreateListingsTable extends Migration
     {
         Schema::create('listings', function (Blueprint $table) {
             $table->uuid('id_listings')->primary();
-            $table->string('step')->nullable();
             $table->string('title')->nullable();
             $table->string('internal_title')->nullable();
             $table->mediumText('descriptions')->nullable();
@@ -29,10 +28,9 @@ class CreateListingsTable extends Migration
             $table->string('resort')->nullable();
             $table->string('template')->nullable();
             $table->json('amenities')->nullable();
-            $table->json('safety')->nullable();
             $table->json('photos')->nullable();
-            $table->json('category')->nullable();
-            $table->json('featurs')->nullable();
+            $table->json('aspect')->nullable();
+            $table->json('legal')->nullable();
             $table->json('snooze')->default('[]');
 
             $table->uuid('user_id');

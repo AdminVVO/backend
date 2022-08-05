@@ -113,6 +113,30 @@ body {
         }
     }
 
+    // admin-today.php
+    .container_pprnme {
+        display: none;
+    }
+
+    // listing.php
+    .container_popup_filters_listings {
+        display: none;
+
+        .fxfbwhmhbrzi {
+            max-width: 768px;
+        }
+
+        @include responsive(1400px) {
+            .fxfbwhmhbrzi {
+                max-width: 568px;
+            }
+        }
+
+        // @include responsive(1270px) {
+        //     display: ;
+        // }
+    }
+
     // listing-status-popup-deactivate.php
     .container_lspopupdesct {
         display: none;
@@ -855,34 +879,34 @@ body {
                     }
                 }
 
-                .modal_block {
-                    .content_hidden-anhost {
-                        margin: 0 32px;
-                        overflow: hidden;
+                // .modal_block {
+                //     .content_hidden-anhost {
+                //         margin: 0 32px;
+                //         overflow: hidden;
 
-                        @include responsive(1400px) {
-                            margin: 0 24.5px;
-                        }
+                //         @include responsive(1400px) {
+                //             margin: 0 24.5px;
+                //         }
 
-                        @include responsive(743px) {
-                            margin: 0;
-                        }
+                //         @include responsive(743px) {
+                //             margin: 0;
+                //         }
 
-                        ._wpwi48 {
-                            padding: 0 18px;
-                            height: 100%;
-                            overflow: auto;
+                //         ._wpwi48 {
+                //             padding: 0 18px;
+                //             height: 100%;
+                //             overflow: auto;
 
-                            @include responsive(1400px) {
-                                padding: 0 10.5px;
-                            }
+                //             @include responsive(1400px) {
+                //                 padding: 0 10.5px;
+                //             }
 
-                            @include responsive(743px) {
-                                padding: 0 24px;
-                            }
-                        }
-                    }
-                }
+                //             @include responsive(743px) {
+                //                 padding: 0 24px;
+                //             }
+                //         }
+                //     }
+                // }
 
                 ._zjunba {
                     padding: 30px 50px 35px;
@@ -924,34 +948,34 @@ body {
                     }
                 }
 
-                .modal_block {
-                    .content_hidden-anhost {
-                        margin: 0 32px;
-                        overflow: hidden;
+                // .modal_block {
+                //     .content_hidden-anhost {
+                //         margin: 0 32px;
+                //         overflow: hidden;
 
-                        @include responsive(1400px) {
-                            margin: 0 24.5px;
-                        }
+                //         @include responsive(1400px) {
+                //             margin: 0 24.5px;
+                //         }
 
-                        @include responsive(743px) {
-                            margin: 0;
-                        }
+                //         @include responsive(743px) {
+                //             margin: 0;
+                //         }
 
-                        ._wpwi48 {
-                            padding: 0 18px;
-                            height: 100%;
-                            overflow: auto;
+                //         ._wpwi48 {
+                //             padding: 0 18px;
+                //             height: 100%;
+                //             overflow: auto;
 
-                            @include responsive(1400px) {
-                                padding: 0 10.5px;
-                            }
+                //             @include responsive(1400px) {
+                //                 padding: 0 10.5px;
+                //             }
 
-                            @include responsive(743px) {
-                                padding: 0 24px;
-                            }
-                        }
-                    }
-                }
+                //             @include responsive(743px) {
+                //                 padding: 0 24px;
+                //             }
+                //         }
+                //     }
+                // }
 
                 ._zjunba {
                     padding: 30px 50px 35px;
@@ -1027,100 +1051,250 @@ body {
     .container_pprssss2 {
         display: none;
 
-        .pd_anhost-modal {
-            .modal_content-anhost {
-                max-width: 860px;
-                overflow: hidden;
+        .modal_content-anhost {
+            max-width: 860px;
+            overflow: hidden;
 
-                @include responsive(1400px) {
-                    max-width: 780px;
+            .cont_details_hide {
+                padding-bottom: 50px;
+            }
 
-                    .mr-b30 {
-                        margin-bottom: 20px;
-                    }
+            .modal_block {
+                .content_hidden-anhost {
+                    // margin: 0;
+                    // margin-right: 44px;
+                    // overflow: hidden;
 
-                    .gp18 {
-                        gap: 10px;
-                    }
+                    // @include responsive(1400px) {
+                    //     margin-right: 29px;
+                    // }
 
-                    .mr-t16 {
-                        margin-top: 8px;
-                    }
+                    // @include responsive(743px) {
+                    //     margin-right: 0;
+                    // }
 
-                    ._bkpd50 {
-                        padding: 35.5px 0;
+                    // ._wpwi48 {
+                    //     padding-right: 6px;
+                    //     padding-bottom: 24px;
+                    //     height: 100%;
+                    //     overflow: auto;
 
-                        .gp30 {
-                            gap: 25.5px;
-                        }
+                    //     @include responsive(743px) {
+                    //         padding-right: 24px;
+                    //     }
+                    // }
 
-                        .mr-t14 {
-                            margin-top: 10px;
-                        }
+                    .block-lb {
+                        gap: 17px;
 
-                        .gp8 {
-                            gap: 4px;
+                        @include responsive(1400px) {
+                            gap: 13px;
                         }
                     }
                 }
+            }
 
-                .modal_block {
-                    .content_hidden-anhost {
-                        margin: 0;
-                        margin-right: 44px;
-                        overflow: hidden;
+            ._zjunba {
+                padding: 30px 50px 35px;
 
-                        @include responsive(1400px) {
-                            margin-right: 29px;
-                        }
+                .gp17 {
+                    @include responsive(1400px) {
+                        gap: 8px;
+                    }
+                }
+            }
 
-                        @include responsive(743px) {
-                            margin-right: 0;
-                        }
+            @include responsive(1400px) {
+                max-width: 780px;
 
-                        ._wpwi48 {
-                            padding-right: 6px;
-                            padding-bottom: 24px;
-                            height: 100%;
-                            overflow: auto;
+                .mr-b30 {
+                    margin-bottom: 20px;
+                }
 
-                            @include responsive(743px) {
-                                padding-right: 24px;
-                            }
-                        }
+                .gp18 {
+                    gap: 10px;
+                }
 
-                        .block-lb {
-                            gap: 17px;
+                .mr-t16 {
+                    margin-top: 8px;
+                }
 
-                            @include responsive(1400px) {
-                                gap: 13px;
-                            }
-                        }
+                ._bkpd50 {
+                    padding: 35px 0;
+                }
+
+                .contCheckDetails {
+                    .gp30 {
+                        gap: 25.5px;
+                    }
+
+                    .mr-t14 {
+                        margin-top: 10px;
+                    }
+
+                    .gp8 {
+                        gap: 4px;
                     }
                 }
 
-                ._zjunba {
-                    padding: 30px 50px 35px;
-
-                    .gp17 {
-                        @include responsive(1400px) {
-                            gap: 8px;
-                        }
-                    }
+                .cont_details_hide {
+                    padding-bottom: 24px;
                 }
             }
         }
     }
 
-    // popup-languages-speak.php
-    .container-languages-speak {
-        // display: block;
+    // popup-guest-dafety.php
+    .container_ppgtsy {
+        display: none;
 
         .fxfbwhmhbrzi {
-            max-width: 798px;
+            max-width: 852px;
+        }
 
-            @include responsive(1400px) {
+        ._zjunba {
+            padding: 30px 50px 35px;
+        }
+
+        @include responsive(1400px) {
+            .fxfbwhmhbrzi {
+                max-width: 652px;
+            }
+
+            .popup_guest_safety {
+                .h2_publish {
+                    font-size: 32px !important;
+                }
+
+                .h2-guests {
+                    font-size: 22px !important;
+                    line-height: 26px !important;
+                }
+            }
+        }
+
+        @include responsive(743px) {
+            .mr-t80 {
+                margin-top: 48px;
+            }
+
+            .mr-t24 {
+                margin-top: 16px;
+            }
+
+            .mr-b24 {
+                margin-bottom: 16px;
+            }
+        }
+    }
+
+    // popup-listing-post-edit-photos.php
+    .container_pplgptetps {
+        display: none;
+
+        .fxfbwhmhbrzi {
+            max-width: 996px;
+        }
+
+        ._zjunba {
+            padding: 30px 50px 35px;
+        }
+
+        @include responsive(1400px) {
+            .fxfbwhmhbrzi {
+                max-width: 896px;
+            }
+        }
+    }
+
+    // popup-edit-photo.php
+    .container_ppetpo {
+        display: none;
+
+        .fxfbwhmhbrzi {
+            max-width: 1420px;
+        }
+
+        @include responsive(1400px) {
+            .fxfbwhmhbrzi {
+                max-width: 1320px;
+            }
+        }
+    }
+
+    // popup-change-photo.php
+    .containerppcepo {
+        display: none;
+
+        .fxfbwhmhbrzi {
+            max-width: 880px;
+        }
+
+        @include responsive(1400px) {
+            .fxfbwhmhbrzi {
+                max-width: 780px;
+            }
+        }
+    }
+
+    // popup-shown-guests.php
+    .container_ppsngs {
+        display: none;
+
+        .fxfbwhmhbrzi {
+            max-width: 768px;
+        }
+
+        @include responsive(1400px) {
+            .fxfbwhmhbrzi {
                 max-width: 568px;
+            }
+
+            .h2_publish {
+                font-size: 26px;
+            }
+
+            .popup_shown_guests {
+                .gp21 {
+                    gap: 16px;
+                }
+
+                .mr-t21 {
+                    margin-top: 16px;
+                }
+            }
+        }
+    }
+
+    // popup-add-photos.php
+    .container_ppadps {
+        display: none;
+
+        .modal_content-anhost {
+            max-width: 1132px !important;
+            overflow: hidden;
+        }
+
+        ._zjunba {
+            padding: 30px 50px 35px;
+            justify-content: normal !important;
+        }
+
+        @include responsive(1400px) {
+            .modal_content-anhost {
+                max-width: 1032px !important;
+            }
+
+            .mr-b50 {
+                margin-bottom: 40px;
+            }
+
+            .gp18 {
+                gap: 10px;
+            }
+
+            .cont_details_hide {
+                padding-bottom: 24px;
             }
         }
     }
@@ -1254,28 +1428,6 @@ body {
                 gap: 10px;
             }
 
-            .check_i {
-                &::after {
-                    max-width: 32px;
-                    min-height: 32px;
-                    font-size: 12.5px;
-                }
-    
-                &:checked {
-                    &::before {
-                        left: 22px;
-                        top: -1px;
-                    }
-    
-                    &::after {
-                        max-width: 32px;
-                        min-height: 34px;
-                        font-size: 12.5px;
-                        left: 22px;
-                    }
-                }
-            }
-
             // listing status popup deactive3 - gaps
             ._cg13rg70 {
                 column-gap: 8px;
@@ -1355,10 +1507,10 @@ body {
                 // font-weight: normal;
             }
 
-            ._txtec16 {
-                font-size: 14px !important;
-                line-height: inherit;
-            }
+            // ._txtec16 {
+            //     font-size: 14px !important;
+            //     line-height: inherit;
+            // }
 
             ._txtec14 {
                 font-size: 12px !important;
@@ -1393,21 +1545,6 @@ body {
                     width: 33px;
                     min-width: 33px;
                 }
-            }
-
-            // check circle
-            .before_check {
-                width: 30px;
-                min-width: 30px;
-                max-width: 30px;
-                height: 30px;
-                min-height: 30px;
-                border-radius: 50%;
-                border: 2px solid #E3EDF3;
-            }
-
-            .block-lb input:checked + .before_check {
-                border: 2px solid #E3EDF3;
             }
 
             // icon X modal
@@ -1618,9 +1755,12 @@ body {
                 border-radius: 10px;
 
                 .content_hidden-anhost {
-                    margin-bottom: 30px;
                     overflow: auto;
                     width: 100%;
+
+                    ._wpwi48 {
+                        padding-bottom: 40px !important;
+                    }
 
                     ._pdleftright32 {
                         @include responsive(743px) {
@@ -1664,7 +1804,7 @@ body {
                             align-items: flex-start;
                       
                             @include responsive(743px) {
-                                padding: 21px 18px 24px;
+                                padding: 21px 18px 24px !important;
                             }
                       
                             ._bgpadd-f {

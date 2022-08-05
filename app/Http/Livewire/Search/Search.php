@@ -148,11 +148,11 @@ class Search extends Component
             $title = $value['title'];
             $price = $value['base_price'];
             $room = ucwords( RoomsProperty::TypeName( $value['like_place'] )  . ' - ' . RoomsProperty::PropertyName( $value['property_type'] ) );
-            $photoInit1 = env('APP_URL') . 'storage/uploadListing/' . $value['photos'][0];
+            $photoInit1 = env('APP_URL') . 'storage/uploadListing/' . $value['photos'][0]['name'];
                 $photo1 = "<img src='$photoInit1' alt='' class='card_img_active'>";
-            $photoInit2 = env('APP_URL') . 'storage/uploadListing/' . $value['photos'][1];
+            $photoInit2 = env('APP_URL') . 'storage/uploadListing/' . $value['photos'][1]['name'];
                 $photo2 = "<img src='$photoInit2' alt='' class='card_img_active'>";
-            $photoInit3 = env('APP_URL') . 'storage/uploadListing/' . $value['photos'][2];
+            $photoInit3 = env('APP_URL') . 'storage/uploadListing/' . $value['photos'][2]['name'];
                 $photo3 = "<img src='$photoInit3' alt='' class='card_img_active'>";
             $latitude = $value['latitude'];
             $longitude = $value['longitude'];

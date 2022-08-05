@@ -3,7 +3,7 @@
 
     <div class="pd_anhost-modal">
         <div class="_z4lmgp">
-            <div class="modal_content-anhost">
+{{--             <div class="modal_content-anhost">
                 <div class="close" id="closeAmenities">
                     <span>X</span>
                 </div>
@@ -15,10 +15,10 @@
                     </div>
                 </div>
 
-                <div class="modal_block">
+                <div class="modal_block"> --}}
 
                     @livewire('listing-test.amenities', ['listing' => $listing])
-
+{{-- 
                 </div>
 
                 <div class="_zjunba">
@@ -28,7 +28,7 @@
 
                     <button class="btn-celest" id="saveAmenities">Save</button>
                 </div>
-            </div>
+            </div> --}}
         </div>
     </div>
 </div>

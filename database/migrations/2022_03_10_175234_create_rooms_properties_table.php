@@ -19,6 +19,9 @@ class CreateRoomsPropertiesTable extends Migration
             $table->string('name');
             $table->string('type');
             $table->string('name_type');
+            $table->string('file');
+            $table->string('comment');
+            $table->string('file_comm');
             $table->timestamps();
         });
     }
