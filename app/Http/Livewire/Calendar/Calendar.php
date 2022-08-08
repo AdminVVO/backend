@@ -2,8 +2,13 @@
 
 namespace App\Http\Livewire\Calendar;
 
+use App\Models\DateConfig;
+use App\Models\Listing\Listings;
+use App\Models\Reservation;
 use Livewire\Component;
 use Carbon\Carbon;
+use Illuminate\Support\Str;
+use Auth;
 
 class Calendar extends Component
 {
@@ -11,141 +16,230 @@ class Calendar extends Component
     public $reservation = [];
     public $display = '';
     public $days = '';
+    public $color = '';
+    public $search = '';
+    public $listing_id = '';
+    public $findReservation = [];
+    public $date_init = '';
+    public $date_end = '';
+    public $price = null;
+    public $available = 1;
+    public $date_config = [];
 
-    public function mount()
+    public function preLoad()
     {
-        $listings = [
-            [
-                "id_listings" => "13546ee4-eb1c-4d8f-8e5c-8f343722dfd2",
-                "title" => "Lista nº1",
-                "internal_title" => "Lista-1 HOUSE",
-                "base_price" => "50",
-                "listing_currency" => "USD"
-            ],
-            [
-                "id_listings" => "20846eg5-eb1c-4d8f-8e5c-8f343722dfd2",
-                "title" => "Lista nº2",
-                "internal_title" => "Lista-2 HOUSE",
-                "base_price" => "80",
-                "listing_currency" => "USD"
-            ]
-        ];
+        $this->queryList();
+    }
 
-        $reservations = [
-            [
-                "listing_id" => "13546ee4-eb1c-4d8f-8e5c-8f343722dfd2",
-                "name" => "Michael J. Turner",
-                "checkin" => "2022-08-02",
-                "checkout" => "2022-08-07",
-                "id_reservation" => "4975ea3e-819a-4c10-9e2a-ca08d362e329",
-                "status" => 0
-            ],
-            [
-                "listing_id" => "13546ee4-eb1c-4d8f-8e5c-8f343722dfd2",
-                "name" => "Stephan E. Kimes",
-                "checkin" => "2022-08-05",
-                "checkout" => "2022-08-09",
-                "id_reservation" => "4975ea3e-819a-4c10-9e2a-ca08d362e329",
-                "status" => 1
-            ],
-            [
-                "listing_id" => "13546ee4-eb1c-4d8f-8e5c-8f343722dfd2",
-                "name" => "John L. Jackson",
-                "checkin" => "2022-08-15",
-                "checkout" => "2022-08-20",
-                "id_reservation" => "4975ea3e-819a-4c10-9e2a-ca08d362e329",
-                "status" => 2
-            ],
-            [
-                "listing_id" => "13546ee4-eb1c-4d8f-8e5c-8f343722dfd2",
-                "name" => "Gladys G. Malone",
-                "checkin" => "2022-08-10",
-                "checkout" => "2022-08-14",
-                "id_reservation" => "4975ea3e-819a-4c10-9e2a-ca08d362e329",
-                "status" => 3
-            ],
-            [
-                "listing_id" => "13546ee4-eb1c-4d8f-8e5c-8f343722dfd2",
-                "name" => "Darlene M. Garcia",
-                "checkin" => "2022-08-09",
-                "checkout" => "2022-08-13",
-                "id_reservation" => "4975ea3e-819a-4c10-9e2a-ca08d362e329",
-                "status" => 4
-            ],
-            [
-                "listing_id" => "20846eg5-eb1c-4d8f-8e5c-8f343722dfd2",
-                "name" => "Robert A. Wright",
-                "checkin" => "2022-08-11",
-                "checkout" => "2022-08-15",
-                "id_reservation" => "4975ea3e-819a-4c10-9e2a-ca08d362e329",
-                "status" => 5
-            ],
-            [
-                "listing_id" => "20846eg5-eb1c-4d8f-8e5c-8f343722dfd2",
-                "name" => "Jennifer L. Walker",
-                "checkin" => "2022-08-01",
-                "checkout" => "2022-08-05",
-                "id_reservation" => "4975ea3e-819a-4c10-9e2a-ca08d362e329",
-                "status" => 6
-            ],
-            [
-                "listing_id" => "20846eg5-eb1c-4d8f-8e5c-8f343722dfd2",
-                "name" => "Norma T. Nix",
-                "checkin" => "2022-08-25",
-                "checkout" => "2022-08-30",
-                "id_reservation" => "4975ea3e-819a-4c10-9e2a-ca08d362e329",
-                "status" => 6
-            ],
-            [
-                "listing_id" => "20846eg5-eb1c-4d8f-8e5c-8f343722dfd2",
-                "checkin" => "2022-08-20",
-                "display" => false,
-            ]
-        ];
+    public function queryList()
+    {
+        $this->reset(['listings', 'reservation', 'date_config']);
+        $listings = Listings::select(
+            'id_listings',
+            'title',
+            'internal_title',
+            'base_price',
+            'listing_currency',
+            'photos'
+        )
+            ->leftJoin('listing_pricings', 'listings.id_listings', 'listing_pricings.listing_id')
+            ->where([
+                'listings.user_id' => Auth::id()
+            ])->when(isset($this->search), function ($listings) {
+                return $listings->where('title', 'like', '%' . $this->search . '%');
+            })->get()->toArray();
 
 
+        foreach ($listings as $key => $value) {
+            $listings_id[$key] = $value['id_listings'];
+            $this->listings[$key]['id'] = $value['id_listings'];
+            $this->listings[$key]['title'] = $value['title'];
+            $this->listings[$key]['internal_title'] = $value['internal_title'];
+            $this->listings[$key]['base_price'] = $value['base_price'];
+            $this->listings[$key]['listing_currency'] = $value['listing_currency'];
+            $this->listings[$key]['imgUri'] = `<img src="{{ URL::asset('assets/img/anality.jpg')}}" alt="">`;
+        }
+
+        $reservations = Reservation::join('users', 'reservations.user_id', 'users.id_user')->whereIn('listing_id', $listings_id)->get()->toArray();
+        $date_config = DateConfig::whereIn('listing_id', $listings_id)->get(['is_active', 'listing_id', 'price', 'date'])->toArray();
+        
+        foreach ($date_config as $key => $data) {
+            $this->date_config[$data['date']] = [
+                'price' => $data['price'],
+                'listing_id' => $data['listing_id'],
+                'is_active' => $data['is_active']
+            ];
+        }
+        
         foreach ($reservations as $key => $data) {
-
-            if (isset($data['display'])) {
-                $this->reservation[] = [
-                    'resourceId' => $data['listing_id'],
-                    'start' => $data['checkin'],
-                    'display' => $data['checkin'],
-                    "overlap" => false,
-                    "editable" => false,
-                ];
+            if ($data['status'] == 0) {
+                $this->color = 'green';
             } else {
-                $this->reservation[] = [
-                    'resourceId' => $data['listing_id'],
-                    'title' => $data['name'],
-                    'start' => $data['checkin'],
-                    'end' => $data['checkout'],
-                    'description' => 'hola',
-                    'reservId' => $data['id_reservation'],
-                    'backgroundColor' => $data['status']
-                ];
+                $this->color = 'red';
             }
+
+            $this->reservation[] = [
+                'resourceId' => $data['listing_id'],
+                'title' => $data['name'],
+                'start' => $data['checkin'],
+                'end' => $data['checkout'],
+                'description' => 'hola',
+                'reservId' => $data['id_reservation'],
+                'backgroundColor' => $this->color,
+            ];
 
             if (date('y-m-d', time()) > Carbon::parse($data['checkin'])->format('y-m-d')) {
                 $this->reservation[$key] = array_merge($this->reservation[$key], ['editable' => false]);
             }
         };
-        foreach ($listings as $key => $value) {
-            $this->listings[$key]['title'] = $value['title'];
-            $this->listings[$key]['id'] = $value['id_listings'];
-            $this->listings[$key]['base_price'] = $value['base_price'];
-            $this->listings[$key]['listing_currency'] = $value['listing_currency'];
-            $this->listings[$key]['imgUri'] = `<img src="{{ URL::asset('assets/img/anality.jpg')}}" alt="">`;
-        }
     }
 
     public function render()
     {
+        $this->preLoad();
         return view('livewire.calendar.calendar');
     }
 
-    public function selectListing($payload)
+    public function searchListing($data)
     {
-        dd($payload);
+        $this->search = $data;
+        $this->preLoad();
+    }
+
+    public function showReservation($reservation_id)
+    {
+        $reservation = Reservation::join('users', 'reservations.user_id', 'users.id_user')
+            ->join('listings', 'reservations.listing_id', 'listings.id_listings')
+            ->where('id_reservation', $reservation_id)->first()->toArray();
+
+        $day = (new Carbon($reservation['checkin']))->diff(now())->d + 1;
+        $this->findReservation = [
+            'arriving' => 'Arriving in ' . $day . ' days',
+            'checkin' => Carbon::parse($reservation['checkin'])->isoFormat('ddd, MMM YY'),
+            'checkout' => Carbon::parse($reservation['checkout'])->isoFormat('ddd, MMM YY'),
+            'nights' => Carbon::parse($reservation['checkout'])->diffInDays($reservation['checkin']),
+            'total_payout' => $reservation['total_payout'],
+            'user_id' => $reservation['user_id'],
+            'name' => $reservation['name'],
+            'guest' => $reservation['number_guests'],
+            'total_comming' => $reservation['number_guests'],
+        ];
+    }
+
+    public function DateConfig()
+    {
+        if ($this->date_init == '') {
+            return;
+        }
+        $dates = $this->UpdateDateConfig();
+        $this->CreateDateConfig($dates);
+        $this->preLoad();
+    }
+
+    public function CreateDateConfig($dates)
+    {
+        if (count($dates) == 1 && $this->date_end == '') {
+            return;
+        }
+
+        if ($this->available == false && $this->date_end == '') {
+            DateConfig::create(
+                [
+                    'id_date_config' => Str::uuid(),
+                    'listing_id' => $this->listing_id,
+                    'is_active' => $this->available,
+                    'date' => $this->date_init,
+                    'price' => 0,
+                ]
+            );
+            return;
+        }
+
+        if ($this->available == true && $this->date_end == '') {
+            DateConfig::create(
+                [
+                    'id_date_config' => Str::uuid(),
+                    'listing_id' => $this->listing_id,
+                    'is_active' => $this->available,
+                    'date' => $this->date_init,
+                    'price' => 0,
+                ]
+            );
+            return;
+        }
+
+        $arr_date = [];
+        $fechaInicio = strtotime($this->date_init);
+        $fechaFin = strtotime($this->date_end);
+
+        for ($i = $fechaInicio; $i < $fechaFin; $i += 86400) {
+            $arr_date[] = date("Y-m-d", $i);
+        }
+        $differenceArrayDate = array_diff($arr_date, $dates);
+
+        foreach ($differenceArrayDate as $key => $data) {
+            if ($this->available == false) {
+                DateConfig::create(
+                    [
+                        'id_date_config' => Str::uuid(),
+                        'listing_id' => $this->listing_id,
+                        'is_active' => $this->available,
+                        'date' => $data,
+                        'price' => 0,
+                    ]
+                );
+            }
+
+            if ($this->available == true) {
+                DateConfig::create(
+                    [
+                        'id_date_config' => Str::uuid(),
+                        'listing_id' => $this->listing_id,
+                        'is_active' => $this->available,
+                        'date' => $data,
+                        'price' => $this->price
+                    ]
+                );
+            }
+        }
+    }
+
+    public function UpdateDateConfig()
+    {
+        $date = [];
+        if ($this->date_end != '') {
+            $date_config = DateConfig::whereBetween('date', [$this->date_init, $this->date_end])
+                ->where('listing_id', $this->listing_id)->get();
+        } else {
+            $date_config = DateConfig::where('date', $this->date_init)
+                ->where('listing_id', $this->listing_id)->get();
+        }
+
+        if (!$date_config) {
+            return false;
+        }
+
+        foreach ($date_config as $key => $data) {
+            $date[] = $data->date;
+            if ($this->available && $this->price != 0) {
+                $data->update(
+                    [
+                        'is_active' => $this->available,
+                        'price' => $this->price,
+                    ]
+                );
+            } else if($this->available && $this->price == 0) {
+                $data->delete();
+            }
+             else {
+                $data->update(
+                    [
+                        'is_active' => $this->available,
+                        'price' => 0,
+                    ]
+                );
+            }
+        }
+        return $date;
     }
 }
