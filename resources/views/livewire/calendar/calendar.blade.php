@@ -111,7 +111,12 @@
                     </div>
 
                     <div class="mr-t19 fx fx-fd-c fx-ai-c">
-                        <a href="calendar-view-full-itinerary.php" class="btn-celest">View full itinerary</a>
+                        @if ($findReservation)
+                            <a href='{{ route('ShowReservation', ['id' => $findReservation['id_reservation']]) }}'
+                                class="btn-celest">View full itinerary</a>
+                        @else
+                            <a href="">View full itinerary</a>
+                        @endif
                     </div>
                 </div>
             </div>
@@ -196,144 +201,153 @@
         var calendarEl = document.getElementById('calendar');
 
         var calendar = new FullCalendar.Calendar(calendarEl, {
-                timeZone: 'UTC',
+            timeZone: 'UTC',
 
-                refetchResourcesOnNavigate: true,
-                resourceAreaHeaderContent: {
-                    html: `
+            refetchResourcesOnNavigate: true,
+            resourceAreaHeaderContent: {
+                html: `
                 <label for="ipt__search_list" class="search_content mrnone">
                                         <div class="input-wrapper icon_absolute">
                                             <input type="text" name="" id="ipt__search_list" placeholder="Search listings...">
                                         </div>
                                     </label> `
-                },
-                selectOverlap: function(event) {
-                    return event.rendering === 'background';
-                },
-                resourceLabelContent: function(arg) {
-                    return {
-                        html:
+            },
+            selectOverlap: function(event) {
+                return event.rendering === 'background';
+            },
+            resourceLabelContent: function(arg) {
+                return {
+                    html:
 
-                            `
-                                            
-                    <div class="checkbox-item checkbox-item_img">
-                                                            <label class="check_click">                    <div class="bg_check_click click-list-calendar">
-                    <div >
-                                                                        <div class="_ad-list_img">
-                                                                            <img src="{{ URL::asset('assets/img/anality.jpg') }}">
-                                                                        </div>
-                                                                    </div>
-                    <div class="_f-t">
-                        <h3 class="_txteh _txtcapit text_tm1">` + arg.resource.title + `</h3>
-                        <p class="_txtec16 text_tm1">` + arg.resource.extendedProps.internal_title + `</p>
-                    </div>
-                                                                </div>
-                                                                
-                                                            </label>
-                                                        </div>`
+                        `<div class="checkbox-item checkbox-item_img">
+                                <label class="check_click">
+                                    <input type="radio" name="listing">
+                                    <div class="bg_check_click click-list-calendar">
+                                        <div class="_cont-l-img">
+                                            <div class="_ad-list_img">
+                                                <img src="assets/img/card/c1.jpg">
+                                            </div>
+                                        </div>
 
-                        // `<div style=""><img src="{{ URL::asset('assets/img/anality.jpg') }}" alt=""></div>`
-                    };
-                },
+                                        <div class="_f-t">
+                                            <h3 class="_txteh _txtcapit text_tm1">` + arg.resource.title + `</h3>
 
-                initialView: 'resourceTimelineMonth',
-                eventMaxStack: 3,
-                eventOrder: 'created_at',
-                eventOrderStrict: true,
-                events: @this.reservation,
-                resourceOrder: 'created_at',
-                resources: @this.listings,
-
-                validRange: function(nowDate) {
-                    return {
-                        start: nowDate
-                    };
-                },
-                eventResourceEditable: true,
-                slotEventOverlap: false,
-                selectable: true,
-                editable: true,
-                select: function(info) {
-                    @this.listing_id = info.resource._resource.id
-                    var start = new Date(info.startStr);
-                    var end = new Date(info.endStr);
-                    // alert('selected ' + info.startStr + ' to ' + info.endStr + ' on resource ' + info
-                    //     .resource.id);
-                    if (start.getDate() + 1 == (end.getDate())) {
-                        @this.date_init = info.startStr
-                        @this.date_end = ''
-                    } else {
-                        end.setDate(end.getDate() - 1)
-                        @this.date_init = info.startStr
-                        @this.date_end = end.toISOString().split('T')[0]
-                        // @this.date_end = end.getFullYear()+'-'+ (end.getMonth()<10 ? ('0'+end.getMonth()): end.getMonth()) +'-' + (end.getDate()<10 ?('0'+end.getDate()): end.getDate())
-                    }
-                },
-                eventContent: function(arg) {
-                    let italicEl = document.createElement('div')
-                    console.log(arg.event._def.extendedProps.total_payout)
-                    if (arg.event.extendedProps.status && arg.event.extendedProps.status == 0) {
-                        italicEl.innerHTML = `
-                            <div class="fx fx-ai-c fx-jc-sb">
-                                <span class="_txtboldff14">` + arg.event._def.title + `$` + arg.event._def
-                            .extendedProps.total_payout + `</span>
-                                <span class="_txtboldff14">Trip requested</span>
+                                            <p class="_txtec16 text_tm1">` + arg.resource.extendedProps
+                        .internal_title + `</p>
+                                        </div>
+                                    </div>
+                                </label>
                             </div>`
-                    } else if (arg.event.extendedProps.status == 1) {
-                        italicEl.innerHTML = `
-                        <button type="button" class="bkredtpreq">
-                            <div class="fx fx-ai-c fx-jc-sb">
-                                <span class="_txtboldff14">` + arg.event._def.title + `$` + arg.event._def
-                            .extendedProps.total_payout + `</span>
+
+                    // `<div style=""><img src="{{ URL::asset('assets/img/anality.jpg') }}" alt=""></div>`
+                };
+            },
+
+            initialView: 'resourceTimelineMonth',
+            eventMaxStack: 3,
+            eventOrder: 'created_at',
+            eventOrderStrict: true,
+            events: @this.reservation,
+            resourceOrder: 'created_at',
+            resources: @this.listings,
+
+            validRange: function(nowDate) {
+                return {
+                    start: nowDate
+                };
+            },
+            eventResourceEditable: false,
+            slotEventOverlap: false,
+            selectable: true,
+            editable: false,
+            select: function(info) {
+                @this.listing_id = info.resource._resource.id
+                var start = new Date(info.startStr);
+                var end = new Date(info.endStr);
+                // alert('selected ' + info.startStr + ' to ' + info.endStr + ' on resource ' + info
+                //     .resource.id);
+                if (start.getDate() + 1 == (end.getDate())) {
+                    @this.date_init = info.startStr
+                    @this.date_end = ''
+                } else {
+                    end.setDate(end.getDate() - 1)
+                    @this.date_init = info.startStr
+                    @this.date_end = end.toISOString().split('T')[0]
+                    // @this.date_end = end.getFullYear()+'-'+ (end.getMonth()<10 ? ('0'+end.getMonth()): end.getMonth()) +'-' + (end.getDate()<10 ?('0'+end.getDate()): end.getDate())
+                }
+            },
+            eventContent: function(arg) {
+                let italicEl = document.createElement('div')
+                if (arg.event.extendedProps.status && arg.event.extendedProps.status == 0) {
+                    italicEl.innerHTML = `
+                        <button type="button" class="reservationTripCalendar green">
+                            <div class="fx fx-ai-c fx-jc-sb nfooo">
+                                <span class="_txtboldff14 text_tm1">` + arg.event._def.title + `$` + arg.event._def
+                        .extendedProps.total_payout + `</span>
                                 <span class="_txtboldff14">Trip requested</span>
                             </div>
                         </button>`
-                    } else if (arg.event.extendedProps.status == 2) {
-                        italicEl.innerHTML = `
-                        <button type="button" class="bkredtpreq">
-                            <div class="fx fx-ai-c fx-jc-sb">
-                                <span class="_txtboldff14">` + arg.event._def.title + `$` + arg.event._def
-                            .extendedProps.total_payout + `</span>
+                } else if (arg.event.extendedProps.status == 1) {
+                    italicEl.innerHTML = `
+                    <button type="button" class="reservationTripCalendar green">
+                            <div class="fx fx-ai-c fx-jc-sb nfooo">
+                                <span class="_txtboldff14 text_tm1">` + arg.event._def.title + `$` + arg.event._def
+                        .extendedProps.total_payout + `</span>
                                 <span class="_txtboldff14">Trip requested</span>
                             </div>
                         </button>`
-                    } else if (arg.event.extendedProps.status == 3) {
-                        italicEl.innerHTML = `
-                        <button type="button" class="bkredtpreq">
-                            <div class="fx fx-ai-c fx-jc-sb">
-                                <span class="_txtboldff14">` + arg.event._def.title + `$` + arg.event._def
-                            .extendedProps.total_payout + `</span>
+                } else if (arg.event.extendedProps.status == 2) {
+                    italicEl.innerHTML = `
+                    <button type="button" class="reservationTripCalendar plomo">
+                            <div class="fx fx-ai-c fx-jc-sb nfooo">
+                                    <span class="_txtboldff14 text_tm1">` + arg.event._def.title + `$` + arg.event._def
+                        .extendedProps.total_payout + `</span>
                                 <span class="_txtboldff14">Trip requested</span>
                             </div>
                         </button>`
-                    } else if (arg.event.extendedProps.status == 4) {
-                        italicEl.innerHTML = `
-                        <button type="button" class="bkredtpreq">
-                            <div class="fx fx-ai-c fx-jc-sb">
-                                <span class="_txtboldff14">` + arg.event._def.title + `$` + arg.event._def
-                            .extendedProps.total_payout + `</span>
+                } else if (arg.event.extendedProps.status == 3) {
+                    italicEl.innerHTML = `
+                    <button type="button" class="reservationTripCalendar green">
+                            <div class="fx fx-ai-c fx-jc-sb nfooo">
+                                <span class="_txtboldff14 text_tm1">` + arg.event._def.title + `$` + arg.event._def
+                        .extendedProps.total_payout + `</span>
                                 <span class="_txtboldff14">Trip requested</span>
                             </div>
                         </button>`
-                    } else if (arg.event.extendedProps.status == 5) {
-                        italicEl.innerHTML = `
-                        <button type="button" class="bkredtpreq">
-                            <div class="fx fx-ai-c fx-jc-sb">
-                                <span class="_txtboldff14">` + arg.event._def.title + `$` + arg.event._def
-                            .extendedProps.total_payout + `</span>
+                } else if (arg.event.extendedProps.status == 4) {
+                    italicEl.innerHTML = `
+                    <button type="button" class="reservationTripCalendar plomo">
+                            <div class="fx fx-ai-c fx-jc-sb nfooo">
+
+                                <span class="_txtboldff14 text_tm1">` + arg.event._def.title + `$` + arg.event._def
+                        .extendedProps.total_payout + `</span>
                                 <span class="_txtboldff14">Trip requested</span>
                             </div>
                         </button>`
-                    } else if (arg.event.extendedProps.status == 6) {
-                        italicEl.innerHTML = `
-                        <button type="button" class="bkredtpreq">
-                            <div class="fx fx-ai-c fx-jc-sb">
-                                <span class="_txtboldff14">` + arg.event._def.title + `$` + arg.event._def
-                            .extendedProps.total_payout + `</span>
+                } else if (arg.event.extendedProps.status == 5) {
+                    italicEl.innerHTML = `
+                    <button type="button" class="reservationTripCalendar plomo">
+                            <div class="fx fx-ai-c fx-jc-sb nfooo">
+                                <div class="fx fx-ai-c gp5">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 17 17">
+                                    <path d="M9.555,6.651a7.891,7.891,0,0,1,.618-3.072A8.622,8.622,0,1,0,20.586,13.992,7.957,7.957,0,0,1,9.555,6.651Z" transform="translate(-3.586 -3.579)" fill="#fff"></path>
+                                </svg>
+                                <span class="_txtboldff14 text_tm1">` + arg.event._def
+                        .extendedProps.total_payout + `</span>
+                                </div>
                                 <span class="_txtboldff14">Trip requested</span>
                             </div>
                         </button>`
-                    }
+                } else if (arg.event.extendedProps.status == 6) {
+                    italicEl.innerHTML = `
+                    <button type="button" class="reservationTripCalendar red">
+                            <div class="fx fx-ai-c fx-jc-sb nfooo">
+                                <span class="_txtboldff14 text_tm1">` + arg.event._def.title + `$` + arg.event._def
+                        .extendedProps.total_payout + `</span>
+                                <span class="_txtboldff14">Trip requested</span>
+                            </div>
+                        </button>`
+                }
                 let arrayOfDomNodes = [italicEl]
                 return {
                     domNodes: arrayOfDomNodes
@@ -345,27 +359,40 @@
             },
         });
 
-    await calendar.render(); eventPrice();
+        await calendar.render();
+        eventPrice();
 
-    document.getElementById("ipt__search_list").addEventListener("keyup", async function(event) {
-        if (event.keyCode === 13) {
-            var con = document.getElementById("ipt__search_list");
-            await @this.searchListing(con.value);
-            await calendar.setOption('resources', @this.listings);
-            await calendar.setOption('events', @this.reservation);
-            await eventPrice();
-        }
-    });
+        document.getElementById("ipt__search_list").addEventListener("keyup", async function(event) {
+            if (event.keyCode === 13) {
+                var con = document.getElementById("ipt__search_list");
+                await @this.searchListing(con.value);
+                await calendar.setOption('resources', @this.listings);
+                await calendar.setOption('events', @this.reservation);
+                await eventPrice();
+            }
+        });
 
-    document.getElementById("updateDate").addEventListener("click", function() {
-        setTimeout(() => {
-            eventPrice();
-        }, 1000);
-    });
+        document.getElementById("updateDate").addEventListener("click", function() {
+            setTimeout(() => {
+                eventPrice();
+            }, 1000);
+        });
 
-    document.getElementById("checkbox").addEventListener("click", function() {
-        @this.price = 0;
-    });
+        document.getElementById("checkbox").addEventListener("click", function() {
+            @this.price = 0;
+        });
+
+        document.getElementsByClassName('fc-prev-button fc-button fc-button-primary')[0].addEventListener(
+            'click',
+            function() {
+                eventPrice();
+            });
+
+        document.getElementsByClassName('fc-next-button fc-button fc-button-primary')[0].addEventListener(
+            'click',
+            function() {
+                eventPrice();
+            });
 
     });
 
@@ -374,41 +401,51 @@
             'fc-timeline-slot fc-timeline-slot-lane fc-day');
         return [].slice.call(divs).forEach(function(div) {
             div.innerHTML = '';
-            @this.listings.forEach((element) => {
-                if (@this.date_config[div.getAttribute('data-date')] &&
-                    @this.date_config[div.getAttribute('data-date')]
-                    .listing_id == element.id) {
-                    if (@this.date_config[div.getAttribute('data-date')]
-                        .is_active == true) {
+            @this.listings.forEach((element, index) => {
+                if (@this.date_config[element.id]) {
+                    if (@this.date_config[element.id][div.getAttribute('data-date')]) {
 
-                        div.innerHTML += `<div class="_badsdoller">
-                                 <div class="fx fx-fd-c fx-ai-c gp3">
-                                     <div class="_txtbold7d14">` +
-                            @this.date_config[div.getAttribute('data-date')].price +
-                            `$</div>
-                                    <svg id="Grupo_33711" data-name="Grupo 33711" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="21.463" height="21.038" viewBox="0 0 21.463 21.038">
-                                        <defs>
-                                            <clipPath id="clip-path">
-                                            <rect id="Rectángulo_3628" data-name="Rectángulo 3628" width="21.463" height="21.038" fill="#e3edf3"/>
-                                            </clipPath>
-                                        </defs>
-                                        <g id="Grupo_33710" data-name="Grupo 33710" clip-path="url(#clip-path)">
-                                            <path id="Trazado_205" data-name="Trazado 205" d="M126.2,4.1a.84.84,0,0,1-.874.548c-.208,0-.415,0-.644,0v.284q0,7.4,0,14.794a1.18,1.18,0,0,1-.852,1.244,1.748,1.748,0,0,1-.434.057c-.356.008-.713-.009-1.068,0a1.251,1.251,0,0,1-1.347-1.334c.016-4.91.008-9.82.008-14.731V4.653c-.186,0-.352,0-.516,0a2.1,2.1,0,0,1-.415-.037.666.666,0,0,1-.418-1.108c.269-.374.562-.73.845-1.094q.76-.975,1.52-1.949a.978.978,0,0,1,1.661,0q1.161,1.472,2.3,2.958a3.459,3.459,0,0,1,.23.393Z" transform="translate(-104.733 0)" fill="#e3edf3"/>
-                                            <path id="Trazado_206" data-name="Trazado 206" d="M87.551,62.994c0-1.9.018-3.8-.008-5.7A1.267,1.267,0,0,1,88.9,55.942c.369.024.74,0,1.11.005a1.214,1.214,0,0,1,1.234,1.215c0,.042,0,.084,0,.126q0,5.72,0,11.441a1.292,1.292,0,0,1-.448,1.06,1.238,1.238,0,0,1-.814.283q-.555,0-1.11,0a1.221,1.221,0,0,1-1.322-1.316q0-2.881,0-5.762" transform="translate(-76.746 -49.04)" fill="#e3edf3"/>
-                                            <path id="Trazado_207" data-name="Trazado 207" d="M44.176,87.62q0-2.063,0-4.127a1.213,1.213,0,0,1,1.306-1.306c.391,0,.782,0,1.173,0A1.2,1.2,0,0,1,47.865,83.4q.006,4.232,0,8.463a1.2,1.2,0,0,1-1.19,1.213c-.432.015-.866.014-1.3,0a1.207,1.207,0,0,1-1.2-1.247c0-1.4,0-2.807,0-4.211" transform="translate(-38.727 -72.05)" fill="#e3edf3"/>
-                                            <path id="Trazado_208" data-name="Trazado 208" d="M3.691,109.368c0,.88,0,1.76,0,2.64a1.31,1.31,0,0,1-1.363,1.378c-.328,0-.657.006-.985,0A1.309,1.309,0,0,1,0,112.028q0-2.661,0-5.322a1.307,1.307,0,0,1,1.343-1.355q.5,0,1.006,0a1.3,1.3,0,0,1,1.34,1.336c0,.894,0,1.788,0,2.682" transform="translate(0 -92.355)" fill="#e3edf3"/>
-                                        </g>
-                                    </svg>
-                                 </div>
-                            </div>`;
+
+
+                        if (@this.date_config[element.id][div.getAttribute('data-date')].is_active ==
+                            true) {
+
+                            div.innerHTML += `<div class="_badsdoller">
+         <div class="fx fx-fd-c fx-ai-c gp3">
+             <div class="_txtbold7d14">` +
+                                @this.date_config[element.id][div.getAttribute('data-date')].price +
+                                `$</div>
+            <svg id="Grupo_33711" data-name="Grupo 33711" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="21.463" height="21.038" viewBox="0 0 21.463 21.038">
+                <defs>
+                    <clipPath id="clip-path">
+                    <rect id="Rectángulo_3628" data-name="Rectángulo 3628" width="21.463" height="21.038" fill="#e3edf3"/>
+                    </clipPath>
+                </defs>
+                <g id="Grupo_33710" data-name="Grupo 33710" clip-path="url(#clip-path)">
+                    <path id="Trazado_205" data-name="Trazado 205" d="M126.2,4.1a.84.84,0,0,1-.874.548c-.208,0-.415,0-.644,0v.284q0,7.4,0,14.794a1.18,1.18,0,0,1-.852,1.244,1.748,1.748,0,0,1-.434.057c-.356.008-.713-.009-1.068,0a1.251,1.251,0,0,1-1.347-1.334c.016-4.91.008-9.82.008-14.731V4.653c-.186,0-.352,0-.516,0a2.1,2.1,0,0,1-.415-.037.666.666,0,0,1-.418-1.108c.269-.374.562-.73.845-1.094q.76-.975,1.52-1.949a.978.978,0,0,1,1.661,0q1.161,1.472,2.3,2.958a3.459,3.459,0,0,1,.23.393Z" transform="translate(-104.733 0)" fill="#e3edf3"/>
+                    <path id="Trazado_206" data-name="Trazado 206" d="M87.551,62.994c0-1.9.018-3.8-.008-5.7A1.267,1.267,0,0,1,88.9,55.942c.369.024.74,0,1.11.005a1.214,1.214,0,0,1,1.234,1.215c0,.042,0,.084,0,.126q0,5.72,0,11.441a1.292,1.292,0,0,1-.448,1.06,1.238,1.238,0,0,1-.814.283q-.555,0-1.11,0a1.221,1.221,0,0,1-1.322-1.316q0-2.881,0-5.762" transform="translate(-76.746 -49.04)" fill="#e3edf3"/>
+                    <path id="Trazado_207" data-name="Trazado 207" d="M44.176,87.62q0-2.063,0-4.127a1.213,1.213,0,0,1,1.306-1.306c.391,0,.782,0,1.173,0A1.2,1.2,0,0,1,47.865,83.4q.006,4.232,0,8.463a1.2,1.2,0,0,1-1.19,1.213c-.432.015-.866.014-1.3,0a1.207,1.207,0,0,1-1.2-1.247c0-1.4,0-2.807,0-4.211" transform="translate(-38.727 -72.05)" fill="#e3edf3"/>
+                    <path id="Trazado_208" data-name="Trazado 208" d="M3.691,109.368c0,.88,0,1.76,0,2.64a1.31,1.31,0,0,1-1.363,1.378c-.328,0-.657.006-.985,0A1.309,1.309,0,0,1,0,112.028q0-2.661,0-5.322a1.307,1.307,0,0,1,1.343-1.355q.5,0,1.006,0a1.3,1.3,0,0,1,1.34,1.336c0,.894,0,1.788,0,2.682" transform="translate(0 -92.355)" fill="#e3edf3"/>
+                </g>
+            </svg>
+         </div>
+    </div>`;
+                        } else {
+                            div.innerHTML += `<div class="_badsdoller">
+         <div class="fx fx-fd-c fx-ai-c gp3">
+             <div class="_txtbold7d14"></div>
+         </div>
+    </div>`;
+                        }
                     } else {
-                        div.innerHTML +=
-                            `<div class="not-linetb"></div>`;
+                        div.innerHTML += `<div class="hidlsfx"><span>` + element
+                            .base_price + element.listing_currency + `
+                        </span></div><div class="click_info_calendar_tb"></div>`;
                     }
                 } else {
-                    div.innerHTML += `<i aria-hidden="true">` + element
-                        .base_price + element.listing_currency +
-                        `</i><div class="click_info_calendar_tb" style="margin-bottom:170px"></div>`;
+                    div.innerHTML += `<div class="hidlsfx"><span>` + element
+                        .base_price + element.listing_currency + `
+                        </span></div><div class="click_info_calendar_tb"></div>`;
                 }
             })
         });

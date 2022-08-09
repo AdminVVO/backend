@@ -49,7 +49,9 @@ class Calendar extends Component
             ])->when(isset($this->search), function ($listings) {
                 return $listings->where('title', 'like', '%' . $this->search . '%');
             })->get()->toArray();
-
+        if (count($listings) == 0) {
+            return;
+        }
 
         foreach ($listings as $key => $value) {
             $listings_id[$key] = $value['id_listings'];
@@ -63,18 +65,18 @@ class Calendar extends Component
         }
 
         $reservations = Reservation::join('users', 'reservations.user_id', 'users.id_user')
-                                    ->join('listings', 'reservations.listing_id', 'listings.id_listings')        
-                                    ->whereIn('listing_id', $listings_id)->get(['listing_id', 'name', 'total_payout', 'checkin', 'checkout', 'id_reservation', 'reservations.status'])->toArray();
-        $date_config = DateConfig::whereIn('listing_id', $listings_id)->get(['is_active', 'listing_id', 'price', 'date'])->toArray();
-        
+            ->join('listings', 'reservations.listing_id', 'listings.id_listings')
+            ->whereIn('listing_id', $listings_id)->get(['listing_id', 'name', 'total_payout', 'checkin', 'checkout', 'id_reservation', 'reservations.status'])->toArray();
+        $date_config = DateConfig::whereIn('listing_id', $listings_id)->join('listings', 'date_config.listing_id', 'listings.id_listings')->orderBy('date')->get(['is_active', 'listing_id', 'price', 'date', 'id_listings'])->toArray();
         foreach ($date_config as $key => $data) {
-            $this->date_config[$data['date']] = [
+            $this->date_config[$data['id_listings']][$data['date']] = [
                 'price' => $data['price'],
                 'listing_id' => $data['listing_id'],
-                'is_active' => $data['is_active']
+                'is_active' => $data['is_active'],
+                'listing' => $data['id_listings']
             ];
         }
-        
+
         foreach ($reservations as $key => $data) {
             $this->reservation[] = [
                 'resourceId' => $data['listing_id'],
@@ -113,6 +115,7 @@ class Calendar extends Component
 
         $day = (new Carbon($reservation['checkin']))->diff(now())->d + 1;
         $this->findReservation = [
+            'id_reservation' => $reservation['id_reservation'],
             'arriving' => 'Arriving in ' . $day . ' days',
             'checkin' => Carbon::parse($reservation['checkin'])->isoFormat('ddd, MMM YY'),
             'checkout' => Carbon::parse($reservation['checkout'])->isoFormat('ddd, MMM YY'),
@@ -161,7 +164,7 @@ class Calendar extends Component
                     'listing_id' => $this->listing_id,
                     'is_active' => $this->available,
                     'date' => $this->date_init,
-                    'price' => 0,
+                    'price' => $this->price,
                 ]
             );
             return;
@@ -207,11 +210,13 @@ class Calendar extends Component
     {
         $date = [];
         if ($this->date_end != '') {
-            $date_config = DateConfig::whereBetween('date', [$this->date_init, $this->date_end])
-                ->where('listing_id', $this->listing_id)->get();
+            $date_config = DateConfig::join('listings', 'date_config.listing_id', 'id_listings')->whereBetween('date', [$this->date_init, $this->date_end])
+                ->join('listing_pricings', 'listings.id_listings', 'listing_pricings.listing_id')
+                ->where('date_config.listing_id', $this->listing_id)->get();
         } else {
-            $date_config = DateConfig::where('date', $this->date_init)
-                ->where('listing_id', $this->listing_id)->get();
+            $date_config = DateConfig::join('listings', 'date_config.listing_id', 'id_listings')->where('date', $this->date_init)
+                ->join('listing_pricings', 'listings.id_listings', 'listing_pricings.listing_id')
+                ->where('date_config.listing_id', $this->listing_id)->get();
         }
 
         if (!$date_config) {
@@ -220,23 +225,21 @@ class Calendar extends Component
 
         foreach ($date_config as $key => $data) {
             $date[] = $data->date;
-            if ($this->available && $this->price != 0) {
-                $data->update(
-                    [
-                        'is_active' => $this->available,
-                        'price' => $this->price,
-                    ]
-                );
-            } else if($this->available && $this->price == 0) {
-                $data->delete();
-            }
-             else {
-                $data->update(
-                    [
-                        'is_active' => $this->available,
-                        'price' => 0,
-                    ]
-                );
+            if ($data->is_active == 1 && $this->available && $this->price != 0) {
+                DateConfig::where('id_date_config', $data->id_date_config)->update([
+                    'is_active' => $this->available,
+                    'price' => $this->price,
+                ]);
+            } else if ($data->is_active == 0 && $this->available && $this->price == 0) {
+                DateConfig::where('id_date_config', $data->id_date_config)->update([
+                    'is_active' => $this->available,
+                    'price' => $data->base_price,
+                ]);
+            } else {
+                DateConfig::where('id_date_config', $data->id_date_config)->update([
+                    'is_active' => $this->available,
+                    'price' => 0,
+                ]);
             }
         }
         return $date;

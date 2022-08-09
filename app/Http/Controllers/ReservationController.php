@@ -54,4 +54,8 @@ class ReservationController extends Controller
     {
         return view('reservation.ChangeReservations');
     }
+
+    public function viewReservationClient($id) {
+        return view('reservation.ShowReservation', compact('id'));
+    }
 }

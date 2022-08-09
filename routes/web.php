@@ -126,6 +126,7 @@ Route::middleware(['AccountDisable'])->group( function(){
                 Route::get('Update/{id}', [ReservationController::class, 'viewReservationFormUpdate'])->name('ReservUpdate');
                 Route::get('SendResort/{id}', [ReservationController::class, 'viewReservationFormSendResort'])->name('ReservSendResort');
                 Route::get('Preview/{id}', [ReservationController::class, 'viewReservationFormPreview'])->name('ReservPreview');
+                Route::get('show/{id}', [ReservationController::class, 'viewReservationClient'])->name('ShowReservation');
                 
                 ## Create reservation for cliente send form chat
                     Route::get('send_form/{reservation}', [ReservationController::class, 'viewReservationCreateSendForm'])->name('ReservCreate');
