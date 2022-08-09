@@ -40,7 +40,8 @@ class Calendar extends Component
             'internal_title',
             'base_price',
             'listing_currency',
-            'photos'
+            'photos',
+            'listings.created_at as created_at'
         )
             ->leftJoin('listing_pricings', 'listings.id_listings', 'listing_pricings.listing_id')
             ->where([
@@ -54,13 +55,16 @@ class Calendar extends Component
             $listings_id[$key] = $value['id_listings'];
             $this->listings[$key]['id'] = $value['id_listings'];
             $this->listings[$key]['title'] = $value['title'];
+            $this->listings[$key]['created_at'] = $value['created_at'];
             $this->listings[$key]['internal_title'] = $value['internal_title'];
             $this->listings[$key]['base_price'] = $value['base_price'];
             $this->listings[$key]['listing_currency'] = $value['listing_currency'];
             $this->listings[$key]['imgUri'] = `<img src="{{ URL::asset('assets/img/anality.jpg')}}" alt="">`;
         }
 
-        $reservations = Reservation::join('users', 'reservations.user_id', 'users.id_user')->whereIn('listing_id', $listings_id)->get()->toArray();
+        $reservations = Reservation::join('users', 'reservations.user_id', 'users.id_user')
+                                    ->join('listings', 'reservations.listing_id', 'listings.id_listings')        
+                                    ->whereIn('listing_id', $listings_id)->get(['listing_id', 'name', 'total_payout', 'checkin', 'checkout', 'id_reservation', 'reservations.status'])->toArray();
         $date_config = DateConfig::whereIn('listing_id', $listings_id)->get(['is_active', 'listing_id', 'price', 'date'])->toArray();
         
         foreach ($date_config as $key => $data) {
@@ -72,20 +76,15 @@ class Calendar extends Component
         }
         
         foreach ($reservations as $key => $data) {
-            if ($data['status'] == 0) {
-                $this->color = 'green';
-            } else {
-                $this->color = 'red';
-            }
-
             $this->reservation[] = [
                 'resourceId' => $data['listing_id'],
                 'title' => $data['name'],
+                'total_payout' => $data['total_payout'],
                 'start' => $data['checkin'],
                 'end' => $data['checkout'],
-                'description' => 'hola',
+                'description' => 'description',
                 'reservId' => $data['id_reservation'],
-                'backgroundColor' => $this->color,
+                'status' => $data['status']
             ];
 
             if (date('y-m-d', time()) > Carbon::parse($data['checkin'])->format('y-m-d')) {
@@ -172,7 +171,7 @@ class Calendar extends Component
         $fechaInicio = strtotime($this->date_init);
         $fechaFin = strtotime($this->date_end);
 
-        for ($i = $fechaInicio; $i < $fechaFin; $i += 86400) {
+        for ($i = $fechaInicio; $i <= $fechaFin; $i += 86400) {
             $arr_date[] = date("Y-m-d", $i);
         }
         $differenceArrayDate = array_diff($arr_date, $dates);

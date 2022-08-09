@@ -2,7 +2,7 @@
     <div id="calendar" wire:ignore>
     </div>
     {{-- ****************************************************************************************** --}}
-    <div class="right_bk_show fx fx-fd-c">
+    {{-- <div class="right_bk_show fx fx-fd-c">
         <div style="padding-top: 28px; display: inline-flex; line-height: 0; margin-bottom: 9.5px;">
             <button type="button" class="_fright-tb click_icon_calendar_tb">
                 <svg xmlns="http://www.w3.org/2000/svg" width="11.736" height="20.522" viewBox="0 0 11.736 20.522">
@@ -116,7 +116,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
     {{-- ********************************************************************************** --}}
 
     <div class="fx fx-fd-c wh-p100 ht-p100 showInfoSlectDays ">
@@ -196,25 +196,25 @@
         var calendarEl = document.getElementById('calendar');
 
         var calendar = new FullCalendar.Calendar(calendarEl, {
-            timeZone: 'UTC',
+                timeZone: 'UTC',
 
-            refetchResourcesOnNavigate: true,
-            resourceAreaHeaderContent: {
-                html: ` 
+                refetchResourcesOnNavigate: true,
+                resourceAreaHeaderContent: {
+                    html: `
                 <label for="ipt__search_list" class="search_content mrnone">
                                         <div class="input-wrapper icon_absolute">
                                             <input type="text" name="" id="ipt__search_list" placeholder="Search listings...">
                                         </div>
                                     </label> `
-            },
-            selectOverlap: function(event) {
-                return event.rendering === 'background';
-            },
-            resourceLabelContent: function(arg) {
-                return {
-                    html:
+                },
+                selectOverlap: function(event) {
+                    return event.rendering === 'background';
+                },
+                resourceLabelContent: function(arg) {
+                    return {
+                        html:
 
-                        `
+                            `
                                             
                     <div class="checkbox-item checkbox-item_img">
                                                             <label class="check_click">                    <div class="bg_check_click click-list-calendar">
@@ -232,39 +232,111 @@
                                                             </label>
                                                         </div>`
 
-                    // `<div style=""><img src="{{ URL::asset('assets/img/anality.jpg') }}" alt=""></div>`
-                };
-            },
+                        // `<div style=""><img src="{{ URL::asset('assets/img/anality.jpg') }}" alt=""></div>`
+                    };
+                },
 
-            initialView: 'resourceTimelineMonth',
-            eventMaxStack: 3,
-            eventOrder: 'title',
-            eventOrderStrict: true,
-            events: @this.reservation,
-            resources: @this.listings,
+                initialView: 'resourceTimelineMonth',
+                eventMaxStack: 3,
+                eventOrder: 'created_at',
+                eventOrderStrict: true,
+                events: @this.reservation,
+                resourceOrder: 'created_at',
+                resources: @this.listings,
 
-            validRange: function(nowDate) {
+                validRange: function(nowDate) {
+                    return {
+                        start: nowDate
+                    };
+                },
+                eventResourceEditable: true,
+                slotEventOverlap: false,
+                selectable: true,
+                editable: true,
+                select: function(info) {
+                    @this.listing_id = info.resource._resource.id
+                    var start = new Date(info.startStr);
+                    var end = new Date(info.endStr);
+                    // alert('selected ' + info.startStr + ' to ' + info.endStr + ' on resource ' + info
+                    //     .resource.id);
+                    if (start.getDate() + 1 == (end.getDate())) {
+                        @this.date_init = info.startStr
+                        @this.date_end = ''
+                    } else {
+                        end.setDate(end.getDate() - 1)
+                        @this.date_init = info.startStr
+                        @this.date_end = end.toISOString().split('T')[0]
+                        // @this.date_end = end.getFullYear()+'-'+ (end.getMonth()<10 ? ('0'+end.getMonth()): end.getMonth()) +'-' + (end.getDate()<10 ?('0'+end.getDate()): end.getDate())
+                    }
+                },
+                eventContent: function(arg) {
+                    let italicEl = document.createElement('div')
+                    console.log(arg.event._def.extendedProps.total_payout)
+                    if (arg.event.extendedProps.status && arg.event.extendedProps.status == 0) {
+                        italicEl.innerHTML = `
+                            <div class="fx fx-ai-c fx-jc-sb">
+                                <span class="_txtboldff14">` + arg.event._def.title + `$` + arg.event._def
+                            .extendedProps.total_payout + `</span>
+                                <span class="_txtboldff14">Trip requested</span>
+                            </div>`
+                    } else if (arg.event.extendedProps.status == 1) {
+                        italicEl.innerHTML = `
+                        <button type="button" class="bkredtpreq">
+                            <div class="fx fx-ai-c fx-jc-sb">
+                                <span class="_txtboldff14">` + arg.event._def.title + `$` + arg.event._def
+                            .extendedProps.total_payout + `</span>
+                                <span class="_txtboldff14">Trip requested</span>
+                            </div>
+                        </button>`
+                    } else if (arg.event.extendedProps.status == 2) {
+                        italicEl.innerHTML = `
+                        <button type="button" class="bkredtpreq">
+                            <div class="fx fx-ai-c fx-jc-sb">
+                                <span class="_txtboldff14">` + arg.event._def.title + `$` + arg.event._def
+                            .extendedProps.total_payout + `</span>
+                                <span class="_txtboldff14">Trip requested</span>
+                            </div>
+                        </button>`
+                    } else if (arg.event.extendedProps.status == 3) {
+                        italicEl.innerHTML = `
+                        <button type="button" class="bkredtpreq">
+                            <div class="fx fx-ai-c fx-jc-sb">
+                                <span class="_txtboldff14">` + arg.event._def.title + `$` + arg.event._def
+                            .extendedProps.total_payout + `</span>
+                                <span class="_txtboldff14">Trip requested</span>
+                            </div>
+                        </button>`
+                    } else if (arg.event.extendedProps.status == 4) {
+                        italicEl.innerHTML = `
+                        <button type="button" class="bkredtpreq">
+                            <div class="fx fx-ai-c fx-jc-sb">
+                                <span class="_txtboldff14">` + arg.event._def.title + `$` + arg.event._def
+                            .extendedProps.total_payout + `</span>
+                                <span class="_txtboldff14">Trip requested</span>
+                            </div>
+                        </button>`
+                    } else if (arg.event.extendedProps.status == 5) {
+                        italicEl.innerHTML = `
+                        <button type="button" class="bkredtpreq">
+                            <div class="fx fx-ai-c fx-jc-sb">
+                                <span class="_txtboldff14">` + arg.event._def.title + `$` + arg.event._def
+                            .extendedProps.total_payout + `</span>
+                                <span class="_txtboldff14">Trip requested</span>
+                            </div>
+                        </button>`
+                    } else if (arg.event.extendedProps.status == 6) {
+                        italicEl.innerHTML = `
+                        <button type="button" class="bkredtpreq">
+                            <div class="fx fx-ai-c fx-jc-sb">
+                                <span class="_txtboldff14">` + arg.event._def.title + `$` + arg.event._def
+                            .extendedProps.total_payout + `</span>
+                                <span class="_txtboldff14">Trip requested</span>
+                            </div>
+                        </button>`
+                    }
+                let arrayOfDomNodes = [italicEl]
                 return {
-                    start: nowDate
-                };
-            },
-            eventResourceEditable: false,
-            slotEventOverlap: false,
-            selectable: true,
-            select: function(info) {
-                @this.listing_id = info.resource._resource.id
-                var start = new Date(info.startStr);
-                var end = new Date(info.endStr);
-                // alert('selected ' + info.startStr + ' to ' + info.endStr + ' on resource ' + info
-                //     .resource.id);
-                if (start.getDate() + 1 == (end.getDate())) {
-                    @this.date_init = info.startStr
-                    @this.date_end = ''
-                } else {
-                    end.setDate(end.getDate() - 1)
-                    @this.date_init = info.startStr
-                    @this.date_end = end.toISOString().split('T')[0]
-                    // @this.date_end = end.getFullYear()+'-'+ (end.getMonth()<10 ? ('0'+end.getMonth()): end.getMonth()) +'-' + (end.getDate()<10 ?('0'+end.getDate()): end.getDate())
+                    domNodes: arrayOfDomNodes
                 }
             },
 
@@ -273,28 +345,27 @@
             },
         });
 
-        await calendar.render();
-        eventPrice();
+    await calendar.render(); eventPrice();
 
-        document.getElementById("ipt__search_list").addEventListener("keyup", async function(event) {
-            if (event.keyCode === 13) {
-                var con = document.getElementById("ipt__search_list");
-                await @this.searchListing(con.value);
-                await calendar.setOption('resources', @this.listings);
-                await calendar.setOption('events', @this.reservation);
-                await eventPrice();
-            }
-        });
+    document.getElementById("ipt__search_list").addEventListener("keyup", async function(event) {
+        if (event.keyCode === 13) {
+            var con = document.getElementById("ipt__search_list");
+            await @this.searchListing(con.value);
+            await calendar.setOption('resources', @this.listings);
+            await calendar.setOption('events', @this.reservation);
+            await eventPrice();
+        }
+    });
 
-        document.getElementById("updateDate").addEventListener("click", function() {
-            setTimeout(() => {
-                eventPrice();
-            }, 1000);
-        });
+    document.getElementById("updateDate").addEventListener("click", function() {
+        setTimeout(() => {
+            eventPrice();
+        }, 1000);
+    });
 
-        document.getElementById("checkbox").addEventListener("click", function() {
-            @this.price = 0;
-        });
+    document.getElementById("checkbox").addEventListener("click", function() {
+        @this.price = 0;
+    });
 
     });
 
@@ -312,9 +383,9 @@
 
                         div.innerHTML += `<div class="_badsdoller">
                                  <div class="fx fx-fd-c fx-ai-c gp3">
-                                     <div class="_txtbold7d14">` + 
-                            @this.date_config[div.getAttribute('data-date')].price 
-                            + `$</div>
+                                     <div class="_txtbold7d14">` +
+                            @this.date_config[div.getAttribute('data-date')].price +
+                            `$</div>
                                     <svg id="Grupo_33711" data-name="Grupo 33711" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="21.463" height="21.038" viewBox="0 0 21.463 21.038">
                                         <defs>
                                             <clipPath id="clip-path">
@@ -337,7 +408,7 @@
                 } else {
                     div.innerHTML += `<i aria-hidden="true">` + element
                         .base_price + element.listing_currency +
-                        `</i><div class="click_info_calendar_tb" style="margin-bottom:140px"></div>`;
+                        `</i><div class="click_info_calendar_tb" style="margin-bottom:170px"></div>`;
                 }
             })
         });
