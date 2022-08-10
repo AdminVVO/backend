@@ -10,6 +10,7 @@
 
                 <div class="_flex_users hr">
                     <span class="_pf-msg">
+                        <img src="{{ URL::asset('assets/img/avatar') }}/{{ $data['avatar'] }}" loading="lazy" alt="">
                     </span>
                     <div class="_b">
                         <div class="h5_red">Arriving in {{$data['arriving']}} Days</div>
@@ -17,7 +18,7 @@
 
                         <div style="margin-top: 16px;">
                             <p class="_txtec">{{$data['number_guests']}} guests - {{$data['number_guests']}} nights - ${{$data['total_payout']}}</p>
-                            <p class="_txtec">C-SL tbdrm - 1 Bdrm Villa, King Bed, Shuttles, Pools & more SL6</p>
+                            <p class="_txtec">{{$data['city']}} - {{$data['state']}}</p>
                         </div>
                     </div>
                 </div>
@@ -175,28 +176,28 @@
 
                     <div class="_cns _cns-mdls">
                         <span class="f-cth">
-                            <div class="_txtec">$59 x 5 nights</div>
-                            <div class="_txtec">$295.00</div>
+                            <div class="_txtec">${{$data['base_price']}} x 5 nights</div>
+                            <div class="_txtec">${{$data['total_payout']}}</div>
                         </span>
 
                         <span class="f-cth">
                             <div class="_txtec">Cleaning fee</div>
-                            <div class="_txtec">$40.00</div>
+                            <div class="_txtec">${{$data['cleaning_fee']}}</div>
                         </span>
 
                         <span class="f-cth">
                             <div class="_txtec">Guest service fee</div>
-                            <div class="_txtec">$47.29</div>
+                            <div class="_txtec">${{$data['extra_guest_fee']}}</div>
                         </span>
 
                         <span class="f-cth">
                             <div class="_txtec">Occupancy taxes</div>
-                            <div class="_txtec">$25.13</div>
+                            <div class="_txtec">$0</div>
                         </span>
 
                         <span class="f-cthusd">
                             <div class="_txteh">Total paid by guest (USD)</div>
-                            <div class="_txteh">$25.13</div>
+                            <div class="_txteh">${{$data['total_paid_you']}}</div>
                         </span>
                     </div>
                 </div>
@@ -212,22 +213,22 @@
                                     style="font-size: 14px; font-weight: normal; margin-top: 3px;">Show
                                     breakdowns</span>
                             </div>
-                            <div class="_txtec">$295.00</div>
+                            <div class="_txtec">${{$data['total_payout']}}</div>
                         </span>
 
                         <span class="f-cth">
                             <div class="_txtec">Cleaning fee</div>
-                            <div class="_txtec">$40.00</div>
+                            <div class="_txtec">${{$data['cleaning_fee']}}</div>
                         </span>
 
                         <span class="f-cth">
                             <div class="_txtec">Host service fee</div>
-                            <div class="_txtec">-$10.05</div>
+                            <div class="_txtec">-${{$data['host_service_fee']}}</div>
                         </span>
 
                         <span class="f-cthusd">
                             <div class="_txteh">Total paid by guest (USD)</div>
-                            <div class="_txteh">$324.95</div>
+                            <div class="_txteh">${{$data['total_payout']}}</div>
                         </span>
                     </div>
                 </div>

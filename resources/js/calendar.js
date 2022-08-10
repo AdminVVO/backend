@@ -38,7 +38,7 @@ $(document).ready(function () {
     });
 
     // calendar individual - click en private note add >
-    $(".click_add_private_note_cl").on("click", function () {
+    $(document).on("click", ".click_add_private_note_cl", function() {
         animateMdls();
         $(".container_popup_ntpve").css({ 'display': 'block' });
     });

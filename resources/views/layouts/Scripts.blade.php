@@ -15,7 +15,6 @@
 <script src="{{ URL::asset('assets/js/vvo-mask.js') }}"></script> <!-- funcion escribir automatico cualquier signo -->
 <script src="{{ URL::asset('assets/js/vvo-carousel.js') }}"></script> <!-- archivo para slider, carouseles -->
 <script src="{{ URL::asset('assets/js/vvo-skeleton.js') }}"></script> <!-- ANTONY - Loading skeleton -->
-
 <!-- libreria js de un calendario Easepick -->
 <script src="https://cdn.jsdelivr.net/npm/@easepick/bundle@1.2.0/dist/index.umd.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@easepick/datetime@1.2.0/dist/index.umd.min.js"></script>

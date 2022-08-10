@@ -12,6 +12,8 @@ use Auth;
 
 class Calendar extends Component
 {
+    public $show_modal = 0;
+    public $show_modal_info = 0;
     public $listings = [];
     public $reservation = [];
     public $display = '';
@@ -136,6 +138,7 @@ class Calendar extends Component
         $dates = $this->UpdateDateConfig();
         $this->CreateDateConfig($dates);
         $this->preLoad();
+        $this->reset('price');
     }
 
     public function CreateDateConfig($dates)
@@ -157,7 +160,23 @@ class Calendar extends Component
             return;
         }
 
-        if ($this->available == true && $this->date_end == '') {
+        if ($this->available == true && $this->date_end == '' && $this->price > 0) {
+            DateConfig::create(
+                [
+                    'id_date_config' => Str::uuid(),
+                    'listing_id' => $this->listing_id,
+                    'is_active' => $this->available,
+                    'date' => $this->date_init,
+                    'price' => $this->price,
+                ]
+            );
+            return;
+        }
+
+        if ($this->available == true && $this->date_end == '' && ($this->price == 0 || $this->price == '')) {
+            return ;
+        }
+        if ($this->available == true && $this->date_end == '' && $this->price > 0) {
             DateConfig::create(
                 [
                     'id_date_config' => Str::uuid(),
@@ -225,12 +244,12 @@ class Calendar extends Component
 
         foreach ($date_config as $key => $data) {
             $date[] = $data->date;
-            if ($data->is_active == 1 && $this->available && $this->price != 0) {
+            if ($this->available && $this->price > 0) {
                 DateConfig::where('id_date_config', $data->id_date_config)->update([
                     'is_active' => $this->available,
                     'price' => $this->price,
                 ]);
-            } else if ($data->is_active == 0 && $this->available && $this->price == 0) {
+            } else if ($this->available && ($this->price == 0 || $this->price=='')) {
                 DateConfig::where('id_date_config', $data->id_date_config)->update([
                     'is_active' => $this->available,
                     'price' => $data->base_price,

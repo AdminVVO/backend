@@ -55,7 +55,7 @@ h2,
 h3,
 h4,
 h5 {
-  font-family: "Lato", sans-serif;
+  font-family: "Lato", sans-serif !important;
 }
 
 p,
@@ -73,7 +73,7 @@ th,
 td,
 select,
 option {
-  font-family: "Lato", sans-serif;
+  font-family: "Lato", sans-serif !important;
 }
 
 img {
@@ -2844,6 +2844,19 @@ body ._par0t0modls .close {
   }
 }
 
+.fxfdmh100 {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+.zprwh100 {
+  z-index: 1;
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
 .star_rating_vvo li {
   cursor: pointer;
   color: #FFFFFF;
@@ -3031,6 +3044,12 @@ body ._par0t0modls .close {
   width: 33.33%;
   padding-left: 8px;
   padding-right: 8px;
+}
+.prwmlmrplpr ._txtec16 {
+  -webkit-line-clamp: 1;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 @media (max-width: 1128px) {
   .prwmlmrplpr {
@@ -3409,7 +3428,6 @@ body ._par0t0modls .close {
   height: 131px !important;
 }
 .filepond--root .filepond--drop-label {
-  min-height: 100% !important;
   border: 2px dashed #D1D1D1 !important;
   cursor: pointer !important;
 }
@@ -3802,60 +3820,66 @@ body .transition {
 
 .lsnpm {
   list-style: none;
-  margin: -8px;
+  margin: -12px;
   padding: 0;
+  overflow: hidden;
 }
-@media screen and (min-width: 1400px) {
+@media (max-width: 1400px) {
   .lsnpm {
-    margin: -16px;
+    margin: -8px;
+  }
+}
+@media (max-width: 743px) {
+  .lsnpm {
+    margin: -8px -21px;
   }
 }
 
 .dibpwva {
   display: inline-block;
-  padding: 8px;
-  width: 100%;
+  padding: 12px;
+  width: 20%;
   vertical-align: top;
   position: relative;
 }
 .dibpwva::before {
   content: "";
   position: absolute;
-  width: 1px;
-  height: 60%;
+  width: 2px;
+  height: 58%;
   top: 50%;
   left: 15px;
   transform: translate(-1rem, -50%);
   background-color: #E3EDF3;
 }
-@media screen and (min-width: 400px) {
+@media (max-width: 1400px) {
   .dibpwva {
-    width: 50%;
+    width: 20%;
+    padding: 8px;
+  }
+  .dibpwva::before {
+    width: 1px;
+    height: 60%;
   }
 }
-@media screen and (min-width: 743px) {
-  .dibpwva {
-    width: 33.33%;
-  }
-}
-@media screen and (min-width: 900px) {
+@media (max-width: 1128px) {
   .dibpwva {
     width: 25%;
   }
 }
-@media screen and (min-width: 1128px) {
+@media (max-width: 900px) {
   .dibpwva {
-    width: 20%;
+    width: 33.33%;
   }
 }
-@media screen and (min-width: 1400px) {
+@media (max-width: 743px) {
   .dibpwva {
-    width: 19.6%;
-    padding: 16px;
+    width: 50%;
   }
-  .dibpwva::before {
-    width: 2px;
-    height: 58%;
+}
+@media (max-width: 420px) {
+  .dibpwva {
+    width: 100%;
   }
 }
 
@@ -87584,29 +87608,58 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .before_icon_input {
+  cursor: text;
   width: 100%;
-  border: 1px solid #E3EDF3;
+  box-shadow: 0 0 0 2px #E3EDF3 inset;
   border-radius: 10px;
   display: flex;
   align-content: center;
   gap: 5px;
-  transition: 0.3s ease;
-}
-.before_icon_input:hover {
-  box-shadow: 0 0 15px rgba(40, 54, 70, 0.1);
 }
 .before_icon_input span {
-  padding: 16px;
-  padding-right: 0;
+  padding-left: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .before_icon_input input {
-  padding: 16px;
-  padding-left: 0;
+  padding: 16px 16px 16px 0;
   color: #7D7D7D;
   font-size: 18px;
   font-weight: normal;
   width: 100%;
   transition: all 0.3s ease;
+}
+.before_icon_input.ipt_discount_porcentaje input {
+  padding: 16px 0 16px 16px;
+}
+.before_icon_input.ipt_discount_porcentaje span {
+  padding-left: 0;
+  padding-right: 16px;
+}
+.before_icon_input:focus {
+  box-shadow: 0 0 0 2px #7D7D7D inset;
+}
+@media (max-width: 1400px) {
+  .before_icon_input {
+    box-shadow: 0 0 0 1px #E3EDF3 inset;
+    border-radius: 8px;
+    gap: 3px;
+  }
+  .before_icon_input span {
+    padding-left: 12px;
+  }
+  .before_icon_input input {
+    padding: 12px 12px 12px 0;
+    font-size: 16px;
+    line-height: 20px;
+  }
+  .before_icon_input.ipt_discount_porcentaje input {
+    padding: 12px 0 12px 12px;
+  }
+  .before_icon_input.ipt_discount_porcentaje span {
+    padding-right: 12px;
+  }
 }
 
 .before_bottom_red {
@@ -91435,7 +91488,6 @@ select option:hover {
   line-height: 24px;
   border-radius: 10px;
   width: 100%;
-  transition: all 0.3s ease;
 }
 ._inputreal::placeholder {
   color: #E3EDF3;
@@ -91612,6 +91664,10 @@ input::placeholder {
   color: #E3EDF3;
 }
 
+.fc-datagrid-cell-cushion {
+  width: 100%;
+}
+
 .search_content {
   margin: 0 0 28px;
   padding: 14.6px 19px;
@@ -91621,12 +91677,6 @@ input::placeholder {
   border-radius: 10px;
   color: #FF5A5F;
   cursor: text;
-}
-.search_content.ipt_search-focus {
-  box-shadow: #7D7D7D 0 0 0 2px inset;
-}
-.search_content.ipt_search-focus .input-wrapper i {
-  font-weight: bold;
 }
 .search_content.mrnone {
   display: flex;
@@ -91653,7 +91703,33 @@ input::placeholder {
   border: 0;
 }
 .search_content .input-wrapper input::placeholder {
-  color: rgba(125, 125, 125, 0.4);
+  color: #C5C5C5;
+}
+.search_content .input-wrapper.icon_absolute {
+  position: relative;
+}
+.search_content .input-wrapper.icon_absolute::before {
+  content: "\f002";
+  position: absolute;
+  font-family: "Font Awesome 6 Pro";
+  font-size: 22px;
+  font-weight: 500;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+}
+.search_content .input-wrapper.icon_absolute input {
+  margin-left: 36px;
+}
+.search_content.ipt_search-focus {
+  box-shadow: #7D7D7D 0 0 0 2px inset;
+}
+.search_content.ipt_search-focus .input-wrapper i {
+  font-weight: bold;
+}
+.search_content.ipt_search-focus .input-wrapper.icon_absolute::before {
+  font-weight: 900;
 }
 @media (max-width: 1400px) {
   .search_content {
@@ -91669,6 +91745,12 @@ input::placeholder {
     margin-left: 8px;
     font-size: 14px;
     line-height: 20px;
+  }
+  .search_content .input-wrapper.icon_absolute::before {
+    font-size: 16px;
+  }
+  .search_content .input-wrapper.icon_absolute input {
+    margin-left: 24px;
   }
 }
 
@@ -93880,6 +93962,12 @@ input::placeholder {
   background-color: #0196b6;
 }
 
+@media (max-width: 1127px) {
+  .section_calendar_indv_admin .content_icon-leng,
+.section_calendar_admin .content_icon-leng {
+    display: none;
+  }
+}
 .content_icon-leng {
   position: fixed;
   cursor: pointer;

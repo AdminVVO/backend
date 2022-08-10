@@ -12,10 +12,14 @@
     <link href="{{ URL::asset('assets/css/header-admin.css') }}" rel="stylesheet" />
 @endsection
 
+@section('header')
+    @include('layouts.HeaderAuth')
+@endsection
 
 @section('content')
     @livewire('calendar.calendar')
 @endsection
 
 @section('script')
+    <script src="{{ URL::asset('assets/js/calendar.js') }}"></script>
 @endsection
