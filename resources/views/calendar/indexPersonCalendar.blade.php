@@ -19,7 +19,7 @@
     </div>
 @endsection
 @section('content')
-    @livewire('calendar.calendar')
+    @livewire('calendar.person-calendar')
 @endsection
 
 @section('script')

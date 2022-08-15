@@ -84867,6 +84867,21 @@ select, textarea {
   background: rgba(40, 54, 70, 0.95);
 }
 
+.header-admin-nrl {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+}
+.header-admin-nrl .header_admin {
+  position: relative !important;
+  margin-bottom: 32px !important;
+}
+@media (max-width: 1127px) {
+  .header-admin-nrl .header_admin {
+    margin-bottom: 24px !important;
+  }
+}
+
 .h_reservation_form .header_admin {
   margin-bottom: 50px;
 }

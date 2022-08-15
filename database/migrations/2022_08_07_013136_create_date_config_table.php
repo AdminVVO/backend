@@ -16,6 +16,7 @@ class CreateDateConfigTable extends Migration
         Schema::create('date_config', function (Blueprint $table) {
             $table->uuid('id_date_config')->primary();
             $table->date('date')->nullable();
+            $table->string('note');
             $table->decimal('price', 8, 2)->nullable();
             $table->boolean('is_active');
             $table->uuid('listing_id');

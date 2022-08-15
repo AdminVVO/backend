@@ -5,19 +5,20 @@ namespace App\Http\Livewire\Calendar;
 use App\Models\DateConfig;
 use App\Models\Listing\Listings;
 use App\Models\Reservation;
-use Livewire\Component;
-use Carbon\Carbon;
 use Illuminate\Support\Str;
+use Livewire\Component;
 use Auth;
+use Carbon\Carbon;
 
-class Calendar extends Component
+
+class PersonCalendar extends Component
 {
+    public $listings = [];
+    public $reservation = [];
     public $note = '';
     public $date_config_note = '';
     public $show_modal = 0;
     public $show_modal_info = 0;
-    public $listings = [];
-    public $reservation = [];
     public $display = '';
     public $days = '';
     public $color = '';
@@ -32,12 +33,6 @@ class Calendar extends Component
 
     public function preLoad()
     {
-        $this->queryList();
-    }
-
-    public function queryList()
-    {
-        $this->reset(['listings', 'reservation', 'date_config']);
         $listings = Listings::select(
             'id_listings',
             'title',
@@ -50,9 +45,7 @@ class Calendar extends Component
             ->leftJoin('listing_pricings', 'listings.id_listings', 'listing_pricings.listing_id')
             ->where([
                 'listings.user_id' => Auth::id()
-            ])->when(isset($this->search), function ($listings) {
-                return $listings->where('title', 'like', '%' . $this->search . '%');
-            })->get()->toArray();
+            ])->get()->toArray();
         if (count($listings) == 0) {
             return;
         }
@@ -71,15 +64,7 @@ class Calendar extends Component
         $reservations = Reservation::join('users', 'reservations.user_id', 'users.id_user')
             ->join('listings', 'reservations.listing_id', 'listings.id_listings')
             ->whereIn('listing_id', $listings_id)->get(['listing_id', 'name', 'total_payout', 'checkin', 'checkout', 'id_reservation', 'reservations.status', 'note'])->toArray();
-        $date_config = DateConfig::whereIn('listing_id', $listings_id)->join('listings', 'date_config.listing_id', 'listings.id_listings')->orderBy('date')->get(['is_active', 'listing_id', 'price', 'date', 'id_listings'])->toArray();
-        foreach ($date_config as $key => $data) {
-            $this->date_config[$data['id_listings']][$data['date']] = [
-                'price' => $data['price'],
-                'listing_id' => $data['listing_id'],
-                'is_active' => $data['is_active'],
-                'listing' => $data['id_listings']
-            ];
-        }
+
 
         foreach ($reservations as $key => $data) {
             $this->reservation[] = [
@@ -90,25 +75,17 @@ class Calendar extends Component
                 'end' => $data['checkout'],
                 'description' => 'description',
                 'reservId' => $data['id_reservation'],
-                'status' => $data['status']
+                'status' => $data['status'],
+                // 'display' => 'background',
+                // 'color' => '#ff9f89',
             ];
-
-            if (date('y-m-d', time()) > Carbon::parse($data['checkin'])->format('y-m-d')) {
-                $this->reservation[$key] = array_merge($this->reservation[$key], ['editable' => false]);
-            }
         };
     }
-
+    
     public function render()
     {
         $this->preLoad();
-        return view('livewire.calendar.calendar');
-    }
-
-    public function searchListing($data)
-    {
-        $this->search = $data;
-        $this->preLoad();
+        return view('livewire.calendar.person-calendar');
     }
 
     public function showReservation($reservation_id)
@@ -116,11 +93,11 @@ class Calendar extends Component
         $reservation = Reservation::join('users', 'reservations.user_id', 'users.id_user')
             ->join('listings', 'reservations.listing_id', 'listings.id_listings')
             ->where('id_reservation', $reservation_id)->first()->toArray();
-            $day = (new Carbon(now()))->diff($reservation['checkin'])->format("%r%a");
-            $day_dif = $day>0 ? 'Arriving in ' . $day . ' days -' : '';
+            $day = (new Carbon($reservation['checkin']))->diff(now())->d + 1;
+
         $this->findReservation = [
             'id_reservation' => $reservation['id_reservation'],
-            'arriving' => $day_dif,
+            'arriving' => 'Arriving in ' . $day . ' days',
             'checkin' => Carbon::parse($reservation['checkin'])->isoFormat('ddd, MMM D'),
             'checkout' => Carbon::parse($reservation['checkout'])->isoFormat('ddd, MMM D'),
             'nights' => Carbon::parse($reservation['checkout'])->diffInDays($reservation['checkin']),
@@ -130,7 +107,7 @@ class Calendar extends Component
             'guest' => $reservation['number_guests'],
             'total_comming' => $reservation['number_guests'],
             'avatar' => $reservation['avatar'],
-            'note' => $reservation['note'],
+            'note' => $reservation['note']
         ];
     }
 

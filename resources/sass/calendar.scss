@@ -1,12 +1,12 @@
 @import "_variables";
 
 // modificando calendario
-.header_admin {
-    .medio {
-      max-width: 1760px;
-      width: 90%;
-    }
-}
+// .header_admin {
+//     .medio {
+//       max-width: 1760px;
+//       width: 90%;
+//     }
+// }
 
 ._mv-places {
     transition: none;
@@ -37,9 +37,7 @@
 }
 
 ._wpwi48 {
-    @include responsive(1800px) {
-        padding: 0 35px;
-    }
+    padding: 0 35px;
 
     @include responsive(743px) {
         padding: 0 24px;
@@ -106,16 +104,6 @@ body {
             }
         }
 
-        ._txta-modls {
-            padding: 12px;
-            font-size: 16px;
-            line-height: 20px;
-            border: 1px solid $color-background;
-
-            &:focus {
-                border: 1px solid #7D7D7D;
-            }
-        }
 
         // footer cancel save content modal
         ._zgc1p6 {
@@ -170,44 +158,44 @@ body {
             }
         }
         
-        .header,
-        .header_admin {
-            .menu_items {
-                margin-right: 43px;
+        // .header,
+        // .header_admin {
+        //     .menu_items {
+        //         margin-right: 43px;
         
-                img {
-                    width: 18px;
-                    margin-right: 6px;
-                }
-            }
+        //         img {
+        //             width: 18px;
+        //             margin-right: 6px;
+        //         }
+        //     }
         
-            .logo-menu {
-                width: 150px;
-            }
+        //     .logo-menu {
+        //         width: 150px;
+        //     }
         
-            .menu a, .menu span {
-                font-size: 14px;
-            }
+        //     .menu a, .menu span {
+        //         font-size: 14px;
+        //     }
         
-            .menu_perfil {
-                margin-right: 17px;
+        //     .menu_perfil {
+        //         margin-right: 17px;
         
-                span {
-                    gap: 2px;
+        //         span {
+        //             gap: 2px;
         
-                    img {
-                        width: 40px;
-                        height: 40px;
-                        border: transparent;
-                        box-shadow: 0 0 0 1.5px $color-secundary;
-                    }
-                }
-            }
+        //             img {
+        //                 width: 40px;
+        //                 height: 40px;
+        //                 border: transparent;
+        //                 box-shadow: 0 0 0 1.5px $color-secundary;
+        //             }
+        //         }
+        //     }
         
-            .menu i.fa-bars {
-                font-size: 16px;
-            }
-        }
+        //     .menu i.fa-bars {
+        //         font-size: 16px;
+        //     }
+        // }
 
         ._flex-js {
             ._flex {
@@ -264,14 +252,14 @@ body {
             }
         }
 
-        .content_icon-leng {
-            top: 101px;
-            padding: 7px 8px;
+        // .content_icon-leng {
+        //     top: 101px;
+        //     padding: 7px 8px;
             
-            img {
-                width: 28px;
-            }
-        }
+        //     img {
+        //         width: 28px;
+        //     }
+        // }
 
         // padding
         .pd-130-0-50 {
@@ -350,23 +338,6 @@ body {
             }
         }
 
-        .search_content {
-            padding: 12.6px 17px;
-            border: 1px solid $color-background;
-            border-radius: 8px;
-
-            .input-wrapper {
-                i {
-                    font-size: 23px;
-                }
-
-                input {
-                    margin-left: 14px;
-                    font-size: 16px;
-                }
-            }
-        }
-
         ._cont-l-img {
             ._ad-list_img {
                 width: 70px;
@@ -414,24 +385,6 @@ body {
             font-size: 12px;
             border-left: 2px solid $color-primary;
             padding-left: 12px;
-        }
-
-        .before_icon_input {
-            border-radius: 8px;
-
-            span {
-                display: flex;
-                align-items: center;
-                padding: 0;
-                padding-right: 0;
-                padding-left: 12px;
-            }
-
-            input {
-                padding: 12px;
-                padding-left: 0;
-                font-size: 16px;
-            }
         }
 
         .hr {
@@ -586,6 +539,16 @@ body {
         }
 
         .block-pd-cl {
+            ._txtblu16 {
+                font-size: 14px;
+                line-height: 18px;
+
+                &:hover {
+                    color: #0096B7;
+                    text-decoration: underline;
+                }
+            }
+
             &:not(:last-child) {
                 border-bottom: 1px solid $color-background !important;
             }
@@ -665,13 +628,33 @@ body {
         }
     }
 
+    @include responsive(1127px) {
+        .section_calendar_admin {
+            .contCalendarVvoFlex {
+                margin: 0 24px;
+            }
+
+            .fc .fc-view-harness {
+                height: calc(100vh - 198px) !important;
+            }
+        }
+
+        .content_icon-leng {
+            display: none;
+        }
+
+        .container-medio {
+            width: 100%;
+        }
+    }
+
     @media screen and (max-width: 1125px) {
         .section_calendar_indv_admin {
-            ._19r7tqhd {
-                &::before {
-                    border: none;
-                }
-            }
+            // ._19r7tqhd {
+            //     &::before {
+            //         border: none;
+            //     }
+            // }
 
             .medio-cl-indv {
                 .calend-right-indv {
@@ -738,68 +721,68 @@ body {
         }
 
         // submenu header
-        .header_admin {
-            padding: 0;
-            display: block;
-            border: none;
+        // .header_admin {
+        //     padding: 0;
+        //     display: block;
+        //     border: none;
 
-            ._mv-places {
-                padding: 14px 0;
-                border-top: 1px solid $color-background;
-            }
+        //     ._mv-places {
+        //         padding: 14px 0;
+        //         border-top: 1px solid $color-background;
+        //     }
 
-            .logo-menu {
-                display: none;
-            }
+        //     .logo-menu {
+        //         display: none;
+        //     }
 
-            ._puntos3 {
-                ._menu-m {
-                    top: -7rem;
-                }
+        //     ._puntos3 {
+        //         ._menu-m {
+        //             top: -7rem;
+        //         }
                 
-                &.is-active {
-                    ._menu-m {
-                        top: -7rem;
-                    }
-                }
-            }
+        //         &.is-active {
+        //             ._menu-m {
+        //                 top: -7rem;
+        //             }
+        //         }
+        //     }
 
-            // active nav icon calendar
-            .book-form {
-                ._flex-js {
-                    a {
-                        &:nth-child(3) {
-                            ._flex {
-                                .icon_red {
-                                    color: $color-secundary;
-                                }
+        //     // active nav icon calendar
+        //     .book-form {
+        //         ._flex-js {
+        //             a {
+        //                 &:nth-child(3) {
+        //                     ._flex {
+        //                         .icon_red {
+        //                             color: $color-secundary;
+        //                         }
 
-                                span {
-                                    color: $color-black;
-                                }
-                            }
-                        }
-                    }
+        //                         span {
+        //                             color: $color-black;
+        //                         }
+        //                     }
+        //                 }
+        //             }
 
-                    ._flex {
-                        .icon_red {
-                            color: #b0b0b0;
-                        }
+        //             ._flex {
+        //                 .icon_red {
+        //                     color: #b0b0b0;
+        //                 }
 
-                        span {
-                            font-size: 10px;
-                            line-height: 12px;
-                            color: $color-text;
-                        }
-                    }
-                }
-            }
-        }
+        //                 span {
+        //                     font-size: 10px;
+        //                     line-height: 12px;
+        //                     color: $color-text;
+        //                 }
+        //             }
+        //         }
+        //     }
+        // }
 
         // icon leng
-        .content_icon-leng {
-            display: none;
-        }
+        // .content_icon-leng {
+        //     display: none;
+        // }
 
         footer {
             display: none;
@@ -887,7 +870,7 @@ body {
         }
     }
 
-    @media screen and (max-width: 743px) {
+    @include responsive(743px) {
         // Calendar individual - Create new custom setting
         .container_ci_nw_cs {
             .pd_anhost-modal {
@@ -1116,6 +1099,8 @@ body {
 }
 
 .section_calendar_admin {
+    // margin-top: 110px;
+
     .calendar_scroll {
         &::-webkit-scrollbar {
             background-color: #fafafa;
@@ -1322,5 +1307,408 @@ body {
             }
         }
     }
-}
 
+    // full calendar
+    .fc .fc-toolbar.fc-header-toolbar {
+        margin-bottom: 13px;
+    }
+    
+    .fc-scrollgrid-liquid tbody tr td:nth-child(3) .fc-scroller-harness {
+        margin-right: 92px;
+    }
+    
+    .fc .fc-toolbar-title {
+        font-size: 23px;
+        color: #2A2A2A;
+    }
+    
+    .fc .fc-button-primary:disabled {
+        opacity: .5;
+        cursor: not-allowed;
+    }
+        
+    .fc-button-group {
+        gap: 8px;
+    }
+        
+    .fc .fc-button {
+        font-size: 16px;
+        line-height: 20px;
+        padding: 12px;
+        border-radius: 8px !important;
+        border: none;
+        box-shadow: 0 0 0 1px #E3EDF3 inset !important;
+    }
+        
+    .fc .fc-button-primary {
+        background-color: white !important;
+        box-shadow: 0 0 0 2px #7D7D7D inset;
+        color: #7D7D7D !important;
+    }
+        
+    .fc .fc-cell-shaded, .fc .fc-day-disabled {
+        background-color: rgba(227, 237, 243, 0.3);
+    }
+        
+    .fc .fc-button-primary:hover {
+        background-color: rgba(227, 237, 243, 0.3) !important;
+    }
+        
+    .fc .fc-button-primary:active {
+        transform: scale(0.96);
+        background-color: rgba(227, 237, 243, 0.3);
+    }
+        
+    .fc .fc-button:focus {
+        box-shadow: 0 0 0 2px #7D7D7D inset !important;
+    }
+        
+    .fc .fc-button .fc-icon {
+        font-size: 20px !important;
+        color: #00B5DD;
+    }
+        
+    /* border del contenido */
+    .fc-theme-standard .fc-scrollgrid {
+        border: none;
+    }
+        
+    .fc-theme-standard td, .fc-theme-standard th {
+        border: 1px solid #E3EDF3;
+    }
+
+    .fc .fc-scrollgrid-section > * {
+        border-top-width: 0;
+        border-left-width: 0;
+    }
+
+    .fc .fc-scrollgrid, .fc .fc-scrollgrid-section-footer>*, .fc .fc-scrollgrid-section-header>* {
+        border-bottom-width: 0;
+    }
+        
+    /* thead dias */
+    .fc-direction-ltr .fc-timeline-slot {
+        width: 80px !important;
+    }
+        
+    thead .fc-scroller {
+        padding-bottom: 9px;
+    }
+        
+    .fc th {
+        background-color: white;
+    }
+        
+    .fc .fc-timeline-slot-cushion {
+        padding: 6.5px;
+        font-size: 12px;
+        color: #7D7D7D;
+        font-weight: bold;
+    }
+        
+    .fc-scrollgrid-sync-table {
+        border: 1px !important;
+    }
+        
+    /* sear listings left */
+    tbody .fc-scrollgrid-section td:nth-child(1) {
+        border: 0;
+    }
+        
+    tbody .fc-scrollgrid-section td:nth-child(3) {
+        border: 1px solid #E3EDF3;
+    }
+        
+    td.fc-timeline-lane.fc-resource {
+        /* border: 1px solid #E3EDF3 !important; */
+        border-top-width: 0 !important;
+        border-right-width: 0 !important;
+        border-left-width: 0 !important;
+        box-shadow: 0 1px 0 0 #E3EDF3;
+    }
+        
+    .fc .fc-datagrid-cell-cushion {
+        padding: 0;
+        height: 100%;
+    }
+        
+    table.fc-datagrid-body.fc-scrollgrid-sync-table tbody tr td, th.fc-datagrid-cell {
+        border: 0;
+    }
+        
+    table.fc-datagrid-body.fc-scrollgrid-sync-table tbody tr td .fc-datagrid-cell-frame {
+        height: 148px !important;
+    }
+        
+    .fc .fc-datagrid-header .fc-datagrid-cell-frame {
+        margin-right: 30px;
+    }
+        
+    .fc-datagrid-cell-frame :not(:first-child) {
+        min-height: auto !important;
+    }
+        
+    .fc-datagrid-cell-main .checkbox-item_img {
+        padding-right: 30px;
+        height: 100%;
+    }
+        
+    .fc-datagrid-cell-main .checkbox-item_img .check_click {
+        height: 100%;
+        overflow: hidden;
+    }
+
+    .bg_check_click {
+        ._f-t {
+            min-height: auto !important;
+        }
+
+        &:hover {
+            background-color: rgba(227, 237, 243, 0.3);
+        }
+    }
+
+    .fc-direction-ltr .fc-timeline-event:not(.fc-event-start):before, .fc-direction-rtl .fc-timeline-event:not(.fc-event-end):after {
+        display: none;
+    }
+    
+    /* dollar con icono */
+    .fc-timeline-slot ._badsdoller {
+        /* position: absolute; */
+        width: 100%;
+        // background-color: white;
+        height: 148px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 0 0 0 1px #E3EDF3;
+    }
+        
+    /* reservaciones */
+    .fc-h-event {
+        border: 0;
+        background-color: white;
+    }
+        
+    .fc-timeline-event {
+        padding: 0;
+        border-radius: 5px;
+    }
+        
+    .fc-timeline-event .fc-event-time, .fc-timeline-event .fc-event-title {
+        padding: 0 4px;
+    }
+        
+    .fc-h-event .fc-event-title {
+        font-size: 12px;
+        color: white;
+        font-weight: bold;
+    }
+        
+    .fc-h-event .fc-event-main {
+        height: 100%;
+    }
+        
+    .fc-event-main > div {
+        width: 100%;
+        height: 100%;
+    }
+        
+    .fc-license-message {
+        display: none;
+    }
+        
+    .reservationTripCalendar {
+        width: 100%;
+        height: 100%;
+        padding: 4px 13px;
+        border-radius: 5px;
+    }
+        
+    .reservationTripCalendar svg {
+        margin-right: 3px;
+        min-width: 13px;
+        width: 13px;
+    }
+        
+    .reservationTripCalendar > div {
+        gap: 5px;
+    }
+        
+    .reservationTripCalendar ._txtboldff14 {
+        white-space: nowrap;
+    }
+        
+    .reservationTripCalendar.red {
+        background-color: #FF5A5F !important;
+    }
+        
+    .reservationTripCalendar.green {
+        background-color: #2DDAB4 !important;
+    }
+        
+    .reservationTripCalendar.plomo {
+        background-color: #7D7D7D !important;
+    }
+        
+    /* height dolar div */
+    .hidlsfx {
+        width: 100%;
+        height: 148px;
+        /* heighy: 170px;  alex*/
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 0 0 0 1px #E3EDF3;
+    }
+        
+    .hidlsfx span {
+        font-size: 12px;
+        font-weight: bold;
+        color: #7D7D7D;
+    }
+        
+        
+    /* calendar general */
+    table.fc-datagrid-header.fc-scrollgrid-sync-table {
+        width: 355px;
+    }
+        
+    /* .section_calendar_admin {
+        margin-top: 110px;
+    } */
+        
+    .contCalendarVvoFlex {
+        overflow: hidden;
+        position: relative;
+        display: flex;
+    }
+        
+    .contCalendarVvoFlex #calendar {
+        flex: 100%;
+    }
+        
+    #calendar {
+        max-width: none !important;
+        margin: 0 !important;
+    }
+        
+    .rgtContMrCal {
+        /* padding-top: 8rem; */
+        
+        position: absolute;
+        top: 8rem;
+        right: 0;
+        z-index: 2;
+        bottom: 0;
+        box-shadow: -30px 0 40px 0 rgb(0 0 0 / 29%);
+        background-color: white;
+    }
+
+    .right_bk_show {
+        flex: 93px;
+        width: 93px;
+        min-width: 93px;
+        transition: all .3s ease;
+
+        ._fright-tb {
+            transition: transform .3s ease;
+        }
+
+        .show-inf-details-calendar {
+            display: flex;
+            height: 100%;
+            flex-direction: column;
+            overflow: auto;
+            opacity: 0;
+            visibility: hidden;
+            transition: all .3s ease;
+        }
+
+        .borderCont {
+            box-shadow: 0 0 0 1px #E3EDF3 inset;
+        }
+
+        .block-pd-cl {
+            .gp21 {
+                gap: 15px;
+            }
+
+            &.rs {
+                padding: 0 30px 20px !important;
+            }
+
+            &.checks {
+                padding: 21px 30px 19px !important;
+            }
+
+            &.sw-pf {
+                padding: 21px 30px 29px !important;
+            }
+
+            &:not(:last-child) {
+                border-bottom: 1px solid #E3EDF3 !important;
+            }
+        }
+
+        ._kr7m4r {
+            margin-top: auto;
+            border-top: 1px solid #E3EDF3;
+            padding: 16px 30px;
+        }
+
+        .contCheckDetails {
+            .iconFlecha {
+                transition: all .3s ease;
+            }
+        }
+
+        /* animacion info */
+        &.active-info {
+            flex: 372px;
+            width: 372px;
+            min-width: 372px;
+
+            .iconFlecha {
+                transform: rotate(180deg);
+            }
+
+            .show-inf-details-calendar {
+                opacity: 1;
+                visibility: visible;
+            }
+        }
+
+        ._bkgris {
+            padding: 12px 29px;
+            border-radius: 8px;
+            background-color: rgba(227, 237, 243, 0.3);
+        }
+    }
+
+    /* / vacio td */
+    .contNotLine {
+        position: relative;
+        width: 100%;
+        height: 148px;
+        box-shadow: 0 0 0 1px #e3edf3;
+
+        .transf {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .not-linetb {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            right: 50%;
+            bottom: 0;
+            transform: rotate(27deg);
+            width: 1px;
+            background-color: #E3EDF3;
+        }
+    }
+}

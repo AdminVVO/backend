@@ -14,7 +14,7 @@ class All extends Component
     {
         $this->reservation = Reservation::join('users', 'reservations.user_id', 'users.id_user')
             ->join('listings', 'reservations.listing_id', 'listings.id_listings')
-            ->get(['reservations.status', 'name', 'title', 'reservation_amount', 'booked', 'total_payout', 'checkin', 'checkout', 'number_guests'])
+            ->get(['reservations.status', 'name', 'title', 'reservation_amount', 'booked', 'total_payout', 'checkin', 'checkout', 'number_guests', 'note'])
             ->toArray();
 
         foreach ($this->reservation as $key => $data) {

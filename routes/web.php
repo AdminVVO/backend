@@ -155,13 +155,14 @@ Route::middleware(['AccountDisable'])->group( function(){
         Route::prefix('message')->group( function(){
             ## Messages Index
                 Route::get('', [MessageChats::class, 'viewMessageUser'])->name('messageUserIndex');
-                Route::post('', [MessageChats::class, 'viewMessageUserPost'])->name('messageUserIndex');
+                Route::post('', [MessageChats::class, 'viewMessageUserPost'])->name('messageUserPostIndex');
         });
 
         ## Routes Calendar
         Route::prefix('calendar')->group( function(){
             ## Calendar Index
                 Route::get('', [CalendarController::class, 'viewCalendar'])->name('calendarIndex');
+                Route::get('person', [CalendarController::class, 'viewPersonCalendar'])->name('calendarPersonIndex');
         });
 
 

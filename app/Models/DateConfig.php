@@ -17,5 +17,6 @@ class DateConfig extends Model
         'price',
         'is_active',
         'listing_id',
+        'note'
     ];
 }

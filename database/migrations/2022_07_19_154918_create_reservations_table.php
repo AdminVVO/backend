@@ -33,6 +33,7 @@ class CreateReservationsTable extends Migration
             $table->decimal('total_payout', 8, 2)->nullable();
             $table->date('checkin');
             $table->date('checkout');
+            $table->string('note');
             $table->string('booked')->nullable();
             $table->timestamps();
         });

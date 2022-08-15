@@ -17,7 +17,7 @@
                         <h2 class="h2-guests _txtcapit">{{$data['full_name']}}</h2>
 
                         <div style="margin-top: 16px;">
-                            <p class="_txtec">{{$data['number_guests']}} guests - {{$data['number_guests']}} nights - ${{$data['total_payout']}}</p>
+                            <p class="_txtec">{{$data['number_guests']}} guests - {{$data['total_days']}} nights - ${{$data['total_payout']}}</p>
                             <p class="_txtec">{{$data['city']}} - {{$data['state']}}</p>
                         </div>
                     </div>
@@ -84,7 +84,7 @@
                                 <div class="_w">
                                     <i class="far fa-building"></i>
                                 </div>
-                                <div class="_txtec">Lives in York, SC</div>
+                                <div class="_txtec">Lives in {{$data['location']}}</div>
                             </div>
                         </div>
 
@@ -92,7 +92,7 @@
                             <div class="_fbtn-br">
                                 <a href="{{route('profile', ['id' => $data['id_user']])}}" class="btn-border">View profile</a>
                                 <a href="" class="btn-border">Message</a>
-                                <a href="" class="btn-border">Call</a>
+                                <a href="tel:{{$data['phone']}}" class="btn-border">Call</a>
                             </div>
 
                             <p class="_txtec" style="margin-top: 19px;">Phone: {{$data['phone']}}</p>
@@ -167,7 +167,7 @@
                             </div>
                         </div>
 
-                        <button class="btn-border">View Calendar</button>
+                        <a href="{{ route('calendarIndex') }}" class="btn-border">View Calendar</a>
                     </div>
                 </div>
 
@@ -197,7 +197,7 @@
 
                         <span class="f-cthusd">
                             <div class="_txteh">Total paid by guest (USD)</div>
-                            <div class="_txteh">${{$data['total_paid_you']}}</div>
+                            <div class="_txteh">${{$data['occupancy_taxes']}}</div>
                         </span>
                     </div>
                 </div>
@@ -222,13 +222,13 @@
                         </span>
 
                         <span class="f-cth">
-                            <div class="_txtec">Host service fee</div>
+                            <div class="_txtec">Host service fee (3.0%)</div>
                             <div class="_txtec">-${{$data['host_service_fee']}}</div>
                         </span>
 
                         <span class="f-cthusd">
-                            <div class="_txteh">Total paid by guest (USD)</div>
-                            <div class="_txteh">${{$data['total_payout']}}</div>
+                            <div class="_txteh">Total paid to you (USD)</div>
+                            <div class="_txteh">${{$data['total_paid_you']}}</div>
                         </span>
                     </div>
                 </div>
@@ -263,9 +263,9 @@
                         </div>
                     </div>
 
-                    <textarea placeholder="Write a note" class="_txta-modls" style="margin: 17px 0 16px;"></textarea>
+                    <textarea placeholder="Write a note" class="_txta-modls" style="margin: 17px 0 16px;" wire:model.lazy ="note"></textarea>
 
-                    <button class="btn-celest">Save</button>
+                    <button class="btn-celest" wire:click="saveNote">Save</button>
                 </div>
 
                 <div class="_block-support hr">
@@ -421,4 +421,23 @@
             </div>
         </a>
     </section>
+    <script language="Javascript">
+	    function imprSelec(nombre) {
+            var ficha = document.getElementById(nombre);
+            var ventimp = window.open('', 'PRINT', 'height=800,width=1200');
+            ventimp.document.write('<html><head><title>' + document.title + '</title>');
+            ventimp.document.write('<link rel="stylesheet" href="{{ URL::asset('assets/css/modals-admin.css')}}">');
+            ventimp.document.write('<link rel="stylesheet" href="{{ URL::asset('assets/css/estilos.css')}}">');
+            ventimp.document.write('</head><body>');
+            ventimp.document.write(ficha.innerHTML);
+            ventimp.document.write('</body></html>');
+            ventimp.document.close();
+            ventimp.focus();
+            ventimp.onload = function() {
+                ventimp.print();
+                ventimp.close();
+            };
+            return true;
+	    }
+	</script>
 </div>

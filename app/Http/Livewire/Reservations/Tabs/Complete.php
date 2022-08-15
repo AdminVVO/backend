@@ -15,7 +15,7 @@ class Complete extends Component
         $this->reservation = Reservation::join('users', 'reservations.user_id', 'users.id_user')
             ->join('listings', 'reservations.listing_id', 'listings.id_listings')
             ->whereIn('reservations.status', [4, 5])
-            ->get(['reservations.status', 'name', 'title', 'reservation_amount', 'reservations.created_at', 'booked', 'total_payout', 'checkin', 'checkout', 'number_guests'])
+            ->get(['reservations.status', 'name', 'title', 'reservation_amount', 'reservations.created_at', 'booked', 'total_payout', 'checkin', 'checkout', 'number_guests', 'note'])
             ->toArray();
 
         foreach ($this->reservation as $key => $data) {

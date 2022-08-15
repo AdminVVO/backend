@@ -18,6 +18,7 @@ class Reservation extends Model
         'checkin',
         'checkout',
         'booked',
+        'note'
     ];
 
     protected $dates = [

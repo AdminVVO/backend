@@ -11,4 +11,10 @@ class CalendarController extends Controller
     {
         return view('calendar.indexCalendar');
     }
+    
+    public function viewPersonCalendar()
+    {
+        return view('calendar.indexPersonCalendar');
+    }
+
 }
