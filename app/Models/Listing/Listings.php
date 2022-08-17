@@ -60,7 +60,7 @@ class Listings extends Model
 
     public function scopeListingFile($query, $code)
     {
-        $xplodeListingFile = explode('-', $this->where(['user_id' => Auth::id(), 'id_listings' => $code ])->pluck('id_listings')->first());
+        $xplodeListingFile = explode('-', $this->where(['id_listings' => $code ])->pluck('id_listings')->first());
         return $xplodeListingFile[4];
     }
 
