@@ -17,12 +17,12 @@ class ReviewsSeeder extends Seeder
      */
     public function run()
     {
-        $user = User::get();
+        $user = User::get()->toArray();
         $listing = Listings::first();
         $reviews = [
             [
                 'review_id' => Str::uuid(),
-                'user_id' => $user[0]->id_user,
+                'user_id' => $user[0]['id_user'],
                 'listing_id' => $listing->id_listings,
                 'comment' => 'If you are just looking to sleep somewhere & have a good location with lots of things to do in Orlando this is the place.',
                 'rating_cleanliness' => 4.5,
@@ -34,7 +34,7 @@ class ReviewsSeeder extends Seeder
             ],
             [
                 'review_id' => Str::uuid(),
-                'user_id' => $user[1]->id_user,
+                'user_id' => $user[1]['id_user'],
                 'listing_id' => $listing->id_listings,
                 'comment' => 'Great location and pricing. It was also really clean and nice. Definitely will book again when I come back.',
                 'rating_cleanliness' => 5.0,

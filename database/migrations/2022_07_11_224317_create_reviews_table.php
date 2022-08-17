@@ -27,11 +27,11 @@ class CreateReviewsTable extends Migration
                 ->references('id_listings')
                 ->on('listings')
                 ->onDelete('cascade');
-            $table->uuid('user_id');
-            $table->foreign('user_id')
-                ->references('id_user')
-                ->on('users')
-                ->onDelete('cascade');
+                $table->uuid('user_id');
+                $table->foreign('user_id')
+                    ->references('id_user')
+                    ->on('users')
+                    ->onDelete('cascade');
             $table->timestamps();
         });
     }
