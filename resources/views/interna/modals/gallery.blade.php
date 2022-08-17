@@ -25,7 +25,7 @@
                             @foreach ( $content['photos'] as $element)
                                 <div class="_link-galls grid-item">
                                     <button type="button" class="_galls-list">
-                                        <img src="{{ URL::asset('storage/uploadListing/' . $element) }}" class="gallery__img"></img>
+                                        <img class="gallery__img" src="{{ URL::asset('storage/photos-listing/') .'/'. \App\Models\Listing\Listings::ListingFile( $content['id_listings'] ) .'/'. $element['name'] }}">
                                     </button>
                                 </div>
                             @endforeach

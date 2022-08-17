@@ -373,7 +373,7 @@
                 <div class="imgfxdestxt">
                     <div class="contimg">
                         <div class="dvawhmhbpbr">
-                            <img src="{{ URL::asset('storage/uploadListing/' . $photos[0]) }}" alt="" class="whpov">
+                            <img class="whpov" src="{{ URL::asset('storage/photos-listing/') .'/'. \App\Models\Listing\Listings::ListingFile( $listingId ) .'/'. $photos[0]['name'] }}">
                         </div>
                     </div>
 

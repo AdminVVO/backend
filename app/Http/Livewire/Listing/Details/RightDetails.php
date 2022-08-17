@@ -45,8 +45,10 @@ class RightDetails extends Component
             $this->queryLocationListing();
             $this->queryPropertyListing();
         }
-            if ( $payload === 'basic' )
+            if ( $payload === 'basic' ){
                 $this->queryBasicListing();
+                $this->emitTo('listing.details.left-details', 'reloadDetails');
+            }
 
             if ( $payload === 'location' )
                 $this->queryLocationListing();

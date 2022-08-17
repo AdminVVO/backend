@@ -14,13 +14,15 @@ class LeftDetails extends Component
     public $content = [];
 
     protected $listeners = [
-        'reloadDetails' => 'refresh'
+        'reloadDetails' => 'reloadDetails'
     ];
 
     public function mount($listing)
     {
         $this->listingId = $listing;
     }
+
+    public function reloadDetails(){ }
 
     public function render()
     {

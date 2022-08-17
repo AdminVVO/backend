@@ -15,7 +15,7 @@
 
                             <div class="_block-share">
                                 <div class="flex-img">
-                                    <img src="{{ URL::asset('storage/uploadListing/' . $content['photos'][0]) }}" alt="">
+                                    <img src="{{ URL::asset('storage/photos-listing/') .'/'. \App\Models\Listing\Listings::ListingFile( $content['id_listings'] ) .'/'. $content['photos'][0]['name'] }}">
                                 </div>
 
                                 <div>

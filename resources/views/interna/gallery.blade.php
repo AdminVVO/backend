@@ -5,7 +5,7 @@
                 <button aria-label="Mostrar todas las fotos" class="_block-gallery-mg hovr_gllrybef show_all-photos-interna skeleton">
                     <div class="_link-img">
                         <div class="_bgcont">
-                            <img class="_img-wh _img-modal" alt="" src="{{ URL::asset('storage/uploadListing/' . $content['photos'][0] ) }}">
+                            <img class="_img-wh _img-modal" src="{{ URL::asset('storage/photos-listing/') .'/'. \App\Models\Listing\Listings::ListingFile( $content['id_listings'] ) .'/'. $content['photos'][0]['name'] }}">
                         </div>
                     </div>
                 </button>
@@ -32,7 +32,7 @@
                                 <div class="_block-gallery-mg">
                                     <div class="_link-img">
                                         <div class="_bgcont">
-                                            <img class="_img-wh" src="{{ URL::asset('storage/uploadListing/' . $element) }}" alt="">
+                                            <img class="_img-wh" src="{{ URL::asset('storage/photos-listing/') .'/'. \App\Models\Listing\Listings::ListingFile( $content['id_listings'] ) .'/'. $element['name'] }}">
                                         </div>
                                     </div>
                                 </div>
