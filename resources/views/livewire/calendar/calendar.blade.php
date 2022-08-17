@@ -343,7 +343,7 @@
                     start: nowDate
                 };
             },
-            eventResourceEditable: true,
+            eventResourceEditable: false,
             selectable: true,
             slotWidth: 500,
             select: function(info) {
