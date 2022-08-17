@@ -3432,9 +3432,9 @@ body ._par0t0modls .close {
   border: none !important;
 }
 
-.filepond--root {
+/*.filepond--root {
   height: 131px !important;
-}
+}*/
 .filepond--root .filepond--drop-label {
   border: 2px dashed #D1D1D1 !important;
   cursor: pointer !important;

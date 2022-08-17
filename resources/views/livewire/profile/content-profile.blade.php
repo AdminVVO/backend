@@ -30,9 +30,9 @@
                         </button>
 
                         <div class="card_img">
-                            <img src="{{ URL::asset('storage/uploadListing/' . $element['photos'][0]) }}" alt="" class="card_img_active">
-                            <img src="{{ URL::asset('storage/uploadListing/' . $element['photos'][1]) }}" alt="">
-                            <img src="{{ URL::asset('storage/uploadListing/' . $element['photos'][2]) }}" alt="">
+                            <img src="{{ URL::asset('storage/photos-listing/') .'/'. \App\Models\Listing\Listings::ListingFile( $element['id_listings'] ) .'/'. $element['photos'][0]['name'] }}" class="card_img_active">
+                            <img src="{{ URL::asset('storage/photos-listing/') .'/'. \App\Models\Listing\Listings::ListingFile( $element['id_listings'] ) .'/'. $element['photos'][1]['name'] }}">
+                            <img src="{{ URL::asset('storage/photos-listing/') .'/'. \App\Models\Listing\Listings::ListingFile( $element['id_listings'] ) .'/'. $element['photos'][2]['name'] }}">
                         </div>
 
                         <div class="content-dots">
