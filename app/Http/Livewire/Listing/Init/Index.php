@@ -66,8 +66,8 @@ class Index extends Component
     public function render()
     {
 
-        $items = $this->listing->forPage($this->page, 2);
-        $this->pagListing = new LengthAwarePaginator($items, $this->listing->count(), 2, $this->page);
+        $items = $this->listing->forPage($this->page, 4);
+        $this->pagListing = new LengthAwarePaginator($items, $this->listing->count(), 4, $this->page);
 
         return view('livewire.listing.init.index', [
             'pagListing' => $this->pagListing,

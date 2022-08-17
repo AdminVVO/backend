@@ -66,7 +66,7 @@ class Listings extends Model
 
     public function scopeTitle($query, $code)
     {
-        return $this->where(['user_id' => Auth::id(), 'id_listings' => $code ])->pluck('title')->first();
+        return $this->where(['id_listings' => $code ])->pluck('title')->first();
     }
 
     public function userChat()
