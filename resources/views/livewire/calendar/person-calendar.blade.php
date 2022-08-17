@@ -622,6 +622,7 @@
                         setTimeout(() => {
                             eventPriceReset();
                             calendar.setOption('events', @this.reservation);
+        show_modals();
                             eventPrice();
                         }, 500);
                     })
