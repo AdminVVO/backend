@@ -249,7 +249,7 @@
 
                         <span class="f-cth">
                             <div class="_txtec">General fee</div>
-                            <div class="_txtec">${{$data['cleaning_fee']}}</div>
+                            <div class="_txtec">${{$data['general_fee']}}</div>
                         </span>
 
                         <span class="f-cth">
