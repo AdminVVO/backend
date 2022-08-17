@@ -41,8 +41,8 @@ class LeftDetails extends Component
             'user_id' => Auth::id(),
         ])
         ->where(function ($query) {
-            $query->where('title','ilike', '%' . $this->search . '%')
-                  ->orWhere('internal_title','ilike', '%' . $this->search . '%');
+            $query->where('title','like', '%' . $this->search . '%')
+                  ->orWhere('internal_title','like', '%' . $this->search . '%');
         })
         ->orderBy('updated_at', $this->sortBy );
 

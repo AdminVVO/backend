@@ -35,7 +35,7 @@ class Language extends Component
     {
         $this->language = LanguagesRegions::where(function ($query) {
                     if ( $this->inputSearch != null )
-                        return $query->where('languages', 'ilike', '%' . $this->inputSearch . '%');
+                        return $query->where('languages', 'like', '%' . $this->inputSearch . '%');
                 })->get();
 
         return view('livewire.language.language');

@@ -103,7 +103,7 @@ class Index extends Component
             'ListingLocation:listing_id,city,state',
             'ListingPolicies:listing_id,instant_book'
         ])
-        ->where('title', 'ilike', '%' . $this->inputSearch . '%')
+        ->where('title', 'like', '%' . $this->inputSearch . '%')
         ->where(function ($query) {
             $query->whereHas('ListingPropertyRoomd', function ($query) {
                 if ( $this->inputRooms ){
