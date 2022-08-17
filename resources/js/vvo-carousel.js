@@ -27,7 +27,7 @@ $(document).ready(function() {
     
 
     // tabs nav link
-    let tabContainer = $(this).find(".js__cont_navs");
+    let tabContainer = $(this).find(".js__cont_nav");
     $.each(tabContainer, function(value, index) {
         let slider = $(this).parents().find(".tab-container").eq(value);
         let element = $(this).parents().find(".tab-container").eq(value).find(".li__links-txt");

@@ -897,10 +897,6 @@ body {
     margin: 0;
 }
 
-._txtec14 {
-    line-height: 20px;
-}
-
 ._txtblu, ._txtblu16 {
     margin: 0;
     line-height: inherit;
@@ -1597,7 +1593,7 @@ body {
         /* padding-top: 8rem; */
         
         position: absolute;
-        top: 8rem;
+        top: 8.6rem;
         right: 0;
         z-index: 2;
         bottom: 0;
@@ -1710,5 +1706,104 @@ body {
             width: 1px;
             background-color: #E3EDF3;
         }
+    }
+}
+
+
+/* calendar individual select */
+.sectionCalendarIndSelect {
+    .fc {
+        th {
+            background-color: #FF5A5F;
+        }
+
+        .fc-col-header-cell-cushion {
+            padding: 12px 4px;
+            color: #fff;
+            font-size: 12px;
+            text-transform: uppercase;
+        }
+
+        .fc-daygrid-body-unbalanced .fc-daygrid-day-events {
+            min-height: 6.9em;
+        }
+
+        .fc-scrollgrid-section > * {
+            border-top-width: thin;
+            border-left-width: thin;
+        }
+
+        .fc-daygrid-day-top {
+            flex-direction: initial;
+        }
+    
+        .fc-daygrid-day-number {
+            font-size: 12px;
+            line-height: 16px;
+            color: #7D7D7D;
+        }
+    
+        .fc-day-other ._badsdoller {
+            opacity: .3;
+        }
+    }
+
+    tbody .fc-scrollgrid-section td:nth-child(1) {
+        border: 1px solid #E3EDF3;
+    }
+
+    thead .fc-scroller {
+        padding-bottom: 0;
+    }
+
+    ._badsdoller {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 100%;
+        min-height: inherit;
+        padding: 8px;
+
+        ._bkgrsdoll {
+            margin-top: auto;
+        }
+    }
+
+    .fc-daygrid-event {
+        white-space: normal;
+    }
+
+    .contCalendarVvoFlex {
+        gap: 24px;
+    }
+
+    .rgtContMrCal {
+        position: relative;
+        top: 0;
+        // padding-top: 57px;
+        box-shadow: none;
+        height: 700px;
+        display: flex;
+        flex-direction: column;
+
+        &.right_bk_show {
+            flex: 354px;
+            width: 354px;
+            min-width: 354px;
+        }
+
+        &.active-info {
+            .hideInfoSlectDays {
+                display: none; 
+            }
+        }
+    }
+
+    .sltNrlCont {
+        flex: 48%;
+      }
+      
+    .sltNrlCont .vvo-btn-select {
+        width: 100%;
     }
 }

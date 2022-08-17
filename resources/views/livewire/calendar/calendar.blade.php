@@ -276,7 +276,7 @@
 
                 <div class="_zgc1p6">
                     <button type="button" class="_fpnigw0 click_cancel_mdls">Cancel</button>
-                    <button class="btn-celest" wire:click="DateConfig()" id="CreateOrUpdateNote">Save</button>
+                    <button class="btn-celest" wire:click="NoteConfig()" id="CreateOrUpdateNote">Save</button>
                 </div>
             </div>
         </div>
@@ -482,7 +482,7 @@
                 document.getElementById('note_text').value = @this.date_config_note; 
                 document.getElementById('CreateOrUpdateNote').addEventListener('click', function(){
                     @this.note = document.getElementById('note_text').value;
-                    @this.DateConfig();
+                    @this.NoteConfig();
                     setTimeout(() => {
                         eventPrice();
                     }, 1000);

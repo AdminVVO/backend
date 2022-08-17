@@ -26,7 +26,7 @@ class Calendar extends Component
     public $findReservation = [];
     public $date_init = '';
     public $date_end = '';
-    public $price = null;
+    public $price = 0;
     public $available = 1;
     public $date_config = [];
 
@@ -116,8 +116,8 @@ class Calendar extends Component
         $reservation = Reservation::join('users', 'reservations.user_id', 'users.id_user')
             ->join('listings', 'reservations.listing_id', 'listings.id_listings')
             ->where('id_reservation', $reservation_id)->first()->toArray();
-            $day = (new Carbon(now()))->diff($reservation['checkin'])->format("%r%a");
-            $day_dif = $day>0 ? 'Arriving in ' . $day . ' days -' : '';
+        $day = (new Carbon(now()))->diff($reservation['checkin'])->format("%r%a");
+        $day_dif = $day > 0 ? 'Arriving in ' . $day . ' days -' : '';
         $this->findReservation = [
             'id_reservation' => $reservation['id_reservation'],
             'arriving' => $day_dif,
@@ -141,8 +141,8 @@ class Calendar extends Component
         }
         $dates = $this->UpdateDateConfig();
         $this->CreateDateConfig($dates);
-        $this->preLoad();
         $this->reset('price');
+        $this->render();
     }
 
     public function CreateDateConfig($dates)
@@ -205,7 +205,22 @@ class Calendar extends Component
             return;
         }
 
-        if ($this->available == true && $this->date_end == '' && ($this->price == 0 || $this->price == '')) {
+        if ($this->available == true && $this->date_end == '' && ($this->price == 0 || $this->price == '' || $this->price == null)) {
+            if($this->note != '') {
+                $base_price = Listings::where('id_listings', $this->listing_id)
+                ->leftJoin('listing_pricings', 'listings.id_listings', 'listing_pricings.listing_id')
+                ->first('base_price')->base_price;
+                DateConfig::create(
+                    [
+                        'id_date_config' => Str::uuid(),
+                        'listing_id' => $this->listing_id,
+                        'is_active' => $this->available,
+                        'date' => $this->date_init,
+                        'price' => $base_price,
+                        'note' => $this->note
+                    ]
+                );
+            }
             return;
         }
         if ($this->available == true && $this->date_end == '' && $this->price > 0) {
@@ -319,52 +334,69 @@ class Calendar extends Component
         foreach ($date_config as $key => $data) {
             $date[] = $data->date;
             if ($this->available && $this->price > 0) {
-                if ($this->note == '') {
-                    DateConfig::where('id_date_config', $data->id_date_config)->update([
-                        'is_active' => $this->available,
-                        'price' => $this->price,
-                    ]);
-                } else {
-                    DateConfig::where('id_date_config', $data->id_date_config)->update([
-                        'is_active' => $this->available,
-                        'price' => $this->price,
-                        'note' => $this->note,
-                    ]);
-                }
+                DateConfig::where('id_date_config', $data->id_date_config)->update([
+                    'is_active' => $this->available,
+                    'price' => $this->price,
+                ]);
             } else if ($this->available && ($this->price == 0 || $this->price == '')) {
-                if ($this->note == '') {
-                    DateConfig::where('id_date_config', $data->id_date_config)->update([
-                        'is_active' => $this->available,
-                        'price' => $data->base_price,
-                    ]);
-                } else {
-                    DateConfig::where('id_date_config', $data->id_date_config)->update([
-                        'is_active' => $this->available,
-                        'price' => $data->base_price,
-                        'note' => $this->note,
-                    ]);
-                }
+
+                DateConfig::where('id_date_config', $data->id_date_config)->update([
+                    'is_active' => $this->available,
+                    'price' => $data->base_price,
+                ]);
             } else {
-                if ($this->note == '') {
-                    DateConfig::where('id_date_config', $data->id_date_config)->update([
-                        'is_active' => $this->available,
-                        'price' => 0,
-                    ]);
-                } else {
-                    DateConfig::where('id_date_config', $data->id_date_config)->update([
-                        'is_active' => $this->available,
-                        'price' => 0,
-                        'note' => $this->note
-                    ]);
-                }
+                DateConfig::where('id_date_config', $data->id_date_config)->update([
+                    'is_active' => $this->available,
+                    'price' => 0,
+                ]);
             }
         }
         return $date;
     }
 
-    public function showDate($date, $id) {
+    public function NoteConfig()
+    {
+        if ($this->date_init == '') {
+            return;
+        }
+        $dates = $this->UpdateNoteConfig();
+        $this->CreateDateConfig($dates);
+        $this->reset('price');
+        $this->showDate($this->date_init, $this->listing_id);
+    }
+
+    public function UpdateNoteConfig()
+    {
+
+        $date = [];
+        if ($this->date_end != '') {
+            $date_config = DateConfig::join('listings', 'date_config.listing_id', 'id_listings')->whereBetween('date', [$this->date_init, $this->date_end])
+                ->join('listing_pricings', 'listings.id_listings', 'listing_pricings.listing_id')
+                ->where('date_config.listing_id', $this->listing_id)->get();
+        } else {
+            $date_config = DateConfig::join('listings', 'date_config.listing_id', 'id_listings')->where('date', $this->date_init)
+                ->join('listing_pricings', 'listings.id_listings', 'listing_pricings.listing_id')
+                ->where('date_config.listing_id', $this->listing_id)->get();
+        }
+
+        if (!$date_config) {
+            return false;
+        }
+
+        foreach ($date_config as $key => $data) {
+            $date[] = $data->date;
+            DateConfig::where('id_date_config', $data->id_date_config)->update([
+                'note' => $this->note,
+            ]);
+        }
+
+        return $date;
+    }
+
+    public function showDate($date, $id)
+    {
         $dat = DateConfig::where('date', $date)->where('listing_id', $id)->first();
-        if($dat == null) {
+        if ($dat == null) {
             $this->date_config_note = '';
         } else {
             $this->date_config_note = $dat->note;

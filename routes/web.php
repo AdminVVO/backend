@@ -162,7 +162,7 @@ Route::middleware(['AccountDisable'])->group( function(){
         Route::prefix('calendar')->group( function(){
             ## Calendar Index
                 Route::get('', [CalendarController::class, 'viewCalendar'])->name('calendarIndex');
-                Route::get('person', [CalendarController::class, 'viewPersonCalendar'])->name('calendarPersonIndex');
+                Route::get('individual', [CalendarController::class, 'viewPersonCalendar'])->name('calendarPersonIndex');
         });
 
 

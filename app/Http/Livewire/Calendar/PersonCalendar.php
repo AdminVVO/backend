@@ -13,6 +13,7 @@ use Carbon\Carbon;
 
 class PersonCalendar extends Component
 {
+    public $title = '';
     public $listings = [];
     public $reservation = [];
     public $note = '';
@@ -27,12 +28,13 @@ class PersonCalendar extends Component
     public $findReservation = [];
     public $date_init = '';
     public $date_end = '';
-    public $price = null;
+    public $price = 0;
     public $available = 1;
     public $date_config = [];
 
     public function preLoad()
     {
+        $this->reset(['listings', 'reservation', 'date_config']);
         $listings = Listings::select(
             'id_listings',
             'title',
@@ -45,11 +47,12 @@ class PersonCalendar extends Component
             ->leftJoin('listing_pricings', 'listings.id_listings', 'listing_pricings.listing_id')
             ->where([
                 'listings.user_id' => Auth::id()
-            ])->get()->toArray();
+            ])
+            ->get()->toArray();
+
         if (count($listings) == 0) {
             return;
         }
-
         foreach ($listings as $key => $value) {
             $listings_id[$key] = $value['id_listings'];
             $this->listings[$key]['id'] = $value['id_listings'];
@@ -58,30 +61,65 @@ class PersonCalendar extends Component
             $this->listings[$key]['internal_title'] = $value['internal_title'];
             $this->listings[$key]['base_price'] = $value['base_price'];
             $this->listings[$key]['listing_currency'] = $value['listing_currency'];
-            $this->listings[$key]['imgUri'] = `<img src="{{ URL::asset('assets/img/anality.jpg')}}" alt="">`;
+            $this->listings[$key]['imgUri'] = $value['photos'][0]['name'];
         }
+
+        if($this->title == '') {
+        }
+        // $listings_id = $listings['id_listings'];
+        // $this->listings['id'] = $listings['id_listings'];
+        // $this->listings['title'] = $listings['title'];
+        // $this->listings['created_at'] = $listings['created_at'];
+        // $this->listings['internal_title'] = $listings['internal_title'];
+        // $this->listings['base_price'] = $listings['base_price'];
+        // $this->listings['listing_currency'] = $listings['listing_currency'];
+        // $this->listings['imgUri'] = `<img src="{{ URL::asset('assets/img/anality.jpg')}}" alt="">`;
+        
+
+        if ($this->listing_id == '') {
+            $this->listing_id = $this->listings[0]['id'];
+        }
+
+        foreach($this->listings as $key => $up) {
+            if($this->listing_id == $up['id']) {
+                $this->title = $up['title'];
+            } 
+        }
+
+        $fechaInicio = strtotime($this->date_init);
+        $fechaFin = strtotime($this->date_end);
 
         $reservations = Reservation::join('users', 'reservations.user_id', 'users.id_user')
             ->join('listings', 'reservations.listing_id', 'listings.id_listings')
-            ->whereIn('listing_id', $listings_id)->get(['listing_id', 'name', 'total_payout', 'checkin', 'checkout', 'id_reservation', 'reservations.status', 'note'])->toArray();
+            ->where('listing_id', $this->listing_id)->get(['listing_id', 'name', 'total_payout', 'checkin', 'checkout', 'id_reservation', 'reservations.status', 'note', 'avatar'])->toArray();
 
-
-        foreach ($reservations as $key => $data) {
-            $this->reservation[] = [
-                'resourceId' => $data['listing_id'],
-                'title' => $data['name'],
-                'total_payout' => $data['total_payout'],
-                'start' => $data['checkin'],
-                'end' => $data['checkout'],
-                'description' => 'description',
-                'reservId' => $data['id_reservation'],
-                'status' => $data['status'],
-                // 'display' => 'background',
-                // 'color' => '#ff9f89',
+        $date_config = DateConfig::where('listing_id', $this->listing_id)->join('listings', 'date_config.listing_id', 'listings.id_listings')->orderBy('date')->get(['is_active', 'listing_id', 'price', 'date', 'id_listings'])->toArray();
+        foreach ($date_config as $key => $data) {
+            $this->date_config[$data['date']] = [
+                'price' => $data['price'],
+                'listing_id' => $data['listing_id'],
+                'is_active' => $data['is_active'],
+                'listing' => $data['id_listings']
             ];
+        }
+        foreach ($reservations as $key => $data) {
+            $fechaInicio = strtotime($data['checkin']);
+            $fechaFin = strtotime($data['checkout']);
+            for ($i = $fechaInicio; $i <= $fechaFin; $i += 86400) {
+                $this->reservation[] = [
+                    'resourceId' => $data['listing_id'],
+                    'title' => $data['name'],
+                    'total_payout' => $data['total_payout'],
+                    'start' => date("Y-m-d", $i),
+                    'description' => 'description',
+                    'reservId' => $data['id_reservation'],
+                    'status' => $data['status'],
+                    'avatar' => $data['avatar']
+                ];
+            }
         };
     }
-    
+
     public function render()
     {
         $this->preLoad();
@@ -93,11 +131,11 @@ class PersonCalendar extends Component
         $reservation = Reservation::join('users', 'reservations.user_id', 'users.id_user')
             ->join('listings', 'reservations.listing_id', 'listings.id_listings')
             ->where('id_reservation', $reservation_id)->first()->toArray();
-            $day = (new Carbon($reservation['checkin']))->diff(now())->d + 1;
-
+            $day = (new Carbon(now()))->diff($reservation['checkin'])->format("%r%a");
+            $day_dif = $day >= 0 ? 'Arriving in ' . $day . ' days -' : '';
         $this->findReservation = [
             'id_reservation' => $reservation['id_reservation'],
-            'arriving' => 'Arriving in ' . $day . ' days',
+            'arriving' => $day_dif,
             'checkin' => Carbon::parse($reservation['checkin'])->isoFormat('ddd, MMM D'),
             'checkout' => Carbon::parse($reservation['checkout'])->isoFormat('ddd, MMM D'),
             'nights' => Carbon::parse($reservation['checkout'])->diffInDays($reservation['checkin']),
@@ -119,6 +157,7 @@ class PersonCalendar extends Component
         $dates = $this->UpdateDateConfig();
         $this->CreateDateConfig($dates);
         $this->preLoad();
+        $this->render();
         $this->reset('price');
     }
 
@@ -183,6 +222,21 @@ class PersonCalendar extends Component
         }
 
         if ($this->available == true && $this->date_end == '' && ($this->price == 0 || $this->price == '')) {
+            if($this->note != '') {
+                $base_price = Listings::where('id_listings', $this->listing_id)
+                ->leftJoin('listing_pricings', 'listings.id_listings', 'listing_pricings.listing_id')
+                ->first('base_price')->base_price;
+                DateConfig::create(
+                    [
+                        'id_date_config' => Str::uuid(),
+                        'listing_id' => $this->listing_id,
+                        'is_active' => $this->available,
+                        'date' => $this->date_init,
+                        'price' => $base_price,
+                        'note' => $this->note
+                    ]
+                );
+            }
             return;
         }
         if ($this->available == true && $this->date_end == '' && $this->price > 0) {
@@ -339,9 +393,49 @@ class PersonCalendar extends Component
         return $date;
     }
 
-    public function showDate($date, $id) {
-        $dat = DateConfig::where('date', $date)->where('listing_id', $id)->first();
-        if($dat == null) {
+    public function NoteConfig()
+    {
+        if ($this->date_init == '') {
+            return;
+        }
+        $dates = $this->UpdateNoteConfig();
+        $this->CreateDateConfig($dates);
+        $this->reset('price');
+        $this->showDate($this->date_init, $this->listing_id);
+    }
+
+    public function UpdateNoteConfig()
+    {
+
+        $date = [];
+        if ($this->date_end != '') {
+            $date_config = DateConfig::join('listings', 'date_config.listing_id', 'id_listings')->whereBetween('date', [$this->date_init, $this->date_end])
+                ->join('listing_pricings', 'listings.id_listings', 'listing_pricings.listing_id')
+                ->where('date_config.listing_id', $this->listing_id)->get();
+        } else {
+            $date_config = DateConfig::join('listings', 'date_config.listing_id', 'id_listings')->where('date', $this->date_init)
+                ->join('listing_pricings', 'listings.id_listings', 'listing_pricings.listing_id')
+                ->where('date_config.listing_id', $this->listing_id)->get();
+        }
+
+        if (!$date_config) {
+            return false;
+        }
+
+        foreach ($date_config as $key => $data) {
+            $date[] = $data->date;
+            DateConfig::where('id_date_config', $data->id_date_config)->update([
+                'note' => $this->note,
+            ]);
+        }
+
+        return $date;
+    }
+    
+    public function showDate($date)
+    {
+        $dat = DateConfig::where('date', $date)->where('listing_id', $this->listing_id)->first();
+        if ($dat == null) {
             $this->date_config_note = '';
         } else {
             $this->date_config_note = $dat->note;

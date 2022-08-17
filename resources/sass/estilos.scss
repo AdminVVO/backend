@@ -1841,6 +1841,14 @@ body {
 // ------ end animate ------
 
 // otros
+.mwhbrobc {
+  min-width: 56px;
+  height: 40px;
+  border-radius: 4px;
+  overflow: hidden;
+  background-color: #7D7D7D;
+}
+
 .fxfdmh100 {
   display: flex;
   flex-direction: column;
@@ -3025,7 +3033,7 @@ body {
   min-height: 300px;
   @include flex-centrado;
   text-align: center;
-  width: -webkit-fill-available;
+  width: 100%;
 
   p {
     color: #7D7D7D;
@@ -10388,6 +10396,7 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 ._scrolltable {
+  overflow: auto;
   overflow-x: overlay;
 
   ._width {
@@ -13021,7 +13030,56 @@ select {
       padding: 14px 18px !important;
     }
   }
-}  
+}
+
+.reservaIndividualSelect {
+  width: 100%;
+  border-radius: 5px;
+  padding: 8.6px 11px;
+
+  ._pf-msg {
+      max-width: 29px;
+      min-width: 29px;
+      height: 29px;
+      border: 1px solid #E3EDF3;
+  }
+
+  .fx-ai-fs {
+      text-align: left;
+  }
+
+  svg {
+      min-width: 11px;
+      width: 11px;
+  }
+
+  &.green {
+      background-color: #2DDAB4;
+  }
+  
+  &.plomo {
+      background-color: #7D7D7D;
+  }
+  
+  &.red {
+      background-color: #FF5A5F;
+  }
+}
+
+
+// plugin lenier date range picker
+.container {
+  &.range-plugin {
+    border-radius: 18px;
+    margin-top: 1.4rem;
+  }
+}
+
+// .book-form {
+//   .easepick-wrapper {
+
+//   }
+// }
 
 
 .daterangepicker {
@@ -14333,6 +14391,17 @@ select {
     }
   }
 
+  &.w24 {
+    width: 30px;
+    min-width: 30px;
+    max-width: 30px;
+    height: 30px;
+
+    svg {
+      width: 12px;
+    }
+  }
+
   @include responsive(1400px) {
     width: 30px;
     min-width: 30px;
@@ -14346,6 +14415,17 @@ select {
 
     &::after {
       font-size: 13px;
+    }
+
+    &.w24 {
+      width: 24px;
+      min-width: 24px;
+      max-width: 24px;
+      height: 24px;
+  
+      svg {
+        width: 10px;
+      }
     }
   }
 }
@@ -14927,6 +15007,7 @@ input {
     justify-content: space-between;
 
     i {
+      font-family: "Font Awesome 6 Pro";
       font-size: 25px;
     }
 

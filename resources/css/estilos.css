@@ -2844,6 +2844,14 @@ body ._par0t0modls .close {
   }
 }
 
+.mwhbrobc {
+  min-width: 56px;
+  height: 40px;
+  border-radius: 4px;
+  overflow: hidden;
+  background-color: #7D7D7D;
+}
+
 .fxfdmh100 {
   display: flex;
   flex-direction: column;
@@ -3893,7 +3901,7 @@ body .transition {
   justify-content: center;
   align-items: center;
   text-align: center;
-  width: -webkit-fill-available;
+  width: 100%;
 }
 .now__listabscard p {
   color: #7D7D7D;
@@ -87850,6 +87858,7 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 ._scrolltable {
+  overflow: auto;
   overflow-x: overlay;
 }
 ._scrolltable ._width {
@@ -90074,6 +90083,39 @@ select option:hover {
   }
 }
 
+.reservaIndividualSelect {
+  width: 100%;
+  border-radius: 5px;
+  padding: 8.6px 11px;
+}
+.reservaIndividualSelect ._pf-msg {
+  max-width: 29px;
+  min-width: 29px;
+  height: 29px;
+  border: 1px solid #E3EDF3;
+}
+.reservaIndividualSelect .fx-ai-fs {
+  text-align: left;
+}
+.reservaIndividualSelect svg {
+  min-width: 11px;
+  width: 11px;
+}
+.reservaIndividualSelect.green {
+  background-color: #2DDAB4;
+}
+.reservaIndividualSelect.plomo {
+  background-color: #7D7D7D;
+}
+.reservaIndividualSelect.red {
+  background-color: #FF5A5F;
+}
+
+.container.range-plugin {
+  border-radius: 18px;
+  margin-top: 1.4rem;
+}
+
 .daterangepicker {
   margin-top: 14px !important;
   left: 50% !important;
@@ -91202,6 +91244,15 @@ select option:hover {
 .before_check.bcsvg::after {
   display: none;
 }
+.before_check.w24 {
+  width: 30px;
+  min-width: 30px;
+  max-width: 30px;
+  height: 30px;
+}
+.before_check.w24 svg {
+  width: 12px;
+}
 @media (max-width: 1400px) {
   .before_check {
     width: 30px;
@@ -91215,6 +91266,15 @@ select option:hover {
   }
   .before_check::after {
     font-size: 13px;
+  }
+  .before_check.w24 {
+    width: 24px;
+    min-width: 24px;
+    max-width: 24px;
+    height: 24px;
+  }
+  .before_check.w24 svg {
+    width: 10px;
   }
 }
 
@@ -91707,6 +91767,7 @@ input::placeholder {
   justify-content: space-between;
 }
 .search_content .input-wrapper i {
+  font-family: "Font Awesome 6 Pro";
   font-size: 25px;
 }
 .search_content .input-wrapper input {

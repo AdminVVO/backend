@@ -1,4 +1,4 @@
-<div class="entero section_calendar_admin">
+<div class="entero section_calendar_admin sectionCalendarIndSelect">
     <div class="container-medio">
         <div class="contCalendarVvoFlex">
             <div id="calendar" wire:ignore></div>
@@ -8,16 +8,67 @@
                 @else
                     <div class="rgtContMrCal right_bk_show">
             @endif
-            <div class="fx fx-fd-c ht-p100 borderCont">
-                <div class="ifx pd-t28 mr-l16 mr-b9">
-                    <button type="button" class="_fright-tb js_hideMdlReservationTable iconFlecha">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="11.736" height="20.522"
-                            viewBox="0 0 11.736 20.522">
-                            <path
-                                d="M10.265,3.538l7.76,7.768a1.46,1.46,0,0,0,2.071,0,1.479,1.479,0,0,0,0-2.078L11.3.427A1.464,1.464,0,0,0,9.281.385L.428,9.222A1.467,1.467,0,0,0,2.5,11.3Z"
-                                transform="translate(0 20.522) rotate(-90)" fill="#333" />
-                        </svg>
+            {{-- *********************************FILTRADO LISTING****************************** --}}
+            <div class="fx fx-fw-w gp8 mr-b18">
+                <div class="sltNrlCont btnSltNrl">
+                    <button type="button" class="vvo-btn-select scale js_submenuNrml">
+                        <div class="fx fx-ai-c fx-jc-sb gp14">
+                            <span>{{$title}}</span>
+
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14.652" height="8.378"
+                                viewBox="0 0 14.652 8.378">
+                                <path
+                                    d="M13.516,17.1l5.54-5.545a1.043,1.043,0,0,1,1.479,0,1.056,1.056,0,0,1,0,1.483l-6.278,6.282a1.045,1.045,0,0,1-1.444.031L6.493,13.042a1.047,1.047,0,0,1,1.479-1.483Z"
+                                    transform="translate(-6.188 -11.246)"></path>
+                            </svg>
+                        </div>
                     </button>
+                    <div class="_bef-places submenuRoomsBed" style="min-width: 300px">
+                        <div class="fxfbwhmhbrzi">
+                            <div class="p24oyxwh">
+                                @foreach ($listings as $key => $data)
+                                    <div class="mr-b26">
+                                        <label class="block-lb fx-ai-c">
+                                            <input type="radio" name="listingSelect" class="selection_value"
+                                                value="{{ $data['id'] }}">
+                                            <span class="before_check w24">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="21.732" height="16.206"
+                                                    viewBox="0 0 21.732 16.206">
+                                                    <path
+                                                        d="M7.381,20.465.318,13.4a1.087,1.087,0,0,1,0-1.537l1.537-1.537a1.087,1.087,0,0,1,1.537,0L8.15,15.086,18.341,4.9a1.087,1.087,0,0,1,1.537,0l1.537,1.537a1.087,1.087,0,0,1,0,1.537l-12.5,12.5A1.087,1.087,0,0,1,7.381,20.465Z"
+                                                        transform="translate(0 -4.577)" fill="#fff"></path>
+                                                </svg>
+                                            </span>
+
+                                            <div class="fx fx-ai-c">
+                                                <div class="mwhbrobc mr-r12">
+                                                <img loading="lazy" width="56px" height="40px"  src="{{ URL::asset('storage/photos-listing/') .'/'. \App\Models\Listing\Listings::ListingFile( $data['id'] ) .'/'. $data['imgUri'] }}">
+
+                                                </div>
+
+                                                <div>
+                                                    <div class="_txteh16 text_tm2">{{ $data['title'] }}</div>
+                                                    <div class="_txtec14 text_tm1">Listed</div>
+                                                </div>
+                                            </div>
+                                        </label>
+                                    </div>
+                                @endforeach
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {{-- *******************************FIN FILTRADO LISTING**************************** --}}
+            <div class="fx fx-fd-c ht-p100 borderCont ow-a">
+                <div class="hideInfoSlectDays">
+                    <div class="pd-t24 pd-r24 pd-b24 pd-l24 hr">
+                        <div class="fx fx-ai-c fx-fw-w fx-jc-sb gp18">
+                            <div class="_txtec16">You're always in control of your listing, price, and availability.
+                                <button type="button" class="txtunder__ics txt16">Read more</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="ow-a ht-p100 fx fx-fd-c">
@@ -28,7 +79,7 @@
                             <div class="ht-p100 ow-a">
                                 <div class="block-pd-cl rs">
                                     <h2 class="h2_publish mr-b1">Reservation</h2>
-                                    <span class="_txtec16">{{ $findReservation['arriving'] ?? '' }} -
+                                    <span class="_txtec16">{{ $findReservation['arriving'] ?? '' }}
                                         {{ $findReservation['guest'] ?? '' }} guests -
                                         {{ $findReservation['nights'] ?? '' }}
                                         nights</span>
@@ -113,7 +164,8 @@
                                             <div class="fx fx-fd-c gp1">
                                                 <div class="_txteh">Total payout</div>
 
-                                                <div class="_txtec">${{ $findReservation['total_payout'] ?? '' }}</div>
+                                                <div class="_txtec">${{ $findReservation['total_payout'] ?? '' }}
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -170,7 +222,7 @@
 
                             <div class="_kr7m4r pd" hidden>
                                 <div class="fx fx-fw-w fx-ai-c fx-jc-sb gp12">
-                                    <button type="button" class="_fpnigw0 js_hideMdlReservationTable">Cancel</button>
+                                    <button type="button" class="_fpnigw0 js_hideMdlReservationTable close">Cancel</button>
                                     <button class="btn-celest" wire:click="DateConfig()" id="updateDate">Save
                                 </div>
                                 </button>
@@ -180,7 +232,7 @@
                         {{-- *********************************FECHA****************************** --}}
                     @else
                         <div class="show-inf-details-calendar">
-                            <div class="ht-p100 ow-a">
+                            <div class="ht-p100 ow-a pd-t28">
                                 <div class="block-pd-cl rs">
                                     @if (!$date_end)
                                         <div class="h2_publish mr-b46">{{ $date_init }}</div>
@@ -227,7 +279,13 @@
                                             <div class="fx fx-ai-b gp5">
                                                 <span>Add</span>
 
-                                                <img src="assets/img/icons/down-right.svg" alt="">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="6.052"
+                                                    height="10.584" viewBox="0 0 6.052 10.584">
+                                                    <path
+                                                        d="M11.482,15.474l4-4.005a.753.753,0,0,1,1.068,0,.763.763,0,0,1,0,1.071l-4.535,4.538a.755.755,0,0,1-1.043.022L6.408,12.543a.757.757,0,0,1,1.068-1.071Z"
+                                                        transform="translate(-11.246 16.772) rotate(-90)"
+                                                        fill="#333" />
+                                                </svg>
                                             </div>
                                         </button>
                                     </div>
@@ -236,6 +294,34 @@
                                         </p>
                                     </div>
                                 </div>
+                                @if ($date_end)
+                                    <div class="block-pd-cl checks">
+                                        <div class="fx fx-fd-c gp24">
+                                            <div class="_txteh">Promotions</div>
+
+                                            <div>
+                                                <div class="_bkgris txt-center">
+                                                    <div class="_txteh">New listing promotion: 20% off</div>
+
+                                                    @if (!$date_end)
+                                                        <p class="_txtec">{{ $date_init }}</p>
+                                                    @elseif($date_end)
+                                                        <p class="_txtec">{{ $date_init }} to {{ $date_end }}
+                                                        </p>
+                                                    @else
+                                                        <p class="_txtec"></p>
+                                                    @endif
+                                                </div>
+
+                                                <div class="desc mr-t24">
+                                                    <p class="_txtec16">You're always in control of your listing, Price
+                                                        and availability. <button type="button"
+                                                            class="txtunder__ics txt16">Read more</button></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                @endif
                             </div>
 
                             <div class="_kr7m4r pd">
@@ -279,7 +365,7 @@
 
                 <div class="_zgc1p6">
                     <button type="button" class="_fpnigw0 click_cancel_mdls">Cancel</button>
-                    <button class="btn-celest" wire:click="DateConfig()" id="CreateOrUpdateNote">Save</button>
+                    <button class="btn-celest" wire:click="NoteConfig()" id="CreateOrUpdateNote">Save</button>
                 </div>
             </div>
         </div>
@@ -289,15 +375,15 @@
     document.addEventListener('DOMContentLoaded', async function() {
         var calendarEl = document.getElementById('calendar');
 
+
         var calendar = new FullCalendar.Calendar(calendarEl, {
             timeZone: 'UTC',
-            resourceAreaWidth: 355,
             aspectRatio: 2,
             refetchResourcesOnNavigate: true,
 
 
             initialView: "dayGridMonth",
-            dayMaxEvents: 3, // allow "more" link when too many events
+            dayMaxEvents: 1, // allow "more" link when too many events
             editable: false,
             navLinks: true,
 
@@ -305,12 +391,8 @@
             eventOrderStrict: false,
             events: @this.reservation,
             resourceOrder: 'created_at',
-            resources: @this.listings,
-
-            validRange: function(nowDate) {
-                return {
-                    start: nowDate
-                };
+            selectOverlap: function(event) {
+                return event.id !== 'past';
             },
             eventResourceEditable: false,
             selectable: true,
@@ -319,7 +401,6 @@
             //**************************************//
 
             select: function(info) {
-                console.log(info)
                 @this.show_modal = 1;
                 @this.show_modal_info = 0;
                 var start = new Date(info.startStr);
@@ -332,80 +413,139 @@
                     end.setDate(end.getDate() - 1)
                     @this.date_init = info.startStr
                     @this.date_end = end.toISOString().split('T')[0]
+                    // @this.date_end = end.getFullYear()+'-'+ (end.getMonth()<10 ? ('0'+end.getMonth()): end.getMonth()) +'-' + (end.getDate()<10 ?('0'+end.getDate()): end.getDate())
                 }
+                @this.showDate(info.startStr)
             },
+
             eventContent: function(arg) {
                 arg.event._def.ui.startEditable = false;
                 let italicEl = document.createElement('div')
                 if (arg.event.extendedProps.status && arg.event.extendedProps.status == 0) {
                     italicEl.innerHTML = `
-                        <button type="button" class="reservationTripCalendar js__infoReservationTable green">
-                            <div class="fx fx-ai-c fx-jc-sb nfooo">
-                                <span class="_txtboldff14 text_tm1">` + arg.event._def.title + `$` + arg.event._def
-                        .extendedProps.total_payout + `</span>
-                                <span class="_txtboldff14">TR</span>
+                        <button type="button" class="reservaIndividualSelect js__infoReservationTable green">
+                            <div class="fx fx-fd-c gp5">
+                                <span class="_pf-msg mr0 fx">
+                                    <img src="{{ asset('assets/img/avatar') }}/` + arg.event._def.extendedProps
+                        .avatar + `">
+                                </span>
+
+                                <div class="fx fx-fd-c fx-ai-fs gp1">
+                                    <span class="_txtboldff14 text_tm1">` + arg.event._def.title + ` $` + arg.event
+                        ._def.extendedProps.total_payout + `</span>
+                                    <span class="_txt-white14 text_tm1">CH</span>
+                                </div>
                             </div>
-                        </button>`
+                        </button>
+                    `
                 } else if (arg.event.extendedProps.status == 1) {
                     italicEl.innerHTML = `
-                    <button type="button" class="reservationTripCalendar js__infoReservationTable green">
-                            <div class="fx fx-ai-c fx-jc-sb nfooo">
-                                <span class="_txtboldff14 text_tm1">` + arg.event._def.title + `$` + arg.event._def
-                        .extendedProps.total_payout + `</span>
-                                <span class="_txtboldff14">TR</span>
+                        <button type="button" class="reservaIndividualSelect js__infoReservationTable green">
+                            <div class="fx fx-fd-c gp5">
+                                <span class="_pf-msg mr0 fx">
+                                    <img src="{{ asset('assets/img/avatar') }}/` + arg.event._def.extendedProps
+                        .avatar + `">
+                                </span>
+
+                                <div class="fx fx-fd-c fx-ai-fs gp1">
+                                    <span class="_txtboldff14 text_tm1">` + arg.event._def.title + ` $` + arg.event
+                        ._def.extendedProps.total_payout + `</span>
+                                    <span class="_txt-white14 text_tm1">CH</span>
+                                </div>
                             </div>
-                        </button>`
+                        </button>
+                    `
                 } else if (arg.event.extendedProps.status == 2) {
                     italicEl.innerHTML = `
-                    <button type="button" class="reservationTripCalendar plomo">
-                            <div class="fx fx-ai-c fx-jc-sb nfooo">
-                                    <span class="_txtboldff14 text_tm1">` + arg.event._def.title + `$` + arg.event._def
-                        .extendedProps.total_payout + `</span>
-                                <span class="_txtboldff14">TR</span>
+                        <button type="button" class="reservaIndividualSelect plomo">
+                            <div class="fx fx-fd-c gp5">
+                                <span class="_pf-msg mr0 fx">
+                                    <img src="{{ asset('assets/img/avatar') }}/` + arg.event._def.extendedProps
+                        .avatar + `">
+                                </span>
+
+                                <div class="fx fx-fd-c fx-ai-fs gp1">
+                                    <span class="_txtboldff14 text_tm1">` + arg.event._def.title + ` $` + arg.event
+                        ._def.extendedProps.total_payout + `</span>
+                                    <span class="_txt-white14 text_tm1">RE</span>
+                                </div>
                             </div>
-                        </button>`
+                        </button>
+                    `
                 } else if (arg.event.extendedProps.status == 3) {
                     italicEl.innerHTML = `
-                    <button type="button" class="reservationTripCalendar js__infoReservationTable green">
-                            <div class="fx fx-ai-c fx-jc-sb nfooo">
-                                <span class="_txtboldff14 text_tm1">` + arg.event._def.title + `$` + arg.event._def
-                        .extendedProps.total_payout + `</span>
-                                <span class="_txtboldff14">TR</span>
+                        <button type="button" class="reservaIndividualSelect js__infoReservationTable green">
+                            <div class="fx fx-fd-c gp5">
+                                <span class="_pf-msg mr0 fx">
+                                    <img src="{{ asset('assets/img/avatar') }}/` + arg.event._def.extendedProps
+                        .avatar + `">
+                                </span>
+
+                                <div class="fx fx-fd-c fx-ai-fs gp1">
+                                    <span class="_txtboldff14 text_tm1">` + arg.event._def.title + ` $` + arg.event
+                        ._def.extendedProps.total_payout + `</span>
+                                    <span class="_txt-white14 text_tm1">CH</span>
+                                </div>
                             </div>
-                        </button>`
+                        </button>
+                    `
                 } else if (arg.event.extendedProps.status == 4) {
                     italicEl.innerHTML = `
-                    <button type="button" class="reservationTripCalendar plomo">
-                            <div class="fx fx-ai-c fx-jc-sb nfooo">
+                        <button type="button" class="reservaIndividualSelect plomo">
+                            <div class="fx fx-fd-c gp5">
+                                <span class="_pf-msg mr0 fx">
+                                    <img src="{{ asset('assets/img/avatar') }}/` + arg.event._def.extendedProps
+                        .avatar + `">
+                                </span>
 
-                                <span class="_txtboldff14 text_tm1">` + arg.event._def.title + `$` + arg.event._def
-                        .extendedProps.total_payout + `</span>
-                                <span class="_txtboldff14">TR</span>
+                                <div class="fx fx-fd-c fx-ai-fs gp1">
+                                    <span class="_txtboldff14 text_tm1">` + arg.event._def.title + ` $` + arg.event
+                        ._def.extendedProps.total_payout + `</span>
+                                    <span class="_txt-white14 text_tm1">RE</span>
+                                </div>
                             </div>
-                        </button>`
+                        </button>
+                    `
                 } else if (arg.event.extendedProps.status == 5) {
                     italicEl.innerHTML = `
-                    <button type="button" class="reservationTripCalendar plomo">
-                            <div class="fx fx-ai-c fx-jc-sb nfooo">
-                                <div class="fx fx-ai-c gp5">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 17 17">
-                                    <path d="M9.555,6.651a7.891,7.891,0,0,1,.618-3.072A8.622,8.622,0,1,0,20.586,13.992,7.957,7.957,0,0,1,9.555,6.651Z" transform="translate(-3.586 -3.579)" fill="#fff"></path>
-                                </svg>
-                                <span class="_txtboldff14 text_tm1">` + arg.event._def
-                        .extendedProps.total_payout + `</span>
+                        <button type="button" class="reservaIndividualSelect plomo">
+                            <div class="fx fx-fd-c gp5">
+                                <span class="_pf-msg mr0 fx">
+                                    <img src="{{ asset('assets/img/avatar') }}/` + arg.event._def.extendedProps
+                        .avatar + `">
+                                </span>
+
+                                <div class="fx fx-fd-c fx-ai-fs gp1">
+                                    <div class="fx fx-ai-c gp5">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 17 17">
+                                            <path d="M9.555,6.651a7.891,7.891,0,0,1,.618-3.072A8.622,8.622,0,1,0,20.586,13.992,7.957,7.957,0,0,1,9.555,6.651Z" transform="translate(-3.586 -3.579)" fill="#fff"></path>
+                                        </svg>
+
+                                        <span class="_txtboldff14 text_tm1">` + arg.event._def.extendedProps
+                        .total_payout + `</span>
+                                    </div>
+                                    <span class="_txt-white14 text_tm1">RE</span>
                                 </div>
-                                <span class="_txtboldff14">TR</span>
                             </div>
-                        </button>`
+                        </button>
+                    `
                 } else if (arg.event.extendedProps.status == 6) {
                     italicEl.innerHTML = `
-                    <button type="button" class="reservationTripCalendar red">
-                            <div class="fx fx-ai-c fx-jc-sb nfooo">
-                                <span class="_txtboldff14 text_tm1">` + arg.event._def.title + `$` + arg.event._def
+                        <button type="button" class="reservaIndividualSelect red">
+                            <div class="fx fx-fd-c gp5">
+                                <span class="_pf-msg mr0 fx">
+                                    <img src="{{ asset('assets/img/avatar') }}/` + arg.event._def.extendedProps
+                        .avatar + `">
+                                </span>
+
+                                <div class="fx fx-fd-c fx-ai-fs gp1">
+                                <span class="_txtboldff14 text_tm1">` + arg.event._def.title + ` $` + arg.event._def
                         .extendedProps.total_payout + `</span>
-                                <span class="_txtboldff14">TR</span>
+                                    <span class="_txt-white14 text_tm1">RE</span>
+                                </div>
                             </div>
-                        </button>`
+                        </button>
+                    `
                 }
                 let arrayOfDomNodes = [italicEl]
                 return {
@@ -424,13 +564,14 @@
         show_modals();
         more_links();
 
-        document.getElementsByClassName('reservationTripCalendar')[0].addEventListener(
+        document.getElementsByClassName('reservaIndividualSelect')[0].addEventListener(
             'click',
             function() {});
+            
         document.getElementById("updateDate").addEventListener("click", function() {
             setTimeout(() => {
                 eventPrice();
-            }, 1000);
+            }, 500);
         });
 
 
@@ -440,10 +581,10 @@
                 document.getElementById('note_text').value = @this.date_config_note;
                 document.getElementById('CreateOrUpdateNote').addEventListener('click', function() {
                     @this.note = document.getElementById('note_text').value;
-                    @this.DateConfig();
+                    @this.NoteConfig();
                     setTimeout(() => {
                         eventPrice();
-                    }, 1000);
+                    }, 500);
                 })
             });
         // 
@@ -471,7 +612,25 @@
                 eventPrice();
             });
 
+        document.getElementsByClassName('vvo-btn-select scale js_submenuNrml')[0].addEventListener(
+            'click',
+            function() {
+                let selopt = document.getElementsByClassName('selection_value');
+                Array.prototype.slice.call(selopt).forEach((e) => {
+                    e.addEventListener('click', async function() {
+                        await (@this.listing_id = e.value)
+                        setTimeout(() => {
+                            eventPriceReset();
+                            calendar.setOption('events', @this.reservation);
+                            eventPrice();
+                        }, 500);
+                    })
+                })
+            });
 
+        [].forEach.call(document.querySelectorAll(".fc-daygrid-day.fc-day.fc-day-past"), function(el) {
+            el.setAttribute('disabled', '');
+        });
         // OCULTAR MODAL GENERAL
         [].forEach.call(document.querySelectorAll(".js_hideMdlReservationTable"), function(el) {
             el.addEventListener('click', function() {
@@ -482,23 +641,49 @@
         });
     })
 
-    function eventPrice() {
-        var divs = document.getElementsByClassName('fc-daygrid-day-events');
-        // document.getElementsByClassName('fc-timeline-body')[0].setAttribute('style', 'width:' + (divs.length * 80))
-        return [].slice.call(divs).forEach(function(div) {
-            if (div.lastChild.offsetTop == 0) {
-                div.innerHTML = `<div class="_badsdoller js__infoReservationTable">
-         <div class="fx fx-fd-c fx-ai-c gp3">
-             <div class="_txtbold7d14">$80</div>
-            
-         </div>
-    </div>`;
 
+    function eventPriceReset() {
+        let divs = Array.prototype.slice.call(document.querySelectorAll('[role="row"]'));
 
-            } else {
-                div.style.disabled = true;
+        divs.forEach((element, index) => {
+            if (index > 0) {
+                Array.prototype.slice.call(element.children).forEach((data, key) => {
+                    data.childNodes[0].childNodes[1].innerHTML = ``;
+                })
             }
-        });
+        })
+    }
+
+    function eventPrice() {
+        let divs = [];
+        divs = Array.prototype.slice.call(document.querySelectorAll('[role="row"]'));
+
+        divs.forEach((element, index) => {
+            if (index > 0) {
+                Array.prototype.slice.call(element.children).forEach((data, key) => {
+                    if (data.childNodes[0].childNodes[1].children[0].clientHeight == 2 || data.childNodes[0].childNodes[1].children[0].clientHeight == 110) {
+                        if (@this.date_config.lenght != 0) {
+                            if (@this.date_config[data.attributes[2].nodeValue]) {
+                                data.childNodes[0].childNodes[1].innerHTML = `<div class="_badsdoller   js__infoReservationTable">
+                 <div class="_bkgrsdoll">$` + @this.date_config[data.attributes[2].nodeValue].price + `</div>
+                </div>`;
+                            } else {
+                                @this.listings.forEach((e, i) => {
+                                    if (e.id == @this.listing_id) {
+                                        data.childNodes[0].childNodes[1].innerHTML = `<div class="_badsdoller js__infoReservationTable">
+                 <div class="_bkgrsdoll">$` + e.base_price + `</div>
+                </div>`;
+                                    }
+                                })
+                            }
+                        }
+                    }
+                })
+            }
+        })
+        // document.getElementsByClassName('fc-timeline-body')[0].setAttribute('style', 'width:' + (divs.length * 80))
+        // [].slice.call(divs).forEach(function(div) {
+        // });
     }
 
     function more_links() {

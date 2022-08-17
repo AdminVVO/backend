@@ -509,10 +509,6 @@
   margin: 0;
 }
 
-._txtec14 {
-  line-height: 20px;
-}
-
 ._txtblu, ._txtblu16 {
   margin: 0;
   line-height: inherit;
@@ -1053,7 +1049,7 @@
 .section_calendar_admin .rgtContMrCal {
   /* padding-top: 8rem; */
   position: absolute;
-  top: 8rem;
+  top: 8.6rem;
   right: 0;
   z-index: 2;
   bottom: 0;
@@ -1143,4 +1139,78 @@
   transform: rotate(27deg);
   width: 1px;
   background-color: #E3EDF3;
+}
+
+/* calendar individual select */
+.sectionCalendarIndSelect .fc th {
+  background-color: #FF5A5F;
+}
+.sectionCalendarIndSelect .fc .fc-col-header-cell-cushion {
+  padding: 12px 4px;
+  color: #fff;
+  font-size: 12px;
+  text-transform: uppercase;
+}
+.sectionCalendarIndSelect .fc .fc-daygrid-body-unbalanced .fc-daygrid-day-events {
+  min-height: 6.9em;
+}
+.sectionCalendarIndSelect .fc .fc-scrollgrid-section > * {
+  border-top-width: thin;
+  border-left-width: thin;
+}
+.sectionCalendarIndSelect .fc .fc-daygrid-day-top {
+  flex-direction: initial;
+}
+.sectionCalendarIndSelect .fc .fc-daygrid-day-number {
+  font-size: 12px;
+  line-height: 16px;
+  color: #7D7D7D;
+}
+.sectionCalendarIndSelect .fc .fc-day-other ._badsdoller {
+  opacity: 0.3;
+}
+.sectionCalendarIndSelect tbody .fc-scrollgrid-section td:nth-child(1) {
+  border: 1px solid #E3EDF3;
+}
+.sectionCalendarIndSelect thead .fc-scroller {
+  padding-bottom: 0;
+}
+.sectionCalendarIndSelect ._badsdoller {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  min-height: inherit;
+  padding: 8px;
+}
+.sectionCalendarIndSelect ._badsdoller ._bkgrsdoll {
+  margin-top: auto;
+}
+.sectionCalendarIndSelect .fc-daygrid-event {
+  white-space: normal;
+}
+.sectionCalendarIndSelect .contCalendarVvoFlex {
+  gap: 24px;
+}
+.sectionCalendarIndSelect .rgtContMrCal {
+  position: relative;
+  top: 0;
+  box-shadow: none;
+  height: 700px;
+  display: flex;
+  flex-direction: column;
+}
+.sectionCalendarIndSelect .rgtContMrCal.right_bk_show {
+  flex: 354px;
+  width: 354px;
+  min-width: 354px;
+}
+.sectionCalendarIndSelect .rgtContMrCal.active-info .hideInfoSlectDays {
+  display: none;
+}
+.sectionCalendarIndSelect .sltNrlCont {
+  flex: 48%;
+}
+.sectionCalendarIndSelect .sltNrlCont .vvo-btn-select {
+  width: 100%;
 }

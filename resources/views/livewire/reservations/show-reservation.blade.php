@@ -13,7 +13,7 @@
                         <img src="{{ URL::asset('assets/img/avatar') }}/{{ $data['avatar'] }}" loading="lazy" alt="">
                     </span>
                     <div class="_b">
-                        <div class="h5_red">Arriving in {{$data['arriving']}} Days</div>
+                        <div class="h5_red">{{$data['arriving']}} </div>
                         <h2 class="h2-guests _txtcapit">{{$data['full_name']}}</h2>
 
                         <div style="margin-top: 16px;">
@@ -38,8 +38,7 @@
                         <div class="_fbas-guintxt">
                             <span class="red_guion">-</span>
                             <div>
-                                <p class="_txtec">Clean and sanitize according to vvoutlet <a href=""
-                                        class="_txtblu">5-step enhanced clearing process</a></p>
+                                <p class="_txtec">Clean and sanitize according to vvoutlet
                             </div>
                         </div>
 
@@ -57,7 +56,7 @@
                                 <div class="_w">
                                     <i class="far fa-star"></i>
                                 </div>
-                                <a href="" class="_txtblu">5.0 avg reating - 2 revviews</a>
+                                <a href="" class="_txtblu">5.0 avg reating - 2 reviews</a>
                             </div>
 
                             <div class="_flex-icons">
@@ -91,7 +90,7 @@
                         <div style="text-align: center;">
                             <div class="_fbtn-br">
                                 <a href="{{route('profile', ['id' => $data['id_user']])}}" class="btn-border">View profile</a>
-                                <a href="" class="btn-border">Message</a>
+                                <a href="{{route('messageUserIndex')}}" class="btn-border">Message</a>
                                 <a href="tel:{{$data['phone']}}" class="btn-border">Call</a>
                             </div>
 
@@ -176,28 +175,60 @@
 
                     <div class="_cns _cns-mdls">
                         <span class="f-cth">
-                            <div class="_txtec">${{$data['base_price']}} x 5 nights</div>
+                            <div class="_txtec">${{$data['base_price']}} x {{$data['total_days']}} nights</div>
                             <div class="_txtec">${{$data['total_payout']}}</div>
                         </span>
-
+                        @if($data['cleaning_fee'])
                         <span class="f-cth">
                             <div class="_txtec">Cleaning fee</div>
                             <div class="_txtec">${{$data['cleaning_fee']}}</div>
                         </span>
-
+                        @endif
+                        @if($data['pet_fee'])
                         <span class="f-cth">
-                            <div class="_txtec">Guest service fee</div>
+                            <div class="_txtec">Pet fee</div>
+                            <div class="_txtec">${{$data['pet_fee']}}</div>
+                        </span>
+                        @endif
+                        @if($data['linens_fee'])
+                        <span class="f-cth">
+                            <div class="_txtec">Linens fee</div>
+                            <div class="_txtec">${{$data['linens_fee']}}</div>
+                        </span>
+                        @endif
+                        @if($data['resort_fee'])
+                        <span class="f-cth">
+                            <div class="_txtec">Resort fee</div>
+                            <div class="_txtec">${{$data['resort_fee']}}</div>
+                        </span>
+                        @endif
+                        @if($data['management_fee'])
+                        <span class="f-cth">
+                            <div class="_txtec">Management fee</div>
+                            <div class="_txtec">${{$data['management_fee']}}</div>
+                        </span>
+                        @endif
+                        @if($data['community_fee'])
+                        <span class="f-cth">
+                            <div class="_txtec">Community fee</div>
+                            <div class="_txtec">${{$data['community_fee']}}</div>
+                        </span>
+                        @endif
+                        @if($data['extra_guest_fee'])
+                        <span class="f-cth">
+                            <div class="_txtec">Extra guest fee</div>
                             <div class="_txtec">${{$data['extra_guest_fee']}}</div>
                         </span>
-
+                        @endif
+                        @if($data['weekend_nightly_fee'])
                         <span class="f-cth">
-                            <div class="_txtec">Occupancy taxes</div>
-                            <div class="_txtec">$0</div>
+                            <div class="_txtec">Weekend nightly fee</div>
+                            <div class="_txtec">${{$data['weekend_nightly_fee']}}</div>
                         </span>
-
+                        @endif
                         <span class="f-cthusd">
                             <div class="_txteh">Total paid by guest (USD)</div>
-                            <div class="_txteh">${{$data['occupancy_taxes']}}</div>
+                            <div class="_txteh">${{$data['total_paid_by_guest']}}</div>
                         </span>
                     </div>
                 </div>
@@ -217,12 +248,12 @@
                         </span>
 
                         <span class="f-cth">
-                            <div class="_txtec">Cleaning fee</div>
+                            <div class="_txtec">General fee</div>
                             <div class="_txtec">${{$data['cleaning_fee']}}</div>
                         </span>
 
                         <span class="f-cth">
-                            <div class="_txtec">Host service fee (3.0%)</div>
+                            <div class="_txtec">Host service fee (15.0%)</div>
                             <div class="_txtec">-${{$data['host_service_fee']}}</div>
                         </span>
 
@@ -248,7 +279,7 @@
                 <div class="_block-privatenote hr">
                     <h2 class="h2-guests" style="margin-bottom: 10px;">Private note</h2>
 
-                    <div class="_fbas-details">
+                    <div class="_fbas-details" style="margin-bottom: 10px;">
                         <div class="_w">
                             <svg xmlns="http://www.w3.org/2000/svg" width="19" height="24.938"
                                 viewBox="0 0 19 24.938">
@@ -263,9 +294,12 @@
                         </div>
                     </div>
 
+                    <div>
+                        <p>{{ Str::substr(print_r(str_replace("\n", '<br/>', $data['note'])), 0, -1) }}</p>
+                    </div>
                     <textarea placeholder="Write a note" class="_txta-modls" style="margin: 17px 0 16px;" wire:model.lazy ="note"></textarea>
 
-                    <button class="btn-celest" wire:click="saveNote">Save</button>
+                    <button class="btn-celest" wire:click="saveNote()">Save</button>
                 </div>
 
                 <div class="_block-support hr">
@@ -319,27 +353,12 @@
                                 </svg>
                             </a>
                         </div>
-
-                        <div>
-                            <a href="#" class="_flex-sbet dis-b">
-                                <span class="_txtblu">Help</span>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="6.052" height="10.584"
-                                    viewBox="0 0 6.052 10.584">
-                                    <path
-                                        d="M5.294,4.227,9.3.222a.753.753,0,0,1,1.068,0,.763.763,0,0,1,0,1.071L5.83,5.831a.755.755,0,0,1-1.043.022L.221,1.3A.757.757,0,0,1,1.289.225Z"
-                                        transform="translate(0 10.584) rotate(-90)" fill="#00b5dd" />
-                                </svg>
-                            </a>
-                        </div>
                     </div>
                 </div>
 
                 <div class="_desurl hr">
                     <p class="_txtec">Your cancellation policy for guests is <a href="#"
-                            class="_txtblu">Moderate</a>.</p>
-                    <p class="_txtec">The penalties for canceling this reservation include getting a public review the
-                        shows you canceled, paying a cancellation fee, and having the canceled nights blocked on your
-                        calendar. <a href="#" class="_txtblu">Read cancellation penalties</a>.</p>
+                            class="_txtblu">Moderate</a></p>
                 </div>
 
                 <div class="_block-commquest hr">
@@ -402,17 +421,6 @@
                     </div>
                 </div>
 
-                <div class="_block-link hr">
-                    <a href="#" class="_flex-sbet dis-b hr">
-                        <span class="_txtblu">See more topics</span>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="6.052" height="10.584"
-                            viewBox="0 0 6.052 10.584">
-                            <path
-                                d="M5.294,4.227,9.3.222a.753.753,0,0,1,1.068,0,.763.763,0,0,1,0,1.071L5.83,5.831a.755.755,0,0,1-1.043.022L.221,1.3A.757.757,0,0,1,1.289.225Z"
-                                transform="translate(0 10.584) rotate(-90)" fill="#00b5dd" />
-                        </svg>
-                    </a>
-                </div>
             </div>
         </div>
 
