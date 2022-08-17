@@ -38,9 +38,8 @@ class ListingProperty extends Component
         $this->inputListing   = $this->listing_type;
         $this->inputFloors    = $this->floors;
         $this->inputOn        = $this->floors_on;
-        $this->selectPlace    = RoomsProperty::distinct('type')->pluck('code','type'); // Falta agregar type_name despues de la migracion.....
+        $this->selectPlace    = RoomsProperty::distinct('name_type')->pluck('name_type','type'); // Falta agregar type_name despues de la migracion.....
         $this->selectProperty = RoomsProperty::where('type', $this->inputLike)->pluck('name','code');
-
     }
 
     public function updatedinputLike($value)

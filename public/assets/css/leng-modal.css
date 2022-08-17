@@ -30,9 +30,6 @@
   flex-direction: column;
   gap: 24px;
 }
-.container_leng_region .popup_leng_modal .content_leng {
-  overflow: hidden;
-}
 @media (max-width: 1400px) {
   .container_leng_region .content_hidden {
     margin-top: 24px;

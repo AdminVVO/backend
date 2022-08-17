@@ -11,10 +11,18 @@ $(document).ready(function () {
     // calendar - click en < info
     $(document).on("click", ".click_info_calendar_tb", function () {
         $(this).parents(".tbody-list-doller").find(".right_bk_show").addClass("active-info");
+        $(".js__reserContInfoCalendar").removeClass("dn");
+        $(".js__dollerContInfoCalendar").addClass("dn");
     });
 
     $(document).on("click", ".click_icon_calendar_tb", function () {
         $(this).parents(".tbody-list-doller").find(".right_bk_show").removeClass("active-info");
+    });
+
+    $(document).on("click", ".click__doller_info_calendar_tb", function() {
+        $(this).parents(".tbody-list-doller").find(".right_bk_show").addClass("active-info");
+        $(".js__reserContInfoCalendar").addClass("dn");
+        $(".js__dollerContInfoCalendar").removeClass("dn");
     });
 
     $(".click-list-calendar, .click_behind_calendar").on("click", function () {
@@ -23,12 +31,18 @@ $(document).ready(function () {
 
     // calendar individual - click a cada bloque button border
     $("._tb-reservations ._17oofu3").on("click", function () {
-        $(this).parents("._tb-reservations").find("._19r7tqhd").removeClass("_19r7tqhd").addClass("_17oofu3");
+        $(this).parents(".section_calendar_indv_admin").addClass("is-main-info-open");
+        $(".showInfoSlectDays").removeClass("dn");
+        $(".hideInfoSlectDays").addClass("dn");
+        $(this).parents().find("._tb-reservations").find("._19r7tqhd").removeClass("_19r7tqhd").addClass("_17oofu3");
         $(this).removeClass("_17oofu3").addClass("_19r7tqhd");
     });
 
-    $("._tb-reservations ._17oofu3, .click-hide-inf-indv").on("click", function () {
-        $(this).parents(".section_calendar_indv_admin").toggleClass("is-main-info-open");
+    $(".click-hide-inf-indv").on("click", function () {
+        $(this).parents(".section_calendar_indv_admin").removeClass("is-main-info-open");
+        $(".showInfoSlectDays").addClass("dn");
+        $(".hideInfoSlectDays").removeClass("dn")
+        $(this).parents().find("._tb-reservations").find("._19r7tqhd").removeClass("_19r7tqhd").addClass("_17oofu3");
     });
 
     // calendar individual - click en Add custom settings

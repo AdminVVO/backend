@@ -21,7 +21,7 @@
             <img src="{{ URL::asset('assets/img/card/c1.jpg') }}" alt="">
 
             <div class="w100">
-                <p class="_txtec txt_upper">$267 total</p>
+                <p class="_txtec txt_upper">{{ \App\Models\Currencs::Symbol( $content['listing_currency'] ) . $content['base_price'] * 3 }} total</p>
                 <p class="_txtec">3 nights · 1 guest</p>
                 <p class="_txtec">Includes all fees</p>
             </div>
@@ -34,7 +34,7 @@
         <div class="w100">
             <h3 class="_txteh">Listing Pricing</h3>
             <div class="_width_text show_info">
-                <span class="_txtec">Base price: ${{ $content['base_price'] }}</span>
+                <span class="_txtec">Base price: {{ \App\Models\Currencs::Symbol( $content['listing_currency'] ) . $content['base_price'] }}</span>
             </div>
 
             @livewire('listing-test.pricing.listing-base', [

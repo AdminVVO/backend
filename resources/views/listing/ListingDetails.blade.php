@@ -6,17 +6,6 @@
 
     <link href="{{ URL::asset('assets/css/header-admin.css') }}" rel="stylesheet"/>
 
-{{--     <style type="text/css">
-        .lightpick {
-            min-width: fit-content;
-        }
-
-        .lightpick__months {
-            display: flex !important;
-            justify-content: space-between;
-        }
-    </style> --}}
-
 @endsection
 
 @section('header')
@@ -53,10 +42,24 @@
         {{-- Modal Listings Amenities --}}
         @include('livewire.listing.details.modals.amenities')
 
+        {{-- Modal Rooms Space --}}
+        @include('livewire.listing.details.modals.rooms-space')
+
+        {{-- Modal With Areas Rooms Space --}}
+        @include('livewire.listing.details.modals.with-areas-rooms')
 
 
-        {{-- Modal Listings Status Unlisted --}}
-        {{-- @include('livewire.listing.details.modals.desactivate') --}}
+        {{-- Modal Guest Safety --}}
+        @include('livewire.listing.details.modals.guest-safety')
+
+        {{-- Modal Info Guest Safety --}}
+        @include('livewire.listing.details.modals.info-guest')
+
+        {{-- Modal Preview Guest --}}
+        @include('livewire.listing.details.modals.preview-guest')
+
+
+
         
         {{-- Modal FeedBack --}}
         {{-- @include('livewire.listing.details.modals.feedback') --}}
@@ -66,8 +69,6 @@
 
 
 
-        {{-- Modal Listings Rooms and Spaces --}}
-        {{-- @include('livewire.listing.details.modals.roomspace') --}}
 
         {{-- Modal Listings Instant Book Off --}}
         {{-- @include('livewire.listing.details.modals.instantbook') --}}
@@ -81,8 +82,12 @@
     <script type="text/javascript">
         Livewire.hook('message.processed', (message, component) => {
             $(".click_show_more").on('click', function() {
-                $(this).parent().find(".show_more_info").show();
-                $(this).parent().find(".click_show_more").hide();
+                $(this).parents().find(".show_more_info, .click_hide_more").removeClass("dn");
+                $(this).parents().find(".click_show_more").addClass("dn");
+            });
+            $(".click_hide_more").on("click", function() {
+                $(this).parents().find(".click_show_more").removeClass("dn");
+                $(this).parents().find(".click_hide_more, .show_more_info").addClass("dn");
             });
             $(".js__popupEditAddCaption").on("click", function() {
                 animateTopModals();
@@ -96,6 +101,16 @@
                     var nueva_longitud = $(this).val().length;
                     $(this).parent().find('.views_num').html(nueva_longitud);
                 });
+            });
+            $('.content_listing_details .block ._btnsm.edit').click(function(){
+                $(this).parents(".block").addClass("edit_listing_post");
+            });
+            $(".click_cancel_listing").click(function() {
+                $(this).parents(".block").removeClass("edit_listing_post");
+            });
+            $(".click_preview_guests_pay").click(function() {
+                animateTopModals();
+                $(".container_preview_guests_pay").show();
             });
             carouselListinPost();
             amenitiesHidePost();

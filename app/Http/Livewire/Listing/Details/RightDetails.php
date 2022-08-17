@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Listing\Details;
 
 use App\Models\AmenitiesSafety;
 use App\Models\Currencs;
+use App\Models\GuestSafety;
 use App\Models\LanguagesRegions;
 use App\Models\Listing\ListingBookingDetails;
 use App\Models\Listing\ListingCalendarAvailability;
@@ -21,6 +22,7 @@ use Livewire\Component;
 class RightDetails extends Component
 {
     public $listingId;
+    public $title;
     public $stepBar = 'details';
     public $content = [];
 
@@ -38,7 +40,6 @@ class RightDetails extends Component
 
     public function reloadSubmit($payload)
     {
-
         if ( $payload === 'details' ) {
             $this->queryBasicListing();
             $this->queryLocationListing();
@@ -92,6 +93,7 @@ class RightDetails extends Component
 
             if ( $payload === 'postbooking' )
                 $this->queryPostBookingListing();
+
     }
 
     public function render()
@@ -135,12 +137,14 @@ class RightDetails extends Component
             'resort',
             'template',
             'amenities',
+            'legal',
             'snooze'
         )->where([
             'id_listings' => $this->listingId,
             'user_id'     => Auth::id()
         ])->first();
 
+            $this->titleListing                = $queryListing['title'];
             $this->content['title']            = $queryListing['title'];
             $this->content['internal_title']   = $queryListing['internal_title'];
             $this->content['descriptions']     = $queryListing['descriptions'];
@@ -154,14 +158,12 @@ class RightDetails extends Component
             $this->content['resort']           = $queryListing['resort'];
             $this->content['template']         = $queryListing['template'];
             $this->content['snooze']           = $queryListing['snooze'];
-
-            // $this->content['safety'] = $queryListing['safety'];
-                // $this->content['safety_name'] = AmenitiesSafety::where('type', 'safety')->whereIn('code', $queryListing['safety'] )->pluck('name');
-
-            $this->content['amenities']           = $queryListing['amenities'];
-            $this->content['amenities_name'] = AmenitiesSafety::whereIn('code', $queryListing['amenities'] )->pluck('name');
-            $this->content['photos'] = $queryListing['photos'];
-            $this->content['language'] = LanguagesRegions::pluck('languages', 'code');
+            $this->content['legal']            = $queryListing['legal'];
+            $this->content['legal_name']       = GuestSafety::whereIn('code', $queryListing['legal'] )->orderBy('name', 'ASC')->pluck('name');
+            $this->content['amenities']        = $queryListing['amenities'];
+            $this->content['amenities_name']   = AmenitiesSafety::whereIn('code', $queryListing['amenities'] )->orderBy('name', 'ASC')->pluck('name');
+            $this->content['photos']           = $queryListing['photos'];
+            $this->content['language']         = LanguagesRegions::pluck('languages', 'code');
 
     }
 

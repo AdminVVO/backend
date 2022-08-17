@@ -26,7 +26,6 @@ class ListingStatus extends Component
         'changeSnoozeApline' => 'changeSnoozeApline',
         'saveSnoozeApline' => 'saveSnoozeApline',
         'cancelSnoozeApline' => 'cancelSnoozeApline',
-        'saveDisactivate' => 'saveDisactivate',
     ];
 
     public function mount()
@@ -108,12 +107,12 @@ class ListingStatus extends Component
 
         $validation = Validator::make([
            'inputStatus' => $this->inputStatus,
-           'inputResort' => $this->inputResort,
-           'template' => $this->template,
+           // 'inputResort' => $this->inputResort,
+           // 'template' => $this->template,
         ],[
-            'inputStatus' => 'required|in:Listed,Snoozed,Unlisted,Deactivate',
-            'inputResort' => 'required|email',
-            'template' => 'required|in:MS Code,Source',
+            'inputStatus' => 'required|in:listed,snoozed,unlisted',
+            // 'inputResort' => 'required|email',
+            // 'template' => 'required|in:MS Code,Source',
         ]);
 
             if ($validation->fails())
@@ -124,43 +123,11 @@ class ListingStatus extends Component
                 'id_listings' => $this->listingId,
             ])->update([
                 'status'   => $this->inputStatus,
-                'resort'   => $this->inputResort,
-                'template' => $this->template,
+                // 'resort'   => $this->inputResort,
+                // 'template' => $this->template,
             ]);
 
         $this->emitTo('listing.details.right-details', 'reloadSubmit', 'basic');
-        $this->reloadInputsInvers();
-        $this->alert('success', 'Update has been successful!');
-    }
-    
-    public function saveDisactivate($paylaod)
-    {
-        $this->resetValidation();    
-
-        $validation = Validator::make([
-           'inputStatus' => $this->inputStatus,
-        ],[
-            'inputStatus' => 'required|in:Unlisted',
-        ]);
-
-            if ($validation->fails())
-                return $this->alert('warning', 'Validation has failed.');
-
-            Listings::where([
-                'user_id'     => Auth::id(),
-                'id_listings' => $this->listingId,
-            ])->update([
-                'status'   => $this->inputStatus,
-            ]);
-
-            ReasonDisactive::create([
-                'listing_id' => $this->listingId,
-                'user_id'    => Auth::id(),
-                'reason'     => $paylaod,
-            ]);
-
-        $this->emitTo('listing.details.right-details', 'reloadSubmit', 'basic');
-        $this->dispatchBrowserEvent('closeSnoozeApline');
         $this->reloadInputsInvers();
         $this->alert('success', 'Update has been successful!');
     }

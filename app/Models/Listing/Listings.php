@@ -64,6 +64,11 @@ class Listings extends Model
         return $xplodeListingFile[4];
     }
 
+    public function scopeTitle($query, $code)
+    {
+        return $this->where(['user_id' => Auth::id(), 'id_listings' => $code ])->pluck('title')->first();
+    }
+
     public function userChat()
     {
         return $this->belongsTo(User::class, 'user_id')->select(['id_user', 'name']);

@@ -36,11 +36,11 @@
         gap: 24px;
     }
 
-    .popup_leng_modal {
-        .content_leng {
-            overflow: hidden;
-        }
-    }
+    // .popup_leng_modal {
+    //     .content_leng {
+    //         overflow: hidden;
+    //     }
+    // }
 
     @include responsive(1400px) {
         .content_hidden {

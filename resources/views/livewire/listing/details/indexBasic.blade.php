@@ -60,7 +60,7 @@
 </div>
 
 <div class="block">
-    <div class="fx fx-ai-b fx-jc-sb" style="gap: 25px;" wire:ignore.self>
+    <div class="fx fx-ai-b fx-jc-sb" style="gap: 25px;">
         <div class="w100">
             <h3 class="_txteh">Listing description</h3>
             <div class="show_info">
@@ -182,21 +182,17 @@
             <div class="_width_text show_info">
                 <span class="_txtec">{{ $content['language_default'] == 'EN' ? $content['language'][ $content['language_default'] ] . ' (Default)' : $content['language'][ $content['language_default'] ] }}</span>
             </div>
-
             <div class="_width_text show_text">
                 <div class="fx fx-fd-c" style="gap: 25px;">
                     <p class="_txtec">Write details for some settings in a language other than your default. Guests are shown automatic translations for languages you don't add here.</p>
                 </div>
             </div>
-
             @livewire('listing.details.basic.listing-language', [
                 'listingId'        => $listingId,
                 'language'         => $content['language'],
                 'language_default' => $content['language_default'],
             ])
-
         </div>
-
         <div class="_btnsm edit">
             <span class="_fcontent">
                 Edit
@@ -208,8 +204,6 @@
     </div>
 </div>
 
-
-{{-- ################################################################### --}}
 <div class="block">
     <div class="fx fx-ai-b fx-jc-sb" style="gap: 25px;">
         <div class="w100">
@@ -244,14 +238,6 @@
 
                         Unlisted - Guests can't book your listing or find it in search results.
                     @endif
-
-                    @if ( $content['status'] == 'deactivate' )
-                        <div class="_iconposit">
-                            <i class="fas fa-circle _i-griswhite10"></i>
-                        </div>
-
-                        Deactivate - Permanently remove your listing from vvoutlet.
-                    @endif
                 </div>
             </div>
 
@@ -274,7 +260,6 @@
         </div>
     </div>
 </div>
-{{-- ################################################################### --}}
 
 <div class="block" wire:ignore.self>
     <div class="fx fx-ai-b fx-jc-sb" style="gap: 25px;">
@@ -445,26 +430,15 @@
     <div class="fx fx-ai-b fx-jc-sb" style="gap: 25px;">
         <div class="w100">
             <h3 class="_txteh">Scenic views</h3>
-            <div class="_width_text show_info">
+
+            <div class="show_info">
                 @if ( count( $content['scenic_views_name'] ) != 0)
-                    <div class="_width_text _width_flex fx">
-                        <div class="w">
+                    <div class="_width_text _width_flex ">
+                        <div class="wflex">
                             @foreach ( $content['scenic_views_name'] as $element)
-                                @if ( $loop->iteration <= 9 )
-                                    <p class="_txtec">{{ $element }}</p>
-                                @endif
+                                <p class="_txtec">{{ $element }}</p>
                             @endforeach
                         </div>
-
-                        @if ( count( $content['scenic_views_name'] ) >= 10 )
-                            <div class="w">
-                                @foreach ( $content['scenic_views_name'] as $element)
-                                    @if ( $loop->iteration >= 10 && $loop->iteration <= 20 )
-                                        <p class="_txtec">{{ $element }}</p>
-                                    @endif
-                                @endforeach
-                            </div>
-                        @endif
                     </div>
                 @else
                     <p class="_txtec">Not set</p>
@@ -555,7 +529,7 @@
 
         </div>
 
-        <div class="_btnsm clickEditRoomsSpaces" wire:click="$emitTo('listing.details.property.listing-rooms', 'reloadRoomSpace')">
+        <div class="_btnsm clickEditRoomsSpaces">
             <span class="_fcontent">
                 Edit
                 <span class="_svg-asm">
@@ -566,28 +540,24 @@
     </div>
 </div>
 
-{{-- <div class="block">
+<div class="block">
     <h2 class="h2-guests">Guest safety</h2>
 
     <div class="fx fx-ai-b fx-jc-sb" style="gap: 25px;">
         <div class="w100">
             <h3 class="_txteh">Property type</h3>
-            <div class="_width_text show_info">
-                @forelse ($content['safety_name'] as $element)
-                    <p class="_txtec">{{ $element }}</p>
-                @empty
-                    <p class="_txtec">Not set</p>
-                @endforelse
+            <div class="show_info">
+                <div class="_width_text _width_flex">
+                    <div class="wflex">
+                        @foreach ( $content['legal_name'] as $element)
+                            <p class="_txtec">{{ $element }}</p>
+                        @endforeach
+                    </div>
+                </div>
             </div>
-
-            @livewire('listing.details.safety.listing-safety', [
-                'listingId' => $listingId,
-                'safety'    => $content['safety'],
-            ])
-
         </div>
 
-        <div class="_btnsm edit">
+        <div class="_btnsm js__popupGuestSafety">
             <span class="_fcontent">
                 Edit
                 <span class="_svg-asm">
@@ -597,4 +567,3 @@
         </div>
     </div>
 </div>
- --}}

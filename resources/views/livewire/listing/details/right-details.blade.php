@@ -1,5 +1,5 @@
 <div class="content_resort_people">
-    <h2 class="h2-guests titulo txt_upper">studio resort for 4 people!</h2>
+    <h2 class="h2-guests titulo txt_upper">{{ $titleListing }}</h2>
     
     <div class="navcont__flech-fx pd_w" wire:ignore>
         <div class="cont_nav js__cont_nav">
@@ -42,11 +42,11 @@
                 @include('livewire.listing.details.indexGuest')
             @endif
 
-            <div class="block">
+{{--             <div class="block">
                 <div class="_btnsmblu click_give_feedback">
                     <span>Give feedback</span>
                 </div>
-            </div>
+            </div> --}}
         </div>
     </div>
 </div>

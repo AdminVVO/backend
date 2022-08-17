@@ -3,7 +3,7 @@
         <button type="button" class="cwhfcbbpfx xhidemdusr">X</button>
     </div>
 
-    <form wire:submit.prevent="SubmitCover">
+    <form wire:submit.prevent="SubmitCover" class="fxfdmh100">
         <div class="whfxoyx">
             <div class="poyxwh pd0_50">
                 <div class="popup_change_photo">

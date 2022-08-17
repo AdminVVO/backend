@@ -382,7 +382,7 @@ $(document).ready(function() {
         var html = '';
         html += '<div class="block_input">';
         html += '<div class="fx fx-fw-w" style="gap: 30px;">';
-        html += '<div class="mx480">';
+        html += '<div class="mxw466">';
         html += '<div class="txt-check-in">Length of stay</div>';
         html += '<div class="selected-modal mxw576" style="margin: 0;">';
         html += '<select>'
@@ -398,9 +398,9 @@ $(document).ready(function() {
         html += '<div class="mxw80">';
         html += '<div class="_flfpc">';
         html += '<div class="txt-check-in">Discount</div>';
-        html += '<label class="before_icon_input">';
-        html += '<input type="text" class="number" style="padding: 16px 0 16px 16px;" maxlength="2">';
-        html += '<span class="_txtec" style="padding: 16px 16px 16px 0;">%</span>';
+        html += '<label class="before_icon_input ipt_discount_porcentaje">';
+        html += '<input type="text" class="number" maxlength="2">';
+        html += '<span class="_txtec">%</span>';
         html += '</label>';
         html += '</div>';
         html += '</div>';
@@ -435,16 +435,16 @@ $(document).ready(function() {
         let discount = '';
         discount += '<div class="block_input">';
         discount += '<div class="fx fx-fw-w" style="gap: 30px;">';
-        discount += '<div class="mx480">';
+        discount += '<div class="mxw466">';
         discount += '<div class="txt-check-in">Day before arrival</div>';
         discount += '<input type="text" class="_inputreal number" maxlength="2">';
         discount += '</div>';
         discount += '<div class="mxw80">';
         discount += '<div class="_flfpc">';
         discount += '<div class="txt-check-in">Discount</div>';
-        discount += '<label class="before_icon_input">';
-        discount += '<input type="text" class="number" style="padding: 16px 0 16px 16px;" maxlength="2">';
-        discount += '<span class="_txtec" style="padding: 16px 16px 16px 0;">%</span>';
+        discount += '<label class="before_icon_input ipt_discount_porcentaje">';
+        discount += '<input type="text" class="number" maxlength="2">';
+        discount += '<span class="_txtec">%</span>';
         discount += '</label>';
         discount += '</div>';
         discount += '</div>';

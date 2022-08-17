@@ -751,7 +751,6 @@
                                             @if ( $element['status'] === 'listed' ) <i class="fas fa-circle _i-verde8"></i> @endif
                                             @if ( $element['status'] === 'snoozed' ) <i class="fas fa-moon _i-gris8"></i> @endif
                                             @if ( $element['status'] === 'unlisted' ) <i class="fas fa-circle _i-red8"></i> @endif
-                                            @if ( $element['status'] === 'deactivate' ) <i class="fas fa-circle _i-griswhite8"></i> @endif
                                             <div class="_txtec _txtcapit" style="margin-left: 10px;">{{ $element['status'] }}</div>
                                         </div>
                                     </td>

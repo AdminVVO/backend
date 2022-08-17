@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Listings;
+use App\Models\Listing\Listings;
 use App\Models\TemporyFile;
 use Auth;
 use File;

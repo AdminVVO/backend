@@ -43,7 +43,7 @@ class ListingGetting extends Component
         $validation = Validator::make([
            'inputGetting'  => $this->inputGetting,
         ],[
-            'inputGetting'  => 'required|max:250',
+            'inputGetting'  => 'max:250',
         ]);
 
             if ($validation->fails())

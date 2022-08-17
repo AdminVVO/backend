@@ -63,45 +63,58 @@ $(document).ready(function(){
         slider_init();
     }
     
-    var vvoRangePicker = new Lightpick({
-        field: document.getElementById("check_in"),
-        secondField: document.getElementById('check_out'),
-        lang: 'en',
-        format: 'MMM DD',
-        selectForward: true,
-        singleDate: false,
-        // hoveringTooltip: true,
-        numberOfMonths: 2,
-        // repick: true,
-        minDate: moment().startOf('MMMM DD, YYYY').add(0, 'day'),
-        footer: true,
-        locale: {
-            buttons: {
-                prev: '',
-                next: '',
-                reset: 'Clear dates',
-                apply: 'Save'
-            }
-        }
-    });
-    vvoRangePicker.el.classList.add("vvo_range_picker");
-    vvoRangePicker.el.prototype = {
-        config: function(options) {
-            console.log(options);
-        }
-    }
+    // var vvoRangePicker = new Lightpick({
+    //     field: document.getElementById("check_in"),
+    //     secondField: document.getElementById('check_out'),
+    //     lang: 'en',
+    //     format: 'MMM DD',
+    //     selectForward: true,
+    //     singleDate: false,
+    //     // hoveringTooltip: true,
+    //     numberOfMonths: 2,
+    //     // repick: true,
+    //     minDate: moment().startOf('MMMM DD, YYYY').add(0, 'day'),
+    //     footer: true,
+    //     locale: {
+    //         buttons: {
+    //             prev: '',
+    //             next: '',
+    //             reset: 'Clear dates',
+    //             apply: 'Save'
+    //         }
+    //     }
+    // });
+    // vvoRangePicker.el.classList.add("vvo_range_picker");
+    // vvoRangePicker.el.prototype = {
+    //     config: function(options) {
+    //         console.log(options);
+    //     }
+    // }
     
-    var pickerdateBirth = new Lightpick({
-        field: document.getElementById("js__dateBirth"),
-        lang: 'en',
-        format: 'YYYY/MM/DD',
-        parentEl: '.container_vvo_picker .popup_vvo_picker',
-        onSelect: function(){
-            $(".container_vvo_picker").hide();
-        }
-    });
-    pickerdateBirth.el.classList.add("vvo_picker");
+    // var pickerdateBirth = new Lightpick({
+    //     field: document.getElementById("js__dateBirth"),
+    //     lang: 'en',
+    //     format: 'YYYY/MM/DD',
+    //     parentEl: '.container_vvo_picker .popup_vvo_picker',
+    //     onSelect: function(){
+    //         $(".container_vvo_picker").hide();
+    //     }
+    // });
+    // pickerdateBirth.el.classList.add("vvo_picker");
     // pickerdateBirth.el.style.zIndex = "9999";
+
+    const picker = new easepick.create({
+        element: document.getElementById("check_in"),
+        css: [
+          'assets/css/easepick-vvo.css',
+          'assets/css/estilos.css'
+        ],
+        zIndex: 29,
+        plugins: ['RangePlugin'],
+        grid: 2,
+        calendars: 2,
+        autoApply: false
+    });
 
     $(document).ready(function() {
         $(".vvo_range_picker").removeClass("fixed");
