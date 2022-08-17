@@ -16,12 +16,12 @@ class CreateReviewsTable extends Migration
         Schema::create('reviews', function (Blueprint $table) {
             $table->uuid('review_id');
             $table->string('comment');
-            $table->string('rating_cleanliness', 2, 1);
-            $table->string('rating_communication', 2, 1);
-            $table->string('rating_check', 2, 1);
-            $table->string('rating_accuracy', 2, 1);
-            $table->string('rating_location', 2, 1);
-            $table->string('rating_value', 2, 1);
+            $table->decimal('rating_cleanliness', 2, 1);
+            $table->decimal('rating_communication', 2, 1);
+            $table->decimal('rating_check', 2, 1);
+            $table->decimal('rating_accuracy', 2, 1);
+            $table->decimal('rating_location', 2, 1);
+            $table->decimal('rating_value', 2, 1);
             $table->uuid('listing_id');
             $table->foreign('listing_id')
                 ->references('id_listings')
