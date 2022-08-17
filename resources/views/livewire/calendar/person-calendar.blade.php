@@ -2,6 +2,7 @@
     <div class="container-medio">
         <div class="contCalendarVvoFlex">
             <div id="calendar" wire:ignore></div>
+            <div class="reservaIndividualSelect" hidden></div>
             {{-- **************************** --}}
             @if ($show_modal == 1)
                 <div class="rgtContMrCal right_bk_show active-info">
@@ -13,7 +14,7 @@
                 <div class="sltNrlCont btnSltNrl">
                     <button type="button" class="vvo-btn-select scale js_submenuNrml">
                         <div class="fx fx-ai-c fx-jc-sb gp14">
-                            <span>{{$title}}</span>
+                            <span>{{ $title }}</span>
 
                             <svg xmlns="http://www.w3.org/2000/svg" width="14.652" height="8.378"
                                 viewBox="0 0 14.652 8.378">
@@ -42,7 +43,8 @@
 
                                             <div class="fx fx-ai-c">
                                                 <div class="mwhbrobc mr-r12">
-                                                <img loading="lazy" width="56px" height="40px"  src="{{ URL::asset('storage/photos-listing/') .'/'. \App\Models\Listing\Listings::ListingFile( $data['id'] ) .'/'. $data['imgUri'] }}">
+                                                    <img loading="lazy" width="56px" height="40px"
+                                                        src="{{ URL::asset('storage/photos-listing/') . '/' . \App\Models\Listing\Listings::ListingFile($data['id']) . '/' . $data['imgUri'] }}">
 
                                                 </div>
 
@@ -222,7 +224,8 @@
 
                             <div class="_kr7m4r pd" hidden>
                                 <div class="fx fx-fw-w fx-ai-c fx-jc-sb gp12">
-                                    <button type="button" class="_fpnigw0 js_hideMdlReservationTable close">Cancel</button>
+                                    <button type="button"
+                                        class="_fpnigw0 js_hideMdlReservationTable close">Cancel</button>
                                     <button class="btn-celest" wire:click="DateConfig()" id="updateDate">Save
                                 </div>
                                 </button>
@@ -567,7 +570,7 @@
         document.getElementsByClassName('reservaIndividualSelect')[0].addEventListener(
             'click',
             function() {});
-            
+
         document.getElementById("updateDate").addEventListener("click", function() {
             setTimeout(() => {
                 eventPrice();
@@ -622,7 +625,7 @@
                         setTimeout(() => {
                             eventPriceReset();
                             calendar.setOption('events', @this.reservation);
-        show_modals();
+                            show_modals();
                             eventPrice();
                         }, 500);
                     })
@@ -662,7 +665,8 @@
         divs.forEach((element, index) => {
             if (index > 0) {
                 Array.prototype.slice.call(element.children).forEach((data, key) => {
-                    if (data.childNodes[0].childNodes[1].children[0].clientHeight == 2 || data.childNodes[0].childNodes[1].children[0].clientHeight == 110) {
+                    if (data.childNodes[0].childNodes[1].children[0].clientHeight == 2 || data
+                        .childNodes[0].childNodes[1].children[0].clientHeight == 110) {
                         if (@this.date_config.lenght != 0) {
                             if (@this.date_config[data.attributes[2].nodeValue]) {
                                 data.childNodes[0].childNodes[1].innerHTML = `<div class="_badsdoller   js__infoReservationTable">
