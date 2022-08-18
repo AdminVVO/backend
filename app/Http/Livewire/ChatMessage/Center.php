@@ -40,17 +40,15 @@ class Center extends Component
 
             if ( Chats::where([
                     'transmitter_id' => Auth::id(),
-                    'receiver_id' => $queryName->user_id,
+                    'listing_id' => $this->listing,
                 ])->orWhere([
-                    'transmitter_id' => $queryName->user_id,
                     'receiver_id' => Auth::id(),
                 ])->exists() ) {
 
                     $this->room = Chats::where([
                         'transmitter_id' => Auth::id(),
-                        'receiver_id' => $queryName->user_id,
+                        'listing_id' => $this->listing,
                     ])->orWhere([
-                        'transmitter_id' => $queryName->user_id,
                         'receiver_id' => Auth::id(),
                     ])->pluck('id_chats')->first();
                 

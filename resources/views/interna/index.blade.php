@@ -264,9 +264,8 @@
         const pickerHome = new easepick.create({
             element: '#easypickHome',
             css: [
-                'https://cdn.jsdelivr.net/npm/@easepick/core@1.2.0/dist/index.css',
-                'https://cdn.jsdelivr.net/npm/@easepick/range-plugin@1.2.0/dist/index.css',
-                'https://cdn.jsdelivr.net/npm/@easepick/lock-plugin@1.2.0/dist/index.css',
+                '../assets/css/easepick-vvo.css',
+                '../assets/css/estilos.css'
             ],
             plugins: ['RangePlugin','LockPlugin'],
             format: 'DD MMM YYYY',
@@ -304,9 +303,8 @@
         const pickerInterna = new easepick.create({
             element: '#easypickInterna',
             css: [
-                'https://cdn.jsdelivr.net/npm/@easepick/core@1.2.0/dist/index.css',
-                'https://cdn.jsdelivr.net/npm/@easepick/range-plugin@1.2.0/dist/index.css',
-                'https://cdn.jsdelivr.net/npm/@easepick/lock-plugin@1.2.0/dist/index.css',
+                '../assets/css/easepick-vvo.css',
+                '../assets/css/estilos.css'
             ],
             plugins: ['RangePlugin','LockPlugin'],
             format: 'DD MMM YYYY',
@@ -339,9 +337,8 @@
         const pickerReserv = new easepick.create({
             element: '#easypickReserv',
             css: [
-                'https://cdn.jsdelivr.net/npm/@easepick/core@1.2.0/dist/index.css',
-                'https://cdn.jsdelivr.net/npm/@easepick/range-plugin@1.2.0/dist/index.css',
-                'https://cdn.jsdelivr.net/npm/@easepick/lock-plugin@1.2.0/dist/index.css',
+                '../assets/css/easepick-vvo.css',
+                '../assets/css/estilos.css'
             ],
             plugins: ['RangePlugin','LockPlugin'],
             format: 'DD MMM YYYY',
@@ -377,9 +374,8 @@
         const pickerPopupDate = new easepick.create({
             element: '#easypickPopupDate',
             css: [
-                'https://cdn.jsdelivr.net/npm/@easepick/core@1.2.0/dist/index.css',
-                'https://cdn.jsdelivr.net/npm/@easepick/range-plugin@1.2.0/dist/index.css',
-                'https://cdn.jsdelivr.net/npm/@easepick/lock-plugin@1.2.0/dist/index.css',
+                '../assets/css/easepick-vvo.css',
+                '../assets/css/estilos.css'
             ],
             plugins: ['RangePlugin','LockPlugin'],
             format: 'DD MMM YYYY',

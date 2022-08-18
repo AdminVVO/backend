@@ -18,6 +18,7 @@ class MessageChats extends Controller
 
     public function viewMessageUserPost(Request $request)
     {    
+        dd( $request->all() );
         $Listings = Listings::pluck('id_listings');
         
         if ( count( $Listings ) != 0 ) {

@@ -43,13 +43,14 @@ class InputMessage extends Component
 
         if ( strlen( $this->onListing ) !== 0 ) {
             $this->mountListing = true;
-            $queryName = Listings::with('userChat')->select('id_listings', 'user_id', 'title')->where('id_listings', $onListing)->whereNotIn('status', ['in process'])->first();
+            $queryName = Listings::with('userChat')->select('id_listings', 'user_id', 'title')->where('id_listings', $onListing)->first();
 
             if ( Chats::where([
                     'transmitter_id' => Auth::id(),
-                    'receiver_id' => $queryName->user_id,
+                    // 'receiver_id' => $queryName->user_id,
+                    'listing_id' => $onListing,
                 ])->orWhere([
-                    'transmitter_id' => $queryName->user_id,
+                    // 'transmitter_id' => $queryName->user_id,
                     'receiver_id' => Auth::id(),
                 ])->exists() ) {
 
@@ -58,9 +59,10 @@ class InputMessage extends Component
                     ])
                     ->where([
                         'transmitter_id' => Auth::id(),
-                        'receiver_id' => $queryName->user_id,
+                        // 'receiver_id' => $queryName->user_id,
+                        'listing_id' => $onListing,
                     ])->orWhere([
-                        'transmitter_id' => $queryName->user_id,
+                        // 'transmitter_id' => $queryName->user_id,
                         'receiver_id' => Auth::id(),
                     ])->select('id_chats','listing_id','transmitter_id','receiver_id')->first();
 

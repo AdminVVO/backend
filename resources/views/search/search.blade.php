@@ -92,10 +92,10 @@
         const picker = new easepick.create({
             element: '#easypickHome',
             css: [
-                'https://cdn.jsdelivr.net/npm/@easepick/core@1.2.0/dist/index.css',
-                'https://cdn.jsdelivr.net/npm/@easepick/range-plugin@1.2.0/dist/index.css',
+                'assets/css/easepick-vvo.css',
+                'assets/css/estilos.css'
             ],
-            plugins: ['RangePlugin'],
+            plugins: ['RangePlugin','LockPlugin'],
             format: 'DD MMM YYYY',
             calendars: 2,
             grid: 2,
@@ -107,6 +107,9 @@
                 },
             RangePlugin: {
                 elementEnd: '#endEasypickHome',
+            },
+            LockPlugin: {
+              minDate: new Date(),
             },
             setup(picker) {
                 picker.on('select', (e) => {

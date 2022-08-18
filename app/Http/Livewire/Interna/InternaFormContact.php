@@ -37,43 +37,39 @@ class InternaFormContact extends Component
                 $validation->validate();
 
         if ( Chats::where([
-            'transmitter_id' => Auth::id(),
-            'receiver_id' => $this->UserId,
-        ])->orWhere([
-            'transmitter_id' => $this->UserId,
-            'receiver_id' => Auth::id(),
-        ])->doesntExist() ) {
-        
-            $chatMessage = Chats::create([
                 'transmitter_id' => Auth::id(),
-                'receiver_id' => $this->UserId,
                 'listing_id' => $this->listingId,
-            ]);
-            
-            MessageChats::create([
-                'message'  => $this->listingTitle,
-                'user_id'  => Auth::id(),
-                'chats_id' => $chatMessage->id_chats,
-                'type'     => 'OnListing',
-            ]);
-
-        }else {
-            $chatMessage = Chats::where([
-                'transmitter_id' => Auth::id(),
-                'receiver_id' => $this->UserId,
             ])->orWhere([
-                'transmitter_id' => $this->UserId,
                 'receiver_id' => Auth::id(),
-            ])->select('id_chats')->first();
+            ])->doesntExist() ) {
+            
+                $chatMessage = Chats::create([
+                    'transmitter_id' => Auth::id(),
+                    'receiver_id' => $this->UserId,
+                    'listing_id' => $this->listingId,
+                ]);
+                
+                MessageChats::create([
+                    'message'  => $this->listingTitle,
+                    'user_id'  => Auth::id(),
+                    'chats_id' => $chatMessage->id_chats,
+                    'type'     => 'OnListing',
+                ]);
+        }else{
+                $chatMessage = Chats::where([
+                    'transmitter_id' => Auth::id(),
+                    'listing_id' => $this->listingId,
+                ])->orWhere([
+                    'receiver_id' => Auth::id(),
+                ])->select('id_chats')->first();
         }
 
         if ( Chats::where(['id_chats' => $chatMessage->id_chats])->pluck('listing_id')->first() != $this->listingId ) {
 
             Chats::where([
                 'transmitter_id' => Auth::id(),
-                'receiver_id' => $this->UserId,
+                'listing_id' => $this->listingId,
             ])->orWhere([
-                'transmitter_id' => $this->UserId,
                 'receiver_id' => Auth::id(),
             ])->update([
                 'listing_id' => $this->listingId,

@@ -44,10 +44,9 @@
                                     @foreach ($content as $element)
                                         <tr>
                                             <td>
-                                                <a href="{{ route('listing-show', $element['id_listings'] ) }}">
+                                                <a href="{{ route('details-listing', $element['id_listings'] ) }}">
                                                     <div class="checkbox-item checkbox-item_img">
                                                         <label class="check_click" style="gap: 20px; width: 100%;">
-                                                            <input type="radio" name="listing">
                                                             <div class="bg_check_click">
                                                                 <div class="_cont-l-img">
                                                                     <div class="_ad-list_img">

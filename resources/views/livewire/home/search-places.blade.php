@@ -1,6 +1,6 @@
-<form wire:submit.prevent="SubmitPlaces">
+<form wire:submit.prevent="SubmitPlaces" >
     <div class="_flex-js">
-        <div class="inputBox">
+        <div class="inputBox" wire:ignore>
             <div class="place_select">
                 <span class="skeleton skeleton_txt">Location</span>
                 <div class="place_select-flex skeleton">
@@ -34,7 +34,7 @@
 
         <div class="inputBox skeleton">
             <div class="book-f_home" wire:ignore.self>
-                <div class="place_select menuGuest">
+                <div class="place_select menuGuest" wire:ignore>
                     <span class="skeleton skeleton_txt">Guest</span>
 
                     <i class="far fa-user skeleton">
