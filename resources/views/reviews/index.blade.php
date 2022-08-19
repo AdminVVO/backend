@@ -115,18 +115,14 @@
                                         </div>
                                     </div>
 
-                                    @if ($data['count'] > 1)
-                                        <button type="button" class="btn-red alants mr-t24 skeleton">Show all
-                                            {{ $data['count'] }}</button>
-                                    @endif
                                 </div>
                                 <br><br>
                                 <div class="usrscont">
                                     <div class="cblock">
                                         @foreach ($data['content'] as $key => $item)
                                             @if ($loop->iteration > 5)
-                                                @break
-                                            @endif
+                                            @break
+                                        @endif
                                         <div class="content-user_inf">
                                             <span class="_pf-msg skeleton">
                                                 @if (file_exists(storage_path('app/public/uploadAvatar/' . $item['avatar'])))
@@ -152,10 +148,16 @@
                                         </div>
                                         <br>
                                     @endforeach
+
                                 </div>
                             </div>
+
                         </div>
 
+                        @if ($data['count'] > 1)
+                            <button type="button" class="btn-red alants mr-t24 skeleton">Show all
+                                {{ $data['count'] }}</button>
+                        @endif
                     </div>
                 </main>
             </div>

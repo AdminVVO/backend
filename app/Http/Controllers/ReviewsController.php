@@ -30,7 +30,7 @@ class ReviewsController extends Controller
 
         foreach ($reviews as $key => $review) {
 
-            if ($key > 4) {
+            if ($key > 2) {
                 break;
             }
 
