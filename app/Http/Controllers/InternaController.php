@@ -96,7 +96,11 @@ class InternaController extends Controller
                 $amenitiesModal = $filter->distinct('typeList','code')->get()->toArray();
                 $amenitiesInit = $filter->distinct('code')->get()->toArray();
 
+                if(count($amenitiesModal) == 0) {
+                    return redirect('/')->with('message', 'Listing no completed configuration.');
+                }
         foreach ($amenitiesModal as $key => $value) {
+
             $amenitiesModalFinal[$value['typeList']][$key]['code'] = $value['code'];
             $amenitiesModalFinal[$value['typeList']][$key]['name'] = $value['name'];
         }
@@ -106,7 +110,6 @@ class InternaController extends Controller
             'about',
         )
         ->where('user_id', $content['user_id'])->first();
-
         return view('interna.index', [
             'content' => $content,
             'amenitiesModal' => $amenitiesModalFinal,

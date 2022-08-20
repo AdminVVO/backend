@@ -25,8 +25,8 @@
                             <div class="brbsbcp">
                                 <div class="dggtc11g">
                                     @foreach ($element['avatar'] as $avatar)
-                                        <img src="{{ URL::asset('storage/uploadListing/') }}/{{ $avatar }}"
-                                            alt="">
+                                    <img src="{{ URL::asset('storage/photos-listing/') .'/'. \App\Models\Listing\Listings::ListingFile( $element['listing'] ) .'/'. $avatar}}">
+                                    
                                     @endforeach
                                 </div>
 

@@ -255,11 +255,12 @@
                                 </div>
                             </div>
                             <div class="desc-location">
-                                <h2 class="h2-guests skeleton skeleton_txt" wire:ignore.self>{{ $name }}</h2>
+                                <h2 class="h2-guests skeleton skeleton_txt" wire:ignore>{{ $name }}</h2>
                             </div>
                             <div class="content_view">
                                 <div class="hidden_galerias">
-                                    @forelse ($contentListing as $element)
+                                    @if($contentListing)
+                                    @foreach ($contentListing as $element)
                                         <a href="{{ route('interna', $element['id_listings']) }}"
                                             class="content_galerias skeleton" wire:ignore>
                                             <div class="slideshow-container skeleton skeleton_card" wire:ignore>
@@ -294,15 +295,9 @@
                                                 </button>
 
                                                 <div class="card_img">
-                                                    <img loading="lazy"
-                                                        src="{{ URL::asset('storage/uploadListing/' . $element['photos'][0]) }}"
-                                                        alt="">
-                                                    <img loading="lazy"
-                                                        src="{{ URL::asset('storage/uploadListing/' . $element['photos'][1]) }}"
-                                                        alt="">
-                                                    <img loading="lazy"
-                                                        src="{{ URL::asset('storage/uploadListing/' . $element['photos'][2]) }}"
-                                                        alt="">
+                                                        <img src="{{ URL::asset('storage/photos-listing/') .'/'. \App\Models\Listing\Listings::ListingFile( $element['id_listings'] ) .'/'. $element['photos'][0]['name'] }}">
+                                                        <img src="{{ URL::asset('storage/photos-listing/') .'/'. \App\Models\Listing\Listings::ListingFile( $element['id_listings'] ) .'/'. $element['photos'][1]['name'] }}">
+                                                        <img src="{{ URL::asset('storage/photos-listing/') .'/'. \App\Models\Listing\Listings::ListingFile( $element['id_listings'] ) .'/'. $element['photos'][2]['name'] }}">
                                                 </div>
 
                                                 <div class="content-dots">
@@ -343,13 +338,7 @@
                                                 </p>
                                             </div>
                                         </a>
-                                    @empty
-                                        <div class="medio">
-                                            <div class="now__listabscard">
-                                                <p>No Have Listing</p>
-                                            </div>
-                                        </div>
-                                    @endforelse
+                                    @endforeach
                                 </div>
                             </div>
 
@@ -368,6 +357,7 @@
                         <div class="content_location-width">
                             <div class="contact-map" id='mapboxSearch' wire:ignore></div>
                         </div>
+                        @endif
                     </div>
                 </div>
             </div>

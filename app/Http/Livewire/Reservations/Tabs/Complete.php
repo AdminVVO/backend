@@ -15,11 +15,12 @@ class Complete extends Component
         $this->reservation = Reservation::join('users', 'reservations.user_id', 'users.id_user')
             ->join('listings', 'reservations.listing_id', 'listings.id_listings')
             ->whereIn('reservations.status', [4, 5])
-            ->get(['reservations.status', 'name', 'title', 'reservation_amount', 'reservations.created_at', 'booked', 'total_payout', 'checkin', 'checkout', 'number_guests', 'note'])
+            ->where('listings.user_id', auth()->user()->id_user)
+            ->get(['reservations.id_reservation','reservations.status', 'name', 'title', 'reservation_amount', 'reservations.created_at', 'booked', 'total_payout', 'checkin', 'checkout', 'number_guests', 'note', 'phone'])
             ->toArray();
 
         foreach ($this->reservation as $key => $data) {
-            $this->reservation[$key]['status'] = $this->status($this->reservation[$key]['status']);
+            $this->reservation[$key]['status'] = $this->reservation[$key]['status'];
             $this->reservation[$key]['checkin'] = Carbon::parse($data['checkin'])->format('M d, Y');
             $this->reservation[$key]['checkout'] = Carbon::parse($data['checkout'])->format('M d, Y');
             $this->reservation[$key]['booked'] = Carbon::parse($data['booked'])->format('M d, Y');
@@ -28,15 +29,12 @@ class Complete extends Component
         return view('livewire.reservations.tabs.complete');
     }
 
-    public function status($status)
-    {
-        switch ($status) {
-            case 4:
-                return 'review guest';
-                break;
-            case 5:
-                return 'past guest';
-                break;
-        }
+    public function updatePhone($data) {
+        $this->emitTo('reservations.tabs.modals.options', 'refreshOption', $data);
     }
+    
+    public function updateDetail($data) {
+        $this->emitTo('reservations.tabs.modals.details', 'refreshReservation', $this->reservation[$data]['id_reservation']);
+    }
+    
 }

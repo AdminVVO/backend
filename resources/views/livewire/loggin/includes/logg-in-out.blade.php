@@ -1,4 +1,4 @@
-<div class="content_hidden-welcome">
+<div class="content_hidden-welcome" wire:ignore>
     <div class="log">
         <strong>Sign Up</strong>
     </div>
@@ -72,8 +72,9 @@
                 @else
                 <div wire:ignore>
                     <h4 style="margin-top: 23px;">Phone Number</h4>
-                    <x-tel-input
-                        wire:model="input.phone"
+                    <input
+                        type="tel"
+                        wire:model.defer="input.phone"
                         id="phoneLogin"
                         name="phoneLogin"
                         class="form-input _input-mod"

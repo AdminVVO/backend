@@ -108,7 +108,7 @@
         </div>
 
         <div class="btn-red_center">
-            <a href="#" class="btn-red">Contact Us</a>
+            <a href="/validation/process" class="btn-red">Contact Us</a>
         </div>
     </div>
 </div>

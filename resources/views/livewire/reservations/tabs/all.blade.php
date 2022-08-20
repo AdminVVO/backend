@@ -1,4 +1,4 @@
-<div class="_scrolltable scroll_n" style="margin-top: 50px;">
+<div class="_scrolltable scroll_n" style="margin-top: 50px; overflow:initial;">
     <div class="_width">
         <table class="_tb-reservations">
             <thead>
@@ -44,100 +44,66 @@
                 @foreach ($reservation as $key => $data)
                     <tr>
                         <td>
-                            <div class="_txtverd">{{$data['status']}}</div>
+                            @if ($data['status'] == 0)
+                                <div class="_txtverd">Confirmed</div>
+                            @elseif($data['status'] == 1)
+                                <div class="_txtverd">Arriving tomorrow</div>
+                            @elseif($data['status'] == 2)
+                                <div class="_txtred">Trip Request</div>
+                            @elseif($data['status'] == 3)
+                                <div class="_txtverd">Currently hosting</div>
+                            @elseif($data['status'] == 4)
+                                <div class="_txtec">Review Guest</div>
+                            @elseif($data['status'] == 5)
+                                <div class="_txtec">Past Guest</div>
+                            @elseif($data['status'] == 6)
+                                <div class="_txtverd">Bye Guest</div>
+                            @endif
                         </td>
                         <td>
-                            <div class="_txtblu _txtcapit">{{$data['name']}}</div>
-                            <div class="_txtec">{{ $data['number_guests']}}</div>
+                            <div class="_txtblu _txtcapit">{{ $data['name'] }}</div>
+                            <div class="_txtec">{{ $data['number_guests'] }} adults</div>
                         </td>
                         <td>
-                            <div class="_txtec">{{$data['checkin']}}</div>
+                            <div class="_txtec">{{ $data['checkin'] }}</div>
                         </td>
                         <td>
-                            <div class="_txtec">{{$data['checkout']}}</div>
+                            <div class="_txtec">{{ $data['checkout'] }}</div>
                         </td>
                         <td>
-                            <div class="_txtec">{{$data['booked']}}</div>
-                            <div class="_txtec16">{{$data['booked_hour']}}</div>
+                            <div class="_txtec">{{ $data['booked'] }}</div>
+                            <div class="_txtec16">{{ $data['booked_hour'] }}</div>
                         </td>
                         <td>
-                            <div class="_txtec txt_upper">{{$data['title']}}</div>
+                            <div class="_txtec txt_upper">{{ $data['title'] }}</div>
                         </td>
                         <td>
-                            <div class="_txtec">${{number_format($data['total_payout'], 2)}}</div>
+                            <div class="_txtec">${{ number_format($data['total_payout'], 2) }}</div>
                         </td>
                         <td>
                             <div class="_fblock">
-                                <button class="btn-border">Details</button>
-                                <div class="_puntos3">
-                                    <span class="_options">
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="_svg28">
-                                            <path fill="currentColor"
-                                                d="M304 256c0 26.5-21.5 48-48 48s-48-21.5-48-48 21.5-48 48-48 48 21.5 48 48zm120-48c-26.5 0-48 21.5-48 48s21.5 48 48 48 48-21.5 48-48-21.5-48-48-48zm-336 0c-26.5 0-48 21.5-48 48s21.5 48 48 48 48-21.5 48-48-21.5-48-48-48z">
-                                            </path>
-                                        </svg>
-                                    </span>
-
-                                    <div class="_menu-options">
-                                        <div class="_menu-options-items _shadow-black3-6">
-                                            <ul>
-                                                <li>
-                                                    <div class="_mxpadd">
-                                                        <div class="_txtec">Reservation code: </div>
-                                                        <div class="_txtec txt_upper">hmrckrthz8</div>
-                                                    </div>
-                                                </li>
-                                            </ul>
-
-                                            <ul>
-                                                <li>
-                                                    <div class="_b-flex">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" width="18.191"
-                                                            height="18.227" viewBox="0 0 18.191 18.227">
-                                                            <path
-                                                                d="M19.559,15.3v2.472a1.648,1.648,0,0,1-1.8,1.648,16.31,16.31,0,0,1-7.112-2.53A16.071,16.071,0,0,1,5.7,11.942,16.31,16.31,0,0,1,3.175,4.8,1.648,1.648,0,0,1,4.815,3H7.287A1.648,1.648,0,0,1,8.935,4.417a10.582,10.582,0,0,0,.577,2.316,1.648,1.648,0,0,1-.371,1.739L8.095,9.519a13.187,13.187,0,0,0,4.945,4.945l1.047-1.047a1.648,1.648,0,0,1,1.739-.371,10.582,10.582,0,0,0,2.316.577A1.648,1.648,0,0,1,19.559,15.3Z"
-                                                                transform="translate(-2.268 -2.1)" fill="none"
-                                                                stroke="#7d7d7d" stroke-linecap="round"
-                                                                stroke-linejoin="round" stroke-width="1.8" />
-                                                        </svg>
-                                                        <div class="_txtec">Call +1 xxx-xxx-xxx</div>
-                                                    </div>
-                                                </li>
-                                            </ul>
-
-                                            <ul>
-                                                <li>
-                                                    <div class="_b-flex">
-                                                        <i class="far fa-envelope _i-gris18"></i>
-                                                        <div class="_txtec">Message</div>
-                                                    </div>
-                                                </li>
-                                            </ul>
-
-                                            <ul>
-                                                <li>
-                                                    <div class="_b-flex">
-                                                        <i class="far fa-window-close _i-gris18"></i>
-                                                        <div class="_txtec">Change or cancel</div>
-                                                    </div>
-                                                </li>
-                                            </ul>
-
-                                            <ul>
-                                                <li>
-                                                    <div class="_b-flex">
-                                                        <i class="far fa-money-bill-alt _i-gris18"></i>
-                                                        <div class="_txtec">Send or request money</div>
-                                                    </div>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
+                                @if ($data['status'] == 4)
+                                    {{-- <button class="btn-border_red js__reviewMdlReservation" wire:click="updateReviews({{$key}})">Review</button> --}}
+                                    <button class="btn-border js__detailsMdlReservation"
+                                    wire:click="updateDetail({{ $key }})">Details</button>
+                                @else
+                                    <button class="btn-border js__detailsMdlReservation"
+                                        wire:click="updateDetail({{ $key }})">Details</button>
+                                @endif
+                                <span class="_options" wire:click="updatePhone({{ $data['phone'] }})">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="_svg28">
+                                        <path fill="currentColor"
+                                            d="M304 256c0 26.5-21.5 48-48 48s-48-21.5-48-48 21.5-48 48-48 48 21.5 48 48zm120-48c-26.5 0-48 21.5-48 48s21.5 48 48 48 48-21.5 48-48-21.5-48-48-48zm-336 0c-26.5 0-48 21.5-48 48s21.5 48 48 48 48-21.5 48-48-21.5-48-48-48z">
+                                        </path>
+                                    </svg>
+                                </span>
                             </div>
                         </td>
                     </tr>
                 @endforeach
+                @livewire('reservations.tabs.modals.options')
+                @livewire('reservations.tabs.modals.details')
+                @livewire('reservations.tabs.modals.reviews')
             </tbody>
         </table>
     </div>

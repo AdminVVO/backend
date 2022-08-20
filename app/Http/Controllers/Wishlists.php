@@ -14,6 +14,7 @@ class Wishlists extends Controller
 
     public function viewWish($name)
     {
+
         return $this->redirectView($name);
     }
 
@@ -25,6 +26,7 @@ class Wishlists extends Controller
             'listing_id',
             'created_at',
         )->where(['user_id' => Auth::id()])->get();
+
         if($name) {
             $content->where(['name' => $name]);
         }

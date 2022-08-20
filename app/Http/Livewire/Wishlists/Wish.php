@@ -59,11 +59,11 @@ class Wish extends Component
                 $title = $value['title'];
                 $price = $value['base_price'];
                 $room = ucwords(RoomsProperty::TypeName($value['like_place'])  . ' - ' . RoomsProperty::PropertyName($value['property_type']));
-                $photoInit1 = env('APP_URL') . 'storage/uploadListing/' . $value['photos'][0];
+                $photoInit1 = env('APP_URL') . '/storage/photos-listing/' .'/'. \App\Models\Listing\Listings::ListingFile( $value['id_listings'] ) .'/'. $value['photos'][0]['name'];
                 $photo1 = "<img src='$photoInit1' alt='' class='card_img_active'>";
-                $photoInit2 = env('APP_URL') . 'storage/uploadListing/' . $value['photos'][1];
+                $photoInit2 = env('APP_URL') . '/storage/photos-listing/' .'/'. \App\Models\Listing\Listings::ListingFile( $value['id_listings'] ) .'/'. $value['photos'][1]['name'];
                 $photo2 = "<img src='$photoInit2' alt='' class='card_img_active'>";
-                $photoInit3 = env('APP_URL') . 'storage/uploadListing/' . $value['photos'][2];
+                $photoInit3 = env('APP_URL') . '/storage/photos-listing/' .'/'. \App\Models\Listing\Listings::ListingFile( $value['id_listings'] ) .'/'. $value['photos'][2]['name'];
                 $photo3 = "<img src='$photoInit3' alt='' class='card_img_active'>";
                 $latitude = $value['latitude'];
                 $longitude = $value['longitude'];
@@ -79,15 +79,13 @@ class Wish extends Component
                         'coordinates' => [$latitude, $longitude]
                     ]
                 ];
-            }
+            } 
 
             if ($this->preloadReturnMap) {
                 $this->dispatchBrowserEvent('loadDataMapBoxOne', ['preLoadCoordinate' => $this->preLoadCoordinate, 'contentCoordinate' => $this->contentCoordinate]);
             }
-        }
-
-        if (count($this->contentListing) == 0) {
-            $this->reset(['contentCoordinate', 'preLoadCoordinate', 'contentListing']);
+        } else {
+            return view('home.index');
         }
 
 
@@ -97,6 +95,8 @@ class Wish extends Component
     public function removeListing($payload)
     {
         Wishlists::where(['user_id' => Auth::id(), 'name' => $this->name, 'listing_id' => $payload])->distinct('listing_id')->delete();
+        $this->preLoadContent();
+
         $this->preloadReturnMap = true;
     }
 
@@ -108,7 +108,7 @@ class Wish extends Component
         })->pluck('name', 'code');
 
         $this->wishlists = Wishlists::where(['user_id' => Auth::id(), 'name' => $this->name])->distinct('listing_id')->pluck('listing_id')->toArray();
-
+        
         $this->contentListing = Listings::select(
             'listings.id_listings',
             'listings.title',
@@ -156,8 +156,7 @@ class Wish extends Component
                         return $query->where('listing_pricings.base_price', '>=', '80');
                 }
             })
-            ->get();
-
+            ->get()->toArray();
         $this->countListing = count($this->contentListing);
     }
 

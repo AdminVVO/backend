@@ -78,11 +78,13 @@
                     <td>
                         <div class="_fblock">
                             <div class="_txtec">${{number_format($data['reservation_amount'], 2)}}</div>
-                            <button class="btn-border">Details</button>
+                            <button class="btn-border js__detailsMdlReservation" wire:click="updateDetail({{$key}})">Details</button>
                         </div>
                     </td>
                 </tr>
                 @endforeach
+
+                @livewire('reservations.tabs.modals.details')
             </tbody>
         </table>
     </div>

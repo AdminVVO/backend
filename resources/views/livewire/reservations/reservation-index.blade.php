@@ -1,16 +1,23 @@
 <div>
-    <div class="content-scroll-reserva scroll_n">
-        <div class="tabs_items_group scroll_n">
-            <h3 class="tabs_items {{ $tabs == 'Upcoming' ? 'active_tabs' : '' }}" wire:click="changeTabs('Upcoming')">Upcoming</h3>
-            <h3 class="tabs_items {{ $tabs == 'Completed' ? 'active_tabs' : '' }}" wire:click="changeTabs('Completed')">Completed</h3>
-            <h3 class="tabs_items {{ $tabs == 'Canceled' ? 'active_tabs' : '' }}" wire:click="changeTabs('Canceled')">Canceled</h3>
-            <h3 class="tabs_items {{ $tabs == 'All' ? 'active_tabs' : '' }}" wire:click="changeTabs('All')">All</h3>
-        </div>
-
-        <div class="btn-right-scroll">
-            <span class="bg-btn-right">
-                <i class="fas fa-chevron-right"></i>
-            </span>
+    <div class="content-scroll-reserva navcont__flech-fx">
+        <div class="cont_nav js__cont_nav">
+            <div class="nav__links-txt tab-container">
+                <button type="button" class="li__links-txt ">
+                    <span class="tabs_items  {{ $tabs == 'Upcoming' ? 'active_tabs' : '' }}" wire:click="changeTabs('Upcoming')">Upcoming</span>
+                </button>
+    
+                <button type="button" class="li__links-txt ">
+                    <span class="tabs_items {{ $tabs == 'Completed' ? 'active_tabs' : '' }}" wire:click="changeTabs('Completed')">Completed</span>
+                </button>
+    
+                <button type="button" class="li__links-txt ">
+                    <span class="tabs_items {{ $tabs == 'Canceled' ? 'active_tabs' : '' }}" wire:click="changeTabs('Canceled')">Canceled</span>
+                </button>
+    
+                <button type="button" class="li__links-txt ">
+                    <span class="tabs_items {{ $tabs == 'All' ? 'active_tabs' : '' }}" wire:click="changeTabs('All')">All</span>
+                </button>
+            </div>
         </div>
     </div>
 

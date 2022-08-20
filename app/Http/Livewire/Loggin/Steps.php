@@ -12,7 +12,6 @@ use Auth;
 use Illuminate\Support\Facades\Validator;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\Component;
-use Route;
 use Carbon;
 
 class Steps extends Component
@@ -213,17 +212,15 @@ class Steps extends Component
     {
         $this->count += 1;
 
-        if ( $this->count === 1 ) {
-            $yearInQuestion = date("Y-m-d",strtotime( date("Y-m-d") . "- 18 year"));
+        if($this->content['type'] == 'email') {
+            $this->input['email'] = $this->content['recipients'];
+        }
 
-            $validation = Validator::make([
-               'name'      => $this->input['name'],
-               'last_name' => $this->input['last_name'],
-               'gender'    => $this->input['gender'],
-               'birth'     => $this->input['birth'],
-               'email'     => $this->input['email'],
-               'phone'     => $this->input['phone']
-            ],[
+         if ( $this->count === 1 ) {
+            $yearInQuestion = date("Y-m-d",strtotime( date("Y-m-d") . "- 18 year"));
+            
+            $validation = Validator::make(
+            $this->input,[
                 'name'      => 'required|string|min:3',
                 'last_name' => 'required|string|min:3',
                 'gender'    => 'required|in:Male,Female',
@@ -231,10 +228,10 @@ class Steps extends Component
                 'email'     => 'required|email',
                 'phone'     => 'required',
             ]);
-
-                if ($validation->fails())
+                if ($validation->fails()) {
+                    $this->reset('input');
                     return $validation->validate();
-
+                }
             $content = [
                 'name'      => $this->input['name'],
                 'last_name' => $this->input['last_name'],
@@ -242,11 +239,12 @@ class Steps extends Component
                 'dateBirth' => $this->input['birth'],
                 'email'     => $this->input['email'],
                 'phone'     => $this->input['phone'],
-                'promotion' => $this->input['promotion'],
+                'promotion' => $this->input['promotion'] ?? false,
             ];
-
-            $this->sendSave( $content );
-        }
+            $auth = $this->sendSave( $content );
+            Auth::login( $auth );
+            return redirect()->to('/');
+         }
     }
 
     private function sendSave($payload)
@@ -263,8 +261,9 @@ class Steps extends Component
             'password'   => Hash::make( $payload['email'] . '@' . $payload['dateBirth'] ),
         ]);
         
-        Auth::login( $authUser );
-            return $this->flash('success', 'Welcome to Vvoutlet.', [], route( $this->routeRedirect ));
+        return $authUser;
+
+            // return $this->flash('success', 'Welcome to Vvoutlet.', [], route( $this->routeRedirect ));
     }
 
     public function moreOptions()

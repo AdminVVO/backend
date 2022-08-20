@@ -109,12 +109,15 @@
             Opera: function() {
                 return navigator.userAgent.match(/Opera Mini/i);
             },
+            WebOS: function() {
+                return navigator.userAgent.match(/WebOS/i);
+            },
             Windows: function() {
                 return navigator.userAgent.match(/IEMobile/i);
             },
             any: function() {
                 return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() ||
-                    isMobile.Windows());
+                    isMobile.Windows() || isMobile.WebOS());
             }
         };
 
