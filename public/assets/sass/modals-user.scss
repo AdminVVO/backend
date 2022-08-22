@@ -27,7 +27,7 @@ body {
         width: 100%;
         height: auto; // x
         max-width: 660px;
-        max-height: -webkit-fill-available; // x
+        max-height: 100%; // x
         border-radius: 10px;
         z-index: 999;
         position: relative;
@@ -1946,7 +1946,7 @@ body {
     }
 
     .container_all_amenitles {
-        // display: none;
+        // display: block;
 
         .fxfbwhmhbrzi {
             max-width: 980px;
@@ -2048,7 +2048,7 @@ body {
                 width: 100%;
                 height: auto;
                 max-width: 796px;
-                max-height: -webkit-fill-available;
+                max-height: 100%;
                 border-radius: 10px;
                 z-index: 999;
 

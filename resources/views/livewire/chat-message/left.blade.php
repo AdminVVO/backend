@@ -84,7 +84,7 @@
                                     <div class="txt-center">
                                         <div class="not-h">You have no unread messages</div>
                                         <p class="_txtec">When you book a trip or experience, messages from your host will appear here.</p>
-                                        <a wire:click="changereloadsss" class="btn-bd-white">
+                                        <a href="{{ route('/') }}" class="btn-bd-white">
                                             <span class="_txteh mr0">Explore Vvoutlet</span>
                                         </a>
                                     </div>

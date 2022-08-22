@@ -5,15 +5,15 @@
 @endsection
 
 @section('css')
+    <link href="{{ URL::asset('assets/css/header-bck.css') }}" rel="stylesheet"/>
     <link href="{{ URL::asset('assets/css/owl.carousel.min.css') }}" rel="stylesheet"/>
     <link href="{{ URL::asset('assets/css/owl.theme.default.min.css') }}" rel="stylesheet"/>
     <link href="{{ URL::asset('assets/css/modals-user.css') }}" rel="stylesheet"/>
-    <link href="{{ URL::asset('assets/css/header-admin.css') }}" rel="stylesheet" />
     <link href="{{ URL::asset('assets/css/payments.css') }}" rel="stylesheet" />
 @endsection
 
 @section('header')
-    @include('layouts.HeaderAuth')
+    @include('layouts.HeaderGuest')
 @endsection
 
 @section('content')
@@ -26,7 +26,6 @@
                             class="fas fa-chevron-right"></i><span class="_txtecbold16">Payments & payouts</span>
                     </div>
                     <h2 class="h2-guests_bold35 skeleton skeleton_txt">Payments & payouts</h2>
-                    {{--  --}}
                     <div class="content-scroll-local">
                         <div class="navcont__flech-fx">
                             <div class="cont_nav js__cont_nav">
@@ -38,7 +37,9 @@
                                     </button>
 
                                     <button type="button" class="li__links-txt tabs_payouts skeleton">
+                                        <span class="tabs_items">
                                             <span class="skeleton skeleton_txt tabs_items">Payouts</span>
+                                        </span>
                                     </button>
 
                                     <button type="button" class="li__links-txt tabs_taxes skeleton">

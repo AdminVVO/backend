@@ -42,7 +42,7 @@
                 <p class="_txtec">Choose the policy that will apply to stays under 28 nights.</p>
             </div>
 
-            @livewire('listing-test.policies.listing-cancellation', [
+            @livewire('listing.details.policies.listing-cancellation', [
                     'listingId' => $listingId,
                     'cancellation' => $content['cancellation_policy'],
             ])
@@ -78,7 +78,7 @@
                 <span class="_txtec">Choose how guests will book your home.</span>
             </div>
 
-            @livewire('listing-test.policies.listing-instant-book', [
+            @livewire('listing.details.policies.listing-instant-book', [
                     'listingId' => $listingId,
                     'instant_book' => $content['instant_book'],
             ])
@@ -109,7 +109,7 @@
                 @endif
             </div>
 
-            @livewire('listing-test.policies.listing-checkin', [
+            @livewire('listing.details.policies.listing-checkin', [
                 'listingId' => $listingId,
                 'start' => $content['checkin_window_start'],
                 'end' => $content['checkin_window_end'],
@@ -140,7 +140,7 @@
                 @endif
             </div>
 
-            @livewire('listing-test.policies.listing-checkout', [
+            @livewire('listing.details.policies.listing-checkout', [
                 'listingId' => $listingId,
                 'out' => $content['checkout_time'],
             ])
@@ -174,7 +174,7 @@
                 <p class="_txtec">If you submit a damage claim within 14 days of checkout, guests will be responsible for damages up to this amount.</p>
             </div>
 
-            @livewire('listing-test.policies.listing-security-deposit', [
+            @livewire('listing.details.policies.listing-security-deposit', [
                 'listingId' => $listingId,
                 'security' => $content['security_deposit'],
             ])
@@ -192,7 +192,7 @@
     </div>
 </div>
 
-@livewire('listing-test.house.listing-rulers', [
+@livewire('listing.details.house.listing-rulers', [
     'listingId' => $listingId,
     'children' => $content['suitable_for_children'],
     'infants' => $content['suitable_for_infants'],
@@ -219,7 +219,7 @@
                 <p class="_txtec">You can include any requirements around safety concerns, shared space rules, and your community regulations.</p>
             </div>
 
-            @livewire('listing-test.house.listing-additional-rulers', [
+            @livewire('listing.details.house.listing-additional-rulers', [
                 'listingId' => $listingId,
                 'additional' => $content['additional_rules'],
             ])
@@ -245,7 +245,7 @@
         </div>
     </div>
 
-    @livewire('listing-test.requirement.listing-phofile', [
+    @livewire('listing.details.requirement.listing-phofile', [
         'listingId' => $listingId,
         'profile' => $content['profile_photo_required'],
     ])
@@ -285,7 +285,7 @@
                 @endif
             </div>
 
-            @livewire('listing-test.requirement.listing-primary', [
+            @livewire('listing.details.requirement.listing-primary', [
                 'listingId' => $listingId,
                 'primary' => $content['primary_listing'],
             ])

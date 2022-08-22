@@ -41,7 +41,7 @@
                             <div class="_csuiinfo">
                                 <div class="_suisinfo">
                                     <div class="_txteh">Guests</div>
-                                    <div class="_txtec">3 guests</div>
+                                    <div class="_txtec">{{ $inputGuest }}</div>
                                 </div>
 
                                 <button type="button" class="txtunder__ics js__guests-modal">
@@ -134,16 +134,16 @@
                     <div class="navcont__flech-fx mr-t24 mr-b32" wire:ignore>
                         <div class="cont_nav">
                             <div class="nav__links-txt scroll_n ">
-                                <button type="button" class="li__links-txt _creditcard">
+                                {{-- <button type="button" class="li__links-txt _creditcard">
                                     <span class="tabs_items active_tabs">Credit or debit card</span>
                                 </button>
 
                                 <button type="button" class="li__links-txt _glepay">
                                     <span class="tabs_items">Google Pay</span>
-                                </button>
+                                </button> --}}
 
                                 <button type="button" class="li__links-txt _paypal">
-                                    <span class="tabs_items">Paypal</span>
+                                    <span class="tabs_items active_tabs">Paypal</span>
                                 </button>
                             </div>
 
@@ -151,7 +151,7 @@
                         </div>
                     </div>
 
-                    <form wire:submit.prevent="SubmitCreditCard" wire:ignore.self>
+                    {{-- <form wire:submit.prevent="SubmitCreditCard" wire:ignore.self>
                         <div class="_hiddencreditordebit">
                             <div class="txt-check-in">Card Number</div>
 
@@ -319,9 +319,9 @@
                                 <button type="button" class="txtunder__ics txt16">Guest Refund Policy</button>.
                             </p>
                         </div>
-                    </div>
+                    </div> --}}
 
-                    <div class="_showpaypal" style="display: none;">
+                    <div class="_showpaypal">
                         <div class="mr-b32">
                             <button type="button" class="btn-yellow mx210">
                                 <div class="fx fx-ai-c fx-jc-c gp3">
@@ -413,10 +413,75 @@
 
                 <div class="h2-guests">Price details</div>
 
+
                 <div class="_cns">
                     <span class="f-cth">
-                        <div class="_txtec">{{ \App\Models\Currencs::Symbol( $listing_currency ) . $base_price }} x {{ $requestDays }} nights</div>
-                        <div class="_txtec">{{ \App\Models\Currencs::Symbol( $listing_currency ) . ( $base_price * $requestDays ) }}</div>
+                        <div class="_txtec">{{ \App\Models\Currencs::Symbol( $listing_currency ) . $inputBase  .' x '. $requestDays }} nights</div>
+                        <div class="_txtec">{{ \App\Models\Currencs::Symbol( $listing_currency ) . ( $inputBase * $requestDays ) }}</div>
+                    </span>
+
+                    @if ( $cleaning_fee != 0 )
+                        <span class="f-cth">
+                            <div class="_txtec">Cleaning fee</div>
+                            <div class="_txtec">{{ \App\Models\Currencs::Symbol( $listing_currency ) . $cleaning_fee }}</div>
+                        </span>
+                    @endif
+
+                    @if ( $pet_fee != 0 && $inputPets != 0 )
+                        <span class="f-cth">
+                            <div class="_txtec">Pets fee</div>
+                            <div class="_txtec">{{ \App\Models\Currencs::Symbol( $listing_currency ) . $pet_fee * $inputPets }}</div>
+                        </span>
+                    @endif
+                    
+                    @if ( $linens_fee != 0 )
+                        <span class="f-cth">
+                            <div class="_txtec">Linens fee</div>
+                            <div class="_txtec">{{ \App\Models\Currencs::Symbol( $listing_currency ) . $linens_fee }}</div>
+                        </span>
+                    @endif
+                    
+                    @if ( $resort_fee != 0 )
+                        <span class="f-cth">
+                            <div class="_txtec">Resort fee</div>
+                            <div class="_txtec">{{ \App\Models\Currencs::Symbol( $listing_currency ) . $resort_fee }}</div>
+                        </span>
+                    @endif
+                    
+                    @if ( $management_fee != 0 )
+                        <span class="f-cth">
+                            <div class="_txtec">Management fee</div>
+                            <div class="_txtec">{{ \App\Models\Currencs::Symbol( $listing_currency ) . $management_fee }}</div>
+                        </span>
+                    @endif
+                    
+                    @if ( $extra_guest_fee != 0 && $maxGuest >= 2 )
+                        <span class="f-cth">
+                            <div class="_txtec">Extra Guest fee</div>
+                            <div class="_txtec">{{ \App\Models\Currencs::Symbol( $listing_currency ) . $extra_guest_fee * ( $maxGuest - 1 ) }}</div>
+                        </span>
+                    @endif
+
+                    @if ( $weekly_discount != 0 )
+                        <span class="f-cthdes">
+                            <div class="_txtecred">Weekly discount</div>
+                            <div class="_txtecred">-{{ \App\Models\Currencs::Symbol( $listing_currency ) . $weeklyTotal }}</div>
+                        </span>
+                    @endif
+
+                    @if ( $monthly_discount != 0 )
+                        <span class="f-cthdes">
+                            <div class="_txtecred">Monthly discount</div>
+                            <div class="_txtecred">-{{ \App\Models\Currencs::Symbol( $listing_currency ) . $monthlyTotal }}</div>
+                        </span>
+                    @endif
+                </div>
+
+
+            {{--     <div class="_cns">
+                    <span class="f-cth">
+                        <div class="_txtec">{{ \App\Models\Currencs::Symbol( $listing_currency ) . $inputBase }} x {{ $requestDays }} nights</div>
+                        <div class="_txtec">{{ \App\Models\Currencs::Symbol( $listing_currency ) . ( $inputBase * $requestDays ) }}</div>
                     </span>
 
                     @if ( $weekly_discount != null )
@@ -474,7 +539,7 @@
                             <div class="_txtec">{{ \App\Models\Currencs::Symbol( $listing_currency ) . $extra_guestShow }}</div>
                         </span>
                     @endif
-                </div>
+                </div> --}}
 
                 <span class="t-cth">
                     <div class="_txtect">Total</div>

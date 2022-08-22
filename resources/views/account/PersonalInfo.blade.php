@@ -4,14 +4,14 @@
 
 @section('css')
 
-    <link href="{{ URL::asset('assets/css/header-admin.css') }}" rel="stylesheet"/>
+    <link href="{{ URL::asset('assets/css/header-bck.css') }}" rel="stylesheet"/>
     <link href="{{ URL::asset('assets/css/personal-info.css') }}" rel="stylesheet"/>
 
 @endsection
 
 @section('header')
 
-    @include('layouts.HeaderAuth')
+    @include('layouts.HeaderGuest')
 
 @endsection
 
@@ -32,16 +32,15 @@
 			        </a>
 			    </div>
 			</div>
+
 			<div class="section-perfil_info">
 			    <main class="section-perfil_info-main">
-			        <div class="_flex-right16">
-			            <a href="{{ route('account') }}" class="_txtec16">Account</a>
-		            	<i class="fas fa-chevron-right"></i>
-		            	<span class="_txtecbold16">Personal info</span>
+			        <div class="_flex-right16 skeleton skeleton_txt">
+			            <a href="{{ route('account') }}" class="_txtec16">Account</a><i class="fas fa-chevron-right"></i><span class="_txtecbold16">Personal info</span>
 			        </div>
-			        <h2 class="h2-guests_bold35">Personal info</h2>
+			        <h2 class="h2-guests_bold35 skeleton skeleton_txt">Personal info</h2>
 
-			        <div>
+			        <div class="skeleton">
 			        	{{-- Input Name --}}
 			        	@livewire('account.personal.name')
 
@@ -69,16 +68,16 @@
 			    </main>
 
 			    <aside class="section-perfil_info-aside">
-			        <div class="_cont-account">
-			            <i class="far fa-edit"></i>
-			            <div class="_txteh" style="margin-bottom: 4px;">Which details can be edited?</div>
-			            <p class="span-guests">Details vvoutlet  uses to verify your identity can't be changed. Contact info and some personal details can be edited, but we may ask you verify your identity the next time you book or create a listing.</p>
+			        <div class="_cont-account skeleton">
+			            <i class="fa-duotone fa-edit skeleton skeleton_txt"></i>
+			            <div class="_txteh skeleton skeleton_txt" style="margin-bottom: 4px;">Which details can be edited?</div>
+			            <p class="span-guests skeleton skeleton_txt">Details vvoutlet  uses to verify your identity can't be changed. Contact info and some personal details can be edited, but we may ask you verify your identity the next time you book or create a listing.</p>
 			        </div>
 
-			        <div class="_cont-account">
-			            <i class="far fa-address-card"></i>
-			            <div class="_txteh" style="margin-bottom: 4px;">What info is shared with others?</div>
-			            <p class="span-guests">vvoutlet only releases contact information for Hosts and guests after a reservation is confirmed.</p>
+			        <div class="_cont-account skeleton">
+			            <i class="fa-duotone fa-address-card skeleton skeleton_txt"></i>
+			            <div class="_txteh skeleton skeleton_txt" style="margin-bottom: 4px;">What info is shared with others?</div>
+			            <p class="span-guests skeleton skeleton_txt">vvoutlet only releases contact information for Hosts and guests after a reservation is confirmed.</p>
 			        </div>
 			    </aside>
 			</div>

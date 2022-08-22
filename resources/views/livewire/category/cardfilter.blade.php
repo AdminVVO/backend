@@ -1,57 +1,64 @@
 <div>
-    <div class="tabs entero">
+    <div class="tabs entero" wire:ignore>
         <div class="medio">
-            <div class="navcont__flech-fx" wire:ignore>
-                <div class="cont_nav">
-                    <div class="nav__links-txt scroll_n owl-carousel carousel_btn_nav js_navlinkstabs">
-                        @foreach ($category as $key => $element)
-                            <button type="button" class="li__links-txt">
-                                <span class="tabs_items {{ $key === $filter_categ ? 'active_tabs' : '' }}" wire:click="changeCateg('{{$key}}')">{{ $element }}</span>
-                            </button>
-                        @endforeach
+            <div class="con_flex fx fx-ai-c fx-jc-sb fx-fd-rr gp22 wh-p100">
+                <div class="navcont__flech-fx">
+                    <div class="cont_nav js__cont_nav">
+                        <div class="nav__links-txt tab-container">
+                            @foreach ($category as $key => $element)
+                                <button type="button" class="li__links-txt skeleton">
+                                    <span class="tabs_items {{ $key === $filter_categ ? 'active_tabs' : '' }}" wire:click="changeCateg('{{$key}}')">
+                                        <span class="skeleton skeleton_txt">{{ $element }}</span>
+                                    </span>
+                                </button>
+                            @endforeach
+                        </div>
+                    </div>
+                </div>
+                <div class="tabs_select">
+                    <div class="vvo-select blue btntabs skeleton">
+                        <select name="" id="" class="skeleton">
+                            <option value="disabled">Anytime</option>
+                            <option value="">Option 1</option>
+                            <option value="">Option 2</option>
+                            <option value="">Option 3</option>
+                        </select>
+
+                        <i class="fas fa-chevron-down"></i>
                     </div>
 
-                    <div class="vvo_owl_nav vvo_nav_flech"></div>
+                    <div class="vvo-select blue btntabs skeleton">
+                        <select name="" id="" class="skeleton">
+                            <option value="disabled">Guests</option>
+                            <option value="">Option 1</option>
+                            <option value="">Option 2</option>
+                            <option value="">Option 3</option>
+                        </select>
+
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+
+                    <button type="button" class="btn-celest nrml btntabs skeleton" wire:click="resetFilter">Reset Filters</button>
                 </div>
             </div>
-            <div class="tabs_select">
-                <label class="custom-anytime">
-                    <select name="" id="">
-                        <option value="">Anytime</option>
-                        <option value="">Option 1</option>
-                        <option value="">Option 2</option>
-                        <option value="">Option 3</option>
-                    </select>
-                    <i class="far fa-chevron-down"></i>
-                </label>
-                <label class="custom-anytime">
-                    <select name="" id="">
-                        <option value="">Guests</option>
-                        <option value="">Option 1</option>
-                        <option value="">Option 2</option>
-                        <option value="">Option 3</option>
-                    </select>
-                    <i class="far fa-chevron-down"></i>
-                </label>
-
-                <button type="button" class="btn-celest nrml selectbtn" wire:click="resetFilter">Reset Filters</button>
-            </div>
-        </div>
+        </div>  
     </div>
+
     <div class="tabs_card entero">
-        <div class="medio">
+        <div class="medio"> 
             @forelse ($sites ?? '' as $item)
-                <a href="/" class="card_items">
+                <a href="{{ route('interna', $item['id_listings'] ) }}" class="card_items active skeleton skeleton_card">
                     <div class="card_top">
-                        <div class="card_top_price">
+                        <div class="card_top_price skeleton skeleton_txt">
                             <i class="fas fa-dollar-sign"></i>
                             <p>{{ $item->price }} / night</p>
                         </div>
-                        <div class="card_top_dates">
+                        <div class="card_top_dates skeleton skeleton_txt">
                             <i class="fas fa-calendar"></i>
                             <p>24 dec - 31 dec</p>
                         </div>
                     </div>
+
                     @if ( Auth::check() )
                         @if ( in_array($item['id_listings'], $wishlists))
                             <button type="button" class="card_love icon_solid">
@@ -68,33 +75,36 @@
                             </g>
                         </svg>
                     </button>
+
                     <div class="card_img">
                         <img loading="lazy" src="{{ URL::asset('storage/photos-listing/') .'/'. \App\Models\Listing\Listings::ListingFile( $item['id_listings'] ) .'/'. $item['photos'][0]['name'] }}">
                         <img loading="lazy" src="{{ URL::asset('storage/photos-listing/') .'/'. \App\Models\Listing\Listings::ListingFile( $item['id_listings'] ) .'/'. $item['photos'][1]['name'] }}">
                         <img loading="lazy" src="{{ URL::asset('storage/photos-listing/') .'/'. \App\Models\Listing\Listings::ListingFile( $item['id_listings'] ) .'/'. $item['photos'][2]['name'] }}">
                     </div>
-                    <div class="content-dots">
-                        <span class="dot"></span>
-                        <span class="dot"></span>
-                        <span class="dot"></span>
-                    </div>
+
                     <div class="card_info">
+                        <div class="content-dots">
+                            <span class="dot"></span>
+                            <span class="dot"></span>
+                            <span class="dot"></span>
+                        </div>
+
                         <div class="card_info_text">
-                            <h2 class="h2-cards">{{ $item->title }}</h2>
-                            <div class="card_info_rating">
+                            <h2 class="h2-cards skeleton skeleton_txt">{{ $item->title }}</h2>
+                            <div class="card_info_rating skeleton">
                                 <i class="fas fa-star"></i>
                                 <p>4.89 <span>(15)</span></p>
                             </div>
                         </div>
-                        <h3 class="h3-cards">{{ ucwords( \App\Models\RoomsProperty::TypeName( $item['like_place'] )  . ' - ' . \App\Models\RoomsProperty::PropertyName( $item['property_type'] ) ) }}</h3>
+                        <h3 class="h3-cards skeleton skeleton_txt">{{ ucwords( \App\Models\RoomsProperty::TypeName( $item['like_place'] )  . ' - ' . \App\Models\RoomsProperty::PropertyName( $item['property_type'] ) ) }}</h3>
                     </div>
                 </a>
             @empty
-                <div class="medio now__listabscard">
+                <div class="now__listabscard">
                     <p>No Have Listing</p>
                 </div>
             @endforelse
-        </div>
+        </div>  
     </div>
 </div>
 
@@ -103,6 +113,16 @@
         Livewire.hook('message.processed', (message, component) => {
             $(".content-dots span.dot:first-child").addClass("dot_active");
             $(".card_img > img:first-child").addClass("card_img_active");
+            
+            skeleton();
+            function skeleton() {
+                let loadings = $(".skeleton");
+                $(loadings).addClass("transition");
+                
+                for (loading of loadings) {
+                    $(loading).removeClass("skeleton skeleton_card skeleton_txt");
+                }
+            }
         })
     </script>
 @endpush

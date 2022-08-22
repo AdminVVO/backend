@@ -34,33 +34,18 @@
                                             </div>
                                         </div>
 
-                                        <div class="s-usr_icons">
-                                            <div class="_suis">
-                                                <img src="{{ URL::asset('assets/img/icons/alert.svg') }}" alt="">
-                                            </div>
-                                            <div class="_suisinfo">
-                                                <div class="_txtec">{{ in_array('smoke_alarm', $content['amenities']) ? 'Allow' : 'No' }} smoke alarm</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                @if ( $content['security_deposit'] != null )
-                                    <div class="cont">
-                                        <h3 class="_txtblu fs25 mr">You must also acknowledge</h3>
-
-                                        <div class="_fw nrml">
+                                        @foreach ( $content['legal'] as $element )
                                             <div class="s-usr_icons">
                                                 <div class="_suis">
-                                                    <img src="{{ URL::asset('assets/img/icons/tarjet-security.svg') }}" alt="">
+                                                    <img src="{{ URL::asset('assets/img/icons/alert.svg') }}" alt="">
                                                 </div>
                                                 <div class="_suisinfo">
-                                                    <div class="_txtec">Security Deposit - if you damage the home, you may be charged up to ${{ $content['security_deposit'] }}</div>
+                                                    <div class="_txtec">{{ \App\Models\GuestSafety::Name( $element ) }}</div>
                                                 </div>
                                             </div>
-                                        </div>
+                                        @endforeach
                                     </div>
-                                @endif
+                                </div>
                             </div>
                         </div>
                     </div>

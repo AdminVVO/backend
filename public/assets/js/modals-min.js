@@ -17,6 +17,14 @@ function cssFixedContent(cont) {
     $(cont).css({ "position": "fixed", "z-index": "999" });
 }
 
+function bodyOverflowHidden() {
+    $(".page-category").css({'overflow': 'hidden'});
+}
+
+function cssFixedContent(cont) {
+    $(cont).css({"position": "fixed", "z-index": "999"});
+}
+
 // otros modal del user
 // contenido
 $(".container-welcome, .container-number, .container-options1, .container-ineed, .container-welcome-email, .container-confirm-email, .container-options-email, .container-need-email, .container-t-registro, .container-msg-sent,   .container_add-payments").addClass("container_user-host");
@@ -357,8 +365,29 @@ $(document).ready(function () {
 
     });
 
+    // admin-reservation-completed.php
+    $(document).on("click", ".js__reviewMdlReservation", function() {
+        bodyOverflowHidden();
+
+        $popup = $(".container_reviewDetailsReservation");
+        $popup.show();
+        cssFixedContent($popup);
+    });
+
+    $(document).on("click", ".js__detailsMdlReservation", function() {
+        bodyOverflowHidden();
+
+        $popup = $(".container_tsptpp1");
+        $popup.show();
+        cssFixedContent($popup);
+    });
+
     // listing.php
+<<<<<<< HEAD
     $(".js_popupSltNrlCont").on("click", function () {
+=======
+    $(".js_popupSltNrlCont").on("click", function() {
+>>>>>>> d82d4da (Interna)
         animateTopModals();
         $(".container_popup_filters_listings").show();
     });

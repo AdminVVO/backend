@@ -24,6 +24,7 @@ class DatabaseSeeder extends Seeder
         $this->call([ScenicViewsSeeder::class]);
         $this->call([RolesSeeder::class]);
         $this->call([QuestionFrequentSeeder::class]);
+        $this->call([GuestSafetySeeder::class]);
 
         ## Secondary Seeders
         $this->call([UserSeeder::class]);

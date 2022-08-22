@@ -3,9 +3,9 @@
         <div class="block_prec-res skeleton">
             @if ( $first_guest )
                 <span class="opac">{{ \App\Models\Currencs::Symbol( $listing_currency ) . $base_descont }}</span>
-                <span class="prec_black">{{ \App\Models\Currencs::Symbol( $listing_currency ) . $base_price }}</span>
+                <span class="prec_black">{{ \App\Models\Currencs::Symbol( $listing_currency ) . $inputBase }}</span>
             @else
-                <span class="prec_black">{{ \App\Models\Currencs::Symbol( $listing_currency ) . $base_price }}</span>
+                <span class="prec_black">{{ \App\Models\Currencs::Symbol( $listing_currency ) . $inputBase }}</span>
             @endif
             <span class="txt_night">/night</span>
         </div>
@@ -37,22 +37,147 @@
 
         <div class="sltgts skeleton">
             <div class="txt-check-in">Guests</div>
-            <div class="vvo-select wh-p100 @error('inputGuest') error_input @enderror">
-                <select class="" wire:model.lazy="inputGuest">
-                    <option value="{{ $number_guests }}">{{ $number_guests }} guests</option>
-                    @for ($i = 1; $i <= $max_people; $i++)
-                        <option value="{{ $number_guests + $i }}">{{ $number_guests }} guests (+{{ $i }})</option>
-                    @endfor
-                </select>
 
-                <i class="fas fa-chevron-down"></i>
-            </div>
-            @error('inputGuest')
-                <div  class="_txterror">
-                    <i class="fas fa-exclamation-circle icon1"></i> 
-                    {{ $message }}
+            <div class="sltNrlCont btnSltNrl" wire:ignore.self>
+                <button type="button" class="vvo-btn-select wh-p100 js_submenuNrml">
+                    <div class="fx fx-ai-c fx-jc-sb gp14">
+                        <span>{{ $inputGuest }}</span>
+
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14.652" height="8.378" viewBox="0 0 14.652 8.378">
+                            <path d="M13.516,17.1l5.54-5.545a1.043,1.043,0,0,1,1.479,0,1.056,1.056,0,0,1,0,1.483l-6.278,6.282a1.045,1.045,0,0,1-1.444.031L6.493,13.042a1.047,1.047,0,0,1,1.479-1.483Z" transform="translate(-6.188 -11.246)"></path>
+                        </svg>
+                    </div>
+                </button>
+
+                <div class="_bef-places submenuGuestInterna">
+                    <div class="fxfbwhmhbrzi">
+                        <div class="poyxwh">
+                            <div class="cpd2btns min16 hr">
+                                <div class="fx fx-ai-c fx-jc-sb gp25">
+                                    <div class="fx fx-fd-c gp4">
+                                        <div class="_txteh">Adults</div>
+                                        <div class="_txtec16">Age 13+</div>
+                                    </div>
+
+                                    <div class="_2btnsgris">
+                                        <button class="_btn" {{ $inputAdult <= 1 ? 'disabled' : '' }} type="button" aria-label="disminuir valor" wire:click="buttonDecrease('adult')">
+                                            <span>
+                                                <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="m2 16h28"></path>
+                                                </svg>
+                                            </span>
+                                        </button>
+                                        
+                                        <span class="_txtec333">{{ $inputAdult }}</span>
+
+                                        <button class="_btn" type="button" aria-label="aumentar valor" {{ $inputAdult >= 50 || $number_guests == $maxGuest ? 'disabled' : '' }} wire:click="buttonIncrease('adult')">
+                                            <span>
+                                                <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="m2 16h28m-14-14v28"></path>
+                                                </svg>
+                                            </span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="cpd2btns min16 hr">
+                                <div class="fx fx-ai-c fx-jc-sb gp25">
+                                    <div class="fx fx-fd-c gp4">
+                                        <div class="_txteh">Children</div>
+                                        <div class="_txtec16">Ages 2-12</div>
+                                    </div>
+
+                                    <div class="_2btnsgris">
+                                        <button class="_btn" type="button" aria-label="disminuir valor" {{ $inputKids <= 0 ? 'disabled' : '' }} wire:click="buttonDecrease('kids')">
+                                            <span>
+                                                <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="m2 16h28"></path>
+                                                </svg>
+                                            </span>
+                                        </button>
+                                        
+                                        <span class="_txtec333">{{ $inputKids }}</span>
+
+                                        <button class="_btn" type="button" aria-label="aumentar valor" {{ $inputKids >= 50 || $number_guests == $maxGuest ? 'disabled' : '' }} wire:click="buttonIncrease('kids')">
+                                            <span>
+                                                <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="m2 16h28m-14-14v28"></path>
+                                                </svg>
+                                            </span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="cpd2btns min16 hr">
+                                <div class="fx fx-ai-c fx-jc-sb gp25">
+                                    <div class="fx fx-fd-c gp4">
+                                        <div class="_txteh">Infants</div>
+                                        <div class="_txtec16">Under 2</div>
+                                    </div>
+
+                                    <div class="_2btnsgris">
+                                        <button class="_btn" type="button" aria-label="disminuir valor" {{ $inputInfant <= 0 ? 'disabled' : '' }} wire:click="buttonDecrease('infant')">
+                                            <span>
+                                                <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="m2 16h28"></path>
+                                                </svg>
+                                            </span>
+                                        </button>
+                                        
+                                        <span class="_txtec333">{{ $inputInfant }}</span>
+
+                                        <button class="_btn" type="button" aria-label="aumentar valor" {{ $inputInfant >= 5 ? 'disabled' : '' }} wire:click="buttonIncrease('infant')">
+                                            <span>
+                                                <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="m2 16h28m-14-14v28"></path>
+                                                </svg>
+                                            </span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="cpd2btns min16">
+                                <div class="fx fx-ai-c fx-jc-sb gp25">
+                                    <div class="fx fx-fd-c gp4">
+                                        <div class="_txteh">Pets</div>
+                                        <button type="button" class="txtunder__ics txt16 js__popup_bringind_animal1">Bringing an assistance animal?
+                                        </button>
+                                    </div>
+
+                                    <div class="_2btnsgris">
+                                        <button class="_btn" type="button" aria-label="disminuir valor" {{ $inputPets <= 0 ? 'disabled' : '' }} wire:click="buttonDecrease('pets')">
+                                            <span>
+                                                <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="m2 16h28"></path>
+                                                </svg>
+                                            </span>
+                                        </button>
+                                        
+                                        <span class="_txtec333">{{ $inputPets }}</span>
+
+                                        <button class="_btn" type="button" aria-label="aumentar valor" {{ $inputPets >= 5 || !$pets_allowed ? 'disabled' : '' }} wire:click="buttonIncrease('pets')">
+                                            <span>
+                                                <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="m2 16h28m-14-14v28"></path>
+                                                </svg>
+                                            </span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <p class="_txtec14 mr-t8">This place has a maximum of {{ $number_guests }} guests, not including infants, {{ $pets_allowed ? " pets allowed." : " pets arent's allowed." }}</p>
+                        </div>
+
+                        <div class="_fxbtn">
+                            <button type="button" class="_fpnigw0 js_closeSubmenuGuestInterna">Close</button>
+                        </div>
+                    </div>
                 </div>
-            @enderror
+            </div>
         </div>
 
         <div class="block-a fx-jc-c" style="margin: 23px 0 16px;">
@@ -66,64 +191,63 @@
 
         <div class="_cns">
             <span class="f-cth skeleton">
-                <div class="_txtec">{{ \App\Models\Currencs::Symbol( $listing_currency ) . $base_price  .' x '. $requestDays }} nights</div>
-                <div class="_txtec">{{ \App\Models\Currencs::Symbol( $listing_currency ) . ( $base_price * ( $requestDays != 0 ? $requestDays : 1 ) ) }}</div>
+                <div class="_txtec">{{ \App\Models\Currencs::Symbol( $listing_currency ) . $inputBase  .' x '. $requestDays }} nights</div>
+                <div class="_txtec">{{ \App\Models\Currencs::Symbol( $listing_currency ) . ( $inputBase * $requestDays ) }}</div>
             </span>
 
-            @if ( $weekly_discount != null )
-                <span class="f-cthdes skeleton">
-                    <div class="_txtecred">Weekly discount</div>
-                    <div class="_txtecred">-{{ \App\Models\Currencs::Symbol( $listing_currency ) . $weekly_discount }}</div>
-                </span>
-            @endif
-
-            @if ( $monthly_discount != null )
-                <span class="f-cthdes skeleton">
-                    <div class="_txtecred">Monthly discount</div>
-                    <div class="_txtecred">-{{ \App\Models\Currencs::Symbol( $listing_currency ) . $monthly_discount }}</div>
-                </span>
-            @endif
-
-
-            @if ( $cleaning_fee != null )
+            @if ( $cleaning_fee != 0 )
                 <span class="f-cth skeleton">
                     <div class="_txtec">Cleaning fee</div>
                     <div class="_txtec">{{ \App\Models\Currencs::Symbol( $listing_currency ) . $cleaning_fee }}</div>
                 </span>
             @endif
 
-            @if ( $pet_fee != null )
+            @if ( $pet_fee != 0 && $inputPets != 0 )
                 <span class="f-cth skeleton">
                     <div class="_txtec">Pets fee</div>
-                    <div class="_txtec">{{ \App\Models\Currencs::Symbol( $listing_currency ) . $pet_fee }}</div>
+                    <div class="_txtec">{{ \App\Models\Currencs::Symbol( $listing_currency ) . $pet_fee * $inputPets }}</div>
                 </span>
             @endif
             
-            @if ( $linens_fee != null )
+            @if ( $linens_fee != 0 )
                 <span class="f-cth skeleton">
                     <div class="_txtec">Linens fee</div>
                     <div class="_txtec">{{ \App\Models\Currencs::Symbol( $listing_currency ) . $linens_fee }}</div>
                 </span>
             @endif
             
-            @if ( $resort_fee != null )
+            @if ( $resort_fee != 0 )
                 <span class="f-cth skeleton">
                     <div class="_txtec">Resort fee</div>
                     <div class="_txtec">{{ \App\Models\Currencs::Symbol( $listing_currency ) . $resort_fee }}</div>
                 </span>
             @endif
             
-            @if ( $management_fee != null )
+            @if ( $management_fee != 0 )
                 <span class="f-cth skeleton">
                     <div class="_txtec">Management fee</div>
                     <div class="_txtec">{{ \App\Models\Currencs::Symbol( $listing_currency ) . $management_fee }}</div>
                 </span>
             @endif
             
-            @if ( $extra_guestShow != 0 )
+            @if ( $extra_guest_fee != 0 && $maxGuest >= 2 )
                 <span class="f-cth skeleton">
                     <div class="_txtec">Extra Guest fee</div>
-                    <div class="_txtec">{{ \App\Models\Currencs::Symbol( $listing_currency ) . $extra_guestShow }}</div>
+                    <div class="_txtec">{{ \App\Models\Currencs::Symbol( $listing_currency ) . $extra_guest_fee * ( $maxGuest - 1 ) }}</div>
+                </span>
+            @endif
+
+            @if ( $weekly_discount != 0 )
+                <span class="f-cthdes skeleton">
+                    <div class="_txtecred">Weekly discount</div>
+                    <div class="_txtecred">-{{ \App\Models\Currencs::Symbol( $listing_currency ) . $weeklyTotal }}</div>
+                </span>
+            @endif
+
+            @if ( $monthly_discount != 0 )
+                <span class="f-cthdes skeleton">
+                    <div class="_txtecred">Monthly discount</div>
+                    <div class="_txtecred">-{{ \App\Models\Currencs::Symbol( $listing_currency ) . $monthlyTotal }}</div>
                 </span>
             @endif
         </div>

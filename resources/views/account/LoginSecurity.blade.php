@@ -4,14 +4,14 @@
 
 @section('css')
 
-    <link href="{{ URL::asset('assets/css/header-admin.css') }}" rel="stylesheet"/>
+    <link href="{{ URL::asset('assets/css/header-bck.css') }}" rel="stylesheet"/>
     <link href="{{ URL::asset('assets/css/login-security.css') }}" rel="stylesheet"/>
 
 @endsection
 
 @section('header')
 
-    @include('layouts.HeaderAuth')
+    @include('layouts.HeaderGuest')
 
 @endsection
 
@@ -19,7 +19,7 @@
 
     <section class="entero">
         <div class="medio-two">
-            <div class="bcptmzi showblock743" style="margin-top: -1.5rem;">
+			<div class="bcptmzi showblock743" style="margin-top: -1.5rem;">
 			    <div class="bwfxaihplprprzi">
 			        <a href="{{ route('account') }}" class="circle__btn-cerrar">
 			            <span class="pr">
@@ -35,10 +35,10 @@
 
 			<div class="section_login-security">
 			    <main class="section_login-security-main">
-			        <div class="_flex-right16">
+			        <div class="_flex-right16 skeleton skeleton_txt">
 			            <a href="{{ route('account') }}" class="_txtec16">Account</a><i class="fas fa-chevron-right"></i><span class="_txtecbold16">Login & Security</span>
 			        </div>
-			        <h2 class="h2-guests_bold35">Login & Security</h2>
+			        <h2 class="h2-guests_bold35 skeleton skeleton_txt">Login & Security</h2>
 
 			        <div>
 			            {{-- Social --}}
@@ -46,18 +46,17 @@
 
 			            {{-- Devices --}}
 			        	@livewire('account.security.devices')
-			            
+
 			            {{-- Desactivate --}}
 			        	@livewire('account.security.desactivate')
-
 			        </div>
 			    </main>
 
 			    <aside class="section_login-security-aside">
-			        <div class="_cont-account">
-			            <i class="fad fa-shield-check"></i>
-			            <div class="_txteh" style="margin-bottom: 4px;">Keeping your account secure</div>
-			            <p class="span-guests">We regularly review accounts to make sure they're secure as possible. We'll also let you know if there's more we can do to increase the security of your account.</p>
+			        <div class="_cont-account skeleton">
+			            <i class="fad fa-shield-check skeleton skeleton_txt"></i>
+			            <div class="_txteh skeleton skeleton_txt" style="margin-bottom: 4px;">Keeping your account secure</div>
+			            <p class="span-guests skeleton skeleton_txt">We regularly review accounts to make sure they're secure as possible. We'll also let you know if there's more we can do to increase the security of your account.</p>
 			        </div>
 			    </aside>
 			</div>

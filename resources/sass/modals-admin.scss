@@ -990,6 +990,11 @@ body {
         }
     }
 
+    // modal-admin2.php
+    .container_reviewDetailsReservation {
+        display: none;
+    }
+
     // learn-more-number-of-beds.php
     .container_lnmenrofbs {
         display: none;
@@ -1343,7 +1348,7 @@ body {
                 ._block-support,
                 ._desurl,
                 ._block-commquest {
-                    padding: 22px 35px;
+                    padding: 22px 35px !important;
 
                     .mr-t16 {
                         margin-top: 8px;
@@ -1518,21 +1523,6 @@ body {
             }
 
             // botones
-            .btn-bd-white {
-                padding: 12px 14px;
-                border: 1px solid #E3EDF3;
-
-                .flex {
-                    gap: 8px !important;
-
-                    .icon {
-                        width: 16px;
-                        height: 18px;
-                    }
-                }
-            }
-
-            // botones
             .btn-celest,
             .btn-border {
                 padding: 14px 24px;
@@ -1586,7 +1576,7 @@ body {
                 ._block-support,
                 ._desurl,
                 ._block-commquest {
-                    padding: 18px 24px;
+                    padding: 18px 24px !important;
                 }
             }
 
@@ -1708,7 +1698,7 @@ body {
             width: 100%;
             height: auto;
             max-width: 796px;
-            max-height: -webkit-fill-available;
+            max-height: 100%;
             border-radius: 10px;
             z-index: 999;
 

@@ -1,5 +1,12 @@
 @import "_variables";
 
+// plugin lenier
+.bk-icon-des_fbas {
+    .easepick-wrapper {
+        right: 0;
+    }
+}
+
 // .sc-interna_body {
 //     header {
 //         position: relative;
@@ -167,6 +174,8 @@
                     .content-user-nvl {
                         .block-flex {
                             margin-top: 32px;
+                            flex-wrap: wrap;
+                            grid-column-gap: 32px;
 
                             .w100 {
                                 width: 100%;
@@ -174,8 +183,7 @@
 
                             .usrscont {
                                 width: 100%;
-                                height: auto;
-                                overflow: inherit;
+                                height: 577px;
                             }
 
                             .btn-red {
@@ -865,14 +873,14 @@
                 .block-flex {
                     margin-top: 31px;
                     display: flex;
-                    flex-wrap: wrap;
+                    // flex-wrap: wrap;
                     justify-content: space-between;
-                    grid-column-gap: 32px;
+                    grid-column-gap: 70px;
                     grid-row-gap: 40px;
                     
                     .usrscont {
                         width: 529px;
-                        height: 850px;
+                        height: 674px;
                         overflow: overlay;
                         display: flex;
                         flex-direction: column;

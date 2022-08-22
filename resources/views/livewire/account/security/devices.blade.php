@@ -1,10 +1,10 @@
 <div class="_bgpad-lg _bgpad-lg_history">
-    <div class="h2-guests">Device history</div>
+    <div class="h2-guests skeleton skeleton_txt">Device history</div>
     <div>
         <div class="_bgpad-inf">
             @foreach ($devices as $element)
                 <div class="_cont-edit">
-                    <div class="_block-f">
+                    <div class="_block-f skeleton">
                         <span class="_b-icon">
                             <i class="{{ $element['classIcon'] }}"></i>
                         </span>
@@ -16,7 +16,7 @@
                     </div>
 
                     @if ( $element['actived'] != true )
-                        <a href="javascript:void(0)" class="_btnsm">
+                        <a href="javascript:void(0)" class="_btnsm skeleton skeleton_txt">
                             <span class="_fcontent" wire:click="logoutDevice('{{ $element['id'] }}')">
                                 Log out device
                                 <span class="_svg-asm">
@@ -25,7 +25,7 @@
                             </span>
                         </a>
                     @else
-                        <div class="_btnsm">
+                        <div class="_btnsm skeleton skeleton_txt">
                             <span class="_fcontent">
                                 This device
                             </span>

@@ -23,13 +23,13 @@ class InternaConfirmPay extends Component
     public $cleaning_fee;
     public $pet_fee;
     public $linens_fee;
+    public $extra_guest_fee;
     public $resort_fee;
     public $resort_type;
     public $management_fee;
     public $management_type;
     public $community_fee;
     public $community_type;
-    public $totalPrice;
     public $inputDateIn;
     public $inputDateOut;
     public $requestDate;
@@ -40,60 +40,116 @@ class InternaConfirmPay extends Component
     public $max_people;
     public $extra_guestShow = 0;
 
-    public $inputPay;
-    public $inputCard;
-    public $inputExp;
-    public $inputCvv;
-    public $inputAddress;
-    public $inputSuite;
-    public $inputCity;
-    public $inputState;
-    public $inputZip;
-    public $inputCountry;
+    public $inputBase;
+    public $inputGuest;
+    public $inputAdult = 1;
+    public $inputKids = 0;
+    public $inputInfant = 0;
+    public $inputPets = 0;
+    public $maxGuest = 1;
 
+    public $weeklyTotal;
+    public $monthlyTotal;
+    public $totalPrice;
 
     protected $listeners = [
         'selectDate' => 'selectDate',
-        'ExtraShow' => 'ExtraShow'
+        'ExtraShow' => 'ExtraShow',
+        'editGuestSubmit' => 'editGuestSubmit'
     ];
 
     public function mount()
-    {
-        if ( $this->first_guest ) {
-            $this->base_descont = $this->base_price;
-            $mult = $this->base_price * 0.20;
-            $this->base_price = $this->base_price - $mult;
-        }
-
+    {        
         if ( isset( $this->requestDate['inputDateIn'] ) ) {
             $this->inputDateIn = Carbon::createFromDate( $this->requestDate['inputDateIn'] )->format('d M Y');
             $this->inputDateOut = Carbon::createFromDate( $this->requestDate['inputDateOut'] )->format('d M Y');
         }
 
+        $fechaEmision = Carbon::parse( $this->inputDateIn );
+$fechaExpiracion = Carbon::parse( $this->inputDateOut );
+
+$diasDiferencia = $fechaExpiracion->diffInDays($fechaEmision);
+
+
+// dd(  intval( round( $diasDiferencia / 2, 0, PHP_ROUND_HALF_DOWN ) ) );
+
+
+
+
+        if ( $this->first_guest ) {
+            $this->base_descont = $this->base_price;
+            $mult = $this->base_price * 0.20;
+            $this->inputBase = $this->base_price - $mult;
+        }
+
+        $this->weeklyTotal = round(( $this->inputBase * $this->requestDays ) * ( $this->weekly_discount /100 ) );
+        $this->monthlyTotal = round(( $this->inputBase * $this->requestDays ) * ( $this->monthly_discount /100 ) );
+
+
         if ( $this->resort_type == 'porcent' )
-            $this->resort_fee = $this->resort_fee != null ? number_format( $this->base_price *  $this->resort_fee/100) : null;
+            $this->resort_fee = $this->resort_fee != null ? number_format( $this->inputBase *  $this->resort_fee/100) : 0;
 
         if ( $this->management_type == 'porcent' )
-            $this->management_fee = $this->management_fee != null ? number_format( $this->base_price *  $this->management_fee/100) : null;
+            $this->management_fee = $this->management_fee != null ? number_format( $this->inputBase *  $this->management_fee/100) : 0;
         
         if ( $this->community_type == 'porcent' )
-            $this->community_fee = $this->community_fee != null ? number_format( $this->base_price *  $this->community_fee/100) : null;
-
-        if ( $this->requestDays == 0 )
-            $this->requestDays = 1;
+            $this->community_fee = $this->community_fee != null ? number_format( $this->inputBase *  $this->community_fee/100) : 0;
 
     }
 
     public function render()
     {
-        $this->totalPrice = ( $this->base_price * $this->requestDays - $this->weekly_discount - $this->monthly_discount ) + $this->cleaning_fee + $this->pet_fee + $this->linens_fee + $this->resort_fee + $this->management_fee + $this->community_fee + $this->extra_guestShow;
+        $this->changeGuestInput();
+
+        $a = $this->inputBase * $this->requestDays - $this->weeklyTotal - $this->monthlyTotal;
+        $b = $this->cleaning_fee + $this->linens_fee + $this->resort_fee + $this->management_fee + $this->community_fee;
+
+        $c = 0;
+        if ( $this->inputPets != 0 )
+            $c = $this->pet_fee * $this->inputPets;
+
+        $d = 0;
+        if ( $this->maxGuest > 1 )
+            $d = $this->extra_guest_fee * ( $this->maxGuest - 1 );
+
+        $this->totalPrice = $a + $b + $c + $d;
 
         return view('livewire.interna.interna-confirm-pay');
     }
 
     public function ExtraShow($payload)
     {
-        $this->extra_guestShow = $payload;
+        $this->inputBase = $payload['inputBase'];
+        $this->inputAdult = $payload['inputAdult'];
+        $this->inputKids = $payload['inputKids'];
+        $this->inputInfant = $payload['inputInfant'];
+        $this->inputPets = $payload['inputPets'];
+    }
+
+    public function editGuestSubmit($payload)
+    {
+        $this->inputAdult = $payload['inputAdult'];
+        $this->inputKids = $payload['inputKids'];
+        $this->inputInfant = $payload['inputInfant'];
+        $this->inputPets = $payload['inputPets'];
+    }
+
+    public function changeGuestInput()
+    {
+        $this->reset(['inputGuest']);
+
+        $this->maxGuest = $this->inputAdult + $this->inputKids;
+
+        $this->inputGuest = $this->inputAdult . ' Guest';
+
+            if ( $this->inputKids != 0 )
+                $this->inputGuest = $this->inputGuest . ', ' . $this->inputKids . ' Children';
+
+            if ( $this->inputInfant != 0 )
+                $this->inputGuest = $this->inputGuest . ', ' . $this->inputInfant . ' Infants';
+            
+            if ( $this->inputPets != 0 )
+                $this->inputGuest = $this->inputGuest . ', ' . $this->inputPets . ' Pets';
     }
     
     public function selectDate($payload)
@@ -106,31 +162,5 @@ class InternaConfirmPay extends Component
             'inputDateIn' => $payload[0],
             'inputDateOut' => $payload[1],
         ]);
-    }
-    
-    public function SubmitCreditCard()
-    {
-        $xxx = [
-            'inputPay' => $this->inputPay,
-            'inputCard' => $this->inputCard,
-            'inputExp' => $this->inputExp,
-            'inputCvv' => $this->inputCvv,
-            'inputAddress' => $this->inputAddress,
-            'inputSuite' => $this->inputSuite,
-            'inputCity' => $this->inputCity,
-            'inputState' => $this->inputState,
-            'inputZip' => $this->inputZip,
-            'inputCountry' => $this->inputCountry,
-            'inputDateIn' => $this->inputDateIn,
-            'inputDateOut' => $this->inputDateOut,
-            'total' => $this->inputPay == 'all' ? $this->totalPrice : $this->totalPrice / 2,
-        ];
-
-
-
-
-
-
-        dd($xxx);
     }
 }

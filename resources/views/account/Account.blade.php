@@ -4,14 +4,14 @@
 
 @section('css')
 
-    <link href="{{ URL::asset('assets/css/header-admin.css') }}" rel="stylesheet"/>
+    <link href="{{ URL::asset('assets/css/header-bck.css') }}" rel="stylesheet"/>
     <link href="{{ URL::asset('assets/css/account.css') }}" rel="stylesheet"/>
 
 @endsection
 
 @section('header')
 
-    @include('layouts.HeaderAuth')
+    @include('layouts.HeaderGuest')
 
 @endsection
 
@@ -21,7 +21,7 @@
         <div class="medio">
             <div class="section-account">
                 <div class="showblock743 pd-b24">
-                    <span class="pf-u fx">
+                    <span class="pf-u fx skeleton">
                         @if ( file_exists( storage_path('app/public/uploadAvatar/' . Auth::user()->avatar  ) ) )
                             <img src="{{ URL::asset('storage/uploadAvatar/') .'/'. Auth::user()->avatar  }}" loading="lazy" alt="">
                         @else
@@ -29,16 +29,16 @@
                         @endif
                     </span>
 
-                    <h2 class="h2">{{ \App\Models\User::FullName() }}</h2>
+                    <h2 class="h2 skeleton skeleton_txt">{{ \App\Models\User::FullName() }}</h2>
 
-                    <a href="{{ route('profile', Auth::id()) }}" class="txtunder__ics txt16 mr-t8">
+                    <a href="{{ route('profile', Auth::id()) }}" class="txtunder__ics txt16 mr-t8 skeleton skeleton_txt">
                         <span class="">Show profile</span>
                     </a>
                 </div>
 
                 <div class="showblock743 mr-t13">
                     <div class="bbcpb hr">
-                        <a href="{{ route('personal_info') }}">
+                        <a href="{{ route('personal_info') }}" class="skeleton">
                             <div class="pd-t16 pd-b16 fx">
                                 <div class="w24h24 flex-centrado mr-r16">
                                     <i class="fal fa-circle-user _i-black23"></i>
@@ -60,7 +60,7 @@
                             </div>
                         </a>
 
-                        <button type="button" class="wh-p100 click__account_modal">
+                        <button type="button" class="wh-p100 click__account_modal skeleton">
                             <div class="pd-t16 pd-b16 fx">
                                 <div class="w24h24 flex-centrado mr-r16">
                                     <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" style="display: block; fill: none; height: 24px; width: 24px; stroke: currentcolor; stroke-width: 1.33333; overflow: visible;">
@@ -86,9 +86,9 @@
                     </div>
 
                     <div class="bbcpb hr">
-                        <h1 class="_txtbold3322 mr-t24 mr-b24 pd-t16">Hosting</h1>
+                        <h1 class="_txtbold3322 mr-t24 mr-b24 pd-t16 skeleton skeleton_txt">Hosting</h1>
 
-                        <a href="admin-today.php">
+                        <a href="admin-today.php" class="skeleton">
                             <div class="pd-t16 pd-b16 fx">
                                 <div class="w24h24 flex-centrado mr-r16">
                                     <i class="fal fa-bars-progress _i-black23"></i>
@@ -110,7 +110,7 @@
                             </div>
                         </a>
 
-                        <a href="{{ route('signup-host') }}">
+                        <a href="{{ route('signup-host') }}" class="skeleton">
                             <div class="pd-t16 pd-b16 fx">
                                 <div class="w24h24 flex-centrado mr-r16">
                                     <i class="fal fa-chart-tree-map _i-black23"></i>
@@ -135,7 +135,7 @@
 
                     <div class="bbcpb hr">
                         <form action="{{ route('logout') }}" class="mr-t24 mr-b24 pd-t16">
-                            <button type="button" class="mr-b24" id="btnLeng">
+                            <button type="button" class="mr-b24 skeleton skeleton_txt" id="btnLeng">
                                 <div class="fx fx-ai-c gp8">
                                     <i class="fa-regular fa-globe _i-black16"></i>
 
@@ -144,17 +144,17 @@
                             </button>
 
                             <div class="txt-center">
-                                <button type="submit" class="btn-celest wh-p100">Log out</button>
+                                <button type="submit" class="btn-celest wh-p100 skeleton">Log out</button>
 
-                                <p class="_txt-gris12 mr-t24">&copy; 2022 Vvoutlet, Inc, All rights reserved.</p>
+                                <p class="_txt-gris12 skeleton skeleton_txt" style="margin: 24px auto 0;">&copy; 2022 Vvoutlet, Inc, All rights reserved.</p>
                             </div>
                         </form>
                     </div>
                 </div>
 
 
-                <h2 class="h2 hideblock743">Account</h2>
-                <p class="span-guests hideblock743">
+                <h2 class="h2 hideblock743 skeleton skeleton_txt">Account</h2>
+                <p class="span-guests hideblock743 skeleton skeleton_txt">
                     <span class="_txteh" style="margin-bottom: 0;">{{ \App\Models\User::FullName() }}</span>, {{ Auth::user()->email }}<span class="_p">·</span><a href="{{ route('profile', Auth::id()) }}" class="_txtblu">Go to profile</a>
                 </p>
 
@@ -176,38 +176,31 @@
 
                         <h1 class="_txtbold3322 pd-t36 mr-t64 mr-b16 showblock743">Account</h1>
 
-                        <a href="{{ route('personal_info') }}" class="_cont-account _cont-account_personalinfo">
-                            <i class="fa-regular fa-address-card"></i>
-                            <div class="_txteh" style="margin-bottom: 4px;">Personal info</div>
-                            <p class="span-guests">Provide personal details and how we can reach you</p>
+                        <a href="{{ route('personal_info') }}" class="_cont-account _cont-account_personalinfo skeleton">
+                            <i class="fa-regular fa-address-card skeleton skeleton_txt"></i>
+                            <div class="_txteh skeleton skeleton_txt" style="margin-bottom: 4px;">Personal info</div>
+                            <p class="span-guests skeleton skeleton_txt">Provide personal details and how we can reach you</p>
                         </a>
 
-                        <a href="{{ route('login_segurity') }}" class="_cont-account">
-                            <i class="fa-regular fa-keyboard"></i>
-                            <div class="_txteh" style="margin-bottom: 4px;">Login & security</div>
-                            <p class="span-guests">Update your password and secure your account</p>
+                        <a href="{{ route('login_segurity') }}" class="_cont-account skeleton">
+                            <i class="fa-regular fa-keyboard skeleton skeleton_txt"></i>
+                            <div class="_txteh skeleton skeleton_txt" style="margin-bottom: 4px;">Login & security</div>
+                            <p class="span-guests skeleton skeleton_txt">Update your password and secure your account</p>
                         </a>
 
-                        <a href="{{ route('payment_payouts') }}" class="_cont-account">
-                            <i class="fa-regular fa-money-bill-alt"></i>
-                            <div class="_txteh" style="margin-bottom: 4px;">Payments & payouts</div>
-                            <p class="span-guests">Review payments, payouts, coupons, gift cards, and taxes</p>
+                        <a href="{{ route('payment_payouts') }}" class="_cont-account skeleton">
+                            <i class="fa-regular fa-money-bill-alt skeleton skeleton_txt"></i>
+                            <div class="_txteh skeleton skeleton_txt" style="margin-bottom: 4px;">Payments & payouts</div>
+                            <p class="span-guests skeleton skeleton_txt">Review payments, payouts, coupons, gift cards, and taxes</p>
                         </a>
 
-                        <a href="{{ route('global_preferen') }}" class="_cont-account">
-                            <i class="fa-regular fa-edit"></i>
-                            <div class="_txteh" style="margin-bottom: 4px;">Global preferences</div>
-                            <p class="span-guests">Set your default language, currency, and timezone</p>
+                        <a href="{{ route('global_preferen') }}" class="_cont-account skeleton">
+                            <i class="fa-regular fa-edit skeleton skeleton_txt"></i>
+                            <div class="_txteh skeleton skeleton_txt" style="margin-bottom: 4px;">Global preferences</div>
+                            <p class="span-guests skeleton skeleton_txt">Set your default language, currency, and timezone</p>
                         </a>
                     </div>
                 </div>
-
-{{--                 <div class="msgaround hideblock743">
-                    <div class="_wcusermsg">
-                        <span class="_txteh" style="display: block; margin-bottom: 0;">Need to deactivate your account?</span>
-                    </div>
-                    <button class="btn-celest">Take care of that now</button>
-                </div> --}}
             </div>
         </div>
     </section>

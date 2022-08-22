@@ -23,7 +23,6 @@
         <div class="medio">
             <div class="content_international">
                 <h1 class="h2_publish text_tm1 skeleton skeleton_txt">{{ $content['title'] }}</h1>
-
                 {{-- Encabezado --}}
                     @include('interna.encabezado')
 
@@ -99,7 +98,7 @@
                         <div class="_line-hr"></div>
 
                         {{-- Gallery Rooms --}}
-                            @include('interna.gallery-room')
+                            {{-- @include('interna.gallery-room') --}}
 
 
                         <div class="_line-hr"></div>
@@ -137,17 +136,6 @@
 
                         {{-- Rulers --}}
                             @include('interna.rulers')
-
-                        <div class="msgaround gp20 mr-t40">
-                            <div class="_wcusermsg">
-                                <div class="_txteh skeleton skeleton_txt">Cancellation policy</div>
-                                <div class="_txtec mr-t8 skeleton skeleton_txt" style="line-height: 24px;">Add your trip dates to get the cancellation details for this stay.</div>
-                            </div>
-
-                            <div>
-                                <button class="btn-celest skeleton">Add dates</button>
-                            </div>
-                        </div>
                     </main>
 
                     {{-- Form Reservations --}}
@@ -161,6 +149,7 @@
                             'monthly_discount' => $content['monthly_discount'],
                             'cleaning_fee' => $content['cleaning_fee'],
                             'pet_fee' => $content['pet_fee'],
+                            'pets_allowed' => $content['pets_allowed'],
                             'linens_fee' => $content['linens_fee'],
                             'resort_fee' => $content['resort_fee'],
                             'resort_type' => $content['resort_type'],
@@ -168,7 +157,6 @@
                             'management_type' => $content['management_type'],
                             'community_fee' => $content['community_fee'],
                             'community_type' => $content['community_type'],
-                            'max_people' => $content['max_people'],
                             'extra_guest_fee' => $content['extra_guest_fee'],
                             'extra_guest' => $content['extra_guest'],
                             'weekend_nightly_fee' => $content['weekend_nightly_fee'],
@@ -203,7 +191,9 @@
         @include('interna.modals.gallery')
 
         {{-- Modal Descriptions --}}
-        @include('interna.modals.descriptions')
+            @if ( $content['space'] != null || $content['guest_access'] != null || $content['other_details'] != null )
+                @include('interna.modals.descriptions')
+            @endif
 
         {{-- Modal Shared --}}
         @include('interna.modals.shared')
@@ -212,15 +202,20 @@
         @include('home.modals.favorite')
 
         {{-- Modal Rulers Safety --}}
-        @include('interna.modals.ruler-safety')
+            @if ( count( $content['legal'] ) >= 5 )
+                @include('interna.modals.ruler-safety')
+            @endif
+
 
         {{-- Modal Rulers --}}
-        @include('interna.modals.rulers')
+            @if ( $content['additional_rules'] != null )
+                @include('interna.modals.rulers')
+            @endif
 
         {{-- Modal Enchanced Clean --}}
         @include('interna.modals.enhanced-clean')
 
-        {{-- Modal Enchanced Clean --}}
+        {{-- Modal Amenities --}}
         @include('interna.modals.amenitles')
 
         {{-- Modal Contact Host --}}
@@ -406,6 +401,15 @@
             },
         });
 
+        rangePickerInternaChecks();
+        function rangePickerInternaChecks() {
+            pickerReservPlugin = pickerReserv.ui.container;
+            pickerReservPlugin.classList.add("vvoRangePickerInternaChecks");
+
+            pickerInternaPlugin = pickerInterna.ui.container;
+            pickerInternaPlugin.classList.add("vvoRangePickerInterna");
+        }
+
         window.addEventListener('reloadDateInputs', event => {
             pickerHome.setDateRange( event.detail.inputDateIn, event.detail.inputDateOut);
             pickerInterna.setDateRange( event.detail.inputDateIn, event.detail.inputDateOut);
@@ -415,7 +419,6 @@
             $("#checkIn-book_edit").val( event.detail.inputDateIn );
             $("#checkOut-book_edit").val( event.detail.inputDateOut );
         })
-
 
         @if ( isset( $requestDate['inputDateIn'] ) && isset( $requestDate['inputDateOut'] ) )
             const DateTime = easepick.DateTime;

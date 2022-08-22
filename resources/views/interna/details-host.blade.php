@@ -37,19 +37,23 @@
             </li>
         </ul>
         
-        <div class="_txtec skeleton skeleton_txt" style="margin-top: 24px;">{{ $profile['about'] }}</div>
+        @if ( isset( $profile['about'] ) )
+            <div class="_txtec skeleton skeleton_txt" style="margin-top: 24px;">{{ $profile['about'] }}</div>
+        @endif
     </div>
 
     <div class="block-cth">
         <ul class="fx fx-fd-c gp16">
-            <li class="f-cth skeleton skeleton_txt">
-                <div class="_txteh">Languages:</div>
-                <div class="_txtec">
-                @foreach ($profile['language'] as $element)
-                    {{ \App\Models\LanguagesRegions::Language( $element ) }}
-                @endforeach
-            </div>
-            </li>
+            @if ( isset( $profile['language'] ) )
+                <li class="f-cth skeleton skeleton_txt">
+                    <div class="_txteh">Languages:</div>
+                    <div class="_txtec">
+                        @foreach ($profile['language'] as $element)
+                            {{ $loop->index >= 1 ? ' - ' : '' }}{{ \App\Models\LanguagesRegions::Language( $element ) }}
+                        @endforeach
+                    </div>
+                </li>
+            @endif
 
             <li class="f-cth skeleton skeleton_txt">
                 <div class="_txteh">Response rate:</div>
@@ -63,7 +67,11 @@
         </ul>
         
         <div class="block-a fx-jc-c">
-            <button type="button" class="btn-celest ctht skeleton">Contact Host</button>
+            @if ( Auth::check() )
+                <button type="button" class="btn-celest ctht skeleton">Contact Host</button>
+            @else
+                <button type="button" class="btn-celest butnSignModl skeleton">Contact Host</button>
+            @endif
         </div>
 
         <div class="s-pri_icons skeleton">

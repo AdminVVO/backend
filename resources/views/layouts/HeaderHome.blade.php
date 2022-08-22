@@ -66,7 +66,7 @@
 		                                        <div class="wf10a">Messages</div>
 		                                    </a>
 
-		                                    <a href="#" class="menu__text-link bold__menu-text-link">
+		                                    <a href="{{ route('trips') }}" class="menu__text-link bold__menu-text-link">
 		                                        <div class="wf10a">Trips</div>
 		                                    </a>
 
@@ -74,7 +74,7 @@
 		                                        <div class="wf10a">Wishlists</div>
 		                                    </a>
 		                                    <div class="br-line"></div>
-		                                    <a href="admin-today.php" class="menu__text-link">
+		                                    <a href="#" class="menu__text-link">
 		                                        <div class="wf10a">Manage listings</div>
 		                                    </a>
 

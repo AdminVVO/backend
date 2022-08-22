@@ -13,7 +13,7 @@
                 @endif
             </div>
 
-            @livewire('listing-test.prebooking.listing-checkin', [
+            @livewire('listing.details.prebooking.listing-checkin', [
                 'listingId' => $listingId,
                 'start' => $content['checkin_window_start'],
                 'end' => $content['checkin_window_end'],
@@ -44,7 +44,7 @@
                 @endif
             </div>
 
-            @livewire('listing-test.prebooking.listing-checkout', [
+            @livewire('listing.details.prebooking.listing-checkout', [
                 'listingId' => $listingId,
                 'out' => $content['checkout_time'],
             ])
@@ -92,7 +92,7 @@
                 <p class="_txtec">Tell guests if you'll available to ofter help throughout their stay and how you'll keep in touch with them.</p>
             </div>
 
-            @livewire('listing-test.prebooking.listing-interation', [
+            @livewire('listing.details.prebooking.listing-interation', [
                 'listingId' => $listingId,
                 'interation' => $content['interaction_with_guests'],
                 'comment' => $content['interaction_with_guests_comment'],
@@ -125,7 +125,7 @@
                 @endif
             </div>
 
-            @livewire('listing-test.postbooking.listing-address', [
+            @livewire('listing.details.postbooking.listing-address', [
                 'listingId' => $listingId,
                 'address' => [
                     'country' => $content['country'],
@@ -161,7 +161,7 @@
                 @endif
             </div>
 
-            @livewire('listing-test.postbooking.listing-directions', [
+            @livewire('listing.details.postbooking.listing-directions', [
                 'listingId' => $listingId,
                 'directions' =>  $content['directions'],
             ])
@@ -195,7 +195,7 @@
                 <p class="_txtec">Give guests tips about your listing, like how to access the internet or turn on the hot water</p>
             </div>
 
-            @livewire('listing-test.postbooking.listing-manual', [
+            @livewire('listing.details.postbooking.listing-manual', [
                 'listingId' => $listingId,
                 'manual' =>  $content['guest_manual'],
             ])
@@ -227,7 +227,7 @@
                 <span class="_txtec">Check-in method</span>
             </div>
 
-            @livewire('listing-test.arrival.listing-instruct', [
+            @livewire('listing.details.arrival.listing-instruct', [
                 'listingId' => $listingId,
                 'instruction' =>  $content['arrival_instructions'],
             ])
@@ -258,7 +258,7 @@
             </div>
 
 
-            @livewire('listing-test.arrival.listing-wifi', [
+            @livewire('listing.details.arrival.listing-wifi', [
                 'listingId' => $listingId,
                 'wifi' =>  $content['wifi_details'],
             ])

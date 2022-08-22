@@ -4,14 +4,14 @@
 
 @section('css')
 
-    <link href="{{ URL::asset('assets/css/header-admin.css') }}" rel="stylesheet"/>
+    <link href="{{ URL::asset('assets/css/header-bck.css') }}" rel="stylesheet"/>
     <link href="{{ URL::asset('assets/css/personal-info.css') }}" rel="stylesheet"/>
 
 @endsection
 
 @section('header')
 
-	@include('layouts.HeaderAuth')
+	@include('layouts.HeaderGuest')
 
 @endsection
 
@@ -35,38 +35,37 @@
 
 			<div class="section-perfil_info">
 			    <main class="section-perfil_info-main">
-			        <div class="_flex-right16">
+			        <div class="_flex-right16 skeleton skeleton_txt">
 			            <a href="{{ route('account') }}" class="_txtec16">Account</a><i class="fas fa-chevron-right"></i><span class="_txtecbold16">Global preferences</span>
 			        </div>
-			        <h2 class="h2-guests_bold35">Global preferences</h2>
+			        <h2 class="h2-guests_bold35 skeleton skeleton_txt">Global preferences</h2>
 
-			        <div>
-			        	<div class="_yellow-bg">
-						    <div class="_bgpadding">
-						        <div class="_cont-edit">
-						            <div class="_txteh">Preferred languague</div>
+			        <div class="skeleton">
+			            <div class="_yellow-bg">
+			                <div class="_bgpadding">
+			                    <div class="_cont-edit">
+			                        <div class="_txteh">Preferred languague</div>
 
-						            <div class="_btnsm edit">
-						                <span class="_fcontent">
-						                    Edit
-						                    <span class="_svg-asm">
+			                        <div class="_btnsm edit">
+			                            <span class="_fcontent">
+			                                Edit
+			                                <span class="_svg-asm">
 						                        <img src="{{ URL::asset('assets/img/icons/down-right.svg') }}" alt="">
-						                    </span>
-						                </span>
-						            </div>
-						            <div class="_btnsm cancel">
-						                <span class="_fcontent">
-						                    Cancel
-						                    <span class="_svg-asm">
+			                                </span>
+			                            </span>
+			                        </div>
+			                        <div class="_btnsm cancel">
+			                            <span class="_fcontent">
+			                                Cancel
+			                                <span class="_svg-asm">
 						                        <img src="{{ URL::asset('assets/img/icons/down-right.svg') }}" alt="">
-						                    </span>
-						                </span>
-						            </div>
-						        </div>
+			                                </span>
+			                            </span>
+			                        </div>
+			                    </div>
                         		@livewire('account.preference.language')
-
-						    </div>
-						</div>
+			                </div>
+			            </div>
 
 			            <div class="_yellow-bg">
 			                <div class="_bgpadding">
@@ -90,9 +89,7 @@
 			                            </span>
 			                        </div>
 			                    </div>
-
                     			@livewire('account.preference.currency')
-
 			                </div>
 			            </div>
 
@@ -119,9 +116,7 @@
 			                            </span>
 			                        </div>
 			                    </div>
-
 		                        @livewire('account.preference.timezone')
-
 			                </div>
 			            </div>
 			        </div>
@@ -129,25 +124,20 @@
 
 			    <aside class="section-perfil_info-aside">
 			        <div class="_cont-account">
-			            <i class="fa-duotone fa-edit"></i>
-			            <div class="_txteh" style="margin-bottom: 4px;">Your global preferences</div>
-			            <p class="span-guests">Changing your currency updates how you see prices. You can change how you get payments in your payments & payouts preferences.</p>
+			            <i class="fa-duotone fa-edit skeleton skeleton_txt"></i>
+			            <div class="_txteh skeleton skeleton_txt" style="margin-bottom: 4px;">Your global preferences</div>
+			            <p class="span-guests skeleton skeleton_txt">Changing your currency updates how you see prices. You can change how you get payments in your payments & payouts preferences.</p>
 			        </div>
 			    </aside>
 			</div>
         </div>
     </section>
-
 @endsection
 
-
 @section('script')
-
 	<script type="text/javascript">
 		window.addEventListener('closedEditContainer', event => {
-			console.log("event", event);
 			$("._yellow-bg").removeClass("personal_edit");
 		})
 	</script>
-
 @endsection
