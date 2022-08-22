@@ -1,12 +1,15 @@
 @charset "UTF-8";
-body .container_user_f_p {
+body .container_user_f_p,
+body .container_pprttsgt {
   display: none;
 }
-body .container_user_f_p .fxfbwhmhbrzi {
+body .container_user_f_p .fxfbwhmhbrzi,
+body .container_pprttsgt .fxfbwhmhbrzi {
   max-width: 789px;
 }
 @media (max-width: 1400px) {
-  body .container_user_f_p .fxfbwhmhbrzi {
+  body .container_user_f_p .fxfbwhmhbrzi,
+body .container_pprttsgt .fxfbwhmhbrzi {
     max-width: 568px;
   }
 }
@@ -986,6 +989,18 @@ body ._ntñsfts .reservation-details-cont ._block-support,
 body ._ntñsfts .reservation-details-cont ._desurl,
 body ._ntñsfts .reservation-details-cont ._block-commquest {
     padding: 22px 35px !important;
+  }
+  body ._ntñsfts .reservation-details-cont ._block-jsb .h2-guests.mr-t30,
+body ._ntñsfts .reservation-details-cont ._flex_users .h2-guests.mr-t30,
+body ._ntñsfts .reservation-details-cont ._block-about .h2-guests.mr-t30,
+body ._ntñsfts .reservation-details-cont ._block-booking .h2-guests.mr-t30,
+body ._ntñsfts .reservation-details-cont ._block-uestpaid .h2-guests.mr-t30,
+body ._ntñsfts .reservation-details-cont ._block-link .h2-guests.mr-t30,
+body ._ntñsfts .reservation-details-cont ._block-privatenote .h2-guests.mr-t30,
+body ._ntñsfts .reservation-details-cont ._block-support .h2-guests.mr-t30,
+body ._ntñsfts .reservation-details-cont ._desurl .h2-guests.mr-t30,
+body ._ntñsfts .reservation-details-cont ._block-commquest .h2-guests.mr-t30 {
+    margin-top: 0;
   }
   body ._ntñsfts .reservation-details-cont ._block-jsb .mr-t16,
 body ._ntñsfts .reservation-details-cont ._flex_users .mr-t16,
