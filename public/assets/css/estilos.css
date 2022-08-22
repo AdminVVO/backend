@@ -2327,7 +2327,7 @@ body .skeletonImgProfile::before {
 
 .btn-bd-white {
   padding: 14px 18px;
-  border: 2px solid #E3EDF3;
+  box-shadow: 0 0 0 2px #E3EDF3 inset;
   border-radius: 10px;
   background-color: #FFFFFF;
   text-align: center;
@@ -2350,13 +2350,19 @@ body .skeletonImgProfile::before {
   display: flex;
   align-items: center;
 }
+.btn-bd-white.active-border {
+  box-shadow: 0 0 0 2px #7D7D7D inset;
+}
+.btn-bd-white.scale:active {
+  transform: scale(0.96);
+}
 @media (max-width: 1400px) {
   .btn-bd-white {
     font-size: 16px;
     font-weight: normal;
     line-height: 20px;
     border-radius: 8px;
-    border: 1px solid #E3EDF3;
+    box-shadow: 0 0 0 1px #E3EDF3 inset;
   }
 }
 
@@ -2844,6 +2850,14 @@ body ._par0t0modls .close {
   }
 }
 
+.filepond--image-preview-overlay-success {
+  color: #00B5DD !important;
+}
+
+[data-filepond-item-state=processing-complete] .filepond--item-panel {
+  background-color: #00B5DD !important;
+}
+
 .mwhbrobc {
   min-width: 56px;
   height: 40px;
@@ -3012,6 +3026,7 @@ body ._par0t0modls .close {
   position: relative;
   height: 100%;
   padding: 0px;
+  display: flex;
 }
 
 .w33p08mb16 {
@@ -3432,9 +3447,9 @@ body ._par0t0modls .close {
   border: none !important;
 }
 
-/*.filepond--root {
+.filepond--root {
   height: 131px !important;
-}*/
+}
 .filepond--root .filepond--drop-label {
   border: 2px dashed #D1D1D1 !important;
   cursor: pointer !important;
@@ -4130,8 +4145,14 @@ body .transition {
 
 .mh20fxaic {
   min-height: 20px;
+  width: 23px;
   display: flex;
   align-items: center;
+  justify-content: center;
+}
+.mh20fxaic img {
+  width: 24px;
+  min-width: 24px;
 }
 
 .grid__3cl {
@@ -4883,7 +4904,7 @@ body .transition {
   background: #FFFFFF;
   width: 100%;
   height: auto;
-  max-height: -webkit-fill-available;
+  max-height: 100%;
   border-radius: 10px;
   z-index: 999;
   overflow: hidden;
@@ -4931,7 +4952,7 @@ body .transition {
   background: #FFFFFF;
   width: 100%;
   height: auto;
-  max-height: -webkit-fill-available;
+  max-height: 100%;
   overflow: hidden;
   position: relative;
 }
@@ -84739,7 +84760,7 @@ select, textarea {
   width: 100%;
   height: auto;
   max-width: 376px;
-  max-height: -webkit-fill-available;
+  max-height: 100%;
   z-index: 999;
 }
 @media (max-width: 758px) {
@@ -90116,6 +90137,11 @@ select option:hover {
   margin-top: 1.4rem;
 }
 
+.vvoRangePickerInternaChecks {
+  left: auto !important;
+  right: 0;
+}
+
 .daterangepicker {
   margin-top: 14px !important;
   left: 50% !important;
@@ -93236,6 +93262,11 @@ input::placeholder {
   height: 200px;
   overflow: hidden;
   border-radius: 10px 10px 0 0;
+}
+.content_step_about .view_port img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 .content_step_about .view_port::before {
   content: "";

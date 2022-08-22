@@ -734,6 +734,9 @@ body .container_adsgat .pd_anhost-modal .modal_content-anhost ._zjunba {
     gap: 8px;
   }
 }
+body .container_reviewDetailsReservation {
+  display: none;
+}
 body .container_lnmenrofbs {
   display: none;
 }
@@ -982,7 +985,7 @@ body ._ntñsfts .reservation-details-cont ._block-privatenote,
 body ._ntñsfts .reservation-details-cont ._block-support,
 body ._ntñsfts .reservation-details-cont ._desurl,
 body ._ntñsfts .reservation-details-cont ._block-commquest {
-    padding: 22px 35px;
+    padding: 22px 35px !important;
   }
   body ._ntñsfts .reservation-details-cont ._block-jsb .mr-t16,
 body ._ntñsfts .reservation-details-cont ._flex_users .mr-t16,
@@ -1119,17 +1122,6 @@ body ._ntñsfts ._lahrbold {
     font-size: 12px !important;
     line-height: inherit;
   }
-  body ._ntñsfts .btn-bd-white {
-    padding: 12px 14px;
-    border: 1px solid #E3EDF3;
-  }
-  body ._ntñsfts .btn-bd-white .flex {
-    gap: 8px !important;
-  }
-  body ._ntñsfts .btn-bd-white .flex .icon {
-    width: 16px;
-    height: 18px;
-  }
   body ._ntñsfts .btn-celest,
 body ._ntñsfts .btn-border {
     padding: 14px 24px;
@@ -1167,7 +1159,7 @@ body ._ntñsfts .reservation-details-cont ._block-privatenote,
 body ._ntñsfts .reservation-details-cont ._block-support,
 body ._ntñsfts .reservation-details-cont ._desurl,
 body ._ntñsfts .reservation-details-cont ._block-commquest {
-    padding: 18px 24px;
+    padding: 18px 24px !important;
   }
   body ._ntñsfts ._cg13rg70 {
     flex-direction: column;
@@ -1273,7 +1265,7 @@ body ._ntñsfts .reservation-details-cont ._block-commquest {
   width: 100%;
   height: auto;
   max-width: 796px;
-  max-height: -webkit-fill-available;
+  max-height: 100%;
   border-radius: 10px;
   z-index: 999;
 }

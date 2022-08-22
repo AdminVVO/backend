@@ -103,7 +103,7 @@ $(document).ready(function(){
     // pickerdateBirth.el.classList.add("vvo_picker");
     // pickerdateBirth.el.style.zIndex = "9999";
 
-    const picker = new easepick.create({
+    const vvoRangePickerInternaChecks = new easepick.create({
         element: document.getElementById("check_in"),
         css: [
           'assets/css/easepick-vvo.css',
@@ -115,6 +115,12 @@ $(document).ready(function(){
         calendars: 2,
         autoApply: false
     });
+    rangePickerInternaChecks();
+    function rangePickerInternaChecks() {
+        plugin = vvoRangePickerInternaChecks.ui.container;
+        plugin.classList.add("vvoRangePickerInternaChecks");
+    }
+
 
     $(document).ready(function() {
         $(".vvo_range_picker").removeClass("fixed");
@@ -175,5 +181,3 @@ $(document).ready(function(){
         
     // })  
 }); 
-
-

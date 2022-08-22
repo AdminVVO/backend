@@ -18,7 +18,7 @@ body .modal_content-wishlists {
   width: 100%;
   height: auto;
   max-width: 660px;
-  max-height: -webkit-fill-available;
+  max-height: 100%;
   border-radius: 10px;
   z-index: 999;
   position: relative;
@@ -1696,7 +1696,7 @@ body .container_add-payments .pd_addpymts-modal .modal_content-addpymts {
   width: 100%;
   height: auto;
   max-width: 796px;
-  max-height: -webkit-fill-available;
+  max-height: 100%;
   border-radius: 10px;
   z-index: 999;
 }

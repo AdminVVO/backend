@@ -1,3 +1,7 @@
+.bk-icon-des_fbas .easepick-wrapper {
+  right: 0;
+}
+
 .content_international .content-user_icons {
   justify-content: left;
   grid-column-gap: 12px;
@@ -107,14 +111,15 @@ body .icon_favorite {
   }
   body .content_international .content-info-hosted .site-content .content-user-nvl .block-flex {
     margin-top: 32px;
+    flex-wrap: wrap;
+    grid-column-gap: 32px;
   }
   body .content_international .content-info-hosted .site-content .content-user-nvl .block-flex .w100 {
     width: 100%;
   }
   body .content_international .content-info-hosted .site-content .content-user-nvl .block-flex .usrscont {
     width: 100%;
-    height: auto;
-    overflow: inherit;
+    height: 577px;
   }
   body .content_international .content-info-hosted .site-content .content-user-nvl .block-flex .btn-red {
     display: none;
@@ -582,14 +587,13 @@ body .icon_favorite {
 .content_international .content-info-hosted .site-content .content-user-nvl .block-flex {
   margin-top: 31px;
   display: flex;
-  flex-wrap: wrap;
   justify-content: space-between;
-  grid-column-gap: 32px;
+  grid-column-gap: 70px;
   grid-row-gap: 40px;
 }
 .content_international .content-info-hosted .site-content .content-user-nvl .block-flex .usrscont {
   width: 529px;
-  height: 850px;
+  height: 674px;
   overflow: overlay;
   display: flex;
   flex-direction: column;

@@ -210,13 +210,13 @@ $(document).ready(function() {
     });
 
 
-    $("._options").on('click', function() {
+    $(document).on("click", "._options", function() {
         let pos = window.event;
         $("._menu-options").css({'top': pos.pageY});
         $("._menu-options").toggleClass("is-active");
     });
 
-    $("._options-pastguest").on('click', function() {
+    $(document).on("click", "._options-pastguest", function() {
         let pos = window.event;
         $("._menu-options_pastguest").css({'top': pos.pageY});
         $("._menu-options_pastguest").toggleClass("is-active");

@@ -1,5 +1,4 @@
 <div class="content_right">
-
     {{-- Steps Loggin --}}
     @if ( $step == 'loggin' )
         @include('livewire.loggin.includes.loggin')
@@ -7,13 +6,13 @@
 
     {{-- Steps Code Verification --}}
     @if ( $step == 'verification' )
-        @include('livewire.loggin.includes.verification')
+    @include('livewire.loggin.includes.logg-in-out')
     @endif
 
         {{-- Steps LogInOut --}}
-    @if ( $step == 'loggInOut' )
+    {{-- @if ( $step == 'loggInOut' )
         @include('livewire.loggin.includes.logg-in-out')
-    @endif
+    @endif --}}
 
     {{-- Steps More Options --}}
     @if ( $step == 'moreOptions' )
