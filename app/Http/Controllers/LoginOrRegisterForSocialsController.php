@@ -54,7 +54,7 @@ class LoginOrRegisterForSocialsController extends Controller
 
             $arrayName = explode(' ', $user->name);
 
-        return User::updateOrCreate([
+        User::updateOrCreate([
                 'email' =>  $user->email
             ],[
                 'name'      => $arrayName[0],
@@ -64,6 +64,8 @@ class LoginOrRegisterForSocialsController extends Controller
                 'rol_id'  => 1,
                 'google_id' => $user->id
             ]);
+
+        return User::where('email', $user->email)->first();
     }
 
     public function loginWithFacebook()
@@ -110,7 +112,7 @@ class LoginOrRegisterForSocialsController extends Controller
 
             $arrayName = explode(' ', $user->name);
 
-        return User::updateOrCreate([
+        User::updateOrCreate([
                 'email' =>  $user->email
             ],[
                 'name'      => $arrayName[0],
@@ -119,5 +121,7 @@ class LoginOrRegisterForSocialsController extends Controller
                 'password'  => Hash::make( $user->name . '@' . $user->id ),
                 'facebook_id' => $user->id
             ]);
+
+        return User::where('email', $user->email)->first();
     }
 }

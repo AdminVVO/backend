@@ -36,7 +36,7 @@ class CreateUsersTable extends Migration
             $table->string('facebook_id')->nullable();
             $table->string('facebook_token')->nullable();
             $table->string('govermen_id')->nullable();
-            $table->string('acount_actived')->default(true);
+            $table->boolean('acount_actived')->default(true);
             $table->string('service_fee')->default('simplified');
             $table->string('constributions')->default(false);
             $table->datetime('last_login_at')->nullable();
