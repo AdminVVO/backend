@@ -115,13 +115,6 @@ $(document).ready(function(){
         calendars: 2,
         autoApply: false
     });
-<<<<<<< HEAD
-    rangePickerInternaChecks();
-    function rangePickerInternaChecks() {
-        plugin = vvoRangePickerInternaChecks.ui.container;
-        plugin.classList.add("vvoRangePickerInternaChecks");
-    }
-=======
     // rangePickerInternaChecks();
     // function rangePickerInternaChecks() {
     //     plugin = vvoRangePickerInternaChecks.ui.container;
@@ -133,7 +126,6 @@ $(document).ready(function(){
     //     plugin = vvoRangePickerInterna.ui.container;
     //     plugin.classList.add("vvoRangePickerInterna");
     // }
->>>>>>> d82d4da (Interna)
 
 
     $(document).ready(function() {
@@ -195,3 +187,5 @@ $(document).ready(function(){
         
     // })  
 }); 
+
+

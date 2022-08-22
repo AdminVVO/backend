@@ -11,9 +11,9 @@ $(document).ready(function() {
 
         $.each(inputCont, function(value, index) {
             $(document).on("focus click", ".search_content input", function() {
-                $(this).parents(index).eq(value).addClass("ipt_search-focus");
+                $(this).parents().find(index).eq(value).addClass("ipt_search-focus");
             }).on("blur", ".search_content input", function() {
-                $(this).parents(index).eq(value).removeClass("ipt_search-focus");
+                $(this).parents().find(index).eq(value).removeClass("ipt_search-focus");
             });
         });
     }

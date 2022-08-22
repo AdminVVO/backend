@@ -3,7 +3,8 @@
 // MODALS OTROS CLASES
 body {
     // Messages modal del icono anuncio
-    .container_user_f_p {
+    .container_user_f_p,
+    .container_pprttsgt {
         display: none;
 
         .fxfbwhmhbrzi {
@@ -1349,6 +1350,12 @@ body {
                 ._desurl,
                 ._block-commquest {
                     padding: 22px 35px !important;
+
+                    .h2-guests {
+                        &.mr-t30 {
+                            margin-top: 0;
+                        }
+                    }
 
                     .mr-t16 {
                         margin-top: 8px;

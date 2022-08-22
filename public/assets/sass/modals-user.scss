@@ -100,7 +100,7 @@ body {
                     }
 
                     .show_profile {
-                        margin-top: 5px;
+                        margin-top: 8px;
                         gap: 8px;
                     }
 
@@ -1743,6 +1743,8 @@ body {
                 margin-left: 8.33%;
                 position: sticky;
                 top: 0;
+                max-height: calc(100vh - 155px);
+                overflow: auto;
             }
         }
 

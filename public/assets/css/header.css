@@ -88,6 +88,12 @@ header .book-form form .btn {
 header .book-form ._bef-places {
   margin-top: 31px;
 }
+header .book-form ._bef-places .cpd2btns .txtunder__ics ._txtec {
+  color: #333;
+}
+header .book-form ._bef-places .cpd2btns .txtunder__ics:hover ._txtec {
+  color: #000;
+}
 @media (max-width: 1400px) {
   header {
     min-height: 80px;

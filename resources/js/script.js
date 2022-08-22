@@ -97,7 +97,7 @@ $(document).mouseup(e => {
 $(document).on("click", "._menu_options", function() {
     // $("._puntos3.is-active").removeClass("is-active");
     $(this).parent("._puntos3").toggleClass("is-active");
-})
+});
 
 
 

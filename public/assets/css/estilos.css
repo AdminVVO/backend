@@ -1052,6 +1052,12 @@ body {
   background-color: #DDD;
   color: #FFFFFF;
 }
+.btn-celest.disabled {
+  cursor: not-allowed;
+  background-color: #DDD;
+  color: #FFFFFF;
+  pointer-events: none;
+}
 @media (max-width: 1400px) {
   .btn-celest {
     padding: 14px 24px !important;
@@ -2848,6 +2854,43 @@ body ._par0t0modls .close {
   to {
     opacity: 1;
   }
+}
+
+@media (max-width: 1400px) {
+  .page_govemment_id .header {
+    margin-bottom: 64px;
+  }
+  .page_govemment_id .medio-two {
+    max-width: 1080px;
+    width: 100%;
+    padding: 0 24px;
+  }
+}
+
+.iconsTitleDescrip ._cbtn ._sbtn {
+  height: 100% !important;
+}
+
+._iconcpe {
+  width: 223px !important;
+}
+
+.mr-b8-743 {
+  margin-bottom: 8px !important;
+}
+@media (max-width: 743px) {
+  .mr-b8-743 {
+    margin-bottom: 0 !important;
+  }
+}
+
+.pbbrhpw {
+  padding: 24px;
+  border: 1px solid #E3EDF3;
+  border-radius: 12px;
+  height: 100%;
+  padding: 24px 16px;
+  width: 100%;
 }
 
 .filepond--image-preview-overlay-success {
@@ -84870,6 +84913,7 @@ select, textarea {
 }
 @media (max-width: 1400px) {
   ._bef-places {
+    width: 370px;
     border: 1px solid #E3EDF3;
     margin-top: 1.4rem;
   }
@@ -90137,8 +90181,6 @@ select option:hover {
   margin-top: 1.4rem;
 }
 
-<<<<<<< HEAD
-=======
 .vvoRangePickerInterna {
   box-shadow: none !important;
   border: 0;
@@ -90149,7 +90191,6 @@ select option:hover {
   margin: 0 -10px;
 }
 
->>>>>>> d82d4da (Interna)
 .vvoRangePickerInternaChecks {
   left: auto !important;
   right: 0;
@@ -91924,6 +91965,10 @@ input::placeholder {
   flex-shrink: 0;
   min-width: 26px;
 }
+._fw .s-usr_icons ._suis i {
+  font-size: 21px;
+  color: #2A2A2A;
+}
 ._fw .s-usr_icons ._suisinfo {
   margin-left: 21px;
 }
@@ -91936,10 +91981,13 @@ input::placeholder {
     margin-bottom: 8px !important;
   }
   ._fw.nrml .s-usr_icons ._suis {
-    min-width: auto !important;
+    min-width: 20px !important;
   }
   ._fw.nrml .s-usr_icons ._suis img {
     width: 16px !important;
+  }
+  ._fw.nrml .s-usr_icons ._suis i {
+    font-size: 16px;
   }
   ._fw.nrml .s-usr_icons ._suisinfo {
     margin-left: 12px !important;
@@ -92556,7 +92604,7 @@ input::placeholder {
 
 ._imgcpe {
   padding-left: 25px;
-  width: 33.33%;
+  width: 270px;
   display: inline-block;
   vertical-align: top;
   white-space: normal;
@@ -92577,26 +92625,15 @@ input::placeholder {
   height: 100%;
   object-fit: cover;
 }
-@media (max-width: 1010px) {
+@media (max-width: 1400px) {
   ._imgcpe {
-    width: 50%;
+    padding-right: 12px;
+    padding-left: 0;
   }
 }
 @media (max-width: 743px) {
   ._imgcpe {
-    width: 33.33%;
-    padding-right: 24px;
-    padding-left: 0;
-  }
-}
-@media (max-width: 620px) {
-  ._imgcpe {
-    width: 50%;
-  }
-}
-@media (max-width: 380px) {
-  ._imgcpe {
-    width: 100%;
+    width: 260px;
   }
 }
 
@@ -92629,9 +92666,10 @@ input::placeholder {
   position: relative;
   margin-bottom: 0px;
   padding: 0px;
-  transition: transform 0.5s ease 0s;
+  transition: all 0.3s ease;
   white-space: nowrap;
   display: flex;
+  left: 0;
 }
 .content-user-slider_img ._content-slider ._cbtn {
   position: initial;
@@ -92662,6 +92700,10 @@ input::placeholder {
   .content-user-slider_img {
     margin: 48px 0;
   }
+  .content-user-slider_img ._content-slider ._htnu ._flex-slider {
+    margin-left: 25px;
+    margin-right: 18px;
+  }
   .content-user-slider_img ._content-slider ._cbtn ._sbtn {
     width: 72px;
     height: 125px;
@@ -92681,7 +92723,7 @@ input::placeholder {
   }
   .content-user-slider_img ._content-slider ._htnu ._flex-slider {
     margin-left: 25px;
-    padding-left: 25px;
+    margin-right: 18px;
   }
   .content-user-slider_img ._content-slider ._cbtn {
     display: none;
@@ -93222,6 +93264,11 @@ input::placeholder {
 @media screen and (min-width: 1400px) {
   .imgfxdestxt .flex_info {
     padding-left: 20px;
+  }
+}
+@media (max-width: 1400px) {
+  .imgfxdestxt .flex_info {
+    padding-left: 12px;
   }
 }
 @media (max-width: 330px) {

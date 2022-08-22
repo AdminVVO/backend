@@ -7,7 +7,7 @@ $(document).ready(function() {
         $.each(starRatingVvo, function(value, index) {
             let $clickStar = $(this).parents().find(".star_rating_vvo").eq(value).find("li");
 
-            $clickStar.mouseover(function() {
+            $clickStar.on("mouseover", function() {
                 let current = $(this);
     
                 $clickStar.each(function(index) {
