@@ -9,7 +9,7 @@
                 </div>
 
                 <div class="modal_block">
-                    @livewire('listing-test.feedback', ['listing' => $listing])
+                    @livewire('listing.details.feedback', ['listing' => $listing])
                 </div>
             </div>
         </div>

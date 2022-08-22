@@ -43,7 +43,7 @@ class ListingAdditionalRulers extends Component
         $validation = Validator::make([
            'inputAdditional'     => $this->inputAdditional,
         ],[
-            'inputAdditional'     => 'required|max:250',
+            'inputAdditional'     => 'max:250',
         ]);
 
             if ($validation->fails())

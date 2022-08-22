@@ -35,7 +35,7 @@ Route::middleware(['AccountDisable'])->group( function(){
 
     Route::get('/category', function () {
         return view('category.Category');
-    })->name('/category');
+    })->name('category');
 
     Route::get('/reviews/{id}',[ReviewsController::class,'index'])->name('reviews');
 

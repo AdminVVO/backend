@@ -10,13 +10,29 @@ x-init="
         const map = new mapboxgl.Map({
             container: 'mapbox',
             style: 'mapbox://styles/mapbox/streets-v11', 
-            center: [ latitude, longitude ],
-            zoom: 15
+            center: [ longitude, latitude ],
+            zoom: 14
         });
 
-        const marker = new mapboxgl.Marker({
+{{--         const marker = new mapboxgl.Marker({
             draggable: false
-        }).setLngLat([ latitude, longitude ]).addTo(map);
+        }).setLngLat([ latitude, longitude ]).addTo(map); --}}
+
+{{--         map.on('load', function(){
+            var centerCircle = turf.point([longitude, latitude]);
+            map.addLayer({
+                'id': 'circle-fill',
+                'type': 'fill',
+                'source': {
+                    'type': 'geojson',
+                    'data': turf.circle(centerCircle, 0.5, { steps: 80, units: 'kilometers' })
+                },
+                'paint': {
+                    'fill-color': 'gray',
+                    'fill-opacity': 0.5
+                }
+            });
+        }); --}}
 
         map.doubleClickZoom.disable(); // Desactiva zoom doble click en el mapa
         map.dragPan.disable(); // Desactiva navegar por el mapa
@@ -41,5 +57,6 @@ x-init="
     @once
         <script src='https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.js'></script>
         <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.2/mapbox-gl-geocoder.min.js"></script>
+    <script src='https://npmcdn.com/@turf/turf/turf.min.js'></script>
     @endonce
 @endpush

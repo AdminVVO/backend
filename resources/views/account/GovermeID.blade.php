@@ -11,7 +11,7 @@
 
 @section('header')
 
-    @include('layouts.HeaderAuth')
+    @include('layouts.HeaderGuest')
 
 @endsection
 

@@ -4,7 +4,7 @@
     <div class="pd_anhost-modal">
         <div class="_z4lmgp">
 
-            @livewire('listing-test.instant-book', ['listing' => $listing])
+            @livewire('listing.details.instant-book', ['listing' => $listing])
 
         </div>
     </div>

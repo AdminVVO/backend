@@ -6,15 +6,15 @@ function vvoAnimate() {
 
 function animateTopModals() {
     vvoAnimate();
-    $(".page-category").css({ 'overflow': 'hidden' });
+    $(".page-category").css({'overflow': 'hidden'});
 }
 
 function bodyOverflowHidden() {
-    $(".page-category").css({ 'overflow': 'hidden' });
+    $(".page-category").css({'overflow': 'hidden'});
 }
 
 function cssFixedContent(cont) {
-    $(cont).css({ "position": "fixed", "z-index": "999" });
+    $(cont).css({"position": "fixed", "z-index": "999"});
 }
 
 // otros modal del user
@@ -28,317 +28,390 @@ $(".modal-welcome, .modal-addpymts,   .modal-rscrm").addClass("modal_content-use
 $(".modal_content-welcome > span, .container_add-payments .close,   .close-x_rscrm").addClass("closeUserModal");
 
 // CLICK HIDE X, FUERA DEL MODAL
-$(document).on("click", ".modal_content-user, .modal-anhost, .click_cancel_mdls, .modal_content-anhost .close span, .closeUserModal, .click_close", function () {
+$(document).on("click", ".modal_content-user, .modal-anhost, .click_cancel_mdls, .modal_content-anhost .close span, .closeUserModal, .click_close", function() {
     $(this).parents(".container_user-host, .container_admin-host, .container_preview_guests_pay").hide();
-    $(this).parents(".page-category").css({ 'overflow': '' });
+    $(this).parents(".page-category").css({'overflow': ''});
 });
 
-$(document).on("click", ".mdatrnormlusr, .xhidemdusr", function () {
+$(document).on("click", ".mdatrnormlusr, .xhidemdusr", function() {
     $(this).parents(".contusrnmrlmdl").hide();
 });
 
 function resizeShowMdl1270px() {
     if ($(this).width() >= 1270) {
-        $(".page_listing_admin").css({ 'overflow': '' });
+        $(".page_listing_admin").css({'overflow': ''});
         $(".container_popup_filters_listings").hide();
     }
 }
 
 function resizeMdl743() {
     if ($(this).width() <= 743) {
-        $(document).on("click", ".modal_content_nrl, .closeUserModalNrl", function () {
+        $(document).on("click", ".modal_content_nrl, .closeUserModalNrl", function() {
             $(this).parents(".contnmrlmdl743").hide();
-            $(this).parents(".page-category").css({ 'overflow': 'hidden' });
+            $(this).parents(".page-category").css({'overflow': 'hidden'});
         });
 
         // srcoll
-        $(document).on("click", ".closeUserModal", function () {
-            $(this).parents(".container_user-host").css({ 'display': '' });
-            $(this).parents(".page-category").css({ 'overflow': '' });
+        $(document).on("click", ".closeUserModal", function() {
+            $(this).parents(".container_user-host").css({'display': ''});
+            $(this).parents(".page-category").css({'overflow': ''});
         });
     } else {
         $(".page-category").removeClass("resizeBtnModal743");
 
-        $(document).on("click", ".modal_content_nrl, .closeUserModalNrl", function () {
+        $(document).on("click", ".modal_content_nrl, .closeUserModalNrl", function() {
             $(this).parents(".contnmrlmdl743").hide();
-            $(this).parents(".page-category").css({ 'overflow': 'auto' });
+            $(this).parents(".page-category").css({'overflow': 'auto'});
         });
 
         // srcoll
-        $(document).on("click", ".closeUserModal", function () {
-            $(this).parents(".container_user-host").css({ 'display': '' });
-            $(this).parents(".page-category").css({ 'overflow': '' });
+        $(document).on("click", ".closeUserModal", function() {
+            $(this).parents(".container_user-host").css({'display': ''});
+            $(this).parents(".page-category").css({'overflow': ''});
         });
     }
 }
 resizeMdl743();
-$(window).bind("resize", function () {
+$(window).bind("resize", function() {
     resizeMdl743();
     resizeShowMdl1270px();
 });
 
 // modal global
-$(document).ready(function () {
+$(document).ready(function() {
     // Lenguajes
-    $("#btnLeng, .btnLeng").on("click", function () {
-        animateTopModals();
-        $(".container_leng_region").show();
+    $(document).on("click", "#btnLeng, .btnLeng", function() {
+        bodyOverflowHidden();
+
+        $popup = $(".container_leng_region");
+        $popup.show();
+        cssFixedContent($popup);
     })
 
     // Popup Picker
-    $(".btnmodalpicker").on("click", function () {
+    $(".btnmodalpicker").on("click", function() {
         animateTopModals();
         $(".container_vvo_picker").show();
     });
 });
 
 // clicks modals - user
-$(document).ready(function () {
+$(document).ready(function() {
     // ---------------------- index.php ----------------------
-    $(".butnSignModl, .butnLoginModl").on("click", function () {     // login menu
-        animateTopModals();
-        $(".container-welcome").show();
-    });
+    $(document).on("click", ".butnSignModl, .butnLoginModl", function() {     // login menu
+        bodyOverflowHidden();
 
+        $popup = $(".container-welcome");
+        $popup.show();
+        cssFixedContent($popup);
+    });
+    
     // ---------------------- trips ----------------------
-    $(".showDetailsUpcomingPopup").on("click", function () {
-        animateTopModals();
-        $("._par0t0modls").show();
+    $(document).on("click", ".showDetailsUpcomingPopup", function() {
+        bodyOverflowHidden();
+
+        $popup = $("._par0t0modls");
+        $popup.show();
+        cssFixedContent($popup);
     });
 
-    $(".showDetailsPastPopup").on("click", function () {
-        animateTopModals();
-        $(".container_tsptpp").show();
+    $(document).on("click",".showDetailsPastPopup", function() {
+        bodyOverflowHidden();
+
+        $popup = $(".container_tsptpp");
+        $popup.show();
+        cssFixedContent($popup);
     });
 
-    $(".clickGetPDF").on("click", function () {
+    $(document).on("click", ".clickGetPDF", function() {
         animateTopModals()
         $(".container_tsptpp").hide();
         $(".container_tsptpp1").show();
     });
 
-    $(".showDetailsCanceledPopup").on("click", function () {
-        animateTopModals();
-        $(".container_tscdpp").show();
+    $(document).on("click", ".showDetailsCanceledPopup", function() {
+        bodyOverflowHidden();
+
+        $popup = $(".container_tscdpp");
+        $popup.show();
+        cssFixedContent($popup);
     });
 
     // ---------------------- interna-edit.php ----------------------
-    $(".showHouseSafety").on("click", function () {
-        animateTopModals();
-        $(".container_house-safety").show();
+    $(document).on("click", ".showHouseSafety", function() {
+        bodyOverflowHidden();
+
+        $popup = $(".container_house-safety");
+        $popup.show();
+        cssFixedContent($popup);
     });
 
-    $(".showHouseRules").on("click", function () {
-        animateTopModals();
-        $(".container_house-rules").show();
+    $(document).on("click", ".showHouseRules", function() {
+        bodyOverflowHidden();
+
+        $popup = $(".container_house-rules");
+        $popup.show();
+        cssFixedContent($popup);
     });
 
     // ---------------------- interna.php ----------------------
     // modal gallery
-    $(".show_all-photos-interna").on("click", function () {
+    $(document).on("click", ".show_all-photos-interna", function() {
         $(".container_gallerys").addClass("keyframes_animate").css({
             'top': '0',
             'opacity': '1',
             'visibility': 'visible'
         });
 
-        $(this).parents(".page-category").css({ 'overflow': 'hidden' });
+        $(this).parents(".page-category").css({'overflow': 'hidden'});
     });
 
-    $(".btn-x_galls").on("click", function () {
+    $(document).on("click", ".btn-x_galls", function() {
         $(".container_gallerys").removeClass("keyframes_animate").css({
             'top': '100vh',
             'opacity': '0',
             'visibility': 'hidden'
         });
 
-        $(this).parents(".page-category").css({ 'overflow': 'auto' });
+        $(this).parents(".page-category").css({'overflow': 'auto'});
     });
 
-    $(".btnShareIconInterna").on("click", function () {
-        animateTopModals();
-        $(".container-wishlists-share").show();
+    $(document).on("click", ".btnShareIconInterna", function() {
+        bodyOverflowHidden();
+
+        $popup = $(".container-wishlists-share");
+        $popup.show();
+        cssFixedContent($popup);
     });
 
-    $(".btnShareIconInternaGallery").on("click", function () {
-        animateTopModals();
-        $(".container-gallerys-share").show();
+    $(document).on("click", ".btnShareIconInternaGallery", function() {
+        bodyOverflowHidden();
+
+        $popup = $(".container-gallerys-share");
+        $popup.show();
+        cssFixedContent($popup);
     });
 
-    $(document).on("click", ".showFavorite", function () {
-        animateTopModals();
-        $(".container-wishlists-create").show();
+    $(document).on("click", ".showFavorite", function() {
+        bodyOverflowHidden();
+
+        $popup = $(".container-wishlists-create");
+        $popup.show();
+        cssFixedContent($popup);
     });
 
-    $(document).on("click", ".showFavoriteWishlist", function () {
-        animateTopModals();
-        $(".container-wishlists").show();
+    $(document).on("click", ".showFavoriteWishlist", function() {
+        bodyOverflowHidden();
+
+        $popup = $(".container-wishlists");
+        $popup.show();
+        cssFixedContent($popup);
     });
 
-    $(".showFavoriteGallery").on("click", function () {
-        animateTopModals();
-        $(".container-gallerys-create").show();
+    $(document).on("click", ".showFavoriteGallery", function() {
+        bodyOverflowHidden();
+
+        $popup = $(".container-gallerys-create");
+        $popup.show();
+        cssFixedContent($popup);
     });
 
-    $(".enhancedcl").on("click", function () {
-        $(".container_enhanced-clean").show();
-        animateTopModals();
+    $(document).on("click", ".enhancedcl", function() {
+        bodyOverflowHidden();
+
+        $popup = $(".container_enhanced-clean");
+        $popup.show();
+        cssFixedContent($popup);
     });
 
-    $(".abspc").on("click", function () {
-        $(".container_about-space").show();
-        animateTopModals();
+    $(document).on("click", ".abspc", function() {
+        bodyOverflowHidden();
+
+        $popup = $(".container_about-space");
+        $popup.show();
+        cssFixedContent($popup);
     });
 
-    $(".alants").on("click", function () {
-        $(".container_all_reviews").show();
-        animateTopModals();
+    $(".alants").on("click", function() {
+        bodyOverflowHidden();
+
+        $popup = $(".container_all_reviews");
+        $popup.show();
+        cssFixedContent($popup);
     });
 
-    $(".ctht").on("click", function () {
-        $(".container_contact-host").show();
-        animateTopModals();
+    $(".ctht").on("click", function() {
+        bodyOverflowHidden();
+
+        $popup = $(".container_contact-host");
+        $popup.show();
+        cssFixedContent($popup);
     });
 
-    $(".herls").on("click", function () {
-        $(".container_house-rules").show();
-        animateTopModals();
+    $(".herls").on("click", function() {
+        bodyOverflowHidden();
+
+        $popup = $(".container_house-rules");
+        $popup.show();
+        cssFixedContent($popup);
     });
 
-    $(".hesfty").on("click", function () {
-        $(".container_house-safety").show();
-        animateTopModals();
+    $(".hesfty").on("click", function() {
+        bodyOverflowHidden();
+
+        $popup = $(".container_house-safety");
+        $popup.show();
+        cssFixedContent($popup);
     });
 
-    $(".rscrm").on("click", function () {
-        $(".container_reserve-confirm").show();
-        animateTopModals();
+    $(document).on("click", ".rscrm", function() {
+        bodyOverflowHidden();
+
+        $popup = $(".container_reserve-confirm");
+        $popup.show();
+        cssFixedContent($popup);
     });
 
-    $(".show_popup_all_amenitles").on("click", function () {
-        $(".container_all_amenitles").show();
-        animateTopModals();
+    $(document).on("click", ".show_popup_all_amenitles", function() {
+        bodyOverflowHidden();
+
+        $popup = $(".container_all_amenitles");
+        $popup.show();
+        cssFixedContent($popup);
     });
 
-    $(".js__edit-lightpick").on("click", function () { // click edit - lightpick modal
+    $(".js__edit-lightpick").on("click", function() { // click edit - lightpick modal
         $(".container_dates-edit").show();
     });
 
-    $(".js__guests-modal").on("click", function () {
+    $(".js__guests-modal").on("click", function() {
         animateTopModals();
         $(".container_guests_edit").show();
     });
 
-    $(".js__popup_bringind_animal").on("click", function () {
-        animateTopModals();
-        $(".container_bringing_animal").show();
+    $(document).on("click", ".js__popup_bringind_animal", function() {
+        bodyOverflowHidden();
+
+        $popup = $(".container_bringing_animal");
+        $popup.show();
+        cssFixedContent($popup);
     });
 
-    $(".js__popup_bringind_animal1").on("click", function () {
-        animateTopModals();
+    $(document).on("click", ".js__popup_bringind_animal1", function() {
+        bodyOverflowHidden();
+
         $(".page-category").addClass("ppbgal1");
-        $(".ppbgal1").find(".container_bringing_animal").show();
+        $popup = $(".ppbgal1").find(".container_bringing_animal");
+        $popup.show();
+        cssFixedContent($popup);
     });
 
-    $(document).on("click", ".ppbgal1 .mdatrnormlusr, .ppbgal1 .xhidemdusr", function () {
+    $(document).on("click", ".ppbgal1 .mdatrnormlusr, .ppbgal1 .xhidemdusr", function() {
         $(".page-category").removeClass("ppbgal1");
         $(".ppbgal1").find(".container_bringing_animal").hide();
-        $(this).parents(".page-category").css({ 'overflow': '' });
+        $(this).parents(".page-category").css({'overflow': ''});
     });
 
 
     // ICONO - REMOVE WISHLISTS
-    $(".js__remove_wishlist").on("click", function () {
-        $(".container_confirmation").show();
+    $(document).on("click", ".js__remove_wishlist", function() {
+        bodyOverflowHidden();
+
+        $popup = $(".container_confirmation");
+        $popup.show();
+        cssFixedContent($popup);
     });
 
 
     // ----------- account --------------
-    $(".click__account_modal").on("click", function () {
+    $(".click__account_modal").on("click", function() {
         $(".page-category").toggleClass("resizeBtnModal743");
     });
 
 
     // perfil-interno.php - click add more leng | speak
-    $(".js__addMoreLengSpeak").on("click", function () {
-        animateTopModals();
-        $(".container-languages-speak").show();
+    $(".js__addMoreLengSpeak").on("click", function() {
+        bodyOverflowHidden();
+
+        $popup = $(".container-languages-speak");
+        $popup.show();
+        cssFixedContent($popup);
     });
 
 
     // ------------ payments.php ------------
-    $(".js_popup_payments").on("click", function () {
+    $(".js_popup_payments").on("click", function() {
         animateTopModals();
         $(".content_popup_payments").show();
     });
 
-    $(".js_popup_payouts").on("click", function () {
+    $(".js_popup_payouts").on("click", function() {
         animateTopModals();
         $(".content_popup_payouts").show();
     });
 
-    $(".js_popup_payouts_paypal").on("click", function () {
+    $(".js_popup_payouts_paypal").on("click", function() {
         animateTopModals();
         $(".content_popup_payouts_paypal").show();
         $(".content_popup_payouts").hide();
     });
 
-    $(".js_back_payouts").on("click", function () {
+    $(".js_back_payouts").on("click", function() {
         animateTopModals();
         $(".content_popup_payouts").show();
         $(this).parents(".container_add-payments").hide();
     });
 
-    $(".js_back_payouts_bank").on("click", function () {
+    $(".js_back_payouts_bank").on("click", function() {
         animateTopModals();
         $(".content_popup_payouts_bank").show();
         $(this).parents(".container_add-payments").hide();
     });
 
-    $(".js_next_bank1").on("click", function () {
+    $(".js_next_bank1").on("click", function() {
         animateTopModals();
         $(".content_popup_payouts_bank1").show();
         $(".content_popup_payouts_bank").hide();
     });
 
-    $(".js_popup_payouts_bank").on("click", function () {
+    $(".js_popup_payouts_bank").on("click", function() {
         animateTopModals();
         $(".content_popup_payouts_bank").show();
         $(".content_popup_payouts").hide();
     });
 
-    $(".js_popup_payouts_payoneer").on("click", function () {
+    $(".js_popup_payouts_payoneer").on("click", function() {
         animateTopModals();
         $(".content_popup_payouts_payoneer").show();
         $(".content_popup_payouts").hide();
     });
 
-    $(".js_popup_taxes").on("click", function () {
+    $(".js_popup_taxes").on("click", function() {
         animateTopModals();
         $(".content_popup_taxes").show();
     });
 
 
     // messages-user-reseña.pjp
-    $(".js__popupWriteReview").on("click", function () {
+    $(".js__popupWriteReview").on("click", function() {
         animateTopModals();
         $(".container_write_review").show();
     });
 });
 
 // clicks modals - host
-$(document).ready(function () {
+$(document).ready(function() {
     // ---------------------- admin today --------------------
-    $(".js__popup_pprnme").on("click", function () {
-        animateTopModals();
-        $(".container_pprnme").show();
+    $(".js__popup_pprnme").on("click", function() {
+        bodyOverflowHidden();
+
+        $popup = $(".container_pprnme");
+        $popup.show();
+        cssFixedContent($popup);
     });
-    $(".js__reviewMdlReservation").on("click", function () {
-        animateTopModals();
-        $(".container_pprnme").show();
-    });
+
     // admin-reservation-completed.php
-    $(document).on("click", ".js__reviewMdlReservation", function () {
+    $(document).on("click", ".js__reviewMdlReservation", function() {
         bodyOverflowHidden();
 
         $popup = $(".container_reviewDetailsReservation");
@@ -346,146 +419,154 @@ $(document).ready(function () {
         cssFixedContent($popup);
     });
 
-    $(document).on("click", ".js__detailsMdlReservation", function () {
-        setTimeout(() => {
-            bodyOverflowHidden();
+    $(document).on("click", ".js__detailsMdlReservation", function() {
+        bodyOverflowHidden();
 
-            $popup = $(".container_tsptpp1");
-            $popup.show();
-            cssFixedContent($popup);
-        }, 500);
-
+        $popup = $(".container_tsptpp1");
+        $popup.show();
+        cssFixedContent($popup);
     });
 
     // listing.php
-    $(".js_popupSltNrlCont").on("click", function () {
+    $(".js_popupSltNrlCont").on("click", function() {
         animateTopModals();
         $(".container_popup_filters_listings").show();
     });
 
     // ---------------------- listing post ----------------------
-    $(".js__editPhotosListingPost").on("click", function () {
+    $(".js__editPhotosListingPost").on("click", function() {
         animateTopModals();
         $(".container_pplgptetps").show();
     });
 
-    $(".js__popupChangePhoto").on("click", function () {
+    $(".js__popupChangePhoto").on("click", function() {
         animateTopModals();
         $(".containerppcepo").show();
     });
 
-    $(".js__popupEditAddCaption").on("click", function () {
+    $(".js__popupEditAddCaption").on("click", function() {
         animateTopModals();
         $(".container_ppetpo").show();
     });
 
-    $(".clickEditAmenities").on("click", function () {
+    $(".clickEditAmenities").on("click", function() {
         animateTopModals();
         $(".container_lgssppas").show();
     });
 
-    $(".clickEditRoomsSpaces").on("click", function () {
+    $(".clickEditRoomsSpaces").on("click", function() {
         animateTopModals();
         $(".container_pprssss2").show();
     });
 
-    $(".js_popupAddPhotos").on("click", function () {
+    $(".js_popupAddPhotos").on("click", function() {
         animateTopModals();
         $(".container_ppadps").show();
     });
 
-    $(".js__popupGuestSafety").on("click", function () {
+    $(".js__popupGuestSafety").on("click", function() {
         animateTopModals();
         $(".container_ppgtsy").show();
     });
 
-    $(".js__popupShownGuests").on("click", function () {
+    $(".js__popupShownGuests").on("click", function() {
         vvoAnimate();
         $(".container_ppsngs").show();
     });
 
     // ---------------------- listing post policies ----------------------
-    $(".clickInstantBook").on("click", function () {
+    $(".clickInstantBook").on("click", function() {
         animateTopModals();
         $(".container_poliandrulesedit").show();
         $(".container_lsitofpp1").hide();
     });
 
-    $(".instantOffPopup").on("click", function () {
+    $(".instantOffPopup").on("click", function() {
         animateTopModals();
         $(".container_lsitofpp1").show();
         $(".container_poliandrulesedit").hide();
         $(".container_lsitofpp2").hide();
     });
 
-    $(".lsitofpp2").on("click", function () {
+    $(".lsitofpp2").on("click", function() {
         animateTopModals();
         $(".container_lsitofpp2").show();
         $(".container_lsitofpp3").hide();
         $(".container_lsitofpp1").hide();
     });
 
-    $(".lsitofpp3").on("click", function () {
+    $(".lsitofpp3").on("click", function() {
         animateTopModals();
         $(".container_lsitofpp3").show();
         $(".container_lsitofpp2").hide();
     });
 
-    $(".clickViewLocalLaws").on("click", function () {
+    $(".clickViewLocalLaws").on("click", function() {
         animateTopModals();
         $(".container_lsadrspp").show();
     });
 
     // listing post - scenic views click
-    $(".click_scenic_views").click(function () {
+    $(".click_scenic_views").click(function() {
         animateTopModals();
         $(".container_scenic_views").show();
     });
 
     // listing post - pricing click show
-    $(".click_preview_guests_pay").click(function () {
+    $(".click_preview_guests_pay").click(function() {
         animateTopModals();
         $(".container_preview_guests_pay").show();
     });
 
     // click en el icono denunciar al chat
-    $(".click_msg_icon_denuncia").on("click", function () {
-        animateTopModals();
-        $(".container_user_f_p").show();
+    $(document).on("click", ".click_msg_icon_denuncia", function(){
+        bodyOverflowHidden();
+
+        $popup = $(".container_user_f_p");
+        $popup.show();
+        cssFixedContent($popup);
+    });
+
+    $(document).on("click", ".js__mdlReportThisGuest", function() {
+        bodyOverflowHidden();
+
+        $popup = $(".container_pprttsgt");
+        $popup.show();
+        cssFixedContent($popup);
     });
 
     // listing post - click give-feedback modal
-    $(".click_give_feedback").click(function () {
+    $(".click_give_feedback").click(function() {
         animateTopModals();
         $(".container_give-feedback").show();
     });
 
     // listing post - click edit rooms and spaces, click add sleeping arrangements
-    $(".clickEditRoomsAndSpaces").on("click", function () {
+    $(".clickEditRoomsAndSpaces").on("click", function() {
         animateTopModals();
         $(".container_etrsadss").show();
         $(".container_pprssss2").hide();
     });
 
-    $(".clickSavePopupStep2").on("click", function () {
+    $(".clickSavePopupStep2").on("click", function() {
         animateTopModals();
         $(".container_pprssss2").show();
         $(".container_etrsadss, .container_ppadps, .container_adsgat").hide();
     });
 
-    $(".clickAddSleepArrang").on("click", function () {
+    $(".clickAddSleepArrang").on("click", function() {
         animateTopModals();
         $(".container_adsgat").show();
         $(".container_pprssss2").hide();
     });
 
-    $(".closeMoreNumberOfBeds").on("click", function () {
+    $(".closeMoreNumberOfBeds").on("click", function() {
         animateTopModals();
         $(".container_adsgat").show();
         $(".container_lnmenrofbs").hide();
     });
 
-    $(".learMoreNumberOfBeds").on("click", function () {
+    $(".learMoreNumberOfBeds").on("click", function() {
         animateTopModals();
         $(".container_lnmenrofbs").show();
         $(".container_adsgat").hide();

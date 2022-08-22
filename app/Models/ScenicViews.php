@@ -15,5 +15,10 @@ class ScenicViews extends Model
         'code',
         'name',
     ];
+
+    public function scopeName($query, $code)
+    {
+        return $this->where([ 'code' => $code ])->pluck('name')->first();
+    }
 }
 

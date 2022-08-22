@@ -22,6 +22,10 @@
     <body class="page-category page_login_security vvo_ui">
 @endif
 
+@if ( in_array( Route::currentRouteName(),['payment_payouts']) )
+    <body class="page-category page_payments vvo_ui">
+@endif
+
 @if ( in_array( Route::currentRouteName(),['global_preferen']) )
     <body class="page-category page__personal_info vvo_ui">
 @endif
@@ -34,6 +38,10 @@
     <body class="page-category page__perfil_interno vvo_ui">
 @endif
 
-@if ( in_array( Route::currentRouteName(),['details-listing', 'host-listing', 'become-host']) )
+@if ( in_array( Route::currentRouteName(),['signup-host']) )
+    <body class="page__host vvo_ui">
+@endif
+
+@if ( in_array( Route::currentRouteName(),['details-listing', 'host-listing', 'become-host','category']) )
     <body class="page-category">
 @endif

@@ -14,14 +14,21 @@
     <div class="h_admin">
 @endif
 
-
     <header class="entero header_admin">
         <div class="medio">
             <a href="{{ route('/') }}" class="logo-menu">
                 <img src="{{ URL::asset('assets/img/logo.png') }}" alt="logo">
             </a>
 
-            <div class="_mv-places">
+            <button type="button" class="ham-burger showblock1127">
+                <div class="header__menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </button>
+
+            <div class="_mv-places" style="transition: none;">
                 <div class="book-form book-f_home _remove">
                     <div class="_flex-js">
                         <a href="#">
@@ -66,6 +73,7 @@
                                             </a>
                                         </li>
                                     </ul>
+
                                     <ul>
                                         <li>
                                             <a href="{{ route('reservations') }}">
@@ -76,12 +84,13 @@
                                             </a>
                                         </li>
                                     </ul>
-                                </div>
+                                </div>                            
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+
             <div class="menu _header-menu">
                 <a href="#" class="menu_perfil">
                     <span>
@@ -99,33 +108,139 @@
                 </div>
 
                 <div class="menu_home-content">
+                    <div class="menu__triang-ics"></div>
                     <div class="menu_home-content-items">
-                        <ul>
-                            <li><a href="{{ route('messageUserIndex') }}">Message</a></li>
-                            @if ( Auth::user()->rol_id != 1 )
-                                <form id="MessageID-1" action="{{route('messageUserIndex' )}}" method="POST">
-                                    @csrf
-                                    <input type="hidden" name="id" value="1">
-                                </form>
-                                <li><a href="javascript:void(0)" onclick="$('#MessageID-1').submit()">MessageID-1</a></li>
+                        <div>
+                            <a href="{{ route('profile', Auth::id()) }}" class="menu__text-link bold__menu-text-link">
+                                <div class="wf10a">Profile</div>
+                            </a>
 
-                                <form id="MessageID-2" action="{{route('messageUserIndex' )}}" method="POST">
-                                    @csrf
-                                    <input type="hidden" name="id" value="2">
-                                </form>
-                                <li><a href="javascript:void(0)" onclick="$('#MessageID-2').submit()">MessageID-2</a></li>
-                            @endif
-                            <li><a href="#">Trips</a></li>
-                            <li><a href="/wishlist">Wishlists</a></li>
-                        </ul>
-                        <hr class="br-line">
-                        <ul>
-                            <li><a href="#">Manage</a></li>
-                            <li><a href="{{ route('signup-host') }}">Host and experience</a></li>
-                            <li><a href="{{ route('account') }}">Account</a></li>
-                            <li><a href="{{ route('logout') }}">Log out</a></li>
-                        </ul>
+                            <a href="{{ route('account') }}" class="menu__text-link bold__menu-text-link">
+                                <div class="wf10a">Account</div>
+                            </a>
+
+                            <div class="br-line"></div>
+
+                            <button type="button" class="menu__text-link btnLeng">
+                                <div class="wf10a">Language and translation</div>
+                            </button>
+
+                            <a href="{{ route('signup-host') }}" class="menu__text-link">
+                                <div class="wf10a">Host an experience</div>
+                            </a>
+
+                            <a href="#" class="menu__text-link">
+                                <div class="wf10a">Switch to traveling</div>
+                            </a>
+                            <div class="br-line"></div>
+                            <a href="{{ route('logout') }}">
+                                <button type="button" class="menu__text-link">
+                                    <div class="wf10a">Log out</div>
+                                </button>
+                            </a>
+                        </div>
                     </div>
+                </div>
+            </div>
+
+            <div class="opbtizbpet showblock1127" style="top: 70px;">
+                <div class="hoya">
+                    <ul class="pd-b40 pd-l24 pd-r24 contMenuHamburguer">
+                        <div class="pd-b40 hr">
+                            <div class="cttfwmtmbfslh">Menu</div>
+
+                            <a href="#" class="bcfxfsmptaw">
+                                <div class="pd-r8">
+                                    <i class="fa-light fa-house-blank _i-dark22"></i>
+                                </div>
+
+                                <div class="f10auto">Today</div>
+                            </a>
+
+                            <a href="{{ route('messageUserIndex') }}" class="bcfxfsmptaw">
+                                <div class="pd-r8">
+                                    <i class="fa-light fa-message-middle _i-dark23"></i>
+                                </div>
+
+                                <div class="f10auto">Inbox</div>
+                            </a>
+
+                            <a href="#" class="bcfxfsmptaw">
+                                <div class="pd-r8">
+                                    <i class="fa-light fa-calendar-lines _i-dark24"></i>
+                                </div>
+
+                                <div class="f10auto">Calendar</div>
+                            </a>
+
+                            <a href="{{ route('host-listing') }}" class="bcfxfsmptaw">
+                                <div class="pd-r8">
+                                    <i class="fa-light fa-house _i-dark22"></i>
+                                </div>
+
+                                <div class="f10auto">Listings</div>
+                            </a>
+
+                            <a href="{{ route('reservations') }}" class="bcfxfsmptaw">
+                                <div class="pd-r8">
+                                    <i class="fa-light fa-briefcase-blank _i-dark23"></i>
+                                </div>
+
+                                <div class="f10auto">Reservations</div>
+                            </a>
+                        </div>
+
+                        <div class="pd-b40 hr">
+                            <div class="cttfwmtmbfslh">Account</div>
+
+                            <a href="{{ route('profile', Auth::id()) }}" class="bcfxfsmptaw">
+                                <div class="pd-r8">
+                                    <i class="fal fa-circle-user _i-dark23"></i>
+                                </div>
+
+                                <div class="f10auto">Your profile</div>
+                            </a>
+
+                            <a href="{{ route('account') }}" class="bcfxfsmptaw">
+                                <div class="pd-r8">
+                                    <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="presentation" focusable="false" style="display: block; fill: none; height: 24px; width: 24px; stroke: currentcolor; stroke-width: 1.33333; overflow: visible;"><path d="m19.38 27a4.14 4.14 0 0 1 3.05-2.54 4.06 4.06 0 0 1 3.17.71 1 1 0 0 0 1.47-.33l2.11-3.64a1 1 0 0 0 -.46-1.44 4.1 4.1 0 0 1 0-7.48 1 1 0 0 0 .46-1.44l-2.11-3.66a1 1 0 0 0 -1.47-.33 4.07 4.07 0 0 1 -3.17.71 4.14 4.14 0 0 1 -3.05-2.56 4 4 0 0 1 -.27-1.87 1 1 0 0 0 -1-1.15h-4.2a1 1 0 0 0 -1 1.15 4.11 4.11 0 0 1 -3.34 4.43 4.06 4.06 0 0 1 -3.17-.71 1 1 0 0 0 -1.47.33l-2.11 3.64a1 1 0 0 0 .46 1.44 4.1 4.1 0 0 1 0 7.48 1 1 0 0 0 -.46 1.44l2.11 3.64a1 1 0 0 0 1.47.33 4.06 4.06 0 0 1 3.17-.71 4.1 4.1 0 0 1 3 2.53 4 4 0 0 1 .28 1.88 1 1 0 0 0 1 1.15h4.18a1 1 0 0 0 1-1.15 4 4 0 0 1 .35-1.85zm-7.38-11a4 4 0 1 1 4 4 4 4 0 0 1 -4-4z" vector-effect="non-scaling-stroke" transform="translate(0,0)scale(1,1)" fill="none"></path></svg>
+                                </div>
+
+                                <div class="f10auto">Account setting</div>
+                            </a>
+
+                            <a href="{{ route('become-host') }}" class="bcfxfsmptaw">
+                                <div class="pd-r8">
+                                    <i class="fa-light fa-rectangle-history-circle-plus _i-dark20"></i>
+                                </div>
+
+                                <div class="f10auto">Create a new listing</div>
+                            </a>
+                        </div>
+
+                        <div class="pd-b40 mr-b40 hr">
+                            <div class="cttfwmtmbfslh">Settings</div>
+
+                            <button type="button" class="bcfxfsmptaw btnLeng">
+                                <div class="pd-r8">
+                                    <i class="fal fa-globe _i-dark23"></i>
+                                </div>
+
+                                <div class="f10auto">Language and translation</div>
+                            </button>
+                        </div>
+
+                        <div class="hr">
+                            <div class="fx fx-fd-c gp12">
+                                <a href="#" class="btn-celest txt-center wh-p100">Switch to traveling</a>
+                                <a href="{{ route('signup-host') }}" class="btn-celest txt-center wh-p100">Host an Experience</a>
+
+                                <a href="{{ route('logout') }}">
+                                    <button type="button" class="btn-celest wh-p100">Log out</button>
+                                </a>
+                            </div>
+                        </div>
+                    </ul>
                 </div>
             </div>
         </div>

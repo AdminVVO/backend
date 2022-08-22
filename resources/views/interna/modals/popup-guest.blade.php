@@ -2,7 +2,6 @@
     <div class="paz999i0b mdatrnormlusr"></div>
 
     @livewire('interna.interna-guest-edit',[
-        'max_people' => $content['max_people'],
-        'allow' => $content['allow'],
+        'number_guests' => $content['number_guests'],
         'pets_allowed' => $content['pets_allowed'],
     ])</div>

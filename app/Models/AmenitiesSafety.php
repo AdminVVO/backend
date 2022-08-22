@@ -16,6 +16,8 @@ class AmenitiesSafety extends Model
         'name',
         'type',
         'typeList',
+        'file',
+        'type_file',
     ];
 
     public function scopeName($query, $code)

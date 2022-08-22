@@ -115,11 +115,17 @@ $(document).ready(function(){
         calendars: 2,
         autoApply: false
     });
-    rangePickerInternaChecks();
-    function rangePickerInternaChecks() {
-        plugin = vvoRangePickerInternaChecks.ui.container;
-        plugin.classList.add("vvoRangePickerInternaChecks");
-    }
+    // rangePickerInternaChecks();
+    // function rangePickerInternaChecks() {
+    //     plugin = vvoRangePickerInternaChecks.ui.container;
+    //     plugin.classList.add("vvoRangePickerInternaChecks");
+    // }
+
+    // rangePickerInterna();
+    // function rangePickerInterna() {
+    //     plugin = vvoRangePickerInterna.ui.container;
+    //     plugin.classList.add("vvoRangePickerInterna");
+    // }
 
 
     $(document).ready(function() {
@@ -181,3 +187,5 @@ $(document).ready(function(){
         
     // })  
 }); 
+
+

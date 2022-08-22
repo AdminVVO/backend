@@ -37,7 +37,7 @@
                 <span class="_txtec">Base price: {{ \App\Models\Currencs::Symbol( $content['listing_currency'] ) . $content['base_price'] }}</span>
             </div>
 
-            @livewire('listing-test.pricing.listing-base', [
+            @livewire('listing.details.pricing.listing-base', [
                 'listingId' => $listingId,
                 'base'  => $content['base_price'],
             ])
@@ -63,7 +63,7 @@
                 <span class="_txtec">{{ $content['currency'][ $content['listing_currency'] ] }} ({{ $content['listing_currency'] }})</span>
             </div>
 
-            @livewire('listing-test.pricing.listing-currency', [
+            @livewire('listing.details.pricing.listing-currency', [
                 'listingId' => $listingId,
                 'currency'  => $content['listing_currency'],
             ])
@@ -103,7 +103,7 @@
                 <span class="_txtec">Select any combination of nights, guests and pets for us to show you the final price.</span>
             </div>
 
-            @livewire('listing-test.pricing.listing-preview-pay', [
+            @livewire('listing.details.pricing.listing-preview-pay', [
                 'listingId'  => $listingId,
                 'max_people' => $content['max_people'],
                 'allow'      => $content['allow'],
@@ -140,7 +140,7 @@
                 <span class="_txtec">Weekly discounts apply to reservations that are 7 days or longer. If you offer multiple length-of-stay discounts, we'll apply the discount for the longest trip length.</span>
             </div>
 
-            @livewire('listing-test.discount.listing-weekly', [
+            @livewire('listing.details.discount.listing-weekly', [
                 'listingId' => $listingId,
                 'weekly'  => $content['weekly_discount'],
             ])
@@ -174,7 +174,7 @@
                 <span class="_txtec">Monthly discounts apply to reservations that are 28 days or longer. If you offer multiple length-of-stay discounts, we'll apply the discount for the longest trip length.</span>
             </div>
 
-            @livewire('listing-test.discount.listing-monthly', [
+            @livewire('listing.details.discount.listing-monthly', [
                 'listingId' => $listingId,
                 'monthly'  => $content['monthly_discount'],
             ])
@@ -206,7 +206,7 @@
                 @endif
             </div>
 
-            @livewire('listing-test.discount.listing-other-stays', [
+            @livewire('listing.details.discount.listing-other-stays', [
                 'listingId' => $listingId,
                 'stays'  => $content['other_discount_array'],
             ])
@@ -240,7 +240,7 @@
                 <span class="_txtec">Discount ends</span>
             </div>
 
-            @livewire('listing-test.discount.listing-early', [
+            @livewire('listing.details.discount.listing-early', [
                 'listingId' => $listingId,
                 'early'     => $content['early_bird_discount'],
                 'porcent'   => $content['early_bird_discount_porcent'],
@@ -277,7 +277,7 @@
                 <span class="_txtec">Discount starts</span>
             </div>
 
-            @livewire('listing-test.discount.listing-last-minute', [
+            @livewire('listing.details.discount.listing-last-minute', [
                 'listingId'  => $listingId,
                 'lastminute' => $content['last_minute_discount_array'],
             ])
@@ -315,7 +315,7 @@
                 <a href="#" class="_txtehlinear">Learn about cleaning fees</a>
             </div>
 
-            @livewire('listing-test.additional.listing-cleaning', [
+            @livewire('listing.details.additional.listing-cleaning', [
                 'listingId'  => $listingId,
                 'cleaning' => $content['cleaning_fee'],
             ])
@@ -351,7 +351,7 @@
                 <a href="#" class="_txtehlinear">Learn about pet fees</a>
             </div>
 
-            @livewire('listing-test.additional.listing-pets', [
+            @livewire('listing.details.additional.listing-pets', [
                 'listingId'  => $listingId,
                 'pet' => $content['pet_fee'],
             ])
@@ -385,7 +385,7 @@
                 <p class="_txtec">The linens fee is added to the cleaning fee for guests when they book, but it will be a separate item in your payout report.</p>
             </div>
 
-            @livewire('listing-test.additional.listing-lines', [
+            @livewire('listing.details.additional.listing-lines', [
                 'listingId'  => $listingId,
                 'lines' => $content['linens_fee'],
             ])
@@ -419,7 +419,7 @@
                 <span class="_txtec">The resort fee is added to the nightly price for guests when they book, but it will be a separate item in your payout report.</span>
             </div>
 
-            @livewire('listing-test.additional.listing-resort', [
+            @livewire('listing.details.additional.listing-resort', [
                 'listingId'  => $listingId,
                 'resort' => $content['resort_fee'],
                 'type' => $content['resort_type'],
@@ -454,7 +454,7 @@
                 <span class="_txtec">The management fee is added to the nightly price for guests when they book, but it will be a separate item in your payout report.</span>
             </div>
 
-            @livewire('listing-test.additional.listing-management', [
+            @livewire('listing.details.additional.listing-management', [
                 'listingId'  => $listingId,
                 'management' => $content['management_fee'],
                 'type' => $content['management_type'],
@@ -489,7 +489,7 @@
                 <span class="_txtec">The community fee is added to the nightly price for guests when they book, but it will be a separate item in your payout report.</span>
             </div>
 
-            @livewire('listing-test.additional.listing-community', [
+            @livewire('listing.details.additional.listing-community', [
                 'listingId'  => $listingId,
                 'community' => $content['community_fee'],
                 'type' => $content['community_type'],
@@ -524,7 +524,7 @@
                 <p class="_txtec">Charge this amount per extra guest, per night.</p>
             </div>
 
-            @livewire('listing-test.additional.listing-extra-guest', [
+            @livewire('listing.details.additional.listing-extra-guest', [
                 'listingId'  => $listingId,
                 'quanty' => $content['extra_guest'],
                 'extra' => $content['extra_guest_fee'],
@@ -559,7 +559,7 @@
                 <p class="_txtec">This nightly price will replace your base price for every Friday and Saturday. It won't apply if Smart Pricing is on.</p>
             </div>
 
-            @livewire('listing-test.additional.listing-nightly', [
+            @livewire('listing.details.additional.listing-nightly', [
                 'listingId'  => $listingId,
                 'nightly' => $content['weekend_nightly_fee'],
             ])
@@ -637,7 +637,7 @@
                 @endif
             </div>
 
-            @livewire('listing-test.trip.listing-minimun', [
+            @livewire('listing.details.trip.listing-minimun', [
                 'listingId'  => $listingId,
                 'minimum' => $content['minimum_stay'],
                 'custom' => $content['minimum_stay_custom'],
@@ -668,7 +668,7 @@
                 @endif
             </div>
 
-            @livewire('listing-test.trip.listing-maximun', [
+            @livewire('listing.details.trip.listing-maximun', [
                 'listingId'  => $listingId,
                 'maximun' => $content['maximum_stay'],
             ])
@@ -700,7 +700,7 @@
                 @endif
             </div>
 
-            @livewire('listing-test.calendar.listing-notice', [
+            @livewire('listing.details.calendar.listing-notice', [
                 'listingId'  => $listingId,
                 'notice' => $content['advance_notice'],
             ])
@@ -730,7 +730,7 @@
                 @endif
             </div>
 
-            @livewire('listing-test.calendar.listing-preparation', [
+            @livewire('listing.details.calendar.listing-preparation', [
                 'listingId'  => $listingId,
                 'preparation' => $content['preparation_time'],
             ])
@@ -760,7 +760,7 @@
                 @endif
             </div>
 
-            @livewire('listing-test.calendar.listing-availability', [
+            @livewire('listing.details.calendar.listing-availability', [
                 'listingId'  => $listingId,
                 'availability' => $content['availability_window'],
             ])
@@ -796,7 +796,7 @@
                 <span class="_txtec">Guests won't be able to book your place if their stay starts on these days.</span>
             </div>
 
-            @livewire('listing-test.calendar.listing-ckecketin', [
+            @livewire('listing.details.calendar.listing-ckecketin', [
                 'listingId'  => $listingId,
                 'checkin' => $content['restricted_checkin_days'],
             ])
@@ -832,7 +832,7 @@
                 <span class="_txtec">Guests won't be able to book your place if their stay ends on these days.</span>
             </div>
 
-            @livewire('listing-test.calendar.listing-checketout', [
+            @livewire('listing.details.calendar.listing-checketout', [
                 'listingId'  => $listingId,
                 'checketout' => $content['restricted_checkout_days'],
             ])

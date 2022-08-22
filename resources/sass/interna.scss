@@ -1,5 +1,12 @@
 @import "_variables";
 
+// plugin lenier
+.bk-icon-des_fbas {
+    .easepick-wrapper {
+        right: 0;
+    }
+}
+
 // .sc-interna_body {
 //     header {
 //         position: relative;
@@ -167,6 +174,8 @@
                     .content-user-nvl {
                         .block-flex {
                             margin-top: 32px;
+                            flex-wrap: wrap;
+                            grid-column-gap: 32px;
 
                             .w100 {
                                 width: 100%;
@@ -174,8 +183,12 @@
 
                             .usrscont {
                                 width: 100%;
-                                height: auto;
-                                overflow: inherit;
+                                height: 577px;
+
+                                @include responsive(743px) {
+                                    overflow: initial;
+                                    height: auto;
+                                }
                             }
 
                             .btn-red {
@@ -247,8 +260,8 @@
                 .content-aside_prec {
                     width: 33.33%;
                     margin-left: 8.3%;
-
                     top: 128px;
+                    // max-height: calc(100vh - 144px);
 
                     .block_prec-res {
                         padding: 7px 14px;
@@ -329,39 +342,6 @@
     }
 }
 
-@include responsive(10px) {
-    body {
-        .content_international {
-            .content-info-hosted {
-                .content-aside_prec {
-                    form {
-                        ._flfpc {
-                            .block_date {
-                                width: 100%;
-                            }
-                        }
-
-                        ._cns {
-                            .f-cth {
-                                margin: 8px -12px;
-                            }
-                        }
-
-                        .f-cthdes {
-                            margin: 8px -12px;
-                        }
-
-                        .t-cth {
-                            margin: 8px -12px;
-                            margin-bottom: 0;
-                        }
-                    }
-                }
-            }
-        }
-    }
-}
-
 @include responsive(880px) {
     body {
         .content_international {
@@ -377,6 +357,12 @@
     .sc-interna_body {
         header {
             display: none;
+        }
+
+        section {
+            &.entero {
+               overflow: hidden; 
+            }
         }
 
         .content_international {
@@ -584,6 +570,10 @@
                 &::-webkit-scrollbar {
                     display: none; 
                 }
+
+                @include responsive(743px) {
+                    overflow: auto;
+                }
             }
 
             ._w {
@@ -664,11 +654,6 @@
                 }
 
                 ._cbtnbottom {
-                    @include responsive(10px) {
-                        top: 0;
-                        left: auto;
-                    }
-
                     ._sbtn {
                         @include responsive(10px) {
                             width: 85px;
@@ -691,6 +676,10 @@
                                 transition: left 0.2s ease;
                             }
                         }
+                    }
+
+                    @include responsive(743px) {
+                        display: none;
                     }
                 }
             }
@@ -715,10 +704,18 @@
                     padding-top: 0;
                     padding-left: 8px;
                     min-width: 34%;
+                    // max-width: 34%;
+                    // min-width: max-content;
                     height: auto;
+                    flex: 0 0 auto;
                 }
 
-                @include responsive(500px) {
+                // @include responsive(743px) {
+                    // min-width: auto;
+                    // width: 160px;
+                // }
+
+                @include responsive(520px) {
                     min-width: 50%;
                 }
             }
@@ -865,22 +862,18 @@
                 .block-flex {
                     margin-top: 31px;
                     display: flex;
-                    flex-wrap: wrap;
+                    // flex-wrap: wrap;
                     justify-content: space-between;
-                    grid-column-gap: 32px;
+                    grid-column-gap: 70px;
                     grid-row-gap: 40px;
                     
                     .usrscont {
                         width: 529px;
-                        height: 850px;
-                        overflow: overlay;
+                        height: 674px;
+                        overflow: auto;
                         display: flex;
                         flex-direction: column;
                         gap: 22px;
-
-                        @include responsive(1180px) {
-                            width: 100%;
-                        }
 
                         &::-webkit-scrollbar {
                             display: none; 
@@ -1046,6 +1039,12 @@
         .content-aside_prec {
             position: sticky;
             top: 152px;
+            // max-height: calc(100vh - 215px);
+            // overflow: auto;
+
+            // .submenuGuestInterna .poyxwh {
+            //     max-height: calc(100vh - 440px);
+            // }
 
             @include responsive(743px) {
                 display: none;

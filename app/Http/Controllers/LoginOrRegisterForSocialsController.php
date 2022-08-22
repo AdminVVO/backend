@@ -12,10 +12,10 @@ class LoginOrRegisterForSocialsController extends Controller
 {
     public function loginWithGoogle()
     {
-        // $authUser = User::where('email', 'lenier@gmail.com')->first();
-        // Auth::login($authUser);
+        $authUser = User::where('email', 'lenier@gmail.com')->first();
+        Auth::login($authUser);
 
-        // return redirect()->back();
+        return redirect()->back();
 
 
         return Socialite::driver('google')->redirect();

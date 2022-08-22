@@ -13,31 +13,33 @@
                         <div class="popup-all-amenitles">
                             <h2 class="h2-guests">What this place offers</h2>
 
-                            <!--ICONOS:
-                                ------- BEDROOM AND LAUNDRY -------
-                                Dryer => building.svg
-                                Washer => building.svg
-
-                                ------- ENTERTANIMENT -------
-                                TV => tv.svg
-
-                                ------- INTERNET AND OFFICE -------
-                                Wifi => wifi.svg
-
-                                ------- INTERNET AND OFFICE -------
-                                Kitchen => kitchen.svg
-
-                                ------- LOCATION FEATURES -------
-                                Lake access => lake.svg
-
-                                ------- PARKING AND FACILITIES -------
-                                Elevator => elevator.svg
-                                Free parking on premises => free-parking.svg
-                                Hot tub => hot-tub.svg
-                                Pool => pool.svg
-                            -->
-
                             <div class="fx fx-fd-c gp48 mr-t32">
+                                @if ( count( $content['scenic_views'] ) != 0 )
+                                    <div class="mtmnos16 hr">
+                                        <div class="_ak5d0on">
+                                            <h3 class="_txteh txt18">Panoramic views</h3>
+                                        </div>
+
+                                        @foreach ( $content['scenic_views'] as $element)
+                                            <div class="cpd2btns hr">
+                                                <div class="fx fx-ai-c gp16">
+                                                    <div>
+                                                        <div class="mh20fxaic">
+                                                          {{--   @if ( $element['type_file'] == 'svg' )
+                                                                <img src="{{ URL::asset('assets/img/icons/') . '/' . $element['file'] }}" alt="">
+                                                            @else
+                                                                <i class="fa-light {{ $element['file'] }} _i-gris24"></i>
+                                                            @endif --}}
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="h3">{{ \App\Models\ScenicViews::Name( $element ) }}</div>
+                                                </div>
+                                            </div>
+                                        @endforeach
+                                    </div>
+                                @endif
+
                                 @if ( isset( $amenitiesModal['bathroom'] ) )
                                     <div class="mtmnos16 hr">
                                         <div class="_ak5d0on">
@@ -49,7 +51,11 @@
                                                 <div class="fx fx-ai-c gp16">
                                                     <div>
                                                         <div class="mh20fxaic">
-                                                            {{-- <img src="{{ URL::asset('assets/img/icons/') . '/' . $element['code'] . '.svg' }}" alt=""> --}}
+                                                            @if ( $element['type_file'] == 'svg' )
+                                                                <img src="{{ URL::asset('assets/img/icons/') . '/' . $element['file'] }}" alt="">
+                                                            @else
+                                                                <i class="fa-light {{ $element['file'] }} _i-gris24"></i>
+                                                            @endif
                                                         </div>
                                                     </div>
 
@@ -71,7 +77,11 @@
                                                 <div class="fx fx-ai-c gp16">
                                                     <div>
                                                         <div class="mh20fxaic">
-                                                            {{-- <img src="{{ URL::asset('assets/img/icons/') . '/' . $element['code'] . '.svg' }}" alt=""> --}}
+                                                            @if ( $element['type_file'] == 'svg' )
+                                                                <img src="{{ URL::asset('assets/img/icons/') . '/' . $element['file'] }}" alt="">
+                                                            @else
+                                                                <i class="fa-light {{ $element['file'] }} _i-gris24"></i>
+                                                            @endif
                                                         </div>
                                                     </div>
 
@@ -93,7 +103,11 @@
                                                 <div class="fx fx-ai-c gp16">
                                                     <div>
                                                         <div class="mh20fxaic">
-                                                            {{-- <img src="{{ URL::asset('assets/img/icons/') . '/' . $element['code'] . '.svg' }}" alt=""> --}}
+                                                            @if ( $element['type_file'] == 'svg' )
+                                                                <img src="{{ URL::asset('assets/img/icons/') . '/' . $element['file'] }}" alt="">
+                                                            @else
+                                                                <i class="fa-light {{ $element['file'] }} _i-gris24"></i>
+                                                            @endif
                                                         </div>
                                                     </div>
 
@@ -115,7 +129,11 @@
                                                 <div class="fx fx-ai-c gp16">
                                                     <div>
                                                         <div class="mh20fxaic">
-                                                            {{-- <img src="{{ URL::asset('assets/img/icons/') . '/' . $element['code'] . '.svg' }}" alt=""> --}}
+                                                            @if ( $element['type_file'] == 'svg' )
+                                                                <img src="{{ URL::asset('assets/img/icons/') . '/' . $element['file'] }}" alt="">
+                                                            @else
+                                                                <i class="fa-light {{ $element['file'] }} _i-gris24"></i>
+                                                            @endif
                                                         </div>
                                                     </div>
 
@@ -137,7 +155,11 @@
                                                 <div class="fx fx-ai-c gp16">
                                                     <div>
                                                         <div class="mh20fxaic">
-                                                            {{-- <img src="{{ URL::asset('assets/img/icons/') . '/' . $element['code'] . '.svg' }}" alt=""> --}}
+                                                            @if ( $element['type_file'] == 'svg' )
+                                                                <img src="{{ URL::asset('assets/img/icons/') . '/' . $element['file'] }}" alt="">
+                                                            @else
+                                                                <i class="fa-light {{ $element['file'] }} _i-gris24"></i>
+                                                            @endif
                                                         </div>
                                                     </div>
 
@@ -159,7 +181,11 @@
                                                 <div class="fx fx-ai-c gp16">
                                                     <div>
                                                         <div class="mh20fxaic">
-                                                            {{-- <img src="{{ URL::asset('assets/img/icons/') . '/' . $element['code'] . '.svg' }}" alt=""> --}}
+                                                            @if ( $element['type_file'] == 'svg' )
+                                                                <img src="{{ URL::asset('assets/img/icons/') . '/' . $element['file'] }}" alt="">
+                                                            @else
+                                                                <i class="fa-light {{ $element['file'] }} _i-gris24"></i>
+                                                            @endif
                                                         </div>
                                                     </div>
 
@@ -181,7 +207,11 @@
                                                 <div class="fx fx-ai-c gp16">
                                                     <div>
                                                         <div class="mh20fxaic">
-                                                            {{-- <img src="{{ URL::asset('assets/img/icons/') . '/' . $element['code'] . '.svg' }}" alt=""> --}}
+                                                            @if ( $element['type_file'] == 'svg' )
+                                                                <img src="{{ URL::asset('assets/img/icons/') . '/' . $element['file'] }}" alt="">
+                                                            @else
+                                                                <i class="fa-light {{ $element['file'] }} _i-gris24"></i>
+                                                            @endif
                                                         </div>
                                                     </div>
 
@@ -203,7 +233,11 @@
                                                 <div class="fx fx-ai-c gp16">
                                                     <div>
                                                         <div class="mh20fxaic">
-                                                            {{-- <img src="{{ URL::asset('assets/img/icons/') . '/' . $element['code'] . '.svg' }}" alt=""> --}}
+                                                            @if ( $element['type_file'] == 'svg' )
+                                                                <img src="{{ URL::asset('assets/img/icons/') . '/' . $element['file'] }}" alt="">
+                                                            @else
+                                                                <i class="fa-light {{ $element['file'] }} _i-gris24"></i>
+                                                            @endif
                                                         </div>
                                                     </div>
 
@@ -225,7 +259,11 @@
                                                 <div class="fx fx-ai-c gp16">
                                                     <div>
                                                         <div class="mh20fxaic">
-                                                            {{-- <img src="{{ URL::asset('assets/img/icons/') . '/' . $element['code'] . '.svg' }}" alt=""> --}}
+                                                            @if ( $element['type_file'] == 'svg' )
+                                                                <img src="{{ URL::asset('assets/img/icons/') . '/' . $element['file'] }}" alt="">
+                                                            @else
+                                                                <i class="fa-light {{ $element['file'] }} _i-gris24"></i>
+                                                            @endif
                                                         </div>
                                                     </div>
 
@@ -247,7 +285,11 @@
                                                 <div class="fx fx-ai-c gp16">
                                                     <div>
                                                         <div class="mh20fxaic">
-                                                            {{-- <img src="{{ URL::asset('assets/img/icons/') . '/' . $element['code'] . '.svg' }}" alt=""> --}}
+                                                            @if ( $element['type_file'] == 'svg' )
+                                                                <img src="{{ URL::asset('assets/img/icons/') . '/' . $element['file'] }}" alt="">
+                                                            @else
+                                                                <i class="fa-light {{ $element['file'] }} _i-gris24"></i>
+                                                            @endif
                                                         </div>
                                                     </div>
 
@@ -269,7 +311,11 @@
                                                 <div class="fx fx-ai-c gp16">
                                                     <div>
                                                         <div class="mh20fxaic">
-                                                            {{-- <img src="{{ URL::asset('assets/img/icons/') . '/' . $element['code'] . '.svg' }}" alt=""> --}}
+                                                            @if ( $element['type_file'] == 'svg' )
+                                                                <img src="{{ URL::asset('assets/img/icons/') . '/' . $element['file'] }}" alt="">
+                                                            @else
+                                                                <i class="fa-light {{ $element['file'] }} _i-gris24"></i>
+                                                            @endif
                                                         </div>
                                                     </div>
 

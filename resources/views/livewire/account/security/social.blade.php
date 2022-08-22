@@ -1,9 +1,9 @@
 <div class="_bgpad-lg _bgpad-lg_socials">
-    <div class="h2-guests">Social accounts</div>
+    <div class="h2-guests skeleton skeleton_txt">Social accounts</div>
     <div>
         <div class="_bgpad-inf">
             <div class="_cont-edit">
-                <div class="_block-f">
+                <div class="_block-f skeleton">
                     <span class="_b-icon">
                         <i class="fab fa-facebook-f"></i>
                     </span>
@@ -19,7 +19,7 @@
                 </div>
 
                 @if ( $social->facebook_id == null)
-                    <a href="{{ route('facebook.login') }}" class="_btnsm">
+                    <a href="{{ route('facebook.login') }}" class="_btnsm skeleton skeleton_txt">
                         <span class="_fcontent">
                             Connect
                             <span class="_svg-asm">
@@ -28,7 +28,7 @@
                         </span>
                     </a>
                 @else
-                    <a href="javascript:void(0)" class="_btnsm" wire:click="disconnFace()">
+                    <a href="javascript:void(0)" class="_btnsm skeleton skeleton_txt" wire:click="disconnFace()">
                         <span class="_fcontent">
                             Disconnect
                             <span class="_svg-asm">
@@ -40,7 +40,7 @@
             </div>
 
             <div class="_cont-edit">
-                <div class="_block-f">
+                <div class="_block-f skeleton">
                     <span class="_b-icon">
                         <i class="fab fa-google"></i>
                     </span>
@@ -56,7 +56,7 @@
                 </div>
 
                 @if ( $social->google_id == null)
-                    <a href="{{ route('google.login') }}" class="_btnsm">
+                    <a href="{{ route('google.login') }}" class="_btnsm skeleton skeleton_txt">
                         <span class="_fcontent">
                             Connect
                             <span class="_svg-asm">
@@ -65,7 +65,7 @@
                         </span>
                     </a>
                 @else
-                    <a href="javascript:void(0)" class="_btnsm" wire:click="disconnGoog()">
+                    <a href="javascript:void(0)" class="_btnsm skeleton skeleton_txt" wire:click="disconnGoog()">
                         <span class="_fcontent">
                             Disconnect
                             <span class="_svg-asm">

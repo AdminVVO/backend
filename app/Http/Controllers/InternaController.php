@@ -3,20 +3,31 @@
 namespace App\Http\Controllers;
 
 use App\Models\AmenitiesSafety;
+use App\Models\GuestSafety;
 use App\Models\Listing\Listings;
 use App\Models\Profile;
-use Illuminate\Http\Request;
 use Carbon;
+use Illuminate\Http\Request;
 
 class InternaController extends Controller
 {
     public function viewListingClientDetails(Request $request, $listing)
     {
-        if ( Listings::where([ 'id_listings' => $listing ])->doesntExist() )
+        if ( Listings::where([ 'id_listings' => $listing ])->whereNotIn('status', ['in process'])->doesntExist() )
             return redirect()->back();
 
-        if ( count( $request->all() ) != 0 && isset( $request['inputDateIn'] ) )
+        if ( count( $request->all() ) != 0 && isset( $request['inputDateIn'] ) ){
             $daysDiffs = Carbon::createFromDate( $request['inputDateIn'] )->diff( $request['inputDateOut'] );
+        }else{
+            $dateInit = Carbon::now()->format('d-m-Y');
+            $dateSum = Carbon::createFromFormat('d-m-Y', $dateInit )->addDay(5)->format('d-m-Y');
+            $daysDiffs = Carbon::createFromDate( $dateInit )->diff( $dateSum );
+
+            $dataNoFilt = [
+                'inputDateIn' => $dateInit,
+                'inputDateOut' => $dateSum
+            ];
+        }
 
         $content = Listings::select(
             'listings.user_id',
@@ -29,12 +40,14 @@ class InternaController extends Controller
             'listings.guest_access',
             'listings.other_details',
             'listings.amenities',
+            'listings.legal',
             
             'listing_locations.country',
             'listing_locations.city',
             'listing_locations.state',
             'listing_locations.latitude',
             'listing_locations.longitude',
+            'listing_locations.scenic_views',
             
             'listing_property_roomds.like_place',
             'listing_property_roomds.property_type',
@@ -87,35 +100,28 @@ class InternaController extends Controller
         ->leftJoin('listing_policies', 'listings.id_listings', 'listing_policies.listing_id')
         ->leftJoin('listing_booking_details', 'listings.id_listings', 'listing_booking_details.listing_id')
         ->leftJoin('listing_house_rulers', 'listings.id_listings', 'listing_house_rulers.listing_id')
-        ->whereNotIn('status', ['in process'])
         ->first();
 
-
-        $amenities = AmenitiesSafety::whereIn('code', $content['amenities'])->select('name', 'code', 'typeList');
+        $amenities = AmenitiesSafety::whereIn('code', $content['amenities'])->select('name', 'code', 'typeList','file','type_file');
             $filter = clone $amenities;
                 $amenitiesModal = $filter->distinct('typeList','code')->get()->toArray();
                 $amenitiesInit = $filter->distinct('code')->get()->toArray();
 
-                if(count($amenitiesModal) == 0) {
-                    return redirect('/')->with('message', 'Listing no completed configuration.');
-                }
         foreach ($amenitiesModal as $key => $value) {
-
             $amenitiesModalFinal[$value['typeList']][$key]['code'] = $value['code'];
             $amenitiesModalFinal[$value['typeList']][$key]['name'] = $value['name'];
+            $amenitiesModalFinal[$value['typeList']][$key]['file'] = $value['file'];
+            $amenitiesModalFinal[$value['typeList']][$key]['type_file'] = $value['type_file'];
         }
 
-        $profile = Profile::select(
-            'language',
-            'about',
-        )
-        ->where('user_id', $content['user_id'])->first();
+        $profile = Profile::select('language','about')->where('user_id', $content['user_id'])->first();
+
         return view('interna.index', [
             'content' => $content,
             'amenitiesModal' => $amenitiesModalFinal,
             'amenitiesInit' => $amenitiesInit,
             'profile' => $profile,
-            'requestDate' => $request->all(),
+            'requestDate' => count( $request->all() ) != 0 ? $request->all() : $dataNoFilt,
             'requestDays' => isset( $daysDiffs ) ? $daysDiffs->days + 1 : 0,
         ]);
     }

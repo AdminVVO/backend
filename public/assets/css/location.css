@@ -1,3 +1,7 @@
+.page__wishlist_interno .content_location .content_location-width .contact-map {
+  margin-top: 0 !important;
+}
+
 @media (max-width: 743px) {
   .content_location {
     padding-bottom: 40px;

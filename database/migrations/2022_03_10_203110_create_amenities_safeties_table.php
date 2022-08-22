@@ -19,6 +19,8 @@ class CreateAmenitiesSafetiesTable extends Migration
             $table->string('name');
             $table->string('type');
             $table->string('typeList');
+            $table->string('file');
+            $table->string('type_file');
             $table->timestamps();
         });
     }

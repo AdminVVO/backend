@@ -31,37 +31,34 @@
                                     <h2 class="h2-guests_fs22">Most travelers ask about</h2>
 
                                     <div class="content-user_icons">
-                                        <div class="_fw">
-                                            @if ( in_array('free_parking', $content['amenities']))
+                                        @if ( count( $content['checkin_window_start'] ) != 0 )
+                                            <div class="_fw">
                                                 <div class="_txteh">Getting there</div>
                                                 <div class="s-usr_icons">
                                                     <div class="_suis">
                                                         <img src="{{ URL::asset('assets/img/icons/check-red.svg') }}" alt="">
                                                     </div>
                                                     <div class="_suisinfo">
-                                                        <div class="_txtec">Free parking on the premises.</div>
+                                                        @if ( count( $content['checkin_window_end'] ) != 0 )
+                                                            <div class="_txtec">The arrival at this accommodation is between {{ $content['checkin_window_start']['time'] .' '. $content['checkin_window_start']['type'] }} and {{ $content['checkin_window_end']['time'] .' '. $content['checkin_window_end']['type'] }} @if ( count( $content['checkout_time'] ) != 0 ) and the departure is at {{ $content['checkout_time']['time'] .' '. $content['checkout_time']['type'] }}@endif.</div>
+                                                        @else
+                                                            @if ( count( $content['checkin_window_start'] ) != 0 )
+                                                                <div class="_txtec">The arrival at this accommodation is made {{ $content['checkin_window_start']['time'] .' '. $content['checkin_window_start']['type'] }} @if ( count( $content['checkout_time'] ) != 0 ) and the departure is at {{ $content['checkout_time']['time'] .' '. $content['checkout_time']['type'] }} @endif.</div>
+                                                            @endif
+                                                        @endif
                                                     </div>
                                                 </div>
-                                            @endif
-
-                                            <div class="s-usr_icons">
-                                                <div class="_suis">
-                                                    <img src="{{ URL::asset('assets/img/icons/check-red.svg') }}" alt="">
-                                                </div>
-                                                <div class="_suisinfo">
-                                                    <div class="_txtec">Check-in time for this home starts at {{ $content['checkin_window_start']['time'] .' '. $content['checkin_window_start']['type'] }} and checkout is at {{ $content['checkin_window_end']['time'] .' '. $content['checkin_window_end']['type'] }}.</div>
-                                                </div>
                                             </div>
-                                        </div>
+                                        @endif
 
                                         <div class="_fw">
-                                            <div class="_txteh">House rules</div>
+                                            <div class="_txteh">Details and house rules</div>
                                             <div class="s-usr_icons">
                                                 <div class="_suis">
                                                     <img src="{{ URL::asset('assets/img/icons/check-red.svg') }}" alt="">
                                                 </div>
                                                 <div class="_suisinfo">
-                                                    <div class="_txtec">{{ $content['suitable_for_children'] ? '' : 'No' }} Suitable for children (2-12 years).</div>
+                                                    <div class="_txtec">{{ $content['pets_allowed'] ? 'Pets Allowed.' : 'No Pets Allowed.' }}</div>
                                                 </div>
                                             </div>
 
@@ -70,7 +67,7 @@
                                                     <img src="{{ URL::asset('assets/img/icons/check-red.svg') }}" alt="">
                                                 </div>
                                                 <div class="_suisinfo">
-                                                    <div class="_txtec">{{ $content['suitable_for_infants'] ? '' : 'No' }} Suitable for infants (under 2 years).</div>
+                                                    <div class="_txtec">{{ $content['smoking_allowed'] ? 'Smoking is Allowed.' : 'Smoking is not allowed.' }}</div>
                                                 </div>
                                             </div>
 
@@ -79,25 +76,7 @@
                                                     <img src="{{ URL::asset('assets/img/icons/check-red.svg') }}" alt="">
                                                 </div>
                                                 <div class="_suisinfo">
-                                                    <div class="_txtec">{{ $content['pets_allowed'] ? 'Pets Allowed.' : 'No Pets.' }}</div>
-                                                </div>
-                                            </div>
-
-                                            <div class="s-usr_icons">
-                                                <div class="_suis">
-                                                    <img src="{{ URL::asset('assets/img/icons/check-red.svg') }}" alt="">
-                                                </div>
-                                                <div class="_suisinfo">
-                                                    <div class="_txtec">{{ $content['smoking_allowed'] ? 'Smoking allowed.' : 'No Smoking.' }}</div>
-                                                </div>
-                                            </div>
-
-                                            <div class="s-usr_icons">
-                                                <div class="_suis">
-                                                    <img src="{{ URL::asset('assets/img/icons/check-red.svg') }}" alt="">
-                                                </div>
-                                                <div class="_suisinfo">
-                                                    <div class="_txtec">{{ $content['events_allowed'] ? 'Events allowed.' : 'No Parties or Events..' }}</div>
+                                                    <div class="_txtec">{{ $content['events_allowed'] ? 'Events are Allowed.' : 'No Events Allowed.' }}</div>
                                                 </div>
                                             </div>
                                         </div>
@@ -111,6 +90,17 @@
                                                     </div>
                                                     <div class="_suisinfo">
                                                         <div class="_txtec">Get a {{ $content['weekly_discount'] }}% discount on stays longer than a week.</div>
+                                                    </div>
+                                                </div>
+                                            @endif
+
+                                            @if ( $content['monthly_discount'] != null )
+                                                <div class="s-usr_icons">
+                                                    <div class="_suis">
+                                                        <img src="{{ URL::asset('assets/img/icons/check-red.svg') }}" alt="">
+                                                    </div>
+                                                    <div class="_suisinfo">
+                                                        <div class="_txtec">Get a {{ $content['monthly_discount'] }}% discount on stays of more than one month.</div>
                                                     </div>
                                                 </div>
                                             @endif

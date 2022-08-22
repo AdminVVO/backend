@@ -18,7 +18,7 @@
                             <div class="poyxwh">
                                 <div class="popup-enhanced-clean">
                                     <h2 class="h2_publish">Enhanced Clean</h2>
-                                    <div class="_txtec" style="margin: 32px 0 21px;">Agustin committed to Airbnb's 5-step enhanced cleaning process—a set of standards developed in partnership with experts, for the times of COVID-19 and beyond.</div>
+                                    <div class="_txtec" style="margin: 32px 0 21px;">Agustin committed to Vvoutlet 5-step enhanced cleaning process—a set of standards developed in partnership with experts, for the times of COVID-19 and beyond.</div>
                                     <div class="_txteh">Here's what Agustin committed to doing before every stay:</div>
 
                                     <div class="content-user_icons">

@@ -1,5 +1,15 @@
 @import "_variables";
 
+.page__wishlist_interno {
+    .content_location {
+        .content_location-width {
+            .contact-map {
+                margin-top: 0 !important;
+            }
+        }
+    }
+}
+
 .content_location {
 
     @include responsive(743px) {

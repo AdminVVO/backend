@@ -111,6 +111,20 @@ header {
 
         ._bef-places {
             margin-top: 31px;
+
+            .cpd2btns {
+                .txtunder__ics {
+                    ._txtec {
+                        color: #333;
+                    }
+
+                    &:hover {
+                        ._txtec {
+                            color: #000;
+                        }
+                    }
+                }
+            }
         }
     }
 
