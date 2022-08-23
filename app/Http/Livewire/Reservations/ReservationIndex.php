@@ -7,14 +7,16 @@ use Livewire\Component;
 class ReservationIndex extends Component
 {
     public $tabs = '';
+    public $reservation = [];
 
     public function render()
-    {
+    {   
         return view('livewire.reservations.reservation-index');
     }
 
     public function mount()
-    {
+    { 
+
         $this->tabs = 'Upcoming';
     }
 

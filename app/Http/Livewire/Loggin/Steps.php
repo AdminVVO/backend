@@ -242,14 +242,15 @@ class Steps extends Component
                 'promotion' => $this->input['promotion'] ?? false,
             ];
             $auth = $this->sendSave( $content );
-            Auth::login( $auth );
-            return redirect()->to('/');
+            Auth::login($auth);
+            
+            return redirect()->route('/');
          }
     }
 
     private function sendSave($payload)
     {
-        return $authUser = User::create([
+        return User::create([
             'name'       => $payload['name'],
             'last_name'  => $payload['last_name'],
             'full_name'  => $payload['name'] .' '. $payload['last_name'],

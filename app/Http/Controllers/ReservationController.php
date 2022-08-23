@@ -3,19 +3,27 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\SendMailController;
-use App\Models\reservation;
+use App\Models\Reservation;
 use Illuminate\Http\Request;
+use App\Models\Listing\Listings;
 
 class ReservationController extends Controller
 {
    /* Crear Reservacion Send Form */ 
-        public function viewReservationCreateSendForm($id)
-        {
-            return view('reservation.client.indexClient', compact('id'));
-        }
+    public function viewReservationCreateSendForm($id)
+    {
+        return view('reservation.client.indexClient', compact('id'));
+    }
     
     public function viewReservation()
     {
+        $listings = Listings::where('user_id', auth()->user()->id_user)->get('id_listings')->toArray();
+        $reservation = Reservation::whereIn('listing_id', $listings)->get()->toArray();   
+
+        if(count($reservation) == 0) {
+            return redirect('/');
+        }
+
         return view('reservation.ReservationsIndex');
     }
 

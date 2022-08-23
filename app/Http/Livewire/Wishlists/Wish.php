@@ -95,6 +95,12 @@ class Wish extends Component
     public function removeListing($payload)
     {
         Wishlists::where(['user_id' => Auth::id(), 'name' => $this->name, 'listing_id' => $payload])->distinct('listing_id')->delete();
+        $wish = Wishlists::where(['user_id' => Auth::id(), 'name' => $this->name])->get();
+        
+        if(count($wish) == 0){
+            return redirect()->route('/');
+        }
+
         $this->preLoadContent();
 
         $this->preloadReturnMap = true;

@@ -12,11 +12,10 @@ class LoginOrRegisterForSocialsController extends Controller
 {
     public function loginWithGoogle()
     {
-        $authUser = User::where('email', 'lenier@gmail.com')->first();
-        Auth::login($authUser);
+        // $authUser = User::where('email', 'lenier@gmail.com')->first();
+        // Auth::login($authUser);
 
-        return redirect()->back();
-
+        // return redirect()->back();
 
         return Socialite::driver('google')->redirect();
     }
@@ -70,11 +69,10 @@ class LoginOrRegisterForSocialsController extends Controller
 
     public function loginWithFacebook()
     {
+        // $authUser = User::where('email', 'Dev@gmail.com')->first();
+        // Auth::login($authUser);
 
-        $authUser = User::where('email', 'Dev@gmail.com')->first();
-        Auth::login($authUser);
-
-        return redirect()->route('/');
+        // return redirect()->route('/');
 
         return Socialite::driver('facebook')->redirect();
     }
