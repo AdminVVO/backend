@@ -1,4 +1,20 @@
 $(document).ready(function() {
+    // header places
+    submenuPlaceHeaderGeneral();
+    function submenuPlaceHeaderGeneral() {
+        let $menu = $(".contAddGuest");
+
+        $(document).mouseup(e => {
+            if (!$menu.is(e.target) && $menu.has(e.target).length === 0) {
+                $menu.removeClass("active");
+            }
+        });
+
+        $(document).on("click", ".js__addGuestHeader", function() {
+            $menu.toggleClass("active");
+        });
+    }
+
     // estrella, favorite.
     starRating();
     function starRating() {

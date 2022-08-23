@@ -150,6 +150,7 @@
     		pickerHome.show();
     	});
     </script>
+    <script>window.onload = function () { pickerHeaderPlugin = pickerHome.ui.container; pickerHeaderPlugin.style.marginTop ="1.9rem" }</script>
 
     <script>
 		window.addEventListener('closedModalFavority', event => {

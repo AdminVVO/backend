@@ -1,4 +1,4 @@
-<form wire:submit.prevent="SubmitPlaces" >
+<form wire:submit.prevent="SubmitPlaces">
     <div class="_flex-js">
         <div class="inputBox" wire:ignore>
             <div class="place_select">
@@ -11,8 +11,8 @@
         </div>
 
         <div class="inputBox skeleton" wire:ignore>
-            <label for="">
-                <div class="place_select">
+            <label for="easypickHome">
+                <div class="place_select befo__checkout">
                     <span class="skeleton skeleton_txt">Check in</span>
                     <i class="far fa-calendar-alt skeleton">
                         <input id="easypickHome" placeholder="Add dates" readonly>
@@ -22,8 +22,8 @@
         </div>
 
         <div class="inputBox skeleton" wire:ignore>
-            <label for="">
-                <div class="place_select endEasypick">
+            <label for="easypickHome">
+                <div class="place_select befo__checkout">
                     <span class="skeleton skeleton_txt">Check Out</span>
                     <i class="far fa-calendar-alt skeleton">
                         <input type="text" id="endEasypickHome" placeholder="Add dates" readonly>
@@ -32,16 +32,16 @@
             </label>
         </div>
 
-        <div class="inputBox skeleton">
-            <div class="book-f_home" wire:ignore.self>
-                <div class="place_select menuGuest" wire:ignore>
+        <div class="inputBox">
+            <div class="contAddGuest" wire:ignore.self>
+                <button type="button" class="place_select js__addGuestHeader" wire:ignore>
                     <span class="skeleton skeleton_txt">Guest</span>
 
                     <i class="far fa-user skeleton">
                         <span>Add guest</span>
                         <i class="fas fa-chevron-down"></i>
                     </i>
-                </div>
+                </button>
 
                 @include('livewire.home.includes.beforer')
             </div>

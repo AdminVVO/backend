@@ -134,14 +134,6 @@
                     <div class="navcont__flech-fx mr-t24 mr-b32" wire:ignore>
                         <div class="cont_nav">
                             <div class="nav__links-txt scroll_n ">
-                                {{-- <button type="button" class="li__links-txt _creditcard">
-                                    <span class="tabs_items active_tabs">Credit or debit card</span>
-                                </button>
-
-                                <button type="button" class="li__links-txt _glepay">
-                                    <span class="tabs_items">Google Pay</span>
-                                </button> --}}
-
                                 <button type="button" class="li__links-txt _paypal">
                                     <span class="tabs_items active_tabs">Paypal</span>
                                 </button>
@@ -151,184 +143,15 @@
                         </div>
                     </div>
 
-                    {{-- <form wire:submit.prevent="SubmitCreditCard" wire:ignore.self>
-                        <div class="_hiddencreditordebit">
-                            <div class="txt-check-in">Card Number</div>
-
-                            <div>
-                                <label for="ipt__ics" class="ipt_icon js_ipt-icon">
-                                    <input type="text" class="ipt_ic mask__cardnumber" placeholder="0000 0000 0000 0000" id="ipt__ics" wire:model.defer="inputCard">
-                                    <i class="fal fa-credit-card js_ics"></i>
-                                </label>
-                            </div>
-
-                            <div class="_flfpc gp16" style="flex-direction: initial;">
-                                <div class="bk-icon-des_fbas fx-fd-c mnw-p48_f48">
-                                    <div class="txt-check-in">Expiration</div>
-                                    <input type="text" class="_numcard mask__mmyy" placeholder="MM / YY" wire:model.defer="inputExp">
-                                </div>
-
-                                <div class="bk-icon-des_fbas fx-fd-c mnw-p48_f48">
-                                    <div class="txt-check-in">CVV</div>
-                                    <input type="text" class="_numcard number" placeholder="123" maxlength="4" wire:model.defer="inputCvv">
-                                </div>
-                            </div>
-
-                            <div class="_txteh">Billing address</div>
-                            <div class="_cbadd">
-                                <div class="txt-check-in">Street address</div>
-                                <input type="text" class="_numcard" wire:model.defer="inputAddress">
-                            </div>
-
-                            <div class="_cbadd">
-                                <div class="txt-check-in">Apt or suite number</div>
-                                <input type="text" class="_numcard number" wire:model.defer="inputSuite">
-                            </div>
-
-                            <div class="_cbadd">
-                                <div class="txt-check-in">City</div>
-                                <input type="text" class="_numcard" wire:model.defer="inputCity">
-                            </div>
-
-                            <div class="_flfpc gp16" style="flex-direction: initial; margin: 21px 0 21px;">
-                                <div class="bk-icon-des_fbas fx-fd-c mnw-p48_f48">
-                                    <div class="txt-check-in">State</div>
-                                    <input type="text" class="_numcard" wire:model.defer="inputState">
-                                </div>
-
-                                <div class="bk-icon-des_fbas fx-fd-c mnw-p48_f48">
-                                    <div class="txt-check-in">ZIP code</div>
-                                    <input type="text" class="_numcard number" wire:model.defer="inputZip">
-                                </div>
-                            </div>
-
-                            <div class="cbadd">
-                                <div class="txt-check-in">Country/region</div>
-                                <div class="selected-modal" style="margin: 0;">
-                                    <select wire:model.defer="inputCountry">
-                                        <option value="1">United States</option>
-                                        <option value="2">United States (+2)</option>
-                                        <option value="3">United States (+3)</option>
-                                    </select>
-
-                                    <i class="fas fa-chevron-down"></i>
-                                </div>
-                            </div>
-
-                            <div class="_line-hr mr-t32 mr-b32"></div>
-
-                            <div class="_cp">
-                                <div class="h2-guests">Cancellation policy</div>
-                                <p class="_txtec">
-                                    Non-refundable: Cancel before check-in and get back only the cleaning fee, if you paid one.
-
-                                    <button type="button" class="txtunder__ics"><span>Learn more</span></button>
-                                </p>
-
-                                <p class="_txtec">
-                                    Our Extenuating Circumstances policy does not cover travel disruptions caused by COVID-19.
-
-                                    <button type="button" class="txtunder__ics"><span>Learn more</span></button>
-                                </p>
-                            </div>
-
-                            <div class="_line-hr mr-t32 mr-b32"></div>
-
-                            <div>
-                                <p class="_txtec16">
-                                    By selecting the button below, I agree to the
-
-                                    <button type="button" class="txtunder__ics txt16"><span>Host's House Rules</span></button>,
-
-                                    <button type="button" class="txtunder__ics txt16"><span>vvoutlet COVID-19 Safety Requirements</span></button>
-
-                                    and the
-
-                                    <button type="button" class="txtunder__ics txt16"><span>Guest Refund Policy</span></button>.
-                                </p>
-                            </div>
-
-                            <button type="submit" class="btn-celest" style="margin: 34px 0 0;">Confirm and pay</button>
-                        </div>
-                    </form>
-
-                    <div class="_showgplay" style="display: none;">
-                        <div class="mr-b32">
-                            <button type="button" class="btn-black mx210">
-                                <div class="fx fx-ai-c fx-jc-c gp6">
-                                    <img src="{{ URL::asset('assets/img/icons/google.svg') }}" alt="">
-                                    Pay
-                                </div>
-                            </button>
-                        </div>
-
-                        <div class="_line-hr mr-t32 mr-b32"></div>
-
-                        <div class="fx fx-fd-c gp16">
-                            <h2 class="h2-guests">Information required for the trip</h2>
-
-                            <div class="fx fx-fd-c gp4">
-                                <div class="_txteh">Send a message to the host</div>
-                                <div class="_txtec16">Tell the host why you are traveling and when you will arrive.</div>
-                            </div>
-
-                            <label for="textarealbl" class="mr-t16">
-                                <div class="content-user_inf fx fx-ai-c mr-b32">
-                                    <span class="pf-u fx" style="max-width: 46px; height: 46px;">
-                                        <img src="{{ URL::asset('assets/img/profile.png') }}" alt="">
-                                    </span>
-                                    <div class="wh-p100">
-                                        <h2 class="_txteh">Anny</h2>
-                                        <div class="_txtec16 mr-t2">Joined in August 2013</div>
-                                    </div>
-                                </div>
-
-                                <textarea placeholder="Write a note" class="_txta-modls" style="resize: vertical;" rows="5" id="textarealbl"></textarea>
-                            </label>
-                        </div>
-
-                        <div class="_line-hr mr-t32 mr-b32"></div>
-
-                        <div class="_cp">
-                            <div class="h2-guests">Cancellation policy</div>
-                            <p class="_txtec">
-                                Non-refundable: Cancel before check-in and get back only the cleaning fee, if you paid one.
-
-                                <button type="button" class="txtunder__ics">Learn more</button>
-                            </p>
-
-                            <p class="_txtec">
-                                Our Extenuating Circumstances policy does not cover travel disruptions caused by COVID-19.
-
-                                <button type="button" class="txtunder__ics">Learn more</button>
-                            </p>
-                        </div>
-
-                        <div class="_line-hr mr-t32 mr-b32"></div>
-
-                        <div>
-                            <p class="_txtec16">
-                                By selecting the button below, I agree to the
-
-                                <button type="button" class="txtunder__ics txt16">Host's House Rules</button>,
-
-                                <button type="button" class="txtunder__ics txt16">vvoutlet COVID-19 Safety Requirements</button>
-
-                                and the
-
-                                <button type="button" class="txtunder__ics txt16">Guest Refund Policy</button>.
-                            </p>
-                        </div>
-                    </div> --}}
-
                     <div class="_showpaypal">
-                        <div class="mr-b32">
-                            <button type="button" class="btn-yellow mx210">
+                        <div class="mr-b32" wire:ignore>
+                            <div id="paypal-button-container" wire:ignore></div>
+                          {{--   <button type="button" class="btn-yellow mx210">
                                 <div class="fx fx-ai-c fx-jc-c gp3">
                                     <img src="{{ URL::asset('assets/img/icons/paypal.svg') }}" alt="" style="min-width: 14px; width: 14px;">
                                     <img src="{{ URL::asset('assets/img/icons/txt-paypal.svg') }}" alt="" style="min-width: 59px; width: 59px;">
                                 </div>
-                            </button>
+                            </button> --}}
                         </div>
 
                         <div class="_line-hr mr-t32 mr-b32"></div>
@@ -476,70 +299,6 @@
                         </span>
                     @endif
                 </div>
-
-
-            {{--     <div class="_cns">
-                    <span class="f-cth">
-                        <div class="_txtec">{{ \App\Models\Currencs::Symbol( $listing_currency ) . $inputBase }} x {{ $requestDays }} nights</div>
-                        <div class="_txtec">{{ \App\Models\Currencs::Symbol( $listing_currency ) . ( $inputBase * $requestDays ) }}</div>
-                    </span>
-
-                    @if ( $weekly_discount != null )
-                        <span class="f-cthdes">
-                            <div class="_txtecred">Weekly discount</div>
-                            <div class="_txtecred">-{{ \App\Models\Currencs::Symbol( $listing_currency ) . $weekly_discount }}</div>
-                        </span>
-                    @endif
-
-                    @if ( $monthly_discount != null )
-                        <span class="f-cthdes">
-                            <div class="_txtecred">Monthly discount</div>
-                            <div class="_txtecred">-{{ \App\Models\Currencs::Symbol( $listing_currency ) . $monthly_discount }}</div>
-                        </span>
-                    @endif
-
-                    @if ( $cleaning_fee != null )
-                        <span class="f-cth">
-                            <div class="_txtec">Cleaning fee</div>
-                            <div class="_txtec">{{ \App\Models\Currencs::Symbol( $listing_currency ) . $cleaning_fee }}</div>
-                        </span>
-                    @endif
-
-                    @if ( $pet_fee != null )
-                        <span class="f-cth">
-                            <div class="_txtec">Pets fee</div>
-                            <div class="_txtec">{{ \App\Models\Currencs::Symbol( $listing_currency ) . $pet_fee }}</div>
-                        </span>
-                    @endif
-
-                    @if ( $linens_fee != null )
-                        <span class="f-cth">
-                            <div class="_txtec">Linens fee</div>
-                            <div class="_txtec">{{ \App\Models\Currencs::Symbol( $listing_currency ) . $linens_fee }}</div>
-                        </span>
-                    @endif
-
-                    @if ( $resort_fee != null )
-                        <span class="f-cth">
-                            <div class="_txtec">Resort fee</div>
-                            <div class="_txtec">{{ \App\Models\Currencs::Symbol( $listing_currency ) . $resort_fee }}</div>
-                        </span>
-                    @endif
-
-                    @if ( $management_fee != null )
-                        <span class="f-cth">
-                            <div class="_txtec">Management fee</div>
-                            <div class="_txtec">{{ \App\Models\Currencs::Symbol( $listing_currency ) . $management_fee }}</div>
-                        </span>
-                    @endif
-
-                    @if ( $extra_guestShow != 0 )
-                        <span class="f-cth">
-                            <div class="_txtec">Extra Guest fee</div>
-                            <div class="_txtec">{{ \App\Models\Currencs::Symbol( $listing_currency ) . $extra_guestShow }}</div>
-                        </span>
-                    @endif
-                </div> --}}
 
                 <span class="t-cth">
                     <div class="_txtect">Total</div>

@@ -89453,6 +89453,10 @@ select option:hover {
   display: block;
 }
 
+.contAddGuest.active ._bef-places {
+  display: block;
+}
+
 .book-f_header.is-active ._bef-places {
   display: block;
 }
@@ -90248,7 +90252,6 @@ select option:hover {
 .container.range-plugin {
   border-radius: 18px;
   margin-top: 1.4rem;
-  width: 100%;
 }
 .container.range-plugin main {
   overflow: auto;
@@ -90264,6 +90267,7 @@ select option:hover {
   box-shadow: none !important;
   border: 0;
   margin: 0;
+  width: 100%;
 }
 .vvoRangePickerInterna .calendars {
   gap: 12px;

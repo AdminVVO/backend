@@ -89,7 +89,7 @@
         })
     </script>
      <script>
-        const picker = new easepick.create({
+        const pickerHome = new easepick.create({
             element: '#easypickHome',
             css: [
                 'assets/css/easepick-vvo.css',
@@ -111,11 +111,11 @@
             LockPlugin: {
               minDate: new Date(),
             },
-            setup(picker) {
-                picker.on('select', (e) => {
+            setup(pickerHome) {
+                pickerHome.on('select', (e) => {
                 var content = [
-                    startDate = picker.getStartDate(),
-                    endDate = picker.getEndDate(),
+                    startDate = pickerHome.getStartDate(),
+                    endDate = pickerHome.getEndDate(),
                 ];
                 Livewire.emitTo('home.search-places', 'selectDate', content )
               });
@@ -123,14 +123,15 @@
         });
 
         $('.endEasypick').click(function(event) {
-            picker.show();
+            pickerHome.show();
         });
 
         @if ( isset( $request['inputDateIn'] ) && isset( $request['inputDateOut'] ) )
             const DateTime = easepick.DateTime;
-            picker.setStartDate( new DateTime('{{ Carbon::parse( $request['inputDateIn'] )->Format('d-m-Y'); }}', 'DD.MM.YYYY') );
-            picker.setEndDate( new DateTime('{{ Carbon::parse( $request['inputDateOut'] )->Format('d-m-Y'); }}', 'DD.MM.YYYY') );
+            pickerHome.setStartDate( new DateTime('{{ Carbon::parse( $request['inputDateIn'] )->Format('d-m-Y'); }}', 'DD.MM.YYYY') );
+            pickerHome.setEndDate( new DateTime('{{ Carbon::parse( $request['inputDateOut'] )->Format('d-m-Y'); }}', 'DD.MM.YYYY') );
         @endif
 
     </script>
+    <script>window.onload = function () { pickerHeaderPlugin = pickerHome.ui.container; pickerHeaderPlugin.style.marginTop ="1.9rem" }</script>
 @endsection

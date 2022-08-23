@@ -14,7 +14,7 @@
         <div class="fpstaltz showfx743"></div>
 
         <div class="whfxoyx">
-            <div class="poyxwh" wire:ignore.self>
+            <div class="poyxwh">
                 <div class="cpd2btns hr">
                     <div class="fx fx-ai-b fx-jc-sb gp25">
                         <div class="fx fx-fd-c gp7">
@@ -22,7 +22,7 @@
                         </div>
 
                         <div class="_2btnsgris">
-                            <button class="_btn" {{ $inputAdult <= 1 ? 'disabled' : '' }} type="button" aria-label="disminuir valor" wire:click="buttonDecrease('adult')">
+                            <button class="_btn" type="button" aria-label="disminuir valor" {{ $inputAdult <= 1 ? 'disabled' : '' }} wire:click="buttonDecrease('adult')">
                                 <span>
                                     <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" role="presentation" focusable="false">
                                         <path d="m2 16h28"></path>
@@ -32,7 +32,7 @@
                             
                             <span class="_txtec333">{{ $inputAdult }}</span>
 
-                            <button class="_btn" {{ $inputAdult >= 5 ? 'disabled' : '' }} type="button" aria-label="aumentar valor" wire:click="buttonIncrease('adult')">
+                            <button class="_btn" type="button" aria-label="aumentar valor" {{ $inputAdult >= 5 ? 'disabled' : '' }} wire:click="buttonIncrease('adult')">
                                 <span>
                                     <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" role="presentation" focusable="false">
                                         <path d="m2 16h28m-14-14v28"></path>
@@ -51,7 +51,7 @@
                         </div>
 
                         <div class="_2btnsgris">
-                            <button class="_btn" {{ $inputKids == 0 ? 'disabled' : '' }} type="button" aria-label="disminuir valor" wire:click="buttonDecrease('kids')">
+                            <button class="_btn" type="button" aria-label="disminuir valor" {{ $inputKids == 0 ? 'disabled' : '' }} wire:click="buttonDecrease('kids')">
                                 <span>
                                     <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" role="presentation" focusable="false">
                                         <path d="m2 16h28"></path>
@@ -61,7 +61,7 @@
                             
                             <span class="_txtec333">{{ $inputKids }}</span>
 
-                            <button class="_btn" {{ $inputKids >= 5 ? 'disabled' : '' }} type="button" aria-label="aumentar valor" wire:click="buttonIncrease('kids')">
+                            <button class="_btn" type="button" aria-label="aumentar valor" {{ $inputKids >= 5 ? 'disabled' : '' }} wire:click="buttonIncrease('kids')">
                                 <span>
                                     <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" role="presentation" focusable="false">
                                         <path d="m2 16h28m-14-14v28"></path>
@@ -80,7 +80,7 @@
                         </div>
 
                         <div class="_2btnsgris">
-                            <button class="_btn" {{ $inputInfant == 0 ? 'disabled' : '' }} type="button" aria-label="disminuir valor" wire:click="buttonDecrease('infant')">
+                            <button class="_btn" type="button" aria-label="disminuir valor" {{ $inputInfant == 0 ? 'disabled' : '' }} wire:click="buttonDecrease('infant')">
                                 <span>
                                     <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" role="presentation" focusable="false">
                                         <path d="m2 16h28"></path>
@@ -90,7 +90,7 @@
                             
                             <span class="_txtec333">{{ $inputInfant }}</span>
 
-                            <button class="_btn" {{ $inputInfant >= 5 ? 'disabled' : '' }} type="button" aria-label="aumentar valor" wire:click="buttonIncrease('infant')">
+                            <button class="_btn" type="button" aria-label="aumentar valor" {{ $inputInfant >= 5 ? 'disabled' : '' }} wire:click="buttonIncrease('infant')">
                                 <span>
                                     <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" role="presentation" focusable="false">
                                         <path d="m2 16h28m-14-14v28"></path>
@@ -111,7 +111,7 @@
                         </div>
 
                         <div class="_2btnsgris">
-                            <button class="_btn" {{ $inputPets == 0 ? 'disabled' : '' }} type="button" aria-label="disminuir valor" wire:click="buttonDecrease('pets')">
+                            <button class="_btn" type="button" aria-label="disminuir valor" {{ $inputPets == 0 ? 'disabled' : '' }} wire:click="buttonDecrease('pets')">
                                 <span>
                                     <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" role="presentation" focusable="false">
                                         <path d="m2 16h28"></path>
@@ -121,7 +121,7 @@
                             
                             <span class="_txtec333">{{ $inputPets }}</span>
 
-                            <button class="_btn" {{ $inputPets >= 5 ? 'disabled' : '' }} type="button" aria-label="aumentar valor" wire:click="buttonIncrease('pets')">
+                            <button class="_btn" type="button" aria-label="aumentar valor" {{ $inputPets >= 5 ? 'disabled' : '' }} wire:click="buttonIncrease('pets')">
                                 <span>
                                     <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" role="presentation" focusable="false">
                                         <path d="m2 16h28m-14-14v28"></path>

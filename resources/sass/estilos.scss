@@ -12306,6 +12306,15 @@ select {
     }
   }
 }
+
+.contAddGuest {
+  &.active {
+    ._bef-places {
+      display: block;
+    }
+  }
+}
+
 .book-f_header {
   &.is-active {
     ._bef-places {
@@ -13218,7 +13227,7 @@ select {
   &.range-plugin {
     border-radius: 18px;
     margin-top: 1.4rem;
-    width: 100%;
+    // width: 100%;
 
     main {
       overflow: auto;
@@ -13238,6 +13247,7 @@ select {
   box-shadow: none !important;
   border: 0;
   margin: 0;
+  width: 100%;
 
   .calendars {
     gap: 12px;

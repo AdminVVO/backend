@@ -4,9 +4,12 @@ namespace App\Http\Livewire\Interna;
 
 use Livewire\Component;
 use Carbon;
+use Jantinnerezo\LivewireAlert\LivewireAlert;
 
 class InternaConfirmPay extends Component
 {
+    use LivewireAlert;
+
     public $listingId;
     public $title;
     public $photos;
@@ -55,8 +58,14 @@ class InternaConfirmPay extends Component
     protected $listeners = [
         'selectDate' => 'selectDate',
         'ExtraShow' => 'ExtraShow',
-        'editGuestSubmit' => 'editGuestSubmit'
+        'editGuestSubmit' => 'editGuestSubmit',
+        'cancelPaypaEvent' => 'cancelPaypaEvent',
     ];
+
+    public function cancelPaypaEvent()
+    {
+        $this->alert('warning', 'Transacctions is Cancel!');
+    }
 
     public function mount()
     {        
