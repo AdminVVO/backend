@@ -56,13 +56,26 @@
 
                                         <div class="s-usr_icons">
                                             <div class="_suis">
-                                                <img src="{{ URL::asset('assets/img/icons/pets.svg') }}" alt="">
+                                                <i class="fa-solid fa-smoking"></i>
                                             </div>
                                             <div class="_suisinfo">
                                                 @if ( $content['smoking_allowed'] )
                                                     <div class="_txtec">Smoking is allowed</div>
                                                 @else
                                                     <div class="_txtec">It is not allowed to smoke</div>
+                                                @endif
+                                            </div>
+                                        </div>
+
+                                        <div class="s-usr_icons">
+                                            <div class="_suis">
+                                                <i class="fa-solid fa-calendar-check"></i>
+                                            </div>
+                                            <div class="_suisinfo">
+                                                @if ( $content['events_allowed'] )
+                                                    <div class="_txtec">Events are Allowed.</div>
+                                                @else
+                                                    <div class="_txtec">No Events Allowed.</div>
                                                 @endif
                                             </div>
                                         </div>

@@ -1851,6 +1851,65 @@ body {
 // ------ end animate ------
 
 // otros
+.fxaijcfwwmlmr {
+  display: flex;
+  align-items: stretch;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  width: calc(100% + 16px);
+  margin-left: -8px;
+  margin-right: -8px;
+
+  @include responsive(743px) {
+    margin-left: -6px;
+    margin-right: -6px;
+    width: calc(100% + 12px);
+  }
+}
+
+.pwmlmrplpr {
+  width: 46.33%;
+  margin-left: 0;
+  margin-right: 8.33%;
+  padding-left: 8px;
+  padding-right: 8px;
+
+  @include responsive(1128px) {
+    width: 56.33%;
+    margin-left: 0;
+  }
+
+  @include responsive(743px) {
+    position: relative;
+    width: 100%;
+    padding-left: 6px;
+    padding-right: 6px;
+    margin-right: 0;
+  }
+}
+
+.fxfdjcmt {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  margin-top: 0;
+
+  @include responsive(743px) {
+    flex-direction: row-reverse;
+    justify-content: space-between;
+  }
+}
+
+.mrlmr743 {
+  margin-left: 0;
+  margin-right: 16px;
+
+  @include responsive(743px) {
+    margin-left: 24px;
+    margin-right: 0;
+  }
+}
+
 .page_govemment_id {
   @include responsive(1400px) {
     .header {
@@ -7386,6 +7445,10 @@ select, textarea {
     @include responsive(1413px) {
       width: 100%;
     }
+  }
+
+  @include responsive(743px) {
+    padding-bottom: 32px;
   }
 }
 
@@ -13155,6 +13218,19 @@ select {
   &.range-plugin {
     border-radius: 18px;
     margin-top: 1.4rem;
+    width: 100%;
+
+    main {
+      overflow: auto;
+    }
+
+    .calendar {
+      width: fit-content;
+
+      &:nth-child(2) {
+        margin-left: auto;
+      }
+    }
   }
 }
 
@@ -16104,6 +16180,8 @@ input {
   }
 
   @include responsive(743px) {
+    margin: 32px 0;
+
     ._content-slider {
       margin: 0 -25px;
       border-radius: 0;

@@ -412,19 +412,23 @@ $(document).ready(function() {
 
     // admin-reservation-completed.php
     $(document).on("click", ".js__reviewMdlReservation", function() {
-        bodyOverflowHidden();
+        setTimeout(function() {
+            bodyOverflowHidden();
 
-        $popup = $(".container_reviewDetailsReservation");
-        $popup.show();
-        cssFixedContent($popup);
+            $popup = $(".container_reviewDetailsReservation");
+            $popup.show();
+            cssFixedContent($popup);
+        }, 600);
     });
 
     $(document).on("click", ".js__detailsMdlReservation", function() {
-        bodyOverflowHidden();
+        setTimeout(function() {
+            bodyOverflowHidden();
 
-        $popup = $(".container_tsptpp1");
-        $popup.show();
-        cssFixedContent($popup);
+            $popup = $(".container_tsptpp1");
+            $popup.show();
+            cssFixedContent($popup);
+        });
     });
 
     // listing.php

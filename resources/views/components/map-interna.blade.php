@@ -11,28 +11,78 @@ x-init="
             container: 'mapbox',
             style: 'mapbox://styles/mapbox/streets-v11', 
             center: [ longitude, latitude ],
-            zoom: 14
+            zoom: 13
         });
 
-{{--         const marker = new mapboxgl.Marker({
-            draggable: false
-        }).setLngLat([ latitude, longitude ]).addTo(map); --}}
+        map.on('load', () => {
+            map.loadImage(
+                '{{ URL::asset('images/hotel.png') }}',
+                (error, image) => {
+                    if (error) throw error;
+                    map.addImage('custom-marker', image, {
+                        pixelRatio: 0.5
+                    });
+                    map.addSource('points', {
+                        'type': 'geojson',
+                        'data': {
+                            'type': 'FeatureCollection',
+                            'features': [
+                                {
+                                    'type': 'Feature',
+                                    'properties': {
+                                        'description':
+                                        '<p>You will be able to know the exact location once you have completed the reservation</p>'
+                                    },
+                                    'geometry': {
+                                        'type': 'Point',
+                                        'coordinates': [longitude, latitude]
+                                    }
+                                }
+                            ]
+                        }
+                    });
 
-{{--         map.on('load', function(){
-            var centerCircle = turf.point([longitude, latitude]);
-            map.addLayer({
-                'id': 'circle-fill',
-                'type': 'fill',
-                'source': {
-                    'type': 'geojson',
-                    'data': turf.circle(centerCircle, 0.5, { steps: 80, units: 'kilometers' })
-                },
-                'paint': {
-                    'fill-color': 'gray',
-                    'fill-opacity': 0.5
+                    map.addLayer({
+                        'id': 'points',
+                        'type': 'symbol',
+                        'source': 'points',
+                        'layout': {
+                            'icon-image': 'custom-marker',
+                            'text-field': ['get', 'title'],
+                            'text-font': [
+                                'Open Sans Semibold',
+                                'Arial Unicode MS Bold'
+                            ],
+                            'text-offset': [0, 1.25],
+                            'text-anchor': 'top'
+                        }
+                    });
+
+                    const popup = new mapboxgl.Popup({
+                        closeButton: false,
+                        closeOnClick: false
+                    });
+
+                    map.on('mouseenter', 'points', (e) => {
+                        map.getCanvas().style.cursor = 'pointer';
+
+                        const coordinates = e.features[0].geometry.coordinates.slice();
+                        const description = e.features[0].properties.description;
+
+                        while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+                            coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+                        }
+
+                        popup.setLngLat(coordinates).setHTML(description).addTo(map);
+                    });
+
+                    map.on('mouseleave', 'points', () => {
+                        map.getCanvas().style.cursor = '';
+                        popup.remove();
+                    });
                 }
-            });
-        }); --}}
+            );
+        });
 
         map.doubleClickZoom.disable(); // Desactiva zoom doble click en el mapa
         map.dragPan.disable(); // Desactiva navegar por el mapa
@@ -57,6 +107,5 @@ x-init="
     @once
         <script src='https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.js'></script>
         <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.2/mapbox-gl-geocoder.min.js"></script>
-    <script src='https://npmcdn.com/@turf/turf/turf.min.js'></script>
     @endonce
 @endpush

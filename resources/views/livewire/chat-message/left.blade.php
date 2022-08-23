@@ -98,7 +98,19 @@
                                                     <div class="_ck2ag"></div>
                                                 @endif
                                                 <span class="_pf-msg mr0">
-                                                    <img src="{{ $element['transmitter']['id_user'] === Auth::id() ? URL::asset('assets/img/avatar/') .'/'. $element['receiver']['avatar'] : URL::asset('assets/img/avatar/') .'/'. $element['transmitter']['avatar'] }}" alt="">
+                                                    @if ( $element['transmitter']['id_user'] === Auth::id() )
+                                                        @if ( file_exists( storage_path('app/public/uploadAvatar/' . $element['receiver']['avatar']  ) ) )
+                                                            <img src="{{ URL::asset('storage/uploadAvatar/') .'/'. $element['receiver']['avatar']  }}" alt="">
+                                                        @else
+                                                            <img src="{{ URL::asset('assets/img/avatar') }}/{{ $element['receiver']['avatar'] }}" alt="">
+                                                        @endif
+                                                    @else
+                                                        @if ( file_exists( storage_path('app/public/uploadAvatar/' . $element['transmitter']['avatar']  ) ) )
+                                                            <img src="{{ URL::asset('storage/uploadAvatar/') .'/'. $element['transmitter']['avatar']  }}" alt="">
+                                                        @else
+                                                            <img src="{{ URL::asset('assets/img/avatar') }}/{{ $element['transmitter']['avatar'] }}" alt="">
+                                                        @endif
+                                                    @endif
                                                 </span>
 
                                                 <div class="fx fx-fd-c wh-p100">
@@ -129,7 +141,20 @@
                                                 @endif
                                                 <div class="fx fx-ai-c gp17">
                                                     <span class="_pf-msg mr0">
-                                                        <img src="{{ $element['transmitter']['id_user'] === Auth::id() ? URL::asset('assets/img/avatar/') .'/'. $element['receiver']['avatar'] : URL::asset('assets/img/avatar/') .'/'. $element['transmitter']['avatar'] }}" alt="">
+                                                        {{-- <img src="{{ $element['transmitter']['id_user'] === Auth::id() ? URL::asset('assets/img/avatar/') .'/'. $element['receiver']['avatar'] : URL::asset('assets/img/avatar/') .'/'. $element['transmitter']['avatar'] }}" alt=""> --}}
+                                                        @if ( $element['transmitter']['id_user'] === Auth::id() )
+                                                            @if ( file_exists( storage_path('app/public/uploadAvatar/' . $element['receiver']['avatar']  ) ) )
+                                                                <img src="{{ URL::asset('storage/uploadAvatar/') .'/'. $element['receiver']['avatar']  }}" alt="">
+                                                            @else
+                                                                <img src="{{ URL::asset('assets/img/avatar') }}/{{ $element['receiver']['avatar'] }}" alt="">
+                                                            @endif
+                                                        @else
+                                                            @if ( file_exists( storage_path('app/public/uploadAvatar/' . $element['transmitter']['avatar']  ) ) )
+                                                                <img src="{{ URL::asset('storage/uploadAvatar/') .'/'. $element['transmitter']['avatar']  }}" alt="">
+                                                            @else
+                                                                <img src="{{ URL::asset('assets/img/avatar') }}/{{ $element['transmitter']['avatar'] }}" alt="">
+                                                            @endif
+                                                        @endif
                                                     </span>
                                                     <div class="fx fx-fd-c wh-p100">
                                                         <div class="_txt-red12">Request withdrawn</div>

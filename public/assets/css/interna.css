@@ -582,6 +582,11 @@ body .icon_favorite {
 .content_international .content-info-hosted .site-content .content-user-ictxt .h2-guests {
   margin-bottom: 47px;
 }
+@media (max-width: 743px) {
+  .content_international .content-info-hosted .site-content .content-user-ictxt {
+    padding: 32px 0 !important;
+  }
+}
 .content_international .content-info-hosted .site-content .content-user-cal {
   margin: 42px 0 51px;
 }
@@ -590,6 +595,11 @@ body .icon_favorite {
 }
 .content_international .content-info-hosted .site-content .content-user-cal .lightpick__footer .lightpick__apply-action {
   display: none;
+}
+@media (max-width: 743px) {
+  .content_international .content-info-hosted .site-content .content-user-cal {
+    margin: 32px 0 !important;
+  }
 }
 .content_international .content-info-hosted .site-content .content-user-nvl {
   padding: 48px 0;
@@ -611,6 +621,11 @@ body .icon_favorite {
 }
 .content_international .content-info-hosted .site-content .content-user-nvl .block-flex .usrscont::-webkit-scrollbar {
   display: none;
+}
+@media (max-width: 743px) {
+  .content_international .content-info-hosted .site-content .content-user-nvl {
+    padding: 32px 0;
+  }
 }
 .content_international .content-info-hosted .site-content .content-user-lclmp {
   padding: 48px 0;
@@ -660,6 +675,11 @@ body .icon_favorite {
     width: 100%;
   }
 }
+@media (max-width: 743px) {
+  .content_international .content-info-hosted .site-content .content-user-lclmp {
+    padding: 32px 0;
+  }
+}
 .content_international .content-info-hosted .site-content .content-user-if-flex {
   display: flex;
   justify-content: space-between;
@@ -688,6 +708,11 @@ body .icon_favorite {
     max-width: 46%;
   }
 }
+@media (max-width: 743px) {
+  .content_international .content-info-hosted .site-content .content-user-if-flex {
+    padding: 32px 0;
+  }
+}
 .content_international .content-info-hosted .site-content .content-user-ics {
   padding: 48px 0 0;
 }
@@ -703,6 +728,11 @@ body .icon_favorite {
 @media (max-width: 1017px) {
   .content_international .content-info-hosted .site-content .content-user-ics .content-user-ics-rules {
     gap: 53px;
+  }
+}
+@media (max-width: 743px) {
+  .content_international .content-info-hosted .site-content .content-user-ics {
+    padding: 32px 0 0;
   }
 }
 @media (max-width: 1400px) {

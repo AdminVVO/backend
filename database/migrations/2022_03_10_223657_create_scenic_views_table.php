@@ -17,6 +17,8 @@ class CreateScenicViewsTable extends Migration
             $table->increments('id_scenic_views');
             $table->string('code');
             $table->string('name');
+            $table->string('type');
+            $table->string('file');
             $table->timestamps();
         });
     }

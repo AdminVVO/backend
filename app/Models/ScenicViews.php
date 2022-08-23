@@ -14,6 +14,8 @@ class ScenicViews extends Model
     protected $fillable = [
         'code',
         'name',
+        'file',
+        'type',
     ];
 
     public function scopeName($query, $code)

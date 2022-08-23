@@ -19,7 +19,7 @@
                         <button type="button" class="wh-p100" wire:click="addFavority('{{ $element['name'] }}')">
                             <div class="_cont-wishlists">
                                 <div class="flex-img">
-                                    <img src="{{ URL::asset('storage/uploadListing/' . $element['avatar']) }}" alt="">
+                                    <img src="{{ URL::asset('storage/photos-listing/') .'/'. \App\Models\Listing\Listings::ListingFile( $element['listing_id'] ) .'/'. $element['avatar'] }}">
                                 </div>
 
                                 <div>

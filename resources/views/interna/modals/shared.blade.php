@@ -54,7 +54,7 @@
                                     </div>
                                 </button>
 
-                                <button type="button" class="bclnkrds">
+                                <a class="bclnkrds" href="https://api.whatsapp.com/send?text={{ Request::fullUrl() }}" target="_blank">
                                     <div class="contend_red">
                                         <div class="flex_icon">
                                             <i class="fab fa-whatsapp"></i>
@@ -62,7 +62,7 @@
                                         
                                         <div class="_txtec">Whatsapp</div>
                                     </div>
-                                </button>
+                                </a>
 
                                 <button type="button" class="bclnkrds">
                                     <div class="contend_red">
@@ -74,7 +74,7 @@
                                     </div>
                                 </button>
 
-                                <button type="button" class="bclnkrds">
+                                <a class="bclnkrds" href="https://www.facebook.com/sharer/sharer.php?u={{ Request::fullUrl() }};src=sdkpreparse" target="_blank">
                                     <div class="contend_red">
                                         <div class="flex_icon">
                                             <i class="fab fa-facebook-f"></i>
@@ -82,7 +82,7 @@
                                         
                                         <div class="_txtec">Facebook</div>
                                     </div>
-                                </button>
+                                </a>
 
                                 <button type="button" class="bclnkrds">
                                     <div class="contend_red">

@@ -45,7 +45,7 @@
 
             <div class="s-usr_icons skeleton skeleton_txt">
                 <div class="_suis">
-                    <img src="{{ URL::asset('assets/img/icons/pets.svg') }}" alt="">
+                    <i class="fa-solid fa-smoking"></i>
                 </div>
                 <div class="_suisinfo">
                     @if ( $content['smoking_allowed'] )
@@ -58,7 +58,7 @@
 
             <div class="s-usr_icons skeleton skeleton_txt">
                 <div class="_suis">
-                    <img src="{{ URL::asset('assets/img/icons/pets.svg') }}" alt="">
+                    <i class="fa-solid fa-calendar-check"></i>
                 </div>
                 <div class="_suisinfo">
                     @if ( $content['events_allowed'] )

@@ -6,6 +6,7 @@ use App\Models\AmenitiesSafety;
 use App\Models\GuestSafety;
 use App\Models\Listing\Listings;
 use App\Models\Profile;
+use App\Models\ScenicViews;
 use Carbon;
 use Illuminate\Http\Request;
 
@@ -19,8 +20,8 @@ class InternaController extends Controller
         if ( count( $request->all() ) != 0 && isset( $request['inputDateIn'] ) ){
             $daysDiffs = Carbon::createFromDate( $request['inputDateIn'] )->diff( $request['inputDateOut'] );
         }else{
-            $dateInit = Carbon::now()->format('d-m-Y');
-            $dateSum = Carbon::createFromFormat('d-m-Y', $dateInit )->addDay(5)->format('d-m-Y');
+            $dateInit = Carbon::now()->addDay()->format('d-m-Y');
+            $dateSum = Carbon::createFromFormat('d-m-Y', $dateInit )->addDay(2)->format('d-m-Y');
             $daysDiffs = Carbon::createFromDate( $dateInit )->diff( $dateSum );
 
             $dataNoFilt = [
@@ -107,6 +108,8 @@ class InternaController extends Controller
                 $amenitiesModal = $filter->distinct('typeList','code')->get()->toArray();
                 $amenitiesInit = $filter->distinct('code')->get()->toArray();
 
+        $scenicViews = ScenicViews::whereIn('code', $content['scenic_views'])->select('name', 'file','type')->get()->toArray();
+
         foreach ($amenitiesModal as $key => $value) {
             $amenitiesModalFinal[$value['typeList']][$key]['code'] = $value['code'];
             $amenitiesModalFinal[$value['typeList']][$key]['name'] = $value['name'];
@@ -120,6 +123,7 @@ class InternaController extends Controller
             'content' => $content,
             'amenitiesModal' => $amenitiesModalFinal,
             'amenitiesInit' => $amenitiesInit,
+            'scenicViews' => $scenicViews,
             'profile' => $profile,
             'requestDate' => count( $request->all() ) != 0 ? $request->all() : $dataNoFilt,
             'requestDays' => isset( $daysDiffs ) ? $daysDiffs->days + 1 : 0,

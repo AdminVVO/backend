@@ -20,20 +20,20 @@
                                             <h3 class="_txteh txt18">Panoramic views</h3>
                                         </div>
 
-                                        @foreach ( $content['scenic_views'] as $element)
+                                        @foreach ( $scenicViews as $element)
                                             <div class="cpd2btns hr">
                                                 <div class="fx fx-ai-c gp16">
                                                     <div>
                                                         <div class="mh20fxaic">
-                                                          {{--   @if ( $element['type_file'] == 'svg' )
+                                                            @if ( $element['type'] == 'svg' )
                                                                 <img src="{{ URL::asset('assets/img/icons/') . '/' . $element['file'] }}" alt="">
                                                             @else
                                                                 <i class="fa-light {{ $element['file'] }} _i-gris24"></i>
-                                                            @endif --}}
+                                                            @endif
                                                         </div>
                                                     </div>
 
-                                                    <div class="h3">{{ \App\Models\ScenicViews::Name( $element ) }}</div>
+                                                    <div class="h3">{{ $element['name'] }}</div>
                                                 </div>
                                             </div>
                                         @endforeach

@@ -840,6 +840,10 @@
                 //         }
                 //     }
                 // }
+
+                @include responsive(743px) {
+                    padding: 32px 0 !important;
+                }
             }
 
             .content-user-cal {
@@ -853,6 +857,10 @@
                     .lightpick__apply-action {
                         display: none;
                     }
+                }
+
+                @include responsive(743px) {
+                    margin: 32px 0 !important;
                 }
             }
 
@@ -879,6 +887,10 @@
                             display: none; 
                         }
                     }
+                }
+
+                @include responsive(743px) {
+                    padding: 32px 0;
                 }
             }
 
@@ -936,6 +948,10 @@
                         }
                     }
                 }
+
+                @include responsive(743px) {
+                    padding: 32px 0;
+                }
             }
 
             .content-user-if-flex {
@@ -968,6 +984,10 @@
                         }
                     }
                 }
+
+                @include responsive(743px) {
+                    padding: 32px 0;
+                }
             }
 
             .content-user-ics {
@@ -986,6 +1006,10 @@
                     @include responsive(1017px) {
                         gap: 53px;
                     }
+                }
+
+                @include responsive(743px) {
+                    padding: 32px 0 0;
                 }
             }
 

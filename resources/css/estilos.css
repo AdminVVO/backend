@@ -2856,6 +2856,70 @@ body ._par0t0modls .close {
   }
 }
 
+.fxaijcfwwmlmr {
+  display: flex;
+  align-items: stretch;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  width: calc(100% + 16px);
+  margin-left: -8px;
+  margin-right: -8px;
+}
+@media (max-width: 743px) {
+  .fxaijcfwwmlmr {
+    margin-left: -6px;
+    margin-right: -6px;
+    width: calc(100% + 12px);
+  }
+}
+
+.pwmlmrplpr {
+  width: 46.33%;
+  margin-left: 0;
+  margin-right: 8.33%;
+  padding-left: 8px;
+  padding-right: 8px;
+}
+@media (max-width: 1128px) {
+  .pwmlmrplpr {
+    width: 56.33%;
+    margin-left: 0;
+  }
+}
+@media (max-width: 743px) {
+  .pwmlmrplpr {
+    position: relative;
+    width: 100%;
+    padding-left: 6px;
+    padding-right: 6px;
+    margin-right: 0;
+  }
+}
+
+.fxfdjcmt {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  margin-top: 0;
+}
+@media (max-width: 743px) {
+  .fxfdjcmt {
+    flex-direction: row-reverse;
+    justify-content: space-between;
+  }
+}
+
+.mrlmr743 {
+  margin-left: 0;
+  margin-right: 16px;
+}
+@media (max-width: 743px) {
+  .mrlmr743 {
+    margin-left: 24px;
+    margin-right: 0;
+  }
+}
+
 @media (max-width: 1400px) {
   .page_govemment_id .header {
     margin-bottom: 64px;
@@ -85224,6 +85288,11 @@ select, textarea {
     width: 100%;
   }
 }
+@media (max-width: 743px) {
+  .content-user-remodelated {
+    padding-bottom: 32px;
+  }
+}
 
 ._section-reserva {
   margin-top: 80px;
@@ -90179,6 +90248,16 @@ select option:hover {
 .container.range-plugin {
   border-radius: 18px;
   margin-top: 1.4rem;
+  width: 100%;
+}
+.container.range-plugin main {
+  overflow: auto;
+}
+.container.range-plugin .calendar {
+  width: fit-content;
+}
+.container.range-plugin .calendar:nth-child(2) {
+  margin-left: auto;
 }
 
 .vvoRangePickerInterna {
@@ -92710,6 +92789,9 @@ input::placeholder {
   }
 }
 @media (max-width: 743px) {
+  .content-user-slider_img {
+    margin: 32px 0;
+  }
   .content-user-slider_img ._content-slider {
     margin: 0 -25px;
     border-radius: 0;
