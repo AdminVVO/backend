@@ -53,7 +53,7 @@ class Wish extends Component
         $this->preLoadContent();
 
         if (count($this->contentListing) != 0) {
-            $this->preLoadCoordinate = [$this->contentListing[0]['latitude'], $this->contentListing[0]['longitude']];
+            $this->preLoadCoordinate = [$this->contentListing[0]['longitude'], $this->contentListing[0]['latitude']];
 
             foreach ($this->contentListing as $key => $value) {
                 $title = $value['title'];
@@ -76,7 +76,7 @@ class Wish extends Component
                     ],
                     'geometry' => [
                         'type' => 'Point',
-                        'coordinates' => [$latitude, $longitude]
+                        'coordinates' => [$longitude, $latitude]
                     ]
                 ];
             } 

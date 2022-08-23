@@ -249,7 +249,7 @@ class Steps extends Component
 
     private function sendSave($payload)
     {
-        $authUser = User::create([
+        return $authUser = User::create([
             'name'       => $payload['name'],
             'last_name'  => $payload['last_name'],
             'full_name'  => $payload['name'] .' '. $payload['last_name'],
@@ -261,9 +261,6 @@ class Steps extends Component
             'password'   => Hash::make( $payload['email'] . '@' . $payload['dateBirth'] ),
         ]);
         
-        return $authUser;
-
-            // return $this->flash('success', 'Welcome to Vvoutlet.', [], route( $this->routeRedirect ));
     }
 
     public function moreOptions()
