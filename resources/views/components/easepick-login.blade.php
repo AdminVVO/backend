@@ -10,7 +10,7 @@ x-init="
             'assets/css/easepick-vvo.css',
             'assets/css/estilos.css'
         ],
-        format: 'YYYY MM DD',
+        format: 'YYYY/MM/DD',
         calendars: 1,
         {{-- date: '{{ Carbon::now()->subYears(18)->format('d-m-Y') }}', --}}
         grid: 1,
