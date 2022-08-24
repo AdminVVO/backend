@@ -381,7 +381,7 @@
 
         var calendar = new FullCalendar.Calendar(calendarEl, {
             timeZone: 'UTC',
-            aspectRatio: 2,
+            aspectRatio: 1.5,
             refetchResourcesOnNavigate: true,
 
 
@@ -389,7 +389,16 @@
             dayMaxEvents: 1, // allow "more" link when too many events
             editable: false,
             navLinks: true,
-
+            slotWidth: 500,
+            validRange: function(nowDate) {
+                return {
+                    start: nowDate,
+                    end: ((nowDate.getMonth() + 7) > 11 ? (nowDate.getFullYear() + 1) : nowDate
+                            .getFullYear()) + '-' +
+                        ((nowDate.getMonth() + 7) > 11 ? ('0' + (nowDate.getMonth() - 4)) : (
+                            '0' + (nowDate.getMonth() + 7))) + '-01'
+                };
+            },
             eventOrder: 'created_at',
             eventOrderStrict: false,
             events: @this.reservation,
@@ -399,7 +408,6 @@
             },
             eventResourceEditable: false,
             selectable: true,
-            slotWidth: 500,
 
             //**************************************//
 
@@ -645,7 +653,6 @@
         });
     })
 
-
     function eventPriceReset() {
         let divs = Array.prototype.slice.call(document.querySelectorAll('[role="row"]'));
 
@@ -663,61 +670,79 @@
         divs = Array.prototype.slice.call(document.querySelectorAll('[role="row"]'));
 
         divs.forEach((element, index) => {
-            if (index > 0) {
-                Array.prototype.slice.call(element.children).forEach((data, key) => {
-                    if (data.childNodes[0].childNodes[1].children[0].clientHeight == 2 || data
-                        .childNodes[0].childNodes[1].children[0].clientHeight == 110) {
-                        if (@this.date_config.lenght != 0) {
-                            if (@this.date_config[data.attributes[2].nodeValue]) {
-                                data.childNodes[0].childNodes[1].innerHTML = `<div class="_badsdoller   js__infoReservationTable">
-                 <div class="_bkgrsdoll">$` + @this.date_config[data.attributes[2].nodeValue].price + `</div>
-                </div>`;
-                            } else {
-                                @this.listings.forEach((e, i) => {
-                                    if (e.id == @this.listing_id) {
-                                        data.childNodes[0].childNodes[1].innerHTML = `<div class="_badsdoller js__infoReservationTable">
-                 <div class="_bkgrsdoll">$` + e.base_price + `</div>
-                </div>`;
+                if (index > 0) {
+                    Array.prototype.slice.call(element.children).forEach((data, key) => {
+                            if (data.attributes[1].nodeValue !=
+                                'fc-daygrid-day fc-day fc-day-tue fc-day-disabled') {
+                                if (data.childNodes[0].childNodes[1].children[0]) {
+
+                                    if (data.childNodes[0].childNodes[1].children[0].clientHeight == 2 || data
+                                        .childNodes[0].childNodes[1].children[0].clientHeight == 110) {
+                                        if (@this.date_config.lenght != 0) {
+                                            if(@this.date_config[data.attributes[2].nodeValue]) {
+                                                    if (@this.date_config[data.attributes[2].nodeValue].price == 0) {
+                                                        data.childNodes[0].classList.toggle('js__infoReservationTable')
+                                                        data.childNodes[0].classList.toggle('contNotLine')
+                                                        data.childNodes[0].childNodes[1].classList.toggle('not-linetb')
+                                                        data.childNodes[0].childNodes[1].innerHTML = '';
+                                                    }
+
+                                                    if (@this.date_config[data.attributes[2].nodeValue].price != 0) {
+                                                        data.childNodes[0].classList.remove('js__infoReservationTable')
+                                                        data.childNodes[0].classList.remove('contNotLine')
+                                                        data.childNodes[0].childNodes[1].classList.remove('not-linetb')
+                                                        data.childNodes[0].childNodes[1].innerHTML = `<div class="_badsdoller   js__infoReservationTable">
+                                                                                                            <div class="_bkgrsdoll">$` + @this.date_config[data.attributes[2].nodeValue].price + `</div>
+                                                                                                    </div>`;
+                                                    }
+                                            }   else {
+                                                    @this.listings.forEach((e, i) => {
+                                                        if (e.id == @this.listing_id) {
+                                                            data.childNodes[0].childNodes[1].innerHTML = `<div class="_badsdoller js__infoReservationTable">
+                                                                                                            <div class="_bkgrsdoll">$` + e.base_price + `</div>
+                                                                                                            </div>`;
+                                                        }
+                                                    })
+                                                }
+                                            }
+                                        }
                                     }
-                                })
-                            }
-                        }
+                                }
+                            })
                     }
                 })
-            }
-        })
-        // document.getElementsByClassName('fc-timeline-body')[0].setAttribute('style', 'width:' + (divs.length * 80))
-        // [].slice.call(divs).forEach(function(div) {
-        // });
-    }
+            // document.getElementsByClassName('fc-timeline-body')[0].setAttribute('style', 'width:' + (divs.length * 80))
+            // [].slice.call(divs).forEach(function(div) {
+            // });
+        }
 
-    function more_links() {
-        [].forEach.call(document.querySelectorAll(".fc-timeline-more-link.fc-more-link"), function(el) {
-            el.addEventListener('click', function() {
-                show_modals();
+        function more_links() {
+            [].forEach.call(document.querySelectorAll(".fc-timeline-more-link.fc-more-link"), function(el) {
+                el.addEventListener('click', function() {
+                    show_modals();
+                });
             });
-        });
-    }
+        }
 
-    function show_modals() {
-        [].forEach.call(document.querySelectorAll(".js__infoReservationTable.green"), function(el) {
-            el.addEventListener('click', function() {
-                @this.show_modal = 1;
-                @this.show_modal_info = 1;
+        function show_modals() {
+            [].forEach.call(document.querySelectorAll(".js__infoReservationTable.green"), function(el) {
+                el.addEventListener('click', function() {
+                    @this.show_modal = 1;
+                    @this.show_modal_info = 1;
+                });
             });
-        });
-        [].forEach.call(document.querySelectorAll(".red"), function(el) {
-            el.addEventListener('click', function() {
-                @this.show_modal = 0;
-                @this.show_modal_info = 1;
+            [].forEach.call(document.querySelectorAll(".red"), function(el) {
+                el.addEventListener('click', function() {
+                    @this.show_modal = 0;
+                    @this.show_modal_info = 1;
+                });
             });
-        });
 
-        [].forEach.call(document.querySelectorAll(".plomo"), function(el) {
-            el.addEventListener('click', function() {
-                @this.show_modal = 0;
-                @this.show_modal_info = 1;
+            [].forEach.call(document.querySelectorAll(".plomo"), function(el) {
+                el.addEventListener('click', function() {
+                    @this.show_modal = 0;
+                    @this.show_modal_info = 1;
+                });
             });
-        });
-    }
+        }
 </script>
