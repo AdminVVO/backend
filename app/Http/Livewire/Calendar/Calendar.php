@@ -65,7 +65,7 @@ class Calendar extends Component
             $this->listings[$key]['internal_title'] = $value['internal_title'];
             $this->listings[$key]['base_price'] = $value['base_price'];
             $this->listings[$key]['listing_currency'] = $value['listing_currency'];
-            $this->listings[$key]['imgUri'] = `<img src="{{ URL::asset('assets/img/anality.jpg')}}" alt="">`;
+            $this->listings[$key]['listingFile'] = 'storage/photos-listing/' . \App\Models\Listing\Listings::ListingFile( $value['id_listings'] ) . '/' . $value['photos'][0]['name'];
         }
 
         $reservations = Reservation::join('users', 'reservations.user_id', 'users.id_user')

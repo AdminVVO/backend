@@ -313,15 +313,17 @@
                 return event.rendering === 'background';
             },
             resourceLabelContent: function(arg) {
-                return {
+                                        
+                            
+            return {
                     html: `<div class="checkbox-item checkbox-item_img">
                                 <label class="check_click">
                                     <input type="radio" name="listing">
                                     <div class="bg_check_click click-list-calendar">
                                         <div class="_cont-l-img">
                                             <div class="_ad-list_img">
-                                                <img src="assets/img/card/c1.jpg">
-                                            </div>
+                                                <img src="`+arg.resource._resource.extendedProps.listingFile+`">
+                                                </div>
                                         </div>
 
                                         <div class="_f-t">
