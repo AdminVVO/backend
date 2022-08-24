@@ -551,6 +551,13 @@
                             .is_active ==
                             true) {
 
+                                if(new Date(div.dataset.date) <= date) {
+                            div.innerHTML += `<div class="contNotLine js__infoReservationTable">
+                                    <div class="transf">
+                                        <div class="not-linetb"></div>
+                                    </div>
+                                </div>`;
+                        } else {
                             div.innerHTML += `<div class="_badsdoller js__infoReservationTable">
          <div class="fx fx-fd-c fx-ai-c gp3">
              <div class="_txtbold7d14">` +
@@ -572,6 +579,7 @@
             </svg>
          </div>
     </div>`;
+}
                         } else {
                             div.innerHTML += `<div class="contNotLine js__infoReservationTable">
                                     <div class="transf">
