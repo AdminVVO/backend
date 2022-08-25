@@ -31,22 +31,20 @@
                 </div>
             </label>
         </div>
+        <div class="inputBox skeleton" wire:ignore.self>
+            <div class="book-f_home" wire:ignore.self>
+                <div class="place_select menuGuest" wire:ignore.self>
+                    <span class="skeleton skeleton_txt" wire:ignore.self>Guest</span>
 
-        <div class="inputBox">
-            <div class="contAddGuest" wire:ignore.self>
-                <button type="button" class="place_select js__addGuestHeader" wire:ignore>
-                    <span class="skeleton skeleton_txt">Guest</span>
-
-                    <i class="far fa-user skeleton">
-                        <span>Add guest</span>
+                    <i class="far fa-user skeleton" wire:ignore.self>
+                        <span class="text_tm1">{{$inputAdult + $inputKids}} Guest{{$inputInfant ? ', '.$inputInfant.' infants' : ''}} </span>
                         <i class="fas fa-chevron-down"></i>
                     </i>
-                </button>
-
+                </div>
                 @include('livewire.home.includes.beforer')
             </div>
         </div>
     </div>
 
-    <button type="submit" class="btn skeleton">Search</button>
+    <button type="submit" class="btn skeleton" wire:ignore>Search</button>
 </form>

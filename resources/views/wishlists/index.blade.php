@@ -24,10 +24,11 @@
                         <a href="wishlist/{{ $key }}">
                             <div class="brbsbcp">
                                 <div class="dggtc11g">
-                                    @foreach ($element['avatar'] as $avatar)
-                                    <img src="{{ URL::asset('storage/photos-listing/') .'/'. \App\Models\Listing\Listings::ListingFile( $element['listing'] ) .'/'. $avatar}}">
-                                    
-                                    @endforeach
+                                    @foreach ($element['avatar'] as $row => $avatar)
+                                        @if($row < 4)
+                                        <img src="{{ URL::asset('storage/photos-listing/') .'/'. \App\Models\Listing\Listings::ListingFile( $element['listing'][$row] ) .'/'. $avatar}}">
+                                        @endif
+                                        @endforeach
                                 </div>
 
                                 <div class="fxjcgfwpt">
@@ -51,12 +52,15 @@
             </section>
         </div>
     </div>
-
-
+    
     @section('modals')
     @endsection
-
 @endsection
 
-@section('script')
-@endsection
+<style>
+    @media (max-width: 746px){
+        footer {
+            display: none;
+        },
+    }
+</style>

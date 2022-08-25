@@ -411,6 +411,10 @@ header .book-form ._bef-places .cpd2btns .txtunder__ics:hover ._txtec {
   .logo-menu img {
     width: 172px;
   }
+
+  .page__wishlist_interno .content_location .flex_local-dates {
+    flex-direction: initial;
+  }
 }
 @media (max-width: 890px) {
   .logo-menu img {
@@ -443,9 +447,17 @@ header .book-form ._bef-places .cpd2btns .txtunder__ics:hover ._txtec {
     color: #333;
     font-weight: 600;
   }
+  .page__wishlist_interno .content_location {
+    margin-top: -1.5rem;
+    margin-bottom: -3.9rem;
+    padding-bottom: 0;
+  }
   .page__wishlist_interno .content_location .flex_local-dates {
     padding: 0;
-    height: auto;
+  }
+  .page__wishlist_interno .content_location .content_location-width {
+    padding-top: 1.5rem !important;
+    padding-bottom: 4rem !important;
   }
   .page__wishlist_interno .content_location .content_location-width:nth-child(2) {
     display: none;

@@ -50,12 +50,6 @@ $(document).ready(function () {
         animateMdls();
         $(".container_ci_nw_cs").css({ 'display': 'block' });
     });
-
-    // calendar individual - click en private note add >
-    $(document).on("click", ".click_add_private_note_cl", function() {
-        animateMdls();
-        $(".container_popup_ntpve").css({ 'display': 'block' });
-    });
 });
 
 // junior

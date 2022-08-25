@@ -26,7 +26,8 @@ class Wishlists extends Component
 
     public function render()
     {
-        $this->wishlists = modelWishlists::where('user_id', Auth::id())->select('listing_id', 'name', 'avatar')->distinct('name')->get();
+        $this->wishlists = modelWishlists::where('user_id', Auth::id())->select('listing_id', 'name', 'avatar')->groupBy('name')->get();
+
         return view('livewire.home.wishlists');
     }
 

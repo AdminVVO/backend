@@ -3850,12 +3850,12 @@ body .transition {
   color: #FF5A5F;
 }
 
-/*.mapboxgl-popup-content {
+.content_location .contact-map .mapboxgl-popup-content {
   background-color: transparent !important;
   border-radius: initial !important;
   padding: 25px 0 18px !important;
   box-shadow: none !important;
-}*/
+}
 
 .filepond--panel[data-scalable=true] {
   background-color: rgba(222, 237, 243, 0.3) !important;
@@ -90253,21 +90253,11 @@ select option:hover {
   border-radius: 18px;
   margin-top: 1.4rem;
 }
-.container.range-plugin main {
-  overflow: auto;
-}
-.container.range-plugin .calendar {
-  width: fit-content;
-}
-.container.range-plugin .calendar:nth-child(2) {
-  margin-left: auto;
-}
 
 .vvoRangePickerInterna {
   box-shadow: none !important;
   border: 0;
   margin: 0;
-  width: 100%;
 }
 .vvoRangePickerInterna .calendars {
   gap: 12px;

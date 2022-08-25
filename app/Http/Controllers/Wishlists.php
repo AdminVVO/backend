@@ -35,10 +35,9 @@ class Wishlists extends Controller
 
         foreach ($content as $key => $value) {
             $categorias[$value['name']]['avatar'][] = $value['avatar'];
-            $categorias[$value['name']]['listing'] = $value['listing_id'];
+            $categorias[$value['name']]['listing'][] = $value['listing_id'];
             $categorias[$value['name']]['created_at'] = $value['created_at'];
         }
-
         if ($name) {
             return view('wishlists.wish', ['content' => $categorias ?? [], 'name' => $name]);
         }

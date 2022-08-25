@@ -135,7 +135,7 @@
                                 <h5 class="_txtec skeleton skeleton_txt">Your trip is coming up in 5 days. Use the Instant Book filter to check out places that you can book right now.</h5>
                             </div>
 
-                            <div class="contact-map" id='mapboxSearch' wire:ignore></div>    
+                            <div class="contact-map" id='mapboxSearch' wire:ignore.self></div>    
                         </div>
                     </div>
                 </div>
@@ -297,5 +297,7 @@
         map.dragRotate.disable(); // Desactiva rotar el mapa
         map.boxZoom.disable(); // Desactiva zoom box select
         map.keyboard.disable(); 
+
+
     </script>
 @endpush

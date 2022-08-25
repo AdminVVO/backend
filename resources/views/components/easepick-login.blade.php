@@ -10,7 +10,7 @@ x-init="
             'assets/css/easepick-vvo.css',
             'assets/css/estilos.css'
         ],
-        format: 'YYYY/MM/DD',
+        format: 'MM/DD/YYYY',
         calendars: 1,
         {{-- date: '{{ Carbon::now()->subYears(18)->format('d-m-Y') }}', --}}
         grid: 1,
@@ -18,7 +18,7 @@ x-init="
         autoApply: true,
         tooltip: true,
         LockPlugin:{
-            maxDate: '{{ Carbon::now()->subYears(18)->format('Y-m-d') }}',
+            maxDate: '{{ Carbon::now()->subYears(18)->format('m-d-Y') }}',
         },
         AmpPlugin: {
             dropdown: {
@@ -39,7 +39,7 @@ x-init="
 "
 >
     <label for="easypickLogin" class="_lbl-date">
-        <input type="text" name="calendar" placeholder="yyyy/mm/dd"  maxlength="10" class="input_real placeholdercolor" id="easypickLogin" style="margin: 0 !important;">
+        <input type="text" name="calendar" placeholder="mm/dd/yyyy"  maxlength="10" class="input_real placeholdercolor" id="easypickLogin" style="margin: 0 !important;">
         <i class="far fa-calendar flex-centrado" style="top: 0; bottom: 0; display: flex;"></i>
     </label>
 </div>

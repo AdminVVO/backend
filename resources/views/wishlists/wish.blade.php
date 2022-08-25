@@ -7,10 +7,11 @@
 @section('css')
     <link href="{{ URL::asset('assets/css/home.css') }}" rel="stylesheet" />
 
-    <link href="{{ URL::asset('assets/css/header-admin.css') }}" rel="stylesheet" />
+    <link href="{{ URL::asset('assets/css/header-bck.css') }}" rel="stylesheet"/>
     <link href="{{ URL::asset('assets/css/owl.carousel.min.css') }}" rel="stylesheet" />
     <link href="{{ URL::asset('assets/css/owl.theme.default.min.css') }}" rel="stylesheet" />
     <link href="{{ URL::asset('assets/css/location.css') }}" rel="stylesheet" />
+    <link href="{{ URL::asset('assets/css/header.css') }}" rel="stylesheet" />
     <link href="{{ URL::asset('assets/css/dates-location.css') }}" rel="stylesheet" />
     <link href="{{ URL::asset('assets/css/search-flexible.css') }}" rel="stylesheet" />
     <link href="{{ URL::asset('assets/css/modals-user.css') }}" rel="stylesheet" />
@@ -26,16 +27,15 @@
 @endsection
 
 @section('header')
-    @include('layouts.HeaderAuth')
+
+    @include('layouts.HeaderGuest')
+
 @endsection
 
 @section('content')
-    <div class="content_location">
-        @livewire('wishlists.wish', ['name' => $name])
-    </div>
-    <button type="button" class="content_icon-leng" id="btnLeng">
-        <img src="{{ URL::asset('assets/img/logo-leng.png') }}" alt="">
-    </button>
+        <div class="page-category page__wishlist_interno vvo_ui">
+            @livewire('wishlists.wish', ['name' => $name])
+        </div>
 @section('modals')
 @endsection
 @endsection
@@ -86,10 +86,13 @@
             picker.show();
         });
 
-        @if ( isset( $request['inputDateIn'] ) && isset( $request['inputDateOut'] ) )
-            picker.setStartDate('{{ Carbon::parse( $request['inputDateIn'] )->Format('d-m-y'); }}');
-            picker.setEndDate('{{ Carbon::parse( $request['inputDateOut'] )->Format('d-m-y'); }}');
-        @endif
 
     </script>
 @endsection
+<style>
+    @media (max-width: 746px){
+        footer {
+            display: none;
+        }
+    }
+</style>

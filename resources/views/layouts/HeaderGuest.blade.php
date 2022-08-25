@@ -1,4 +1,4 @@
-<div class="_location-he">
+<div class="_location-he pst0zi">
     <header class="entero header">
         <div class="medio">
             <a href="{{ route('/') }}" class="logo-menu">
