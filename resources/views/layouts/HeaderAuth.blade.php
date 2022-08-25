@@ -172,13 +172,16 @@
                                 <div class="f10auto">Calendar</div>
                             </a>
 
-                            <a href="{{ route('host-listing') }}" class="bcfxfsmptaw">
-                                <div class="pd-r8">
-                                    <i class="fa-light fa-house _i-dark22"></i>
-                                </div>
+                            
+                            @if ( Auth::check() && Auth::user()->rol_id == 1 )
+                                <a href="{{ route('host-listing') }}" class="bcfxfsmptaw">
+                                    <div class="pd-r8">
+                                        <i class="fa-light fa-house _i-dark22"></i>
+                                    </div>
 
-                                <div class="f10auto">Listings</div>
-                            </a>
+                                    <div class="f10auto">Listings</div>
+                                </a>
+                            @endif
 
                             <a href="{{ route('reservations') }}" class="bcfxfsmptaw">
                                 <div class="pd-r8">
