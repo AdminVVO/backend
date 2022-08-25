@@ -121,7 +121,7 @@ class InternaController extends Controller
 
         return view('interna.index', [
             'content' => $content,
-            'amenitiesModal' => $amenitiesModalFinal,
+            'amenitiesModal' => isset( $amenitiesModalFinal ) ? $amenitiesModalFinal : '',
             'amenitiesInit' => $amenitiesInit,
             'scenicViews' => $scenicViews,
             'profile' => $profile,

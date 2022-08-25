@@ -55,11 +55,7 @@
                             <div class="content_view">
                                 <div class="hidden_galerias">
                                     @forelse ($contentListing as $element)
-                                        @if ( $contentDays == true )
-                                            <a href="{{ route('interna', [ $element['id_listings'], 'inputDateIn' => $request['inputDateIn'], 'inputDateOut' => $request['inputDateOut'] ] ) }}" class="content_galerias skeleton">
-                                        @else
-                                            <a href="{{ route('interna', [ $element['id_listings'] ] ) }}" class="content_galerias skeleton">
-                                        @endif
+                                        <a href="#" wire:click.prevent="SubmitListing('{{ $element['id_listings'] }}')" class="content_galerias skeleton">
                                             <div class="slideshow-container skeleton skeleton_card">
                                                 <div class="star">
                                                     <div class="content-star skeleton skeleton_txt">

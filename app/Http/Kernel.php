@@ -65,5 +65,6 @@ class Kernel extends HttpKernel
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'AccountDisable' => \App\Http\Middleware\VerifyAccountDisable::class,
         'AccountNotDisable' => \App\Http\Middleware\VerifyAccountNotDisable::class,
+        'Hosts' => \App\Http\Middleware\Hosts::class,
     ];
 }

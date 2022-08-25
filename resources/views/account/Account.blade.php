@@ -188,11 +188,13 @@
                             <p class="span-guests skeleton skeleton_txt">Update your password and secure your account</p>
                         </a>
 
-                        <a href="{{ route('payment_payouts') }}" class="_cont-account skeleton">
-                            <i class="fa-regular fa-money-bill-alt skeleton skeleton_txt"></i>
-                            <div class="_txteh skeleton skeleton_txt" style="margin-bottom: 4px;">Payments & payouts</div>
-                            <p class="span-guests skeleton skeleton_txt">Review payments, payouts, coupons, gift cards, and taxes</p>
-                        </a>
+                        @if ( Auth::user()->rol_id == 1 )
+                            <a href="{{ route('payment_payouts') }}" class="_cont-account skeleton">
+                                <i class="fa-regular fa-money-bill-alt skeleton skeleton_txt"></i>
+                                <div class="_txteh skeleton skeleton_txt" style="margin-bottom: 4px;">Payments & payouts</div>
+                                <p class="span-guests skeleton skeleton_txt">Review payments, payouts, coupons, gift cards, and taxes</p>
+                            </a>
+                        @endif
 
                         <a href="{{ route('global_preferen') }}" class="_cont-account skeleton">
                             <i class="fa-regular fa-edit skeleton skeleton_txt"></i>

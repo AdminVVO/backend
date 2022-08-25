@@ -1,4 +1,4 @@
-@if ( in_array( Route::currentRouteName(),['reservations', 'listing-show', 'reservationsChange','wishlist']) )
+@if ( in_array( Route::currentRouteName(),['reservations', 'listing-show', 'reservationsChange','wishlist','dashboard']) )
     <div class="h_admin mrb-0">
 @endif
 
@@ -31,21 +31,21 @@
             <div class="_mv-places" style="transition: none;">
                 <div class="book-form book-f_home _remove">
                     <div class="_flex-js">
-                        <a href="#">
+                        <a href="{{ route('dashboard') }}">
                             <div class="_flex">
                                 <i class="far fa-calendar-check icon_red"></i>
                                 <span>Today</span>
                             </div>
                         </a>
 
-                        <a href="#">
+                        <a href="{{ route('messageUserIndex') }}">
                             <div class="_flex">
                                 <i class="far fa-envelope icon_red"></i>
                                 <span>Inbox</span>
                             </div>
                         </a>
 
-                        <a href="#">
+                        <a href="{{ route('calendarIndex') }}">
                             <div class="_flex">
                                 <i class="far fa-calendar-alt icon_red"></i>
                                 <span>Calendar</span>
@@ -125,13 +125,12 @@
                                 <div class="wf10a">Language and translation</div>
                             </button>
 
-                            <a href="{{ route('signup-host') }}" class="menu__text-link">
-                                <div class="wf10a">Host an experience</div>
-                            </a>
+                            @if ( Auth::user()->rol_id != 1 )
+                                <a href="{{ route('signup-host') }}" class="menu__text-link">
+                                    <div class="wf10a">Host an experience</div>
+                                </a>
+                            @endif
 
-                            <a href="#" class="menu__text-link">
-                                <div class="wf10a">Switch to traveling</div>
-                            </a>
                             <div class="br-line"></div>
                             <a href="{{ route('logout') }}">
                                 <button type="button" class="menu__text-link">
@@ -149,7 +148,7 @@
                         <div class="pd-b40 hr">
                             <div class="cttfwmtmbfslh">Menu</div>
 
-                            <a href="#" class="bcfxfsmptaw">
+                            <a href="{{ route('dashboard') }}" class="bcfxfsmptaw">
                                 <div class="pd-r8">
                                     <i class="fa-light fa-house-blank _i-dark22"></i>
                                 </div>
@@ -165,7 +164,7 @@
                                 <div class="f10auto">Inbox</div>
                             </a>
 
-                            <a href="#" class="bcfxfsmptaw">
+                            <a href="{{ route('calendarIndex') }}" class="bcfxfsmptaw">
                                 <div class="pd-r8">
                                     <i class="fa-light fa-calendar-lines _i-dark24"></i>
                                 </div>

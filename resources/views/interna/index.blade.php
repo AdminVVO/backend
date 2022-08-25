@@ -106,9 +106,11 @@
                         <div class="_line-hr"></div>
 
                         {{-- Ammenities --}}
+                        @if ( count( $amenitiesInit ) != 0 )
                             @include('interna.amenities')
+                            <div class="_line-hr"></div>
+                        @endif
 
-                        <div class="_line-hr"></div>
 
                         {{-- Travel --}}
                             {{-- @include('interna.travel-pricing') --}}
@@ -218,7 +220,9 @@
         @include('interna.modals.enhanced-clean')
 
         {{-- Modal Amenities --}}
-        @include('interna.modals.amenitles')
+        @if ( count( $amenitiesInit ) != 0 )
+            @include('interna.modals.amenitles')
+        @endif
 
         {{-- Modal Contact Host --}}
         @include('interna.modals.contact-host')

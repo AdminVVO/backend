@@ -39,11 +39,37 @@ class Search extends Component
 
     public $maxGuest = 0;
     public $allowPets = false;
+    public $inputAdult = 0; 
+    public $inputKids = 0; 
+    public $inputInfant = 0; 
+    public $inputPets = 0; 
 
     
     protected $listeners = [
         'reLoadRender' => 'reLoadRender'
     ];
+
+    public function SubmitListing($payload)
+    {
+        $content['id'] = $payload;
+        
+        if ( $this->inputAdult > 0 )
+            $content['inputAdult'] = $this->request['inputAdult'];
+
+        if ( $this->inputKids > 0 )
+            $content['inputKids'] = $this->request['inputKids'];
+        
+        if ( $this->inputInfant > 0 )
+            $content['inputInfant'] = $this->request['inputInfant'];
+        
+        if ( $this->inputPets > 0 )
+            $content['inputPets'] = $this->request['inputPets'];
+
+        $content['inputDateIn'] = $this->request['inputDateIn'];
+        $content['inputDateOut'] = $this->request['inputDateOut'];
+
+        return redirect()->route('interna', $content);
+    }
 
     public function mount()
     {
@@ -55,15 +81,21 @@ class Search extends Component
 
         if ( count( $this->request ) != 0 ) {
 
-            if ( isset( $this->request['inputAdult'] ) )
+            if ( isset( $this->request['inputAdult'] ) ){
                 $this->maxGuest = $this->maxGuest + $this->request['inputAdult'];
+                $this->inputAdult = $this->request['inputAdult'];
+            }
 
-            if ( isset( $this->request['inputKids'] ) )
+            if ( isset( $this->request['inputKids'] ) ){
                 $this->maxGuest = $this->maxGuest + $this->request['inputKids'];
+                $this->inputKids = $this->request['inputKids'];
+            }
+
+            if ( isset( $this->request['inputInfant'] ) )
+                $this->inputInfant = $this->request['inputInfant'];
 
             if ( isset( $this->request['inputPets'] ) )
-                $this->allowPets = true;
-
+                $this->inputPets = $this->request['inputPets'];
         }
 
         $this->places = RoomsProperty::pluck('name_type', 'type');
@@ -147,7 +179,7 @@ class Search extends Component
                 return $query->where('listings.number_guests', '<=', $this->maxGuest);
         })
         ->where(function ($query) {
-            if ( $this->allowPets === true )
+            if ( $this->inputPets != 0 )
                 return $query->where('listing_house_rulers.pets_allowed', true);
         })
         ->where(function ($query) {

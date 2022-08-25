@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AccountController;
 use App\Http\Controllers\CalendarController;
+use App\Http\Controllers\DashHost;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\HostController;
 use App\Http\Controllers\InternaController;
@@ -86,23 +87,37 @@ Route::get('validation/process/{id?}', [Personal::class, 'ValidationId'])->name(
 Route::middleware(['AccountDisable', 'auth'])->group( function(){
 
 
-    ## Nuevas Rutas Airbnb
+    Route::middleware(['Hosts'])->group( function(){
 
-        ## Routes Listing Sections
-        Route::prefix('hosting')->group( function(){
-            ## Listing Index
-                Route::get('listing', [ListingsController::class, 'viewListinAll'])->name('host-listing');
-            ## Listing Become Host
-                Route::get('become-host', [ListingsController::class, 'viewListinBecome'])->name('become-host');
-            ## Listing Show
-                Route::get('details/{id}', [ListingsController::class, 'viewListinShow'])->name('details-listing');
-            ## Listing Custon Link
-                Route::get('cl/{id}', [ListingsController::class, 'viewCustomLink'])->name('custon-link');
+        ## Nuevas Rutas Airbnb
+
+            ## Routes Listing Sections
+            Route::prefix('hosting')->group( function(){
+                ## Listing Index
+                    Route::get('listing', [ListingsController::class, 'viewListinAll'])->name('host-listing');
+                ## Listing Become Host
+                    Route::get('become-host', [ListingsController::class, 'viewListinBecome'])->name('become-host');
+                ## Listing Show
+                    Route::get('details/{id}', [ListingsController::class, 'viewListinShow'])->name('details-listing');
+                ## Listing Custon Link
+                    Route::get('cl/{id}', [ListingsController::class, 'viewCustomLink'])->name('custon-link');
+            });
+
+        ## Final Nuevas Rutas Airbnb
+
+        ## Routes Dashboard Host
+        Route::prefix('dashboard')->group( function(){
+            ## Dashboard Host Index
+                Route::get('', [DashHost::class, 'viewDashboard'])->name('dashboard');
         });
-
-    ## Final Nuevas Rutas Airbnb
-
-
+        
+        ## Routes Account Sections
+        Route::prefix('account')->group( function(){
+            ## Account Payments
+                Route::get('payment_payouts', [AccountController::class, 'viewPaymentsPayouts'])->name('payment_payouts');
+        });
+        
+    });
 
     ## Routes Account Sections
     Route::prefix('account')->group( function(){
@@ -112,13 +127,13 @@ Route::middleware(['AccountDisable', 'auth'])->group( function(){
             Route::get('personal_info', [AccountController::class, 'viewPersonalInfo'])->name('personal_info');
         ## Account Login Secury
             Route::get('login_segurity', [AccountController::class, 'viewLoginSecury'])->name('login_segurity');
-        ## Account Payments
-            Route::get('payment_payouts', [AccountController::class, 'viewPaymentsPayouts'])->name('payment_payouts');
         ## Account GovermenID
             Route::get('govermID', [AccountController::class, 'viewAddPhotoGovermID'])->name('govermID');
         ## Account Preferences
             Route::get('global_preferen', [AccountController::class, 'viewGlobalPreferences'])->name('global_preferen');
     });
+
+
 
     ## Routes Reservations Sections
     Route::prefix('reservations')->group( function(){

@@ -26,7 +26,7 @@
                                 </a>
 
                                 @if ( Auth::user()->rol_id === 1 )
-                                    <a href="#" class="menu_items hideblock743">
+                                    <a href="{{ route('dashboard') }}" class="menu_items hideblock743">
                                         <i class="fas fa-hotel _i-red22"></i>
                                         Switch to hosting
                                     </a>
@@ -37,7 +37,7 @@
                                     </a>
                                 @endif
 
-                                <a href="{{ route('account') }}" class="menu_items showfx743 icon_profile">
+                                <a href="{{  route('profile', Auth::id()) }}" class="menu_items showfx743 icon_profile">
                                     <i class="fal fa-circle-user"></i>
                                     <div class="sub">Profile</div>
                                 </a>
@@ -73,13 +73,18 @@
                                                 <div class="wf10a">Wishlists</div>
                                             </a>
                                             <div class="br-line"></div>
-                                            <a href="#" class="menu__text-link">
-                                                <div class="wf10a">Manage listings</div>
-                                            </a>
 
-                                            <a href="{{ route('signup-host') }}" class="menu__text-link">
-                                                <div class="wf10a">Host an experience</div>
-                                            </a>
+                                            @if ( Auth::check() && Auth::user()->rol_id == 1 )
+                                                <a href="{{ route('host-listing') }}" class="menu__text-link">
+                                                    <div class="wf10a">Manage listings</div>
+                                                </a>
+                                            @endif
+
+                                            @if ( Auth::user()->rol_id != 1 )
+                                                <a href="{{ route('signup-host') }}" class="menu__text-link">
+                                                    <div class="wf10a">Host an experience</div>
+                                                </a>
+                                            @endif
 
                                             <a href="{{ route('account') }}" class="menu__text-link">
                                                 <div class="wf10a">Account</div>

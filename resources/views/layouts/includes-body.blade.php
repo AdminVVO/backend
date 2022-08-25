@@ -42,6 +42,6 @@
     <body class="page__host vvo_ui">
 @endif
 
-@if ( in_array( Route::currentRouteName(),['details-listing', 'host-listing', 'become-host','category']) )
+@if ( in_array( Route::currentRouteName(),['details-listing', 'host-listing', 'become-host','category','dashboard']) )
     <body class="page-category">
 @endif

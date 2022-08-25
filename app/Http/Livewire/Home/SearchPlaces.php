@@ -29,7 +29,7 @@ class SearchPlaces extends Component
 
     public function mount()
     {   
-        if ( count( $this->request ) != 0 && isset( $this->request['inputDateIn'] ) ) {
+        if ( $this->request != null && isset( $this->request['inputDateIn'] ) ) {
             $this->inputDateIn = $this->request['inputDateIn'];
             $this->inputDateOut = $this->request['inputDateOut'];
         }
@@ -71,6 +71,9 @@ class SearchPlaces extends Component
 
     public function SubmitPlaces()
     {
+        if ( $this->inputDateIn == null )
+            return $this->alert('warning', 'You must select a date to consult.');
+
         if ( $this->inputAdult > 0 )
             $content['inputAdult'] = $this->inputAdult;
 
