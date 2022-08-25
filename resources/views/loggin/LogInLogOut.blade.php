@@ -9,7 +9,7 @@
                     <img src="{{ URL::asset('assets/img/welcome.png') }}">
                 </div>
                 {{-- Loggin or Register --}}
-                @livewire('loggin.steps', ['routeRedirect' => Route::current()->getName() ])
+                @livewire('loggin.steps')
 
             </div>
         </div>

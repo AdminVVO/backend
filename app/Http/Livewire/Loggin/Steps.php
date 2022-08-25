@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Validator;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\Component;
 use Carbon;
+use Illuminate\Support\Facades\Route;
 
 class Steps extends Component
 {
@@ -42,6 +43,8 @@ class Steps extends Component
 
     public function mount()
     {
+        $this->routeRedirect = Route::current()->getName() != 'index' ? Route::current()->getName() : '/' ;
+        
         $this->input = [
             'phone' => null,
         ];

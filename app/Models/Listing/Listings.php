@@ -56,6 +56,7 @@ class Listings extends Model
         'checkout_time' => 'array',
         'snooze' => 'array',
         'allow' => 'array',
+        'pets_allowed' => 'boolean',
     ];
 
     public function scopeListingFile($query, $code)

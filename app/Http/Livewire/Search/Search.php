@@ -36,6 +36,10 @@ class Search extends Component
     public $filter_categ = null;
     public $filterPrice = null;
     public $filterPlace = null;
+
+    public $maxGuest = 0;
+    public $allowPets = false;
+
     
     protected $listeners = [
         'reLoadRender' => 'reLoadRender'
@@ -47,6 +51,19 @@ class Search extends Component
             $this->contentDays = true;
             $daysDiffs = Carbon::createFromDate( $this->request['inputDateIn'] )->diff( $this->request['inputDateOut'] );
                 $this->daysDiff = $daysDiffs->days;
+        }
+
+        if ( count( $this->request ) != 0 ) {
+
+            if ( isset( $this->request['inputAdult'] ) )
+                $this->maxGuest = $this->maxGuest + $this->request['inputAdult'];
+
+            if ( isset( $this->request['inputKids'] ) )
+                $this->maxGuest = $this->maxGuest + $this->request['inputKids'];
+
+            if ( isset( $this->request['inputPets'] ) )
+                $this->allowPets = true;
+
         }
 
         $this->places = RoomsProperty::pluck('name_type', 'type');
@@ -111,17 +128,27 @@ class Search extends Component
             'listing_pricings.base_price',
             'listing_locations.latitude',
             'listing_locations.longitude',
+            'listing_house_rulers.pets_allowed',
         )
         ->whereNotIn('listings.status', ['in process'] )
         ->leftJoin('listing_property_roomds', 'listings.id_listings', 'listing_property_roomds.listing_id')
         ->leftJoin('listing_pricings', 'listings.id_listings', 'listing_pricings.listing_id')
         ->leftJoin('listing_locations', 'listings.id_listings', 'listing_locations.listing_id')
+        ->leftJoin('listing_house_rulers', 'listings.id_listings', 'listing_house_rulers.listing_id')
         ->where(function ($query) {
             if ( $this->filter_categ != null )
                 return $query->where('listing_property_roomds.property_type', $this->filter_categ);
 
             if ( $this->filterPlace != null )
                 return $query->where('listing_property_roomds.like_place', $this->filterPlace);
+        })
+        ->where(function ($query) {
+            if ( $this->maxGuest != 0 )
+                return $query->where('listings.number_guests', '<=', $this->maxGuest);
+        })
+        ->where(function ($query) {
+            if ( $this->allowPets === true )
+                return $query->where('listing_house_rulers.pets_allowed', true);
         })
         ->where(function ($query) {
             if ( $this->filterPrice != null ){

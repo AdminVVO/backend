@@ -31,18 +31,8 @@
                 </div>
             </label>
         </div>
-        <div class="inputBox skeleton" wire:ignore.self>
-            <div class="book-f_home" wire:ignore.self>
-                <div class="place_select menuGuest" wire:ignore.self>
-                    <span class="skeleton skeleton_txt" wire:ignore.self>Guest</span>
-
-                    <i class="far fa-user skeleton" wire:ignore.self>
-                        <span class="text_tm1">{{$inputAdult + $inputKids}} Guest{{$inputInfant ? ', '.$inputInfant.' infants' : ''}} </span>
-                        <i class="fas fa-chevron-down"></i>
-                    </i>
-                </div>
-                @include('livewire.home.includes.beforer')
-            </div>
+        <div class="inputBox">
+            @include('livewire.home.includes.beforer')
         </div>
     </div>
 

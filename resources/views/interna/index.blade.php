@@ -9,6 +9,8 @@
     <link href="{{ URL::asset('assets/css/owl.carousel.min.css') }}" rel="stylesheet"/>
     <link href="{{ URL::asset('assets/css/owl.theme.default.min.css') }}" rel="stylesheet"/>
 
+    <style type="text/css">.mapboxgl-ctrl-logo, .mapboxgl-ctrl-attrib { display: none !important; }</style>
+
 @endsection
 
 @section('header')
@@ -249,10 +251,12 @@
                 shape:  'pill',
                 label:  'pay',
                 height: 40
-            //     layout: 'horizontal'
             },
 
+
             createOrder: function(data, actions) {
+            window.addEventListener('createOrder', event => {
+                console.log("event");
                 return actions.order.create({
                     application_context: {
                         brand_name : 'Laravel Book Store Demo Paypal App',
@@ -264,6 +268,7 @@
                         }
                     }],
                 });
+            })
             },
 
             onApprove: function(data, actions) {

@@ -42,7 +42,7 @@ class CreateUsersTable extends Migration
             $table->datetime('last_login_at')->nullable();
             $table->string('last_login_ip')->nullable();
 
-            $table->unsignedInteger('rol_id')->default(1);
+            $table->unsignedInteger('rol_id')->default(2);
             $table->foreign('rol_id')
                 ->references('id_roles')
                 ->on('roles')

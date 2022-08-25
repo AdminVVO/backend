@@ -540,6 +540,11 @@ header {
             width: 172px;
         }
     }
+
+    // Wishlist Interno
+    .page__wishlist_interno .content_location .flex_local-dates {
+        flex-direction: initial;
+    }
 }
 
 @include responsive(890px) {
@@ -578,12 +583,19 @@ header {
         }
 
         .content_location {
+            margin-top: -1.5rem;
+            margin-bottom: -3.9rem;
+            padding-bottom: 0;
+
             .flex_local-dates {
                 padding: 0;
-                height: auto;
+                // height: auto;
             }
 
             .content_location-width {
+                padding-top: 1.5rem !important;
+                padding-bottom: 4rem !important;
+
                 &:nth-child(2) {
                     display: none;
                 }

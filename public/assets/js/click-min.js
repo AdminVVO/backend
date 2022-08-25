@@ -1,4 +1,17 @@
 $(document).ready(function() {
+    // Reserve show y hide details
+    $(document).on("click", ".js__showMoreDetailsReserve", function() {
+        $(".js__contDetailsPriceReserve").removeClass("dn");
+        $(".js__showMoreDetailsReserve").addClass("dn");
+        $(".js__hideMoreDetailsReserve").removeClass("dn");
+    });
+
+    $(document).on("click", ".js__hideMoreDetailsReserve", function() {
+        $(".js__contDetailsPriceReserve").addClass("dn");
+        $(".js__hideMoreDetailsReserve").addClass("dn");
+        $(".js__showMoreDetailsReserve").removeClass("dn");
+    });
+
     // header places
     submenuPlaceHeaderGeneral();
     function submenuPlaceHeaderGeneral() {

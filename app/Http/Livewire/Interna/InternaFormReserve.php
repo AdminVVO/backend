@@ -199,7 +199,7 @@ class InternaFormReserve extends Component
             'inputInfant' => $this->inputInfant,
             'inputPets' => $this->inputPets,
         ]);
-
+        $this->dispatchBrowserEvent('createOrder');
         $this->dispatchBrowserEvent('OpenModalPayment');
     }
 }

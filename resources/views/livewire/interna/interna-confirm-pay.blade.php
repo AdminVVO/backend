@@ -138,20 +138,12 @@
                                     <span class="tabs_items active_tabs">Paypal</span>
                                 </button>
                             </div>
-
-                            {{-- <div class="vvo_owl_nav navowlplaywith"></div> --}}
                         </div>
                     </div>
 
                     <div class="_showpaypal">
                         <div class="mr-b32" wire:ignore>
                             <div id="paypal-button-container" wire:ignore></div>
-                          {{--   <button type="button" class="btn-yellow mx210">
-                                <div class="fx fx-ai-c fx-jc-c gp3">
-                                    <img src="{{ URL::asset('assets/img/icons/paypal.svg') }}" alt="" style="min-width: 14px; width: 14px;">
-                                    <img src="{{ URL::asset('assets/img/icons/txt-paypal.svg') }}" alt="" style="min-width: 59px; width: 59px;">
-                                </div>
-                            </button> --}}
                         </div>
 
                         <div class="_line-hr mr-t32 mr-b32"></div>

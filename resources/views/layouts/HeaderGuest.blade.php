@@ -25,10 +25,17 @@
                                     <div class="sub">Inbox</div>
                                 </a>
 
-                                <a href="#" class="menu_items hideblock743">
-                                    <i class="fas fa-hotel _i-red22"></i>
-                                    Switch to hosting
-                                </a>
+                                @if ( Auth::user()->rol_id === 1 )
+                                    <a href="#" class="menu_items hideblock743">
+                                        <i class="fas fa-hotel _i-red22"></i>
+                                        Switch to hosting
+                                    </a>
+                                @else
+                                    <a href="{{ route('signup-host') }}" class="menu_items hideblock743">
+                                        <i class="fas fa-hotel _i-red22"></i>
+                                        Become a Host
+                                    </a>
+                                @endif
 
                                 <a href="{{ route('account') }}" class="menu_items showfx743 icon_profile">
                                     <i class="fal fa-circle-user"></i>

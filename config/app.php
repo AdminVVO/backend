@@ -163,6 +163,8 @@ return [
         Illuminate\View\ViewServiceProvider::class,
         Laravel\Socialite\SocialiteServiceProvider::class,
         Jenssegers\Agent\AgentServiceProvider::class,
+        Barryvdh\Debugbar\ServiceProvider::class,
+
 
 
         /*
@@ -235,6 +237,8 @@ return [
         'Socialite' => Laravel\Socialite\Facades\Socialite::class,
         'Agent' => Jenssegers\Agent\Facades\Agent::class,
         'Carbon' => Illuminate\Support\Carbon::class,
+        'Debugbar' => Barryvdh\Debugbar\Facades\Debugbar::class,
+
 
     ],
 

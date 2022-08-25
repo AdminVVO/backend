@@ -14,7 +14,7 @@ function bodyOverflowHidden() {
 }
 
 function cssFixedContent(cont) {
-    $(cont).css({"position": "fixed", "z-index": "999"});
+    $(cont).css({"position": "fixed", "z-index": "9999"});
 }
 
 // otros modal del user
@@ -281,12 +281,19 @@ $(document).ready(function() {
     });
 
     $(".js__edit-lightpick").on("click", function() { // click edit - lightpick modal
-        $(".container_dates-edit").show();
+        bodyOverflowHidden();
+
+        $popup = $(".container_dates-edit");
+        $popup.show();
+        cssFixedContent($popup);
     });
 
     $(".js__guests-modal").on("click", function() {
-        animateTopModals();
-        $(".container_guests_edit").show();
+        bodyOverflowHidden();
+
+        $popup = $(".container_guests_edit");
+        $popup.show();
+        cssFixedContent($popup);
     });
 
     $(document).on("click", ".js__popup_bringind_animal", function() {
@@ -408,6 +415,12 @@ $(document).ready(function() {
         $popup = $(".container_pprnme");
         $popup.show();
         cssFixedContent($popup);
+    });
+
+    // calendar individual - click en private note add >
+    $(document).on("click", ".click_add_private_note_cl", function() {
+        animateTopModals();
+        $(".container_popup_ntpve").show();
     });
 
     // admin-reservation-completed.php

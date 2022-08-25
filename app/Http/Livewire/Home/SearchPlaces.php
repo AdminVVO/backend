@@ -12,10 +12,12 @@ class SearchPlaces extends Component
 {
     use LivewireAlert;
 
-    public $inputAdult = 1; 
+    public $inputAdult = 0; 
     public $inputKids = 0; 
     public $inputInfant = 0; 
     public $inputPets = 0; 
+    public $maxGuest; 
+    public $inputGuest; 
     public $inputDateIn; 
     public $inputDateOut; 
     public $request; 
@@ -27,9 +29,28 @@ class SearchPlaces extends Component
 
     public function mount()
     {   
-        if ( $this->request != null && isset( $this->request['inputDateIn'] ) ) {
+        if ( count( $this->request ) != 0 && isset( $this->request['inputDateIn'] ) ) {
             $this->inputDateIn = $this->request['inputDateIn'];
             $this->inputDateOut = $this->request['inputDateOut'];
+        }
+
+        if ( $this->request != null ) {
+
+            if ( isset( $this->request['inputAdult'] ) )
+                $this->inputAdult = $this->request['inputAdult'];
+
+            if ( isset( $this->request['inputKids'] ) )
+                $this->inputKids = $this->request['inputKids'];
+
+            if ( isset( $this->request['inputInfant'] ) )
+                $this->inputInfant = $this->request['inputInfant'];
+
+            if ( isset( $this->request['inputPets'] ) )
+                $this->inputPets = $this->request['inputPets'];
+
+            $this->changeGuestInput();
+        }else{
+            $this->inputGuest = 'Add Guest';
         }
     }
 
@@ -81,6 +102,8 @@ class SearchPlaces extends Component
 
         if ( $paylaod === 'pets' )
             $this->inputPets = $this->inputPets + 1;
+        
+        $this->changeGuestInput();
     }
 
     public function buttonDecrease($paylaod)
@@ -96,5 +119,23 @@ class SearchPlaces extends Component
 
         if ( $paylaod === 'pets' )
             $this->inputPets = $this->inputPets - 1;
+
+        $this->changeGuestInput();
+    }
+
+    public function changeGuestInput()
+    {
+        $this->reset(['inputGuest']);
+        
+        $this->maxGuest = $this->inputAdult + $this->inputKids;
+        
+        if ( $this->inputAdult == 0 && $this->inputKids == 0 && $this->inputInfant == 0 && $this->inputPets == 0 )
+            $this->inputGuest = 'Add Guest';
+
+        if ( $this->inputAdult != 0 || $this->inputKids != 0 )
+            $this->inputGuest = $this->inputAdult + $this->inputKids . ' Guest';
+
+        if ( $this->maxGuest == 0 )
+            $this->inputGuest = 'Add Guest';
     }
 }

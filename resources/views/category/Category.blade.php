@@ -105,5 +105,50 @@
 
 
 @section('script')
+     <script>
+        const pickerHome = new easepick.create({
+            element: '#easypickHome',
+            css: [
+                'assets/css/easepick-vvo.css',
+                'assets/css/estilos.css'
+            ],
+            plugins: ['RangePlugin','LockPlugin'],
+            format: 'DD MMM YYYY',
+            calendars: 2,
+            grid: 2,
+            tooltip: true,
+            locale: {
+                one: 'day',
+                other: 'days',
+            },
+            RangePlugin: {
+                elementEnd: '#endEasypickHome',
+            },
+            LockPlugin: {
+              minDate: new Date(),
+            },
+            setup(pickerHome) {
+                pickerHome.on('select', (e) => {
+                var content = [
+                    startDate = pickerHome.getStartDate(),
+                    endDate = pickerHome.getEndDate(),
+                ];
+                Livewire.emitTo('home.search-places', 'selectDate', content )
+              });
+            },
+        });
+
+        $('.endEasypick').click(function(event) {
+            pickerHome.show();
+        });
+
+        @if ( isset( $request['inputDateIn'] ) && isset( $request['inputDateOut'] ) )
+            const DateTime = easepick.DateTime;
+            pickerHome.setStartDate( new DateTime('{{ Carbon::parse( $request['inputDateIn'] )->Format('d-m-Y'); }}', 'DD.MM.YYYY') );
+            pickerHome.setEndDate( new DateTime('{{ Carbon::parse( $request['inputDateOut'] )->Format('d-m-Y'); }}', 'DD.MM.YYYY') );
+        @endif
+
+    </script>
+    <script>window.onload = function () { pickerHeaderPlugin = pickerHome.ui.container; pickerHeaderPlugin.style.marginTop ="1.9rem" }</script>
 
 @endsection

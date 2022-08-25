@@ -8,6 +8,7 @@ use App\Models\User;
 use Auth;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\Component;
+use Illuminate\Support\Facades\Route;
 
 class Language extends Component
 {
@@ -27,6 +28,8 @@ class Language extends Component
             $this->authlanguage = Auth::user()->language_default;
             $this->authcurrencs = Auth::user()->currency_default;
         }
+
+        $this->routeRedirect = Route::current()->getName() != 'index' ? Route::current()->getName() : '/' ;
 
         $this->currencs = Currencs::all();
     }

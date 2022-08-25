@@ -16,12 +16,10 @@ x-init="
 
         map.on('load', () => {
             map.loadImage(
-                '{{ URL::asset('images/hotel.png') }}',
+                '{{ URL::asset('images/home-mapa.png') }}',
                 (error, image) => {
                     if (error) throw error;
-                    map.addImage('custom-marker', image, {
-                        pixelRatio: 0.5
-                    });
+                    map.addImage('custom-marker', image );
                     map.addSource('points', {
                         'type': 'geojson',
                         'data': {

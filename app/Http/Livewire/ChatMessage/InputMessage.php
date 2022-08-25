@@ -47,10 +47,8 @@ class InputMessage extends Component
 
             if ( Chats::where([
                     'transmitter_id' => Auth::id(),
-                    // 'receiver_id' => $queryName->user_id,
                     'listing_id' => $onListing,
                 ])->orWhere([
-                    // 'transmitter_id' => $queryName->user_id,
                     'receiver_id' => Auth::id(),
                 ])->exists() ) {
 
@@ -59,10 +57,8 @@ class InputMessage extends Component
                     ])
                     ->where([
                         'transmitter_id' => Auth::id(),
-                        // 'receiver_id' => $queryName->user_id,
                         'listing_id' => $onListing,
                     ])->orWhere([
-                        // 'transmitter_id' => $queryName->user_id,
                         'receiver_id' => Auth::id(),
                     ])->select('id_chats','listing_id','transmitter_id','receiver_id')->first();
 
@@ -306,7 +302,10 @@ class InputMessage extends Component
     {
         if ( strlen( $this->onChat ) === 0 )
             return $this->alert('warning', 'You have not selected a conversation.');
-        
+
+        if ( !$queryResortData = Listings::where('id_listings', $this->onListing)->whereNotNull(['template','resort'])->exists() )
+            return $this->alert('warning', 'You have not added the resort email or selected the template.');
+
         $reservation = ReservationForm::create([
             'listing_id'        => $this->onListing,
             'user_id'           => Auth::id(),
@@ -326,6 +325,4 @@ class InputMessage extends Component
 
         event( new SendMessage( $this->onChat, Auth::user()->rol_id === 1 ? $this->content['transmitter_id'] : $this->content['receiver_id'] ) );
     }
-
-
 }
