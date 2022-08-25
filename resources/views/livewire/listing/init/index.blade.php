@@ -611,10 +611,6 @@
                                 </td>
 
                                 <td>
-                                    <div class="_txtec">To do</div>
-                                </td>
-
-                                <td>
                                     <button type="button" class="selected-2 {{ $orderBy['name'] === 'instant' ? 'active' : ''   }}" wire:click="sortBy('instant')">
                                         <div class="fx fx-ai-c gp8">
                                             <span class="_txtec">Instant book</span>
@@ -753,9 +749,6 @@
                                             @if ( $element['status'] === 'unlisted' ) <i class="fas fa-circle _i-red8"></i> @endif
                                             <div class="_txtec _txtcapit" style="margin-left: 10px;">{{ $element['status'] }}</div>
                                         </div>
-                                    </td>
-                                    <td>
-                                        <button class="btn-border">Finish</button>
                                     </td>
                                     <td>
                                         <div class="fx fx-ai-c">
