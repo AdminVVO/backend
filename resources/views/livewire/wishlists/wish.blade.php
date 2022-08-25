@@ -32,10 +32,10 @@
                             </label>
                         </div>
 
-                        <div class="btnSltContent">
+                        <div class="btnSltContent" wire:ignore.self>
                             <button class="btn-celest-select blue clickSelectBtn">
                                 <div class="fx fx-ai-c gp14">
-                                    4 Guests
+                                    <span>{{$inputAdult+$inputKids}} Guests {{ $inputInfant ? ', '.$inputInfant . ' infants' : ''}}</span>
                                     <svg xmlns="http://www.w3.org/2000/svg" width="14.652" height="8.378"
                                         viewBox="0 0 14.652 8.378">
                                         <path

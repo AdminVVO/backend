@@ -161,6 +161,26 @@ class Wish extends Component
                         return $query->where('listing_pricings.base_price', '>=', '80');
                 }
             })
+            // ->where(function ($query) {
+            //     if ($this->inputAdult != 0) {
+            //             return $query->where('listing_pricings.base_price', '<=', '20');
+            //     }
+            // })
+            // ->where(function ($query) {
+            //     if ($this->inputKids != 0) {
+            //             return $query->where('listing_pricings.base_price', '<=', '20');
+            //     }
+            // })
+            // ->where(function ($query) {
+            //     if ($this->inputInfant != 0) {
+            //             return $query->where('listing_pricings.base_price', '<=', '20');
+            //     }
+            // })
+            // ->where(function ($query) {
+            //     if ($this->inputPets != 0) {
+            //             return $query->where('listing_pricings.base_price', '<=', '20');
+            //     }
+            // })
             ->get()->toArray();
         $this->countListing = count($this->contentListing);
     }
