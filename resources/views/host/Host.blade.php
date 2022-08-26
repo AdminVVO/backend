@@ -35,7 +35,11 @@
         <div class="h2-guests_white25">Questions about hosting?</div>
         <h3 class="h2-guests_white60">Get free one-on-one help</h3>
         <h3 class="h2-guests_white60">From vvoutlet best Hosts</h3>
-        <a href="/validation/process" class="btn-red">Contact Us</a>
+        @if(auth()->check())
+            <a href="/validation/process" class="btn-red">Contact Us</a>
+        @else
+            <button type="button" class="btn-red butnSignModl" >Contact Us</button>
+        @endif
     </div>
 </div>
 
@@ -108,7 +112,11 @@
         </div>
 
         <div class="btn-red_center">
-            <a href="/validation/process" class="btn-red">Contact Us</a>
+            @if(auth()->check())
+                <a href="/validation/process" class="btn-red">Contact Us</a>
+            @else
+                <button type="button" class="btn-red butnSignModl" >Contact Us</button>
+            @endif
         </div>
     </div>
 </div>
