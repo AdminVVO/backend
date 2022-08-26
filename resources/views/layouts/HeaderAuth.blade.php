@@ -92,6 +92,19 @@
             </div>
 
             <div class="menu _header-menu">
+
+                @if ( Auth::user()->rol_id === 1 )
+                    <a href="{{ route('/') }}" class="menu_items hideblock743">
+                        <i class="fas fa-hotel _i-red22"></i>
+                        Switch to Client
+                    </a>
+                @else
+                    <a href="{{ route('signup-host') }}" class="menu_items hideblock743">
+                        <i class="fas fa-hotel _i-red22"></i>
+                        Become a Host
+                    </a>
+                @endif
+                
                 <a href="#" class="menu_perfil">
                     <span>
                         @if ( file_exists( storage_path('app/public/uploadAvatar/' . Auth::user()->avatar  ) ) )

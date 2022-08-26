@@ -241,7 +241,7 @@
     <div class="w100">
         <h2 class="h2-guests">Guest requirements</h2>
         <div class="_width_text">
-            <p class="_txtec">All guests are required to follow Airbnb standard requirements, which includes confirmed phone number, email address, payment information, and agreement to your house rules. <a href="#" class="_txtehlinear">Learn more</a></p>
+            <p class="_txtec">All guests are required to follow Vvoutlet standard requirements, which includes confirmed phone number, email address, payment information, and agreement to your house rules. <a href="#" class="_txtehlinear">Learn more</a></p>
         </div>
     </div>
 

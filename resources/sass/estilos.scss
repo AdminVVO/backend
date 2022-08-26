@@ -1851,6 +1851,24 @@ body {
 // ------ end animate ------
 
 // otros
+// nav fixed mobil 743 nav
+.navFixed_mobil_btn {
+  @include responsive(743px) {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 16px 24px;
+    border-top: 1px solid #E3EDF3;
+
+    &.btn100 {
+      .btn-celest {
+        width: 100%;
+      }
+    }
+  }
+}
+
 .fxaijcfwwmlmr {
   display: flex;
   align-items: stretch;

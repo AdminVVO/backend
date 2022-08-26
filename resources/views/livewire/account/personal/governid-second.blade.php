@@ -40,7 +40,7 @@
                 <div class="content_flex-actv">
                     <div class="flex-msg">
                         <div class="_block">
-                            <div class="_txteh">Take photo with the Airbnb mobile app</div>
+                            <div class="_txteh">Take photo with the Vvoutlet mobile app</div>
                         </div>
                     </div>
                 </div>

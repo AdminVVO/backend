@@ -6,7 +6,7 @@
             <p class="_txtec">When you receive a payment for a reservation, we call that payment to you a "payout." Our secure payment system supports several payout methods, which can be set up below. <a href="#"><span class="_txtblu">Go to FAQ</span></a>.</p>
 
             <div class="_txteh">To get paid, you need to set up a payout method</div>
-            <p class="_txtec">Airbnb releases payouts about 24 hours after a guest's scheduled check-in time. The time it takes for the funds to appear in your account depends on your payout method. <a href="#"><span class="_txtblu">Learn more</span></a></p></p>
+            <p class="_txtec">Vvoutlet releases payouts about 24 hours after a guest's scheduled check-in time. The time it takes for the funds to appear in your account depends on your payout method. <a href="#"><span class="_txtblu">Learn more</span></a></p></p>
         </div>
 
         <button class="btn-celest" wire:click="showModal()">Add payout method</button>

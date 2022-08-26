@@ -459,7 +459,6 @@
             format: 'DD MMM YYYY',
             calendars: 2,
             grid: 2,
-            autoApply: false,
             inline: true,
             tooltip: true,
             locale: {

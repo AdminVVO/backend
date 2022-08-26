@@ -62,6 +62,9 @@ use Illuminate\Support\Facades\Route;
     ## Route Host
     Route::get('signup-host', [HostController::class, 'viewSignHost'])->name('signup-host');
 
+    ## Route Not Permissions Host
+    Route::get('permission-denied', function () { return view('loggin.permisHost'); })->name('permission-denied');
+
     ## Route Profile
     Route::prefix('profile')->group( function(){
             Route::get('{id}', [ProfileController::class, 'viewProfile'])->name('profile');

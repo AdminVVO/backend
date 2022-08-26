@@ -18,7 +18,7 @@ class Hosts
     public function handle(Request $request, Closure $next)
     {
         if ( Auth::check() && Auth::user()->rol_id != 1 )
-            return redirect()->back();
+            return redirect()->route('permission-denied');
 
         return $next($request);
     }

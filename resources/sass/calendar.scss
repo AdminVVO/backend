@@ -1305,13 +1305,17 @@ body {
     }
 
     // full calendar
+    .fc .fc-view-harness-active > .fc-view {
+        right: 92px !important;
+    }
+
     .fc .fc-toolbar.fc-header-toolbar {
         margin-bottom: 13px;
     }
     
-    .fc-scrollgrid-liquid tbody tr td:nth-child(3) .fc-scroller-harness {
-        margin-right: 92px;
-    }
+    // .fc-scrollgrid-liquid tbody tr td:nth-child(3) .fc-scroller-harness {
+    //     margin-right: 92px;
+    // }
     
     .fc .fc-toolbar-title {
         font-size: 23px;
@@ -1593,7 +1597,8 @@ body {
         /* padding-top: 8rem; */
         
         position: absolute;
-        top: 8rem;
+        // top: 8rem;
+        top: 4.1rem;
         right: 0;
         z-index: 2;
         bottom: 0;

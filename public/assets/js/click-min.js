@@ -1,16 +1,26 @@
 $(document).ready(function() {
     // Reserve show y hide details
-    $(document).on("click", ".js__showMoreDetailsReserve", function() {
-        $(".js__contDetailsPriceReserve").removeClass("dn");
-        $(".js__showMoreDetailsReserve").addClass("dn");
-        $(".js__hideMoreDetailsReserve").removeClass("dn");
-    });
+    reserveShowMoreDetails();
+    function reserveShowMoreDetails() {
+        content = $(".js__contDetailsPriceReserve");
 
-    $(document).on("click", ".js__hideMoreDetailsReserve", function() {
-        $(".js__contDetailsPriceReserve").addClass("dn");
-        $(".js__hideMoreDetailsReserve").addClass("dn");
-        $(".js__showMoreDetailsReserve").removeClass("dn");
-    });
+        $.each(content, function(value) {
+            let $btnShow = $(this).parents().find(".content-aside_prec").eq(value).find(".js__showMoreDetailsReserve");
+            let $btnHide = $(this).parents().find(".content-aside_prec").eq(value).find(".js__hideMoreDetailsReserve");
+
+            $btnShow.on("click", function() {
+                $(this).parents().find(".js__contDetailsPriceReserve").eq(value).slideDown();
+                $btnShow.addClass("dn");
+                $btnHide.removeClass("dn");
+            });
+
+            $btnHide.on("click", function() {
+                $(this).parents().find(".js__contDetailsPriceReserve").eq(value).slideUp();
+                $btnHide.addClass("dn");
+                $btnShow.removeClass("dn");
+            });
+        });
+    }
 
     // header places
     submenuPlaceHeaderGeneral();

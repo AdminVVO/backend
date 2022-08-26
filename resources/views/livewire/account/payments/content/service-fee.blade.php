@@ -13,7 +13,7 @@
                             <span class="_news-bt">News</span>
                         </div>
                         <p class="_txtec16 txt_upper">current setting</p>
-                        <p class="_txtec16">Airbnb will deduct 15% from each payout. Guests won`t be charged a service</p>
+                        <p class="_txtec16">Vvoutlet will deduct 15% from each payout. Guests won`t be charged a service</p>
                         <p class="_txtec16">fee—the price you set is the price guests get.</p>
                     </div>
                 </div>

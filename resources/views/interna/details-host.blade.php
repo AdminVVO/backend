@@ -78,7 +78,7 @@
             <div class="_pri-svg">
                 <img src="{{ URL::asset('assets/img/icons/privaty.svg') }}" alt="">
             </div>
-            <div class="_txtprivat">To protect your payment, never transfer money or communicate outside of the Airbnb website or app.</div>
+            <div class="_txtprivat">To protect your payment, never transfer money or communicate outside of the Vvoutlet website or app.</div>
         </div>
     </div>
 </div>

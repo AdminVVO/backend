@@ -137,7 +137,7 @@
                 </div>
 
                 <div style="margin-top: 32px;">
-                    <p class="_txtec">TNeed to get in touch with our Airbnb customer service team? Visit the. <a href="#" class="_txtblu">Help Center</a> or <a href="#" class="_txtblu">contact us</a>.</p>
+                    <p class="_txtec">TNeed to get in touch with our Vvoutlet customer service team? Visit the. <a href="#" class="_txtblu">Help Center</a> or <a href="#" class="_txtblu">contact us</a>.</p>
                 </div>
             </div>
         </div>

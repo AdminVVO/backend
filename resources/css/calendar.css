@@ -832,11 +832,11 @@
   opacity: 0;
   visibility: hidden;
 }
+.section_calendar_admin .fc .fc-view-harness-active > .fc-view {
+  right: 92px !important;
+}
 .section_calendar_admin .fc .fc-toolbar.fc-header-toolbar {
   margin-bottom: 13px;
-}
-.section_calendar_admin .fc-scrollgrid-liquid tbody tr td:nth-child(3) .fc-scroller-harness {
-  margin-right: 92px;
 }
 .section_calendar_admin .fc .fc-toolbar-title {
   font-size: 23px;
@@ -1049,7 +1049,7 @@
 .section_calendar_admin .rgtContMrCal {
   /* padding-top: 8rem; */
   position: absolute;
-  top: 8rem;
+  top: 4.1rem;
   right: 0;
   z-index: 2;
   bottom: 0;

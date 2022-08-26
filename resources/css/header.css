@@ -397,6 +397,10 @@ header .book-form ._bef-places .cpd2btns .txtunder__ics:hover ._txtec {
   .page_payments .footer {
     margin-top: 48px;
   }
+
+  .page_host_logueado .section-host-logueado {
+    margin-top: 0.4rem;
+  }
 }
 @media (max-width: 1100px) {
   .logo-menu img {
@@ -577,6 +581,13 @@ header .book-form ._bef-places .cpd2btns .txtunder__ics:hover ._txtec {
     margin-bottom: 40px;
   }
   .page_interna_edit footer {
+    display: none;
+  }
+
+  .page_host_logueado .section-host-logueado {
+    margin: 1.5rem 0 6.5rem;
+  }
+  .page_host_logueado footer {
     display: none;
   }
 

@@ -167,7 +167,7 @@
                                     </div>
 
                                     <div class="msgcont">
-                                        <span class="_txtec">This Airbnb was great. Great location and pricing. It was also really clean and nice. Definitely will book again when I come back.</span>
+                                        <span class="_txtec">This Vvoutlet was great. Great location and pricing. It was also really clean and nice. Definitely will book again when I come back.</span>
                                     </div>
                                 </div>
 

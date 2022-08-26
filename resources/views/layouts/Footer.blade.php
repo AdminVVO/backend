@@ -7,8 +7,8 @@
 
 					<div class="cont__ictxtfootr">
 						<div class="footer-icon">
-							<p class="_icrmrg"><i class="far fa-envelope"></i> vvoutlet@gmail.com</p>
-							<p class="_icrmrg"><i class="fas fa-phone-alt"></i> +800 965 785</p>
+							<p class="_icrmrg"><i class="far fa-envelope"></i> Email: vvoutlet@gmail.com</p>
+							<p class="_icrmrg"><i class="fas fa-phone-alt"></i> Phone: +800 965 785</p>
 						</div>
 						<div class="footer-social">
 							<a href="#" class="link__icon-footer"><i class="fab fa-facebook-f"></i></a>
@@ -26,16 +26,6 @@
 						<li><a href="#" class="txtunder__hvr _txt-white16">Cancelation options</a></li>
 						<li><a href="#" class="txtunder__hvr _txt-white16">Our COVID-19 Response</a></li>
 						<li><a href="#" class="txtunder__hvr _txt-white16">Supporting people with disabilities</a></li>
-					</ul>
-				</div>
-
-				<div class="footer-links">
-					<strong>Community</strong>
-					<ul>
-						<li><a href="#" class="txtunder__hvr _txt-white16">Disaster relief housing</a></li>
-						<li><a href="#" class="txtunder__hvr _txt-white16">Support Afghan refugees</a></li>
-						<li><a href="#" class="txtunder__hvr _txt-white16">Celebrating diversity & belonging</a></li>
-						<li><a href="#" class="txtunder__hvr _txt-white16">Combating discrimination</a></li>
 					</ul>
 				</div>
 
@@ -58,7 +48,7 @@
 						<li><a href="#" class="txtunder__hvr _txt-white16">Learn about new features</a></li>
 						<li><a href="#" class="txtunder__hvr _txt-white16">Careers</a></li>
 						<li><a href="#" class="txtunder__hvr _txt-white16">Investors</a></li>
-						<li><a href="#" class="txtunder__hvr _txt-white16">Airbnb Luxe</a></li>
+						<li><a href="#" class="txtunder__hvr _txt-white16">Vvoutlet Luxe</a></li>
 					</ul>
 				</div>
 			</div>
@@ -66,7 +56,7 @@
 			<div class="copyright entero">
 				<div class="copyright_content">
 					<p>
-						&copy; 2021 vvoutlet
+						&copy; 2022 Vvoutlet
 						<span class="ptics">·</span>
 						<a href="#" class="txtunder__hvr"><span class="_txt-white16">Privacy</span></a>
 						<span class="ptics">·</span>

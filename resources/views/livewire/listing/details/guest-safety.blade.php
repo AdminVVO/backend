@@ -113,7 +113,7 @@
                                 <div class="fx">
                                     <div class="fxfdjcfw gp4">
                                         <h3 class="_txteh">Security cameras/audio recording devices</h3>
-                                        <p class="_txtec16">The property has a security camera or recording device capable of recording or sending video, audio, or still images. Airbnb requires hosts to inform guests of any such camera or device located in a common area—even if it will be turned off during a guest's stay. Airbnb prohibits security cameras or recording devices in private spaces like bedrooms, bathrooms, or sleeping areas.</p>
+                                        <p class="_txtec16">The property has a security camera or recording device capable of recording or sending video, audio, or still images. Vvoutlet requires hosts to inform guests of any such camera or device located in a common area—even if it will be turned off during a guest's stay. Vvoutlet prohibits security cameras or recording devices in private spaces like bedrooms, bathrooms, or sleeping areas.</p>
                                     </div>
 
                                     <div class="mr-l16">
@@ -270,7 +270,7 @@
                                 <div class="fx">
                                     <div class="fxfdjcfw gp4">
                                         <h3 class="_txteh">Weapons on property</h3>
-                                        <p class="_txtec16">Guests should be aware that there is at least one weapon stored on this property. Airbnb requires all weapons to be properly stored and secured.</p>
+                                        <p class="_txtec16">Guests should be aware that there is at least one weapon stored on this property. Vvoutlet requires all weapons to be properly stored and secured.</p>
                                     </div>
 
                                     <div class="mr-l16">

@@ -515,6 +515,12 @@ header {
             margin-top: 48px;
         }
     }
+
+    .page_host_logueado {
+        .section-host-logueado {
+            margin-top: .4rem;
+        }
+    }
 }
 
 // @include responsive(1127px) {
@@ -734,6 +740,16 @@ header {
 
     .page_interna_edit {
         margin-bottom: 40px;
+
+        footer {
+            display: none;
+        }
+    }
+
+    .page_host_logueado {
+        .section-host-logueado {
+            margin: 1.5rem 0 6.5rem;
+        }
 
         footer {
             display: none;
