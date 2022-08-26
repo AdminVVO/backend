@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\PersonValidation;
 use App\Models\User;
 use App\Models\UserTemp;
 use Illuminate\Support\Facades\Auth;
@@ -13,16 +14,15 @@ class Personal extends Controller
         if (isset(request()->id)) {
             $this->UserAuth();
 
-            if (isset(request()->type)) {
-                return view('person.validation', ['user_id' => request()->id, 'type' => request()->type]);
-            }
             if (Auth::id()) {
                 return view('person.validation', ['user_id' => request()->id, 'type' => null]);
             }
         }
 
-        if (isset(request()->type)) {
-            return view('person.validation', ['user_id' => null, 'type' => request()->type]);
+        $reference = PersonValidation::where(['user_id' => Auth::id()])->pluck('id_person_validation')->first();
+
+        if (isset($reference)) {
+            return view('person.validation', ['user_id' => null, 'type' => 'finish']);
         }
 
         return view('person.validation', ['user_id' => null, 'type' => null]);

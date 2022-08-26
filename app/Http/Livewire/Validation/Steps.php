@@ -3,7 +3,6 @@
 namespace App\Http\Livewire\Validation;
 
 use Livewire\Component;
-
 use App\Models\PersonValidation;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Auth;
@@ -44,13 +43,6 @@ class Steps extends Component
     public function eventSteps($payload)
     {
         if ($payload['from'] === 'init') {
-            $reference = PersonValidation::where(['user_id' => Auth::id()])->pluck('id_person_validation')->first();
-            $reference_second = PersonValidation::where(['user_id' => $this->user_id])->pluck('id_person_validation')->first();
-            if ($reference || $reference_second) {
-                $this->content['codeReference'] = $reference;
-                $this->step = 'finishUploadFile';
-                return;
-            }
 
             $this->step = $payload['to'];
             if (isset($payload['type'])) {
