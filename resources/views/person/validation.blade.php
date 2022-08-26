@@ -5,13 +5,13 @@
 @endsection
 
 @section('css')
-    <link href="{{ URL::asset('assets/css/header-admin.css') }}" rel="stylesheet" />
+<link href="{{ URL::asset('assets/css/header-bck.css') }}" rel="stylesheet"/>
     <link href="{{ URL::asset('assets/css/account.css') }}" rel="stylesheet" />
 @endsection
 
 @if ((isset($user_id) && Auth::id() == $user_id) || Auth::id())
 @section('header')
-        @include('layouts.HeaderAuth')
+        @include('layouts.HeaderGuest')
 @endsection
 
 @section('content')
