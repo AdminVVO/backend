@@ -30,7 +30,7 @@ class Personal extends Controller
 
     public function UserAuth()
     {
-        $user = UserTemp::where('id', request()->id)->first('user_id');
+        $user = UserTemp::where('id', request()->id)->where('type', 'validated_account')->first('user_id');
         if ($user) {
             $authUser = User::where('id_user', $user->user_id)->first();
             Auth::login($authUser);

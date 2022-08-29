@@ -43,6 +43,7 @@ use Illuminate\Support\Facades\Route;
     ## Route Home
     Route::get('/', [HomeController::class, 'viewHome'])->name('/');
 
+    Route::get('/reviews/create', [ReviewsController::class, 'CreateReview'])->name('/reviews/create');
     ## Route Interna
     Route::prefix('interna')->group( function(){
         ## Interna Index

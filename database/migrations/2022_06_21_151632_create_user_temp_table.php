@@ -22,6 +22,7 @@ class CreateUserTempTable extends Migration
                 ->references('id_user')
                 ->on('users')
                 ->onDelete('cascade');
+            $table->string('type', 20);
         });
     }
 

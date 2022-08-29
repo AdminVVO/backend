@@ -107,8 +107,9 @@ return [
     |
     */
 
+
     'markdown' => [
-        'theme' => 'default',
+        'theme' => 'https://platform.vivevacationsoutlet.com/assets/css/vvo.css',
 
         'paths' => [
             resource_path('views/vendor/mail'),

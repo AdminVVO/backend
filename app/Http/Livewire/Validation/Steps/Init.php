@@ -41,7 +41,7 @@ class Init extends Component
 
         if ($this->personmet === 'app') {
             $id = Str::uuid()->toString();
-            UserTemp::create(['user_id' => Auth::user()->id_user, 'id' => $id]);
+            UserTemp::create(['user_id' => Auth::user()->id_user, 'id' => $id, 'type' =>'validated_account']);
 
             Twilio::sendMessageValidation(Auth::user()->phone, $id);
             $payload['to'] = 'finishValidation';

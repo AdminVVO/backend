@@ -16,6 +16,8 @@ class CreateReviewsTable extends Migration
         Schema::create('reviews', function (Blueprint $table) {
             $table->uuid('review_id');
             $table->string('comment');
+            $table->string('note');
+            $table->decimal('rating_stay', 2, 1);
             $table->decimal('rating_cleanliness', 2, 1);
             $table->decimal('rating_communication', 2, 1);
             $table->decimal('rating_check', 2, 1);

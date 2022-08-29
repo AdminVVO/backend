@@ -119,7 +119,7 @@ class UploadFileBrowser extends Component
      
         if ($this->user_id) {
             event(new sendPersonValidation($this->user_id));
-            UserTemp::where('id', $this->user_id)->delete();
+            UserTemp::where('id', $this->user_id)->where('type', 'validated_account')->delete();
         }
         
         $this->emitUp('eventSteps', $payload);

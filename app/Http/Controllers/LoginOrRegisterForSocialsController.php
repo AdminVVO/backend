@@ -69,10 +69,10 @@ class LoginOrRegisterForSocialsController extends Controller
 
     public function loginWithFacebook()
     {
-        // $authUser = User::where('email', 'Dev@gmail.com')->first();
-        // Auth::login($authUser);
+        $authUser = User::where('email', 'Dev@gmail.com')->first();
+        Auth::login($authUser);
 
-        // return redirect()->route('/');
+        return redirect()->route('/');
 
         return Socialite::driver('facebook')->redirect();
     }

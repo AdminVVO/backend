@@ -313,8 +313,8 @@
                 return event.rendering === 'background';
             },
             resourceLabelContent: function(arg) {
-                                        
-                            
+
+
             return {
                     html: `<div class="checkbox-item checkbox-item_img">
                                 <label class="check_click">
@@ -349,8 +349,8 @@
             validRange: function(nowDate) {
                 return {
                     start: nowDate,
-                    end: ((nowDate.getMonth()+7) > 11 ? (nowDate.getFullYear()+1) : nowDate.getFullYear()) + '-' + 
-                        ((nowDate.getMonth()+7) > 11 ? ('0'+(nowDate.getMonth()-4)) : ('0'+(nowDate.getMonth()+7))) + '-01'  
+                    end: ((nowDate.getMonth()+7) > 11 ? (nowDate.getFullYear()+1) : nowDate.getFullYear()) + '-' +
+                        ((nowDate.getMonth()+7) > 11 ? ('0'+(nowDate.getMonth()-4)) : ('0'+(nowDate.getMonth()+7))) + '-01'
                 };
             },
             eventResourceEditable: false,
@@ -540,6 +540,7 @@
 
     function eventPrice() {
         const date = new Date();
+        date.setDate(date.getDate() - 1);
         var divs = document.getElementsByClassName(
             'fc-timeline-slot fc-timeline-slot-lane fc-day');
         document.getElementsByClassName('fc-timeline-body')[0].setAttribute('style', 'width:' + (divs.length * 80))
@@ -551,6 +552,15 @@
                         if (@this.date_config[element.id][div.getAttribute('data-date')]
                             .is_active ==
                             true) {
+
+                                if(new Date(div.dataset.date) < date) {
+                            div.innerHTML += `<div class="contNotLine js__infoReservationTable">
+                                    <div class="transf">
+                                        <div class="not-linetb"></div>
+                                    </div>
+                                </div>`;
+                            }
+                            else {
 
                             div.innerHTML += `<div class="_badsdoller js__infoReservationTable">
          <div class="fx fx-fd-c fx-ai-c gp3">
@@ -573,6 +583,7 @@
             </svg>
          </div>
     </div>`;
+                            }
                         } else {
                             div.innerHTML += `<div class="contNotLine js__infoReservationTable">
                                     <div class="transf">
@@ -581,7 +592,7 @@
                                 </div>`;
                         }
                     } else {
-                        if(new Date(div.dataset.date) <= date) {
+                        if(new Date(div.dataset.date) < date) {
                             div.innerHTML += `<div class="contNotLine js__infoReservationTable">
                                     <div class="transf">
                                         <div class="not-linetb"></div>
@@ -611,7 +622,7 @@
     </div>`;
                         }
                     } } else {
-                        if(new Date(div.dataset.date) <= date) {
+                        if(new Date(div.dataset.date) < date) {
                             div.innerHTML += `<div class="contNotLine js__infoReservationTable">
                                     <div class="transf">
                                         <div class="not-linetb"></div>

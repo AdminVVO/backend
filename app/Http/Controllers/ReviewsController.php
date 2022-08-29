@@ -43,4 +43,9 @@ class ReviewsController extends Controller
 
         return view('reviews.index', ['data' => $data]);
     }
+
+    public function CreateReview()
+    {
+        return view('reviews.create');
+    }
 }

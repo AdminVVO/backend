@@ -681,9 +681,9 @@
                                         if (@this.date_config.lenght != 0) {
                                             if(@this.date_config[data.attributes[2].nodeValue]) {
                                                     if (@this.date_config[data.attributes[2].nodeValue].price == 0) {
-                                                        data.childNodes[0].classList.toggle('js__infoReservationTable')
-                                                        data.childNodes[0].classList.toggle('contNotLine')
-                                                        data.childNodes[0].childNodes[1].classList.toggle('not-linetb')
+                                                        data.childNodes[0].classList.add('js__infoReservationTable')
+                                                        data.childNodes[0].classList.add('contNotLine')
+                                                        data.childNodes[0].childNodes[1].classList.add('not-linetb')
                                                         data.childNodes[0].childNodes[1].innerHTML = '';
                                                     }
 

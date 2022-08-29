@@ -2,6 +2,8 @@
 
 namespace App\Http\Livewire\Reservations\Tabs\Modals;
 
+use App\Models\Address;
+use App\Models\Profile;
 use App\Models\Reservation;
 use Livewire\Component;
 use Carbon\Carbon;
@@ -23,11 +25,11 @@ class Details extends Component
     public function preLoad()
     {
         $this->reset('data');
+
         if($this->reservation == '')  {
             $this->data = Reservation::join('users', 'reservations.user_id', 'users.id_user')
             ->join('listings', 'reservations.listing_id', 'listings.id_listings')
             ->join('listing_pricings', 'listings.id_listings', 'listing_pricings.listing_id')
-            ->join('profiles', 'reservations.user_id', 'profiles.user_id')
             ->join('listing_locations', 'listings.id_listings', 'listing_locations.listing_id')
             ->first([
                 'id_reservation', 'id_user', 'avatar', 'full_name', 'name', 'checkin', 'checkout', 'total_payout', 'booked', 'users.created_at',
@@ -38,7 +40,6 @@ class Details extends Component
         $this->data = Reservation::join('users', 'reservations.user_id', 'users.id_user')
             ->join('listings', 'reservations.listing_id', 'listings.id_listings')
             ->join('listing_pricings', 'listings.id_listings', 'listing_pricings.listing_id')
-            ->join('profiles', 'reservations.user_id', 'profiles.user_id')
             ->join('listing_locations', 'listings.id_listings', 'listing_locations.listing_id')
             ->where('id_reservation', $this->reservation)
             ->first([
@@ -47,6 +48,9 @@ class Details extends Component
                 'location', 'cleaning_fee', 'pet_fee', 'linens_fee', 'resort_fee', 'management_fee', 'community_fee', 'extra_guest_fee', 'extra_guest', 'weekend_nightly_fee'
             ])->toArray();
         }
+
+        $location = Profile::where('user_id', $this->data['id_user'])->first('location');
+        $this->data['location'] = $location['location'] ?? '';
         $this->data['general_fee'] = $this->data['cleaning_fee'] + $this->data['pet_fee'] +
             $this->data['linens_fee'] + $this->data['resort_fee'] +
             $this->data['management_fee'] + $this->data['community_fee'] +
@@ -98,4 +102,5 @@ class Details extends Component
         Reservation::where('id_reservation', $this->data['id_reservation'])->update(['note' => $this->note]);
         $this->data['note'] = Reservation::where('id_reservation', $this->data['id_reservation'])->first('note')->toArray()['note'];
     }
+
 }

@@ -17,13 +17,6 @@ class ReservationController extends Controller
     
     public function viewReservation()
     {
-        $listings = Listings::where('user_id', auth()->user()->id_user)->get('id_listings')->toArray();
-        $reservation = Reservation::whereIn('listing_id', $listings)->get()->toArray();   
-
-        if(count($reservation) == 0) {
-            return redirect('/');
-        }
-
         return view('reservation.ReservationsIndex');
     }
 

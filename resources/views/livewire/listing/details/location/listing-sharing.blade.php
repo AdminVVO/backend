@@ -41,8 +41,8 @@
 
     <div class="contmap_w100h425">
         <x-map-listing-basic
-            latitude="{{ $inputLatitude }}"
-            longitude="{{ $inputLongitude }}"
+            latitude="{{ $inputLongitude }}"
+            longitude="{{ $inputLatitude }}"
         />
     </div>
     

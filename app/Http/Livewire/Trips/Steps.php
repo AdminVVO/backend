@@ -8,6 +8,8 @@ class Steps extends Component
 {
     public $stepBar = 'upcoming';
 
+    protected $listeners = ['refreshComponent' => '$refresh'];
+
     public function mount()
     {
 

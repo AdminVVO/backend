@@ -38,7 +38,7 @@ class sendPersonValidation implements
 
     public function broadcastAs()
     {
-        $id = UserTemp::where('id', $this->user)->first('user_id');
+        $id = UserTemp::where('id', $this->user)->where('type','validated_account')->first('user_id');
         return 'sendEvent' . (int) $id->user_id;
     }
 }
