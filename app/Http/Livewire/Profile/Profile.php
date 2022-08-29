@@ -54,7 +54,8 @@ class Profile extends Component
             'avatar' => $filename
         ]);
         
-        $this->preloadContent();
+        $this->contentUser['avatar'] = $filename;
+        $this->emitTo('header.index', 'reloadHeader');
     }
 
     public function preloadContent()

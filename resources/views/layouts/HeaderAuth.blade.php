@@ -96,7 +96,7 @@
                 @if ( Auth::user()->rol_id === 1 )
                     <a href="{{ route('/') }}" class="menu_items hideblock743">
                         <i class="fas fa-hotel _i-red22"></i>
-                        Switch to Client
+                        Switch to User
                     </a>
                 @else
                     <a href="{{ route('signup-host') }}" class="menu_items hideblock743">
@@ -105,16 +105,7 @@
                     </a>
                 @endif
                 
-                <a href="#" class="menu_perfil">
-                    <span>
-                        @if ( file_exists( storage_path('app/public/uploadAvatar/' . Auth::user()->avatar  ) ) )
-                            <img src="{{ URL::asset('storage/uploadAvatar/') .'/'. Auth::user()->avatar  }}" loading="lazy" alt="">
-                        @else
-                            <img src="{{ URL::asset('assets/img/avatar') }}/{{ Auth::user()->avatar }}" loading="lazy" alt="">
-                        @endif
-                        {{  \App\Models\User::FullName() }}
-                    </span>
-                </a>
+                @livewire('header.index')
 
                 <div class="_menu-bars">
                     <i class="fas fa-bars"></i>

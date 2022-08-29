@@ -39,7 +39,7 @@
             <div class="txt-check-in">Guests</div>
 
             <div class="sltNrlCont btnSltNrl" wire:ignore.self>
-                <button type="button" class="vvo-btn-select wh-p100 js_submenuNrml">
+                <button type="button" class="vvo-btn-select wh-p100 js_submenuNrml skeleton">
                     <div class="fx fx-ai-c fx-jc-sb gp14">
                         <span>{{ $inputGuest }}</span>
 
@@ -189,11 +189,18 @@
         </div>
         <div class="_txtprivat skeleton skeleton_txt" style="text-align: center; margin: 0 auto;">You won't be charged yet</div>
 
-        <div class="_cns">
+        <div class="_cns dn js__contDetailsPriceReserve">
             <span class="f-cth skeleton">
                 <div class="_txtec">{{ \App\Models\Currencs::Symbol( $listing_currency ) . $inputBase  .' x '. $requestDays }} nights</div>
                 <div class="_txtec">{{ \App\Models\Currencs::Symbol( $listing_currency ) . ( $inputBase * $requestDays ) }}</div>
             </span>
+
+            @if ( $oneListing )
+                <span class="f-cth skeleton">
+                    <div class="_txtec">Services fee</div>
+                    <div class="_txtec">{{ \App\Models\Currencs::Symbol( $listing_currency ) . $oneListinFee }}</div>
+                </span>
+            @endif
 
             @if ( $cleaning_fee != 0 )
                 <span class="f-cth skeleton">
@@ -256,6 +263,13 @@
             <div class="_txtect">Total</div>
             <div class="_txtect">{{ \App\Models\Currencs::Symbol( $listing_currency ) . $totalPrice }}</div>
         </span>
+
+        @if ( $cleaning_fee != 0 || $pet_fee != 0 && $inputPets != 0 || $linens_fee != 0 || $resort_fee != 0 || $management_fee != 0 || $extra_guest_fee != 0 && $maxGuest >= 2 || $weekly_discount != 0 || $monthly_discount != 0 )
+            <div class="mr-t12">
+                <button type="button" class="_1e5q4qoz js__showMoreDetailsReserve skeleton">See details</button>
+                <button type="button" class="_1e5q4qoz dn js__hideMoreDetailsReserve skeleton">Hide details</button>
+            </div>
+        @endif
     </form>
 </aside>
 

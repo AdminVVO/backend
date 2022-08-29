@@ -248,7 +248,7 @@
 
     <!-- Include the PayPal JavaScript SDK -->
     <script src="https://www.paypal.com/sdk/js?client-id=AUH2aEPl9mINPBulpSlMN0lU44AqfR7KR5SeBB77tLBsN42tOrWc_vld7q9zH3Ud3KYdkucfd7MJIfnv&currency=USD"></script>
-    <script>
+{{--     <script>
         paypal.Buttons({
             style: {
                 color:  'blue',
@@ -321,6 +321,48 @@
             }
             return res;
         } 
+    </script> --}}
+
+    <script>
+        paypal.Buttons({
+            style: {
+                color:  'blue',
+                shape:  'pill',
+                label:  'pay',
+                height: 40
+            },
+            createOrder: function(data, actions) {
+                return actions.order.create({
+                    application_context: {
+                        brand_name : 'Laravel Book Store Demo Paypal App',
+                        user_action : 'PAY_NOW',
+                    },
+                    purchase_units: [{
+                        amount: {
+                            value: '0.50'
+                        }
+                    }],
+                });
+            },
+
+            onApprove: function(data, actions) {
+                return actions.order.capture().then(function(details) {
+                    console.log("details", details);
+
+                });
+            },
+
+            onCancel: function (data) {
+                Livewire.emitTo('interna.interna-confirm-pay', 'cancelPaypaEvent')
+            }
+        }).render('#paypal-button-container');
+
+    function status(res) {
+      if (!res.ok) {
+          throw new Error(res.statusText);
+      }
+      return res;
+    } 
     </script>
 
     <script>
@@ -478,6 +520,7 @@
                 Livewire.emitTo('interna.interna-form-reserve', 'selectDate', content )
                 Livewire.emitTo('interna.interna-date-calendar', 'selectDate', content )
                 Livewire.emitTo('interna.interna-confirm-pay', 'selectDate', content )
+                Livewire.emitTo('interna.interna-form-edit-date', 'reloadDateEdit', content )
                 $('.container_dates-edit').hide();
               });
             },

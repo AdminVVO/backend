@@ -26,12 +26,7 @@
                         </a>
                     @endif
 
-                    <a href="#" class="menu_perfil">
-                        <span>
-                            <img src="{{ URL::asset('assets/img/avatar') }}/{{ Auth::user()->avatar }}" alt="">
-                            {{  \App\Models\User::FullName() }}
-                        </span>
-                    </a>
+                    @livewire('header.index')
 
                     <div class="_menu-bars">
                         <i class="fas fa-bars"></i>

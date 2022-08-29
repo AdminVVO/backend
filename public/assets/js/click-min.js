@@ -1,4 +1,10 @@
 $(document).ready(function() {
+    // Webcam govemment id
+    $(document).on("click", ".js__submitPhotoId", function() {
+        $(".js__contWebcam1").hide();
+        $(".js__contWebcam2").show();
+    });
+
     // Reserve show y hide details
     reserveShowMoreDetails();
     function reserveShowMoreDetails() {
@@ -41,10 +47,10 @@ $(document).ready(function() {
     // estrella, favorite.
     starRating();
     function starRating() {
-        starRatingVvo = $(".star_rating_vvo");
+        starRatingVvo = $(".js__star_rating_vvo");
 
         $.each(starRatingVvo, function(value, index) {
-            let $clickStar = $(this).parents().find(".star_rating_vvo").eq(value).find("li");
+            let $clickStar = $(this).parents().find(".js__star_rating_vvo").eq(value).find("li");
 
             $clickStar.on("mouseover", function() {
                 let current = $(this);
@@ -70,6 +76,174 @@ $(document).ready(function() {
                 $(this).parents(index).find(".showMsgHtml").eq(value).html(dataId);
             });
         });
+    }
+
+    starRatingModal();
+    function starRatingModal() {
+        cleanliness()
+        function cleanliness() {
+            $(document).on("mouseover", "#js__starRatingCleanliness li", function() {
+                let current = $(this);
+
+                $("#js__starRatingCleanliness li").each(function(index) {
+                    $(this).addClass("hover");
+
+                    if (index == current.index()) {
+                        return false;
+                    }
+                });
+            });
+
+            $(document).on("mouseleave", "#js__starRatingCleanliness li", function() {
+                $("#js__starRatingCleanliness li").removeClass("hover");
+            });
+
+            $(document).on("click", "#js__starRatingCleanliness li", function() {
+                $("#js__starRatingCleanliness li").removeClass("active");
+                $(this).parents("#js__starRatingCleanliness").find("li.hover").addClass("active");
+
+                const btnActivos = $(this).parents("#js__starRatingCleanliness").find("li.active").length;
+                $("#radioStarCleanliness").val(btnActivos);
+            });
+        }
+
+        communication()
+        function communication() {
+            $(document).on("mouseover", "#js__starRatingCommunication li", function() {
+                let current = $(this);
+
+                $("#js__starRatingCommunication li").each(function(index) {
+                    $(this).addClass("hover");
+
+                    if (index == current.index()) {
+                        return false;
+                    }
+                });
+            });
+
+            $(document).on("mouseleave", "#js__starRatingCommunication li", function() {
+                $("#js__starRatingCommunication li").removeClass("hover");
+            });
+
+            $(document).on("click", "#js__starRatingCommunication li", function() {
+                $("#js__starRatingCommunication li").removeClass("active");
+                $(this).parents("#js__starRatingCommunication").find("li.hover").addClass("active");
+
+                const btnActivos = $(this).parents("#js__starRatingCommunication").find("li.active").length;
+                $("#radioStarCommunication").val(btnActivos);
+            });
+        }
+
+        observanceHouseRules()
+        function observanceHouseRules() {
+            $(document).on("mouseover", "#js__starRatingObservanceHouse li", function() {
+                let current = $(this);
+
+                $("#js__starRatingObservanceHouse li").each(function(index) {
+                    $(this).addClass("hover");
+
+                    if (index == current.index()) {
+                        return false;
+                    }
+                });
+            });
+
+            $(document).on("mouseleave", "#js__starRatingObservanceHouse li", function() {
+                $("#js__starRatingObservanceHouse li").removeClass("hover");
+            });
+
+            $(document).on("click", "#js__starRatingObservanceHouse li", function() {
+                $("#js__starRatingObservanceHouse li").removeClass("active");
+                $(this).parents("#js__starRatingObservanceHouse").find("li.hover").addClass("active");
+
+                const btnActivos = $(this).parents("#js__starRatingObservanceHouse").find("li.active").length;
+                $("#radioStarObservanceHouseRules").val(btnActivos);
+            });
+        }
+    }
+
+    starRatingChat();
+    function starRatingChat() {
+        cleanliness()
+        function cleanliness() {
+            $(document).on("mouseover", "#js__starRatingObservanceHouseChat li", function() {
+                let current = $(this);
+
+                $("#js__starRatingObservanceHouseChat li").each(function(index) {
+                    $(this).addClass("hover");
+
+                    if (index == current.index()) {
+                        return false;
+                    }
+                });
+            });
+
+            $(document).on("mouseleave", "#js__starRatingObservanceHouseChat li", function() {
+                $("#js__starRatingObservanceHouseChat li").removeClass("hover");
+            });
+
+            $(document).on("click", "#js__starRatingObservanceHouseChat li", function() {
+                $("#js__starRatingObservanceHouseChat li").removeClass("active");
+                $(this).parents("#js__starRatingObservanceHouseChat").find("li.hover").addClass("active");
+
+                const btnActivos = $(this).parents("#js__starRatingObservanceHouseChat").find("li.active").length;
+                $("#radioStarCleanlinessChat").val(btnActivos);
+            });
+        }
+
+        communication()
+        function communication() {
+            $(document).on("mouseover", "#js__starRatingCommunicationChat li", function() {
+                let current = $(this);
+
+                $("#js__starRatingCommunicationChat li").each(function(index) {
+                    $(this).addClass("hover");
+
+                    if (index == current.index()) {
+                        return false;
+                    }
+                });
+            });
+
+            $(document).on("mouseleave", "#js__starRatingCommunicationChat li", function() {
+                $("#js__starRatingCommunicationChat li").removeClass("hover");
+            });
+
+            $(document).on("click", "#js__starRatingCommunicationChat li", function() {
+                $("#js__starRatingCommunicationChat li").removeClass("active");
+                $(this).parents("#js__starRatingCommunicationChat").find("li.hover").addClass("active");
+
+                const btnActivos = $(this).parents("#js__starRatingCommunicationChat").find("li.active").length;
+                $("#radioStarCommunicationChat").val(btnActivos);
+            });
+        }
+
+        observanceHouseRules()
+        function observanceHouseRules() {
+            $(document).on("mouseover", "#js__starRatingObservanceChat li", function() {
+                let current = $(this);
+
+                $("#js__starRatingObservanceChat li").each(function(index) {
+                    $(this).addClass("hover");
+
+                    if (index == current.index()) {
+                        return false;
+                    }
+                });
+            });
+
+            $(document).on("mouseleave", "#js__starRatingObservanceChat li", function() {
+                $("#js__starRatingObservanceChat li").removeClass("hover");
+            });
+
+            $(document).on("click", "#js__starRatingObservanceChat li", function() {
+                $("#js__starRatingObservanceChat li").removeClass("active");
+                $(this).parents("#js__starRatingObservanceChat").find("li.hover").addClass("active");
+
+                const btnActivos = $(this).parents("#js__starRatingObservanceChat").find("li.active").length;
+                $("#radioStarObservanceHouseRulesChat").val(btnActivos);
+            });
+        }
     }
 
     // message-user-resena - write a review popup

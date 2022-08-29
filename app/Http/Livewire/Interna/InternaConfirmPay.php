@@ -3,7 +3,9 @@
 namespace App\Http\Livewire\Interna;
 
 use Livewire\Component;
+use App\Models\Listing\Listings;
 use Carbon;
+use Auth;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 
 class InternaConfirmPay extends Component
@@ -42,6 +44,9 @@ class InternaConfirmPay extends Component
     public $number_guests;
     public $max_people;
     public $extra_guestShow = 0;
+
+    public $oneListing = false;
+        public $oneListinFee;
 
     public $inputBase;
     public $inputGuest;
@@ -91,6 +96,12 @@ $diasDiferencia = $fechaExpiracion->diffInDays($fechaEmision);
             $this->inputBase = $this->base_price - $mult;
         }
 
+        if ( Listings::where([ 'user_id' => Auth::id() ])->exists() ) {
+            $this->oneListing = true;
+            $mult = $this->inputBase * 0.10;
+                $this->oneListinFee = $this->inputBase - $mult;
+        }
+
         $this->weeklyTotal = round(( $this->inputBase * $this->requestDays ) * ( $this->weekly_discount /100 ) );
         $this->monthlyTotal = round(( $this->inputBase * $this->requestDays ) * ( $this->monthly_discount /100 ) );
 
@@ -121,7 +132,11 @@ $diasDiferencia = $fechaExpiracion->diffInDays($fechaEmision);
         if ( $this->maxGuest > 1 )
             $d = $this->extra_guest_fee * ( $this->maxGuest - 1 );
 
-        $this->totalPrice = $a + $b + $c + $d;
+        $e = 0;
+        if ( $this->oneListing )
+            $e = $this->oneListinFee;
+
+        $this->totalPrice = $a + $b + $c + $d + $e;
 
         return view('livewire.interna.interna-confirm-pay');
     }
@@ -166,7 +181,7 @@ $diasDiferencia = $fechaExpiracion->diffInDays($fechaEmision);
         $this->inputDateIn = Carbon::createFromDate( $payload[0] )->format('d M Y');
         $this->inputDateOut = Carbon::createFromDate( $payload[1] )->format('d M Y');
         $daysDiffs = Carbon::createFromDate( $payload[0] )->diff( $payload[1] );
-        $this->requestDays = $daysDiffs->days + 1;
+        $this->requestDays = $daysDiffs->days;
         $this->dispatchBrowserEvent('reloadDateInputs', [
             'inputDateIn' => $payload[0],
             'inputDateOut' => $payload[1],

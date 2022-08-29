@@ -12,7 +12,7 @@ x-init="
         ],
         format: 'MM/DD/YYYY',
         calendars: 1,
-        {{-- date: '{{ Carbon::now()->subYears(18)->format('d-m-Y') }}', --}}
+        date: '{{ Carbon::now()->subYears(18)->format('m-d-Y') }}',
         grid: 1,
         zIndex: 10,
         autoApply: true,

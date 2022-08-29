@@ -22,6 +22,7 @@ class Search extends Component
     private $contentListing;
     public $contentCoordinate;
     public $preLoadCoordinate;
+    public $fitBounds;
     public $wishlists;
     public $places;
     public $category;
@@ -203,7 +204,12 @@ class Search extends Component
 
         $this->reset(['contentCoordinate', 'preLoadCoordinate']);
 
+        $fitBoundsLong = [];
+        $fitBoundsLat = [];
+
         foreach ( $this->contentListing as $key => $value) {
+            $fitBoundsLong[] = (float)$value['longitude'];
+            $fitBoundsLat[] = (float)$value['latitude'];
             $title = $value['title'];
             $price = $value['base_price'];
             $room = ucwords( RoomsProperty::TypeName( $value['like_place'] )  . ' - ' . RoomsProperty::PropertyName( $value['property_type'] ) );
@@ -231,15 +237,17 @@ class Search extends Component
                 ];
         }
 
+        $this->fitBounds = [ [min($fitBoundsLong), min($fitBoundsLat) ], [max($fitBoundsLong), max($fitBoundsLat) ] ];
+
         if ( count( $this->contentListing ) != 0 ){
             $this->preLoadCoordinate = [ $this->contentListing[0]['longitude'], $this->contentListing[0]['latitude']];
             if ( $this->preloadReturnMap )
-                $this->dispatchBrowserEvent('loadDataMapBox', ['preLoadCoordinate' => $this->preLoadCoordinate, 'contentCoordinate' => $this->contentCoordinate ]);
+                $this->dispatchBrowserEvent('loadDataMapBox', ['preLoadCoordinate' => $this->preLoadCoordinate, 'contentCoordinate' => $this->contentCoordinate, 'fitBounds' => $this->fitBounds ]);
         }
 
         if ( count( $this->contentListing ) == 0 ){
             if ( $this->preloadReturnMap )
-                $this->dispatchBrowserEvent('loadDataMapBox', ['preLoadCoordinate' => null, 'contentCoordinate' => [] ]);
+                $this->dispatchBrowserEvent('loadDataMapBox', ['preLoadCoordinate' => null, 'contentCoordinate' => [], 'fitBounds' => [] ]);
         }
 
     }

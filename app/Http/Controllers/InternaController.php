@@ -126,7 +126,7 @@ class InternaController extends Controller
             'scenicViews' => $scenicViews,
             'profile' => $profile,
             'requestDate' => count( $request->all() ) != 0 ? $request->all() : $dataNoFilt,
-            'requestDays' => isset( $daysDiffs ) ? $daysDiffs->days + 1 : 0,
+            'requestDays' => isset( $daysDiffs ) ? $daysDiffs->days : 0,
         ]);
     }
 }

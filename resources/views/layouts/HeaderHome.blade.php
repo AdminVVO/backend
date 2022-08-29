@@ -33,7 +33,7 @@
 		                            <div class="sub">Inbox</div>
 		                        </a>
 
-		                        @if ( Auth::user()->rol_id === 1 )
+		                        @if ( Auth::user()->rol_id == 1 )
 			                        <a href="{{ route('dashboard') }}" class="menu_items hideblock743">
 			                            <i class="fas fa-hotel _i-red22"></i>
 			                            Switch to hosting
@@ -50,16 +50,7 @@
                                     <div class="sub">Profile</div>
                                 </a>
 
-		                        <div class="menu_perfil menu_items">
-		                            <span>
-			                            @if ( file_exists( storage_path('app/public/uploadAvatar/' . Auth::user()->avatar  ) ) )
-			                                <img src="{{ URL::asset('storage/uploadAvatar/') .'/'. Auth::user()->avatar  }}" loading="lazy" alt="">
-			                            @else
-			                                <img src="{{ URL::asset('assets/img/avatar') }}/{{ Auth::user()->avatar }}" loading="lazy" alt="">
-			                            @endif
-		                                {{  \App\Models\User::FullName() }}
-		                            </span>
-		                        </div>
+                    			@livewire('header.index')
 
 		                        <div class="_menu-bars vvo_hambur">
 		                            <i class="fas fa-bars"></i>

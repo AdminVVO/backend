@@ -7,16 +7,21 @@
 
 					<div class="cont__ictxtfootr">
 						<div class="footer-icon">
-							<p class="_icrmrg"><i class="far fa-envelope"></i> Email: vvoutlet@gmail.com</p>
-							<p class="_icrmrg"><i class="fas fa-phone-alt"></i> Phone: +800 965 785</p>
-						</div>
-						<div class="footer-social">
-							<a href="#" class="link__icon-footer"><i class="fab fa-facebook-f"></i></a>
-							<a href="#" class="link__icon-footer"><i class="fab fa-instagram"></i></a>
-							<a href="#" class="link__icon-footer"><i class="fab fa-twitter"></i></a>
+							<div class="footer-links">
+								<ul>
+									<li><a href="mailto:vvoutlet@gmail.com" class="txtunder__hvr _txt-white16"><p class="_icrmrg"><i class="far fa-envelope"></i> Email: vvoutlet@gmail.com</p></a></li>
+									<li><a href="tel:+800965785" class="txtunder__hvr _txt-white16"><p class="_icrmrg"><i class="fas fa-phone-alt"></i> Phone: +800 965 785</p></a></li>
+								</ul>
+							</div>
 						</div>
 					</div>
+					<div class="footer-social">
+						<a href="#" class="link__icon-footer"><i class="fab fa-facebook-f"></i></a>
+						<a href="#" class="link__icon-footer"><i class="fab fa-instagram"></i></a>
+						<a href="#" class="link__icon-footer"><i class="fab fa-twitter"></i></a>
+					</div>
 				</div>
+
 
 				<div class="footer-links">
 					<strong>Support</strong>

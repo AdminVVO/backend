@@ -53,25 +53,18 @@ class Name extends Component
             if ($validation->fails())
                 $validation->validate();
 
-        try {
+        User::where([
+                'id_user' => Auth::id(),
+        ])->update([
+            'name'      => $this->name,
+            'last_name' => $this->last_name,
+        ]);
 
-            User::where([
-                    'id_user' => Auth::id(),
-            ])->update([
-                'name'      => $this->name,
-                'last_name' => $this->last_name,
-            ]);
-
-            $this->resetInput();
-            $this->alert('success', 'Update has been successful!');
-            
-        } catch (Exception $e) {
-
-            $this->resetInput();
-            $this->alert('error', 'Update has failed!');
-
-        }
+        $this->resetInput();
+        $this->emitTo('header.index', 'reloadHeader');
+        $this->alert('success', 'Update has been successful!');
     }
+
     private function resetInput()
     {
         $this->classActive = !$this->classActive; 

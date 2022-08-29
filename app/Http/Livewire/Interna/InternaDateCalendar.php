@@ -21,6 +21,6 @@ class InternaDateCalendar extends Component
     public function selectDate($payload)
     {
         $daysDiffs = Carbon::createFromDate( $payload[0] )->diff( $payload[1] );
-        $this->requestDays = $daysDiffs->days + 1;
+        $this->requestDays = $daysDiffs->days;
     }
 }

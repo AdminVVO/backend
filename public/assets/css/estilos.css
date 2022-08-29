@@ -2857,6 +2857,118 @@ body ._par0t0modls .close {
 }
 
 @media (max-width: 743px) {
+  .block-width-nav .btn-celest {
+    width: 100%;
+  }
+}
+
+.dwhtabc {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 270px;
+  text-align: center;
+  background-color: #00B5DD;
+}
+.dwhtabc i {
+  color: #FFFFFF;
+  font-size: 40px;
+}
+
+.section-webcam {
+  width: 100%;
+  max-width: 480px;
+}
+@media (max-width: 950px) {
+  .section-webcam {
+    max-width: 480px;
+    margin: 0 auto !important;
+  }
+}
+@media (max-width: 743px) {
+  .section-webcam {
+    max-width: 100%;
+  }
+  .section-webcam .webcam-img-save {
+    object-fit: cover;
+  }
+  .section-webcam .dwhtabc {
+    height: 408px;
+  }
+}
+
+.broh743 {
+  border-radius: 12px;
+  overflow: hidden;
+}
+@media (max-width: 743px) {
+  .broh743 {
+    border-radius: 0;
+  }
+}
+
+@media (max-width: 743px) {
+  .section_photo-id .broh743 {
+    width: auto;
+    margin: 0 -24px;
+  }
+  .section_photo-id .whproh {
+    width: 100%;
+    height: 418px;
+  }
+  .section_photo-id .whohprtsp3 {
+    width: 100%;
+    height: 100%;
+  }
+  .section_photo-id .whohprtsp3 video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.whproh {
+  width: 480px;
+  height: 360px;
+  position: relative;
+  overflow: hidden;
+}
+
+.whohprtsp3 {
+  width: 480px;
+  height: 360px;
+  overflow: hidden;
+  position: relative;
+  transform-style: preserve-3d;
+}
+
+.webcam-img-save {
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.whptlopemwmhtbsbr {
+  width: 447px;
+  height: 276px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  outline: rgb(255, 255, 255) solid 3px;
+  pointer-events: none;
+  max-width: 90%;
+  max-height: 90%;
+  transform: translate3d(-50%, -50%, 0px);
+  box-shadow: rgba(0, 0, 0, 0.5) 0px 0px 0px 2000px;
+  border-radius: 15px;
+}
+
+@media (max-width: 743px) {
   .navFixed_mobil_btn {
     position: fixed;
     right: 0;

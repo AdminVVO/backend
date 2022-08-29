@@ -55,9 +55,6 @@
                         {{ $message }}
                     </div>
                 @enderror   
-                {{-- <label class="_lbl-date">
-                    <i class="far fa-calendar"></i>
-                </label> --}}
                 <p>In order to register you must be at least 18 years old. We will not share your date of birth with other Vvoutlet users.</p>
 
                 @if ( $content['type'] != 'email' )

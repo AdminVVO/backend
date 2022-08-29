@@ -2,10 +2,12 @@
 
 namespace App\Http\Livewire\Interna;
 
-use Livewire\Component;
+use App\Models\Listing\Listings;
+use Carbon;
+use Auth;
 use Illuminate\Support\Facades\Validator;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
-use Carbon;
+use Livewire\Component;
 
 class InternaFormReserve extends Component
 {
@@ -31,6 +33,8 @@ class InternaFormReserve extends Component
         public $community_type;
     public $extra_guest_fee;
         public $extra_guest;
+    public $oneListing = false;
+        public $oneListinFee;
     
     public $requestDate;
     public $requestDays;
@@ -68,7 +72,13 @@ class InternaFormReserve extends Component
         if ( $this->first_guest ) {
             $this->base_descont = $this->base_price;
             $mult = $this->base_price * 0.20;
-            $this->inputBase = $this->base_price - $mult;
+                $this->inputBase = $this->base_price - $mult;
+        }
+        
+        if ( Listings::where([ 'user_id' => Auth::id() ])->exists() ) {
+            $this->oneListing = true;
+            $mult = $this->inputBase * 0.10;
+                $this->oneListinFee = $this->inputBase - $mult;
         }
 
         $this->weeklyTotal = round(( $this->inputBase * $this->requestDays ) * ( $this->weekly_discount /100 ) );
@@ -160,7 +170,11 @@ class InternaFormReserve extends Component
         if ( $this->maxGuest > 1 )
             $d = $this->extra_guest_fee * ( $this->maxGuest - 1 );
 
-        $this->totalPrice = $a + $b + $c + $d;
+        $e = 0;
+        if ( $this->oneListing )
+            $e = $this->oneListinFee;
+
+        $this->totalPrice = $a + $b + $c + $d + $e;
 
         return view('livewire.interna.interna-form-reserve');
     }

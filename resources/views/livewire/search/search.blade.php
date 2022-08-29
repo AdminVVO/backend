@@ -164,9 +164,10 @@
     <script type="text/javascript">
         var contentCoordinate = @json( $contentCoordinate );
         var preLoadCoordinate = @json( $preLoadCoordinate );
+        var fitBounds = @json( $fitBounds );
 
         window.addEventListener('loadDataMapBox', event => {
-            loadMapboxSearch( event.detail.preLoadCoordinate, event.detail.contentCoordinate );
+            loadMapboxSearch( event.detail.preLoadCoordinate, event.detail.contentCoordinate, event.detail.fitBounds );
         })
 
         mapboxgl.accessToken = 'pk.eyJ1IjoibGVuaWVycml2YXMiLCJhIjoiY2t6b3EzYXJtNjI2ODJvbXpuMHF2YTZjciJ9.5-kwcoo6NpNwEXSkeuhNtg';
@@ -174,7 +175,7 @@
             container: 'mapboxSearch',
             style: 'mapbox://styles/mapbox/light-v10',
             center: preLoadCoordinate,
-            zoom: 8.15,
+            zoom: 8,
             attributionControl: false
         });
 
@@ -210,10 +211,11 @@
                         'text-field': ['get', 'price'],
                         'icon-text-fit': 'both',
                         'icon-image': ['get', 'image-name'],
-                        'icon-allow-overlap': true,
-                        'text-allow-overlap': true
+                        'text-radial-offset': 0.5,
                     }
                 });
+
+                map.fitBounds( fitBounds, { padding: {top: 100, bottom:100, left: 100, right: 100}});
              
                 map.on('click', 'places', (e) => {
                     map.flyTo({
@@ -243,7 +245,7 @@
             });
         });
 
-        function loadMapboxSearch (preLoadCoordinate, contentCoordinate){
+        function loadMapboxSearch (preLoadCoordinate, contentCoordinate, fitBounds){
             map.removeLayer('places');
             map.removeSource('places');
 
@@ -266,10 +268,11 @@
                     'text-field': ['get', 'price'],
                     'icon-text-fit': 'both',
                     'icon-image': ['get', 'image-name'],
-                    'icon-allow-overlap': true,
-                    'text-allow-overlap': true
+                    'text-radial-offset': 0.5,
                 }
             });
+
+            map.fitBounds([ fitBounds ]);
         }
 
         function loadImages(urls, callback) {

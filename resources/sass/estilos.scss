@@ -1851,6 +1851,124 @@ body {
 // ------ end animate ------
 
 // otros
+.block-width-nav {
+  @include responsive(743px) {
+    .btn-celest {
+      width: 100%
+    }
+  }
+}
+
+// webcam govemment id
+.dwhtabc {
+  @include flex-centrado;
+  width: 100%;
+  height: 270px;
+  text-align: center;
+  background-color: #00B5DD;
+
+  i {
+    color: $color-white;
+    font-size: 40px;
+  }
+}
+
+.section-webcam {
+  width: 100%;
+  max-width: 480px;
+
+  @include responsive(950px) {
+    max-width: 480px;
+    margin: 0 auto !important;
+  }
+
+  @include responsive(743px) {
+    max-width: 100%;
+
+    .webcam-img-save {
+      object-fit: cover;
+    }
+
+    .dwhtabc {
+      height: 408px;
+    }
+  }
+}
+
+.broh743 {
+  border-radius: 12px;
+  overflow: hidden;
+
+  @include responsive(743px) {
+    border-radius: 0;
+  }
+}
+
+.section_photo-id {
+  @include responsive(743px) {
+    .broh743 {
+      width: auto;
+      margin: 0 -24px;
+    }
+
+    .whproh {
+      width: 100%;
+      height: 418px;
+    }
+
+    .whohprtsp3 {
+      width: 100%;
+      height: 100%;
+
+      video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+}
+
+.whproh {
+  width: 480px;
+  height: 360px;
+  position: relative;
+  overflow: hidden;
+}
+
+.whohprtsp3 {
+  width: 480px;
+  height: 360px;
+  overflow: hidden;
+  position: relative;
+  transform-style: preserve-3d;
+}
+
+.webcam-img-save {
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.whptlopemwmhtbsbr {
+  width: 447px;
+  height: 276px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  outline: rgb(255, 255, 255) solid 3px;
+  pointer-events: none;
+  max-width: 90%;
+  max-height: 90%;
+  transform: translate3d(-50%, -50%, 0px);
+  box-shadow: rgb(0 0 0 / 50%) 0px 0px 0px 2000px;
+  border-radius: 15px;
+}
+
 // nav fixed mobil 743 nav
 .navFixed_mobil_btn {
   @include responsive(743px) {
