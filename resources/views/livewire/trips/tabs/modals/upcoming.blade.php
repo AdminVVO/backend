@@ -84,7 +84,7 @@
                                 <div class="trips_upcoming_inf">
                                     <div class="bk-icon-des">
                                         <div class="bk-icon-des_fbas fx-ai-b gp10 mnw-p47">
-                                            <a href="" class="btn-bd-white wh-p100">
+                                            <a href='https://google.cl/maps/place/{{$reservation['maps']}}' class="btn-bd-white wh-p100">
                                                 <div class="fx fx-ai-c fx-jc-sb">
                                                     <div class="flex gp12">
                                                         <svg class="icon" xmlns="http://www.w3.org/2000/svg"
@@ -141,7 +141,7 @@
                                         </div>
 
                                         <div class="bk-icon-des_fbas fx-ai-b gp10 mnw-p47">
-                                            <a href="messages-user.php" class="btn-bd-white wh-p100">
+                                            <a href="{{ route('messageUserIndex', ['interna' => $reservation['listing_id']]) }}" class="btn-bd-white wh-p100">
                                                 <div class="fx fx-ai-c fx-jc-sb">
                                                     <div class="flex gp12">
                                                         <svg class="icon" xmlns="http://www.w3.org/2000/svg"
@@ -168,7 +168,7 @@
                                         </div>
 
                                         <div class="bk-icon-des_fbas fx-ai-b gp10 mnw-p47">
-                                            <a href="interna.php" class="btn-bd-white wh-p100">
+                                            <a href="{{route('interna', $reservation['listing_id'])}}" class="btn-bd-white wh-p100">
                                                 <div class="fx fx-ai-c fx-jc-sb">
                                                     <div class="flex gp12">
                                                         <svg class="icon" xmlns="http://www.w3.org/2000/svg"
@@ -250,7 +250,7 @@
                                         <div>
                                             <div class="bk-icon-des">
                                                 <div class="bk-icon-des_fbas fx-ai-b gp10 mnw-p47">
-                                                    <a href="" class="btn-bd-white wh-p100">
+                                                    <button wire:click="sharePDF" class="btn-bd-white wh-p100">
                                                         <div class="fx fx-ai-c fx-jc-sb">
                                                             <div class="flex gp12">
                                                                 <i class="far fa-file-pdf _i-red20"></i>
@@ -267,7 +267,7 @@
                                                             </svg>
 
                                                         </div>
-                                                    </a>
+                                                    </button>
                                                 </div>
 
                                                 <div class="bk-icon-des_fbas fx-ai-b gp10 mnw-p47">
@@ -321,13 +321,13 @@
                                         <h3 class="_txteh mr0">Address</h3>
 
                                         <div>
-                                            <p class="_txtec16 _txtcapit">11028 corrigan avenue</p>
-                                            <p class="_txtec16 _txtcapit">englewood, fl 34224</p>
+                                            <p class="_txtec16 _txtcapit" id="address_one">{{$reservation['street'] ?? ''}} {{$reservation['city'] ?? ''}}</p>
+                                            <p class="_txtec16 _txtcapit" id="address_two">{{$reservation['state'] ?? ''}}, {{$reservation['zip_code'] ?? ''}}</p>
                                         </div>
                                     </div>
 
                                     <div class="bk-icon-des">
-                                        <div class="bk-icon-des_fbas fx-ai-b gp10 mnw-p47">
+                                        <div class="bk-icon-des_fbas fx-ai-b gp10 mnw-p47" onclick="copyAddress()">
                                             <a href="" class="btn-bd-white wh-p100">
                                                 <div class="fx fx-ai-c fx-jc-sb">
                                                     <div class="fx fx-ai-c gp7">
@@ -348,7 +348,7 @@
                                         </div>
 
                                         <div class="bk-icon-des_fbas fx-ai-b gp10 mnw-p47">
-                                            <a href="" class="btn-bd-white wh-p100">
+                                            <a href='https://google.cl/maps/place/{{$reservation['maps']}}' class="btn-bd-white wh-p100">
                                                 <div class="fx fx-ai-c fx-jc-sb">
                                                     <div class="flex gp12">
                                                         <svg class="icon" xmlns="http://www.w3.org/2000/svg"
@@ -391,7 +391,7 @@
 
                                     <div class="bk-icon-des">
                                         <div class="bk-icon-des_fbas fx-ai-b gp10 mnw-p47">
-                                            <a href="" class="btn-bd-white wh-p100">
+                                            <a href="{{route('interna', $reservation['listing_id'])}}" class="btn-bd-white wh-p100">
                                                 <div class="fx fx-ai-c fx-jc-sb">
                                                     <div class="fx fx-ai-c gp9">
                                                         <i class="far fa-clipboard _i-red20"></i>
@@ -425,7 +425,7 @@
 
                                         <div>
 
-                                            <a href="perfil-interno.php" class="txtunder__ics">Show profile</a>
+                                            <a href="{{ route('profile', $reservation['user_id']) }}" class="txtunder__ics">Show profile</a>
                                         </div>
                                     </div>
                                 </div>
@@ -551,10 +551,12 @@
 <script>
     function copyAddress() {
         var aux = document.createElement("input");
-        aux.setAttribute("value", document.getElementById(id_elemento).innerHTML);
+        aux.setAttribute("value", document.getElementById("address_one").innerHTML);
         document.body.appendChild(aux);
         aux.select();
         document.execCommand("copy");
         document.body.removeChild(aux);
+        this.preventDefault();
+        
     }
 </script>

@@ -16,8 +16,9 @@ class Upcoming extends Component
         $this->reservation = Reservation::join('listings', 'reservations.listing_id', 'listings.id_listings')
                                         ->where('reservations.user_id', auth()->user()->id_user)
                                         ->whereIn('reservations.status', [0, 1, 2, 3])
-                                        ->get(['photos', 'checkin', 'checkout', 'title', 'descriptions', 'id_reservation', 'id_listings'])
+                                        ->get(['photos', 'checkin', 'checkout', 'title', 'descriptions', 'id_reservation', 'id_listings', 'street', 'city', 'state', 'zip_code'])
                                         ->toArray();
+
         if (!$this->reservation)
             return $this->bool = false;
 
