@@ -248,81 +248,6 @@
 
     <!-- Include the PayPal JavaScript SDK -->
     <script src="https://www.paypal.com/sdk/js?client-id=AUH2aEPl9mINPBulpSlMN0lU44AqfR7KR5SeBB77tLBsN42tOrWc_vld7q9zH3Ud3KYdkucfd7MJIfnv&currency=USD"></script>
-{{--     <script>
-        paypal.Buttons({
-            style: {
-                color:  'blue',
-                shape:  'pill',
-                label:  'pay',
-                height: 40
-            },
-
-
-            createOrder: function(data, actions) {
-            window.addEventListener('createOrder', event => {
-                console.log("event");
-                return actions.order.create({
-                    application_context: {
-                        brand_name : 'Laravel Book Store Demo Paypal App',
-                        user_action : 'PAY_NOW',
-                    },
-                    purchase_units: [{
-                        amount: {
-                            value: '50'
-                        }
-                    }],
-                });
-            })
-            },
-
-            onApprove: function(data, actions) {
-                console.log("onApprove-data", data);
-                console.log("onApprove-actions", actions);
-                // return actions.order.capture().then(function(details) {
-                //     if(details.status == 'COMPLETED'){
-                //         return fetch('/api/paypal-capture-payment', {
-                //             method: 'post',
-                //             headers: {
-                //                 'content-type': 'application/json',
-                //                 "Accept": "application/json, text-plain, */*",
-                //                 "X-Requested-With": "XMLHttpRequest",
-                //                 "X-CSRF-TOKEN": token
-                //             },
-                //             body: JSON.stringify({
-                //                 orderId     : data.orderID,
-                //                 id : details.id,
-                //                 status: details.status,
-                //                 payerEmail: details.payer.email_address,
-                //             })
-                //         })
-                //         .then(status)
-                //         .then(function(response){
-                //             window.location.href = '/pay-success';
-                //         })
-                //         .catch(function(error) {
-                //             window.location.href = '/pay-failed?reason=internalFailure';
-                //         });
-                //     }else{
-                //         window.location.href = '/pay-failed?reason=failedToCapture';
-                //     }
-                // });
-            },
-
-            onCancel: function (data) {
-                Livewire.emitTo('interna.interna-confirm-pay', 'cancelPaypaEvent')
-                console.log("onCancel", data);
-            }
-
-        }).render('#paypal-button-container');
-
-         function status(res) {
-            if (!res.ok) {
-                throw new Error(res.statusText);
-            }
-            return res;
-        } 
-    </script> --}}
-
     <script>
         paypal.Buttons({
             style: {
@@ -334,7 +259,7 @@
             createOrder: function(data, actions) {
                 return actions.order.create({
                     application_context: {
-                        brand_name : 'Laravel Book Store Demo Paypal App',
+                        brand_name : 'Vvoutlet Paypal App',
                         user_action : 'PAY_NOW',
                     },
                     purchase_units: [{
@@ -347,8 +272,9 @@
 
             onApprove: function(data, actions) {
                 return actions.order.capture().then(function(details) {
-                    console.log("details", details);
-
+                    if( details.status == 'COMPLETED'){
+                        Livewire.emitTo('interna.interna-confirm-pay', 'successPaypaEvent', details)
+                    }
                 });
             },
 
@@ -356,13 +282,6 @@
                 Livewire.emitTo('interna.interna-confirm-pay', 'cancelPaypaEvent')
             }
         }).render('#paypal-button-container');
-
-    function status(res) {
-      if (!res.ok) {
-          throw new Error(res.statusText);
-      }
-      return res;
-    } 
     </script>
 
     <script>

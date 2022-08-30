@@ -42,6 +42,10 @@
     <body class="page__host vvo_ui">
 @endif
 
+@if ( in_array( Route::currentRouteName(),['pending-reservation']) )
+    <body class="page-category page_interna_edit vvo_ui">
+@endif
+
 @if ( in_array( Route::currentRouteName(),['details-listing', 'host-listing', 'become-host','category','dashboard']) )
     <body class="page-category">
 @endif

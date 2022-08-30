@@ -65,7 +65,7 @@
 
                     <div class="_cpyf _gap">
                         <div class="radio-item_rscrm">
-                            <input type="radio" id="pay1" name="pay" checked wire:model.lazy="inputPay" value="all">
+                            <input type="radio" id="pay1" name="pay" checked wire:model.lazy="inputPay" value="{{ $totalPrice }}" actived>
                             <label for="pay1">
                                 <div class="content_flex-actv">
                                     <div class="flex-msg">
@@ -88,7 +88,7 @@
                         </div>
 
                         <div class="radio-item_rscrm">
-                            <input type="radio" id="pay2" name="pay" wire:model.lazy="inputPay" value="part">
+                            <input type="radio" id="pay2" name="pay" wire:model.lazy="inputPay" value="{{ $totalPrice / 2 }}">
                             <label for="pay2">
                                 <div class="content_flex-actv">
                                     <div class="flex-msg">

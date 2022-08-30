@@ -38,7 +38,6 @@ class InternaFormContact extends Component
 
         if ( Chats::where([
                 'transmitter_id' => Auth::id(),
-                'listing_id' => $this->listingId,
             ])->orWhere([
                 'receiver_id' => Auth::id(),
             ])->doesntExist() ) {
@@ -58,7 +57,6 @@ class InternaFormContact extends Component
         }else{
                 $chatMessage = Chats::where([
                     'transmitter_id' => Auth::id(),
-                    'listing_id' => $this->listingId,
                 ])->orWhere([
                     'receiver_id' => Auth::id(),
                 ])->select('id_chats')->first();
@@ -68,7 +66,6 @@ class InternaFormContact extends Component
 
             Chats::where([
                 'transmitter_id' => Auth::id(),
-                'listing_id' => $this->listingId,
             ])->orWhere([
                 'receiver_id' => Auth::id(),
             ])->update([

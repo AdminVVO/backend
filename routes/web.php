@@ -12,6 +12,7 @@ use App\Http\Controllers\MessageChats;
 use App\Http\Controllers\Personal;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ReservationController;
+use App\Http\Controllers\ReservationUserController;
 use App\Http\Controllers\ReviewsController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\TripsController;
@@ -141,6 +142,11 @@ Route::middleware(['AccountDisable', 'auth'])->group( function(){
 
     ## Routes Reservations Sections
     Route::prefix('reservations')->group( function(){
+
+        ## Pending Reservations User
+            Route::get('pending', [ReservationUserController::class, 'viewPendingReservation'])->name('pending-reservation');
+
+
         ## Reservations Index
             Route::get('', [ReservationController::class, 'viewReservation'])->name('reservations');
             Route::get('ResortAll', [ReservationController::class, 'viewReservationForm'])->name('reservationsResort');

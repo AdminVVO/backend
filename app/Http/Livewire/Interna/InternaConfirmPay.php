@@ -2,11 +2,14 @@
 
 namespace App\Http\Livewire\Interna;
 
-use Livewire\Component;
 use App\Models\Listing\Listings;
-use Carbon;
+use App\Models\PaymentPay;
+use App\Models\ReservationUser;
 use Auth;
+use Str;
+use Carbon;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
+use Livewire\Component;
 
 class InternaConfirmPay extends Component
 {
@@ -48,6 +51,7 @@ class InternaConfirmPay extends Component
     public $oneListing = false;
         public $oneListinFee;
 
+    public $inputPay;
     public $inputBase;
     public $inputGuest;
     public $inputAdult = 1;
@@ -65,7 +69,41 @@ class InternaConfirmPay extends Component
         'ExtraShow' => 'ExtraShow',
         'editGuestSubmit' => 'editGuestSubmit',
         'cancelPaypaEvent' => 'cancelPaypaEvent',
+        'successPaypaEvent' => 'successPaypaEvent',
     ];
+
+    public function successPaypaEvent($payload)
+    {
+        $PaymentPay = PaymentPay::create([
+            'status' => $payload['status'],
+            'order' => $payload['purchase_units'][0]['payments']['captures'][0]['id'],
+            'payer_id' => $payload['payer']['payer_id'],
+            'name' => $payload['purchase_units'][0]['shipping']['name']['full_name'],
+            'email' => $payload['purchase_units'][0]['payee']['email_address'],
+            'address' => $payload['payer']['address']['country_code'],
+            'currency' => $payload['purchase_units'][0]['amount']['currency_code'],
+            'amount' => $payload['purchase_units'][0]['amount']['value'],
+            'user_id'  => Auth::id(),
+        ]);
+
+        $code_exist = true;
+        while ($code_exist) {
+            $random_code = strtoupper(Str::random(10));
+            $query_if_exist = ReservationUser::where(['code_reservation' => $random_code])->get();
+            ($query_if_exist && count($query_if_exist) > 0) ? $code_exist = true : $code_exist = false;
+        }
+
+            $reservation = ReservationUser::create([
+                'code_reservation' => $random_code,
+                'date_in' => $this->inputDateIn,
+                'date_out' => $this->inputDateOut,
+                'payment_pay_id' => $PaymentPay->id_payment_pays,
+                'listing_id' => $this->listingId,
+                'user_id'  => Auth::id()
+            ]);
+
+        return redirect()->route('pending-reservation');
+    }
 
     public function cancelPaypaEvent()
     {
@@ -80,9 +118,9 @@ class InternaConfirmPay extends Component
         }
 
         $fechaEmision = Carbon::parse( $this->inputDateIn );
-$fechaExpiracion = Carbon::parse( $this->inputDateOut );
+        $fechaExpiracion = Carbon::parse( $this->inputDateOut );
 
-$diasDiferencia = $fechaExpiracion->diffInDays($fechaEmision);
+        $diasDiferencia = $fechaExpiracion->diffInDays($fechaEmision);
 
 
 // dd(  intval( round( $diasDiferencia / 2, 0, PHP_ROUND_HALF_DOWN ) ) );
@@ -137,6 +175,7 @@ $diasDiferencia = $fechaExpiracion->diffInDays($fechaEmision);
             $e = $this->oneListinFee;
 
         $this->totalPrice = $a + $b + $c + $d + $e;
+        $this->inputPay = $this->totalPrice;
 
         return view('livewire.interna.interna-confirm-pay');
     }
