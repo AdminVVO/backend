@@ -51,7 +51,7 @@ class InternaConfirmPay extends Component
     public $oneListing = false;
         public $oneListinFee;
 
-    public $inputPay;
+    public $inputPay = 0;
     public $inputBase;
     public $inputGuest;
     public $inputAdult = 1;
@@ -123,7 +123,7 @@ class InternaConfirmPay extends Component
         $diasDiferencia = $fechaExpiracion->diffInDays($fechaEmision);
 
 
-// dd(  intval( round( $diasDiferencia / 2, 0, PHP_ROUND_HALF_DOWN ) ) );
+        // dd(  intval( round( $diasDiferencia / 2, 0, PHP_ROUND_HALF_DOWN ) ) );
 
 
 
@@ -175,7 +175,10 @@ class InternaConfirmPay extends Component
             $e = $this->oneListinFee;
 
         $this->totalPrice = $a + $b + $c + $d + $e;
-        $this->inputPay = $this->totalPrice;
+
+        $this->dispatchBrowserEvent('changeAmount', [
+            'amount' => $this->inputPay,
+        ]);
 
         return view('livewire.interna.interna-confirm-pay');
     }

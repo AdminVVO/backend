@@ -65,7 +65,7 @@
 
                     <div class="_cpyf _gap">
                         <div class="radio-item_rscrm">
-                            <input type="radio" id="pay1" name="pay" checked wire:model.lazy="inputPay" value="{{ $totalPrice }}" actived>
+                            <input type="radio" id="pay1" name="pay" checked wire:model.lazy="inputPay" value="{{ $totalPrice }}">
                             <label for="pay1">
                                 <div class="content_flex-actv">
                                     <div class="flex-msg">
@@ -142,10 +142,15 @@
                     </div>
 
                     <div class="_showpaypal">
-                        <div class="mr-b32" wire:ignore>
+                        <x-paypal-payment-interna
+                            amount="{{ $inputPay }}"
+                        />
+
+
+                      {{--   <div class="mr-b32" wire:ignore>
                             <div id="paypal-button-container" wire:ignore></div>
                         </div>
-
+ --}}
                         <div class="_line-hr mr-t32 mr-b32"></div>
 
                         <div class="_cp">

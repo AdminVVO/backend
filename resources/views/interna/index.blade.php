@@ -246,44 +246,6 @@
     <script src="{{ URL::asset('assets/js/modals-min.js') }}"></script>
     <script src="{{ URL::asset('assets/js/modals-gallerys.js') }}"></script>
 
-    <!-- Include the PayPal JavaScript SDK -->
-    <script src="https://www.paypal.com/sdk/js?client-id=AUH2aEPl9mINPBulpSlMN0lU44AqfR7KR5SeBB77tLBsN42tOrWc_vld7q9zH3Ud3KYdkucfd7MJIfnv&currency=USD"></script>
-    <script>
-        paypal.Buttons({
-            style: {
-                color:  'blue',
-                shape:  'pill',
-                label:  'pay',
-                height: 40
-            },
-            createOrder: function(data, actions) {
-                return actions.order.create({
-                    application_context: {
-                        brand_name : 'Vvoutlet Paypal App',
-                        user_action : 'PAY_NOW',
-                    },
-                    purchase_units: [{
-                        amount: {
-                            value: '0.50'
-                        }
-                    }],
-                });
-            },
-
-            onApprove: function(data, actions) {
-                return actions.order.capture().then(function(details) {
-                    if( details.status == 'COMPLETED'){
-                        Livewire.emitTo('interna.interna-confirm-pay', 'successPaypaEvent', details)
-                    }
-                });
-            },
-
-            onCancel: function (data) {
-                Livewire.emitTo('interna.interna-confirm-pay', 'cancelPaypaEvent')
-            }
-        }).render('#paypal-button-container');
-    </script>
-
     <script>
         lightbox(document.getElementById('gallery-container'));
 
