@@ -69,12 +69,12 @@
                 @else
                 <div wire:ignore>
                     <h4 style="margin-top: 23px;">Phone Number</h4>
-                    <input
-                        type="tel"
-                        wire:model.defer="input.phone"
-                        id="phoneLogin"
-                        name="phoneLogin"
-                        class="form-input _input-mod"
+                    <x-tel-input
+                    type="tel"
+                    wire:model.lazy="input.phone"
+                    id="phoneLogin"
+                    name="phoneLogin"
+                    class="form-input _input-mod"
                     /> 
                     <input wire:model="phone_country" type="hidden" id="phone_country" name="phone_country">
                     @error('phone')
