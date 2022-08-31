@@ -26,4 +26,30 @@ class ReservationUser extends Model
     protected $dates = [
         'deleted_at'
     ];
+
+    protected $casts = [
+        'checkin_window_start' => 'array',
+        'checkin_window_end' => 'array',
+        'checkout_time' => 'array',
+        'legal' => 'array',
+        'pets_allowed' => 'boolean',
+        'smoking_allowed' => 'boolean',
+        'events_allowed' => 'boolean',
+    ];
+    
+    ## Relaciones 
+    public function Listings()
+    {
+        return $this->hasOne('App\Models\Listing\Listings', 'id_listings', 'listing_id');
+    }
+
+    public function ListingsRulers()
+    {
+        return $this->hasOne('App\Models\Listing\ListingHouseRulers', 'listing_id', 'listing_id');
+    }
+
+    public function ListingPolicies()
+    {
+        return $this->hasOne('App\Models\Listing\ListingPolicies', 'listing_id', 'listing_id');
+    }
 }

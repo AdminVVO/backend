@@ -22,7 +22,6 @@ class ListingHouseRulers extends Model
         'profile_photo_required',
         'local_laws',
         'primary_listing',
-
         'listing_id',
         'user_id',
     ];
@@ -39,4 +38,9 @@ class ListingHouseRulers extends Model
         'events_allowed' => 'boolean',
         'profile_photo_required' => 'boolean',
     ];
+
+    public function ListingReservationUser()
+    {
+        return $this->belongsTo(ReservationUser::class, 'listing_id');
+    }
 }

@@ -102,7 +102,9 @@ class InternaConfirmPay extends Component
                 'user_id'  => Auth::id()
             ]);
 
-        return redirect()->route('pending-reservation');
+        return redirect()->route('pending-reservation')->with([
+            'reservation' => $reservation->id_reservation_users
+        ]);
     }
 
     public function cancelPaypaEvent()
@@ -153,9 +155,15 @@ class InternaConfirmPay extends Component
         if ( $this->community_type == 'porcent' )
             $this->community_fee = $this->community_fee != null ? number_format( $this->inputBase *  $this->community_fee/100) : 0;
 
+        $this->loadContentValues();
     }
 
     public function render()
+    {
+        return view('livewire.interna.interna-confirm-pay');
+    }
+
+    public function loadContentValues()
     {
         $this->changeGuestInput();
 
@@ -175,12 +183,11 @@ class InternaConfirmPay extends Component
             $e = $this->oneListinFee;
 
         $this->totalPrice = $a + $b + $c + $d + $e;
+        $this->inputPay = $this->totalPrice;
 
         $this->dispatchBrowserEvent('changeAmount', [
             'amount' => $this->inputPay,
         ]);
-
-        return view('livewire.interna.interna-confirm-pay');
     }
 
     public function ExtraShow($payload)
@@ -190,6 +197,8 @@ class InternaConfirmPay extends Component
         $this->inputKids = $payload['inputKids'];
         $this->inputInfant = $payload['inputInfant'];
         $this->inputPets = $payload['inputPets'];
+
+        $this->loadContentValues();
     }
 
     public function editGuestSubmit($payload)
@@ -198,6 +207,8 @@ class InternaConfirmPay extends Component
         $this->inputKids = $payload['inputKids'];
         $this->inputInfant = $payload['inputInfant'];
         $this->inputPets = $payload['inputPets'];
+
+        $this->loadContentValues();
     }
 
     public function changeGuestInput()
@@ -224,9 +235,20 @@ class InternaConfirmPay extends Component
         $this->inputDateOut = Carbon::createFromDate( $payload[1] )->format('d M Y');
         $daysDiffs = Carbon::createFromDate( $payload[0] )->diff( $payload[1] );
         $this->requestDays = $daysDiffs->days;
+        
         $this->dispatchBrowserEvent('reloadDateInputs', [
             'inputDateIn' => $payload[0],
             'inputDateOut' => $payload[1],
+        ]);
+
+        $this->loadContentValues();
+    }
+ 
+    public function updatedinputPay($value)
+    {
+        $this->inputPay = $value;
+        $this->dispatchBrowserEvent('changeAmount', [
+            'amount' => $this->inputPay,
         ]);
     }
 }

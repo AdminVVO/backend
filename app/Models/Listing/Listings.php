@@ -96,4 +96,9 @@ class Listings extends Model
     {
         return $this->hasOne(ListingPolicies::class, 'listing_id');
     }
+
+    public function ListingReservationUser()
+    {
+        return $this->belongsTo(ReservationUser::class, 'listing_id');
+    }
 }

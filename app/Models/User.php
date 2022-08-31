@@ -79,8 +79,9 @@ class User extends Authenticatable
 
     public function scopeName($query, $code)
     {
-        $xplodeName = explode(' ', $this->where('id_user', $code )->pluck('name')->first());
-        $xplodeLastName = explode(' ', $this->where('id_user', $code )->pluck('last_name')->first());
+        $data = $this->where('id_user', $code )->select('name','last_name')->first();
+        $xplodeName = explode(' ', $data->name );
+        $xplodeLastName = explode(' ', $data->last_name );
 
         return $xplodeName[0] .' '. $xplodeLastName[0];
     }
@@ -98,5 +99,18 @@ class User extends Authenticatable
     public function scopeCreatedAt($query, $code)
     {
         return $this->where('id_user', $code)->pluck('created_at')->first();
+    }
+
+    public function scopePendingReservationUser($query, $code)
+    {
+        $data = $this->where('id_user', $code )->select('name','last_name','avatar')->first();
+        $xplodeName = explode(' ', $data->name );
+        $xplodeLastName = explode(' ', $data->last_name );
+
+        return [
+            'name' => $xplodeName[0] .' '. $xplodeLastName[0],
+            'email' => $data->email,
+            'avatar' => $data->avatar,
+        ];
     }
 }

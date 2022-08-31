@@ -65,7 +65,7 @@
 
                     <div class="_cpyf _gap">
                         <div class="radio-item_rscrm">
-                            <input type="radio" id="pay1" name="pay" checked wire:model.lazy="inputPay" value="{{ $totalPrice }}">
+                            <input type="radio" id="pay1" name="pay" checked wire:model.lazy="inputPay" value="{{ $totalPrice }}" checked>
                             <label for="pay1">
                                 <div class="content_flex-actv">
                                     <div class="flex-msg">
