@@ -15,7 +15,7 @@ class Past extends Component
     {
         $this->reservation = Reservation::join('listings', 'reservations.listing_id', 'listings.id_listings')
                                         ->where('reservations.user_id', auth()->user()->id_user)
-                                        ->whereIn('reservations.status', [5])
+                                        ->whereIn('reservations.status', [5,1,2,3,4,5])
                                         ->get(['photos', 'checkin', 'checkout', 'title', 'descriptions', 'id_reservation', 'id_listings'])
                                         ->toArray();
 

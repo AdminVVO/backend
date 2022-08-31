@@ -20,11 +20,11 @@ class Upcoming extends Component
 
     public function preLoad()
     {
-        $this->reservation = Reservation::where(function ($query) {
+        $this->reservation = Reservation::join('users', 'users.id_user', 'reservations.user_id')->where(function ($query) {
             if ($this->id_reservation != '')
                 return $query->where('id_reservation', $this->id_reservation);
         })
-            ->first(['listing_id', 'checkin', 'checkout', 'total_payout'])
+            ->first(['listing_id', 'checkin', 'checkout', 'total_payout', 'name as client_name'])
             ->toArray();
 
         $listing = Listings::join('users', 'listings.user_id', 'users.id_user')
@@ -82,7 +82,16 @@ class Upcoming extends Component
 
     public function sharePDF()
     {
-        $pdfContent = PDF::loadView('index',['data' => 'ahahaha'])->output();
+        $pdfContent = PDF::loadView('pdf.index',['reservation' => $this->reservation])->output();
+        return response()->streamDownload(
+            fn () => print($pdfContent),
+            "filename.pdf"
+        );
+    }
+
+    public function sharePDFDetail()
+    {
+        $pdfContent = PDF::loadView('pdf.detail',['reservation' => $this->reservation])->output();
         return response()->streamDownload(
             fn () => print($pdfContent),
             "filename.pdf"

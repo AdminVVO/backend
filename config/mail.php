@@ -107,12 +107,11 @@ return [
     |
     */
 
-
     'markdown' => [
-        'theme' => 'https://platform.vivevacationsoutlet.com/assets/css/vvo.css',
+        'theme' => 'default',
 
         'paths' => [
-            resource_path('views/vendor/mail'),
+            resource_path('views/emails/sendWriteReview'),
         ],
     ],
 

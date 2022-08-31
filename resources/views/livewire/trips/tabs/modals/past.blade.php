@@ -289,38 +289,6 @@
                         </div>
 
                         <div class="trips_upcoming_inf">
-                            <h2 class="h2-guests title">Where you're staying</h2>
-
-                            <div class="fx fx-fd-c mr-t21 mr-b17 gp8">
-                                <h3 class="_txteh mr0">House Rules</h3>
-
-                                <div>
-                                    <p class="_txtec16">Wifi log in (case sensitive)</p>
-                                    <p class="_txtec16">username: XXX-XX45</p>
-                                    <p class="_txtec16">password: (Phone number hidden by vvoutlet)</p>
-                                </div>
-                            </div>
-
-                            <div class="bk-icon-des">
-                                <div class="bk-icon-des_fbas fx-ai-b gp10 mnw-p47">
-                                    <a href="" class="btn-bd-white wh-p100">
-                                        <div class="fx fx-ai-c fx-jc-sb">
-                                            <div class="fx fx-ai-c gp9">
-                                                <i class="far fa-clipboard _i-red20"></i>
-
-                                                <span class="_txteh mr0">Show listing</span>
-                                            </div>
-
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="5.298" height="9.266" viewBox="0 0 5.298 9.266">
-                                                <path d="M4.635,3.7,8.138.194a.659.659,0,0,1,.935,0,.668.668,0,0,1,0,.938L5.1,5.105a.661.661,0,0,1-.913.019l-4-3.989A.662.662,0,0,1,1.128.2Z" transform="translate(0 9.266) rotate(-90)" fill="#283646"></path>
-                                            </svg>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="trips_upcoming_inf">
                             <h2 class="h2-guests title mr-b4">Your Host, <span class="_txtcapit">{{$reservation['host_name']}}</span></h2>
 
                             <div class="fx fx-ai-c show_profile">

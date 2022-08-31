@@ -120,6 +120,7 @@ class Calendar extends Component
         $day_dif = $day > 0 ? 'Arriving in ' . $day . ' days -' : '';
         $this->findReservation = [
             'id_reservation' => $reservation['id_reservation'],
+            'listing_id' => $reservation['listing_id'],
             'arriving' => $day_dif,
             'checkin' => Carbon::parse($reservation['checkin'])->isoFormat('ddd, MMM D'),
             'checkout' => Carbon::parse($reservation['checkout'])->isoFormat('ddd, MMM D'),

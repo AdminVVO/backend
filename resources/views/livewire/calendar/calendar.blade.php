@@ -54,7 +54,7 @@
                                                 <p><a href="{{ route('profile', ['id' => $findReservation['user_id']]) }}"
                                                         class="_txtblu16">Show profile</a>
                                                     <i class="_txtblu16">-</i>
-                                                    <a href="{{ route('messageUserIndex') }}"
+                                                    <a href="{{ route('messageUserIndex', ['interna' => $findReservation['listing_id']]) }}"
                                                         class="_txtblu16">Message</a>
                                                 </p>
                                             @else

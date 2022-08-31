@@ -164,6 +164,7 @@ return [
         Laravel\Socialite\SocialiteServiceProvider::class,
         Jenssegers\Agent\AgentServiceProvider::class,
         Barryvdh\Debugbar\ServiceProvider::class,
+        Barryvdh\DomPDF\ServiceProvider::class,
 
 
 
@@ -238,7 +239,7 @@ return [
         'Agent' => Jenssegers\Agent\Facades\Agent::class,
         'Carbon' => Illuminate\Support\Carbon::class,
         'Debugbar' => Barryvdh\Debugbar\Facades\Debugbar::class,
-
+        'PDF' => Barryvdh\DomPDF\Facade::class,
 
     ],
 
