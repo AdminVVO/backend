@@ -14,6 +14,7 @@ class Past extends Component
     public function preLoad()
     {
         $this->reservation = Reservation::join('listings', 'reservations.listing_id', 'listings.id_listings')
+        ->join('listing_locations', 'reservations.listing_id', 'listing_locations.listing_id')
                                         ->where('reservations.user_id', auth()->user()->id_user)
                                         ->whereIn('reservations.status', [0, 1, 2, 3, 5])
                                         ->get(['photos', 'checkin', 'checkout', 'title', 'descriptions', 'id_reservation', 'id_listings'])
