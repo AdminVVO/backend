@@ -11,10 +11,10 @@ use Session;
 class ReservationUserController extends Controller
 {
    /* Pending Reservation */ 
-    public function viewPendingReservation($id)
+    public function viewPendingReservation()
     {
-      // if ( !Session::get('reservation') )
-         // abort(404);
+      if ( !Session::get('reservation') )
+         abort(404);
 
 
 
@@ -24,8 +24,8 @@ class ReservationUserController extends Controller
                      'date_out',
                      'listing_id',
                   )->where([ 
-                     // 'id_reservation_users' => Session::get('reservation') 
-                     'id_reservation_users' => $id 
+                     'id_reservation_users' => Session::get('reservation') 
+                     // 'id_reservation_users' => $id 
                   ])->with([
                      'Listings:id_listings,title,legal,user_id,photos',
                      'ListingsRulers:listing_id,additional_rules,events_allowed,smoking_allowed,pets_allowed',

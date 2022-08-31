@@ -144,7 +144,7 @@ Route::middleware(['AccountDisable', 'auth'])->group( function(){
     Route::prefix('reservations')->group( function(){
 
         ## Pending Reservations User
-            Route::get('pending/{id}', [ReservationUserController::class, 'viewPendingReservation'])->name('pending-reservation');
+            Route::get('pending', [ReservationUserController::class, 'viewPendingReservation'])->name('pending-reservation');
 
 
         ## Reservations Index
