@@ -6,6 +6,7 @@ use App\Models\Listing\Listings;
 use App\Models\Reservation;
 use Carbon\Carbon;
 use Livewire\Component;
+use PDF;
 
 class Past extends Component
 {
@@ -27,6 +28,7 @@ class Past extends Component
 
         $listing = Listings::join('users', 'listings.user_id', 'users.id_user')
             ->where('id_listings', $this->reservation['listing_id'])
+            ->join('listing_locations', 'listings.id_listings', 'listing_locations.listing_id')
             ->first()
             ->toArray();
 
@@ -57,8 +59,13 @@ class Past extends Component
         $this->reservation['photo3'] = $listing['photos'][2]['name'];
         $this->reservation['user_id'] = $listing['id_user'];
         $this->reservation['host_name'] = $listing['name'];
+        $this->reservation['street'] = $listing['street'];
+        $this->reservation['city'] = $listing['city'];
+        $this->reservation['zip_code'] = $listing['zip_code'];
+        $this->reservation['state'] = $listing['state'];
         $this->reservation['checkout'] = Carbon::parse($this->reservation['checkout'])->format('M, d, Y');
         $this->reservation['checkin'] = Carbon::parse($this->reservation['checkin'])->format('M, d, Y');
+        $this->reservation['maps'] = ($listing['street'] ?? '') . ' ' . ($listing['city'] ?? '') . ' ' . $listing['zip_code'];
     }
 
     public function render()
@@ -70,5 +77,23 @@ class Past extends Component
     public function refreshPast($data)
     {
         $this->id_reservation = $data;
+    }
+
+    public function sharePDF()
+    {
+        $pdfContent = PDF::loadView('pdf.index',['reservation' => $this->reservation])->output();
+        return response()->streamDownload(
+            fn () => print($pdfContent),
+            "filename.pdf"
+        );
+    }
+
+    public function sharePDFDetail()
+    {
+        $pdfContent = PDF::loadView('pdf.detail',['reservation' => $this->reservation])->output();
+        return response()->streamDownload(
+            fn () => print($pdfContent),
+            "filename.pdf"
+        );
     }
 }

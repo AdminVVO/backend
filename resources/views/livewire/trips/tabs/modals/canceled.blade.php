@@ -64,7 +64,7 @@
                                 </div>
 
                                 <div class="wh-p100" style="max-width: 57%;">
-                                    <a href="messages.php" class="btn-bd-white wh-p100">
+                                    <a href="{{ route('messageUserIndex', ['interna' => $reservation['listing_id']]) }}" class="btn-bd-white wh-p100">
                                         <div class="fx fx-ai-c fx-jc-sb">
                                             <div class="flex gp12">
                                                 <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="19.209" height="19.209" viewBox="0 0 19.209 19.209">

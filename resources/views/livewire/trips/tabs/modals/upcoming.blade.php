@@ -320,7 +320,7 @@
 
                                     <div class="bk-icon-des">
                                         <div class="bk-icon-des_fbas fx-ai-b gp10 mnw-p47" onclick="copyAddress()">
-                                            <a href="" class="btn-bd-white wh-p100">
+                                            <button class="btn-bd-white wh-p100"  onclick="copyAddress()">
                                                 <div class="fx fx-ai-c fx-jc-sb">
                                                     <div class="fx fx-ai-c gp7">
                                                         <i class="far fa-clone _i-red20"></i>
@@ -336,11 +336,11 @@
                                                         </path>
                                                     </svg>
                                                 </div>
-                                            </a>
+                                            </button>
                                         </div>
 
                                         <div class="bk-icon-des_fbas fx-ai-b gp10 mnw-p47">
-                                            <a href='https://google.cl/maps/place/{{$reservation['maps']}}' class="btn-bd-white wh-p100">
+                                            <a href='https://google.cl/maps/place/{{$reservation['maps']}}' Target="_blank" class="btn-bd-white wh-p100">
                                                 <div class="fx fx-ai-c fx-jc-sb">
                                                     <div class="flex gp12">
                                                         <svg class="icon" xmlns="http://www.w3.org/2000/svg"

@@ -77,7 +77,7 @@
                         <div class="trips_upcoming_inf">
                             <div class="bk-icon-des">
                                 <div class="bk-icon-des_fbas fx-ai-b gp10 mnw-p47">
-                                    <a href="" class="btn-bd-white wh-p100">
+                                    <a href="https://google.cl/maps/place/{{$reservation['maps']}}" class="btn-bd-white wh-p100">
                                         <div class="fx fx-ai-c fx-jc-sb">
                                             <div class="flex gp12">
                                                 <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="15.415" height="21.656" viewBox="0 0 15.415 21.656">
@@ -116,7 +116,7 @@
                                 </div>
 
                                 <div class="bk-icon-des_fbas fx-ai-b gp10 mnw-p47">
-                                    <a href="messages-user.php" class="btn-bd-white wh-p100">
+                                    <a href="{{ route('messageUserIndex', ['interna' => $reservation['listing_id']]) }}" class="btn-bd-white wh-p100">
                                         <div class="fx fx-ai-c fx-jc-sb">
                                             <div class="flex gp12">
                                                 <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="19.209" height="19.209" viewBox="0 0 19.209 19.209">
@@ -141,7 +141,7 @@
                                 <div class="fx fx-ai-c gp38">
                                     <div>
                                         <h3 class="_txteh mr0">Who's coming</h3>
-                                        <span class="_txtec16">8 guests</span>
+                                        <span class="_txtec16">{{$reservation['next_count']}} guests</span>
                                     </div>
 
                                     <div>
@@ -187,7 +187,7 @@
                                 <div>
                                     <div class="bk-icon-des">
                                         <div class="bk-icon-des_fbas fx-ai-b gp10 mnw-p47">
-                                            <button type="button" class="btn-bd-white wh-p100 clickGetPDF">
+                                            <button wire:click="sharePDF" type="button" class="btn-bd-white wh-p100 clickGetPDF">
                                                 <div class="fx fx-ai-c fx-jc-sb">
                                                     <div class="flex gp12">
                                                         <i class="far fa-file-pdf _i-red20"></i>
@@ -204,7 +204,7 @@
                                         </div>
 
                                         <div class="bk-icon-des_fbas fx-ai-b gp10 mnw-p47">
-                                            <a href="" class="btn-bd-white wh-p100">
+                                            <button wire:click="sharePDFDetail" class="btn-bd-white wh-p100">
                                                 <div class="fx fx-ai-c fx-jc-sb">
                                                     <div class="flex gp12">
                                                         <i class="far fa-file-alt _i-red20"></i>
@@ -216,7 +216,7 @@
                                                         <path d="M4.635,3.7,8.138.194a.659.659,0,0,1,.935,0,.668.668,0,0,1,0,.938L5.1,5.105a.661.661,0,0,1-.913.019l-4-3.989A.662.662,0,0,1,1.128.2Z" transform="translate(0 9.266) rotate(-90)" fill="#283646"></path>
                                                     </svg>
                                                 </div>
-                                            </a>
+                                            </button>
                                         </div>
 
                                         <div class="bk-icon-des_fbas fx-ai-b gp10 mnw-p47">
@@ -246,14 +246,14 @@
                                 <h3 class="_txteh mr0">Address</h3>
 
                                 <div>
-                                    <p class="_txtec16 _txtcapit">11028 corrigan avenue</p>
-                                    <p class="_txtec16 _txtcapit">englewood, fl 34224</p>
+                                    <p class="_txtec16 _txtcapit" id="address_one">{{$reservation['street'] ?? ''}} {{$reservation['city'] ?? ''}}</p>
+                                    <p class="_txtec16 _txtcapit" id="address_two">{{$reservation['state'] ?? ''}}, {{$reservation['zip_code'] ?? ''}}</p>
                                 </div>
                             </div>
 
                             <div class="bk-icon-des">
                                 <div class="bk-icon-des_fbas fx-ai-b gp10 mnw-p47">
-                                    <a href="" class="btn-bd-white wh-p100">
+                                    <button class="btn-bd-white wh-p100"  onclick="copyAddress()">
                                         <div class="fx fx-ai-c fx-jc-sb">
                                             <div class="fx fx-ai-c gp7">
                                                 <i class="far fa-clone _i-red20"></i>
@@ -265,11 +265,11 @@
                                                 <path d="M4.635,3.7,8.138.194a.659.659,0,0,1,.935,0,.668.668,0,0,1,0,.938L5.1,5.105a.661.661,0,0,1-.913.019l-4-3.989A.662.662,0,0,1,1.128.2Z" transform="translate(0 9.266) rotate(-90)" fill="#283646"></path>
                                             </svg>
                                         </div>
-                                    </a>
+                                    </button>
                                 </div>
 
                                 <div class="bk-icon-des_fbas fx-ai-b gp10 mnw-p47">
-                                    <a href="" class="btn-bd-white wh-p100">
+                                    <a href="https://google.cl/maps/place/{{$reservation['maps']}}" class="btn-bd-white wh-p100">
                                         <div class="fx fx-ai-c fx-jc-sb">
                                             <div class="flex gp12">
                                                 <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="15.415" height="21.656" viewBox="0 0 15.415 21.656">
@@ -399,12 +399,13 @@
     }
 </style>
 <script>
-    function copyAddress(id_elemento) {
+    function copyAddress() {
         var aux = document.createElement("input");
-        aux.setAttribute("value", document.getElementById(id_elemento).innerHTML);
+        aux.setAttribute("value", document.getElementById("address_one").innerHTML);
         document.body.appendChild(aux);
         aux.select();
         document.execCommand("copy");
         document.body.removeChild(aux);
+        this.preventDefault();
     }
 </script>

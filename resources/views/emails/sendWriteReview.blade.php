@@ -383,7 +383,7 @@
     <script src="https://kit.fontawesome.com/3ebe5f560f.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.1.1/css/all.css">
 
-    <link rel="stylesheet" href="{{ URL::asset('assets/img/vvo-correo.css') }}">
+    <link rel="stylesheet" href="{{ URL::asset('assets/css/vvo-correo.css') }}">
 </head>
 
 <body>
