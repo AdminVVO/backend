@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Reservations;
 
+use App\Models\Profile;
 use App\Models\Reservation;
 use Carbon\Carbon;
 use Livewire\Component;
@@ -17,16 +18,17 @@ class ShowReservation extends Component
         $this->data = Reservation::join('users', 'reservations.user_id', 'users.id_user')
             ->join('listings', 'reservations.listing_id', 'listings.id_listings')
             ->join('listing_pricings', 'listings.id_listings', 'listing_pricings.listing_id')
-            ->join('profiles', 'reservations.user_id', 'profiles.user_id')
-            ->join('listing_locations', 'listings.id_listings', 'listing_locations.listing_id')
+            ->join('listing_locations', 'reservations.listing_id', 'listing_locations.listing_id')
             ->where('id_reservation', $this->reservation)
             ->first([
                 'id_reservation', 'id_user', 'avatar', 'full_name', 'name', 'checkin', 'checkout', 'total_payout', 'booked', 'users.created_at',
-                'phone', 'number_guests', 'internal_title', 'base_price', 'city', 'state', 'note',
-                'location', 'cleaning_fee', 'pet_fee', 'linens_fee', 'resort_fee', 'management_fee', 'community_fee', 'extra_guest_fee', 'extra_guest', 'weekend_nightly_fee'
+                'phone', 'number_guests', 'internal_title', 'base_price', 'city', 'state', 'note', 'cleaning_fee', 'pet_fee', 'linens_fee', 'resort_fee', 'management_fee', 'community_fee', 'extra_guest_fee', 'extra_guest', 'weekend_nightly_fee'
             ])->toArray();
 
-        $this->data['general_fee'] = $this->data['cleaning_fee'] + $this->data['pet_fee'] +
+
+            $location = Profile::where('user_id', $this->data['id_user'])->first('location');
+            $this->data['location'] = $location['location'] ?? '';
+            $this->data['general_fee'] = $this->data['cleaning_fee'] + $this->data['pet_fee'] +
             $this->data['linens_fee'] + $this->data['resort_fee'] +
             $this->data['management_fee'] + $this->data['community_fee'] +
             $this->data['extra_guest_fee'] + $this->data['weekend_nightly_fee'];
