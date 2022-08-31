@@ -61,14 +61,12 @@ class Address extends Component
         $validation = Validator::make([
            'country'        => $this->country,
            'street_address' => $this->street_address,
-           'suite'          => $this->suite,
            'city'           => $this->city,
            'state'          => $this->state,
            'zip_code'       => $this->zip_code,
         ],[
             'country'        => 'in:US,PR',
             'street_address' => 'required',
-            'suite'          => 'required',
             'city'           => 'required',
             'state'          => 'required',
             'zip_code'       => 'regex:/^[0-9]+$/',

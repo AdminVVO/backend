@@ -76,23 +76,23 @@
                     </a>
                 </div>
 
-                <div class="navcont__flech-fx content-scroll-reserva">
+                <div class="content-scroll-reserva navcont__flech-fx pd_w" style="overflow: hidden;">
                     <div class="cont_nav js__cont_nav">
                         <div class="nav__links-txt tab-container">
                             <button type="button" class="li__links-txt">
-                                <span class="tabs_items active_tabs">Currently hosting (2)</span>
+                                <span class="tabs_items active_tabs">Currently hosting (0)</span>
                             </button>
 
                             <button type="button" class="li__links-txt">
-                                <span class="tabs_items">Arriving soon (2)</span>
+                                <span class="tabs_items">Arriving soon (0)</span>
                             </button>
 
                             <button type="button" class="li__links-txt">
-                                <span class="tabs_items">Checking out (2)</span>
+                                <span class="tabs_items">Checking out (0)</span>
                             </button>
 
                             <button type="button" class="li__links-txt">
-                                <span class="tabs_items">Next 7 days (2)</span>
+                                <span class="tabs_items">Next 7 days (0)</span>
                             </button>
                         </div>
                     </div>

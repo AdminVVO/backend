@@ -10,9 +10,9 @@
                     <h2 class="h2-guests">Your trip</h2>
 
                     <div class="content-user_icons">
-                        <div class="s-usr_icons">
+                        <div class="s-usr_icons fx-ai-c">
                             <div class="_suis">
-                                <i class="far fa-location-dot _i-red22"></i>
+                                <i class="fa-regular fa-location-dot _i-red22"></i>
                             </div>
 
                             <div class="_csuiinfo">
@@ -33,7 +33,7 @@
                             </div>
                         </div>
 
-                        <div class="s-usr_icons">
+                        <div class="s-usr_icons fx-ai-c">
                             <div class="_suis">
                                 <i class="far fa-user _i-red22"></i>
                             </div>

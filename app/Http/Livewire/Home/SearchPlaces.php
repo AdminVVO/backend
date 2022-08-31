@@ -12,7 +12,7 @@ class SearchPlaces extends Component
 {
     use LivewireAlert;
 
-    public $inputAdult = 0; 
+    public $inputAdult = 1; 
     public $inputKids = 0; 
     public $inputInfant = 0; 
     public $inputPets = 0; 

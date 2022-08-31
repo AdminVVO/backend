@@ -95,8 +95,8 @@ class InternaConfirmPay extends Component
 
             $reservation = ReservationUser::create([
                 'code_reservation' => $random_code,
-                'date_in' => $this->inputDateIn,
-                'date_out' => $this->inputDateOut,
+                'date_in' => Carbon::createFromDate( $this->inputDateIn )->format('Y-m-d H:i:s');,
+                'date_out' => Carbon::createFromDate( $this->inputDateOut )->format('Y-m-d H:i:s');,
                 'payment_pay_id' => $PaymentPay->id_payment_pays,
                 'listing_id' => $this->listingId,
                 'user_id'  => Auth::id()
