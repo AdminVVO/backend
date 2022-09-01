@@ -36,6 +36,10 @@
             margin: 0 30px 14px;
         }
     }
+
+    @include responsive(743px) {
+        margin-top: -117px;
+    }
 }
 
 .book-form {

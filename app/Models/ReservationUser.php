@@ -18,6 +18,11 @@ class ReservationUser extends Model
         'code_reservation',
         'date_in',
         'date_out',
+        'guest',
+        'total_amount',
+        'reserv_amount',
+        'private_note',
+        'services',
         'payment_pay_id',
         'listing_id',
         'user_id',
@@ -35,6 +40,8 @@ class ReservationUser extends Model
         'pets_allowed' => 'boolean',
         'smoking_allowed' => 'boolean',
         'events_allowed' => 'boolean',
+        'guest' => 'array',
+        'services' => 'array',
     ];
     
     ## Relaciones 

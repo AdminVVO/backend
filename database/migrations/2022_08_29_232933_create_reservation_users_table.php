@@ -16,9 +16,14 @@ class CreateReservationUsersTable extends Migration
         Schema::create('reservation_users', function (Blueprint $table) {
             $table->uuid('id_reservation_users')->primary();
             $table->string('status')->default('pending');
-            $table->string('code_reservation')->nullable();
-            $table->date('date_in')->nullable();
-            $table->date('date_out')->nullable();
+            $table->string('code_reservation');
+            $table->date('date_in');
+            $table->date('date_out');
+            $table->json('guest');
+            $table->decimal('total_amount', 10,2);
+            $table->decimal('reserv_amount', 10,2);
+            $table->string('private_note')->nullable();
+            $table->json('services');
 
             $table->unsignedInteger('payment_pay_id');
             $table->foreign('payment_pay_id')

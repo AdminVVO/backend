@@ -22,7 +22,7 @@ class CreatePaymentPaysTable extends Migration
             $table->string('email');
             $table->string('address');
             $table->string('currency');
-            $table->decimal('amount', 5,2);
+            $table->decimal('amount', 10,2);
 
             $table->uuid('user_id');
             $table->foreign('user_id')

@@ -86690,7 +86690,7 @@ input[type=number]::-webkit-outer-spin-button {
 }
 .create_listing .content_right .content_hidden .content_mr .content_step .contact-map {
   margin: auto;
-  width: 100%;
+  width: 100% !important;
   height: 650px;
 }
 .create_listing .content_right .content_hidden .content_mr .content_step .contact-map iframe {

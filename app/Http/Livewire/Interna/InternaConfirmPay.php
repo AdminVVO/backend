@@ -93,14 +93,55 @@ class InternaConfirmPay extends Component
             ($query_if_exist && count($query_if_exist) > 0) ? $code_exist = true : $code_exist = false;
         }
 
-            $reservation = ReservationUser::create([
-                'code_reservation' => $random_code,
-                'date_in' => Carbon::createFromDate( $this->inputDateIn )->format('Y-m-d H:i:s'),
-                'date_out' => Carbon::createFromDate( $this->inputDateOut )->format('Y-m-d H:i:s'),
-                'payment_pay_id' => $PaymentPay->id_payment_pays,
-                'listing_id' => $this->listingId,
-                'user_id'  => Auth::id()
-            ]);
+        $servicesPay = [];
+            $servicesPay['price_base'] = $this->inputBase;
+            $servicesPay['nights'] = $this->requestDays;
+                if ( $this->cleaning_fee != 0 )
+                    $servicesPay['cleaning'] = $this->cleaning_fee;
+
+                if ( $this->oneListing )
+                    $servicesPay['guest_sevice'] = $this->oneListinFee;
+
+                if ( $this->weekly_discount != 0 || $this->monthly_discount != 0 && $this->requestDays >= 7 ){
+                    if ( $this->monthly_discount != 0 ) {
+                        $servicesPay['monthly_discount'] = $this->monthlyTotal;
+                    } else {
+                        $servicesPay['weekly_discount'] = $this->weeklyTotal;
+                    }
+                }
+
+                if ( $this->resort_type != 0 )
+                    $servicesPay['resort'] = (int)$this->resort_fee;
+
+                if ( $this->management_fee != 0 )
+                    $servicesPay['management'] = $this->management_fee;
+
+                if ( $this->community_fee != 0 )
+                    $servicesPay['community'] = $this->community_fee;
+
+                if ( $this->extra_guest_fee != 0 && $this->maxGuest >= 2  )
+                    $servicesPay['extra_guest'] = $this->extra_guest_fee * ( $this->maxGuest - 1 );
+
+        $guest = [
+            'adult' => $this->inputAdult,
+            'kids' => $this->inputKids,
+            'infant' => $this->inputInfant,
+            'pets' => $this->inputPets,
+            'total' => $this->inputAdult + $this->inputKids,
+        ];
+
+        $reservation = ReservationUser::create([
+            'code_reservation' => $random_code,
+            'date_in' => Carbon::createFromDate( $this->inputDateIn )->format('Y-m-d H:i:s'),
+            'date_out' => Carbon::createFromDate( $this->inputDateOut )->format('Y-m-d H:i:s'),
+            'total_amount' => $this->totalPrice,
+            'reserv_amount' => $this->inputPay,
+            'services' => $servicesPay,
+            'guest' => $guest,
+            'payment_pay_id' => $PaymentPay->id_payment_pays,
+            'listing_id' => $this->listingId,
+            'user_id'  => Auth::id(),
+        ]);
 
         return redirect()->route('pending-reservation')->with([
             'reservation' => $reservation->id_reservation_users
@@ -109,6 +150,53 @@ class InternaConfirmPay extends Component
 
     public function cancelPaypaEvent()
     {
+
+//         $servicesPay = [];
+//             $servicesPay['price_base'] = $this->inputBase;
+//             $servicesPay['nights'] = $this->requestDays;
+//                 if ( $this->cleaning_fee != 0 )
+//                     $servicesPay['cleaning'] = $this->cleaning_fee;
+
+//                 if ( $this->oneListing )
+//                     $servicesPay['guest_sevice'] = $this->oneListinFee;
+
+//                 if ( $this->weekly_discount != 0 || $this->monthly_discount != 0 && $this->requestDays >= 7 ){
+//                     if ( $this->monthly_discount != 0 ) {
+//                         $servicesPay['monthly_discount'] = $this->monthlyTotal;
+//                     } else {
+//                         $servicesPay['weekly_discount'] = $this->weeklyTotal;
+//                     }
+//                 }
+
+//                 if ( $this->resort_type != 0 )
+//                     $servicesPay['resort'] = (int)$this->resort_fee;
+
+//                 if ( $this->management_fee != 0 )
+//                     $servicesPay['management'] = $this->management_fee;
+
+//                 if ( $this->community_fee != 0 )
+//                     $servicesPay['community'] = $this->community_fee;
+
+//                 if ( $this->extra_guest_fee != 0 && $this->maxGuest >= 2  )
+//                     $servicesPay['extra_guest'] = $this->extra_guest_fee * ( $this->maxGuest - 1 );
+
+//         $xx = [
+//             'guest' => [
+//                 'adult' => $this->inputAdult,
+//                 'kids' => $this->inputKids,
+//                 'infant' => $this->inputInfant,
+//                 'pets' => $this->inputPets,
+//                 'total' => $this->inputAdult + $this->inputKids,
+//             ],
+
+//             'total_amount' => $this->totalPrice,
+//             'reserv_amount' => $this->inputPay,
+//             'private_note' => null,
+//             'services' => $servicesPay,
+//         ];
+
+// dd($xx);
+
         $this->alert('warning', 'Transacctions is Cancel!');
     }
 
@@ -136,24 +224,27 @@ class InternaConfirmPay extends Component
             $this->inputBase = $this->base_price - $mult;
         }
 
-        if ( Listings::where([ 'user_id' => Auth::id() ])->exists() ) {
+        if ( ReservationUser::where([ 'user_id' => Auth::id() ])->exists() ) {
             $this->oneListing = true;
             $mult = $this->inputBase * 0.10;
                 $this->oneListinFee = $this->inputBase - $mult;
         }
 
-        $this->weeklyTotal = round(( $this->inputBase * $this->requestDays ) * ( $this->weekly_discount /100 ) );
-        $this->monthlyTotal = round(( $this->inputBase * $this->requestDays ) * ( $this->monthly_discount /100 ) );
+        if ( $this->weekly_discount != 0 )
+            $this->weeklyTotal = round(( $this->inputBase * $this->requestDays ) * ( $this->weekly_discount /100 ) );
+
+        if ( $this->monthly_discount != 0 )
+            $this->monthlyTotal = round(( $this->inputBase * $this->requestDays ) * ( $this->monthly_discount /100 ) );
 
 
         if ( $this->resort_type == 'porcent' )
-            $this->resort_fee = $this->resort_fee != null ? number_format( $this->inputBase *  $this->resort_fee/100) : 0;
+            $this->resort_fee = $this->resort_fee != 0 ? number_format( $this->inputBase *  $this->resort_fee/100) : 0;
 
         if ( $this->management_type == 'porcent' )
-            $this->management_fee = $this->management_fee != null ? number_format( $this->inputBase *  $this->management_fee/100) : 0;
+            $this->management_fee = $this->management_fee != 0 ? number_format( $this->inputBase *  $this->management_fee/100) : 0;
         
         if ( $this->community_type == 'porcent' )
-            $this->community_fee = $this->community_fee != null ? number_format( $this->inputBase *  $this->community_fee/100) : 0;
+            $this->community_fee = $this->community_fee != 0 ? number_format( $this->inputBase *  $this->community_fee/100) : 0;
 
         $this->loadContentValues();
     }

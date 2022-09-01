@@ -444,6 +444,12 @@ header {
 
 
 @include responsive(1400px) {
+    .page__trips_upcoming {
+        .header {
+            margin-bottom: 36px;
+        }
+    }
+
     .page__search {
         .content_location {
             padding: 104px 0 22px;

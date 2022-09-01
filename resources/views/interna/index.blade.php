@@ -294,6 +294,7 @@
                 Livewire.emitTo('interna.interna-form-reserve', 'selectDate', content )
                 Livewire.emitTo('interna.interna-date-calendar', 'selectDate', content )
                 Livewire.emitTo('interna.interna-confirm-pay', 'selectDate', content )
+                Livewire.emitTo('interna.interna-form-edit-date', 'reloadDateEdit', content )
               });
             },
         });
@@ -331,6 +332,7 @@
                 Livewire.emitTo('interna.interna-form-reserve', 'selectDate', content )
                 Livewire.emitTo('interna.interna-date-calendar', 'selectDate', content )
                 Livewire.emitTo('interna.interna-confirm-pay', 'selectDate', content )
+                Livewire.emitTo('interna.interna-form-edit-date', 'reloadDateEdit', content )
               });
             },
         });
@@ -368,6 +370,7 @@
                 Livewire.emitTo('interna.interna-form-reserve', 'selectDate', content )
                 Livewire.emitTo('interna.interna-date-calendar', 'selectDate', content )
                 Livewire.emitTo('interna.interna-confirm-pay', 'selectDate', content )
+                Livewire.emitTo('interna.interna-form-edit-date', 'reloadDateEdit', content )
               });
             },
         });
@@ -425,6 +428,7 @@
             pickerHome.setDateRange( event.detail.inputDateIn, event.detail.inputDateOut);
             pickerInterna.setDateRange( event.detail.inputDateIn, event.detail.inputDateOut);
             pickerReserv.setDateRange( event.detail.inputDateIn, event.detail.inputDateOut);
+            pickerPopupDate.setDateRange( event.detail.inputDateIn, event.detail.inputDateOut);
 
             const DateTime = easepick.DateTime;
             $("#checkIn-book_edit").val( event.detail.inputDateIn );
