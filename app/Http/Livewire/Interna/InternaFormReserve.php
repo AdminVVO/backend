@@ -3,8 +3,9 @@
 namespace App\Http\Livewire\Interna;
 
 use App\Models\Listing\Listings;
-use Carbon;
+use App\Models\ReservationUser;
 use Auth;
+use Carbon;
 use Illuminate\Support\Facades\Validator;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Livewire\Component;
@@ -75,7 +76,7 @@ class InternaFormReserve extends Component
                 $this->inputBase = $this->base_price - $mult;
         }
         
-        if ( Listings::where([ 'user_id' => Auth::id() ])->exists() ) {
+        if ( ReservationUser::where([ 'user_id' => Auth::id() ])->exists() ) {
             $this->oneListing = true;
             $mult = $this->inputBase * 0.10;
                 $this->oneListinFee = $this->inputBase - $mult;

@@ -113,4 +113,9 @@ class User extends Authenticatable
             'avatar' => $data->avatar,
         ];
     }
+
+    public function ReservationUser()
+    {
+        return $this->belongsTo(ReservationUser::class, 'id_user');
+    }
 }

@@ -26,6 +26,7 @@ class ReservationUser extends Model
         'payment_pay_id',
         'listing_id',
         'user_id',
+        'user_id_listing',
     ];
 
     protected $dates = [
@@ -58,5 +59,15 @@ class ReservationUser extends Model
     public function ListingPolicies()
     {
         return $this->hasOne('App\Models\Listing\ListingPolicies', 'listing_id', 'listing_id');
+    }
+
+    public function User()
+    {
+        return $this->hasOne(User::class, 'id_user', 'user_id');
+    }
+
+    public function StatusReserv()
+    {
+        return $this->hasOne(StatusReservation::class, 'status', 'status');
     }
 }

@@ -9,6 +9,7 @@
                 </div>
 
                 @livewire('interna.interna-confirm-pay', [
+                    'listingUser' => $content['user_id'],
                     'listingId' => $content['id_listings'],
                     'title' => $content['title'],
                     'photos' => $content['photos'],

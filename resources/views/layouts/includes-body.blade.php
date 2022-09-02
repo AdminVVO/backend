@@ -46,6 +46,6 @@
     <body class="page-category page_interna_edit vvo_ui">
 @endif
 
-@if ( in_array( Route::currentRouteName(),['details-listing', 'host-listing', 'become-host','category','dashboard']) )
+@if ( in_array( Route::currentRouteName(),['details-listing', 'host-listing', 'become-host','category','dashboard','reservations']) )
     <body class="page-category">
 @endif

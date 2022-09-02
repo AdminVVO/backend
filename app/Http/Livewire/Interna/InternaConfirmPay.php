@@ -16,6 +16,7 @@ class InternaConfirmPay extends Component
     use LivewireAlert;
 
     public $listingId;
+    public $listingUser;
     public $title;
     public $photos;
     public $like_place;
@@ -122,13 +123,21 @@ class InternaConfirmPay extends Component
                 if ( $this->extra_guest_fee != 0 && $this->maxGuest >= 2  )
                     $servicesPay['extra_guest'] = $this->extra_guest_fee * ( $this->maxGuest - 1 );
 
-        $guest = [
-            'adult' => $this->inputAdult,
-            'kids' => $this->inputKids,
-            'infant' => $this->inputInfant,
-            'pets' => $this->inputPets,
-            'total' => $this->inputAdult + $this->inputKids,
-        ];
+
+        $guest = [];
+            $guest['total'] = $this->inputAdult + $this->inputKids;
+            
+            if ( $this->inputAdult != 0 )
+                $guest['adult'] = $this->inputAdult;
+
+            if ( $this->inputKids != 0 )
+                $guest['kids'] = $this->inputKids;
+            
+            if ( $this->inputInfant != 0 )
+                $guest['infant'] = $this->inputInfant;
+            
+            if ( $this->inputPets != 0 )
+                $guest['pets'] = $this->inputPets;
 
         $reservation = ReservationUser::create([
             'code_reservation' => $random_code,
@@ -141,6 +150,7 @@ class InternaConfirmPay extends Component
             'payment_pay_id' => $PaymentPay->id_payment_pays,
             'listing_id' => $this->listingId,
             'user_id'  => Auth::id(),
+            'user_id_listing' => $this->listingUser,
         ]);
 
         return redirect()->route('pending-reservation')->with([

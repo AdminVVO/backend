@@ -264,12 +264,10 @@
             <div class="_txtect">{{ \App\Models\Currencs::Symbol( $listing_currency ) . $totalPrice }}</div>
         </span>
 
-        @if ( $cleaning_fee != 0 || $pet_fee != 0 && $inputPets != 0 || $linens_fee != 0 || $resort_fee != 0 || $management_fee != 0 || $extra_guest_fee != 0 && $maxGuest >= 2 || $weekly_discount != 0 || $monthly_discount != 0 )
-            <div class="mr-t12">
-                <button type="button" class="_1e5q4qoz js__showMoreDetailsReserve skeleton">See details</button>
-                <button type="button" class="_1e5q4qoz dn js__hideMoreDetailsReserve skeleton">Hide details</button>
-            </div>
-        @endif
+        <div class="mr-t12">
+            <button type="button" class="_1e5q4qoz js__showMoreDetailsReserve skeleton">See details</button>
+            <button type="button" class="_1e5q4qoz dn js__hideMoreDetailsReserve skeleton">Hide details</button>
+        </div>
     </form>
 </aside>
 

@@ -15,7 +15,7 @@ class CreateReservationUsersTable extends Migration
     {
         Schema::create('reservation_users', function (Blueprint $table) {
             $table->uuid('id_reservation_users')->primary();
-            $table->string('status')->default('pending');
+            $table->string('status')->default(2);
             $table->string('code_reservation');
             $table->date('date_in');
             $table->date('date_out');
@@ -35,6 +35,12 @@ class CreateReservationUsersTable extends Migration
             $table->foreign('listing_id')
                 ->references('id_listings')
                 ->on('listings')
+                ->onDelete('cascade');
+
+            $table->uuid('user_id_listing');
+            $table->foreign('user_id_listing')
+                ->references('id_user')
+                ->on('users')
                 ->onDelete('cascade');
 
             $table->uuid('user_id');
