@@ -272,12 +272,12 @@
             format: 'DD MMM YYYY',
             calendars: 2,
             grid: 2,
-            autoApply: false,
-                tooltip: true,
-                locale: {
-                    one: 'day',
-                    other: 'days',
-                },
+            autoApply: true,
+            tooltip: true,
+            locale: {
+                one: 'day',
+                other: 'days',
+            },
             RangePlugin: {
                 elementEnd: '#endEasypickHome',
             },
@@ -348,7 +348,7 @@
             calendars: 2,
             grid: 2,
             zIndex: 9999,
-            autoApply: false,
+            autoApply: true,
                 tooltip: true,
                 locale: {
                     one: 'day',
@@ -387,6 +387,7 @@
             grid: 2,
             inline: true,
             tooltip: true,
+            autoApply: true,
             locale: {
                 one: 'day',
                 other: 'days',
