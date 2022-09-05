@@ -57,7 +57,7 @@
     pointer-events: all;
     position: absolute;
     transform: scale(0);
-    opacity: 0;
+    /* opacity: 0; */
     transform-origin: top left;
     transition: transform .3s ease-out;
 }
