@@ -1,15 +1,21 @@
 $(document).ready(function() {
     // messages - type a message debera valida texto
     $(".w-input-textarea-msg").keyup(function() {
-        var value = $(this).val().length;
-
-        if (value > 0) {
-            // $(this).parents(".input-type-msg").find(".click_envio_chat").prop('disabled', false);
-            $(this).parents(".input-type-msg").find(".click_envio_chat i").removeClass("_i-celest24").addClass("_i-gris24");
+        if ($(this).val().trim() === "") {
+            $(this).parents(".input-type-msg").find(".click_envio_chat").prop('disabled', true);
         } else {
-            // $(this).parents(".input-type-msg").find(".click_envio_chat").prop('disabled', true);
-            $(this).parents(".input-type-msg").find(".click_envio_chat i").addClass("_i-celest24").removeClass("_i-gris24");
+            $(this).parents(".input-type-msg").find(".click_envio_chat").prop('disabled', false);
         }
+        
+        // var value = $(this).val().length;
+
+        // if (value > 0) {
+        //     // $(this).parents(".input-type-msg").find(".click_envio_chat").prop('disabled', false);
+        //     $(this).parents(".input-type-msg").find(".click_envio_chat i").removeClass("_i-celest24").addClass("_i-gris24");
+        // } else {
+        //     // $(this).parents(".input-type-msg").find(".click_envio_chat").prop('disabled', true);
+        //     $(this).parents(".input-type-msg").find(".click_envio_chat i").addClass("_i-celest24").removeClass("_i-gris24");
+        // }
     });
 
     // input con icono

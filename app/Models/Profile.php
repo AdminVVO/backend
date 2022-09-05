@@ -22,4 +22,9 @@ class Profile extends Model
     protected $casts = [
         'language' => 'array',
     ];
+
+    public function ReservationProfile()
+    {
+        return $this->belongsTo(ReservationUser::class, 'user_id');
+    }
 }

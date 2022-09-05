@@ -6334,6 +6334,11 @@ body {
   .div_env_ch {
     padding: 0;
     margin-top: auto;
+
+    .click_envio_chat i {
+      font-size: 24px;
+      color: #7D7D7D;
+    }
   }
 }
 
@@ -6998,6 +7003,10 @@ body {
 .click_envio_chat {
   &:disabled {
     cursor: not-allowed;
+
+    i {
+      color: #E3EDF3 !important;
+    }
   }
 }
 

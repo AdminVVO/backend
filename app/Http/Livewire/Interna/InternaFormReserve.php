@@ -35,7 +35,7 @@ class InternaFormReserve extends Component
     public $extra_guest_fee;
         public $extra_guest;
     public $oneListing = false;
-        public $oneListinFee;
+        public $inputOneListing;
     
     public $requestDate;
     public $requestDays;
@@ -69,22 +69,25 @@ class InternaFormReserve extends Component
         }
 
         $this->inputGuest = $this->maxGuest . ' Guest';
+        
+        if ( ReservationUser::where([ 'user_id' => Auth::id() ])->exists() )
+            $this->oneListing = true;
 
+        $this->servicesApply();
+    }
+
+    public function servicesApply()
+    {
         if ( $this->first_guest ) {
             $this->base_descont = $this->base_price;
             $mult = $this->base_price * 0.20;
                 $this->inputBase = $this->base_price - $mult;
         }
-        
-        if ( ReservationUser::where([ 'user_id' => Auth::id() ])->exists() ) {
-            $this->oneListing = true;
+
+        if ( $this->oneListing ){
             $mult = $this->inputBase * 0.10;
-                $this->oneListinFee = $this->inputBase - $mult;
+                $this->inputOneListing = $this->inputBase - $mult;
         }
-
-        $this->weeklyTotal = round(( $this->inputBase * $this->requestDays ) * ( $this->weekly_discount /100 ) );
-        $this->monthlyTotal = round(( $this->inputBase * $this->requestDays ) * ( $this->monthly_discount /100 ) );
-
 
         if ( $this->resort_type == 'porcent' )
             $this->resort_fee = $this->resort_fee != null ? number_format( $this->inputBase *  $this->resort_fee/100) : 0;
@@ -94,6 +97,14 @@ class InternaFormReserve extends Component
         
         if ( $this->community_type == 'porcent' )
             $this->community_fee = $this->community_fee != null ? number_format( $this->inputBase *  $this->community_fee/100) : 0;
+
+        if ( ( $this->weekly_discount != 0 || $this->monthly_discount != 0 ) && $this->requestDays >= 7 ) {
+            if ( $this->monthly_discount != 0 ) {
+                $this->monthlyTotal = round(( $this->inputBase * $this->requestDays ) * ( $this->monthly_discount /100 ) );
+            } else {
+                $this->weeklyTotal = round(( $this->inputBase * $this->requestDays ) * ( $this->weekly_discount /100 ) );
+            }
+        }
     }
 
     public function buttonIncrease($paylaod)
@@ -134,6 +145,20 @@ class InternaFormReserve extends Component
     {
         $this->reset(['inputGuest']);
 
+        $this->emitTo('interna.interna-confirm-pay', 'ExtraShow', [
+            'inputAdult' => $this->inputAdult,
+            'inputKids' => $this->inputKids,
+            'inputInfant' => $this->inputInfant,
+            'inputPets' => $this->inputPets,
+        ]);
+
+        $this->emitTo('interna.interna-guest-edit', 'showGuestEdit', [
+            'inputAdult' => $this->inputAdult,
+            'inputKids' => $this->inputKids,
+            'inputInfant' => $this->inputInfant,
+            'inputPets' => $this->inputPets,
+        ]);
+
         $this->maxGuest = $this->inputAdult + $this->inputKids;
 
         $this->inputGuest = $this->inputAdult . ' Guest';
@@ -164,7 +189,7 @@ class InternaFormReserve extends Component
         $b = $this->cleaning_fee + $this->linens_fee + $this->resort_fee + $this->management_fee + $this->community_fee;
 
         $c = 0;
-        if ( $this->inputPets != 0 )
+        if ( $this->inputPets != 0 && $this->pets_allowed )
             $c = $this->pet_fee * $this->inputPets;
 
         $d = 0;
@@ -173,7 +198,7 @@ class InternaFormReserve extends Component
 
         $e = 0;
         if ( $this->oneListing )
-            $e = $this->oneListinFee;
+            $e = $this->inputOneListing;
 
         $this->totalPrice = $a + $b + $c + $d + $e;
 
@@ -197,23 +222,6 @@ class InternaFormReserve extends Component
         if ( $this->inputDateIn == null && $this->inputDateIn == null )
             return $this->alert('warning', 'Arrival and departure date not selected!');
 
-        $this->emitTo('interna.interna-confirm-pay', 'ExtraShow', [
-            'inputBase' => $this->inputBase,
-            'requestDays' => $this->requestDays,
-            'inputAdult' => $this->inputAdult,
-            'inputKids' => $this->inputKids,
-            'inputInfant' => $this->inputInfant,
-            'inputPets' => $this->inputPets,
-            'weeklyTotal' => $this->weeklyTotal,
-            'monthlyTotal' => $this->monthlyTotal,
-        ]);
-
-        $this->emitTo('interna.interna-guest-edit', 'showGuestEdit', [
-            'inputAdult' => $this->inputAdult,
-            'inputKids' => $this->inputKids,
-            'inputInfant' => $this->inputInfant,
-            'inputPets' => $this->inputPets,
-        ]);
         $this->dispatchBrowserEvent('createOrder');
         $this->dispatchBrowserEvent('OpenModalPayment');
     }

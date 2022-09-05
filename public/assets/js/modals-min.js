@@ -417,6 +417,15 @@ $(document).ready(function() {
         cssFixedContent($popup);
     });
 
+    // Messages click en el icono chat modal
+    $(".js__popupChatQuickReplies").on("click", function() {
+        bodyOverflowHidden();
+
+        $popup = $(".container_ppqkrs")
+        $popup.show();
+        cssFixedContent($popup);
+    });
+
     // calendar individual - click en private note add >
     $(document).on("click", ".click_add_private_note_cl", function() {
         animateTopModals();

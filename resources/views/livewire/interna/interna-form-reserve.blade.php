@@ -198,7 +198,7 @@
             @if ( $oneListing )
                 <span class="f-cth skeleton">
                     <div class="_txtec">Services fee</div>
-                    <div class="_txtec">{{ \App\Models\Currencs::Symbol( $listing_currency ) . $oneListinFee }}</div>
+                    <div class="_txtec">{{ \App\Models\Currencs::Symbol( $listing_currency ) . $inputOneListing }}</div>
                 </span>
             @endif
 
@@ -209,7 +209,7 @@
                 </span>
             @endif
 
-            @if ( $pet_fee != 0 && $inputPets != 0 )
+            @if ( $pet_fee != 0 && $inputPets != 0 && $pets_allowed )
                 <span class="f-cth skeleton">
                     <div class="_txtec">Pets fee</div>
                     <div class="_txtec">{{ \App\Models\Currencs::Symbol( $listing_currency ) . $pet_fee * $inputPets }}</div>
@@ -237,6 +237,13 @@
                 </span>
             @endif
             
+            @if ( $community_fee != 0 )
+                <span class="f-cth skeleton">
+                    <div class="_txtec">Community fee</div>
+                    <div class="_txtec">{{ \App\Models\Currencs::Symbol( $listing_currency ) . $community_fee }}</div>
+                </span>
+            @endif
+            
             @if ( $extra_guest_fee != 0 && $maxGuest >= 2 )
                 <span class="f-cth skeleton">
                     <div class="_txtec">Extra Guest fee</div>
@@ -244,18 +251,18 @@
                 </span>
             @endif
 
-            @if ( $weekly_discount != 0 )
-                <span class="f-cthdes skeleton">
-                    <div class="_txtecred">Weekly discount</div>
-                    <div class="_txtecred">-{{ \App\Models\Currencs::Symbol( $listing_currency ) . $weeklyTotal }}</div>
-                </span>
-            @endif
-
-            @if ( $monthly_discount != 0 )
-                <span class="f-cthdes skeleton">
-                    <div class="_txtecred">Monthly discount</div>
-                    <div class="_txtecred">-{{ \App\Models\Currencs::Symbol( $listing_currency ) . $monthlyTotal }}</div>
-                </span>
+            @if ( ( $weekly_discount != 0 || $monthly_discount != 0 ) && $requestDays >= 7 )
+                @if ( $monthly_discount != 0 )
+                    <span class="f-cthdes skeleton">
+                        <div class="_txtecred">Monthly discount</div>
+                        <div class="_txtecred">-{{ \App\Models\Currencs::Symbol( $listing_currency ) . $monthlyTotal }}</div>
+                    </span>
+                @else
+                    <span class="f-cthdes skeleton">
+                        <div class="_txtecred">Weekly discount</div>
+                        <div class="_txtecred">-{{ \App\Models\Currencs::Symbol( $listing_currency ) . $weeklyTotal }}</div>
+                    </span>
+                @endif
             @endif
         </div>
 

@@ -10,8 +10,6 @@ class ReservationHostController extends Controller
 {
     public function viewReservation()
     {
-        $ReservationHost = ReservationUser::where('user_id_listing', Auth::id() )->count();
-
-        return view('reservationHost.index', compact('ReservationHost'));
+        return view('reservationHost.index');
     }
 }

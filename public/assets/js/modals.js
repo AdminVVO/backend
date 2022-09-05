@@ -520,13 +520,6 @@ $(document).ready(function() {
         $(this).parents("body").toggleClass("is-message-open-nav");
     });
 
-    // messages - icono msg, click en alguna pregunta y mostrar en el input
-    $(".option_ic_msg").on("click", function(){
-        var value = $(this).attr("value");
-        
-        $(this).parents(".type-a-m").find(".input-type-msg").find(".w-input-textarea-msg").val(value).css({'height': '19px', 'overflow': 'hidden'});
-    });
-
 
     // messages - scroll top hacia abajo, chat online
     chatMsgScrollTop();

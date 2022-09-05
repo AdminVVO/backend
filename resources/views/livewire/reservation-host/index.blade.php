@@ -28,7 +28,7 @@
 
             <div class="_scrolltable" style="margin-top: 50px;">
                 <div class="_width">
-                    @forelse($contentHost as $reservation )
+                    @if ( $contentHost )
                         <table class="_tb-reservations">
                             <thead>
                                 <tr>
@@ -64,51 +64,53 @@
                             </thead>
 
                             <tbody>
-                                <tr>
-                                    <td>
-                                        <div class="{{ $reservation['status_reserv']['color'] }}">{{ $reservation['status_reserv']['name'] }}</div>
-                                    </td>
-                                    <td>
-                                        <div class="_txtblu _txtcapit">{{ $reservation['user']['name'] }}</div>
-                                        <div class="_txtec">{{ $reservation['guest']['adult'] .' Adult' }}{{ isset( $reservation['guest']['kids'] ) ? ", {$reservation['guest']['kids']} Kids" : '' }}{{ isset( $reservation['guest']['infant'] ) ? ", {$reservation['guest']['infant']} Infant" : '' }}{{ isset( $reservation['guest']['pets'] ) ? ", {$reservation['guest']['pets']} Pets" : '' }}</div>
-                                    </td>
-                                    <td>
-                                        <div class="_txtec">{{ Carbon\Carbon::parse( $reservation['date_in'], 'UTC')->locale('en')->isoFormat('ll') }}</div>
-                                    </td>
-                                    <td>
-                                        <div class="_txtec">{{ Carbon\Carbon::parse( $reservation['date_out'], 'UTC')->locale('en')->isoFormat('ll') }}</div>
-                                    </td>
-                                    <td>
-                                        <div class="_txtec">{{ Carbon\Carbon::parse( $reservation['created_at'], 'UTC')->locale('en')->isoFormat('ll') }}</div>
-                                        <div class="_txtec16">{{ Carbon\Carbon::parse( $reservation['created_at'], 'UTC')->locale('en')->isoFormat('LTS z') }}</div>
-                                    </td>
-                                    <td>
-                                        <div class="_txtec txt_upper">{{ $reservation['listings']['title'] }}</div>
-                                    </td>
-                                    <td>
-                                        <div class="_txtec">${{ $reservation['total_amount'] }}</div>
-                                    </td>
-                                    @if ( $statusBar === 'canceled' )
+                                @foreach ( $contentHost as $key => $reservation )
+                                    <tr>
                                         <td>
-                                            <div class="_txtec">${{ $reservation['reserv_amount'] }}</div>
+                                            <div class="{{ $reservation['status_reserv']['color'] }}">{{ $reservation['status_reserv']['name'] }}</div>
                                         </td>
-                                    @endif
-                                    <td>
-                                        <div class="_fblock">
-                                            <button class="btn-border js__detailsMdlReservation">Details</button>
-                                            @if ( $statusBar != 'canceled' )
-                                                <span class="_options">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="_svg28">
-                                                        <path fill="currentColor" d="M304 256c0 26.5-21.5 48-48 48s-48-21.5-48-48 21.5-48 48-48 48 21.5 48 48zm120-48c-26.5 0-48 21.5-48 48s21.5 48 48 48 48-21.5 48-48-21.5-48-48-48zm-336 0c-26.5 0-48 21.5-48 48s21.5 48 48 48 48-21.5 48-48-21.5-48-48-48z"></path>
-                                                    </svg>
-                                                </span>
-                                            @endif
-                                        </div>
-                                    </td>
-                                </tr>
+                                        <td>
+                                            <div class="_txtblu _txtcapit">{{ $reservation['user']['name'] }}</div>
+                                            <div class="_txtec">{{ $reservation['guest']['adult'] .' Adult' }}{{ isset( $reservation['guest']['kids'] ) ? ", {$reservation['guest']['kids']} Kids" : '' }}{{ isset( $reservation['guest']['infant'] ) ? ", {$reservation['guest']['infant']} Infant" : '' }}{{ isset( $reservation['guest']['pets'] ) ? ", {$reservation['guest']['pets']} Pets" : '' }}</div>
+                                        </td>
+                                        <td>
+                                            <div class="_txtec">{{ Carbon\Carbon::parse( $reservation['date_in'], 'UTC')->locale('en')->isoFormat('ll') }}</div>
+                                        </td>
+                                        <td>
+                                            <div class="_txtec">{{ Carbon\Carbon::parse( $reservation['date_out'], 'UTC')->locale('en')->isoFormat('ll') }}</div>
+                                        </td>
+                                        <td>
+                                            <div class="_txtec">{{ Carbon\Carbon::parse( $reservation['created_at'], 'UTC')->locale('en')->isoFormat('ll') }}</div>
+                                            <div class="_txtec16">{{ Carbon\Carbon::parse( $reservation['created_at'], 'UTC')->locale('en')->isoFormat('LTS z') }}</div>
+                                        </td>
+                                        <td>
+                                            <div class="_txtec txt_upper">{{ $reservation['listings']['title'] }}</div>
+                                        </td>
+                                        <td>
+                                            <div class="_txtec">${{ $reservation['total_amount'] }}</div>
+                                        </td>
+                                        @if ( $statusBar === 'canceled' )
+                                            <td>
+                                                <div class="_txtec">${{ $reservation['reserv_amount'] }}</div>
+                                            </td>
+                                        @endif
+                                        <td>
+                                            <div class="_fblock">
+                                                <button class="btn-border js__detailsMdlReservation" wire:click="openDetails({{ $key }})">Details</button>
+                                                @if ( $statusBar != 'canceled' )
+                                                    <span class="_options" wire:click="PopupOptions({{ $key }})">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="_svg28">
+                                                            <path fill="currentColor" d="M304 256c0 26.5-21.5 48-48 48s-48-21.5-48-48 21.5-48 48-48 48 21.5 48 48zm120-48c-26.5 0-48 21.5-48 48s21.5 48 48 48 48-21.5 48-48-21.5-48-48-48zm-336 0c-26.5 0-48 21.5-48 48s21.5 48 48 48 48-21.5 48-48-21.5-48-48-48z"></path>
+                                                        </svg>
+                                                    </span>
+                                                @endif
+                                            </div>
+                                        </td>
+                                    </tr>
+                                @endforeach
                             </tbody>
                         </table>
-                    @empty
+                    @else
                         <div class="_bgpadd">
                             <div class="_w">
                                 <i class="far fa-calendar-check"></i>
@@ -121,7 +123,8 @@
                                 @endif
                             </div>
                         </div>
-                    @endforelse
+                    @endif
+
                 </div>
             </div>
         </div>

@@ -6910,6 +6910,10 @@ body .transition {
   padding: 0;
   margin-top: auto;
 }
+.input-type-msg .div_env_ch .click_envio_chat i {
+  font-size: 24px;
+  color: #7D7D7D;
+}
 
 .w-input-textarea-msg {
   width: 100%;
@@ -84910,6 +84914,9 @@ body .transition {
 
 .click_envio_chat:disabled {
   cursor: not-allowed;
+}
+.click_envio_chat:disabled i {
+  color: #E3EDF3 !important;
 }
 
 ._txtcapit {

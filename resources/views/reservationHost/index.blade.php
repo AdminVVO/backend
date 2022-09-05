@@ -23,25 +23,32 @@
                 <div>
                     <h3 class="h2-guests_white60">Reservations</h3>
                 </div>
-                <div class="_btnsmleft">
-                    <span style="margin-right: 3px;">All Reservations ({{ $ReservationHost }})</span>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="6.052" height="10.584" viewBox="0 0 6.052 10.584">
-                        <path d="M11.482,15.474l4-4.005a.753.753,0,0,1,1.068,0,.763.763,0,0,1,0,1.071l-4.535,4.538a.755.755,0,0,1-1.043.022L6.408,12.543a.757.757,0,0,1,1.068-1.071Z" transform="translate(-11.246 16.772) rotate(-90)" fill="#fff"/>
-                    </svg>
-                </div>
             </div>
         </div>
     </section>
 
-    <div class="_menu-options">
-        {{-- <?php include("menu-puntos.php")?> --}}
-    </div>
-
     @livewire('reservation-host.index')
+
+    @section('modals')
+
+        <div class="_menu-options">
+            {{-- Popup Options --}}
+            @livewire('reservation-host.popup-options')
+        </div>
+
+        @include('reservationHost.modals.details')
+
+    @endsection
 
 @endsection
 
 
 @section('script')
+
+    <script type="text/javascript">
+        window.addEventListener('hiddenPopup', event => {
+            $('._menu-options').removeClass('is-active');
+        })
+    </script>
 
 @endsection

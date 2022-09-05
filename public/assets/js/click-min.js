@@ -1,4 +1,24 @@
 $(document).ready(function() {
+    // Messages - modal quick replies
+    quickReplies();
+    function quickReplies() {
+        $(".option_ic_msg").on("click", function(){
+            var value = $(this).attr("value");
+            
+            $(this).parents(".type-a-m").find(".input-type-msg").find(".w-input-textarea-msg").val(value).css({'height': '19px', 'overflow': 'hidden'});
+        });
+
+        $(".js__useThisReply").on("click", function() {
+            const text = $(this).parents(".js__contQuickReplies").find(".js__textQuickReplies").text();
+
+            $(".type-a-m").find(".input-type-msg").find(".w-input-textarea-msg").val(text).css({'height': '19px', 'overflow': 'hidden'});
+            $(".input-type-msg").find(".click_envio_chat").prop('disabled', false);
+
+            $(this).parents(".container_user-host").hide();
+            $(this).parents("body").css({'overflow': ''});
+        });
+    }
+
     // Webcam govemment id
     $(document).on("click", ".js__submitPhotoId", function() {
         $(".js__contWebcam1").hide();

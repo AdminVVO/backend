@@ -70,4 +70,9 @@ class ReservationUser extends Model
     {
         return $this->hasOne(StatusReservation::class, 'status', 'status');
     }
+
+    public function Profile()
+    {
+        return $this->hasOne(Profile::class, 'user_id', 'user_id');
+    }
 }

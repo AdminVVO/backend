@@ -5,11 +5,18 @@ namespace App\Http\Livewire\ReservationHost;
 use App\Models\ReservationUser;
 use Livewire\Component;
 use Auth;
+use Jantinnerezo\LivewireAlert\LivewireAlert;
 
 class Index extends Component
 {
+    use LivewireAlert;
+
     public $statusBar = 'upcoming';
     public $contentHost;
+
+    protected $listeners = [
+        'confirmReservation' => 'confirmReservation',
+    ];
 
     public function mount()
     {
@@ -44,8 +51,9 @@ class Index extends Component
         $this->contentHost = ReservationUser::where('user_id_listing', Auth::id() )
                 ->with([
                      'Listings:id_listings,title',
-                     'User:id_user,name,last_name',
+                     'User:id_user,name,last_name,phone,created_at,avatar',
                      'StatusReserv:status,name,color',
+                     'Profile:user_id,location',
                 ])->where(function ($query) {
                     if ( $this->statusBar === 'upcoming' )
                         return $query->whereIn('status', ['0','1','2','3']);
@@ -66,5 +74,39 @@ class Index extends Component
                 $xplodeLastName = explode(' ', $value['user']['last_name'] );
                     $this->contentHost[ $key ]['user']['name'] = $xplodeName[0] .' '. $xplodeLastName[0];
             }
+    }
+
+    public function PopupOptions( $payload )
+    {
+        $this->emitTo('reservation-host.popup-options', 'contentPopupReserv', [
+            'status' => $this->contentHost[ $payload ]['status'],
+            'statusBar' => $this->statusBar,
+            'reservation' => $this->contentHost[ $payload ]['id_reservation_users'],
+            'listing' => $this->contentHost[ $payload ]['listing_id'],
+            'code_reservation' => $this->contentHost[ $payload ]['code_reservation'],
+            'phone' => $this->contentHost[ $payload ]['user']['phone'],
+        ]);
+    }
+
+    public function confirmReservation( $payload )
+    {
+        ReservationUser::where([
+            'code_reservation' => $payload,
+        ])->update([
+            'status' => 0,
+        ]);
+
+        $this->preload();
+        $this->dispatchBrowserEvent('hiddenPopup');
+        $this->alert('success', 'Update has been successful!');
+    }
+
+    public function openDetails( $payload )
+    {
+        // dd(
+        //     $this->contentHost[ $payload ]
+        // );
+
+        $this->emitTo('reservation-host.details', 'infoDetail', $this->contentHost[ $payload ] );
     }
 }

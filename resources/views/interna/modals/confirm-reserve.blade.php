@@ -25,6 +25,7 @@
                     'monthly_discount' => $content['monthly_discount'],
                     'cleaning_fee' => $content['cleaning_fee'],
                     'pet_fee' => $content['pet_fee'],
+                    'pets_allowed' => $content['pets_allowed'],
                     'linens_fee' => $content['linens_fee'],
                     'resort_fee' => $content['resort_fee'],
                     'resort_type' => $content['resort_type'],
