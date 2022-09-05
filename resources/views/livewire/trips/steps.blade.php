@@ -29,3 +29,20 @@
         @livewire('trips.tabs.canceled')
     @endif
 </div>
+@push('scripts')
+<script>
+    Livewire.hook('message.processed', (message, component) => {
+        $(".content-dots span.dot:first-child").addClass("dot_active");
+        $(".card_img > img:first-child").addClass("card_img_active");
+        skeleton();
+            function skeleton() {
+                let loadings = $(".skeleton");
+                $(loadings).addClass("transition");
+
+                for (loading of loadings) {
+                    $(loading).removeClass("skeleton skeleton_card skeleton_txt");
+                }
+            }
+    })
+</script>
+@endpush

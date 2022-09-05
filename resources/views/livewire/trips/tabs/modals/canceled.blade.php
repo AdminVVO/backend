@@ -1,4 +1,4 @@
-<div class="container_admin-host _ntñsfts container_tscdpp" wire:ignore>
+<div class="container_admin-host _ntñsfts container_tscdpp" wire:ignore.self>
     <div class="modal-anhost"></div>
 
     <div class="pd_anhost-modal">
@@ -88,7 +88,7 @@
                             <div class="fx fx-fd-c gp24">
                                 <div class="fx fx-fd-c gp8">
                                     <h3 class="_txteh mr0">Confirmation code</h3>
-                                    <span class="_txtec16 txt_upper">hm3fmsaen4</span>
+                                    <span class="_txtec16 txt_upper">{{$reservation['code_reservation']}}</span>
                                 </div>
 
                                 <div class="fx fx-fd-c gp8">
@@ -101,7 +101,7 @@
 
                                 <div class="fx fx-fd-c gp8">
                                     <h3 class="_txteh mr0">Payment details</h3>
-                                    <div class="_txtec16">Total cost: ${{$reservation['total_payout']}} USD</div>
+                                    <div class="_txtec16">Total cost: ${{$reservation['total_amount']}} USD</div>
 
                                     <div>
                                         <button type="button" class="txtunder__ics">Get receipts</button>

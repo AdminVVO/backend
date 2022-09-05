@@ -3,7 +3,7 @@
 namespace App\Http\Livewire\Trips\Tabs\Modals;
 
 use App\Models\Listing\Listings;
-use App\Models\Reservation;
+use App\Models\ReservationUser;
 use Carbon\Carbon;
 use Livewire\Component;
 use PDF;
@@ -20,11 +20,11 @@ class Upcoming extends Component
 
     public function preLoad()
     {
-        $this->reservation = Reservation::join('users', 'users.id_user', 'reservations.user_id')->where(function ($query) {
+        $this->reservation = ReservationUser::join('users', 'users.id_user', 'reservation_users.user_id')->where(function ($query) {
             if ($this->id_reservation != '')
-                return $query->where('id_reservation', $this->id_reservation);
+                return $query->where('id_reservation_users', $this->id_reservation);
         })
-            ->first(['listing_id', 'checkin', 'checkout', 'total_payout', 'name as client_name'])
+            ->first(['listing_id', 'date_in', 'date_out', 'total_amount', 'name as client_name', 'guest', 'code_reservation', 'guest', 'users.avatar'])
             ->toArray();
 
         $listing = Listings::join('users', 'listings.user_id', 'users.id_user')
@@ -33,14 +33,8 @@ class Upcoming extends Component
             ->first()
             ->toArray();
 
-        $avatar = Reservation::join('users', 'reservations.user_id', 'users.id_user')
-            ->join('listings', 'reservations.listing_id', 'listings.id_listings')
-            ->where('id_listings', $this->reservation['listing_id'])
-            ->where('checkin', '>', Carbon::parse(now())->format('Y-m-d'))
-            ->get('avatar')->toArray();
-
-        $checkin = Carbon::parse($this->reservation['checkin']);
-        $checkout = Carbon::parse($this->reservation['checkout']);
+        $checkin = Carbon::parse($this->reservation['date_in']);
+        $checkout = Carbon::parse($this->reservation['date_out']);
 
         if ($checkin->format('Y') != $checkout->format('Y')) {
             $this->reservation['date'] = $checkin->format('M d, Y') . ' - ' . $checkout->format('M d, Y');
@@ -53,8 +47,8 @@ class Upcoming extends Component
         $this->reservation['title'] = $listing['title'];
         $this->reservation['phone'] = $listing['phone'];
         $this->reservation['avatar'] = $listing['avatar'];
-        $this->reservation['next_user_avatar'] = $avatar ?? '';
-        $this->reservation['next_count'] = count($avatar);
+        $this->reservation['currency_default'] = $listing['currency_default'];
+        $this->reservation['next_count'] = $this->reservation['guest']['total'];
         $this->reservation['photo1'] = $listing['photos'][0]['name'];
         $this->reservation['photo2'] = $listing['photos'][1]['name'];
         $this->reservation['photo3'] = $listing['photos'][2]['name'];
@@ -64,9 +58,11 @@ class Upcoming extends Component
         $this->reservation['city'] = $listing['city'];
         $this->reservation['zip_code'] = $listing['zip_code'];
         $this->reservation['state'] = $listing['state'];
-        $this->reservation['checkout'] = Carbon::parse($this->reservation['checkout'])->format('M, d, Y');
-        $this->reservation['checkin'] = Carbon::parse($this->reservation['checkin'])->format('M, d, Y');
+        $this->reservation['date_out'] = Carbon::parse($this->reservation['date_out'])->format('M, d, Y');
+        $this->reservation['date_in'] = Carbon::parse($this->reservation['date_in'])->format('M, d, Y');
         $this->reservation['maps'] = ($listing['street'] ?? '') . ' ' . ($listing['city'] ?? '') . ' ' . $listing['zip_code'];
+        
+    
     }
 
     public function render()
@@ -82,11 +78,11 @@ class Upcoming extends Component
 
     public function sharePDF()
     {
-        $pdfContent = PDF::loadView('pdf.index',['reservation' => $this->reservation])->output();
-        return response()->streamDownload(
-            fn () => print($pdfContent),
-            "filename.pdf"
-        );
+        // $pdfContent = PDF::loadView('pdf.index',['reservation' => $this->reservation])->output();
+        // return response()->streamDownload(
+        //     fn () => print($pdfContent),
+        //     "filename.pdf"
+        // );
     }
 
     public function sharePDFDetail()

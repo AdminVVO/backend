@@ -138,7 +138,7 @@
                                                 <div class="_txteh">Confirmation code</div>
 
                                                 <div class="_txtec _txtcapit">
-                                                    HMB9FC3HBT
+                                                    {{$findReservation['code_reservation']}}
                                                 </div>
                                             </div>
                                         </div>
@@ -379,11 +379,12 @@
             eventContent: function(arg) {
                 let italicEl = document.createElement('div')
                 if (arg.event.extendedProps.status && arg.event.extendedProps.status == 0) {
+                    console.log(arg.event._def.extendedProps.code_reservation)
                     italicEl.innerHTML = `
                         <button type="button" class="reservationTripCalendar js__infoReservationTable green">
                             <div class="fx fx-ai-c fx-jc-sb nfooo">
                                 <span class="_txtboldff14 text_tm1">` + arg.event._def.title + ` $` + arg.event._def
-                        .extendedProps.total_payout + ` 3HBT</span>
+                        .extendedProps.total_payout + ' ' + arg.event._def.extendedProps.code_reservation + `</span>
                                 <span class="_txtboldff14">C</span>
                             </div>
                         </button>`
@@ -392,7 +393,7 @@
                     <button type="button" class="reservationTripCalendar js__infoReservationTable green">
                             <div class="fx fx-ai-c fx-jc-sb nfooo">
                                 <span class="_txtboldff14 text_tm1">` + arg.event._def.title + ` $` + arg.event._def
-                        .extendedProps.total_payout + ` 3HBT</span>
+                        .extendedProps.total_payout + ' ' + arg.event._def.extendedProps.code_reservation + `</span>
                                 <span class="_txtboldff14">AT</span>
                             </div>
                         </button>`
@@ -401,8 +402,7 @@
                     <button type="button" class="reservationTripCalendar plomo">
                             <div class="fx fx-ai-c fx-jc-sb nfooo">
                                     <span class="_txtboldff14 text_tm1">` + arg.event._def.title + ` $` + arg.event
-                        ._def
-                        .extendedProps.total_payout + ` 3HBT</span>
+                        ._def.extendedProps.total_payout + ' ' + arg.event._def.extendedProps.code_reservation +`</span>
                                 <span class="_txtboldff14">TR</span>
                             </div>
                         </button>`
@@ -411,7 +411,7 @@
                     <button type="button" class="reservationTripCalendar js__infoReservationTable green">
                             <div class="fx fx-ai-c fx-jc-sb nfooo">
                                 <span class="_txtboldff14 text_tm1">` + arg.event._def.title + ` $` + arg.event._def
-                        .extendedProps.total_payout + ` 3HBT</span>
+                        .extendedProps.total_payout + ' ' + arg.event._def.extendedProps.code_reservation + `</span>
                                 <span class="_txtboldff14">CH</span>
                             </div>
                         </button>`
@@ -421,7 +421,7 @@
                             <div class="fx fx-ai-c fx-jc-sb nfooo">
 
                                 <span class="_txtboldff14 text_tm1">` + arg.event._def.title + ` $` + arg.event._def
-                        .extendedProps.total_payout + `</span>
+                        .extendedProps.total_payout + ' ' + arg.event._def.extendedProps.code_reservation + `</span>
                                 <span class="_txtboldff14">RG</span>
                             </div>
                         </button>`
@@ -433,7 +433,7 @@
                                 <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 17 17">
                                     <path d="M9.555,6.651a7.891,7.891,0,0,1,.618-3.072A8.622,8.622,0,1,0,20.586,13.992,7.957,7.957,0,0,1,9.555,6.651Z" transform="translate(-3.586 -3.579)" fill="#fff"></path>
                                 </svg>
-                                <span class="_txtboldff14 text_tm1">` + arg.event._def.extendedProps.total_payout + `</span>
+                                <span class="_txtboldff14 text_tm1">` + arg.event._def.extendedProps.total_payout + ' ' + arg.event._def.extendedProps.code_reservation + `</span>
                                 </div>
                                 <span class="_txtboldff14">PG</span>
                             </div>
@@ -443,7 +443,7 @@
                     <button type="button" class="reservationTripCalendar red">
                             <div class="fx fx-ai-c fx-jc-sb nfooo">
                                 <span class="_txtboldff14 text_tm1">` + arg.event._def.title + ` $` + arg.event._def
-                        .extendedProps.total_payout + `</span>
+                        .extendedProps.total_payout + ' ' + arg.event._def.extendedProps.code_reservation + `</span>
                                 <span class="_txtboldff14">BP</span>
                             </div>
                         </button>`

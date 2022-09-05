@@ -25,7 +25,7 @@
                                     <div class="sub">Inbox</div>
                                 </a>
 
-                                @if ( Auth::user()->rol_id === 1 )
+                                @if ( (int) Auth::user()->rol_id === 1 )
                                     <a href="{{ route('dashboard') }}" class="menu_items hideblock743">
                                         <i class="fas fa-hotel _i-red22"></i>
                                         Switch to hosting

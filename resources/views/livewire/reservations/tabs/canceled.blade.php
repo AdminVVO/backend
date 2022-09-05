@@ -49,9 +49,6 @@
                             <div class="_txtec">Listing</div>
                         </td>
                         <td>
-                            <div class="_txtec">COVID-19 support payment</div>
-                        </td>
-                        <td>
                             <div class="_txtec">Total payout</div>
                         </td>
                         <td>
@@ -83,10 +80,6 @@
                             </td>
                             <td>
                                 <div class="_txtec txt_upper">{{ $data['title'] }}</div>
-                            </td>
-                            <td>
-                                <div class="_txtec">Not applicable</div>
-                                <div class="_txtec16">booked after Mar 14, 2020</div>
                             </td>
                             <td>
                                 <div class="_txtec">${{ number_format($data['total_payout'], 2) }}</div>

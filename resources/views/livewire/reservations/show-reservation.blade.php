@@ -17,7 +17,7 @@
                         <h2 class="h2-guests _txtcapit">{{$data['full_name']}}</h2>
 
                         <div style="margin-top: 16px;">
-                            <p class="_txtec">{{$data['number_guests']}} guests - {{$data['total_days']}} nights - ${{$data['total_payout']}}</p>
+                            <p class="_txtec">{{$data['number_guests']}} guests - {{$data['total_days']}} nights - ${{$data['total_amount']}}</p>
                             <p class="_txtec">{{$data['city']}} - {{$data['state']}}</p>
                         </div>
                     </div>
@@ -110,7 +110,7 @@
 
                             <div>
                                 <div class="_txteh">Check in</div>
-                                <div class="_txtec _txtcapit">{{$data['checkin']}}</div>
+                                <div class="_txtec _txtcapit">{{$data['date_in']}}</div>
                             </div>
                         </div>
 
@@ -121,7 +121,7 @@
 
                             <div>
                                 <div class="_txteh">Check out</div>
-                                <div class="_txtec _txtcapit">{{$data['checkout']}}</div>
+                                <div class="_txtec _txtcapit">{{$data['date_out']}}</div>
                             </div>
                         </div>
                     </div>
@@ -162,7 +162,7 @@
 
                             <div>
                                 <div class="_txteh">Confirmation code</div>
-                                <div class="_txtec txt_upper">hmb9fc3hbt</div>
+                                <div class="_txtec txt_upper">{{$data['code_reservation']}}</div>
                             </div>
                         </div>
 
@@ -176,7 +176,7 @@
                     <div class="_cns _cns-mdls">
                         <span class="f-cth">
                             <div class="_txtec">${{$data['base_price']}} x {{$data['total_days']}} nights</div>
-                            <div class="_txtec">${{$data['total_payout']}}</div>
+                            <div class="_txtec">${{$data['total_amount']}}</div>
                         </span>
                         @if($data['cleaning_fee'])
                         <span class="f-cth">
@@ -244,7 +244,7 @@
                                     style="font-size: 14px; font-weight: normal; margin-top: 3px;">Show
                                     breakdowns</span>
                             </div>
-                            <div class="_txtec">${{$data['total_payout']}}</div>
+                            <div class="_txtec">${{$data['total_amount']}}</div>
                         </span>
 
                         <span class="f-cth">
@@ -295,7 +295,7 @@
                     </div>
 
                     <div>
-                        <p>{{ Str::substr(print_r(str_replace("\n", '<br/>', $data['note'])), 0, -1) }}</p>
+                        <p>{{ Str::substr(print_r(str_replace("\n", '<br/>', $data['private_note'])), 0, -1) }}</p>
                     </div>
                     <textarea placeholder="Write a note" class="_txta-modls" style="margin: 17px 0 16px;" wire:model.lazy ="note"></textarea>
 

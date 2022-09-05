@@ -20,10 +20,6 @@
             @livewire('validation.steps', ['user_id' => $user_id, 'type' => $type])
         </div>
     </section>
-
-        <button hidden value="{{ $user_id }}" id="user_id"></button>
-  
-    <button hidden value="{{ Auth::id() }}" id="userAuth"></button>
 @endsection
 
 @endif

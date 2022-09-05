@@ -231,10 +231,10 @@ class Steps extends Component
                 'email'     => 'required|email',
                 'phone'     => 'required',
             ]);
-                if ($validation->fails()) {
-                    $this->reset('input');
-                    return $validation->validate();
-                }
+            
+            if ($validation->fails())
+                        $validation->validate();
+
             $content = [
                 'name'      => $this->input['name'],
                 'last_name' => $this->input['last_name'],
@@ -247,6 +247,7 @@ class Steps extends Component
             $auth = $this->sendSave( $content );
             Auth::login($auth);
             
+            return $this->flash('success', 'Welcome to Vvoutlet.', [], route( $this->routeRedirect ));
             return redirect()->route('/');
          }
     }

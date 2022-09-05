@@ -11,6 +11,10 @@ class Personal extends Controller
 {
     public function ValidationId()
     {
+        if ((isset($user_id) && Auth::id() == $user_id) || !Auth::id()) {
+            abort(404);
+        }
+
         if (isset(request()->id)) {
             $this->UserAuth();
 

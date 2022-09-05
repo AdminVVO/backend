@@ -5,6 +5,7 @@ namespace App\Http\Livewire\Calendar;
 use App\Models\DateConfig;
 use App\Models\Listing\Listings;
 use App\Models\Reservation;
+use App\Models\ReservationUser;
 use Livewire\Component;
 use Carbon\Carbon;
 use Illuminate\Support\Str;
@@ -68,10 +69,10 @@ class Calendar extends Component
             $this->listings[$key]['listingFile'] = 'storage/photos-listing/' . \App\Models\Listing\Listings::ListingFile( $value['id_listings'] ) . '/' . $value['photos'][0]['name'];
         }
 
-        $reservations = Reservation::join('users', 'reservations.user_id', 'users.id_user')
-            ->join('listings', 'reservations.listing_id', 'listings.id_listings')
-            ->whereIn('listing_id', $listings_id)->get(['listing_id', 'name', 'total_payout', 'checkin', 'checkout', 'id_reservation', 'reservations.status', 'note'])->toArray();
-        $date_config = DateConfig::whereIn('listing_id', $listings_id)->join('listings', 'date_config.listing_id', 'listings.id_listings')->orderBy('date')->get(['is_active', 'listing_id', 'price', 'date', 'id_listings'])->toArray();
+        $reservations = ReservationUser::join('users', 'reservation_users.user_id', 'users.id_user')
+            ->join('listings', 'reservation_users.listing_id', 'listings.id_listings')
+            ->whereIn('listing_id', $listings_id)->get(['code_reservation', 'listing_id', 'name', 'total_amount', 'date_in', 'date_out', 'id_reservation_users', 'reservation_users.status', 'private_note'])->toArray();
+            $date_config = DateConfig::whereIn('listing_id', $listings_id)->join('listings', 'date_config.listing_id', 'listings.id_listings')->orderBy('date')->get(['is_active', 'listing_id', 'price', 'date', 'id_listings'])->toArray();
         foreach ($date_config as $key => $data) {
             $this->date_config[$data['id_listings']][$data['date']] = [
                 'price' => $data['price'],
@@ -85,15 +86,16 @@ class Calendar extends Component
             $this->reservation[] = [
                 'resourceId' => $data['listing_id'],
                 'title' => $data['name'],
-                'total_payout' => $data['total_payout'],
-                'start' => $data['checkin'],
-                'end' => $data['checkout'],
+                'total_payout' => $data['total_amount'],
+                'start' => $data['date_in'],
+                'end' => $data['date_out'],
                 'description' => 'description',
-                'reservId' => $data['id_reservation'],
-                'status' => $data['status']
+                'reservId' => $data['id_reservation_users'],
+                'status' => $data['status'],
+                'code_reservation' => substr($data['code_reservation'], -4),
             ];
 
-            if (date('y-m-d', time()) > Carbon::parse($data['checkin'])->format('y-m-d')) {
+            if (date('y-m-d', time()) > Carbon::parse($data['date_in'])->format('y-m-d')) {
                 $this->reservation[$key] = array_merge($this->reservation[$key], ['editable' => false]);
             }
         };
@@ -113,25 +115,30 @@ class Calendar extends Component
 
     public function showReservation($reservation_id)
     {
-        $reservation = Reservation::join('users', 'reservations.user_id', 'users.id_user')
-            ->join('listings', 'reservations.listing_id', 'listings.id_listings')
-            ->where('id_reservation', $reservation_id)->first()->toArray();
-        $day = (new Carbon(now()))->diff($reservation['checkin'])->format("%r%a");
+        $reservation = ReservationUser::where('id_reservation_users', $reservation_id)
+            ->with([
+                'Listings:id_listings,title',
+                'User:id_user,name,last_name,avatar',
+                'StatusReserv:status,name,color',
+            ])->first()->toArray();
+        $day = (new Carbon(now()))->diff($reservation['date_in'])->format("%r%a");
+        
         $day_dif = $day > 0 ? 'Arriving in ' . $day . ' days -' : '';
         $this->findReservation = [
-            'id_reservation' => $reservation['id_reservation'],
+            'id_reservation' => $reservation['id_reservation_users'],
             'listing_id' => $reservation['listing_id'],
             'arriving' => $day_dif,
-            'checkin' => Carbon::parse($reservation['checkin'])->isoFormat('ddd, MMM D'),
-            'checkout' => Carbon::parse($reservation['checkout'])->isoFormat('ddd, MMM D'),
-            'nights' => Carbon::parse($reservation['checkout'])->diffInDays($reservation['checkin']),
-            'total_payout' => $reservation['total_payout'],
+            'checkin' => Carbon::parse($reservation['date_in'])->isoFormat('ddd, MMM D'),
+            'checkout' => Carbon::parse($reservation['date_out'])->isoFormat('ddd, MMM D'),
+            'nights' => Carbon::parse($reservation['date_out'])->diffInDays($reservation['date_in']),
+            'total_amount' => $reservation['total_amount'],
             'user_id' => $reservation['user_id'],
-            'name' => $reservation['name'],
-            'guest' => $reservation['number_guests'],
-            'total_comming' => $reservation['number_guests'],
-            'avatar' => $reservation['avatar'],
-            'note' => $reservation['note'],
+            'name' => $reservation['user']['name'],
+            'guest' => $reservation['guest']['total'],
+            'total_comming' => $reservation['guest']['total'],
+            'avatar' => $reservation['user']['avatar'],
+            'note' => $reservation['private_note'],
+            'code_reservation' => $reservation['code_reservation'],
         ];
     }
 

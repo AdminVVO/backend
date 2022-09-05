@@ -14,7 +14,7 @@
 
             @if ( Auth::check() )
                 <div class="menu _header-menu">
-                    @if ( Auth::user()->rol_id === 1 )
+                    @if ( (int) Auth::user()->rol_id === 1 )
                         <a href="#" class="menu_items">
                             <i class="fas fa-hotel _i-red22"></i>
                             Switch to hosting

@@ -1,4 +1,4 @@
-<div class="container_admin-host _ntñsfts container_tsptpp" wire:ignore>
+<div class="container_admin-host _ntñsfts container_tsptpp" wire:ignore.self>
     <div class="modal-anhost"></div>
 
     <div class="pd_anhost-modal">
@@ -18,7 +18,7 @@
                                         <h2 class="h2_publish">Your home reservation</h2>
                                     </div>
 
-                                    <a href="interna.php" class="content_galerias mr0 modal_gal">
+                                    <a href="{{ route('interna', $reservation['listing_id'] ) }}" class="content_galerias mr0 modal_gal">
                                         <div class="slideshow-container" style="max-width: 100%; height: 212px;">
                                             <div class="card_img">
                                                 <img src="{{ URL::asset('storage/photos-listing/') . '/' . \App\Models\Listing\Listings::ListingFile($reservation['listing_id']) . '/' . $reservation['photo1'] }}"
@@ -53,7 +53,7 @@
                                         <div class="h2-guests">Check in</div>
 
                                         <div>
-                                            <div class="_txtec16">{{$reservation['checkin']}}</div>
+                                            <div class="_txtec16">{{$reservation['date_in']}}</div>
                                         </div>
                                     </div>
                                 </div>
@@ -67,7 +67,7 @@
                                         <div class="h2-guests">Check out</div>
 
                                         <div>
-                                            <div class="_txtec16">{{$reservation['checkout']}}</div>
+                                            <div class="_txtec16">{{$reservation['date_out']}}</div>
                                         </div>
                                     </div>
                                 </div>
@@ -144,7 +144,7 @@
                                         <span class="_txtec16">{{$reservation['next_count']}} guests</span>
                                     </div>
 
-                                    <div>
+                                    {{-- <div>
                                         <div class="imgs_more">
                                             <div class="fx w142">
                                                 @foreach($reservation['next_user_avatar'] as $key => $row)
@@ -168,12 +168,12 @@
                                                 @endforeach
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> --}}
                                 </div>
 
                                 <div>
                                     <h3 class="_txteh mr0">Confirmation code</h3>
-                                    <span class="_txtec16 txt_upper">hm3fmsaen4</span>
+                                    <span class="_txtec16 txt_upper">{{$reservation['code_reservation']}}</span>
                                 </div>
 
                                 <div class="fx fx-fd-c gp8">
@@ -220,7 +220,7 @@
                                         </div>
 
                                         <div class="bk-icon-des_fbas fx-ai-b gp10 mnw-p47">
-                                            <a href="" class="btn-bd-white wh-p100">
+                                            <button class="btn-bd-white wh-p100">
                                                 <div class="fx fx-ai-c fx-jc-sb">
                                                     <div class="flex gp12">
                                                         <i class="far fa-list-alt _i-red20"></i>
@@ -232,7 +232,7 @@
                                                         <path d="M4.635,3.7,8.138.194a.659.659,0,0,1,.935,0,.668.668,0,0,1,0,.938L5.1,5.105a.661.661,0,0,1-.913.019l-4-3.989A.662.662,0,0,1,1.128.2Z" transform="translate(0 9.266) rotate(-90)" fill="#283646"></path>
                                                     </svg>
                                                 </div>
-                                            </a>
+                                            </button>
                                         </div>
                                     </div>
                                 </div>
@@ -246,8 +246,9 @@
                                 <h3 class="_txteh mr0">Address</h3>
 
                                 <div>
-                                    <p class="_txtec16 _txtcapit" id="address_one">{{$reservation['street'] ?? ''}} {{$reservation['city'] ?? ''}}</p>
-                                    <p class="_txtec16 _txtcapit" id="address_two">{{$reservation['state'] ?? ''}}, {{$reservation['zip_code'] ?? ''}}</p>
+                                    <p hidden id="address_one">{{$reservation['street'] ?? ''}} {{$reservation['city'] ?? ''}} {{$reservation['state'] ?? ''}}, {{$reservation['zip_code'] ?? ''}}</p>
+                                    <p class="_txtec16 _txtcapit">{{$reservation['street'] ?? ''}} {{$reservation['city'] ?? ''}}</p>
+                                    <p class="_txtec16 _txtcapit">{{$reservation['state'] ?? ''}}, {{$reservation['zip_code'] ?? ''}}</p>
                                 </div>
                             </div>
 
@@ -298,7 +299,7 @@
                                 </span>
 
                                 <div>
-                                    <a href="perfil-interno.php" class="txtunder__ics">Show profile</a>
+                                    <a href="{{ route('profile', $reservation['user_id']) }}" class="txtunder__ics">Show profile</a>
                                 </div>
                             </div>
                         </div>
@@ -309,7 +310,7 @@
 
                                 <div class="fx fx-fd-c gp8">
                                     <h3 class="_txteh mr0">Payment details</h3>
-                                    <p class="_txtec16">Total cost: ${{$reservation['total_payout']}}</p>
+                                    <p class="_txtec16">Total cost: ${{$reservation['total_amount']}}</p>
                                 </div>
 
                                 <div class="fx fx-fd-c gp17">
