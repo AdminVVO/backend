@@ -75,11 +75,11 @@ class Past extends Component
 
     public function sharePDF()
     {
-        // $pdfContent = PDF::loadView('pdf.index',['reservation' => $this->reservation])->output();
-        // return response()->streamDownload(
-        //     fn () => print($pdfContent),
-        //     "filename.pdf"
-        // );
+        $pdfContent = PDF::loadView('pdf.index',['reservation' => $this->reservation])->output();
+        return response()->streamDownload(
+            fn () => print($pdfContent),
+            "filename.pdf"
+        );
     }
 
     public function sharePDFDetail()

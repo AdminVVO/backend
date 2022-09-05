@@ -22,8 +22,8 @@
         }
 
         .logo {
-            width: 200px;
-            min-width: 200px;
+            width: 130px;
+            min-width: 130px;
         }
 
         a {
@@ -185,7 +185,7 @@
         }
 
         .cont-pd {
-            padding: 35px 0;
+            padding: 22px 0;
         }
 
         .imgs_more {
@@ -289,20 +289,22 @@
 <body>
     <section class="section-pdf pd-b48">
         <div class="container">
-            <div class="cont-pd hr">
+            <div class="cont-pd hr" style="border-bottom: 1px solid #E3EDF3;">
                 <header>
-                    <img src="img/vvoutlet.svg" class="logo" alt="vvoutlet logo">
+                    <img src="https://platform.vivevacationsoutlet.com/assets/img/logo-footer.png" class="logo"
+                        alt="vvoutlet logo">
                 </header>
 
-                <div class="fx fx-fd-c gp17 mr-t38">
-                    <div class="fx fx-fd-c gp20">
+                <div style="margin-top:23px;">
+                    <div style="margin-bottom: 14px;">
                         <div>
                             <div class="_txt-gris14">INTERNATIONAL, {{ $reservation['date'] }}</div>
                             <div class="_txtbold3a26 mr-t3">Your home reservation</div>
                         </div>
 
-                        <div>
-                            {{-- <img src="img/c10.jpg" alt="" class="wh-p100"> --}}
+                        <div style="margin-top: 12px;">
+                            <img src="https://platform.vivevacationsoutlet.com/assets/img/pano-home.png" alt=""
+                                class="wh-p100">
                         </div>
                     </div>
 
@@ -310,96 +312,60 @@
                 </div>
             </div>
 
-            <div class="cont-pd hr">
-                <div class="fx fx-fw-w fx-jc-sb gp21">
-                    <div class="fx fx-ai-b gp10" style="min-width: 47%;">
-                        <div>
-                            {{-- <img src="img/calendar.jpg" alt=""> --}}
-                        </div>
-
-                        <div class="fx fx-fd-c gp7">
-                            <div class="_txtbold3a18">Check in</div>
-
-                            <div>
-                                <div class="_txt-gris16">{{ $reservation['date_in'] }}</div>
-                                {{-- <div class="_txt-gris16">4:00 PM</div> --}}
-                            </div>
-                        </div>
+            <div class="cont-pd hr" style="border-bottom: 1px solid #E3EDF3;">
+                <div style="display:inline-block; position: relative;">
+                    <div style="position: absolute; top:0; left:0;">
+                        <img style="margin: auto;" src="https://i.ibb.co/jr7dqBK/calendar.jpg" alt="">
                     </div>
 
-                    <div class="fx fx-ai-b gp10" style="min-width: 47%;">
-                        <div>
-                            <img src="img/calendar.jpg" alt="">
+                    <div style="display:inline-block; margin-left:26px;">
+                        <div class="_txtbold3a18">Check in</div>
+                        <div style="margin-top: 7px;">
+                            <div class="_txt-gris16">{{ $reservation['date_in'] }}</div>
+                            <div class="_txt-gris16">4:00 PM</div>
                         </div>
+                    </div>
+                </div>
 
-                        <div class="fx fx-fd-c gp7">
-                            <div class="_txtbold3a18">Check out</div>
+                <div style="margin-left:5rem; display:inline-block; position: relative;">
+                    <div style="position: absolute; top:0; left:0;">
+                        <img style="margin: auto;" src="https://i.ibb.co/jr7dqBK/calendar.jpg" alt="">
+                    </div>
 
-                            <div>
-                                <div class="_txt-gris16">{{ $reservation['date_out'] }}</div>
-                                {{-- <div class="_txt-gris16">4:00 PM</div> --}}
-                            </div>
+                    <div style="display:inline-block; margin-left:26px;">
+                        <div class="_txtbold3a18">Check out</div>
+                        <div style="margin-top: 7px;">
+                            <div class="_txt-gris16">{{ $reservation['date_out'] }}</div>
+                            <div class="_txt-gris16">4:00 PM</div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="cont-pd hr">
+            <div class="cont-pd hr" style="border-bottom: 1px solid #E3EDF3;">
                 <div class="_txtbold3a18 mr-b21">Reservation details</div>
-
-                <div class="fx fx-fd-c gp18">
-                    <div class="fx fx-ai-c gp38">
-                        <div>
-                            <h3 class="_txtbold3316">Who's coming</h3>
-                            <span class="_txt-gris16">{{ $reservation['next_count'] }}</span>
-                        </div>
-
-                        <div>
-                            <div class="imgs_more">
-                                <div class="fx wh122" style="max-width: 122px;">
-                                    <span class="_pf-msg">
-                                        {{-- <img src="img/profile.png"> --}}
-                                    </span>
-
-                                    <span class="_pf-msg">
-                                        {{-- <img src="img/12.jpg"> --}}
-                                    </span>
-
-                                    <span class="_pf-msg">
-                                        {{-- <img src="img/13.jpg"> --}}
-                                    </span>
-
-                                    <span class="_pf-msg show_more_imgs">
-                                        <div class="_moreusrmsg">
-                                            <span class="_txtboldwhite16 fx fx-ai-c">+ <span
-                                                    class="_nswusrs-js">5</span>
-                                            </span>
-                                        </div>
-
-                                        <img src="img/14.jpg">
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
+                <div style="margin-bottom: 16px;">
+                    <div style="display: inline-block; margin-bottom: 1rem;">
+                        <h3 class="_txtbold3316">Who's coming</h3>
+                        <span class="_txt-gris16">{{ $reservation['next_count'] }}</span>
                     </div>
+                    <img style="width: 40.6px; height:40.6px; object-fit: cover; display:inline-block; margin:0 0 15px 18px;"
+                        src="https://platform.vivevacationsoutlet.com/assets/img/avatar/1.png">
+                </div>
 
-                    <div class="fx fx-fd-c gp8">
-                        <h3 class="_txtbold3316">Confirmation code</h3>
-                        <span class="_txt-gris16 text-upper">{{ $reservation['code_reservation'] }}</span>
-                    </div>
+                <div>
+                    <h3 class="_txtbold3316" style="margin-bottom: 8px;">Confirmation code</h3>
+                    <span class="_txt-gris16 text-upper">{{ $reservation['code_reservation'] }}</span>
                 </div>
             </div>
 
-            <div class="cont-pd hr">
+            <div class="cont-pd hr" style="border-bottom: 1px solid #E3EDF3;">
                 <div class="_txtbold3a18">Getting there</div>
+                <div class="_txtbold3316" style="margin-top: 19px;">Address</div>
 
-                <div class="fx fx-fd-c mr-t21 mr-b17 gp8">
-                    <div class="_txtbold3316">Address</div>
-
-                    <div>
-                        <p class="_txt-gris16 text-capi">{{ $reservation['street'] }}</p>
-                        <p class="_txt-gris16 text-capi">{{ $reservation['city'] }} {{ $reservation['zip_code'] }}</p>
-                    </div>
+                <div style="margin-top: 6px;">
+                    <p class="_txt-gris16 text-capi">{{ $reservation['street'] }}</p>
+                    <p class="_txt-gris16 text-capi">{{ $reservation['city'] }} {{ $reservation['zip_code'] }}</p>
                 </div>
             </div>
 
@@ -410,7 +376,8 @@
                     <div class="_txt-gris16" style="margin-bottom: 21px">Total cost: {{ $reservation['total_amount'] }}
                         {{ $reservation['currency_default'] }}</div>
                 </div>
-                <div class="fx" style="padding: 35px 0; border-bottom: 1px solid #E3EDF3; align-items: center; justify-content: space-between; gap: 21px;">
+                <div class="fx"
+                    style="padding: 35px 0; align-items: center; justify-content: space-between; gap: 21px;">
                     <div style="display: inline-block; flex-direction: column; gap: 8px;">
                         <div class="_txtbold3316" style="margin-bottom: 8px">This is a business trip</div>
                         <div>
@@ -419,7 +386,7 @@
                         </div>
                     </div>
                     <div style="display: inline-block; margin-left:15rem;">
-                            <input type="checkbox" class="checkbox_custom">
+                        <input type="checkbox" class="checkbox_custom">
                     </div>
                 </div>
             </div>
